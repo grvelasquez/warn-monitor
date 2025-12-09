@@ -1,4 +1,4 @@
-name: Update WARN Data
+name: Update Dashboard Data
 
 on:
   schedule:
@@ -29,16 +29,28 @@ jobs:
         run: |
           python scripts/fetch_warn_data.py
       
+      - name: Fetch FRED lending data
+        run: |
+          python scripts/fetch_lending_data.py
+      
+      - name: Fetch unemployment data
+        run: |
+          python scripts/fetch_unemployment_data.py
+      
+      - name: Fetch development data
+        run: |
+          python scripts/fetch_development_data.py || echo "Development data fetch failed, using existing data"
+      
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet public/data/warn_data.json || echo "changes=true" >> $GITHUB_OUTPUT
+          git diff --quiet public/data/ || echo "changes=true" >> $GITHUB_OUTPUT
       
       - name: Commit and push if changed
         if: steps.check_changes.outputs.changes == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add public/data/warn_data.json
-          git commit -m "Update WARN data - $(date +'%Y-%m-%d')"
+          git add public/data/
+          git commit -m "Update dashboard data - $(date +'%Y-%m-%d')"
           git push

@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "generated": "2025-12-09T12:51:21.577029",
+    "source": "FRED (Federal Reserve Economic Data)",
+    "lastUpdate": "2025-12-04"
+  },
+  "currentRates": {
+    "rate30": 6.19,
+    "rate15": 5.44,
+    "rateARM": 6.06,
+    "fedFunds": 3.88,
+    "jumboRate": 6.46,
+    "fhaRate": 5.79,
+    "vaRate": 5.59
+  },
+  "weekChange": {
+    "rate30": -0.04,
+    "rate15": -0.07,
+    "rateARM": 0.11
+  },
+  "rateHistory": [
+    {
+      "date": "2025-01",
+      "rate30": 6.91,
+      "rate15": 6.13,
+      "rateARM": null
+    },
+    {
+      "date": "2025-02",
+      "rate30": 6.89,
+      "rate15": 6.05,
+      "rateARM": null
+    },
+    {
+      "date": "2025-03",
+      "rate30": 6.63,
+      "rate15": 5.79,
+      "rateARM": null
+    },
+    {
+      "date": "2025-04",
+      "rate30": 6.64,
+      "rate15": 5.82,
+      "rateARM": null
+    },
+    {
+      "date": "2025-05",
+      "rate30": 6.76,
+      "rate15": 5.92,
+      "rateARM": null
+    },
+    {
+      "date": "2025-06",
+      "rate30": 6.85,
+      "rate15": 5.99,
+      "rateARM": null
+    },
+    {
+      "date": "2025-07",
+      "rate30": 6.67,
+      "rate15": 5.8,
+      "rateARM": null
+    },
+    {
+      "date": "2025-08",
+      "rate30": 6.63,
+      "rate15": 5.75,
+      "rateARM": null
+    },
+    {
+      "date": "2025-09",
+      "rate30": 6.5,
+      "rate15": 5.6,
+      "rateARM": null
+    },
+    {
+      "date": "2025-10",
+      "rate30": 6.34,
+      "rate15": 5.55,
+      "rateARM": null
+    },
+    {
+      "date": "2025-11",
+      "rate30": 6.22,
+      "rate15": 5.5,
+      "rateARM": null
+    },
+    {
+      "date": "2025-12",
+      "rate30": 6.19,
+      "rate15": 5.44,
+      "rateARM": null
+    }
+  ],
+  "loanLimits": {
+    "conforming": 766550,
+    "highBalance": 1149825,
+    "jumbo": 1149826,
+    "fha": 1149825
+  },
+  "sanDiego": {
+    "unemploymentRate": 4.2
+  }
+}

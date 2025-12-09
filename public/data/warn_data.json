@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2025-12-09T10:14:44.677993",
+    "generated": "2025-12-09T12:20:15.542638",
     "county": "San Diego",
     "total_notices": 78,
     "total_employees_affected": 3165
@@ -25,7 +25,7 @@
       "employees_affected": 34,
       "layoff_date": "2025-09-02",
       "notice_type": "Layoff Permanent",
-      "region": "South Bay",
+      "region": "South County",
       "neighborhood": "Chula Vista"
     },
     {
@@ -36,7 +36,7 @@
       "employees_affected": 1,
       "layoff_date": "2025-09-02",
       "notice_type": "Layoff Permanent",
-      "region": "South Bay",
+      "region": "Coastal",
       "neighborhood": "Coronado"
     },
     {
@@ -80,8 +80,8 @@
       "employees_affected": 80,
       "layoff_date": "2025-09-02",
       "notice_type": "Closure Permanent",
-      "region": "Central San Diego",
-      "neighborhood": "Old Town"
+      "region": "Coastal",
+      "neighborhood": "Bay Park"
     },
     {
       "notice_id": "a8332fb2",
@@ -91,7 +91,7 @@
       "employees_affected": 74,
       "layoff_date": "2025-09-07",
       "notice_type": "Layoff Permanent",
-      "region": "South Bay",
+      "region": "South County",
       "neighborhood": "Spring Valley"
     },
     {
@@ -102,8 +102,8 @@
       "employees_affected": 161,
       "layoff_date": "2025-09-12",
       "notice_type": "Closure Permanent",
-      "region": "North County Coastal",
-      "neighborhood": "Carlsbad"
+      "region": "Coastal",
+      "neighborhood": "Carlsbad West"
     },
     {
       "notice_id": "4d015168",
@@ -124,7 +124,7 @@
       "employees_affected": 60,
       "layoff_date": "2025-09-06",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
+      "region": "Urban San Diego",
       "neighborhood": "Hillcrest"
     },
     {
@@ -135,7 +135,7 @@
       "employees_affected": 7,
       "layoff_date": "2025-09-06",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
+      "region": "Urban San Diego",
       "neighborhood": "Downtown"
     },
     {
@@ -146,7 +146,7 @@
       "employees_affected": 6,
       "layoff_date": "2025-09-06",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
+      "region": "Urban San Diego",
       "neighborhood": "Downtown"
     },
     {
@@ -157,7 +157,7 @@
       "employees_affected": 20,
       "layoff_date": "2025-09-06",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
+      "region": "Urban San Diego",
       "neighborhood": "Hillcrest"
     },
     {
@@ -168,8 +168,8 @@
       "employees_affected": 3,
       "layoff_date": "2025-09-06",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
-      "neighborhood": "Old Town"
+      "region": "Coastal",
+      "neighborhood": "Bay Park"
     },
     {
       "notice_id": "8a9f3010",
@@ -179,7 +179,7 @@
       "employees_affected": 2,
       "layoff_date": "2025-07-07",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
+      "region": "Urban San Diego",
       "neighborhood": "Hillcrest"
     },
     {
@@ -190,7 +190,7 @@
       "employees_affected": 5,
       "layoff_date": "2025-09-06",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
+      "region": "Urban San Diego",
       "neighborhood": "Hillcrest"
     },
     {
@@ -201,8 +201,8 @@
       "employees_affected": 1,
       "layoff_date": "2025-09-06",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
-      "neighborhood": "Old Town"
+      "region": "Coastal",
+      "neighborhood": "Bay Park"
     },
     {
       "notice_id": "0a1b6c5a",
@@ -212,7 +212,7 @@
       "employees_affected": 3,
       "layoff_date": "2025-09-06",
       "notice_type": "Layoff Permanent",
-      "region": "South Bay",
+      "region": "South County",
       "neighborhood": "Chula Vista"
     },
     {
@@ -223,7 +223,7 @@
       "employees_affected": 1,
       "layoff_date": "2025-09-06",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
+      "region": "Urban San Diego",
       "neighborhood": "North Park"
     },
     {
@@ -245,7 +245,7 @@
       "employees_affected": 1,
       "layoff_date": "2025-09-06",
       "notice_type": "Layoff Permanent",
-      "region": "North County Coastal",
+      "region": "Coastal",
       "neighborhood": "Oceanside"
     },
     {
@@ -289,7 +289,7 @@
       "employees_affected": 40,
       "layoff_date": "2025-09-30",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
+      "region": "Coastal",
       "neighborhood": "Pacific Beach"
     },
     {
@@ -311,7 +311,7 @@
       "employees_affected": 1,
       "layoff_date": "2025-09-16",
       "notice_type": "Layoff Permanent",
-      "region": "North County Coastal",
+      "region": "Coastal",
       "neighborhood": "Oceanside"
     },
     {
@@ -322,7 +322,7 @@
       "employees_affected": 116,
       "layoff_date": "2025-09-22",
       "notice_type": "Layoff Permanent",
-      "region": "Central San Diego",
+      "region": "Urban San Diego",
       "neighborhood": "Downtown"
     },
     {
@@ -333,7 +333,7 @@
       "employees_affected": 119,
       "layoff_date": "2025-09-15",
       "notice_type": "Closure Permanent",
-      "region": "North County Coastal",
+      "region": "North County Inland",
       "neighborhood": "Carlsbad"
     },
     {
@@ -355,7 +355,7 @@
       "employees_affected": 27,
       "layoff_date": "2025-09-30",
       "notice_type": "Closure Permanent",
-      "region": "South Bay",
+      "region": "South County",
       "neighborhood": "Spring Valley"
     },
     {
@@ -366,8 +366,8 @@
       "employees_affected": 52,
       "layoff_date": "2025-09-15",
       "notice_type": "Layoff Permanent",
-      "region": "North County Coastal",
-      "neighborhood": "Carlsbad"
+      "region": "Coastal",
+      "neighborhood": "Carlsbad West"
     },
     {
       "notice_id": "27e7b56d",
@@ -377,8 +377,8 @@
       "employees_affected": 33,
       "layoff_date": "2025-09-15",
       "notice_type": "Layoff Permanent",
-      "region": "North County Coastal",
-      "neighborhood": "Carlsbad"
+      "region": "Coastal",
+      "neighborhood": "Carlsbad West"
     },
     {
       "notice_id": "57fa445b",
@@ -410,7 +410,7 @@
       "employees_affected": 5,
       "layoff_date": "2025-10-10",
       "notice_type": "Layoff Permanent",
-      "region": "North County Coastal",
+      "region": "Coastal",
       "neighborhood": "Oceanside"
     },
     {
@@ -498,7 +498,7 @@
       "employees_affected": 25,
       "layoff_date": "2025-11-04",
       "notice_type": "Closure Permanent",
-      "region": "Central San Diego",
+      "region": "Coastal",
       "neighborhood": "La Jolla"
     },
     {
@@ -509,8 +509,8 @@
       "employees_affected": 64,
       "layoff_date": "2025-11-04",
       "notice_type": "Closure Permanent",
-      "region": "North County Inland",
-      "neighborhood": "Rancho Bernardo"
+      "region": "Central San Diego",
+      "neighborhood": "Del Sur / 4S Ranch"
     },
     {
       "notice_id": "30baa74f",
@@ -531,8 +531,8 @@
       "employees_affected": 79,
       "layoff_date": "2025-11-08",
       "notice_type": "Closure Permanent",
-      "region": "North County Coastal",
-      "neighborhood": "Carlsbad"
+      "region": "North County Inland",
+      "neighborhood": "Carlsbad East"
     },
     {
       "notice_id": "ca779469",
@@ -542,7 +542,7 @@
       "employees_affected": 5,
       "layoff_date": "2025-11-08",
       "notice_type": "Closure Permanent",
-      "region": "North County Coastal",
+      "region": "North County Inland",
       "neighborhood": "Carlsbad"
     },
     {
@@ -553,8 +553,8 @@
       "employees_affected": 3,
       "layoff_date": "2025-11-08",
       "notice_type": "Closure Permanent",
-      "region": "North County Coastal",
-      "neighborhood": "Carlsbad"
+      "region": "North County Inland",
+      "neighborhood": "Carlsbad East"
     },
     {
       "notice_id": "77121faf",
@@ -608,7 +608,7 @@
       "employees_affected": 394,
       "layoff_date": "2025-12-13",
       "notice_type": "Layoff Temporary",
-      "region": "Central San Diego",
+      "region": "Urban San Diego",
       "neighborhood": "Downtown"
     },
     {
@@ -619,7 +619,7 @@
       "employees_affected": 63,
       "layoff_date": "2025-12-29",
       "notice_type": "Layoff Permanent",
-      "region": "South Bay",
+      "region": "South County",
       "neighborhood": "Chula Vista"
     },
     {
@@ -663,8 +663,8 @@
       "employees_affected": 50,
       "layoff_date": "2026-01-26",
       "notice_type": "Layoff Permanent",
-      "region": "North County Inland",
-      "neighborhood": "Rancho Bernardo"
+      "region": "Central San Diego",
+      "neighborhood": "Del Sur / 4S Ranch"
     },
     {
       "notice_id": "6b13c38b",
@@ -707,7 +707,7 @@
       "employees_affected": 1,
       "layoff_date": "2026-01-26",
       "notice_type": "Layoff Permanent",
-      "region": "South Bay",
+      "region": "South County",
       "neighborhood": "Otay Mesa"
     },
     {
@@ -718,7 +718,7 @@
       "employees_affected": 1,
       "layoff_date": "2026-01-26",
       "notice_type": "Layoff Permanent",
-      "region": "South Bay",
+      "region": "South County",
       "neighborhood": "Otay Mesa"
     },
     {
@@ -806,7 +806,7 @@
       "employees_affected": 17,
       "layoff_date": "2026-01-16",
       "notice_type": "Layoff Permanent",
-      "region": "North County Coastal",
+      "region": "Coastal",
       "neighborhood": "Oceanside"
     },
     {
@@ -839,7 +839,7 @@
       "employees_affected": 102,
       "layoff_date": "2026-01-01",
       "notice_type": "Closure Permanent",
-      "region": "Central San Diego",
+      "region": "Coastal",
       "neighborhood": "Pacific Beach"
     },
     {
@@ -1149,24 +1149,28 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 50,
-      "total_employees": 2203
+      "notice_count": 37,
+      "total_employees": 1455
     },
-    "South Bay": {
-      "notice_count": 8,
-      "total_employees": 204
+    "South County": {
+      "notice_count": 7,
+      "total_employees": 203
+    },
+    "Coastal": {
+      "notice_count": 14,
+      "total_employees": 522
     },
     "East County": {
       "notice_count": 6,
       "total_employees": 167
     },
-    "North County Coastal": {
-      "notice_count": 11,
-      "total_employees": 476
+    "Urban San Diego": {
+      "notice_count": 9,
+      "total_employees": 611
     },
     "North County Inland": {
-      "notice_count": 3,
-      "total_employees": 115
+      "notice_count": 5,
+      "total_employees": 207
     }
   }
 }
