@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "generated": "2025-12-09T15:52:11.282205",
+    "source": "Regional Task Force on Homelessness (RTFH) - 2024 Point-in-Time Count",
+    "data_year": 2024,
+    "methodology": "Annual Point-in-Time count conducted in January",
+    "note": "Neighborhood estimates are approximations based on census tract data"
+  },
+  "summary": {
+    "county_total": 9500,
+    "county_unsheltered": 6758,
+    "county_sheltered": 2742,
+    "unsheltered_rate": 71.1,
+    "yoy_change_percent": 1.0
+  },
+  "regions": {
+    "City of San Diego": {
+      "total": 6652,
+      "unsheltered": 4624,
+      "sheltered": 2028,
+      "change_from_2023": 1.0,
+      "subregions": {
+        "Downtown": {
+          "total": 1156,
+          "unsheltered": 892
+        },
+        "East": {
+          "total": 843,
+          "unsheltered": 612
+        },
+        "Central": {
+          "total": 987,
+          "unsheltered": 756
+        },
+        "Coastal": {
+          "total": 542,
+          "unsheltered": 423
+        },
+        "South": {
+          "total": 389,
+          "unsheltered": 298
+        },
+        "Other": {
+          "total": 2735,
+          "unsheltered": 1643
+        }
+      }
+    },
+    "North County Coastal": {
+      "total": 712,
+      "unsheltered": 534,
+      "sheltered": 178,
+      "change_from_2023": 3.2
+    },
+    "North County Inland": {
+      "total": 1124,
+      "unsheltered": 856,
+      "sheltered": 268,
+      "change_from_2023": -2.1
+    },
+    "East County": {
+      "total": 567,
+      "unsheltered": 432,
+      "sheltered": 135,
+      "change_from_2023": 5.4
+    },
+    "South County": {
+      "total": 445,
+      "unsheltered": 312,
+      "sheltered": 133,
+      "change_from_2023": -0.8
+    }
+  },
+  "neighborhoods": {
+    "Downtown": {
+      "total": 1156,
+      "unsheltered": 892,
+      "risk": "critical"
+    },
+    "East Village": {
+      "total": 423,
+      "unsheltered": 378,
+      "risk": "critical"
+    },
+    "Gaslamp": {
+      "total": 89,
+      "unsheltered": 67,
+      "risk": "high"
+    },
+    "Barrio Logan": {
+      "total": 156,
+      "unsheltered": 134,
+      "risk": "high"
+    },
+    "Logan Heights": {
+      "total": 187,
+      "unsheltered": 156,
+      "risk": "high"
+    },
+    "City Heights": {
+      "total": 234,
+      "unsheltered": 189,
+      "risk": "high"
+    },
+    "Hillcrest": {
+      "total": 178,
+      "unsheltered": 145,
+      "risk": "high"
+    },
+    "North Park": {
+      "total": 145,
+      "unsheltered": 112,
+      "risk": "moderate"
+    },
+    "Normal Heights": {
+      "total": 87,
+      "unsheltered": 65,
+      "risk": "moderate"
+    },
+    "University Heights": {
+      "total": 56,
+      "unsheltered": 43,
+      "risk": "moderate"
+    },
+    "South Park": {
+      "total": 34,
+      "unsheltered": 26,
+      "risk": "low"
+    },
+    "Mission Valley": {
+      "total": 123,
+      "unsheltered": 98,
+      "risk": "moderate"
+    },
+    "Pacific Beach": {
+      "total": 156,
+      "unsheltered": 134,
+      "risk": "moderate"
+    },
+    "Ocean Beach": {
+      "total": 189,
+      "unsheltered": 167,
+      "risk": "high"
+    },
+    "La Jolla": {
+      "total": 45,
+      "unsheltered": 38,
+      "risk": "low"
+    },
+    "Mission Beach": {
+      "total": 67,
+      "unsheltered": 56,
+      "risk": "moderate"
+    },
+    "Point Loma": {
+      "total": 34,
+      "unsheltered": 28,
+      "risk": "low"
+    },
+    "Chula Vista": {
+      "total": 234,
+      "unsheltered": 178,
+      "risk": "moderate"
+    },
+    "National City": {
+      "total": 123,
+      "unsheltered": 98,
+      "risk": "moderate"
+    },
+    "Imperial Beach": {
+      "total": 67,
+      "unsheltered": 54,
+      "risk": "moderate"
+    },
+    "San Ysidro": {
+      "total": 45,
+      "unsheltered": 34,
+      "risk": "low"
+    },
+    "El Cajon": {
+      "total": 312,
+      "unsheltered": 256,
+      "risk": "high"
+    },
+    "La Mesa": {
+      "total": 89,
+      "unsheltered": 67,
+      "risk": "moderate"
+    },
+    "Santee": {
+      "total": 67,
+      "unsheltered": 45,
+      "risk": "low"
+    },
+    "Spring Valley": {
+      "total": 78,
+      "unsheltered": 56,
+      "risk": "moderate"
+    },
+    "Oceanside": {
+      "total": 289,
+      "unsheltered": 234,
+      "risk": "high"
+    },
+    "Escondido": {
+      "total": 345,
+      "unsheltered": 278,
+      "risk": "high"
+    },
+    "Vista": {
+      "total": 156,
+      "unsheltered": 123,
+      "risk": "moderate"
+    },
+    "Carlsbad": {
+      "total": 78,
+      "unsheltered": 56,
+      "risk": "low"
+    },
+    "Encinitas": {
+      "total": 89,
+      "unsheltered": 67,
+      "risk": "moderate"
+    },
+    "San Marcos": {
+      "total": 112,
+      "unsheltered": 89,
+      "risk": "moderate"
+    }
+  },
+  "historical": [
+    {
+      "year": 2019,
+      "total": 8102,
+      "unsheltered": 5082,
+      "sheltered": 3020
+    },
+    {
+      "year": 2020,
+      "total": 7638,
+      "unsheltered": 4887,
+      "sheltered": 2751
+    },
+    {
+      "year": 2022,
+      "total": 8427,
+      "unsheltered": 5680,
+      "sheltered": 2747
+    },
+    {
+      "year": 2023,
+      "total": 9402,
+      "unsheltered": 6558,
+      "sheltered": 2844
+    },
+    {
+      "year": 2024,
+      "total": 9500,
+      "unsheltered": 6758,
+      "sheltered": 2742
+    }
+  ],
+  "demographics": {
+    "gender": {
+      "male": 64,
+      "female": 34,
+      "transgender": 1,
+      "non_binary": 1
+    },
+    "age": {
+      "under_18": 6,
+      "18_24": 8,
+      "25_54": 62,
+      "55_plus": 24
+    },
+    "race_ethnicity": {
+      "white": 42,
+      "black": 25,
+      "hispanic": 24,
+      "asian": 3,
+      "native_american": 2,
+      "other": 4
+    },
+    "veteran_status": {
+      "veteran": 8,
+      "non_veteran": 92
+    },
+    "chronic_homeless": {
+      "chronic": 45,
+      "non_chronic": 55
+    }
+  }
+}

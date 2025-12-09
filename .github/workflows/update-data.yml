@@ -49,6 +49,10 @@ jobs:
         run: |
           python scripts/fetch_business_licenses.py || echo "Business license data fetch failed, using existing data"
       
+      - name: Fetch homeless data
+        run: |
+          python scripts/fetch_homeless_data.py || echo "Homeless data fetch failed, using existing data"
+      
       - name: Check for changes
         id: check_changes
         run: |

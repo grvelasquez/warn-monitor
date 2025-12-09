@@ -3,6 +3,7 @@ import { MapPin, TrendingUp, TrendingDown, AlertTriangle, School, Home, Users, A
 import { useGentrificationData } from './hooks/useGentrificationData';
 import { TransitionChart } from './components/TransitionChart';
 import { RetailSignals } from './components/RetailSignals';
+import { HomelessSignals } from './components/HomelessSignals';
 
 // Risk color scale
 const getRiskColor = (risk) => {
@@ -291,6 +292,15 @@ export default function GentrificationDashboard() {
                         Retail Signals
                     </h2>
                     <RetailSignals />
+                </div>
+
+                {/* Homeless Signals */}
+                <div className="mb-6">
+                    <h2 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+                        <Users className="w-4 h-4 text-red-400" />
+                        Homeless Population
+                    </h2>
+                    <HomelessSignals />
                 </div>
 
                 {/* Key Metrics */}
