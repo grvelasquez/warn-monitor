@@ -266,40 +266,35 @@ export default function GentrificationDashboard() {
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6 sm:mb-8">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
                     <div>
-                        <div className="flex items-center gap-3 mb-2">
+                        <div className="flex items-center gap-3 mb-1">
                             <div className="p-2 bg-purple-900/30 rounded-lg border border-purple-800/50">
-                                <BarChart3 className="w-5 sm:w-6 h-5 sm:h-6 text-purple-400" />
+                                <BarChart3 className="w-5 h-5 text-purple-400" />
                             </div>
-                            <h1 className="text-xl sm:text-2xl font-bold tracking-tight">Gentrification Trends</h1>
+                            <h1 className="text-xl sm:text-2xl font-bold">Trends</h1>
                         </div>
-                        <p className="text-sm sm:text-base text-slate-400">School Demographics vs. Real Estate • Displacement Risk Analysis</p>
+                        <p className="text-sm text-slate-400">San Diego • Gentrification & Displacement Analysis</p>
                     </div>
                     <div className="flex items-center gap-3">
-                        <div className={`px-3 py-1.5 rounded-lg ${riskInfo.bg}/20 border border-${riskInfo.bg.replace('bg-', '')}/30`}>
-                            <span className={`text-sm font-medium ${riskInfo.text}`}>
-                                {riskInfo.label}
-                            </span>
+                        <div className={`px-3 py-1.5 rounded-lg ${riskInfo.bg}/20`}>
+                            <span className={`text-sm font-medium ${riskInfo.text}`}>{riskInfo.label}</span>
                         </div>
-                        <div className="text-right">
-                            <p className="text-xs text-slate-500">{summary?.period}</p>
-                            <p className="text-sm text-slate-400">San Diego Unified</p>
-                        </div>
+                        <p className="text-xs text-slate-500">{summary?.period}</p>
                     </div>
                 </div>
 
-                {/* Retail Signals Section - TOP */}
-                <div className="mb-6 sm:mb-8">
-                    <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                        <Store className="w-5 h-5 text-orange-400" />
-                        Retail Gentrification Signals
+                {/* Retail Signals */}
+                <div className="mb-6">
+                    <h2 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+                        <Store className="w-4 h-4 text-orange-400" />
+                        Retail Signals
                     </h2>
                     <RetailSignals />
                 </div>
 
-                {/* Summary Stats */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                {/* Key Metrics */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                     <StatCard
                         title="Median Home Price"
                         value={formatPrice(latest?.medianPrice || 0)}
@@ -332,27 +327,26 @@ export default function GentrificationDashboard() {
                     />
                 </div>
 
-                {/* Main Chart */}
-                <div className="mb-6 sm:mb-8">
-                    <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                        <BarChart3 className="w-5 h-5 text-slate-500" />
-                        Demographic Transition Analysis
+                {/* Demographics Chart */}
+                <div className="mb-6">
+                    <h2 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+                        <BarChart3 className="w-4 h-4 text-slate-500" />
+                        Demographics vs. Price (2018-2024)
                     </h2>
                     <TransitionChart
                         data={data}
                         onYearHover={handleYearHover}
                         onYearClick={handleYearClick}
-                        height={350}
+                        height={300}
                     />
                 </div>
 
-                {/* Map and Demographics Row */}
-                <div className="grid lg:grid-cols-2 gap-6 mb-6 sm:mb-8">
+                {/* District Map & Demographics */}
+                <div className="grid lg:grid-cols-2 gap-4 mb-6">
                     <GentrificationMap
                         districts={districts}
                         selectedId={selectedDistrictId}
                         onSelectDistrict={setSelectedDistrictId}
-                        highlightedYear={highlightedYear}
                     />
                     <DemographicBreakdown data={data} />
                 </div>
