@@ -1,0 +1,44 @@
+name: Update WARN Data
+
+on:
+  schedule:
+    # Run at 9 AM PT (5 PM UTC) every Tuesday and Thursday
+    - cron: '0 17 * * 2,4'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+      
+      - name: Fetch WARN data
+        run: |
+          python scripts/fetch_warn_data.py
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet public/data/warn_data.json || echo "changes=true" >> $GITHUB_OUTPUT
+      
+      - name: Commit and push if changed
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/warn_data.json
+          git commit -m "Update WARN data - $(date +'%Y-%m-%d')"
+          git push

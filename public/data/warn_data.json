@@ -1,0 +1,1172 @@
+{
+  "meta": {
+    "generated": "2025-12-09T10:14:44.677993",
+    "county": "San Diego",
+    "total_notices": 78,
+    "total_employees_affected": 3165
+  },
+  "notices": [
+    {
+      "notice_id": "15dcbbb3",
+      "company_name": "Sharp HealthCare - 8695",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 244,
+      "layoff_date": "2025-09-02",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "c1a8de7d",
+      "company_name": "Sharp HealthCare - 751",
+      "city": "Chula Vista",
+      "zipcode": "91911",
+      "employees_affected": 34,
+      "layoff_date": "2025-09-02",
+      "notice_type": "Layoff Permanent",
+      "region": "South Bay",
+      "neighborhood": "Chula Vista"
+    },
+    {
+      "notice_id": "f8c603d0",
+      "company_name": "Sharp HealthCare - 250",
+      "city": "Coronado",
+      "zipcode": "92118",
+      "employees_affected": 1,
+      "layoff_date": "2025-09-02",
+      "notice_type": "Layoff Permanent",
+      "region": "South Bay",
+      "neighborhood": "Coronado"
+    },
+    {
+      "notice_id": "9dd630fb",
+      "company_name": "Sharp HealthCare - 5555",
+      "city": "La Mesa",
+      "zipcode": "91942",
+      "employees_affected": 40,
+      "layoff_date": "2025-09-02",
+      "notice_type": "Layoff Permanent",
+      "region": "East County",
+      "neighborhood": "La Mesa"
+    },
+    {
+      "notice_id": "c5e60172",
+      "company_name": "Sharp HealthCare - 7901",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 62,
+      "layoff_date": "2025-09-02",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "4ab394ea",
+      "company_name": "Sharp HealthCare - 5651",
+      "city": "San Diego",
+      "zipcode": "92111",
+      "employees_affected": 13,
+      "layoff_date": "2025-09-02",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Linda Vista"
+    },
+    {
+      "notice_id": "d4187fc9",
+      "company_name": "Young's Market Company, LLC dba Republic National Distributing Company",
+      "city": "San Diego",
+      "zipcode": "92110",
+      "employees_affected": 80,
+      "layoff_date": "2025-09-02",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Old Town"
+    },
+    {
+      "notice_id": "a8332fb2",
+      "company_name": "Coastal Trading Ventures",
+      "city": "Spring Valley",
+      "zipcode": "91978",
+      "employees_affected": 74,
+      "layoff_date": "2025-09-07",
+      "notice_type": "Layoff Permanent",
+      "region": "South Bay",
+      "neighborhood": "Spring Valley"
+    },
+    {
+      "notice_id": "2c4e5e22",
+      "company_name": "Best Buy Health",
+      "city": "Carlsbad",
+      "zipcode": "92008",
+      "employees_affected": 161,
+      "layoff_date": "2025-09-12",
+      "notice_type": "Closure Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Carlsbad"
+    },
+    {
+      "notice_id": "4d015168",
+      "company_name": "Pacira BioSciences, Inc.",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 71,
+      "layoff_date": "2025-09-07",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "f34f050e",
+      "company_name": "(3909) San Diego LGBT Community Center",
+      "city": "San Diego",
+      "zipcode": "92103",
+      "employees_affected": 60,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Hillcrest"
+    },
+    {
+      "notice_id": "b38db236",
+      "company_name": "(1640) San Diego LGBT Community Center",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 7,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "9ae6a3e7",
+      "company_name": "(1045) San Diego LGBT Community Center",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 6,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "d04facd9",
+      "company_name": "(3636) San Diego LGBT Community Center",
+      "city": "San Diego",
+      "zipcode": "92103",
+      "employees_affected": 20,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Hillcrest"
+    },
+    {
+      "notice_id": "4b356165",
+      "company_name": "(3878) San Diego LGBT Community Center",
+      "city": "San Diego",
+      "zipcode": "92110",
+      "employees_affected": 3,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Old Town"
+    },
+    {
+      "notice_id": "8a9f3010",
+      "company_name": "(514) San Diego LGBT Community Center",
+      "city": "San Diego",
+      "zipcode": "92103",
+      "employees_affected": 2,
+      "layoff_date": "2025-07-07",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Hillcrest"
+    },
+    {
+      "notice_id": "c3e10bdc",
+      "company_name": "(1807) San Diego LGBT Community Center",
+      "city": "San Diego",
+      "zipcode": "92103",
+      "employees_affected": 5,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Hillcrest"
+    },
+    {
+      "notice_id": "7bccdf5d",
+      "company_name": "(3851) San Diego LGBT Community Center",
+      "city": "San Diego",
+      "zipcode": "92110",
+      "employees_affected": 1,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Old Town"
+    },
+    {
+      "notice_id": "0a1b6c5a",
+      "company_name": "(1180) San Diego LGBT Community Center",
+      "city": "Chula Vista",
+      "zipcode": "91911",
+      "employees_affected": 3,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "South Bay",
+      "neighborhood": "Chula Vista"
+    },
+    {
+      "notice_id": "963be04e",
+      "company_name": "(3045) San Diego LGBT Community Center",
+      "city": "San Diego",
+      "zipcode": "92104",
+      "employees_affected": 1,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "North Park"
+    },
+    {
+      "notice_id": "59362ebc",
+      "company_name": "(134) San Diego LGBT Community Center",
+      "city": "Vista",
+      "zipcode": "92083",
+      "employees_affected": 1,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Vista"
+    },
+    {
+      "notice_id": "a691cbaa",
+      "company_name": "(520) San Diego LGBT Community Center",
+      "city": "Oceanside",
+      "zipcode": "92054",
+      "employees_affected": 1,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Oceanside"
+    },
+    {
+      "notice_id": "0c4e591d",
+      "company_name": "(460) San Diego LGBT Community Center",
+      "city": "El Cajon",
+      "zipcode": "92020",
+      "employees_affected": 1,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "East County",
+      "neighborhood": "El Cajon"
+    },
+    {
+      "notice_id": "cf827634",
+      "company_name": "(131) San Diego LGBT Community Center",
+      "city": "El Cajon",
+      "zipcode": "92020",
+      "employees_affected": 1,
+      "layoff_date": "2025-09-06",
+      "notice_type": "Layoff Permanent",
+      "region": "East County",
+      "neighborhood": "El Cajon"
+    },
+    {
+      "notice_id": "d98070a3",
+      "company_name": "Blue Shield of California - San Diego",
+      "city": "San Diego",
+      "zipcode": "92108",
+      "employees_affected": 2,
+      "layoff_date": "2025-09-23",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "0d55b362",
+      "company_name": "Leah's Pantry",
+      "city": "San Diego",
+      "zipcode": "92109",
+      "employees_affected": 40,
+      "layoff_date": "2025-09-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Pacific Beach"
+    },
+    {
+      "notice_id": "eccccda2",
+      "company_name": "Primo Brands, Inc.",
+      "city": "Lakeside",
+      "zipcode": "92040",
+      "employees_affected": 4,
+      "layoff_date": "2025-09-16",
+      "notice_type": "Layoff Permanent",
+      "region": "East County",
+      "neighborhood": "Lakeside"
+    },
+    {
+      "notice_id": "f30bd8c2",
+      "company_name": "Primo Brands, Inc.",
+      "city": "Oceanside",
+      "zipcode": "92056",
+      "employees_affected": 1,
+      "layoff_date": "2025-09-16",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Oceanside"
+    },
+    {
+      "notice_id": "2120931b",
+      "company_name": "SSP America",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 116,
+      "layoff_date": "2025-09-22",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "deba8c40",
+      "company_name": "SenDx Medical, Inc.",
+      "city": "Carlsbad",
+      "zipcode": "92011",
+      "employees_affected": 119,
+      "layoff_date": "2025-09-15",
+      "notice_type": "Closure Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Carlsbad"
+    },
+    {
+      "notice_id": "752d530a",
+      "company_name": "Kaiser Foundation Hospitals",
+      "city": "San Diego",
+      "zipcode": "92130",
+      "employees_affected": 1,
+      "layoff_date": "2025-07-28",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Carmel Valley"
+    },
+    {
+      "notice_id": "eba5922e",
+      "company_name": "Coastal Trading Ventures",
+      "city": "Spring Valley",
+      "zipcode": "91978",
+      "employees_affected": 27,
+      "layoff_date": "2025-09-30",
+      "notice_type": "Closure Permanent",
+      "region": "South Bay",
+      "neighborhood": "Spring Valley"
+    },
+    {
+      "notice_id": "dd8545dc",
+      "company_name": "Thermo Fisher Scientific (5823)",
+      "city": "Carlsbad",
+      "zipcode": "92008",
+      "employees_affected": 52,
+      "layoff_date": "2025-09-15",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Carlsbad"
+    },
+    {
+      "notice_id": "27e7b56d",
+      "company_name": "Thermo Fisher Scientific (5781)",
+      "city": "Carlsbad",
+      "zipcode": "92008",
+      "employees_affected": 33,
+      "layoff_date": "2025-09-15",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Carlsbad"
+    },
+    {
+      "notice_id": "57fa445b",
+      "company_name": "Children's Specialists of San Diego",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 55,
+      "layoff_date": "2025-10-31",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "324eec35",
+      "company_name": "Poseida Therapeutics, Inc.",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 52,
+      "layoff_date": "2025-10-01",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "5708a74f",
+      "company_name": "Gilead Sciences, Inc.",
+      "city": "Oceanside",
+      "zipcode": "92056",
+      "employees_affected": 5,
+      "layoff_date": "2025-10-10",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Oceanside"
+    },
+    {
+      "notice_id": "7f566efa",
+      "company_name": "Southwest Key Programs, Inc.",
+      "city": "El Cajon",
+      "zipcode": "92021",
+      "employees_affected": 5,
+      "layoff_date": "2025-10-05",
+      "notice_type": "Closure Permanent",
+      "region": "East County",
+      "neighborhood": "El Cajon"
+    },
+    {
+      "notice_id": "d73d9090",
+      "company_name": "TriLink Biotechnologies, LLC (10770)",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 69,
+      "layoff_date": "2025-10-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "21c5e737",
+      "company_name": "TriLink Biotechnologies, LLC (5717)",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 5,
+      "layoff_date": "2025-10-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "0db2c6d5",
+      "company_name": "TriLink Biotechnologies, LLC (10240)",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 5,
+      "layoff_date": "2025-10-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "8e99c74c",
+      "company_name": "TriLink Biotechnologies, LLC (10247)",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 11,
+      "layoff_date": "2025-10-06",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "c61f35fe",
+      "company_name": "Southwest Key Programs, Inc. - Casa San Diego",
+      "city": "El Cajon",
+      "zipcode": "92021",
+      "employees_affected": 116,
+      "layoff_date": "2025-07-31",
+      "notice_type": "Layoff Permanent",
+      "region": "East County",
+      "neighborhood": "El Cajon"
+    },
+    {
+      "notice_id": "410b65cf",
+      "company_name": "DexCom, Inc.",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 319,
+      "layoff_date": "2025-11-03",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "e77915a2",
+      "company_name": "Sandpiper",
+      "city": "San Diego",
+      "zipcode": "92037",
+      "employees_affected": 25,
+      "layoff_date": "2025-11-04",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "La Jolla"
+    },
+    {
+      "notice_id": "6c8330fc",
+      "company_name": "The Brigantine, Inc.",
+      "city": "San Diego",
+      "zipcode": "92127",
+      "employees_affected": 64,
+      "layoff_date": "2025-11-04",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Rancho Bernardo"
+    },
+    {
+      "notice_id": "30baa74f",
+      "company_name": "Epic Lightning Fast Service LLC",
+      "city": "San Diego",
+      "zipcode": "92111",
+      "employees_affected": 116,
+      "layoff_date": "2025-10-31",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Linda Vista"
+    },
+    {
+      "notice_id": "160488b7",
+      "company_name": "CRC ED Treatment LLC, Montecatini, Inc. (2524)",
+      "city": "Carlsbad",
+      "zipcode": "92009",
+      "employees_affected": 79,
+      "layoff_date": "2025-11-08",
+      "notice_type": "Closure Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Carlsbad"
+    },
+    {
+      "notice_id": "ca779469",
+      "company_name": "CRC ED Treatment LLC, Montecatini, Inc. (6183)",
+      "city": "Carlsbad",
+      "zipcode": "92011",
+      "employees_affected": 5,
+      "layoff_date": "2025-11-08",
+      "notice_type": "Closure Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Carlsbad"
+    },
+    {
+      "notice_id": "78ce9a41",
+      "company_name": "CRC ED Treatment LLC, Montecatini, Inc. (Remote)",
+      "city": "Carlsbad",
+      "zipcode": "92009",
+      "employees_affected": 3,
+      "layoff_date": "2025-11-08",
+      "notice_type": "Closure Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Carlsbad"
+    },
+    {
+      "notice_id": "77121faf",
+      "company_name": "Kaiser Foundation Hospitals (8954)",
+      "city": "San Diego",
+      "zipcode": "92108",
+      "employees_affected": 1,
+      "layoff_date": "2025-09-17",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "a6bf57b6",
+      "company_name": "Ballast Point Brewing Company - Miramar Location",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 29,
+      "layoff_date": "2025-12-15",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "4e8ce8a5",
+      "company_name": "Ballast Point Brewing Company - Little Italy Location",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 8,
+      "layoff_date": "2025-12-15",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "564dc45e",
+      "company_name": "Blue Shield of California 3131",
+      "city": "San Diego",
+      "zipcode": "92108",
+      "employees_affected": 4,
+      "layoff_date": "2025-12-02",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "0be538e9",
+      "company_name": "Hilton San Diego Bayfront",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 394,
+      "layoff_date": "2025-12-13",
+      "notice_type": "Layoff Temporary",
+      "region": "Central San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "c99fee25",
+      "company_name": "San Diego Imaging - Chula Vista, LLC",
+      "city": "Chula Vista",
+      "zipcode": "91911",
+      "employees_affected": 63,
+      "layoff_date": "2025-12-29",
+      "notice_type": "Layoff Permanent",
+      "region": "South Bay",
+      "neighborhood": "Chula Vista"
+    },
+    {
+      "notice_id": "8a2a7d70",
+      "company_name": "San Diego Imaging - Kearny Mesa",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 32,
+      "layoff_date": "2025-12-29",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "f74fc96a",
+      "company_name": "Louis Vuitton USA Inc.",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 9,
+      "layoff_date": "2026-01-25",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "1e013828",
+      "company_name": "Amazon (SAN 13)",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 24,
+      "layoff_date": "2026-01-26",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "7770daf8",
+      "company_name": "Amazon (SAN 15)",
+      "city": "San Diego",
+      "zipcode": "92127",
+      "employees_affected": 50,
+      "layoff_date": "2026-01-26",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Rancho Bernardo"
+    },
+    {
+      "notice_id": "6b13c38b",
+      "company_name": "Amazon (SAN 17)",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 61,
+      "layoff_date": "2026-01-26",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "881c4f84",
+      "company_name": "Amazon (SAN 18)",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 3,
+      "layoff_date": "2026-01-26",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "947f06ad",
+      "company_name": "Amazon (SAN 21)",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 5,
+      "layoff_date": "2026-01-26",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "880cd2e6",
+      "company_name": "Amazon (SAN 3)",
+      "city": "San Diego",
+      "zipcode": "92154",
+      "employees_affected": 1,
+      "layoff_date": "2026-01-26",
+      "notice_type": "Layoff Permanent",
+      "region": "South Bay",
+      "neighborhood": "Otay Mesa"
+    },
+    {
+      "notice_id": "c192a99c",
+      "company_name": "Amazon (SAN 5)",
+      "city": "San Diego",
+      "zipcode": "92154",
+      "employees_affected": 1,
+      "layoff_date": "2026-01-26",
+      "notice_type": "Layoff Permanent",
+      "region": "South Bay",
+      "neighborhood": "Otay Mesa"
+    },
+    {
+      "notice_id": "b29f1611",
+      "company_name": "WIS International",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 10,
+      "layoff_date": "2026-01-01",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "1957670d",
+      "company_name": "Becton, Dickinson and Company (BD) (3750 Torrey View Court)",
+      "city": "San Diego",
+      "zipcode": "92130",
+      "employees_affected": 59,
+      "layoff_date": "2025-10-01",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Carmel Valley"
+    },
+    {
+      "notice_id": "a0f866f9",
+      "company_name": "Becton, Dickinson and Company (BD) (10020 Pacific Mesa Boulevard)",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 7,
+      "layoff_date": "2025-10-01",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "ca8c2b4d",
+      "company_name": "Retail Service WIS Corporation, DBA WIS International",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 10,
+      "layoff_date": "2026-01-01",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "824fc3ba",
+      "company_name": "Infineon",
+      "city": "San Diego",
+      "zipcode": "92131",
+      "employees_affected": 3,
+      "layoff_date": "2025-11-14",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Scripps Ranch"
+    },
+    {
+      "notice_id": "98b95cf1",
+      "company_name": "Illumina, Inc. Worldwide Headquarters",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 4,
+      "layoff_date": "2026-01-05",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "9967de70",
+      "company_name": "Illumina, Inc.",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 28,
+      "layoff_date": "2026-01-05",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "ef3a2d72",
+      "company_name": "Gilead Sciences, Inc.",
+      "city": "Oceanside",
+      "zipcode": "92056",
+      "employees_affected": 17,
+      "layoff_date": "2026-01-16",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Coastal",
+      "neighborhood": "Oceanside"
+    },
+    {
+      "notice_id": "227a443e",
+      "company_name": "Illumina, Inc. Worldwide Headquarters",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 8,
+      "layoff_date": "2025-11-11",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "21e4b775",
+      "company_name": "Blue Shield of California (San Diego)",
+      "city": "San Diego",
+      "zipcode": "92108",
+      "employees_affected": 1,
+      "layoff_date": "2026-01-27",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "f778afa2",
+      "company_name": "The French Gourmet, Inc.",
+      "city": "San Diego",
+      "zipcode": "92109",
+      "employees_affected": 102,
+      "layoff_date": "2026-01-01",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Pacific Beach"
+    },
+    {
+      "notice_id": "6b7389ca",
+      "company_name": "Illumina, Inc.",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 7,
+      "layoff_date": "2026-01-19",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "68ade3bc",
+      "company_name": "Illumina, Inc.",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 3,
+      "layoff_date": "2026-02-17",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    }
+  ],
+  "risk_scores": {
+    "92123": {
+      "score": 82,
+      "risk_level": "Critical",
+      "total_employees": 413,
+      "factors": [
+        "244 employees affected",
+        "62 employees affected",
+        "55 employees affected",
+        "32 employees affected",
+        "10 employees affected"
+      ]
+    },
+    "91911": {
+      "score": 20,
+      "risk_level": "Low",
+      "total_employees": 100,
+      "factors": [
+        "34 employees affected",
+        "3 employees affected",
+        "63 employees affected"
+      ]
+    },
+    "92118": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 1,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "91942": {
+      "score": 8,
+      "risk_level": "Low",
+      "total_employees": 40,
+      "factors": [
+        "40 employees affected"
+      ]
+    },
+    "92111": {
+      "score": 45,
+      "risk_level": "Moderate",
+      "total_employees": 129,
+      "factors": [
+        "13 employees affected",
+        "116 employees affected",
+        "Plant closure"
+      ]
+    },
+    "92110": {
+      "score": 16,
+      "risk_level": "Low",
+      "total_employees": 84,
+      "factors": [
+        "80 employees affected",
+        "Plant closure",
+        "3 employees affected",
+        "1 employees affected"
+      ]
+    },
+    "91978": {
+      "score": 40,
+      "risk_level": "Moderate",
+      "total_employees": 101,
+      "factors": [
+        "74 employees affected",
+        "27 employees affected",
+        "Plant closure"
+      ]
+    },
+    "92008": {
+      "score": 49,
+      "risk_level": "Moderate",
+      "total_employees": 246,
+      "factors": [
+        "161 employees affected",
+        "Plant closure",
+        "52 employees affected",
+        "33 employees affected"
+      ]
+    },
+    "92121": {
+      "score": 100,
+      "risk_level": "Critical",
+      "total_employees": 600,
+      "factors": [
+        "71 employees affected",
+        "52 employees affected",
+        "69 employees affected",
+        "5 employees affected",
+        "11 employees affected",
+        "319 employees affected",
+        "29 employees affected",
+        "Plant closure",
+        "8 employees affected",
+        "24 employees affected",
+        "7 employees affected"
+      ]
+    },
+    "92103": {
+      "score": 17,
+      "risk_level": "Low",
+      "total_employees": 87,
+      "factors": [
+        "60 employees affected",
+        "20 employees affected",
+        "2 employees affected",
+        "5 employees affected"
+      ]
+    },
+    "92101": {
+      "score": 100,
+      "risk_level": "Critical",
+      "total_employees": 523,
+      "factors": [
+        "7 employees affected",
+        "6 employees affected",
+        "116 employees affected",
+        "394 employees affected"
+      ]
+    },
+    "92104": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 1,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "92083": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 1,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "92054": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 1,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "92020": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 2,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "92108": {
+      "score": 1,
+      "risk_level": "Low",
+      "total_employees": 8,
+      "factors": [
+        "2 employees affected",
+        "1 employees affected",
+        "4 employees affected"
+      ]
+    },
+    "92109": {
+      "score": 48,
+      "risk_level": "Moderate",
+      "total_employees": 142,
+      "factors": [
+        "40 employees affected",
+        "102 employees affected",
+        "Plant closure"
+      ]
+    },
+    "92040": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 4,
+      "factors": [
+        "4 employees affected"
+      ]
+    },
+    "92056": {
+      "score": 4,
+      "risk_level": "Low",
+      "total_employees": 23,
+      "factors": [
+        "1 employees affected",
+        "5 employees affected",
+        "17 employees affected"
+      ]
+    },
+    "92011": {
+      "score": 44,
+      "risk_level": "Moderate",
+      "total_employees": 124,
+      "factors": [
+        "119 employees affected",
+        "Plant closure",
+        "5 employees affected"
+      ]
+    },
+    "92130": {
+      "score": 12,
+      "risk_level": "Low",
+      "total_employees": 60,
+      "factors": [
+        "1 employees affected",
+        "59 employees affected"
+      ]
+    },
+    "92021": {
+      "score": 24,
+      "risk_level": "Low",
+      "total_employees": 121,
+      "factors": [
+        "5 employees affected",
+        "Plant closure",
+        "116 employees affected"
+      ]
+    },
+    "92037": {
+      "score": 25,
+      "risk_level": "Moderate",
+      "total_employees": 25,
+      "factors": [
+        "25 employees affected",
+        "Plant closure"
+      ]
+    },
+    "92127": {
+      "score": 22,
+      "risk_level": "Low",
+      "total_employees": 114,
+      "factors": [
+        "64 employees affected",
+        "Plant closure",
+        "50 employees affected"
+      ]
+    },
+    "92009": {
+      "score": 36,
+      "risk_level": "Moderate",
+      "total_employees": 82,
+      "factors": [
+        "79 employees affected",
+        "Plant closure",
+        "3 employees affected"
+      ]
+    },
+    "92122": {
+      "score": 25,
+      "risk_level": "Moderate",
+      "total_employees": 128,
+      "factors": [
+        "9 employees affected",
+        "Plant closure",
+        "61 employees affected",
+        "3 employees affected",
+        "5 employees affected",
+        "4 employees affected",
+        "28 employees affected",
+        "8 employees affected",
+        "7 employees affected"
+      ]
+    },
+    "92154": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 2,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "92131": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 3,
+      "factors": [
+        "3 employees affected"
+      ]
+    }
+  },
+  "by_region": {
+    "Central San Diego": {
+      "notice_count": 50,
+      "total_employees": 2203
+    },
+    "South Bay": {
+      "notice_count": 8,
+      "total_employees": 204
+    },
+    "East County": {
+      "notice_count": 6,
+      "total_employees": 167
+    },
+    "North County Coastal": {
+      "notice_count": 11,
+      "total_employees": 476
+    },
+    "North County Inland": {
+      "notice_count": 3,
+      "total_employees": 115
+    }
+  }
+}
