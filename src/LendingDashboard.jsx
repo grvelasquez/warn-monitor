@@ -181,7 +181,7 @@ export default function LendingDashboard() {
             {/* Subtle grid overlay */}
             <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
 
-            <div className="relative max-w-7xl mx-auto px-6 py-8">
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-8">
                     <div>

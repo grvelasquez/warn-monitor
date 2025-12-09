@@ -165,17 +165,17 @@ export default function DevelopmentDashboard() {
             {/* Subtle grid overlay */}
             <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
 
-            <div className="relative max-w-7xl mx-auto px-6 py-8">
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
                 {/* Header */}
-                <div className="flex items-start justify-between mb-8">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6 sm:mb-8">
                     <div>
                         <div className="flex items-center gap-3 mb-2">
                             <div className="p-2 bg-orange-900/30 rounded-lg border border-orange-800/50">
-                                <Construction className="w-6 h-6 text-orange-400" />
+                                <Construction className="w-5 sm:w-6 h-5 sm:h-6 text-orange-400" />
                             </div>
-                            <h1 className="text-2xl font-bold tracking-tight">Development</h1>
+                            <h1 className="text-xl sm:text-2xl font-bold tracking-tight">Development</h1>
                         </div>
-                        <p className="text-slate-400">San Diego County • Construction & Infrastructure Pipeline</p>
+                        <p className="text-sm sm:text-base text-slate-400">San Diego County • Construction & Infrastructure Pipeline</p>
                     </div>
                     <div className="text-right">
                         <p className="text-xs text-slate-500">City + County Data</p>
@@ -184,12 +184,12 @@ export default function DevelopmentDashboard() {
                 </div>
 
                 {/* Investor Insight Banner */}
-                <div className="bg-gradient-to-r from-orange-900/30 to-amber-900/30 border border-orange-700/30 rounded-xl p-6 mb-8">
-                    <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                        <TrendingUp className="w-5 h-5 text-orange-400" />
+                <div className="bg-gradient-to-r from-orange-900/30 to-amber-900/30 border border-orange-700/30 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
+                    <h2 className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2">
+                        <TrendingUp className="w-4 sm:w-5 h-4 sm:h-5 text-orange-400" />
                         Investor Insight
                     </h2>
-                    <div className="grid md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                         <div>
                             <p className="text-xs text-orange-400 uppercase tracking-wide mb-1">Highest Activity</p>
                             <p className="text-xl font-bold text-white">Mission Valley</p>
@@ -209,7 +209,7 @@ export default function DevelopmentDashboard() {
                 </div>
 
                 {/* Summary Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <StatCard
                         title="Building Permits"
                         value={formatNumber(developmentData.summary.totalPermits2024)}
@@ -249,7 +249,7 @@ export default function DevelopmentDashboard() {
                 </div>
 
                 {/* Charts Row */}
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mb-6 sm:mb-8">
                     {/* Permits by Region */}
                     <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6">
                         <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
