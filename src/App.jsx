@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { AlertTriangle, Home, DollarSign, Construction, Sun } from 'lucide-react';
+import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3 } from 'lucide-react';
 import WarnDashboard from './WarnDashboard';
 import SDARDashboard from './SDARDashboard';
 import LendingDashboard from './LendingDashboard';
 import DevelopmentDashboard from './DevelopmentDashboard';
 import WeatherDashboard from './WeatherDashboard';
+import GentrificationDashboard from './GentrificationDashboard';
 
 export default function App() {
   const [activeView, setActiveView] = useState('weather');
@@ -65,6 +66,16 @@ export default function App() {
                   <span className="hidden sm:inline">Development</span>
                 </button>
                 <button
+                  onClick={() => setActiveView('gentrification')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'gentrification'
+                    ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/25'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                >
+                  <BarChart3 className="w-4 h-4" />
+                  <span className="hidden sm:inline">Trends</span>
+                </button>
+                <button
                   onClick={() => setActiveView('warn')}
                   className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'warn'
                     ? 'bg-red-600 text-white shadow-lg shadow-red-600/25'
@@ -92,6 +103,9 @@ export default function App() {
       </div>
       <div className={activeView === 'development' ? 'block' : 'hidden'}>
         <DevelopmentDashboard />
+      </div>
+      <div className={activeView === 'gentrification' ? 'block' : 'hidden'}>
+        <GentrificationDashboard />
       </div>
       <div className={activeView === 'warn' ? 'block' : 'hidden'}>
         <WarnDashboard />
