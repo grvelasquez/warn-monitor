@@ -1,0 +1,923 @@
+{
+  "meta": {
+    "generated": "2025-12-09T15:26:05.591391",
+    "source": "OpenStreetMap Overpass API",
+    "neighborhoods_count": 15
+  },
+  "summary": {
+    "totalGentrifying": {
+      "coffee_specialty": 251,
+      "yoga_fitness": 57,
+      "brewery_taproom": 41,
+      "art_gallery": 19,
+      "organic_grocery": 88,
+      "pet_services": 14,
+      "coworking": 0
+    },
+    "totalTraditional": {
+      "laundromat": 24,
+      "fast_food": 323,
+      "check_cashing": 4
+    },
+    "topGentrifying": [
+      "Little Italy",
+      "University Heights",
+      "Downtown",
+      "La Jolla",
+      "Gaslamp"
+    ],
+    "lowestGentrifying": [
+      "Chula Vista",
+      "Barrio Logan",
+      "City Heights"
+    ]
+  },
+  "neighborhoods": [
+    {
+      "name": "Downtown",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 63,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 8,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 11,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 7,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 11,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 2,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 2,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 45,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.84
+    },
+    {
+      "name": "North Park",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 14,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 2,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 4,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 2,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 5,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 0,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 3,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 23,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.68
+    },
+    {
+      "name": "Hillcrest",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 14,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 4,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 1,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 1,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 7,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 1,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 0,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 23,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.72
+    },
+    {
+      "name": "La Jolla",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 15,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 6,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 0,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 0,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 3,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 0,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 1,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 8,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.83
+    },
+    {
+      "name": "Pacific Beach",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 30,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 12,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 3,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 0,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 4,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 2,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 5,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 31,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 1,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.75
+    },
+    {
+      "name": "Ocean Beach",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 0,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 7,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 7,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 0,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 3,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 2,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 3,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 5,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.78
+    },
+    {
+      "name": "Mission Valley",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 21,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 3,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 2,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 1,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 7,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 0,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 2,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 31,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.69
+    },
+    {
+      "name": "Gaslamp",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 39,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 3,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 8,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 3,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 5,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 0,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 1,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 33,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.8
+    },
+    {
+      "name": "Little Italy",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 15,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 0,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 1,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 3,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 6,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 2,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 1,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 4,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.88
+    },
+    {
+      "name": "South Park",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 3,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 0,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 0,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 0,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 2,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 1,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 0,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 1,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.75
+    },
+    {
+      "name": "Normal Heights",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 3,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 0,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 0,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 0,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 1,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 0,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 0,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 2,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.64
+    },
+    {
+      "name": "University Heights",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 8,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 1,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 2,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 1,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 2,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 0,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 0,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 2,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.87
+    },
+    {
+      "name": "Barrio Logan",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 3,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 1,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 0,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 1,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 3,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 0,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 0,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 14,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 0,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.53
+    },
+    {
+      "name": "City Heights",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 3,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 0,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 0,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 0,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 9,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 0,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 1,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 14,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 1,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.51
+    },
+    {
+      "name": "Chula Vista",
+      "gentrifying": {
+        "coffee_specialty": {
+          "count": 20,
+          "label": "Coffee/Cafes",
+          "icon": "\u2615"
+        },
+        "yoga_fitness": {
+          "count": 10,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        },
+        "brewery_taproom": {
+          "count": 2,
+          "label": "Breweries/Pubs",
+          "icon": "\ud83c\udf7a"
+        },
+        "art_gallery": {
+          "count": 0,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "organic_grocery": {
+          "count": 20,
+          "label": "Grocery/Markets",
+          "icon": "\ud83e\udd57"
+        },
+        "pet_services": {
+          "count": 4,
+          "label": "Pet Shops",
+          "icon": "\ud83d\udc15"
+        },
+        "coworking": {
+          "count": 0,
+          "label": "Coworking",
+          "icon": "\ud83d\udcbc"
+        }
+      },
+      "traditional": {
+        "laundromat": {
+          "count": 5,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "fast_food": {
+          "count": 87,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "check_cashing": {
+          "count": 2,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        }
+      },
+      "gentrificationScore": 0.55
+    }
+  ],
+  "indicators": {
+    "gentrifying": {
+      "coffee_specialty": "Coffee/Cafes",
+      "yoga_fitness": "Fitness/Yoga",
+      "brewery_taproom": "Breweries/Pubs",
+      "art_gallery": "Art Galleries",
+      "organic_grocery": "Grocery/Markets",
+      "pet_services": "Pet Shops",
+      "coworking": "Coworking"
+    },
+    "traditional": {
+      "laundromat": "Laundromats",
+      "fast_food": "Fast Food",
+      "check_cashing": "Check Cashing"
+    }
+  }
+}

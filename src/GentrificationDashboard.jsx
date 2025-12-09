@@ -1,7 +1,8 @@
 import { useState, useCallback, useMemo } from 'react';
-import { MapPin, TrendingUp, TrendingDown, AlertTriangle, School, Home, Users, Activity, BarChart3, Map } from 'lucide-react';
+import { MapPin, TrendingUp, TrendingDown, AlertTriangle, School, Home, Users, Activity, BarChart3, Map, Store } from 'lucide-react';
 import { useGentrificationData } from './hooks/useGentrificationData';
 import { TransitionChart } from './components/TransitionChart';
+import { RetailSignals } from './components/RetailSignals';
 
 // Risk color scale
 const getRiskColor = (risk) => {
@@ -57,8 +58,8 @@ function GentrificationMap({ districts, selectedId, onSelectDistrict, highlighte
                             key={district.districtId}
                             onClick={() => onSelectDistrict?.(district.districtId)}
                             className={`relative p-3 rounded-lg border transition-all text-left ${isSelected
-                                    ? 'bg-slate-700/50 border-purple-500/50 ring-1 ring-purple-500/30'
-                                    : 'bg-slate-800/50 border-slate-700/50 hover:border-slate-600'
+                                ? 'bg-slate-700/50 border-purple-500/50 ring-1 ring-purple-500/30'
+                                : 'bg-slate-800/50 border-slate-700/50 hover:border-slate-600'
                                 }`}
                         >
                             {/* Risk indicator dot */}
@@ -350,9 +351,18 @@ export default function GentrificationDashboard() {
                 {/* Velocity Timeline */}
                 <VelocityTimeline data={data} />
 
+                {/* Retail Signals Section */}
+                <div className="mt-6 sm:mt-8">
+                    <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                        <Store className="w-5 h-5 text-orange-400" />
+                        Retail Gentrification Signals
+                    </h2>
+                    <RetailSignals />
+                </div>
+
                 {/* Footer */}
                 <div className="mt-12 pt-6 border-t border-slate-800 text-center">
-                    <p className="text-xs text-slate-500">Data sources: California Dept. of Education, Zillow, Census Bureau • For research purposes only</p>
+                    <p className="text-xs text-slate-500">Data sources: California Dept. of Education, Zillow, Census Bureau, OpenStreetMap, City of San Diego • For research purposes only</p>
                 </div>
             </div>
         </div>

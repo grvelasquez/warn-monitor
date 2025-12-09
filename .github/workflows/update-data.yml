@@ -41,6 +41,14 @@ jobs:
         run: |
           python scripts/fetch_development_data.py || echo "Development data fetch failed, using existing data"
       
+      - name: Fetch retail data (OpenStreetMap)
+        run: |
+          python scripts/fetch_retail_data.py || echo "Retail data fetch failed, using existing data"
+      
+      - name: Fetch business license data
+        run: |
+          python scripts/fetch_business_licenses.py || echo "Business license data fetch failed, using existing data"
+      
       - name: Check for changes
         id: check_changes
         run: |
