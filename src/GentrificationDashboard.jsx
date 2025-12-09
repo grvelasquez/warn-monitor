@@ -289,6 +289,15 @@ export default function GentrificationDashboard() {
                     </div>
                 </div>
 
+                {/* Retail Signals Section - TOP */}
+                <div className="mb-6 sm:mb-8">
+                    <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                        <Store className="w-5 h-5 text-orange-400" />
+                        Retail Gentrification Signals
+                    </h2>
+                    <RetailSignals />
+                </div>
+
                 {/* Summary Stats */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <StatCard
@@ -350,15 +359,6 @@ export default function GentrificationDashboard() {
 
                 {/* Velocity Timeline */}
                 <VelocityTimeline data={data} />
-
-                {/* Retail Signals Section */}
-                <div className="mt-6 sm:mt-8">
-                    <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                        <Store className="w-5 h-5 text-orange-400" />
-                        Retail Gentrification Signals
-                    </h2>
-                    <RetailSignals />
-                </div>
 
                 {/* Footer */}
                 <div className="mt-12 pt-6 border-t border-slate-800 text-center">
