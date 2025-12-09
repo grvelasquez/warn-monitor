@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { AlertTriangle, Home, DollarSign, Construction } from 'lucide-react';
+import { AlertTriangle, Home, DollarSign, Construction, Sun } from 'lucide-react';
 import WarnDashboard from './WarnDashboard';
 import SDARDashboard from './SDARDashboard';
 import LendingDashboard from './LendingDashboard';
 import DevelopmentDashboard from './DevelopmentDashboard';
+import WeatherDashboard from './WeatherDashboard';
 
 export default function App() {
-  const [activeView, setActiveView] = useState('realestate');
+  const [activeView, setActiveView] = useState('weather');
 
   return (
     <div className="min-h-screen bg-gray-950">
@@ -23,6 +24,16 @@ export default function App() {
             {/* Navigation Tabs - scrollable on mobile */}
             <div className="flex-1 overflow-x-auto scrollbar-hide">
               <div className="flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 bg-gray-800/50 rounded-lg w-max min-w-full sm:w-auto sm:min-w-0">
+                <button
+                  onClick={() => setActiveView('weather')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'weather'
+                    ? 'bg-sky-600 text-white shadow-lg shadow-sky-600/25'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                >
+                  <Sun className="w-4 h-4" />
+                  <span className="hidden sm:inline">Weather</span>
+                </button>
                 <button
                   onClick={() => setActiveView('realestate')}
                   className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'realestate'
@@ -70,6 +81,9 @@ export default function App() {
       </nav>
 
       {/* Content Area */}
+      <div className={activeView === 'weather' ? 'block' : 'hidden'}>
+        <WeatherDashboard />
+      </div>
       <div className={activeView === 'realestate' ? 'block' : 'hidden'}>
         <SDARDashboard />
       </div>
@@ -85,3 +99,4 @@ export default function App() {
     </div>
   );
 }
+
