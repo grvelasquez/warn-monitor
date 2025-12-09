@@ -53,7 +53,7 @@ function CurrentWeather({ data, location }) {
         <div className={`bg-gradient-to-br ${getTimeGradient()} border border-slate-700/50 rounded-2xl p-6 sm:p-8 backdrop-blur-sm`}>
             <div className="flex items-center gap-2 text-slate-400 mb-4">
                 <MapPin className="w-4 h-4" />
-                <span className="text-sm">{location}, San Diego County</span>
+                <span className="text-sm">{location}, San Diego</span>
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
@@ -225,8 +225,8 @@ function LocationCard({ location, data, isSelected, onClick }) {
         <button
             onClick={onClick}
             className={`w-full text-left p-4 rounded-xl transition-all ${isSelected
-                    ? 'bg-sky-900/40 border-2 border-sky-500/50'
-                    : 'bg-slate-800/30 border border-slate-700/50 hover:bg-slate-800/50'
+                ? 'bg-sky-900/40 border-2 border-sky-500/50'
+                : 'bg-slate-800/30 border border-slate-700/50 hover:bg-slate-800/50'
                 }`}
         >
             <div className="flex items-center justify-between">
@@ -255,7 +255,7 @@ export default function WeatherDashboard() {
         try {
             // Fetch detailed weather for selected location
             const mainRes = await fetch(
-                `https://api.open-meteo.com/v1/forecast?latitude=${selectedLocation.lat}&longitude=${selectedLocation.lon}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,relative_humidity_2m&hourly=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset,uv_index_max&timezone=America/Los_Angeles`
+                `https://api.open-meteo.com/v1/forecast?latitude=${selectedLocation.lat}&longitude=${selectedLocation.lon}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,relative_humidity_2m&hourly=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset,uv_index_max&timezone=America/Los_Angeles&temperature_unit=fahrenheit&wind_speed_unit=mph`
             );
             const mainData = await mainRes.json();
             setWeatherData(mainData);
@@ -263,7 +263,7 @@ export default function WeatherDashboard() {
             // Fetch current weather for all locations
             const locationPromises = SD_LOCATIONS.map(async (loc) => {
                 const res = await fetch(
-                    `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,weather_code&timezone=America/Los_Angeles`
+                    `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,weather_code&timezone=America/Los_Angeles&temperature_unit=fahrenheit`
                 );
                 const data = await res.json();
                 return {
@@ -308,7 +308,7 @@ export default function WeatherDashboard() {
                             </div>
                             <h1 className="text-xl sm:text-2xl font-bold tracking-tight">Weather</h1>
                         </div>
-                        <p className="text-sm sm:text-base text-slate-400">San Diego County • Live Conditions</p>
+                        <p className="text-sm sm:text-base text-slate-400">San Diego • Live Conditions</p>
                     </div>
                     <div className="flex items-center gap-4">
                         <button
@@ -344,7 +344,7 @@ export default function WeatherDashboard() {
 
                         {/* Locations Sidebar */}
                         <div className="space-y-4">
-                            <h3 className="text-lg font-semibold text-white">SD County Locations</h3>
+                            <h3 className="text-lg font-semibold text-white">San Diego Locations</h3>
                             <div className="space-y-3">
                                 {SD_LOCATIONS.map((loc) => (
                                     <LocationCard
