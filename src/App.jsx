@@ -63,8 +63,8 @@ export default function App() {
                   }`}
               >
                 <AlertTriangle className="w-4 h-4" />
-                <span className="hidden sm:inline">WARN Monitor</span>
-                <span className="sm:hidden">Layoffs</span>
+                <span className="hidden sm:inline">SD Insights</span>
+                <span className="sm:hidden">WARN</span>
               </button>
             </div>
           </div>
