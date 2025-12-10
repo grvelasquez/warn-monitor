@@ -1,0 +1,804 @@
+{
+  "meta": {
+    "generated": "2025-12-10T14:25:23.825832",
+    "source": "Yelp Fusion API",
+    "neighborhoods_count": 15,
+    "categories_tracked": [
+      "restaurants",
+      "bars",
+      "breweries",
+      "coffee",
+      "hotels",
+      "shopping",
+      "arts",
+      "fitness"
+    ]
+  },
+  "summary": {
+    "total_counts": {
+      "restaurants": 8794,
+      "bars": 2439,
+      "breweries": 195,
+      "coffee": 1799,
+      "hotels": 834,
+      "shopping": 16936,
+      "arts": 874,
+      "fitness": 1970
+    },
+    "top_dining": [
+      "Downtown (Gaslamp)",
+      "East Village",
+      "Little Italy",
+      "Mission Hills",
+      "Hillcrest"
+    ],
+    "neighborhoods_tracked": 15
+  },
+  "neighborhoods": [
+    {
+      "name": "Downtown (Gaslamp)",
+      "location": "Gaslamp Quarter, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7116,
+        "lon": -117.1603
+      },
+      "categories": {
+        "restaurants": {
+          "count": 1200,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 391,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 21,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 227,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 136,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 2000,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 122,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 226,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 4323
+    },
+    {
+      "name": "East Village",
+      "location": "East Village, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7134,
+        "lon": -117.1502
+      },
+      "categories": {
+        "restaurants": {
+          "count": 1200,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 366,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 22,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 210,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 137,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 2000,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 125,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 191,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 4251
+    },
+    {
+      "name": "Little Italy",
+      "location": "Little Italy, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7242,
+        "lon": -117.168
+      },
+      "categories": {
+        "restaurants": {
+          "count": 1200,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 401,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 22,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 224,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 144,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 2000,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 116,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 223,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 4330
+    },
+    {
+      "name": "North Park",
+      "location": "North Park, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7486,
+        "lon": -117.1289
+      },
+      "categories": {
+        "restaurants": {
+          "count": 529,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 140,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 19,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 124,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 19,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 764,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 65,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 122,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 1782
+    },
+    {
+      "name": "Hillcrest",
+      "location": "Hillcrest, San Diego, CA",
+      "coordinates": {
+        "lat": 32.748,
+        "lon": -117.1617
+      },
+      "categories": {
+        "restaurants": {
+          "count": 692,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 179,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 12,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 149,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 86,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 1200,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 73,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 160,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 2551
+    },
+    {
+      "name": "La Jolla",
+      "location": "La Jolla, CA",
+      "coordinates": {
+        "lat": 32.8473,
+        "lon": -117.2713
+      },
+      "categories": {
+        "restaurants": {
+          "count": 253,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 56,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 2,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 50,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 19,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 1400,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 68,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 135,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 1983
+    },
+    {
+      "name": "Pacific Beach",
+      "location": "Pacific Beach, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7997,
+        "lon": -117.2359
+      },
+      "categories": {
+        "restaurants": {
+          "count": 313,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 73,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 4,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 69,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 32,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 1000,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 17,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 124,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 1632
+    },
+    {
+      "name": "Normal Heights",
+      "location": "Normal Heights, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7651,
+        "lon": -117.0981
+      },
+      "categories": {
+        "restaurants": {
+          "count": 498,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 114,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 16,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 115,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 11,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 683,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 29,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 106,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 1572
+    },
+    {
+      "name": "Del Mar",
+      "location": "Del Mar, CA",
+      "coordinates": {
+        "lat": 32.9595,
+        "lon": -117.2653
+      },
+      "categories": {
+        "restaurants": {
+          "count": 172,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 39,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 2,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 33,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 17,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 1000,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 16,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 79,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 1358
+    },
+    {
+      "name": "Ocean Beach",
+      "location": "Ocean Beach, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7499,
+        "lon": -117.2494
+      },
+      "categories": {
+        "restaurants": {
+          "count": 214,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 62,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 8,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 60,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 30,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 272,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 12,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 50,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 708
+    },
+    {
+      "name": "Coronado",
+      "location": "Coronado, CA",
+      "coordinates": {
+        "lat": 32.6859,
+        "lon": -117.1831
+      },
+      "categories": {
+        "restaurants": {
+          "count": 195,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 52,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 6,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 35,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 24,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 1100,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 19,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 80,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 1511
+    },
+    {
+      "name": "South Park",
+      "location": "South Park, San Diego, CA",
+      "coordinates": {
+        "lat": 32.727,
+        "lon": -117.1275
+      },
+      "categories": {
+        "restaurants": {
+          "count": 474,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 93,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 12,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 92,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 6,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 606,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 71,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 78,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 1432
+    },
+    {
+      "name": "University Heights",
+      "location": "University Heights, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7651,
+        "lon": -117.1281
+      },
+      "categories": {
+        "restaurants": {
+          "count": 644,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 167,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 21,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 153,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 43,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 1100,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 56,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 159,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 2343
+    },
+    {
+      "name": "Kensington",
+      "location": "Kensington, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7651,
+        "lon": -117.0981
+      },
+      "categories": {
+        "restaurants": {
+          "count": 462,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 99,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 16,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 99,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 12,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 611,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 27,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 81,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 1407
+    },
+    {
+      "name": "Mission Hills",
+      "location": "Mission Hills, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7516,
+        "lon": -117.1772
+      },
+      "categories": {
+        "restaurants": {
+          "count": 748,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 207,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 12,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 159,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "hotels": {
+          "count": 118,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "shopping": {
+          "count": 1200,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "arts": {
+          "count": 58,
+          "label": "Art Galleries",
+          "icon": "\ud83c\udfa8"
+        },
+        "fitness": {
+          "count": 156,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8"
+        }
+      },
+      "total_businesses": 2658
+    }
+  ]
+}
