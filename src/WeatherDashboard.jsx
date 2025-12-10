@@ -56,13 +56,13 @@ function CurrentWeather({ data, location }) {
                 <span className="text-sm">{location}, San Diego</span>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-                <div className="flex items-center gap-6">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6">
+                <div className="flex items-center gap-4 md:gap-6">
                     <div className={`${weatherInfo.color}`}>
-                        <WeatherIcon className="w-20 h-20 sm:w-24 sm:h-24" strokeWidth={1.5} />
+                        <WeatherIcon className="w-16 h-16 md:w-24 md:h-24" strokeWidth={1.5} />
                     </div>
                     <div>
-                        <p className="text-5xl sm:text-6xl font-light text-white">
+                        <p className="text-4xl md:text-6xl font-light text-white">
                             {formatTemp(data?.current?.temperature_2m || 72)}
                         </p>
                         <p className="text-lg text-slate-300 mt-1">{weatherInfo.label}</p>
@@ -300,7 +300,7 @@ export default function WeatherDashboard() {
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6 md:mb-8">
                     <div>
                         <div className="flex items-center gap-3 mb-2">
                             <div className="p-2 bg-sky-900/30 rounded-lg border border-sky-800/50">
@@ -336,7 +336,7 @@ export default function WeatherDashboard() {
                         <div className="lg:col-span-2 space-y-6">
                             <CurrentWeather data={weatherData} location={selectedLocation.name} />
                             <HourlyForecast data={weatherData} />
-                            <div className="grid sm:grid-cols-2 gap-6">
+                            <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                                 <SunTimes data={weatherData} />
                                 <DailyForecast data={weatherData} />
                             </div>
