@@ -96,12 +96,15 @@ function NeighborhoodCard({ neighborhood, rank }) {
     );
 }
 
-// Sort options
+// Sort options - by category
 const SORT_OPTIONS = [
-    { value: 'score_desc', label: 'Risk: High to Low' },
-    { value: 'score_asc', label: 'Risk: Low to High' },
     { value: 'name_asc', label: 'Name: A-Z' },
     { value: 'coffee_desc', label: 'Most Coffee Shops' },
+    { value: 'yoga_desc', label: 'Most Yoga/Fitness' },
+    { value: 'brewery_desc', label: 'Most Breweries/Pubs' },
+    { value: 'gallery_desc', label: 'Most Art Galleries' },
+    { value: 'grocery_desc', label: 'Most Grocery/Markets' },
+    { value: 'pet_desc', label: 'Most Pet Services' },
 ];
 
 // Main component with filtering
@@ -138,22 +141,33 @@ export function RetailSignals({ className = "" }) {
             result = result.filter(n => regionNames.includes(n.name));
         }
 
-        // Sort
+        // Sort by category
+        const getCategoryCount = (n, category) => n.gentrifying?.[category]?.count || 0;
+
         switch (sortBy) {
-            case 'score_asc':
-                result.sort((a, b) => a.gentrificationScore - b.gentrificationScore);
-                break;
             case 'name_asc':
                 result.sort((a, b) => a.name.localeCompare(b.name));
                 break;
             case 'coffee_desc':
-                result.sort((a, b) =>
-                    (b.gentrifying?.coffee_specialty?.count || 0) -
-                    (a.gentrifying?.coffee_specialty?.count || 0)
-                );
+                result.sort((a, b) => getCategoryCount(b, 'coffee_specialty') - getCategoryCount(a, 'coffee_specialty'));
                 break;
-            default: // score_desc
-                result.sort((a, b) => b.gentrificationScore - a.gentrificationScore);
+            case 'yoga_desc':
+                result.sort((a, b) => getCategoryCount(b, 'yoga_fitness') - getCategoryCount(a, 'yoga_fitness'));
+                break;
+            case 'brewery_desc':
+                result.sort((a, b) => getCategoryCount(b, 'brewery_taproom') - getCategoryCount(a, 'brewery_taproom'));
+                break;
+            case 'gallery_desc':
+                result.sort((a, b) => getCategoryCount(b, 'art_gallery') - getCategoryCount(a, 'art_gallery'));
+                break;
+            case 'grocery_desc':
+                result.sort((a, b) => getCategoryCount(b, 'organic_grocery') - getCategoryCount(a, 'organic_grocery'));
+                break;
+            case 'pet_desc':
+                result.sort((a, b) => getCategoryCount(b, 'pet_services') - getCategoryCount(a, 'pet_services'));
+                break;
+            default:
+                result.sort((a, b) => a.name.localeCompare(b.name));
         }
 
         return result;
