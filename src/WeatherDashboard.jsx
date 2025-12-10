@@ -50,7 +50,7 @@ function CurrentWeather({ data, location }) {
     const WeatherIcon = weatherInfo.icon;
 
     return (
-        <div className={`bg-gradient-to-br ${getTimeGradient()} border border-slate-700/50 rounded-2xl p-6 sm:p-8 backdrop-blur-sm`}>
+        <div className={`bg-gradient-to-br ${getTimeGradient()} border border-slate-700/50 rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm`}>
             <div className="flex items-center gap-2 text-slate-400 mb-4">
                 <MapPin className="w-4 h-4" />
                 <span className="text-sm">{location}, San Diego</span>
@@ -72,7 +72,7 @@ function CurrentWeather({ data, location }) {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                     <div className="flex items-center gap-2">
                         <Wind className="w-5 h-5 text-cyan-400" />
                         <div>
@@ -156,20 +156,20 @@ function DailyForecast({ data }) {
                     const isToday = idx === 0;
 
                     return (
-                        <div key={idx} className="flex items-center justify-between py-2 border-b border-slate-700/30 last:border-0">
-                            <div className="flex items-center gap-3 w-24">
-                                <p className={`text-sm ${isToday ? 'text-white font-medium' : 'text-slate-400'}`}>
+                        <div key={idx} className="flex items-center justify-between py-2 border-b border-slate-700/30 last:border-0 gap-2">
+                            <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                                <p className={`text-sm ${isToday ? 'text-white font-medium' : 'text-slate-400'} w-10 sm:w-12`}>
                                     {isToday ? 'Today' : dayNames[date.getDay()]}
                                 </p>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <WeatherIcon className={`w-5 h-5 ${weatherInfo.color}`} />
-                                <p className="text-xs text-slate-500 w-20">{weatherInfo.label}</p>
+                            <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                                <WeatherIcon className={`w-4 h-4 sm:w-5 sm:h-5 ${weatherInfo.color}`} />
+                                <p className="text-xs text-slate-500 hidden sm:block w-20">{weatherInfo.label}</p>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <p className="text-white font-medium w-10 text-right">{formatTemp(maxTemps[idx])}</p>
-                                <div className="w-16 h-1.5 bg-gradient-to-r from-blue-500 via-yellow-500 to-red-500 rounded-full opacity-50" />
-                                <p className="text-slate-500 w-10">{formatTemp(minTemps[idx])}</p>
+                            <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                                <p className="text-white font-medium text-sm sm:text-base text-right">{formatTemp(maxTemps[idx])}</p>
+                                <div className="w-8 sm:w-12 md:w-16 h-1.5 bg-gradient-to-r from-blue-500 via-yellow-500 to-red-500 rounded-full opacity-50" />
+                                <p className="text-slate-500 text-sm sm:text-base">{formatTemp(minTemps[idx])}</p>
                             </div>
                         </div>
                     );
@@ -190,26 +190,26 @@ function SunTimes({ data }) {
     };
 
     return (
-        <div className="bg-gradient-to-r from-orange-900/20 to-indigo-900/20 border border-slate-700/50 rounded-xl p-4 sm:p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Sun Schedule</h3>
+        <div className="bg-gradient-to-r from-orange-900/20 to-indigo-900/20 border border-slate-700/50 rounded-xl p-3 sm:p-4 md:p-6">
+            <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Sun Schedule</h3>
             <div className="flex justify-around">
-                <div className="flex items-center gap-3">
-                    <div className="p-3 bg-orange-900/30 rounded-full">
-                        <Sunrise className="w-6 h-6 text-orange-400" />
+                <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="p-2 sm:p-3 bg-orange-900/30 rounded-full">
+                        <Sunrise className="w-5 h-5 sm:w-6 sm:h-6 text-orange-400" />
                     </div>
                     <div>
                         <p className="text-xs text-slate-400">Sunrise</p>
-                        <p className="text-xl font-medium text-white">{formatTime(sunrise)}</p>
+                        <p className="text-lg sm:text-xl font-medium text-white">{formatTime(sunrise)}</p>
                     </div>
                 </div>
                 <div className="w-px bg-slate-700/50" />
-                <div className="flex items-center gap-3">
-                    <div className="p-3 bg-indigo-900/30 rounded-full">
-                        <Sunset className="w-6 h-6 text-indigo-400" />
+                <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="p-2 sm:p-3 bg-indigo-900/30 rounded-full">
+                        <Sunset className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-400" />
                     </div>
                     <div>
                         <p className="text-xs text-slate-400">Sunset</p>
-                        <p className="text-xl font-medium text-white">{formatTime(sunset)}</p>
+                        <p className="text-lg sm:text-xl font-medium text-white">{formatTime(sunset)}</p>
                     </div>
                 </div>
             </div>
