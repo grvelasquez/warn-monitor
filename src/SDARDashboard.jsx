@@ -14,6 +14,7 @@ const FilterIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" heig
 const XIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>;
 
 import { neighborhoodData, regions } from './sdarData';
+import { SDARNeighborhoodDashboard } from './components/SDARNeighborhoodDashboard';
 
 export default function SDARDashboard() {
     const [activeTab, setActiveTab] = useState('overview');
@@ -171,6 +172,15 @@ export default function SDARDashboard() {
                         <p className="text-slate-400">San Diego County • SDAR MLS Data</p>
                     </div>
 
+                </div>
+
+                {/* November 2025 Neighborhood Data from PDFs */}
+                <div className="mb-8">
+                    <div className="flex items-center gap-2 mb-4">
+                        <h2 className="text-lg font-semibold text-white">November 2025 Market Data</h2>
+                        <span className="text-[10px] px-2 py-0.5 bg-blue-900/50 text-blue-400 rounded-full">From SDAR PDFs</span>
+                    </div>
+                    <SDARNeighborhoodDashboard />
                 </div>
 
                 {/* Filter Panel - Always visible */}
