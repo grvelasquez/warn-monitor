@@ -277,33 +277,41 @@ export default function GentrificationDashboard() {
                         </div>
                         <p className="text-sm text-slate-400">San Diego • Gentrification & Displacement Analysis</p>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <div className={`px-3 py-1.5 rounded-lg ${riskInfo.bg}/20`}>
-                            <span className={`text-sm font-medium ${riskInfo.text}`}>{riskInfo.label}</span>
-                        </div>
-                        <p className="text-xs text-slate-500">{summary?.period}</p>
-                    </div>
                 </div>
 
                 {/* Retail Signals */}
                 <div className="mb-6">
-                    <h2 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
-                        <Store className="w-4 h-4 text-orange-400" />
-                        Retail Signals
-                    </h2>
+                    <div className="flex items-center justify-between mb-3">
+                        <h2 className="text-base font-semibold text-white flex items-center gap-2">
+                            <Store className="w-4 h-4 text-orange-400" />
+                            Retail Signals
+                        </h2>
+                        <span className="text-[10px] px-2 py-0.5 bg-green-900/30 text-green-400 rounded-full">LIVE</span>
+                    </div>
                     <RetailSignals />
                 </div>
 
                 {/* Homeless Signals */}
                 <div className="mb-6">
-                    <h2 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
-                        <Users className="w-4 h-4 text-red-400" />
-                        Homeless Population
-                    </h2>
+                    <div className="flex items-center justify-between mb-3">
+                        <h2 className="text-base font-semibold text-white flex items-center gap-2">
+                            <Users className="w-4 h-4 text-red-400" />
+                            Homeless Population
+                        </h2>
+                        <span className="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-400 rounded-full">Jan 2024 PIT Count</span>
+                    </div>
                     <HomelessSignals />
                 </div>
-
                 {/* Key Metrics */}
+                <div className="mb-6">
+                    <div className="flex items-center justify-between mb-3">
+                        <h2 className="text-base font-semibold text-white flex items-center gap-2">
+                            <Home className="w-4 h-4 text-emerald-400" />
+                            School Districts & Housing
+                        </h2>
+                        <span className="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-400 rounded-full">Sample Data</span>
+                    </div>
+                </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                     <StatCard
                         title="Median Home Price"
@@ -339,10 +347,13 @@ export default function GentrificationDashboard() {
 
                 {/* Demographics Chart */}
                 <div className="mb-6">
-                    <h2 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
-                        <BarChart3 className="w-4 h-4 text-slate-500" />
-                        Demographics vs. Price (2018-2024)
-                    </h2>
+                    <div className="flex items-center justify-between mb-3">
+                        <h2 className="text-base font-semibold text-white flex items-center gap-2">
+                            <BarChart3 className="w-4 h-4 text-slate-500" />
+                            Demographics vs. Price Trend
+                        </h2>
+                        <span className="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-400 rounded-full">2018-2024 Sample</span>
+                    </div>
                     <TransitionChart
                         data={data}
                         onYearHover={handleYearHover}
