@@ -298,7 +298,7 @@ export default function WeatherDashboard() {
                 <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
             </div>
 
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+            <div className="relative w-full max-w-full md:max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6 md:mb-8">
                     <div>
