@@ -128,7 +128,7 @@ export function SDARNeighborhoodDashboard() {
     // Chart data for price comparison
     const chartData = useMemo(() => {
         return sortedNeighborhoods.slice(0, 15).map(n => ({
-            name: n.neighborhood.length > 12 ? n.neighborhood.substring(0, 12) + '...' : n.neighborhood,
+            name: n.neighborhood || n.zip_code || 'Unknown',
             price: n[propertyType]?.median_price_2025 || 0,
             dom: n[propertyType]?.dom_2025 || 0,
         }));
@@ -193,8 +193,8 @@ export function SDARNeighborhoodDashboard() {
                     <button
                         onClick={() => setPropertyType('detached')}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${propertyType === 'detached'
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
                             }`}
                     >
                         🏠 Detached
@@ -202,8 +202,8 @@ export function SDARNeighborhoodDashboard() {
                     <button
                         onClick={() => setPropertyType('attached')}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${propertyType === 'attached'
-                                ? 'bg-green-600 text-white'
-                                : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                            ? 'bg-green-600 text-white'
+                            : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
                             }`}
                     >
                         🏢 Attached
