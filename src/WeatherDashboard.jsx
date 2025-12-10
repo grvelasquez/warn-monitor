@@ -113,9 +113,9 @@ function HourlyForecast({ data }) {
     const codes = data?.hourly?.weather_code?.slice(0, 24) || [];
 
     return (
-        <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4 sm:p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Hourly Forecast</h3>
-            <div className="flex overflow-x-auto gap-4 pb-2 scrollbar-hide">
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-3 sm:p-4 md:p-6 overflow-hidden">
+            <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Hourly Forecast</h3>
+            <div className="flex overflow-x-auto gap-2 sm:gap-4 pb-2 scrollbar-hide -mx-1 px-1">
                 {hours.slice(0, 12).map((time, idx) => {
                     const weatherInfo = getWeatherInfo(codes[idx]);
                     const WeatherIcon = weatherInfo.icon;
@@ -123,12 +123,12 @@ function HourlyForecast({ data }) {
                     const isNow = idx === 0;
 
                     return (
-                        <div key={idx} className={`flex-shrink-0 flex flex-col items-center p-3 rounded-lg ${isNow ? 'bg-slate-700/50' : ''}`}>
-                            <p className="text-xs text-slate-400 mb-2">
+                        <div key={idx} className={`flex-shrink-0 flex flex-col items-center p-2 sm:p-3 rounded-lg min-w-[50px] sm:min-w-[60px] ${isNow ? 'bg-slate-700/50' : ''}`}>
+                            <p className="text-xs text-slate-400 mb-1 sm:mb-2">
                                 {isNow ? 'Now' : `${hour % 12 || 12}${hour >= 12 ? 'PM' : 'AM'}`}
                             </p>
-                            <WeatherIcon className={`w-6 h-6 ${weatherInfo.color} mb-2`} />
-                            <p className="text-white font-medium">{formatTemp(temps[idx])}</p>
+                            <WeatherIcon className={`w-5 h-5 sm:w-6 sm:h-6 ${weatherInfo.color} mb-1 sm:mb-2`} />
+                            <p className="text-white font-medium text-sm sm:text-base">{formatTemp(temps[idx])}</p>
                         </div>
                     );
                 })}
@@ -146,9 +146,9 @@ function DailyForecast({ data }) {
     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     return (
-        <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4 sm:p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">7-Day Forecast</h3>
-            <div className="space-y-3">
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-3 sm:p-4 md:p-6 overflow-hidden">
+            <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">7-Day Forecast</h3>
+            <div className="space-y-2 sm:space-y-3">
                 {days.slice(0, 7).map((day, idx) => {
                     const date = new Date(day);
                     const weatherInfo = getWeatherInfo(codes[idx]);
@@ -156,20 +156,15 @@ function DailyForecast({ data }) {
                     const isToday = idx === 0;
 
                     return (
-                        <div key={idx} className="flex items-center justify-between py-2 border-b border-slate-700/30 last:border-0 gap-2">
-                            <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-                                <p className={`text-sm ${isToday ? 'text-white font-medium' : 'text-slate-400'} w-10 sm:w-12`}>
-                                    {isToday ? 'Today' : dayNames[date.getDay()]}
-                                </p>
-                            </div>
-                            <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-                                <WeatherIcon className={`w-4 h-4 sm:w-5 sm:h-5 ${weatherInfo.color}`} />
-                                <p className="text-xs text-slate-500 hidden sm:block w-20">{weatherInfo.label}</p>
-                            </div>
-                            <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-                                <p className="text-white font-medium text-sm sm:text-base text-right">{formatTemp(maxTemps[idx])}</p>
-                                <div className="w-8 sm:w-12 md:w-16 h-1.5 bg-gradient-to-r from-blue-500 via-yellow-500 to-red-500 rounded-full opacity-50" />
-                                <p className="text-slate-500 text-sm sm:text-base">{formatTemp(minTemps[idx])}</p>
+                        <div key={idx} className="flex items-center py-1.5 sm:py-2 border-b border-slate-700/30 last:border-0">
+                            <p className={`text-xs sm:text-sm ${isToday ? 'text-white font-medium' : 'text-slate-400'} w-10 sm:w-12 flex-shrink-0`}>
+                                {isToday ? 'Today' : dayNames[date.getDay()]}
+                            </p>
+                            <WeatherIcon className={`w-4 h-4 ${weatherInfo.color} flex-shrink-0 mx-2`} />
+                            <div className="flex items-center gap-1 ml-auto flex-shrink-0">
+                                <p className="text-white font-medium text-xs sm:text-sm">{formatTemp(maxTemps[idx])}</p>
+                                <div className="w-6 sm:w-10 h-1 bg-gradient-to-r from-blue-500 via-yellow-500 to-red-500 rounded-full opacity-50" />
+                                <p className="text-slate-500 text-xs sm:text-sm">{formatTemp(minTemps[idx])}</p>
                             </div>
                         </div>
                     );
