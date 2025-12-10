@@ -25,9 +25,14 @@ SD_BBOX = {
 # Comprehensive coverage of San Diego County (60+ neighborhoods)
 SD_NEIGHBORHOODS = {
     # === CENTRAL SAN DIEGO ===
-    "Downtown": {"s": 32.70, "w": -117.18, "n": 32.73, "e": -117.14},
+    # Downtown sub-neighborhoods (more specific than generic "Downtown")
     "Gaslamp": {"s": 32.70, "w": -117.17, "n": 32.72, "e": -117.15},
     "Little Italy": {"s": 32.72, "w": -117.17, "n": 32.74, "e": -117.16},
+    "East Village": {"s": 32.70, "w": -117.16, "n": 32.72, "e": -117.14},
+    "Marina": {"s": 32.70, "w": -117.175, "n": 32.715, "e": -117.16},
+    "Columbia": {"s": 32.715, "w": -117.175, "n": 32.725, "e": -117.16},
+    "Cortez Hill": {"s": 32.72, "w": -117.165, "n": 32.73, "e": -117.155},
+    # Other Central neighborhoods
     "Hillcrest": {"s": 32.74, "w": -117.17, "n": 32.76, "e": -117.14},
     "North Park": {"s": 32.74, "w": -117.14, "n": 32.76, "e": -117.11},
     "South Park": {"s": 32.72, "w": -117.13, "n": 32.74, "e": -117.11},

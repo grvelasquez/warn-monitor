@@ -203,18 +203,38 @@ export function RetailSignals({ className = "" }) {
 
     return (
         <div className={`space-y-4 ${className}`}>
-            {/* Quick stats row */}
+            {/* Quick stats row - clickable to sort */}
             {summaryItems.length > 0 && (
                 <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                     {summaryItems.map(([key, count]) => {
                         const Icon = CATEGORY_ICONS[key] || Store;
                         const color = CATEGORY_COLORS[key] || 'text-slate-400';
+                        const sortValue = `${key.replace('_', '_')}_desc`;
+                        // Map category keys to sort values
+                        const sortMap = {
+                            'coffee_specialty': 'coffee_desc',
+                            'yoga_fitness': 'yoga_desc',
+                            'brewery_taproom': 'brewery_desc',
+                            'art_gallery': 'gallery_desc',
+                            'organic_grocery': 'grocery_desc',
+                            'pet_services': 'pet_desc',
+                        };
+                        const thisSortValue = sortMap[key];
+                        const isActive = sortBy === thisSortValue;
+
                         return (
-                            <div key={key} className="bg-slate-800/40 border border-slate-700/50 rounded-lg p-2 text-center">
+                            <button
+                                key={key}
+                                onClick={() => thisSortValue && setSortBy(thisSortValue)}
+                                className={`bg-slate-800/40 border rounded-lg p-2 text-center transition-all cursor-pointer hover:bg-slate-700/50 ${isActive
+                                        ? 'border-purple-500 ring-1 ring-purple-500/50'
+                                        : 'border-slate-700/50 hover:border-slate-600'
+                                    }`}
+                            >
                                 <Icon className={`w-4 h-4 ${color} mx-auto mb-1`} />
                                 <p className="text-lg font-bold text-white">{count}</p>
                                 <p className="text-[10px] text-slate-500 capitalize truncate">{key.replace(/_/g, ' ')}</p>
-                            </div>
+                            </button>
                         );
                     })}
                 </div>
