@@ -174,6 +174,7 @@ export default function DevelopmentDashboard() {
                                 <Construction className="w-5 sm:w-6 h-5 sm:h-6 text-orange-400" />
                             </div>
                             <h1 className="text-xl sm:text-2xl font-bold tracking-tight">Development</h1>
+                            <span className="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-400 rounded-full">2024 YTD</span>
                         </div>
                         <p className="text-sm sm:text-base text-slate-400">San Diego County • Construction & Infrastructure Pipeline</p>
                     </div>

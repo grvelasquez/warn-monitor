@@ -137,6 +137,7 @@ export default function SDARDashboard() {
                                 <HomeIcon />
                             </div>
                             <h1 className="text-2xl font-bold tracking-tight">Real Estate Market</h1>
+                            <span className="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-400 rounded-full">SDAR Oct 2024</span>
                         </div>
                         <p className="text-slate-400">San Diego County • SDAR MLS Data</p>
                     </div>
