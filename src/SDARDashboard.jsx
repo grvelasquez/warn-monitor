@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, Legend } from 'recharts';
 
 // Icons as simple SVG components
@@ -123,6 +123,24 @@ export default function SDARDashboard() {
         { id: 'attached', label: 'Condos/Townhomes', icon: '🏢' },
     ];
 
+    // Fetch dynamic data info
+    const [fetchedData, setFetchedData] = useState(null);
+
+    useEffect(() => {
+        const loadData = async () => {
+            try {
+                const res = await fetch('/data/sdar_data.json');
+                if (res.ok) {
+                    setFetchedData(await res.json());
+                }
+            } catch (e) { console.error("Failed to load SDAR meta", e); }
+        };
+        loadData();
+    }, []);
+
+    const latestReportUrl = fetchedData?.report_url;
+    const latestDate = fetchedData?.current_period?.report_date;
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
             {/* Subtle grid overlay */}
@@ -137,7 +155,18 @@ export default function SDARDashboard() {
                                 <HomeIcon />
                             </div>
                             <h1 className="text-2xl font-bold tracking-tight">Real Estate Market</h1>
-                            <span className="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-400 rounded-full">SDAR Oct 2024</span>
+                            {latestDate ? (
+                                <a
+                                    href={latestReportUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-[10px] px-2 py-0.5 bg-green-900/50 text-green-400 rounded-full hover:bg-green-900/70 transition-colors flex items-center gap-1"
+                                >
+                                    SDAR {latestDate} Report ↗
+                                </a>
+                            ) : (
+                                <span className="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-400 rounded-full">SDAR Data</span>
+                            )}
                         </div>
                         <p className="text-slate-400">San Diego County • SDAR MLS Data</p>
                     </div>

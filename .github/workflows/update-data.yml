@@ -2,8 +2,10 @@ name: Update Dashboard Data
 
 on:
   schedule:
-    # Run at 9 AM PT (5 PM UTC) every Tuesday and Thursday
+    # Run at 9 AM PT (5 PM UTC) every Tuesday and Thursday for weekly data
     - cron: '0 17 * * 2,4'
+    # Run at 9 AM PT on 1st of each month for monthly data releases
+    - cron: '0 17 1 * *'
   workflow_dispatch: # Allow manual trigger
 
 jobs:
@@ -52,6 +54,10 @@ jobs:
       - name: Fetch homeless data
         run: |
           python scripts/fetch_homeless_data.py || echo "Homeless data fetch failed, using existing data"
+      
+      - name: Fetch SDAR data
+        run: |
+          python scripts/fetch_sdar_data.py || echo "SDAR data fetch failed, using existing data"
       
       - name: Check for changes
         id: check_changes

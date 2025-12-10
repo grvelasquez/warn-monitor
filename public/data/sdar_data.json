@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "last_updated": "2025-12-09T17:22:52.786921",
+    "source": "SDAR / 10K Research",
+    "latest_report_period": "2025-11"
+  },
+  "data_available": true,
+  "report_url": "https://sdar.stats.10kresearch.com/docs/mmi/2025-11/x/report?src=page",
+  "current_period": {
+    "report_date": "2025-11",
+    "report_url": "https://sdar.stats.10kresearch.com/docs/mmi/2025-11/x/report?src=page",
+    "status": "available",
+    "summary": {
+      "detached_median": null,
+      "attached_median": null,
+      "market_status": "Data available in report"
+    }
+  }
+}
