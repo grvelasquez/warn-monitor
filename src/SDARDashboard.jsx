@@ -115,7 +115,7 @@ export default function SDARDashboard() {
     }, [selectedArea, availableAreas]);
 
     const currentData = useMemo(() => {
-        let zipData = neighborhoodData['all'];
+        let zipData = neighborhoodData['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'];
         if (selectedZip !== 'all' && neighborhoodData[selectedZip]) {
             zipData = neighborhoodData[selectedZip];
         } else if (selectedArea !== 'all') {
@@ -124,7 +124,9 @@ export default function SDARDashboard() {
                 zipData = neighborhoodData[area.zips[0]];
             }
         }
-        return zipData[propertyType] || zipData['all'];
+        // Ensure we always return valid data with fallbacks
+        const result = zipData?.[propertyType] || zipData?.['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'][propertyType] || DEFAULT_NEIGHBORHOOD_DATA['all'].all;
+        return result || DEFAULT_NEIGHBORHOOD_DATA['all'].all;
     }, [selectedZip, selectedArea, availableAreas, propertyType, neighborhoodData]);
 
     const locationName = useMemo(() => {
@@ -162,7 +164,7 @@ export default function SDARDashboard() {
     }, [currentData]);
 
     const comparisonData = useMemo(() => {
-        let zipData = neighborhoodData['all'];
+        let zipData = neighborhoodData['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'];
         if (selectedZip !== 'all' && neighborhoodData[selectedZip]) {
             zipData = neighborhoodData[selectedZip];
         } else if (selectedArea !== 'all') {
@@ -172,8 +174,8 @@ export default function SDARDashboard() {
             }
         }
         return {
-            detached: zipData.detached || DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
-            attached: zipData.attached || DEFAULT_NEIGHBORHOOD_DATA['all'].attached
+            detached: zipData?.detached || DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
+            attached: zipData?.attached || DEFAULT_NEIGHBORHOOD_DATA['all'].attached
         };
     }, [selectedZip, selectedArea, availableAreas, neighborhoodData]);
 
