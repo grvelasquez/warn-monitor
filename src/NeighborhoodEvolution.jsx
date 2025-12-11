@@ -1,33 +1,51 @@
 import { useState, useEffect, useMemo } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Line, Area } from 'recharts';
-import { MapPin, Home, TrendingUp, Store, Coffee, Building, DollarSign, Clock, Package, Filter } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Line } from 'recharts';
+import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown, Store, Coffee, UtensilsCrossed } from 'lucide-react';
 
-// Region groupings by ZIP prefix
+// Region groupings by ZIP prefix (for SDAR) and name (for Yelp)
 const REGIONS = {
-    all: { label: 'All', prefix: '' },
-    downtown: { label: 'Downtown/Central', prefix: '921', zips: ['92101', '92102', '92103', '92104', '92105', '92108', '92110', '92111', '92113', '92114', '92115', '92116'] },
-    coastal: { label: 'Coastal', prefix: '', zips: ['92106', '92107', '92109', '92118', '92037', '92014', '92024', '92007', '92075'] },
-    north: { label: 'North County', prefix: '920', zips: ['92054', '92056', '92057', '92058', '92008', '92009', '92010', '92011', '92064', '92065', '92069', '92078', '92081', '92082', '92083', '92084'] },
-    east: { label: 'East County', prefix: '919', zips: ['91901', '91941', '91942', '91945', '92040', '92071', '92119', '92120', '92124', '92131'] },
-    south: { label: 'South Bay', prefix: '919', zips: ['91902', '91910', '91911', '91913', '91914', '91915', '91932', '91950', '92154', '92173'] },
+    all: { label: 'All', zips: null },
+    downtown: { label: 'Downtown/Central', zips: ['92101', '92102', '92103', '92104', '92105', '92108', '92110', '92111', '92113', '92114', '92115', '92116'] },
+    coastal: { label: 'Coastal', zips: ['92106', '92107', '92109', '92118', '92037', '92014', '92024', '92007', '92075', '92130'] },
+    north: { label: 'North County', zips: ['92054', '92056', '92057', '92058', '92008', '92009', '92010', '92011', '92064', '92065', '92067', '92069', '92078', '92081', '92082', '92083', '92084', '92091'] },
+    east: { label: 'East County', zips: ['91901', '91941', '91942', '91945', '92040', '92071', '92119', '92120', '92124', '92131', '92127', '92128', '92129'] },
+    south: { label: 'South Bay', zips: ['91902', '91910', '91911', '91913', '91914', '91915', '91932', '91935', '91945', '91950', '92139', '92154', '92173'] },
+};
+
+// Map Yelp neighborhoods to SDAR zip codes
+const YELP_TO_ZIP = {
+    'Downtown (Gaslamp)': '92101',
+    'East Village': '92101',
+    'Little Italy': '92101',
+    'North Park': '92104',
+    'Hillcrest': '92103',
+    'South Park': '92102',
+    'University Heights': '92104',
+    'Normal Heights': '92116',
+    'Kensington': '92116',
+    'Mission Hills': '92103',
+    'La Jolla': '92037',
+    'Pacific Beach': '92109',
+    'Ocean Beach': '92107',
+    'Del Mar': '92014',
+    'Coronado': '92118',
+    'Point Loma': '92106',
+    'Bay Park': '92110',
+    'Clairemont': '92117',
 };
 
 // Color palette by region
 const getRegionColor = (zipCode) => {
-    if (zipCode.startsWith('921')) {
-        // Central SD - Blues
+    if (['92101', '92102', '92103', '92104', '92105', '92108', '92110', '92111', '92113', '92114', '92115', '92116'].includes(zipCode)) {
         const blues = ['#1e40af', '#1d4ed8', '#2563eb', '#3b82f6', '#60a5fa', '#93c5fd'];
         return blues[parseInt(zipCode.slice(-1)) % blues.length];
     } else if (['92106', '92107', '92109', '92118', '92037', '92014', '92024', '92007', '92075', '92130'].includes(zipCode)) {
-        // Coastal - Teals
         const teals = ['#0d9488', '#14b8a6', '#2dd4bf', '#5eead4', '#99f6e4'];
         return teals[parseInt(zipCode.slice(-1)) % teals.length];
     } else if (zipCode.startsWith('920') && parseInt(zipCode) >= 92054) {
-        // North County - Purples
         const purples = ['#7c3aed', '#8b5cf6', '#a78bfa', '#c4b5fd'];
         return purples[parseInt(zipCode.slice(-1)) % purples.length];
     } else if (zipCode.startsWith('919')) {
-        // South/East - Oranges/Greens
         const warm = ['#ea580c', '#f97316', '#fb923c', '#16a34a', '#22c55e', '#4ade80'];
         return warm[parseInt(zipCode.slice(-1)) % warm.length];
     }
@@ -51,21 +69,24 @@ function MetricCard({ label, value, sublabel, icon: Icon, color = 'blue', trend 
                 <span className="text-xs uppercase tracking-wide opacity-70">{label}</span>
             </div>
             <p className="text-2xl font-bold text-white">{value}</p>
-            {trend && <p className={`text-sm ${trend > 0 ? 'text-green-400' : trend < 0 ? 'text-red-400' : 'text-gray-400'}`}>{trend > 0 ? '+' : ''}{trend}% YoY</p>}
+            {trend !== undefined && <p className={`text-sm ${trend > 0 ? 'text-green-400' : trend < 0 ? 'text-red-400' : 'text-gray-400'}`}>{trend > 0 ? '+' : ''}{trend.toFixed(1)}% YoY</p>}
             {sublabel && <p className="text-xs opacity-60 mt-1">{sublabel}</p>}
         </div>
     );
 }
 
-// Neighborhood Card
-function NeighborhoodCard({ data, sdarData, isSelected, onClick }) {
-    const zipCode = data.neighborhood.split('-')[0];
-    const color = getRegionColor(zipCode);
-    const totalBusinesses = Object.values(data.categories || {}).reduce((sum, cat) => sum + (cat?.count || 0), 0);
+// Neighborhood Card (SDAR + Yelp data)
+function NeighborhoodCard({ data, yelpData, isSelected, onClick }) {
+    const color = getRegionColor(data.zip_code);
+    const detached = data.detached || {};
 
-    // Get SDAR housing data
-    const housing = sdarData?.detached || {};
-    const medianPrice = housing.median_price_2025;
+    const priceChange = detached.median_price_2024 && detached.median_price_2025
+        ? ((detached.median_price_2025 - detached.median_price_2024) / detached.median_price_2024 * 100)
+        : null;
+
+    // Get Yelp stats if available
+    const restaurants = yelpData?.categories?.restaurants?.count || 0;
+    const coffee = yelpData?.categories?.coffee?.count || 0;
 
     return (
         <button
@@ -82,50 +103,66 @@ function NeighborhoodCard({ data, sdarData, isSelected, onClick }) {
         >
             <div className="flex items-center gap-2 mb-1">
                 <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
-                <span className="font-medium text-white text-sm truncate">{data.neighborhood.split('-').slice(1).join('-') || data.neighborhood}</span>
+                <span className="font-medium text-white text-sm truncate">{data.neighborhood}</span>
             </div>
-            <div className="text-xs text-gray-400">{zipCode}</div>
-            <div className="flex justify-between mt-2 text-xs">
+            <div className="text-xs text-gray-400 mb-2">{data.zip_code}</div>
+            <div className="grid grid-cols-2 gap-2 text-xs">
                 <div>
-                    <span className="text-gray-500">Businesses</span>
-                    <p className="text-white font-medium">{totalBusinesses.toLocaleString()}</p>
+                    <span className="text-gray-500">Median</span>
+                    <p className="text-green-400 font-medium">
+                        ${detached.median_price_2025 ? (detached.median_price_2025 / 1000).toFixed(0) + 'k' : 'N/A'}
+                    </p>
                 </div>
-                {medianPrice && (
-                    <div className="text-right">
-                        <span className="text-gray-500">Median</span>
-                        <p className="text-green-400 font-medium">${(medianPrice / 1000).toFixed(0)}k</p>
+                {restaurants > 0 ? (
+                    <div>
+                        <span className="text-gray-500">Restaurants</span>
+                        <p className="text-purple-400 font-medium">{restaurants}</p>
+                    </div>
+                ) : (
+                    <div>
+                        <span className="text-gray-500">DOM</span>
+                        <p className="text-blue-400 font-medium">{detached.dom_2025 || 'N/A'}</p>
                     </div>
                 )}
             </div>
+            {priceChange !== null && (
+                <div className={`mt-2 text-xs ${priceChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                    {priceChange >= 0 ? '↑' : '↓'} {Math.abs(priceChange).toFixed(1)}% YoY
+                </div>
+            )}
         </button>
     );
 }
 
 export default function NeighborhoodEvolution() {
-    const [osmData, setOsmData] = useState(null);
     const [sdarData, setSdarData] = useState(null);
+    const [yelpData, setYelpData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
     const [activeView, setActiveView] = useState('overview');
     const [sortBy, setSortBy] = useState('name');
+    const [propertyType, setPropertyType] = useState('detached');
 
-    // Fetch both OSM and SDAR data on mount
+    // Fetch SDAR and Yelp data on mount
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [osmRes, sdarRes] = await Promise.all([
-                    fetch('/data/retail_data.json'),
-                    fetch('/data/sdar_neighborhood_data.json')
+                const [sdarRes, yelpRes] = await Promise.all([
+                    fetch('/data/sdar_neighborhood_data.json'),
+                    fetch('/data/yelp_snapshot.json')
                 ]);
 
-                if (osmRes.ok) {
-                    const osm = await osmRes.json();
-                    setOsmData(osm);
-                }
                 if (sdarRes.ok) {
-                    const sdar = await sdarRes.json();
-                    setSdarData(sdar);
+                    const data = await sdarRes.json();
+                    setSdarData(data);
+                    if (data.neighborhoods?.length > 0) {
+                        setSelectedNeighborhood(data.neighborhoods[0]);
+                    }
+                }
+                if (yelpRes.ok) {
+                    const data = await yelpRes.json();
+                    setYelpData(data);
                 }
             } catch (err) {
                 console.error('Failed to load data:', err);
@@ -136,76 +173,112 @@ export default function NeighborhoodEvolution() {
         fetchData();
     }, []);
 
-    // Map SDAR data by zip code
-    const sdarByZip = useMemo(() => {
-        if (!sdarData?.neighborhoods) return {};
-        return sdarData.neighborhoods.reduce((acc, n) => {
-            acc[n.zip_code] = n;
-            return acc;
-        }, {});
-    }, [sdarData]);
+    // Map Yelp data by zip code
+    const yelpByZip = useMemo(() => {
+        if (!yelpData?.neighborhoods) return {};
+        const map = {};
+        yelpData.neighborhoods.forEach(n => {
+            const zip = YELP_TO_ZIP[n.name];
+            if (zip) {
+                // If multiple Yelp areas map to same zip, merge them
+                if (!map[zip]) {
+                    map[zip] = { ...n };
+                } else {
+                    // Merge categories
+                    Object.entries(n.categories || {}).forEach(([key, val]) => {
+                        if (!map[zip].categories[key]) {
+                            map[zip].categories[key] = val;
+                        } else {
+                            map[zip].categories[key] = {
+                                ...val,
+                                count: (map[zip].categories[key].count || 0) + (val.count || 0)
+                            };
+                        }
+                    });
+                }
+            }
+        });
+        return map;
+    }, [yelpData]);
 
     // Filter neighborhoods by region
     const filteredNeighborhoods = useMemo(() => {
-        if (!osmData?.neighborhoods) return [];
+        if (!sdarData?.neighborhoods) return [];
 
-        let filtered = osmData.neighborhoods;
+        let filtered = sdarData.neighborhoods;
 
         if (selectedRegion !== 'all' && REGIONS[selectedRegion]?.zips) {
-            filtered = filtered.filter(n => {
-                const zip = n.neighborhood.split('-')[0];
-                return REGIONS[selectedRegion].zips.includes(zip);
-            });
+            filtered = filtered.filter(n => REGIONS[selectedRegion].zips.includes(n.zip_code));
         }
 
         // Sort
         if (sortBy === 'price') {
             filtered = [...filtered].sort((a, b) => {
-                const zipA = a.neighborhood.split('-')[0];
-                const zipB = b.neighborhood.split('-')[0];
-                const priceA = sdarByZip[zipA]?.detached?.median_price_2025 || 0;
-                const priceB = sdarByZip[zipB]?.detached?.median_price_2025 || 0;
+                const priceA = propertyType === 'detached'
+                    ? (a.detached?.median_price_2025 || 0)
+                    : (a.attached?.median_price_2025 || 0);
+                const priceB = propertyType === 'detached'
+                    ? (b.detached?.median_price_2025 || 0)
+                    : (b.attached?.median_price_2025 || 0);
                 return priceB - priceA;
             });
-        } else if (sortBy === 'businesses') {
+        } else if (sortBy === 'change') {
             filtered = [...filtered].sort((a, b) => {
-                const countA = Object.values(a.categories || {}).reduce((s, c) => s + (c?.count || 0), 0);
-                const countB = Object.values(b.categories || {}).reduce((s, c) => s + (c?.count || 0), 0);
-                return countB - countA;
+                const calcChange = (n) => {
+                    const prop = propertyType === 'detached' ? n.detached : n.attached;
+                    if (!prop?.median_price_2024 || !prop?.median_price_2025) return -999;
+                    return ((prop.median_price_2025 - prop.median_price_2024) / prop.median_price_2024 * 100);
+                };
+                return calcChange(b) - calcChange(a);
+            });
+        } else if (sortBy === 'dom') {
+            filtered = [...filtered].sort((a, b) => {
+                const domA = propertyType === 'detached' ? (a.detached?.dom_2025 || 999) : (a.attached?.dom_2025 || 999);
+                const domB = propertyType === 'detached' ? (b.detached?.dom_2025 || 999) : (b.attached?.dom_2025 || 999);
+                return domA - domB;
+            });
+        } else if (sortBy === 'restaurants') {
+            filtered = [...filtered].sort((a, b) => {
+                const restA = yelpByZip[a.zip_code]?.categories?.restaurants?.count || 0;
+                const restB = yelpByZip[b.zip_code]?.categories?.restaurants?.count || 0;
+                return restB - restA;
             });
         }
 
         return filtered;
-    }, [osmData, selectedRegion, sortBy, sdarByZip]);
+    }, [sdarData, selectedRegion, sortBy, propertyType, yelpByZip]);
 
-    // Get selected neighborhood's SDAR data
-    const selectedSdarData = useMemo(() => {
+    // Get Yelp data for selected neighborhood
+    const selectedYelpData = useMemo(() => {
         if (!selectedNeighborhood) return null;
-        const zip = selectedNeighborhood.neighborhood.split('-')[0];
-        return sdarByZip[zip];
-    }, [selectedNeighborhood, sdarByZip]);
+        return yelpByZip[selectedNeighborhood.zip_code];
+    }, [selectedNeighborhood, yelpByZip]);
 
     // Chart data for comparison view
     const comparisonData = useMemo(() => {
-        return filteredNeighborhoods.slice(0, 15).map(n => {
-            const zip = n.neighborhood.split('-')[0];
-            const sdar = sdarByZip[zip];
-            const totalBiz = Object.values(n.categories || {}).reduce((s, c) => s + (c?.count || 0), 0);
+        return filteredNeighborhoods.slice(0, 20).map(n => {
+            const prop = propertyType === 'detached' ? n.detached : n.attached;
+            const yelp = yelpByZip[n.zip_code];
             return {
-                name: n.neighborhood.split('-').slice(1).join('-').substring(0, 12) || zip,
-                fullName: n.neighborhood,
-                businesses: totalBiz,
-                medianPrice: sdar?.detached?.median_price_2025 || 0,
-                dom: sdar?.detached?.dom_2025 || 0,
+                name: n.neighborhood.substring(0, 12),
+                fullName: `${n.zip_code} - ${n.neighborhood}`,
+                medianPrice: prop?.median_price_2025 || 0,
+                restaurants: yelp?.categories?.restaurants?.count || 0,
             };
         });
-    }, [filteredNeighborhoods, sdarByZip]);
+    }, [filteredNeighborhoods, propertyType, yelpByZip]);
 
     // Summary stats
     const summaryStats = useMemo(() => {
         if (!sdarData?.summary) return {};
         return sdarData.summary;
     }, [sdarData]);
+
+    // Yelp summary
+    const yelpSummary = useMemo(() => {
+        if (!yelpData?.summary) return {};
+        return yelpData.summary;
+    }, [yelpData]);
 
     if (loading) {
         return (
@@ -215,12 +288,11 @@ export default function NeighborhoodEvolution() {
         );
     }
 
-    if (!osmData && !sdarData) {
+    if (!sdarData) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 flex items-center justify-center text-white">
                 <div className="text-center">
-                    <p className="text-gray-400 mb-4">No data available. Run data scripts:</p>
-                    <code className="bg-gray-800 px-3 py-2 rounded text-sm block mb-2">python scripts/fetch_retail_data.py</code>
+                    <p className="text-gray-400 mb-4">No SDAR housing data available</p>
                 </div>
             </div>
         );
@@ -235,10 +307,10 @@ export default function NeighborhoodEvolution() {
                         <div className="p-2 bg-indigo-900/30 rounded-lg border border-indigo-800/50">
                             <MapPin className="w-5 h-5 text-indigo-400" />
                         </div>
-                        <h1 className="text-xl sm:text-2xl font-bold">San Diego Neighborhoods</h1>
+                        <h1 className="text-xl sm:text-2xl font-bold">SD County Neighborhoods</h1>
                     </div>
                     <p className="text-sm text-gray-400">
-                        {sdarData?.meta?.neighborhoods_count || 0} zip codes • OSM Business Data + SDAR November 2025 Housing Data
+                        {sdarData?.meta?.neighborhoods_count || 0} zip codes • SDAR Housing + Yelp Business Data
                     </p>
                 </div>
 
@@ -247,34 +319,34 @@ export default function NeighborhoodEvolution() {
                     <MetricCard
                         label="Avg Detached Median"
                         value={`$${((summaryStats.avg_detached_median || 0) / 1000).toFixed(0)}k`}
-                        sublabel="November 2025"
+                        sublabel="County-wide"
                         icon={Home}
                         color="green"
                     />
                     <MetricCard
                         label="Avg Attached Median"
                         value={`$${((summaryStats.avg_attached_median || 0) / 1000).toFixed(0)}k`}
-                        sublabel="November 2025"
+                        sublabel="Condos/Townhomes"
                         icon={Building}
                         color="blue"
                     />
                     <MetricCard
-                        label="Highest Median"
-                        value={`$${((summaryStats.highest_detached || 0) / 1000000).toFixed(1)}M`}
-                        sublabel="Luxury market"
-                        icon={TrendingUp}
+                        label="Total Restaurants"
+                        value={(yelpSummary?.total_counts?.restaurants || 0).toLocaleString()}
+                        sublabel="Yelp tracked areas"
+                        icon={UtensilsCrossed}
                         color="purple"
                     />
                     <MetricCard
-                        label="Lowest Median"
-                        value={`$${((summaryStats.lowest_detached || 0) / 1000).toFixed(0)}k`}
-                        sublabel="Entry market"
-                        icon={DollarSign}
+                        label="Coffee Shops"
+                        value={(yelpSummary?.total_counts?.coffee || 0).toLocaleString()}
+                        sublabel="Yelp tracked areas"
+                        icon={Coffee}
                         color="orange"
                     />
                 </div>
 
-                {/* Region Filter */}
+                {/* Filters Row */}
                 <div className="flex flex-wrap items-center gap-4 mb-4">
                     <div className="flex items-center gap-2">
                         <Filter className="w-4 h-4 text-gray-400" />
@@ -297,16 +369,33 @@ export default function NeighborhoodEvolution() {
                             </button>
                         ))}
                     </div>
-                    <div className="flex items-center gap-2 ml-auto">
-                        <span className="text-sm text-gray-400">Sort:</span>
+                </div>
+
+                {/* Sort & Property Type */}
+                <div className="flex flex-wrap items-center gap-4 mb-6">
+                    <div className="flex items-center gap-2">
+                        <ArrowUpDown className="w-4 h-4 text-gray-400" />
                         <select
                             value={sortBy}
                             onChange={(e) => setSortBy(e.target.value)}
                             className="bg-gray-800 text-white text-sm rounded-lg px-3 py-1.5 border border-gray-700"
                         >
-                            <option value="name">Name</option>
-                            <option value="price">Median Price</option>
-                            <option value="businesses">Business Count</option>
+                            <option value="name">Sort by Name</option>
+                            <option value="price">Sort by Price (High→Low)</option>
+                            <option value="change">Sort by YoY Change</option>
+                            <option value="dom">Sort by Days on Market</option>
+                            <option value="restaurants">Sort by Restaurants</option>
+                        </select>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Home className="w-4 h-4 text-gray-400" />
+                        <select
+                            value={propertyType}
+                            onChange={(e) => setPropertyType(e.target.value)}
+                            className="bg-gray-800 text-white text-sm rounded-lg px-3 py-1.5 border border-gray-700"
+                        >
+                            <option value="detached">Detached Homes</option>
+                            <option value="attached">Attached/Condos</option>
                         </select>
                     </div>
                 </div>
@@ -318,14 +407,14 @@ export default function NeighborhoodEvolution() {
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeView === 'overview' ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
                             }`}
                     >
-                        Grid View
+                        Grid View ({filteredNeighborhoods.length})
                     </button>
                     <button
                         onClick={() => setActiveView('compare')}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeView === 'compare' ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
                             }`}
                     >
-                        Compare Chart
+                        Price vs Restaurants
                     </button>
                     {selectedNeighborhood && (
                         <button
@@ -333,7 +422,7 @@ export default function NeighborhoodEvolution() {
                             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeView === 'details' ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
                                 }`}
                         >
-                            Details: {selectedNeighborhood.neighborhood.split('-').slice(1).join('-').substring(0, 15) || selectedNeighborhood.neighborhood.split('-')[0]}
+                            Details: {selectedNeighborhood.neighborhood.substring(0, 15)}
                         </button>
                     )}
                 </div>
@@ -341,45 +430,44 @@ export default function NeighborhoodEvolution() {
                 {/* Grid View */}
                 {activeView === 'overview' && (
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-                        {filteredNeighborhoods.map((n) => {
-                            const zip = n.neighborhood.split('-')[0];
-                            return (
-                                <NeighborhoodCard
-                                    key={n.neighborhood}
-                                    data={n}
-                                    sdarData={sdarByZip[zip]}
-                                    isSelected={selectedNeighborhood?.neighborhood === n.neighborhood}
-                                    onClick={() => {
-                                        setSelectedNeighborhood(n);
-                                        setActiveView('details');
-                                    }}
-                                />
-                            );
-                        })}
+                        {filteredNeighborhoods.map((n) => (
+                            <NeighborhoodCard
+                                key={n.zip_code}
+                                data={n}
+                                yelpData={yelpByZip[n.zip_code]}
+                                isSelected={selectedNeighborhood?.zip_code === n.zip_code}
+                                onClick={() => {
+                                    setSelectedNeighborhood(n);
+                                    setActiveView('details');
+                                }}
+                            />
+                        ))}
                     </div>
                 )}
 
-                {/* Compare Chart */}
+                {/* Compare Chart - Price vs Restaurants */}
                 {activeView === 'compare' && (
                     <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800">
-                        <h3 className="text-lg font-semibold mb-4">Price vs Business Count (Top 15)</h3>
-                        <ResponsiveContainer width="100%" height={450}>
+                        <h3 className="text-lg font-semibold mb-4">
+                            Median Price vs Restaurant Count (Top 20)
+                        </h3>
+                        <ResponsiveContainer width="100%" height={500}>
                             <ComposedChart data={comparisonData}>
                                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                                 <XAxis dataKey="name" stroke="#9ca3af" angle={-45} textAnchor="end" height={80} fontSize={11} />
                                 <YAxis yAxisId="left" stroke="#22c55e" tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
-                                <YAxis yAxisId="right" orientation="right" stroke="#8b5cf6" />
+                                <YAxis yAxisId="right" orientation="right" stroke="#a855f7" />
                                 <Tooltip
                                     contentStyle={{ backgroundColor: '#1f2937', border: '1px solid #374151' }}
                                     labelFormatter={(label, payload) => payload?.[0]?.payload?.fullName || label}
                                     formatter={(value, name) => [
-                                        name === 'medianPrice' ? `$${(value / 1000).toFixed(0)}k` : value,
-                                        name === 'medianPrice' ? 'Median Price' : name === 'businesses' ? 'Businesses' : name
+                                        name === 'medianPrice' ? `$${(value / 1000).toFixed(0)}k` : value.toLocaleString(),
+                                        name === 'medianPrice' ? 'Median Price' : 'Restaurants'
                                     ]}
                                 />
                                 <Legend />
                                 <Bar yAxisId="left" dataKey="medianPrice" name="Median Price" fill="#22c55e" radius={[4, 4, 0, 0]} />
-                                <Line yAxisId="right" type="monotone" dataKey="businesses" name="Businesses" stroke="#8b5cf6" strokeWidth={2} dot={{ fill: '#8b5cf6' }} />
+                                <Line yAxisId="right" type="monotone" dataKey="restaurants" name="Restaurants" stroke="#a855f7" strokeWidth={2} dot={{ fill: '#a855f7' }} />
                             </ComposedChart>
                         </ResponsiveContainer>
                     </div>
@@ -388,95 +476,88 @@ export default function NeighborhoodEvolution() {
                 {/* Details View */}
                 {activeView === 'details' && selectedNeighborhood && (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* Business Data (OSM) */}
-                        <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800">
-                            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                                <Store className="w-5 h-5 text-purple-400" />
-                                Business Data (OSM)
-                            </h3>
-                            <div className="space-y-2">
-                                {Object.entries(selectedNeighborhood.categories || {})
-                                    .filter(([, cat]) => cat?.count > 0)
-                                    .sort((a, b) => (b[1]?.count || 0) - (a[1]?.count || 0))
-                                    .slice(0, 12)
-                                    .map(([key, cat]) => (
-                                        <div key={key} className="flex items-center justify-between py-2 border-b border-gray-800 last:border-0">
-                                            <div className="flex items-center gap-2">
-                                                <span className="text-lg">{cat.icon || '📍'}</span>
-                                                <span className="text-white">{cat.label || key}</span>
-                                            </div>
-                                            <span className="text-purple-400 font-medium">{cat.count}</span>
-                                        </div>
-                                    ))}
-                            </div>
-                        </div>
-
                         {/* Housing Data (SDAR) */}
-                        <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800">
+                        <div className="bg-gray-900/50 rounded-xl p-5 border border-gray-800">
                             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                                 <Home className="w-5 h-5 text-green-400" />
-                                Housing Data (SDAR November 2025)
+                                Housing Data (SDAR)
                             </h3>
-                            {selectedSdarData ? (
-                                <div className="space-y-4">
-                                    {/* Detached */}
-                                    <div>
-                                        <h4 className="text-sm font-medium text-gray-400 mb-2">Detached Homes</h4>
-                                        <div className="grid grid-cols-2 gap-3">
-                                            <div className="bg-gray-800/50 rounded-lg p-3">
-                                                <p className="text-xs text-gray-500">Median Price</p>
-                                                <p className="text-lg font-bold text-green-400">
-                                                    ${((selectedSdarData.detached?.median_price_2025 || 0) / 1000).toFixed(0)}k
-                                                </p>
-                                                <p className="text-xs text-gray-500">
-                                                    vs ${((selectedSdarData.detached?.median_price_2024 || 0) / 1000).toFixed(0)}k (2024)
-                                                </p>
-                                            </div>
-                                            <div className="bg-gray-800/50 rounded-lg p-3">
-                                                <p className="text-xs text-gray-500">Days on Market</p>
-                                                <p className="text-lg font-bold text-blue-400">
-                                                    {selectedSdarData.detached?.dom_2025 || 'N/A'}
-                                                </p>
-                                                <p className="text-xs text-gray-500">
-                                                    vs {selectedSdarData.detached?.dom_2024 || 'N/A'} (2024)
-                                                </p>
-                                            </div>
-                                            <div className="bg-gray-800/50 rounded-lg p-3">
-                                                <p className="text-xs text-gray-500">Inventory</p>
-                                                <p className="text-lg font-bold text-orange-400">
-                                                    {selectedSdarData.detached?.inventory_2025 || 'N/A'}
-                                                </p>
-                                            </div>
-                                            <div className="bg-gray-800/50 rounded-lg p-3">
-                                                <p className="text-xs text-gray-500">Months Supply</p>
-                                                <p className="text-lg font-bold text-purple-400">
-                                                    {selectedSdarData.detached?.months_supply_2025 || 'N/A'}
-                                                </p>
-                                            </div>
+                            <div className="space-y-4">
+                                {/* Detached */}
+                                <div>
+                                    <h4 className="text-sm font-medium text-gray-400 mb-2">Detached Homes</h4>
+                                    <div className="grid grid-cols-3 gap-3">
+                                        <div className="bg-gray-800/50 rounded-lg p-3">
+                                            <p className="text-xs text-gray-500">Median 2025</p>
+                                            <p className="text-lg font-bold text-green-400">
+                                                ${((selectedNeighborhood.detached?.median_price_2025 || 0) / 1000).toFixed(0)}k
+                                            </p>
                                         </div>
-                                    </div>
-
-                                    {/* Attached */}
-                                    <div>
-                                        <h4 className="text-sm font-medium text-gray-400 mb-2">Attached/Condos</h4>
-                                        <div className="grid grid-cols-2 gap-3">
-                                            <div className="bg-gray-800/50 rounded-lg p-3">
-                                                <p className="text-xs text-gray-500">Median Price</p>
-                                                <p className="text-lg font-bold text-green-400">
-                                                    ${((selectedSdarData.attached?.median_price_2025 || 0) / 1000).toFixed(0)}k
-                                                </p>
-                                            </div>
-                                            <div className="bg-gray-800/50 rounded-lg p-3">
-                                                <p className="text-xs text-gray-500">Days on Market</p>
-                                                <p className="text-lg font-bold text-blue-400">
-                                                    {selectedSdarData.attached?.dom_2025 || 'N/A'}
-                                                </p>
-                                            </div>
+                                        <div className="bg-gray-800/50 rounded-lg p-3">
+                                            <p className="text-xs text-gray-500">DOM</p>
+                                            <p className="text-lg font-bold text-blue-400">
+                                                {selectedNeighborhood.detached?.dom_2025 || 'N/A'}
+                                            </p>
+                                        </div>
+                                        <div className="bg-gray-800/50 rounded-lg p-3">
+                                            <p className="text-xs text-gray-500">Inventory</p>
+                                            <p className="text-lg font-bold text-orange-400">
+                                                {selectedNeighborhood.detached?.inventory_2025 || 'N/A'}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
+                                {/* Attached */}
+                                <div>
+                                    <h4 className="text-sm font-medium text-gray-400 mb-2">Attached/Condos</h4>
+                                    <div className="grid grid-cols-3 gap-3">
+                                        <div className="bg-gray-800/50 rounded-lg p-3">
+                                            <p className="text-xs text-gray-500">Median 2025</p>
+                                            <p className="text-lg font-bold text-green-400">
+                                                ${((selectedNeighborhood.attached?.median_price_2025 || 0) / 1000).toFixed(0)}k
+                                            </p>
+                                        </div>
+                                        <div className="bg-gray-800/50 rounded-lg p-3">
+                                            <p className="text-xs text-gray-500">DOM</p>
+                                            <p className="text-lg font-bold text-blue-400">
+                                                {selectedNeighborhood.attached?.dom_2025 || 'N/A'}
+                                            </p>
+                                        </div>
+                                        <div className="bg-gray-800/50 rounded-lg p-3">
+                                            <p className="text-xs text-gray-500">Inventory</p>
+                                            <p className="text-lg font-bold text-orange-400">
+                                                {selectedNeighborhood.attached?.inventory_2025 || 'N/A'}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Business Data (Yelp) */}
+                        <div className="bg-gray-900/50 rounded-xl p-5 border border-gray-800">
+                            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                                <Store className="w-5 h-5 text-purple-400" />
+                                Business Data (Yelp)
+                            </h3>
+                            {selectedYelpData ? (
+                                <div className="space-y-2 max-h-80 overflow-y-auto">
+                                    {Object.entries(selectedYelpData.categories || {})
+                                        .filter(([, cat]) => cat?.count > 0)
+                                        .sort((a, b) => (b[1]?.count || 0) - (a[1]?.count || 0))
+                                        .slice(0, 15)
+                                        .map(([key, cat]) => (
+                                            <div key={key} className="flex items-center justify-between py-2 border-b border-gray-800 last:border-0">
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-lg">{cat.icon || '📍'}</span>
+                                                    <span className="text-white text-sm">{cat.label || key}</span>
+                                                </div>
+                                                <span className="text-purple-400 font-medium">{cat.count}</span>
+                                            </div>
+                                        ))}
+                                </div>
                             ) : (
-                                <p className="text-gray-400">No SDAR data available for this zip code</p>
+                                <p className="text-gray-400 text-sm">No Yelp data available for this zip code. Yelp data covers 18 popular neighborhoods.</p>
                             )}
                         </div>
                     </div>
@@ -484,8 +565,7 @@ export default function NeighborhoodEvolution() {
 
                 {/* Footer */}
                 <div className="mt-8 text-center text-xs text-gray-500">
-                    <p>Business data: OpenStreetMap • Housing data: SDAR November 2025</p>
-                    <p className="mt-1">Run <code className="bg-gray-800 px-1 rounded">python scripts/fetch_retail_data.py</code> to update OSM data</p>
+                    <p>Housing: SDAR {sdarData?.meta?.report_period} • Business: Yelp ({yelpData?.meta?.neighborhoods_count || 0} neighborhoods)</p>
                 </div>
             </div>
         </div>
