@@ -114,19 +114,43 @@ export default function SDARDashboard() {
         return area?.zips || [];
     }, [selectedArea, availableAreas]);
 
+    // Check if data exists for the selected area
+    const hasDataForSelection = useMemo(() => {
+        if (selectedZip !== 'all') {
+            return !!neighborhoodData[selectedZip];
+        }
+        if (selectedArea !== 'all') {
+            const area = availableAreas.find(a => a.id === selectedArea);
+            return area && area.zips.length > 0 && !!neighborhoodData[area.zips[0]];
+        }
+        // 'all' always has data
+        return true;
+    }, [selectedZip, selectedArea, availableAreas, neighborhoodData]);
+
     const currentData = useMemo(() => {
-        let zipData = neighborhoodData['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'];
+        // Return default county data for 'all' selections
+        if (selectedZip === 'all' && selectedArea === 'all') {
+            const zipData = neighborhoodData['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'];
+            return zipData?.[propertyType] || zipData?.['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'].all;
+        }
+
+        // Check specific ZIP
         if (selectedZip !== 'all' && neighborhoodData[selectedZip]) {
-            zipData = neighborhoodData[selectedZip];
-        } else if (selectedArea !== 'all') {
+            const zipData = neighborhoodData[selectedZip];
+            return zipData?.[propertyType] || zipData?.['all'] || null;
+        }
+
+        // Check specific area
+        if (selectedArea !== 'all') {
             const area = availableAreas.find(a => a.id === selectedArea);
             if (area && area.zips.length > 0 && neighborhoodData[area.zips[0]]) {
-                zipData = neighborhoodData[area.zips[0]];
+                const zipData = neighborhoodData[area.zips[0]];
+                return zipData?.[propertyType] || zipData?.['all'] || null;
             }
         }
-        // Ensure we always return valid data with fallbacks
-        const result = zipData?.[propertyType] || zipData?.['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'][propertyType] || DEFAULT_NEIGHBORHOOD_DATA['all'].all;
-        return result || DEFAULT_NEIGHBORHOOD_DATA['all'].all;
+
+        // No data available for this selection
+        return null;
     }, [selectedZip, selectedArea, availableAreas, propertyType, neighborhoodData]);
 
     const locationName = useMemo(() => {
@@ -309,236 +333,261 @@ export default function SDARDashboard() {
                     </div>
                 </div>
 
-                {/* Key Metrics */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
-                    {[
-                        { icon: <DollarIcon />, title: 'Median Price', value: formatCurrency(currentData.medianPrice), change: currentData.priceChange },
-                        { icon: <HomeIcon />, title: 'Closed Sales', value: formatNumber(currentData.closedSales), change: currentData.salesChange },
-                        { icon: <ClockIcon />, title: 'Days on Market', value: currentData.daysOnMarket, change: currentData.domChange, inverse: true },
-                        { icon: <BuildingIcon />, title: 'Inventory', value: formatNumber(currentData.inventory), change: currentData.invChange },
-                        { icon: <BuildingIcon />, title: 'Months Supply', value: currentData.monthsSupply, change: 0 },
-                        { icon: <DollarIcon />, title: 'Sale-to-List', value: `${currentData.pctOrigPrice}%`, change: 0 },
-                    ].map((metric, i) => (
-                        <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 backdrop-blur-sm">
-                            <div className="flex items-start justify-between mb-2">
-                                <div className="p-2 bg-slate-700/50 rounded-lg text-blue-400">{metric.icon}</div>
-                                {metric.change !== 0 && <ChangeIndicator value={metric.change} inverse={metric.inverse} />}
-                            </div>
-                            <p className="text-xl font-bold text-white">{metric.value}</p>
-                            <p className="text-xs text-slate-500">{metric.title}</p>
+                {/* Key Metrics - Only show if data is available */}
+                {!hasDataForSelection ? (
+                    <div className="bg-amber-900/20 border border-amber-700/50 rounded-xl p-8 mb-6">
+                        <div className="text-center">
+                            <div className="text-4xl mb-3">📊</div>
+                            <h3 className="text-lg font-bold text-amber-400 mb-2">Data Not Available</h3>
+                            <p className="text-slate-400 text-sm mb-4">
+                                No SDAR data available for <strong className="text-white">{locationName}</strong>.
+                            </p>
+                            <p className="text-slate-500 text-xs">
+                                Currently tracking 85 ZIP codes from SDAR reports. Select "All San Diego" or browse available neighborhoods below.
+                            </p>
+                            <button
+                                onClick={clearFilters}
+                                className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+                            >
+                                View All San Diego Data
+                            </button>
                         </div>
-                    ))}
-                </div>
-
-                {/* Tabs */}
-                <div className="flex gap-1 p-1 bg-slate-800/50 rounded-xl border border-slate-700/50 mb-6 overflow-x-auto">
-                    {['Overview', 'Prices', 'Inventory', 'Velocity'].map((tab) => (
-                        <button
-                            key={tab}
-                            onClick={() => setActiveTab(tab.toLowerCase())}
-                            className={`flex-1 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${activeTab === tab.toLowerCase() ? 'bg-blue-600 text-white' : 'text-slate-400 hover:bg-slate-700'}`}
-                        >
-                            {tab}
-                        </button>
-                    ))}
-                </div>
-
-                {/* Content */}
-                <div className="grid lg:grid-cols-2 gap-6">
-                    {activeTab === 'overview' && (
-                        <>
-                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
-                                <h3 className="text-lg font-bold text-white mb-4">Market Summary</h3>
-                                <div className="p-4 bg-blue-900/20 border border-blue-800/30 rounded-xl mb-4">
-                                    <p className="text-sm text-slate-300 leading-relaxed">
-                                        <strong className="text-white">{locationName}</strong> has a median price of <strong className="text-white">{formatCurrency(currentData.medianPrice)}</strong>
-                                        {currentData.priceChange > 0 ? ' (up ' : ' (down '}
-                                        <span className={currentData.priceChange > 0 ? 'text-emerald-400 font-semibold' : 'text-rose-400 font-semibold'}>
-                                            {Math.abs(currentData.priceChange)}%
-                                        </span> YoY).
-                                        Homes sell in <strong className="text-white">{currentData.daysOnMarket} days</strong> with <strong className="text-white">{currentData.monthsSupply} months</strong> supply.
-                                    </p>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
+                        {[
+                            { icon: <DollarIcon />, title: 'Median Price', value: formatCurrency(currentData?.medianPrice || 0), change: currentData?.priceChange || 0 },
+                            { icon: <HomeIcon />, title: 'Closed Sales', value: formatNumber(currentData?.closedSales || 0), change: currentData?.salesChange || 0 },
+                            { icon: <ClockIcon />, title: 'Days on Market', value: currentData?.daysOnMarket || 0, change: currentData?.domChange || 0, inverse: true },
+                            { icon: <BuildingIcon />, title: 'Inventory', value: formatNumber(currentData?.inventory || 0), change: currentData?.invChange || 0 },
+                            { icon: <BuildingIcon />, title: 'Months Supply', value: currentData?.monthsSupply || 0, change: 0 },
+                            { icon: <DollarIcon />, title: 'Sale-to-List', value: `${currentData?.pctOrigPrice || 0}%`, change: 0 },
+                        ].map((metric, i) => (
+                            <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 backdrop-blur-sm">
+                                <div className="flex items-start justify-between mb-2">
+                                    <div className="p-2 bg-slate-700/50 rounded-lg text-blue-400">{metric.icon}</div>
+                                    {metric.change !== 0 && <ChangeIndicator value={metric.change} inverse={metric.inverse} />}
                                 </div>
-                                <div className="p-4 bg-slate-700/30 rounded-xl">
-                                    <p className="text-sm font-semibold text-slate-300 mb-3">Market Balance</p>
-                                    <div className="relative h-8 bg-gradient-to-r from-rose-500 via-amber-500 to-emerald-500 rounded-full">
-                                        <div className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-slate-900 rounded-full shadow-lg transition-all" style={{ left: `${Math.min(Math.max((currentData.monthsSupply / 6) * 100, 8), 92)}%` }}></div>
-                                    </div>
-                                    <div className="flex justify-between text-xs text-slate-500 mt-2">
-                                        <span>Seller's</span>
-                                        <span>Balanced</span>
-                                        <span>Buyer's</span>
-                                    </div>
-                                    <p className="text-center mt-3 font-semibold text-white">
-                                        {currentData.monthsSupply < 3 ? '🔥 Seller\'s Market' : currentData.monthsSupply <= 4 ? '⚖️ Balanced' : '🏠 Buyer\'s Market'}
-                                    </p>
-                                </div>
+                                <p className="text-xl font-bold text-white">{metric.value}</p>
+                                <p className="text-xs text-slate-500">{metric.title}</p>
                             </div>
+                        ))}
+                    </div>
+                )}
 
-                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
-                                <h3 className="text-lg font-bold text-white mb-4">Single Family vs Condos</h3>
-                                <div className="grid grid-cols-2 gap-4 mb-4">
-                                    <div className="p-4 bg-blue-900/30 rounded-xl border border-blue-700/50">
-                                        <p className="text-xs text-blue-400 font-bold mb-1">🏠 SINGLE FAMILY</p>
-                                        <p className="text-xl font-bold text-white">{formatCurrency(comparisonData.detached.medianPrice)}</p>
-                                        <ChangeIndicator value={comparisonData.detached.priceChange} />
-                                        <div className="mt-2 pt-2 border-t border-blue-700/30 text-xs text-slate-400">
-                                            <p>{comparisonData.detached.daysOnMarket} days • {comparisonData.detached.monthsSupply} mo supply</p>
+                {/* Tabs - Only show if data is available */}
+                {hasDataForSelection && (
+                    <div className="flex gap-1 p-1 bg-slate-800/50 rounded-xl border border-slate-700/50 mb-6 overflow-x-auto">
+                        {['Overview', 'Prices', 'Inventory', 'Velocity'].map((tab) => (
+                            <button
+                                key={tab}
+                                onClick={() => setActiveTab(tab.toLowerCase())}
+                                className={`flex-1 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${activeTab === tab.toLowerCase() ? 'bg-blue-600 text-white' : 'text-slate-400 hover:bg-slate-700'}`}
+                            >
+                                {tab}
+                            </button>
+                        ))}
+                    </div>
+                )}
+
+                {/* Content - Only show if data is available */}
+                {hasDataForSelection && (
+                    <div className="grid lg:grid-cols-2 gap-6">
+                        {activeTab === 'overview' && (
+                            <>
+                                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
+                                    <h3 className="text-lg font-bold text-white mb-4">Market Summary</h3>
+                                    <div className="p-4 bg-blue-900/20 border border-blue-800/30 rounded-xl mb-4">
+                                        <p className="text-sm text-slate-300 leading-relaxed">
+                                            <strong className="text-white">{locationName}</strong> has a median price of <strong className="text-white">{formatCurrency(currentData?.medianPrice || 0)}</strong>
+                                            {(currentData?.priceChange || 0) > 0 ? ' (up ' : ' (down '}
+                                            <span className={(currentData?.priceChange || 0) > 0 ? 'text-emerald-400 font-semibold' : 'text-rose-400 font-semibold'}>
+                                                {Math.abs(currentData?.priceChange || 0)}%
+                                            </span> YoY).
+                                            Homes sell in <strong className="text-white">{currentData?.daysOnMarket || 0} days</strong> with <strong className="text-white">{currentData?.monthsSupply || 0} months</strong> supply.
+                                        </p>
+                                    </div>
+                                    <div className="p-4 bg-slate-700/30 rounded-xl">
+                                        <p className="text-sm font-semibold text-slate-300 mb-3">Market Balance</p>
+                                        <div className="relative h-8 bg-gradient-to-r from-rose-500 via-amber-500 to-emerald-500 rounded-full">
+                                            <div className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-slate-900 rounded-full shadow-lg transition-all" style={{ left: `${Math.min(Math.max(((currentData?.monthsSupply || 2) / 6) * 100, 8), 92)}%` }}></div>
+                                        </div>
+                                        <div className="flex justify-between text-xs text-slate-500 mt-2">
+                                            <span>Seller's</span>
+                                            <span>Balanced</span>
+                                            <span>Buyer's</span>
+                                        </div>
+                                        <p className="text-center mt-3 font-semibold text-white">
+                                            {(currentData?.monthsSupply || 2) < 3 ? '🔥 Seller\'s Market' : (currentData?.monthsSupply || 2) <= 4 ? '⚖️ Balanced' : '🏠 Buyer\'s Market'}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
+                                    <h3 className="text-lg font-bold text-white mb-4">Single Family vs Condos</h3>
+                                    <div className="grid grid-cols-2 gap-4 mb-4">
+                                        <div className="p-4 bg-blue-900/30 rounded-xl border border-blue-700/50">
+                                            <p className="text-xs text-blue-400 font-bold mb-1">🏠 SINGLE FAMILY</p>
+                                            <p className="text-xl font-bold text-white">{formatCurrency(comparisonData.detached.medianPrice)}</p>
+                                            <ChangeIndicator value={comparisonData.detached.priceChange} />
+                                            <div className="mt-2 pt-2 border-t border-blue-700/30 text-xs text-slate-400">
+                                                <p>{comparisonData.detached.daysOnMarket} days • {comparisonData.detached.monthsSupply} mo supply</p>
+                                            </div>
+                                        </div>
+                                        <div className="p-4 bg-purple-900/30 rounded-xl border border-purple-700/50">
+                                            <p className="text-xs text-purple-400 font-bold mb-1">🏢 CONDOS/TOWNHOMES</p>
+                                            <p className="text-xl font-bold text-white">{formatCurrency(comparisonData.attached.medianPrice)}</p>
+                                            <ChangeIndicator value={comparisonData.attached.priceChange} />
+                                            <div className="mt-2 pt-2 border-t border-purple-700/30 text-xs text-slate-400">
+                                                <p>{comparisonData.attached.daysOnMarket} days • {comparisonData.attached.monthsSupply} mo supply</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="p-4 bg-purple-900/30 rounded-xl border border-purple-700/50">
-                                        <p className="text-xs text-purple-400 font-bold mb-1">🏢 CONDOS/TOWNHOMES</p>
-                                        <p className="text-xl font-bold text-white">{formatCurrency(comparisonData.attached.medianPrice)}</p>
-                                        <ChangeIndicator value={comparisonData.attached.priceChange} />
-                                        <div className="mt-2 pt-2 border-t border-purple-700/30 text-xs text-slate-400">
-                                            <p>{comparisonData.attached.daysOnMarket} days • {comparisonData.attached.monthsSupply} mo supply</p>
+                                    <ResponsiveContainer width="100%" height={180}>
+                                        <BarChart data={[
+                                            { name: 'Closed', detached: comparisonData.detached.closedSales, attached: comparisonData.attached.closedSales },
+                                            { name: 'Pending', detached: comparisonData.detached.pendingSales, attached: comparisonData.attached.pendingSales },
+                                            { name: 'New', detached: comparisonData.detached.newListings, attached: comparisonData.attached.newListings },
+                                        ]} layout="vertical" margin={{ left: 55 }}>
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                                            <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} />
+                                            <YAxis dataKey="name" type="category" tick={{ fontSize: 11, fill: '#94a3b8' }} />
+                                            <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }} />
+                                            <Legend wrapperStyle={{ color: '#94a3b8' }} />
+                                            <Bar dataKey="detached" name="Single Family" fill="#3b82f6" radius={[0, 4, 4, 0]} />
+                                            <Bar dataKey="attached" name="Condos" fill="#8b5cf6" radius={[0, 4, 4, 0]} />
+                                        </BarChart>
+                                    </ResponsiveContainer>
+                                </div>
+                            </>
+                        )}
+
+                        {activeTab === 'prices' && (
+                            <>
+                                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
+                                    <h3 className="text-lg font-bold text-white mb-4">Price Trend</h3>
+                                    <ResponsiveContainer width="100%" height={280}>
+                                        <AreaChart data={historicalData}>
+                                            <defs>
+                                                <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
+                                                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.4} />
+                                                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                                                </linearGradient>
+                                            </defs>
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                                            <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#94a3b8' }} />
+                                            <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} tickFormatter={(v) => formatCurrency(v)} />
+                                            <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }} formatter={(v) => formatCurrency(v)} />
+                                            <Area type="monotone" dataKey="price" stroke="#3b82f6" fill="url(#priceGrad)" strokeWidth={2} />
+                                        </AreaChart>
+                                    </ResponsiveContainer>
+                                </div>
+                                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
+                                    <h3 className="text-lg font-bold text-white mb-4">Price Comparison</h3>
+                                    <div className="grid grid-cols-2 gap-4 mb-4">
+                                        <div className="p-4 bg-blue-900/30 rounded-xl border border-blue-700/30 text-center">
+                                            <p className="text-xs text-blue-400 font-bold mb-1">🏠 SINGLE FAMILY</p>
+                                            <p className="text-2xl font-bold text-white">{formatCurrency(comparisonData.detached.medianPrice)}</p>
+                                            <ChangeIndicator value={comparisonData.detached.priceChange} />
+                                        </div>
+                                        <div className="p-4 bg-purple-900/30 rounded-xl border border-purple-700/30 text-center">
+                                            <p className="text-xs text-purple-400 font-bold mb-1">🏢 CONDOS</p>
+                                            <p className="text-2xl font-bold text-white">{formatCurrency(comparisonData.attached.medianPrice)}</p>
+                                            <ChangeIndicator value={comparisonData.attached.priceChange} />
+                                        </div>
+                                    </div>
+                                    <div className="p-4 bg-amber-900/20 rounded-xl border border-amber-700/30">
+                                        <p className="text-sm font-bold text-amber-400 mb-2">Sale-to-List Ratio</p>
+                                        <div className="flex justify-between">
+                                            <div>
+                                                <p className="text-2xl font-bold text-white">{comparisonData.detached.pctOrigPrice}%</p>
+                                                <p className="text-xs text-slate-500">Single Family</p>
+                                            </div>
+                                            <div className="text-right">
+                                                <p className="text-2xl font-bold text-white">{comparisonData.attached.pctOrigPrice}%</p>
+                                                <p className="text-xs text-slate-500">Condos</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <ResponsiveContainer width="100%" height={180}>
-                                    <BarChart data={[
-                                        { name: 'Closed', detached: comparisonData.detached.closedSales, attached: comparisonData.attached.closedSales },
-                                        { name: 'Pending', detached: comparisonData.detached.pendingSales, attached: comparisonData.attached.pendingSales },
-                                        { name: 'New', detached: comparisonData.detached.newListings, attached: comparisonData.attached.newListings },
-                                    ]} layout="vertical" margin={{ left: 55 }}>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-                                        <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} />
-                                        <YAxis dataKey="name" type="category" tick={{ fontSize: 11, fill: '#94a3b8' }} />
-                                        <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }} />
-                                        <Legend wrapperStyle={{ color: '#94a3b8' }} />
-                                        <Bar dataKey="detached" name="Single Family" fill="#3b82f6" radius={[0, 4, 4, 0]} />
-                                        <Bar dataKey="attached" name="Condos" fill="#8b5cf6" radius={[0, 4, 4, 0]} />
-                                    </BarChart>
-                                </ResponsiveContainer>
-                            </div>
-                        </>
-                    )}
+                            </>
+                        )}
 
-                    {activeTab === 'prices' && (
-                        <>
-                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
-                                <h3 className="text-lg font-bold text-white mb-4">Price Trend</h3>
-                                <ResponsiveContainer width="100%" height={280}>
-                                    <AreaChart data={historicalData}>
-                                        <defs>
-                                            <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
-                                                <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.4} />
-                                                <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
-                                            </linearGradient>
-                                        </defs>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-                                        <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#94a3b8' }} />
-                                        <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} tickFormatter={(v) => formatCurrency(v)} />
-                                        <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }} formatter={(v) => formatCurrency(v)} />
-                                        <Area type="monotone" dataKey="price" stroke="#3b82f6" fill="url(#priceGrad)" strokeWidth={2} />
-                                    </AreaChart>
-                                </ResponsiveContainer>
-                            </div>
-                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
-                                <h3 className="text-lg font-bold text-white mb-4">Price Comparison</h3>
-                                <div className="grid grid-cols-2 gap-4 mb-4">
-                                    <div className="p-4 bg-blue-900/30 rounded-xl border border-blue-700/30 text-center">
-                                        <p className="text-xs text-blue-400 font-bold mb-1">🏠 SINGLE FAMILY</p>
-                                        <p className="text-2xl font-bold text-white">{formatCurrency(comparisonData.detached.medianPrice)}</p>
-                                        <ChangeIndicator value={comparisonData.detached.priceChange} />
-                                    </div>
-                                    <div className="p-4 bg-purple-900/30 rounded-xl border border-purple-700/30 text-center">
-                                        <p className="text-xs text-purple-400 font-bold mb-1">🏢 CONDOS</p>
-                                        <p className="text-2xl font-bold text-white">{formatCurrency(comparisonData.attached.medianPrice)}</p>
-                                        <ChangeIndicator value={comparisonData.attached.priceChange} />
-                                    </div>
-                                </div>
-                                <div className="p-4 bg-amber-900/20 rounded-xl border border-amber-700/30">
-                                    <p className="text-sm font-bold text-amber-400 mb-2">Sale-to-List Ratio</p>
-                                    <div className="flex justify-between">
-                                        <div>
-                                            <p className="text-2xl font-bold text-white">{comparisonData.detached.pctOrigPrice}%</p>
-                                            <p className="text-xs text-slate-500">Single Family</p>
+                        {activeTab === 'inventory' && (
+                            <>
+                                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
+                                    <h3 className="text-lg font-bold text-white mb-4">Supply by Property Type</h3>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="p-4 bg-blue-900/30 rounded-xl border border-blue-700/30 text-center">
+                                            <p className="text-xs text-blue-400 font-bold">🏠 SINGLE FAMILY</p>
+                                            <p className="text-3xl font-bold text-white my-1">{formatNumber(comparisonData.detached.inventory)}</p>
+                                            <p className="text-xs text-slate-500">{comparisonData.detached.monthsSupply} months supply</p>
+                                            <ChangeIndicator value={comparisonData.detached.invChange} />
                                         </div>
-                                        <div className="text-right">
-                                            <p className="text-2xl font-bold text-white">{comparisonData.attached.pctOrigPrice}%</p>
-                                            <p className="text-xs text-slate-500">Condos</p>
+                                        <div className="p-4 bg-purple-900/30 rounded-xl border border-purple-700/30 text-center">
+                                            <p className="text-xs text-purple-400 font-bold">🏢 CONDOS</p>
+                                            <p className="text-3xl font-bold text-white my-1">{formatNumber(comparisonData.attached.inventory)}</p>
+                                            <p className="text-xs text-slate-500">{comparisonData.attached.monthsSupply} months supply</p>
+                                            <ChangeIndicator value={comparisonData.attached.invChange} />
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </>
-                    )}
+                                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
+                                    <h3 className="text-lg font-bold text-white mb-4">Activity Comparison</h3>
+                                    <ResponsiveContainer width="100%" height={280}>
+                                        <BarChart data={[
+                                            { name: 'New Listings', detached: comparisonData.detached.newListings, attached: comparisonData.attached.newListings },
+                                            { name: 'Pending Sales', detached: comparisonData.detached.pendingSales, attached: comparisonData.attached.pendingSales },
+                                            { name: 'Closed Sales', detached: comparisonData.detached.closedSales, attached: comparisonData.attached.closedSales },
+                                        ]} layout="vertical" margin={{ left: 85 }}>
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                                            <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} />
+                                            <YAxis dataKey="name" type="category" tick={{ fontSize: 11, fill: '#94a3b8' }} />
+                                            <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }} />
+                                            <Legend />
+                                            <Bar dataKey="detached" name="Single Family" fill="#3b82f6" radius={[0, 4, 4, 0]} />
+                                            <Bar dataKey="attached" name="Condos" fill="#8b5cf6" radius={[0, 4, 4, 0]} />
+                                        </BarChart>
+                                    </ResponsiveContainer>
+                                </div>
+                            </>
+                        )}
 
-                    {activeTab === 'inventory' && (
-                        <>
-                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
-                                <h3 className="text-lg font-bold text-white mb-4">Supply by Property Type</h3>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="p-4 bg-blue-900/30 rounded-xl border border-blue-700/30 text-center">
-                                        <p className="text-xs text-blue-400 font-bold">🏠 SINGLE FAMILY</p>
-                                        <p className="text-3xl font-bold text-white my-1">{formatNumber(comparisonData.detached.inventory)}</p>
-                                        <p className="text-xs text-slate-500">{comparisonData.detached.monthsSupply} months supply</p>
-                                        <ChangeIndicator value={comparisonData.detached.invChange} />
-                                    </div>
-                                    <div className="p-4 bg-purple-900/30 rounded-xl border border-purple-700/30 text-center">
-                                        <p className="text-xs text-purple-400 font-bold">🏢 CONDOS</p>
-                                        <p className="text-3xl font-bold text-white my-1">{formatNumber(comparisonData.attached.inventory)}</p>
-                                        <p className="text-xs text-slate-500">{comparisonData.attached.monthsSupply} months supply</p>
-                                        <ChangeIndicator value={comparisonData.attached.invChange} />
+                        {activeTab === 'velocity' && (
+                            <>
+                                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
+                                    <h3 className="text-lg font-bold text-white mb-4">Days on Market Comparison</h3>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="p-5 bg-blue-900/30 rounded-xl border border-blue-700/30 text-center">
+                                            <p className="text-xs text-blue-400 font-bold mb-2">🏠 SINGLE FAMILY</p>
+                                            <p className="text-4xl font-bold text-blue-400">{comparisonData.detached.daysOnMarket}</p>
+                                            <p className="text-xs text-slate-500 mt-1">days average</p>
+                                            <ChangeIndicator value={comparisonData.detached.domChange} inverse />
+                                        </div>
+                                        <div className="p-5 bg-purple-900/30 rounded-xl border border-purple-700/30 text-center">
+                                            <p className="text-xs text-purple-400 font-bold mb-2">🏢 CONDOS</p>
+                                            <p className="text-4xl font-bold text-purple-400">{comparisonData.attached.daysOnMarket}</p>
+                                            <p className="text-xs text-slate-500 mt-1">days average</p>
+                                            <ChangeIndicator value={comparisonData.attached.domChange} inverse />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
-                                <h3 className="text-lg font-bold text-white mb-4">Activity Comparison</h3>
-                                <ResponsiveContainer width="100%" height={280}>
-                                    <BarChart data={[
-                                        { name: 'New Listings', detached: comparisonData.detached.newListings, attached: comparisonData.attached.newListings },
-                                        { name: 'Pending Sales', detached: comparisonData.detached.pendingSales, attached: comparisonData.attached.pendingSales },
-                                        { name: 'Closed Sales', detached: comparisonData.detached.closedSales, attached: comparisonData.attached.closedSales },
-                                    ]} layout="vertical" margin={{ left: 85 }}>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-                                        <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} />
-                                        <YAxis dataKey="name" type="category" tick={{ fontSize: 11, fill: '#94a3b8' }} />
-                                        <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }} />
-                                        <Legend />
-                                        <Bar dataKey="detached" name="Single Family" fill="#3b82f6" radius={[0, 4, 4, 0]} />
-                                        <Bar dataKey="attached" name="Condos" fill="#8b5cf6" radius={[0, 4, 4, 0]} />
-                                    </BarChart>
-                                </ResponsiveContainer>
-                            </div>
-                        </>
-                    )}
-
-                    {activeTab === 'velocity' && (
-                        <>
-                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
-                                <h3 className="text-lg font-bold text-white mb-4">Days on Market Comparison</h3>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="p-5 bg-blue-900/30 rounded-xl border border-blue-700/30 text-center">
-                                        <p className="text-xs text-blue-400 font-bold mb-2">🏠 SINGLE FAMILY</p>
-                                        <p className="text-4xl font-bold text-blue-400">{comparisonData.detached.daysOnMarket}</p>
-                                        <p className="text-xs text-slate-500 mt-1">days average</p>
-                                        <ChangeIndicator value={comparisonData.detached.domChange} inverse />
-                                    </div>
-                                    <div className="p-5 bg-purple-900/30 rounded-xl border border-purple-700/30 text-center">
-                                        <p className="text-xs text-purple-400 font-bold mb-2">🏢 CONDOS</p>
-                                        <p className="text-4xl font-bold text-purple-400">{comparisonData.attached.daysOnMarket}</p>
-                                        <p className="text-xs text-slate-500 mt-1">days average</p>
-                                        <ChangeIndicator value={comparisonData.attached.domChange} inverse />
-                                    </div>
+                                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
+                                    <h3 className="text-lg font-bold text-white mb-4">DOM Trend</h3>
+                                    <ResponsiveContainer width="100%" height={280}>
+                                        <LineChart data={historicalData}>
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                                            <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#94a3b8' }} />
+                                            <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} />
+                                            <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }} />
+                                            <Line type="monotone" dataKey="dom" name="Days on Market" stroke="#3b82f6" strokeWidth={3} dot={{ fill: '#3b82f6', r: 4 }} />
+                                        </LineChart>
+                                    </ResponsiveContainer>
                                 </div>
-                            </div>
-                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
-                                <h3 className="text-lg font-bold text-white mb-4">DOM Trend</h3>
-                                <ResponsiveContainer width="100%" height={280}>
-                                    <LineChart data={historicalData}>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-                                        <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#94a3b8' }} />
-                                        <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} />
-                                        <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }} />
-                                        <Line type="monotone" dataKey="dom" name="Days on Market" stroke="#3b82f6" strokeWidth={3} dot={{ fill: '#3b82f6', r: 4 }} />
-                                    </LineChart>
-                                </ResponsiveContainer>
-                            </div>
-                        </>
-                    )}
-                </div>
+                            </>
+                        )}
+                    </div>
+                )}
 
                 {/* Neighborhood Data from SDAR PDFs */}
                 <div className="mt-10">
