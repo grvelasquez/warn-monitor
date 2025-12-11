@@ -11,6 +11,14 @@ const SD_LOCATIONS = [
     { name: 'Encinitas', lat: 33.0369, lon: -117.2919 },
 ];
 
+// Surf spot locations
+const SURF_LOCATIONS = [
+    { name: 'Ocean Beach', lat: 32.75, lon: -117.25 },
+    { name: 'La Jolla', lat: 32.85, lon: -117.27 },
+    { name: 'Del Mar', lat: 32.96, lon: -117.27 },
+    { name: 'Oceanside', lat: 33.19, lon: -117.39 },
+];
+
 // Weather code to icon and description mapping
 const getWeatherInfo = (code) => {
     const weatherCodes = {
@@ -256,19 +264,6 @@ function TideSchedule({ tideData }) {
 }
 
 function SurfForecast({ surfData }) {
-    if (!surfData) {
-        return (
-            <div className="bg-gradient-to-r from-teal-900/20 to-cyan-900/20 border border-slate-700/50 rounded-xl p-3">
-                <h3 className="text-sm font-semibold text-white mb-2">Surf Forecast</h3>
-                <p className="text-xs text-slate-400">Loading...</p>
-            </div>
-        );
-    }
-
-    const waveHeight = surfData.current?.wave_height || 0;
-    const wavePeriod = surfData.current?.wave_period || 0;
-    const waveDirection = surfData.current?.wave_direction || 0;
-
     const getDirectionLabel = (deg) => {
         const dirs = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
         return dirs[Math.round(deg / 45) % 8];
@@ -282,26 +277,41 @@ function SurfForecast({ surfData }) {
         return { label: 'Big', color: 'text-orange-400' };
     };
 
-    const condition = getConditionLabel(waveHeight);
+    if (!surfData || Object.keys(surfData).length === 0) {
+        return (
+            <div className="bg-gradient-to-r from-teal-900/20 to-cyan-900/20 border border-slate-700/50 rounded-xl p-3">
+                <h3 className="text-sm font-semibold text-white mb-2">Surf Forecast</h3>
+                <p className="text-xs text-slate-400">Loading...</p>
+            </div>
+        );
+    }
 
     return (
         <div className="bg-gradient-to-r from-teal-900/20 to-cyan-900/20 border border-slate-700/50 rounded-xl p-3">
-            <h3 className="text-sm font-semibold text-white mb-2">Surf Forecast</h3>
-            <div className="space-y-1.5">
-                <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Waves</span>
-                    <span className={`font-medium ${condition.color}`}>
-                        {(waveHeight * 3.28).toFixed(1)} ft ({condition.label})
-                    </span>
-                </div>
-                <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Period</span>
-                    <span className="text-white font-medium">{wavePeriod.toFixed(0)}s</span>
-                </div>
-                <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Direction</span>
-                    <span className="text-white font-medium">{getDirectionLabel(waveDirection)} ({Math.round(waveDirection)}°)</span>
-                </div>
+            <div className="flex items-center gap-2 mb-2">
+                <Waves className="w-4 h-4 text-teal-400" />
+                <h3 className="text-sm font-semibold text-white">Surf Forecast</h3>
+            </div>
+            <div className="space-y-2">
+                {SURF_LOCATIONS.map((spot) => {
+                    const data = surfData[spot.name];
+                    if (!data) return null;
+                    const waveHeight = data.current?.wave_height || 0;
+                    const wavePeriod = data.current?.wave_period || 0;
+                    const waveDirection = data.current?.wave_direction || 0;
+                    const condition = getConditionLabel(waveHeight);
+
+                    return (
+                        <div key={spot.name} className="flex items-center justify-between text-xs py-1 border-b border-slate-700/30 last:border-0">
+                            <span className="text-slate-300 font-medium w-20">{spot.name}</span>
+                            <span className={`font-medium ${condition.color}`}>
+                                {(waveHeight * 3.28).toFixed(1)}ft
+                            </span>
+                            <span className="text-slate-500">{wavePeriod.toFixed(0)}s</span>
+                            <span className="text-slate-500">{getDirectionLabel(waveDirection)}</span>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
@@ -336,7 +346,7 @@ function LocationCard({ location, data, isSelected, onClick }) {
 export default function WeatherDashboard() {
     const [weatherData, setWeatherData] = useState(null);
     const [tideData, setTideData] = useState([]);
-    const [surfData, setSurfData] = useState(null);
+    const [surfData, setSurfData] = useState({});
     const [locationWeather, setLocationWeather] = useState({});
     const [selectedLocation, setSelectedLocation] = useState(SD_LOCATIONS[0]);
     const [loading, setLoading] = useState(true);
@@ -385,15 +395,21 @@ export default function WeatherDashboard() {
                 console.error('Tide fetch error:', tideErr);
             }
 
-            // Fetch surf/marine data from Open-Meteo
+            // Fetch surf/marine data from Open-Meteo for multiple locations
             try {
-                const surfRes = await fetch(
-                    `https://marine-api.open-meteo.com/v1/marine?latitude=32.8&longitude=-117.25&current=wave_height,wave_period,wave_direction&timezone=America/Los_Angeles`
-                );
-                if (surfRes.ok) {
-                    const surfJson = await surfRes.json();
-                    setSurfData(surfJson);
-                }
+                const surfPromises = SURF_LOCATIONS.map(async (spot) => {
+                    const surfRes = await fetch(
+                        `https://marine-api.open-meteo.com/v1/marine?latitude=${spot.lat}&longitude=${spot.lon}&current=wave_height,wave_period,wave_direction&timezone=America/Los_Angeles`
+                    );
+                    if (surfRes.ok) {
+                        return { name: spot.name, data: await surfRes.json() };
+                    }
+                    return null;
+                });
+                const surfResults = await Promise.all(surfPromises);
+                const surfMap = {};
+                surfResults.filter(Boolean).forEach(r => { surfMap[r.name] = r.data; });
+                setSurfData(surfMap);
             } catch (surfErr) {
                 console.error('Surf fetch error:', surfErr);
             }
@@ -456,10 +472,9 @@ export default function WeatherDashboard() {
                         <div className="lg:col-span-2 space-y-6">
                             <CurrentWeather data={weatherData} location={selectedLocation.name} />
                             <HourlyForecast data={weatherData} />
-                            <div className="grid grid-cols-3 gap-3">
+                            <div className="grid grid-cols-2 gap-3">
                                 <SunTimes data={weatherData} />
                                 <TideSchedule tideData={tideData} />
-                                <SurfForecast surfData={surfData} />
                             </div>
                             <DailyForecast data={weatherData} />
                         </div>
@@ -478,6 +493,7 @@ export default function WeatherDashboard() {
                                     />
                                 ))}
                             </div>
+                            <SurfForecast surfData={surfData} />
                         </div>
                     </div>
                 )}
