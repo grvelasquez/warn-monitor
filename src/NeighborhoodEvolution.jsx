@@ -92,8 +92,8 @@ function NeighborhoodCard({ data, yelpData, isSelected, onClick }) {
         <button
             onClick={onClick}
             className={`rounded-xl p-3 border text-left transition-all w-full ${isSelected
-                    ? 'ring-2 ring-offset-2 ring-offset-gray-900'
-                    : 'hover:bg-gray-700/50'
+                ? 'ring-2 ring-offset-2 ring-offset-gray-900'
+                : 'hover:bg-gray-700/50'
                 }`}
             style={{
                 backgroundColor: isSelected ? color + '20' : 'rgb(30 41 59 / 0.5)',
@@ -137,6 +137,7 @@ function NeighborhoodCard({ data, yelpData, isSelected, onClick }) {
 export default function NeighborhoodEvolution() {
     const [sdarData, setSdarData] = useState(null);
     const [yelpData, setYelpData] = useState(null);
+    const [zillowData, setZillowData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
@@ -144,13 +145,14 @@ export default function NeighborhoodEvolution() {
     const [sortBy, setSortBy] = useState('name');
     const [propertyType, setPropertyType] = useState('detached');
 
-    // Fetch SDAR and Yelp data on mount
+    // Fetch SDAR, Yelp, and Zillow data on mount
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [sdarRes, yelpRes] = await Promise.all([
+                const [sdarRes, yelpRes, zillowRes] = await Promise.all([
                     fetch('/data/sdar_neighborhood_data.json'),
-                    fetch('/data/yelp_snapshot.json')
+                    fetch('/data/yelp_snapshot.json'),
+                    fetch('/data/zillow_rental_data.json')
                 ]);
 
                 if (sdarRes.ok) {
@@ -163,6 +165,10 @@ export default function NeighborhoodEvolution() {
                 if (yelpRes.ok) {
                     const data = await yelpRes.json();
                     setYelpData(data);
+                }
+                if (zillowRes.ok) {
+                    const data = await zillowRes.json();
+                    setZillowData(data);
                 }
             } catch (err) {
                 console.error('Failed to load data:', err);
@@ -200,6 +206,16 @@ export default function NeighborhoodEvolution() {
         });
         return map;
     }, [yelpData]);
+
+    // Map Zillow rent data by zip code
+    const zillowByZip = useMemo(() => {
+        if (!zillowData?.neighborhoods) return {};
+        const map = {};
+        zillowData.neighborhoods.forEach(n => {
+            map[n.zip_code] = n;
+        });
+        return map;
+    }, [zillowData]);
 
     // Filter neighborhoods by region
     const filteredNeighborhoods = useMemo(() => {
@@ -310,7 +326,7 @@ export default function NeighborhoodEvolution() {
                         <h1 className="text-xl sm:text-2xl font-bold">SD County Neighborhoods</h1>
                     </div>
                     <p className="text-sm text-gray-400">
-                        {sdarData?.meta?.neighborhoods_count || 0} zip codes • SDAR Housing + Yelp Business Data
+                        {sdarData?.meta?.neighborhoods_count || 0} zip codes • SDAR Housing + Yelp + Zillow Rentals
                     </p>
                 </div>
 
@@ -331,17 +347,18 @@ export default function NeighborhoodEvolution() {
                         color="blue"
                     />
                     <MetricCard
+                        label="Median Rent"
+                        value={`$${(zillowData?.summary?.avg_rent || 0).toLocaleString()}`}
+                        sublabel={zillowData?.summary?.avg_yoy_change ? `${zillowData.summary.avg_yoy_change > 0 ? '+' : ''}${zillowData.summary.avg_yoy_change}% YoY` : 'Zillow ZORI'}
+                        icon={Home}
+                        color="purple"
+                        trend={zillowData?.summary?.avg_yoy_change > 0 ? 'up' : zillowData?.summary?.avg_yoy_change < 0 ? 'down' : null}
+                    />
+                    <MetricCard
                         label="Total Restaurants"
                         value={(yelpSummary?.total_counts?.restaurants || 0).toLocaleString()}
                         sublabel="Yelp tracked areas"
                         icon={UtensilsCrossed}
-                        color="purple"
-                    />
-                    <MetricCard
-                        label="Coffee Shops"
-                        value={(yelpSummary?.total_counts?.coffee || 0).toLocaleString()}
-                        sublabel="Yelp tracked areas"
-                        icon={Coffee}
                         color="orange"
                     />
                 </div>
@@ -361,8 +378,8 @@ export default function NeighborhoodEvolution() {
                                     setSelectedNeighborhood(null);
                                 }}
                                 className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${selectedRegion === key
-                                        ? 'bg-indigo-600 text-white'
-                                        : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                                    ? 'bg-indigo-600 text-white'
+                                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
                                     }`}
                             >
                                 {label}

@@ -1,16 +1,37 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Construction, Building2, Train, Hammer, TrendingUp, MapPin, Calendar, ArrowUpRight, Filter, Home, Warehouse, Building } from 'lucide-react';
+import { Construction, Building2, Train, Hammer, TrendingUp, MapPin, Calendar, ArrowUpRight, Home, Warehouse, Building } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
 
-// San Diego development data - curated from SanGIS and public records
-const developmentData = {
-    summary: {
-        totalPermits2024: 4823,
-        yoyChange: 12.4,
-        residentialUnits: 8420,
-        commercialSqFt: 2.1, // millions
-        avgPermitValue: 485000,
-    },
+// Curated major projects - kept as these are manually verified
+const MAJOR_PROJECTS = [
+    { name: 'IQHQ Research District', location: 'Point Loma', type: 'Mixed Use', units: 0, sqft: '1.4M', status: 'Under Construction', completion: '2026', value: 1200 },
+    { name: 'Riverwalk San Diego', location: 'Mission Valley', type: 'Mixed Use', units: 4300, sqft: '900K', status: 'Under Construction', completion: '2027', value: 2800 },
+    { name: 'Horton Plaza Redevelopment', location: 'Downtown', type: 'Tech Campus', units: 0, sqft: '795K', status: 'Complete', completion: '2024', value: 400 },
+    { name: 'San Diego State Mission Valley', location: 'Mission Valley', type: 'Stadium/Residential', units: 4600, sqft: '1.6M', status: 'Under Construction', completion: '2027', value: 3500 },
+    { name: 'Newland Sierra', location: 'North County', type: 'Master Planned', units: 2135, sqft: '81K', status: 'Approved', completion: '2030', value: 850 },
+    { name: 'Seaport San Diego', location: 'Downtown Waterfront', type: 'Mixed Use', units: 0, sqft: '4M', status: 'Under Construction', completion: '2027', value: 2200 },
+    { name: 'One Paseo', location: 'Carmel Valley', type: 'Mixed Use', units: 608, sqft: '471K', status: 'Complete', completion: '2024', value: 600 },
+    { name: 'Pacific Gate', location: 'Downtown', type: 'Residential', units: 215, sqft: '0', status: 'Complete', completion: '2024', value: 180 },
+];
+
+const TRANSIT_PROJECTS = [
+    { name: 'Mid-Coast Trolley Extension', status: 'Complete', impact: 'La Jolla, UTC, UCSD access' },
+    { name: 'Central Mobility Hub', status: 'Planning', impact: 'Downtown transit center' },
+    { name: 'Purple Line (Kearny Mesa)', status: 'Environmental Review', impact: 'North-South corridor' },
+    { name: 'South Bay Rapid', status: 'Under Construction', impact: 'Otay Mesa, Chula Vista' },
+];
+
+const HOT_ZONES = [
+    { area: 'Mission Valley', trend: 'up', reason: 'Stadium site + Riverwalk', growth: 45 },
+    { area: 'Downtown', trend: 'up', reason: 'Seaport + office conversions', growth: 32 },
+    { area: 'UTC/La Jolla', trend: 'up', reason: 'Mid-Coast Trolley completed', growth: 28 },
+    { area: 'North County', trend: 'neutral', reason: 'Water constraints', growth: 8 },
+    { area: 'East County', trend: 'up', reason: 'Affordable new builds', growth: 22 },
+];
+
+// Default fallback data
+const DEFAULT_DATA = {
+    summary: { totalPermits: 4823, residentialUnits: 8420, totalValue: 2.1 },
     permitsByRegion: [
         { region: 'Coastal', permits: 412, value: 285, units: 580 },
         { region: 'Urban San Diego', permits: 1245, value: 892, units: 3240 },
@@ -26,34 +47,11 @@ const developmentData = {
         { type: 'Commercial', count: 512, color: '#f59e0b' },
         { type: 'Renovation', count: 390, color: '#6366f1' },
     ],
-    majorProjects: [
-        { name: 'IQHQ Research District', location: 'Point Loma', type: 'Mixed Use', units: 0, sqft: '1.4M', status: 'Under Construction', completion: '2026', value: 1200 },
-        { name: 'Riverwalk San Diego', location: 'Mission Valley', type: 'Mixed Use', units: 4300, sqft: '900K', status: 'Under Construction', completion: '2027', value: 2800 },
-        { name: 'Horton Plaza Redevelopment', location: 'Downtown', type: 'Tech Campus', units: 0, sqft: '795K', status: 'Complete', completion: '2024', value: 400 },
-        { name: 'San Diego State Mission Valley', location: 'Mission Valley', type: 'Stadium/Residential', units: 4600, sqft: '1.6M', status: 'Under Construction', completion: '2027', value: 3500 },
-        { name: 'Newland Sierra', location: 'North County', type: 'Master Planned', units: 2135, sqft: '81K', status: 'Approved', completion: '2030', value: 850 },
-        { name: 'Seaport San Diego', location: 'Downtown Waterfront', type: 'Mixed Use', units: 0, sqft: '4M', status: 'Under Construction', completion: '2027', value: 2200 },
-        { name: 'One Paseo', location: 'Carmel Valley', type: 'Mixed Use', units: 608, sqft: '471K', status: 'Complete', completion: '2024', value: 600 },
-        { name: 'Pacific Gate', location: 'Downtown', type: 'Residential', units: 215, sqft: '0', status: 'Complete', completion: '2024', value: 180 },
-    ],
-    transitProjects: [
-        { name: 'Mid-Coast Trolley Extension', status: 'Complete', impact: 'La Jolla, UTC, UCSD access' },
-        { name: 'Central Mobility Hub', status: 'Planning', impact: 'Downtown transit center' },
-        { name: 'Purple Line (Kearny Mesa)', status: 'Environmental Review', impact: 'North-South corridor' },
-        { name: 'South Bay Rapid', status: 'Under Construction', impact: 'Otay Mesa, Chula Vista' },
-    ],
-    hotZones: [
-        { area: 'Mission Valley', trend: 'up', reason: 'Stadium site + Riverwalk', growth: 45 },
-        { area: 'Downtown', trend: 'up', reason: 'Seaport + office conversions', growth: 32 },
-        { area: 'UTC/La Jolla', trend: 'up', reason: 'Mid-Coast Trolley completed', growth: 28 },
-        { area: 'North County', trend: 'neutral', reason: 'Water constraints', growth: 8 },
-        { area: 'East County', trend: 'up', reason: 'Affordable new builds', growth: 22 },
-    ]
 };
 
 // Format functions
 const formatCurrency = (val) => `$${val.toLocaleString()}`;
-const formatNumber = (val) => val.toLocaleString();
+const formatNumber = (val) => val?.toLocaleString() || '0';
 
 function StatCard({ title, value, subtitle, icon: Icon, color, change }) {
     return (
@@ -149,16 +147,40 @@ function HotZoneIndicator({ zone }) {
 
 export default function DevelopmentDashboard() {
     const [selectedStatus, setSelectedStatus] = useState('all');
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('/data/development_data.json')
+            .then(res => res.ok ? res.json() : null)
+            .then(json => setData(json))
+            .catch(() => setData(null))
+            .finally(() => setLoading(false));
+    }, []);
+
+    // Use fetched data or fallback
+    const devData = data || DEFAULT_DATA;
 
     const filteredProjects = useMemo(() => {
-        if (selectedStatus === 'all') return developmentData.majorProjects;
-        return developmentData.majorProjects.filter(p => p.status === selectedStatus);
+        if (selectedStatus === 'all') return MAJOR_PROJECTS;
+        return MAJOR_PROJECTS.filter(p => p.status === selectedStatus);
     }, [selectedStatus]);
 
-    const chartData = developmentData.permitsByRegion.map(r => ({
+    const chartData = (devData.permitsByRegion || []).map(r => ({
         ...r,
         name: r.region.replace('San Diego', 'SD'),
     }));
+
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin w-8 h-8 border-2 border-slate-600 border-t-orange-500 rounded-full mx-auto mb-4"></div>
+                    <p className="text-slate-400">Loading development data...</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
@@ -174,13 +196,13 @@ export default function DevelopmentDashboard() {
                                 <Construction className="w-5 sm:w-6 h-5 sm:h-6 text-orange-400" />
                             </div>
                             <h1 className="text-xl sm:text-2xl font-bold tracking-tight">Development</h1>
-                            <span className="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-400 rounded-full">2024 YTD</span>
+                            {data && <span className="px-2 py-0.5 bg-green-900/50 text-green-400 text-xs rounded-full">LIVE</span>}
                         </div>
                         <p className="text-sm sm:text-base text-slate-400">San Diego County • Construction & Infrastructure Pipeline</p>
                     </div>
                     <div className="text-right">
-                        <p className="text-xs text-slate-500">City + County Data</p>
-                        <p className="text-sm text-slate-400">{new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
+                        <p className="text-xs text-slate-500">{data ? 'City + County Data' : 'Curated Data'}</p>
+                        <p className="text-sm text-slate-400">{data?.meta?.generated ? new Date(data.meta.generated).toLocaleDateString() : new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
                     </div>
                 </div>
 
@@ -213,39 +235,38 @@ export default function DevelopmentDashboard() {
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <StatCard
                         title="Building Permits"
-                        value={formatNumber(developmentData.summary.totalPermits2024)}
-                        subtitle="YTD 2024"
+                        value={formatNumber(devData.summary?.totalPermits)}
+                        subtitle="YTD"
                         icon={Hammer}
                         color="bg-orange-600"
-                        change={developmentData.summary.yoyChange}
                     />
                     <StatCard
                         title="Residential Units"
-                        value={formatNumber(developmentData.summary.residentialUnits)}
+                        value={formatNumber(devData.summary?.residentialUnits)}
                         subtitle="In pipeline"
                         icon={Home}
                         color="bg-teal-600"
                     />
                     <StatCard
-                        title="Commercial Space"
-                        value={`${developmentData.summary.commercialSqFt}M`}
-                        subtitle="Sq ft approved"
+                        title="Total Value"
+                        value={`$${devData.summary?.totalValue || 2.1}B`}
+                        subtitle="Permit value"
                         icon={Building2}
                         color="bg-blue-600"
                     />
                     <StatCard
-                        title="Avg Permit Value"
-                        value={formatCurrency(developmentData.summary.avgPermitValue)}
-                        subtitle="All types"
-                        icon={TrendingUp}
-                        color="bg-purple-600"
-                    />
-                    <StatCard
                         title="Major Projects"
-                        value={developmentData.majorProjects.length}
+                        value={MAJOR_PROJECTS.length}
                         subtitle="$10B+ total"
                         icon={Building}
                         color="bg-amber-600"
+                    />
+                    <StatCard
+                        title="Transit Projects"
+                        value={TRANSIT_PROJECTS.length}
+                        subtitle="In progress"
+                        icon={TrendingUp}
+                        color="bg-purple-600"
                     />
                 </div>
 
@@ -280,7 +301,7 @@ export default function DevelopmentDashboard() {
                         <ResponsiveContainer width="100%" height={250}>
                             <PieChart>
                                 <Pie
-                                    data={developmentData.permitsByType}
+                                    data={devData.permitsByType || []}
                                     cx="50%"
                                     cy="50%"
                                     innerRadius={50}
@@ -289,7 +310,7 @@ export default function DevelopmentDashboard() {
                                     dataKey="count"
                                     nameKey="type"
                                 >
-                                    {developmentData.permitsByType.map((entry, index) => (
+                                    {(devData.permitsByType || []).map((entry, index) => (
                                         <Cell key={`cell-${index}`} fill={entry.color} />
                                     ))}
                                 </Pie>
@@ -344,7 +365,7 @@ export default function DevelopmentDashboard() {
                                 Growth Zones
                             </h3>
                             <div className="space-y-1">
-                                {developmentData.hotZones.map((zone, idx) => (
+                                {HOT_ZONES.map((zone, idx) => (
                                     <HotZoneIndicator key={idx} zone={zone} />
                                 ))}
                             </div>
@@ -357,13 +378,13 @@ export default function DevelopmentDashboard() {
                                 Transit Developments
                             </h3>
                             <div className="space-y-3">
-                                {developmentData.transitProjects.map((project, idx) => (
+                                {TRANSIT_PROJECTS.map((project, idx) => (
                                     <div key={idx} className="border-b border-slate-700/30 last:border-0 pb-2 last:pb-0">
                                         <div className="flex items-center justify-between">
                                             <span className="text-sm text-white">{project.name}</span>
                                             <span className={`text-[10px] px-1.5 py-0.5 rounded ${project.status === 'Complete' ? 'bg-green-900/50 text-green-400' :
-                                                project.status === 'Under Construction' ? 'bg-amber-900/50 text-amber-400' :
-                                                    'bg-slate-700/50 text-slate-400'
+                                                    project.status === 'Under Construction' ? 'bg-amber-900/50 text-amber-400' :
+                                                        'bg-slate-700/50 text-slate-400'
                                                 }`}>
                                                 {project.status}
                                             </span>
@@ -377,8 +398,9 @@ export default function DevelopmentDashboard() {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-12 pt-6 border-t border-slate-800 text-center">
-                    <p className="text-xs text-slate-500">Data sources: SanGIS, SANDAG, City of San Diego Development Services • Updated quarterly</p>
+                <div className="mt-12 pt-6 border-t border-slate-800 text-center space-y-2">
+                    <p className="text-xs text-slate-500">Data sources: SanGIS, SANDAG, City of San Diego • Updated quarterly</p>
+                    <p className="text-xs text-slate-600">Gregory Velasquez | LPT Realty | DRE #02252032</p>
                 </div>
             </div>
         </div>
