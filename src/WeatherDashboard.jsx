@@ -163,8 +163,8 @@ function DailyForecast({ data }) {
 
                     return (
                         <div key={idx} className="flex items-center py-1.5 sm:py-2 border-b border-slate-700/30 last:border-0">
-                            <p className={`text-xs sm:text-sm ${isToday ? 'text-white font-medium' : 'text-slate-400'} w-10 sm:w-12 flex-shrink-0`}>
-                                {isToday ? 'Today' : dayNames[date.getDay()]}
+                            <p className={`text-xs sm:text-sm ${isToday ? 'text-white font-medium' : 'text-slate-400'} w-20 sm:w-24 flex-shrink-0`}>
+                                {isToday ? 'Today' : `${dayNames[date.getDay()]} ${date.getMonth() + 1}/${date.getDate()}`}
                             </p>
                             <WeatherIcon className={`w-4 h-4 ${weatherInfo.color} flex-shrink-0 mx-2`} />
                             <div className="flex items-center gap-1 ml-auto flex-shrink-0">
