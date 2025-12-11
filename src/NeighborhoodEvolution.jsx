@@ -264,7 +264,7 @@ export default function NeighborhoodEvolution() {
                         sublabel={zillowData?.summary?.avg_yoy_change ? `${zillowData.summary.avg_yoy_change > 0 ? '+' : ''}${zillowData.summary.avg_yoy_change}% YoY` : 'Zillow ZORI'}
                         icon={Home}
                         color="purple"
-                        trend={zillowData?.summary?.avg_yoy_change > 0 ? 'up' : zillowData?.summary?.avg_yoy_change < 0 ? 'down' : null}
+                        trend={zillowData?.summary?.avg_yoy_change}
                     />
 
                 </div>
