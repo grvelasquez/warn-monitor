@@ -13,8 +13,17 @@ const ChevronDownIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16"
 const FilterIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg>;
 const XIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>;
 
-import { neighborhoodData, regions } from './sdarData';
+import { regions } from './sdarData';
 import { SDARNeighborhoodDashboard } from './components/SDARNeighborhoodDashboard';
+
+// Default fallback data when JSON not loaded
+const DEFAULT_NEIGHBORHOOD_DATA = {
+    'all': {
+        all: { medianPrice: 895000, avgPrice: 1200000, closedSales: 1500, pendingSales: 1400, newListings: 1800, daysOnMarket: 45, pctOrigPrice: 97.0, inventory: 4500, monthsSupply: 2.5, affordability: 45, priceChange: 2.0, salesChange: -5.0, domChange: 15.0, invChange: 0 },
+        detached: { medianPrice: 1050000, avgPrice: 1450000, closedSales: 1000, pendingSales: 950, newListings: 1100, daysOnMarket: 43, pctOrigPrice: 97.2, inventory: 2600, monthsSupply: 2.2, affordability: 40, priceChange: 3.0, salesChange: -8.0, domChange: 18.0, invChange: -5.0 },
+        attached: { medianPrice: 660000, avgPrice: 800000, closedSales: 500, pendingSales: 450, newListings: 700, daysOnMarket: 48, pctOrigPrice: 96.5, inventory: 1900, monthsSupply: 3.0, affordability: 60, priceChange: -1.0, salesChange: -3.0, domChange: 25.0, invChange: 8.0 }
+    }
+};
 
 export default function SDARDashboard() {
     const [activeTab, setActiveTab] = useState('overview');
@@ -22,7 +31,73 @@ export default function SDARDashboard() {
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedArea, setSelectedArea] = useState('all');
     const [selectedZip, setSelectedZip] = useState('all');
-    // Filters are always shown
+    const [neighborhoodData, setNeighborhoodData] = useState(DEFAULT_NEIGHBORHOOD_DATA);
+    const [loading, setLoading] = useState(true);
+
+    // Load neighborhood data from JSON
+    useEffect(() => {
+        const loadNeighborhoodData = async () => {
+            try {
+                const res = await fetch('/data/sdar_neighborhood_data.json');
+                if (res.ok) {
+                    const data = await res.json();
+                    // Transform SDAR JSON format to component format
+                    const transformed = { 'all': DEFAULT_NEIGHBORHOOD_DATA['all'] };
+                    if (data.neighborhoods) {
+                        data.neighborhoods.forEach(n => {
+                            transformed[n.zip_code] = {
+                                all: n.detached || n.attached || DEFAULT_NEIGHBORHOOD_DATA['all'].all,
+                                detached: n.detached ? {
+                                    medianPrice: n.detached.median_price_2025 || 0,
+                                    avgPrice: n.detached.avg_price_2025 || 0,
+                                    closedSales: n.detached.closed_sales || 0,
+                                    pendingSales: n.detached.pending_sales || 0,
+                                    newListings: n.detached.new_listings || 0,
+                                    daysOnMarket: n.detached.dom_2025 || 0,
+                                    pctOrigPrice: n.detached.pct_orig_price || 97,
+                                    inventory: n.detached.inventory || 0,
+                                    monthsSupply: n.detached.months_supply || 2,
+                                    priceChange: n.detached.median_price_2024 ? ((n.detached.median_price_2025 - n.detached.median_price_2024) / n.detached.median_price_2024 * 100) : 0,
+                                    salesChange: 0, domChange: 0, invChange: 0
+                                } : DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
+                                attached: n.attached ? {
+                                    medianPrice: n.attached.median_price_2025 || 0,
+                                    avgPrice: n.attached.avg_price_2025 || 0,
+                                    closedSales: n.attached.closed_sales || 0,
+                                    pendingSales: n.attached.pending_sales || 0,
+                                    newListings: n.attached.new_listings || 0,
+                                    daysOnMarket: n.attached.dom_2025 || 0,
+                                    pctOrigPrice: n.attached.pct_orig_price || 97,
+                                    inventory: n.attached.inventory || 0,
+                                    monthsSupply: n.attached.months_supply || 2,
+                                    priceChange: n.attached.median_price_2024 ? ((n.attached.median_price_2025 - n.attached.median_price_2024) / n.attached.median_price_2024 * 100) : 0,
+                                    salesChange: 0, domChange: 0, invChange: 0
+                                } : DEFAULT_NEIGHBORHOOD_DATA['all'].attached
+                            };
+                        });
+                    }
+                    setNeighborhoodData(transformed);
+                }
+            } catch (e) {
+                console.error('Failed to load neighborhood data:', e);
+            } finally {
+                setLoading(false);
+            }
+        };
+        loadNeighborhoodData();
+    }, []);
+
+    // Fetch SDAR meta data
+    const [fetchedData, setFetchedData] = useState(null);
+    useEffect(() => {
+        fetch('/data/sdar_data.json')
+            .then(res => res.ok ? res.json() : null)
+            .then(data => setFetchedData(data))
+            .catch(() => { });
+    }, []);
+
+    const latestReportUrl = fetchedData?.report_url;
+    const latestDate = fetchedData?.current_period?.report_date;
 
     const availableAreas = useMemo(() => {
         if (selectedRegion === 'all') {
@@ -50,11 +125,11 @@ export default function SDARDashboard() {
             }
         }
         return zipData[propertyType] || zipData['all'];
-    }, [selectedZip, selectedArea, availableAreas, propertyType]);
+    }, [selectedZip, selectedArea, availableAreas, propertyType, neighborhoodData]);
 
     const locationName = useMemo(() => {
         if (selectedZip !== 'all') {
-            const area = availableAreas.find(a => a.zips.includes(selectedZip));
+            const area = availableAreas.find(a => a.zips?.includes(selectedZip));
             return area ? `${area.name} (${selectedZip})` : selectedZip;
         }
         if (selectedArea !== 'all') {
@@ -76,13 +151,13 @@ export default function SDARDashboard() {
     const formatNumber = (value) => new Intl.NumberFormat().format(value);
 
     const historicalData = useMemo(() => {
-        const basePrice = currentData.medianPrice;
+        const basePrice = currentData?.medianPrice || 895000;
         const multipliers = [0.96, 0.97, 0.98, 0.99, 0.995, 1.01, 1.005, 1.02, 1.01, 0.99, 0.985, 1.0];
         return multipliers.map((m, i) => ({
             month: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'][i],
             price: Math.round(basePrice * m),
-            dom: Math.max(15, currentData.daysOnMarket - 12 + i * 2),
-            sales: Math.round(currentData.closedSales * (0.9 + Math.random() * 0.4))
+            dom: Math.max(15, (currentData?.daysOnMarket || 45) - 12 + i * 2),
+            sales: Math.round((currentData?.closedSales || 1000) * (0.9 + Math.random() * 0.4))
         }));
     }, [currentData]);
 
@@ -96,8 +171,11 @@ export default function SDARDashboard() {
                 zipData = neighborhoodData[area.zips[0]];
             }
         }
-        return { detached: zipData.detached, attached: zipData.attached };
-    }, [selectedZip, selectedArea, availableAreas]);
+        return {
+            detached: zipData.detached || DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
+            attached: zipData.attached || DEFAULT_NEIGHBORHOOD_DATA['all'].attached
+        };
+    }, [selectedZip, selectedArea, availableAreas, neighborhoodData]);
 
     const ChangeIndicator = ({ value, inverse = false }) => {
         const isPositive = inverse ? value < 0 : value > 0;
@@ -123,24 +201,6 @@ export default function SDARDashboard() {
         { id: 'detached', label: 'Single Family', icon: '🏠' },
         { id: 'attached', label: 'Condos/Townhomes', icon: '🏢' },
     ];
-
-    // Fetch dynamic data info
-    const [fetchedData, setFetchedData] = useState(null);
-
-    useEffect(() => {
-        const loadData = async () => {
-            try {
-                const res = await fetch('/data/sdar_data.json');
-                if (res.ok) {
-                    setFetchedData(await res.json());
-                }
-            } catch (e) { console.error("Failed to load SDAR meta", e); }
-        };
-        loadData();
-    }, []);
-
-    const latestReportUrl = fetchedData?.report_url;
-    const latestDate = fetchedData?.current_period?.report_date;
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
