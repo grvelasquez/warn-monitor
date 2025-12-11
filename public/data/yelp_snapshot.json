@@ -1,29 +1,120 @@
 {
   "meta": {
-    "generated": "2025-12-10T14:25:23.825832",
+    "generated": "2025-12-10T16:14:25.521573",
     "source": "Yelp Fusion API",
-    "neighborhoods_count": 15,
+    "neighborhoods_count": 18,
     "categories_tracked": [
       "restaurants",
       "bars",
       "breweries",
       "coffee",
-      "hotels",
+      "juicebars",
+      "vegan",
+      "wine_bars",
+      "cocktailbars",
+      "tattoo",
+      "galleries",
+      "vintage",
+      "thrift_stores",
+      "antiques",
+      "vinyl_records",
+      "bookstores",
+      "hair_salons",
+      "barbers",
+      "nail_salons",
+      "spas",
+      "skincare",
+      "waxing",
+      "yoga",
+      "pilates",
+      "gyms",
+      "crossfit",
+      "boxing",
+      "cycling",
+      "pet_stores",
+      "pet_groomers",
+      "dog_walkers",
+      "pet_boarding",
+      "veterinarians",
       "shopping",
-      "arts",
-      "fitness"
+      "bicycles",
+      "florists",
+      "cannabis",
+      "furniture",
+      "home_decor",
+      "hotels",
+      "hostels",
+      "vacation_rentals",
+      "coworking",
+      "laundromat",
+      "check_cashing",
+      "pawn_shops",
+      "payday_loans",
+      "dollar_stores",
+      "fast_food",
+      "taquerias",
+      "auto_repair",
+      "tire_shops"
     ]
   },
   "summary": {
     "total_counts": {
-      "restaurants": 8794,
-      "bars": 2439,
-      "breweries": 195,
-      "coffee": 1799,
-      "hotels": 834,
-      "shopping": 16936,
-      "arts": 874,
-      "fitness": 1970
+      "restaurants": 9158,
+      "bars": 2505,
+      "breweries": 203,
+      "coffee": 1884,
+      "juicebars": 433,
+      "vegan": 179,
+      "wine_bars": 301,
+      "cocktailbars": 837,
+      "tattoo": 682,
+      "galleries": 895,
+      "vintage": 265,
+      "thrift_stores": 129,
+      "antiques": 392,
+      "vinyl_records": 101,
+      "bookstores": 156,
+      "hair_salons": 5713,
+      "barbers": 992,
+      "nail_salons": 14504,
+      "spas": 537,
+      "skincare": 2846,
+      "waxing": 1475,
+      "yoga": 1423,
+      "pilates": 426,
+      "gyms": 682,
+      "crossfit": 113,
+      "boxing": 77,
+      "cycling": 14504,
+      "pet_stores": 399,
+      "pet_groomers": 14504,
+      "dog_walkers": 2053,
+      "pet_boarding": 14504,
+      "veterinarians": 566,
+      "shopping": 17517,
+      "bicycles": 0,
+      "florists": 1175,
+      "cannabis": 569,
+      "furniture": 537,
+      "home_decor": 719,
+      "hotels": 885,
+      "hostels": 73,
+      "vacation_rentals": 525,
+      "coworking": 262,
+      "laundromat": 306,
+      "check_cashing": 14504,
+      "pawn_shops": 97,
+      "payday_loans": 107,
+      "dollar_stores": 43,
+      "fast_food": 535,
+      "taquerias": 504,
+      "auto_repair": 2272,
+      "tire_shops": 421
+    },
+    "totals_by_type": {
+      "gentrifying": 68281,
+      "traditional": 19781,
+      "core": 46427
     },
     "top_dining": [
       "Downtown (Gaslamp)",
@@ -32,7 +123,51 @@
       "Mission Hills",
       "Hillcrest"
     ],
-    "neighborhoods_tracked": 15
+    "most_gentrified": [
+      {
+        "name": "Hillcrest",
+        "score": 80
+      },
+      {
+        "name": "University Heights",
+        "score": 80
+      },
+      {
+        "name": "La Jolla",
+        "score": 79
+      },
+      {
+        "name": "Mission Hills",
+        "score": 79
+      },
+      {
+        "name": "Downtown (Gaslamp)",
+        "score": 78
+      }
+    ],
+    "least_gentrified": [
+      {
+        "name": "Clairemont",
+        "score": 76
+      },
+      {
+        "name": "Normal Heights",
+        "score": 75
+      },
+      {
+        "name": "Coronado",
+        "score": 75
+      },
+      {
+        "name": "South Park",
+        "score": 75
+      },
+      {
+        "name": "Kensington",
+        "score": 74
+      }
+    ],
+    "neighborhoods_tracked": 18
   },
   "neighborhoods": [
     {
@@ -49,7 +184,7 @@
           "icon": "\ud83c\udf7d\ufe0f"
         },
         "bars": {
-          "count": 391,
+          "count": 390,
           "label": "Bars/Nightlife",
           "icon": "\ud83c\udf78"
         },
@@ -63,28 +198,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
+        "juicebars": {
+          "count": 51,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 13,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 47,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
           "count": 136,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 79,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 122,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 28,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 17,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 50,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 11,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 11,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 625,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 106,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 1900,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 65,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 293,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 138,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 147,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 57,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 85,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 12,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 7,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 1900,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 50,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 1900,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 202,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 1900,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 59,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 2000,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 122,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 226,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 130,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 75,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 54,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 74,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 136,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 15,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 55,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 40,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 31,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 1900,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 13,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 16,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 3,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 42,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 55,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 212,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 36,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 4323
+      "total_businesses": 16736
     },
     {
       "name": "East Village",
@@ -100,7 +450,7 @@
           "icon": "\ud83c\udf7d\ufe0f"
         },
         "bars": {
-          "count": 366,
+          "count": 365,
           "label": "Bars/Nightlife",
           "icon": "\ud83c\udf78"
         },
@@ -114,28 +464,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
+        "juicebars": {
+          "count": 51,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 11,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 44,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 123,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 58,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 125,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 19,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 10,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 46,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 7,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 9,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 434,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 107,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 1800,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 42,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 207,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 93,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
           "count": 137,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 38,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 61,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 10,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 7,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 1800,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 45,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 1800,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 205,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 1800,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 52,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 2000,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 125,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 191,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 148,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 71,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 55,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 71,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 137,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 13,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 50,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 38,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 29,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 1800,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 13,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 14,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 4,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 52,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 61,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 282,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 53,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 4251
+      "total_businesses": 15829
     },
     {
       "name": "Little Italy",
@@ -151,7 +716,7 @@
           "icon": "\ud83c\udf7d\ufe0f"
         },
         "bars": {
-          "count": 401,
+          "count": 400,
           "label": "Bars/Nightlife",
           "icon": "\ud83c\udf78"
         },
@@ -165,28 +730,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
-          "count": 144,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+        "juicebars": {
+          "count": 47,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 13,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 48,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 133,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 69,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 116,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 25,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 17,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 47,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 11,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 11,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 583,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 104,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 1900,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 64,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 276,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 128,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 142,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 53,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 88,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 15,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 7,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 1900,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 47,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 1900,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 201,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 1900,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 54,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 2000,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 116,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 223,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 127,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 75,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 55,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 73,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 144,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 15,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 54,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 40,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 29,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 1900,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 12,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 14,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 2,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 49,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 51,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 204,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 33,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 4330
+      "total_businesses": 16622
     },
     {
       "name": "North Park",
@@ -216,28 +996,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
-          "count": 19,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+        "juicebars": {
+          "count": 25,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 23,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 16,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 46,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 58,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 65,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 24,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 9,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 24,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 8,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 16,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 411,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 87,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 884,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 28,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 179,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 120,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 92,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 17,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 32,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 9,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 7,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 884,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 17,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 884,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 81,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 884,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 23,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 764,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 65,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 122,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 35,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 11,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 32,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 37,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 19,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 2,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 13,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 12,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 15,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 884,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 9,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 7,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 3,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 43,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 34,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 85,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 16,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 1782
+      "total_businesses": 7786
     },
     {
       "name": "Hillcrest",
@@ -267,28 +1262,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
-          "count": 86,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+        "juicebars": {
+          "count": 30,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 15,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 25,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 69,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 60,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 73,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 22,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 8,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 37,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 12,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 11,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 680,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 80,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 1100,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 74,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 370,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 176,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 109,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 42,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 54,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 7,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 4,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 1100,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 22,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 1100,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 110,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 1100,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 32,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 1200,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 73,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 160,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 44,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 30,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 40,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 45,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 86,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 5,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 29,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 21,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 12,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 1100,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 6,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 7,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 0,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 54,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 33,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 87,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 8,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 2551
+      "total_businesses": 10361
     },
     {
       "name": "La Jolla",
@@ -318,28 +1528,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
-          "count": 19,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+        "juicebars": {
+          "count": 21,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 7,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 15,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 17,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 17,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 68,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 16,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 5,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 34,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 2,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 10,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 302,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 13,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 400,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 20,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 170,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 60,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 110,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 29,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 27,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 3,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 3,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 400,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 33,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 400,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 189,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 400,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 57,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 1400,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 68,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 135,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 124,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 51,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 48,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 63,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 19,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 0,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 45,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 7,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 27,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 400,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 2,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 3,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 2,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 7,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 13,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 188,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 38,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 1983
+      "total_businesses": 5626
     },
     {
       "name": "Pacific Beach",
@@ -369,28 +1794,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
-          "count": 32,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+        "juicebars": {
+          "count": 19,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 6,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 4,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 22,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 56,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 17,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 10,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 7,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 9,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 4,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 3,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 160,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 25,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 466,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 11,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 126,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 72,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 90,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 25,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 37,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 7,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 5,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 466,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 26,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 466,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 145,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 466,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 44,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 1000,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 17,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 124,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 94,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 49,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 30,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 47,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 32,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 3,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 60,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 4,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 15,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 466,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 1,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 5,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 2,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 14,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 21,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 177,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 33,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 1632
+      "total_businesses": 5306
     },
     {
       "name": "Normal Heights",
@@ -420,28 +2060,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
-          "count": 11,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+        "juicebars": {
+          "count": 28,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 19,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 7,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 38,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 45,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 29,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 14,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 5,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 17,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 9,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 14,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 298,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 86,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 786,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 26,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 137,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 81,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 78,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 12,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 29,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 5,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 6,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 786,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 14,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 786,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 97,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 786,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 22,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 683,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 29,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 106,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 41,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 20,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 24,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 23,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 11,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 1,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 10,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 15,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 23,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 786,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 10,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 6,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 4,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 38,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 39,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 142,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 27,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 1572
+      "total_businesses": 6906
     },
     {
       "name": "Del Mar",
@@ -471,28 +2326,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
-          "count": 17,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+        "juicebars": {
+          "count": 10,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 3,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 8,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 12,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 6,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 16,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 6,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 5,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 13,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 2,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 4,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 163,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 11,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 279,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 13,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 98,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 34,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 56,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 15,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 23,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 3,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 0,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 279,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 25,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 279,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 147,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 279,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 46,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 1000,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 16,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 79,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 96,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 43,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 33,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 52,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 17,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 0,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 43,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 11,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 9,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 279,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 0,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 2,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 1,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 8,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 10,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 156,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 29,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 1358
+      "total_businesses": 3870
     },
     {
       "name": "Ocean Beach",
@@ -522,28 +2592,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
+        "juicebars": {
+          "count": 11,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 8,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 4,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 13,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 18,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 12,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 7,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 4,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 11,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 1,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 7,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 90,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 19,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 385,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 7,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 58,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 32,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
           "count": 30,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 12,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 20,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 1,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 3,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 385,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 5,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 385,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 55,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 385,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 10,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 272,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 12,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 50,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 18,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 6,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 7,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 16,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 30,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 5,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 31,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 2,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 10,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 385,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 1,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 0,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 1,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 14,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 12,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 29,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 4,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 708
+      "total_businesses": 3165
     },
     {
       "name": "Coronado",
@@ -573,28 +2858,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
-          "count": 24,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+        "juicebars": {
+          "count": 5,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 3,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 8,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 14,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 6,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 19,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 7,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 7,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 19,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 0,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 3,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 117,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 9,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 328,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 16,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 78,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 36,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 67,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 8,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 15,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 4,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 3,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 328,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 29,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 328,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 169,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 328,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 45,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 1100,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 19,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 80,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 116,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 54,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 30,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 53,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 24,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 0,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 36,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 4,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 25,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 328,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 2,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 2,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 1,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 18,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 14,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 188,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 35,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 1511
+      "total_businesses": 4317
     },
     {
       "name": "South Park",
@@ -624,28 +3124,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
+        "juicebars": {
+          "count": 27,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 12,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 13,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 40,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 40,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 71,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 20,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 5,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 14,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 5,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 11,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 221,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 70,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 740,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 14,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 61,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 48,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 58,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 14,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 21,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
           "count": 6,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 7,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 740,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 13,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 740,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 74,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 740,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 16,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 606,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 71,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 78,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 41,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 10,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 17,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 26,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 6,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 2,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 14,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 6,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 12,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 740,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 5,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 3,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 4,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 28,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 42,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 118,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 34,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 1432
+      "total_businesses": 6226
     },
     {
       "name": "University Heights",
@@ -675,28 +3390,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
-          "count": 43,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+        "juicebars": {
+          "count": 34,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 20,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 18,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 56,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 71,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 56,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 30,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 10,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 28,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 11,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 17,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 639,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 101,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 1000,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 64,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 308,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 173,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 112,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 33,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 50,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 10,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 4,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 1000,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 19,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 1000,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 123,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 1000,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 24,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 1100,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 56,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 159,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 45,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 20,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 35,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 49,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 43,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 3,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 22,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 22,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 22,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 1000,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 10,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 8,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 2,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 54,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 36,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 78,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 13,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 2343
+      "total_businesses": 9558
     },
     {
       "name": "Kensington",
@@ -726,28 +3656,243 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
+        "juicebars": {
+          "count": 28,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 15,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 8,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 31,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 42,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 27,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 15,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 5,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
           "count": 12,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 7,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 11,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 236,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 75,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 701,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 17,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 64,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 58,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 57,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 10,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 26,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 6,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 7,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 701,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 14,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 701,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 73,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 701,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 20,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 611,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 27,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 81,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 30,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 12,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 22,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 22,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 12,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 1,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 6,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 9,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 18,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 701,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 9,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 9,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 8,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 33,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 32,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 139,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 36,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 1407
+      "total_businesses": 6054
     },
     {
       "name": "Mission Hills",
@@ -777,28 +3922,1041 @@
           "label": "Coffee Shops",
           "icon": "\u2615"
         },
-        "hotels": {
-          "count": 118,
-          "label": "Hotels",
-          "icon": "\ud83c\udfe8"
+        "juicebars": {
+          "count": 32,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 8,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 31,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 69,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 44,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 58,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 15,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 9,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 29,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 10,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 11,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 559,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 71,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 1200,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 55,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 267,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 131,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 88,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 38,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 70,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 9,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 4,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 1200,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 24,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 1200,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 105,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 1200,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 24,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
         },
         "shopping": {
           "count": 1200,
           "label": "Retail/Shopping",
           "icon": "\ud83d\udecd\ufe0f"
         },
-        "arts": {
-          "count": 58,
-          "label": "Art Galleries",
-          "icon": "\ud83c\udfa8"
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
         },
-        "fitness": {
-          "count": 156,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8"
+        "florists": {
+          "count": 49,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 29,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 40,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 47,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 118,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 7,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 32,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 26,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 10,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 1200,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 3,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 9,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 1,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 37,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 34,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 91,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 9,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
         }
       },
-      "total_businesses": 2658
+      "total_businesses": 10629
+    },
+    {
+      "name": "Bay Park",
+      "location": "Bay Park, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7903,
+        "lon": -117.2097
+      },
+      "categories": {
+        "restaurants": {
+          "count": 118,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 25,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 5,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 32,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "juicebars": {
+          "count": 6,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 1,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 2,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 7,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 6,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 6,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 4,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 3,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 1,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 0,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 2,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 82,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 5,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 228,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 8,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 60,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 42,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 20,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 10,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 23,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 4,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 2,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 228,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 8,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 228,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 21,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 228,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 17,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
+        },
+        "shopping": {
+          "count": 234,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
+        },
+        "florists": {
+          "count": 16,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 5,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 10,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 11,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 12,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 0,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 3,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 1,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 9,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 228,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 0,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 1,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 1,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 8,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 4,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 49,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 9,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
+        }
+      },
+      "total_businesses": 2033
+    },
+    {
+      "name": "Clairemont",
+      "location": "Clairemont, San Diego, CA",
+      "coordinates": {
+        "lat": 32.8328,
+        "lon": -117.17
+      },
+      "categories": {
+        "restaurants": {
+          "count": 154,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 17,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 1,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 34,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "juicebars": {
+          "count": 6,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 2,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 1,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 3,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 3,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 7,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 3,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 3,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 1,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 0,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 1,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 88,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 18,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 240,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 12,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 69,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 39,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 22,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 6,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 13,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 1,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 1,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 240,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 7,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 240,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 26,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 240,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 18,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
+        },
+        "shopping": {
+          "count": 239,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
+        },
+        "florists": {
+          "count": 15,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 4,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 5,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 6,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 12,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 0,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 5,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 1,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 8,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 240,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 1,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 1,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 4,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 28,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 9,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 35,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 8,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
+        }
+      },
+      "total_businesses": 2137
+    },
+    {
+      "name": "Point Loma",
+      "location": "Point Loma, San Diego, CA",
+      "coordinates": {
+        "lat": 32.7196,
+        "lon": -117.2428
+      },
+      "categories": {
+        "restaurants": {
+          "count": 92,
+          "label": "Restaurants",
+          "icon": "\ud83c\udf7d\ufe0f"
+        },
+        "bars": {
+          "count": 27,
+          "label": "Bars/Nightlife",
+          "icon": "\ud83c\udf78"
+        },
+        "breweries": {
+          "count": 2,
+          "label": "Breweries",
+          "icon": "\ud83c\udf7a"
+        },
+        "coffee": {
+          "count": 19,
+          "label": "Coffee Shops",
+          "icon": "\u2615"
+        },
+        "juicebars": {
+          "count": 2,
+          "label": "Juice Bars",
+          "icon": "\ud83e\udd64"
+        },
+        "vegan": {
+          "count": 0,
+          "label": "Vegan Restaurants",
+          "icon": "\ud83e\udd57"
+        },
+        "wine_bars": {
+          "count": 2,
+          "label": "Wine Bars",
+          "icon": "\ud83c\udf77"
+        },
+        "cocktailbars": {
+          "count": 8,
+          "label": "Cocktail Bars",
+          "icon": "\ud83c\udf79"
+        },
+        "tattoo": {
+          "count": 4,
+          "label": "Tattoo Shops",
+          "icon": "\ud83c\udfa8"
+        },
+        "galleries": {
+          "count": 8,
+          "label": "Art Galleries",
+          "icon": "\ud83d\uddbc\ufe0f"
+        },
+        "vintage": {
+          "count": 0,
+          "label": "Vintage Clothing",
+          "icon": "\ud83d\udc57"
+        },
+        "thrift_stores": {
+          "count": 0,
+          "label": "Thrift Stores",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "antiques": {
+          "count": 0,
+          "label": "Antique Shops",
+          "icon": "\ud83c\udffa"
+        },
+        "vinyl_records": {
+          "count": 1,
+          "label": "Record Stores",
+          "icon": "\ud83d\udcbf"
+        },
+        "bookstores": {
+          "count": 4,
+          "label": "Bookstores",
+          "icon": "\ud83d\udcda"
+        },
+        "hair_salons": {
+          "count": 25,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87"
+        },
+        "barbers": {
+          "count": 5,
+          "label": "Barber Shops",
+          "icon": "\ud83d\udc88"
+        },
+        "nail_salons": {
+          "count": 167,
+          "label": "Nail Salons",
+          "icon": "\ud83d\udc85"
+        },
+        "spas": {
+          "count": 1,
+          "label": "Day Spas",
+          "icon": "\ud83e\uddd6"
+        },
+        "skincare": {
+          "count": 25,
+          "label": "Skincare",
+          "icon": "\u2728"
+        },
+        "waxing": {
+          "count": 14,
+          "label": "Waxing Services",
+          "icon": "\ud83c\udf1f"
+        },
+        "yoga": {
+          "count": 8,
+          "label": "Yoga Studios",
+          "icon": "\ud83e\uddd8"
+        },
+        "pilates": {
+          "count": 7,
+          "label": "Pilates Studios",
+          "icon": "\ud83e\udd38"
+        },
+        "gyms": {
+          "count": 8,
+          "label": "Gyms/Fitness",
+          "icon": "\ud83c\udfcb\ufe0f"
+        },
+        "crossfit": {
+          "count": 1,
+          "label": "CrossFit/HIIT",
+          "icon": "\ud83d\udcaa"
+        },
+        "boxing": {
+          "count": 0,
+          "label": "Boxing Gyms",
+          "icon": "\ud83e\udd4a"
+        },
+        "cycling": {
+          "count": 167,
+          "label": "Cycling Studios",
+          "icon": "\ud83d\udeb4"
+        },
+        "pet_stores": {
+          "count": 1,
+          "label": "Pet Stores",
+          "icon": "\ud83d\udc15"
+        },
+        "pet_groomers": {
+          "count": 167,
+          "label": "Pet Groomers",
+          "icon": "\ud83d\udc29"
+        },
+        "dog_walkers": {
+          "count": 30,
+          "label": "Dog Walkers",
+          "icon": "\ud83e\uddae"
+        },
+        "pet_boarding": {
+          "count": 167,
+          "label": "Pet Boarding",
+          "icon": "\ud83c\udfe0"
+        },
+        "veterinarians": {
+          "count": 3,
+          "label": "Veterinarians",
+          "icon": "\ud83c\udfe5"
+        },
+        "shopping": {
+          "count": 108,
+          "label": "Retail/Shopping",
+          "icon": "\ud83d\udecd\ufe0f"
+        },
+        "bicycles": {
+          "count": 0,
+          "label": "Bike Shops",
+          "icon": "\ud83d\udeb2"
+        },
+        "florists": {
+          "count": 6,
+          "label": "Florists",
+          "icon": "\ud83d\udc90"
+        },
+        "cannabis": {
+          "count": 4,
+          "label": "Cannabis Dispensaries",
+          "icon": "\ud83c\udf3f"
+        },
+        "furniture": {
+          "count": 0,
+          "label": "Furniture Stores",
+          "icon": "\ud83d\udecb\ufe0f"
+        },
+        "home_decor": {
+          "count": 4,
+          "label": "Home Decor",
+          "icon": "\ud83c\udfe1"
+        },
+        "hotels": {
+          "count": 27,
+          "label": "Hotels",
+          "icon": "\ud83c\udfe8"
+        },
+        "hostels": {
+          "count": 1,
+          "label": "Hostels",
+          "icon": "\ud83d\udecf\ufe0f"
+        },
+        "vacation_rentals": {
+          "count": 17,
+          "label": "Vacation Rentals",
+          "icon": "\ud83c\udfd6\ufe0f"
+        },
+        "coworking": {
+          "count": 3,
+          "label": "Coworking Spaces",
+          "icon": "\ud83d\udcbc"
+        },
+        "laundromat": {
+          "count": 2,
+          "label": "Laundromats",
+          "icon": "\ud83e\uddfa"
+        },
+        "check_cashing": {
+          "count": 167,
+          "label": "Check Cashing",
+          "icon": "\ud83d\udcb5"
+        },
+        "pawn_shops": {
+          "count": 0,
+          "label": "Pawn Shops",
+          "icon": "\ud83c\udfea"
+        },
+        "payday_loans": {
+          "count": 0,
+          "label": "Payday Loans",
+          "icon": "\ud83d\udcb3"
+        },
+        "dollar_stores": {
+          "count": 0,
+          "label": "Discount Stores",
+          "icon": "\ud83d\udcb2"
+        },
+        "fast_food": {
+          "count": 8,
+          "label": "Fast Food",
+          "icon": "\ud83c\udf54"
+        },
+        "taquerias": {
+          "count": 4,
+          "label": "Taquerias",
+          "icon": "\ud83c\udf2e"
+        },
+        "auto_repair": {
+          "count": 12,
+          "label": "Auto Repair",
+          "icon": "\ud83d\udd27"
+        },
+        "tire_shops": {
+          "count": 0,
+          "label": "Tire Shops",
+          "icon": "\ud83d\udede"
+        }
+      },
+      "total_businesses": 1328
     }
   ]
 }

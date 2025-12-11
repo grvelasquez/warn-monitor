@@ -38,19 +38,84 @@ NEIGHBORHOODS = {
     "University Heights": {"lat": 32.7651, "lon": -117.1281, "location": "University Heights, San Diego, CA"},
     "Kensington": {"lat": 32.7651, "lon": -117.0981, "location": "Kensington, San Diego, CA"},
     "Mission Hills": {"lat": 32.7516, "lon": -117.1772, "location": "Mission Hills, San Diego, CA"},
+    "Bay Park": {"lat": 32.7903, "lon": -117.2097, "location": "Bay Park, San Diego, CA"},
+    "Clairemont": {"lat": 32.8328, "lon": -117.1700, "location": "Clairemont, San Diego, CA"},
+    "Point Loma": {"lat": 32.7196, "lon": -117.2428, "location": "Point Loma, San Diego, CA"},
 }
 
 # Business categories to track (Yelp category aliases)
+# Organized by gentrification signal type
 CATEGORIES = {
-    "restaurants": {"alias": "restaurants", "label": "Restaurants", "icon": "🍽️"},
-    "bars": {"alias": "bars", "label": "Bars/Nightlife", "icon": "🍸"},
-    "breweries": {"alias": "breweries", "label": "Breweries", "icon": "🍺"},
-    "coffee": {"alias": "coffee", "label": "Coffee Shops", "icon": "☕"},
-    "hotels": {"alias": "hotels", "label": "Hotels", "icon": "🏨"},
-    "shopping": {"alias": "shopping", "label": "Retail/Shopping", "icon": "🛍️"},
-    "arts": {"alias": "galleries", "label": "Art Galleries", "icon": "🎨"},
-    "fitness": {"alias": "gyms,yoga", "label": "Fitness/Yoga", "icon": "🧘"},
+    # === DINING & NIGHTLIFE (Core) ===
+    "restaurants": {"alias": "restaurants", "label": "Restaurants", "icon": "🍽️", "type": "core"},
+    "bars": {"alias": "bars", "label": "Bars/Nightlife", "icon": "🍸", "type": "core"},
+    "breweries": {"alias": "breweries", "label": "Breweries", "icon": "🍺", "type": "gentrifying"},
+    "coffee": {"alias": "coffee", "label": "Coffee Shops", "icon": "☕", "type": "gentrifying"},
+    "juicebars": {"alias": "juicebars", "label": "Juice Bars", "icon": "🥤", "type": "gentrifying"},
+    "vegan": {"alias": "vegan", "label": "Vegan Restaurants", "icon": "🥗", "type": "gentrifying"},
+    "wine_bars": {"alias": "wine_bars", "label": "Wine Bars", "icon": "🍷", "type": "gentrifying"},
+    "cocktailbars": {"alias": "cocktailbars", "label": "Cocktail Bars", "icon": "🍹", "type": "gentrifying"},
+    
+    # === CREATIVE / HIPSTER INDICATORS ===
+    "tattoo": {"alias": "tattoo", "label": "Tattoo Shops", "icon": "🎨", "type": "gentrifying"},
+    "galleries": {"alias": "galleries", "label": "Art Galleries", "icon": "🖼️", "type": "gentrifying"},
+    "vintage": {"alias": "vintage", "label": "Vintage Clothing", "icon": "👗", "type": "gentrifying"},
+    "thrift_stores": {"alias": "thrift_stores", "label": "Thrift Stores", "icon": "🛍️", "type": "gentrifying"},
+    "antiques": {"alias": "antiques", "label": "Antique Shops", "icon": "🏺", "type": "gentrifying"},
+    "vinyl_records": {"alias": "musicvideo", "label": "Record Stores", "icon": "💿", "type": "gentrifying"},
+    "bookstores": {"alias": "bookstores", "label": "Bookstores", "icon": "📚", "type": "gentrifying"},
+    
+    # === PERSONAL SERVICES ===
+    "hair_salons": {"alias": "hair", "label": "Hair Salons", "icon": "💇", "type": "gentrifying"},
+    "barbers": {"alias": "barbers", "label": "Barber Shops", "icon": "💈", "type": "traditional"},
+    "nail_salons": {"alias": "nail_salons", "label": "Nail Salons", "icon": "💅", "type": "core"},
+    "spas": {"alias": "spas", "label": "Day Spas", "icon": "🧖", "type": "gentrifying"},
+    "skincare": {"alias": "skincare", "label": "Skincare", "icon": "✨", "type": "gentrifying"},
+    "waxing": {"alias": "waxing", "label": "Waxing Services", "icon": "🌟", "type": "gentrifying"},
+    
+    # === FITNESS & WELLNESS ===
+    "yoga": {"alias": "yoga", "label": "Yoga Studios", "icon": "🧘", "type": "gentrifying"},
+    "pilates": {"alias": "pilates", "label": "Pilates Studios", "icon": "🤸", "type": "gentrifying"},
+    "gyms": {"alias": "gyms", "label": "Gyms/Fitness", "icon": "🏋️", "type": "core"},
+    "crossfit": {"alias": "intervaltraininggyms", "label": "CrossFit/HIIT", "icon": "💪", "type": "gentrifying"},
+    "boxing": {"alias": "boxing", "label": "Boxing Gyms", "icon": "🥊", "type": "gentrifying"},
+    "cycling": {"alias": "cyclingstudio", "label": "Cycling Studios", "icon": "🚴", "type": "gentrifying"},
+    
+    # === PET SERVICES ===
+    "pet_stores": {"alias": "petstore", "label": "Pet Stores", "icon": "🐕", "type": "gentrifying"},
+    "pet_groomers": {"alias": "pet_grooming", "label": "Pet Groomers", "icon": "🐩", "type": "gentrifying"},
+    "dog_walkers": {"alias": "dogwalkers", "label": "Dog Walkers", "icon": "🦮", "type": "gentrifying"},
+    "pet_boarding": {"alias": "pet_boarding", "label": "Pet Boarding", "icon": "🏠", "type": "gentrifying"},
+    "veterinarians": {"alias": "vet", "label": "Veterinarians", "icon": "🏥", "type": "core"},
+    
+    # === RETAIL & SHOPPING ===
+    "shopping": {"alias": "shopping", "label": "Retail/Shopping", "icon": "🛍️", "type": "core"},
+    "bicycles": {"alias": "bicycles", "label": "Bike Shops", "icon": "🚲", "type": "gentrifying"},
+    "florists": {"alias": "florists", "label": "Florists", "icon": "💐", "type": "gentrifying"},
+    "cannabis": {"alias": "cannabisdispensaries", "label": "Cannabis Dispensaries", "icon": "🌿", "type": "gentrifying"},
+    "furniture": {"alias": "furniture", "label": "Furniture Stores", "icon": "🛋️", "type": "core"},
+    "home_decor": {"alias": "homedecor", "label": "Home Decor", "icon": "🏡", "type": "gentrifying"},
+    
+    # === HOSPITALITY ===
+    "hotels": {"alias": "hotels", "label": "Hotels", "icon": "🏨", "type": "core"},
+    "hostels": {"alias": "hostels", "label": "Hostels", "icon": "🛏️", "type": "core"},
+    "vacation_rentals": {"alias": "vacation_rentals", "label": "Vacation Rentals", "icon": "🏖️", "type": "gentrifying"},
+    
+    # === COWORKING & BUSINESS ===
+    "coworking": {"alias": "sharedofficespaces", "label": "Coworking Spaces", "icon": "💼", "type": "gentrifying"},
+    
+    # === DISPLACEMENT INDICATORS (Traditional/Lower-Income) ===
+    "laundromat": {"alias": "laundromat", "label": "Laundromats", "icon": "🧺", "type": "traditional"},
+    "check_cashing": {"alias": "moneytransfer", "label": "Check Cashing", "icon": "💵", "type": "traditional"},
+    "pawn_shops": {"alias": "pawn", "label": "Pawn Shops", "icon": "🏪", "type": "traditional"},
+    "payday_loans": {"alias": "titleloans", "label": "Payday Loans", "icon": "💳", "type": "traditional"},
+    "dollar_stores": {"alias": "discountstore", "label": "Discount Stores", "icon": "💲", "type": "traditional"},
+    "fast_food": {"alias": "hotdogs", "label": "Fast Food", "icon": "🍔", "type": "traditional"},
+    "taquerias": {"alias": "tacos", "label": "Taquerias", "icon": "🌮", "type": "traditional"},
+    "auto_repair": {"alias": "autorepair", "label": "Auto Repair", "icon": "🔧", "type": "traditional"},
+    "tire_shops": {"alias": "tires", "label": "Tire Shops", "icon": "🛞", "type": "traditional"},
 }
+
 
 
 def get_api_key():
@@ -116,12 +181,37 @@ def fetch_neighborhood_data(api_key, name, config):
 
 
 def calculate_summary(neighborhoods):
-    """Calculate summary statistics."""
+    """Calculate summary statistics including gentrification scores."""
     totals = {cat: 0 for cat in CATEGORIES.keys()}
+    totals_by_type = {"gentrifying": 0, "traditional": 0, "core": 0}
     
     for n in neighborhoods:
         for cat_key, cat_data in n.get("categories", {}).items():
-            totals[cat_key] += cat_data.get("count", 0)
+            count = cat_data.get("count", 0)
+            totals[cat_key] += count
+            cat_type = CATEGORIES.get(cat_key, {}).get("type", "core")
+            totals_by_type[cat_type] += count
+    
+    # Calculate gentrification score per neighborhood
+    neighborhood_scores = []
+    for n in neighborhoods:
+        gentrifying_count = 0
+        traditional_count = 0
+        for cat_key, cat_data in n.get("categories", {}).items():
+            count = cat_data.get("count", 0)
+            cat_type = CATEGORIES.get(cat_key, {}).get("type", "core")
+            if cat_type == "gentrifying":
+                gentrifying_count += count
+            elif cat_type == "traditional":
+                traditional_count += count
+        
+        # Score from 0-100, higher = more gentrified
+        total = gentrifying_count + traditional_count
+        score = round((gentrifying_count / total * 100) if total > 0 else 50)
+        neighborhood_scores.append({"name": n["name"], "score": score, "gentrifying": gentrifying_count, "traditional": traditional_count})
+    
+    # Sort by score
+    neighborhood_scores.sort(key=lambda x: x["score"], reverse=True)
     
     # Find top neighborhoods by restaurant count
     sorted_by_restaurants = sorted(
@@ -132,9 +222,13 @@ def calculate_summary(neighborhoods):
     
     return {
         "total_counts": totals,
+        "totals_by_type": totals_by_type,
         "top_dining": [n["name"] for n in sorted_by_restaurants[:5]],
+        "most_gentrified": [{"name": s["name"], "score": s["score"]} for s in neighborhood_scores[:5]],
+        "least_gentrified": [{"name": s["name"], "score": s["score"]} for s in neighborhood_scores[-5:]],
         "neighborhoods_tracked": len(neighborhoods),
     }
+
 
 
 def main():
