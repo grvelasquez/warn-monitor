@@ -42,7 +42,38 @@ export default function SDARDashboard() {
                 if (res.ok) {
                     const data = await res.json();
                     // Transform SDAR JSON format to component format
-                    const transformed = { 'all': DEFAULT_NEIGHBORHOOD_DATA['all'] };
+                    const transformed = {};
+
+                    // Use county_wide data from Monthly Indicators PDF for 'all' selection
+                    if (data.county_wide) {
+                        const cw = data.county_wide;
+                        const transformPropertyType = (pt) => pt ? {
+                            medianPrice: pt.median_price_2025 || 0,
+                            avgPrice: pt.avg_price_2025 || 0,
+                            closedSales: pt.closed_sales_2025 || 0,
+                            pendingSales: pt.pending_sales_2025 || 0,
+                            newListings: pt.new_listings_2025 || 0,
+                            daysOnMarket: pt.dom_2025 || 0,
+                            pctOrigPrice: pt.pct_orig_price_2025 || 97,
+                            inventory: pt.inventory_2025 || 0,
+                            monthsSupply: pt.months_supply_2025 || 2,
+                            affordability: pt.affordability_2025 || 50,
+                            priceChange: pt.median_price_2024 ? ((pt.median_price_2025 - pt.median_price_2024) / pt.median_price_2024 * 100) : 0,
+                            salesChange: pt.closed_sales_2024 ? ((pt.closed_sales_2025 - pt.closed_sales_2024) / pt.closed_sales_2024 * 100) : 0,
+                            domChange: pt.dom_2024 ? ((pt.dom_2025 - pt.dom_2024) / pt.dom_2024 * 100) : 0,
+                            invChange: pt.inventory_2024 ? ((pt.inventory_2025 - pt.inventory_2024) / pt.inventory_2024 * 100) : 0
+                        } : DEFAULT_NEIGHBORHOOD_DATA['all'].all;
+
+                        transformed['all'] = {
+                            all: transformPropertyType(cw.detached), // Default to detached for 'all' view
+                            detached: transformPropertyType(cw.detached),
+                            attached: transformPropertyType(cw.attached)
+                        };
+                    } else {
+                        transformed['all'] = DEFAULT_NEIGHBORHOOD_DATA['all'];
+                    }
+
+                    // Transform individual neighborhoods
                     if (data.neighborhoods) {
                         data.neighborhoods.forEach(n => {
                             transformed[n.zip_code] = {
@@ -50,28 +81,32 @@ export default function SDARDashboard() {
                                 detached: n.detached ? {
                                     medianPrice: n.detached.median_price_2025 || 0,
                                     avgPrice: n.detached.avg_price_2025 || 0,
-                                    closedSales: n.detached.closed_sales || 0,
-                                    pendingSales: n.detached.pending_sales || 0,
-                                    newListings: n.detached.new_listings || 0,
+                                    closedSales: n.detached.closed_sales_2025 || 0,
+                                    pendingSales: n.detached.pending_sales_2025 || 0,
+                                    newListings: n.detached.new_listings_2025 || 0,
                                     daysOnMarket: n.detached.dom_2025 || 0,
                                     pctOrigPrice: n.detached.pct_orig_price || 97,
-                                    inventory: n.detached.inventory || 0,
-                                    monthsSupply: n.detached.months_supply || 2,
+                                    inventory: n.detached.inventory_2025 || 0,
+                                    monthsSupply: n.detached.months_supply_2025 || 2,
                                     priceChange: n.detached.median_price_2024 ? ((n.detached.median_price_2025 - n.detached.median_price_2024) / n.detached.median_price_2024 * 100) : 0,
-                                    salesChange: 0, domChange: 0, invChange: 0
+                                    salesChange: n.detached.closed_sales_2024 ? ((n.detached.closed_sales_2025 - n.detached.closed_sales_2024) / n.detached.closed_sales_2024 * 100) : 0,
+                                    domChange: n.detached.dom_2024 ? ((n.detached.dom_2025 - n.detached.dom_2024) / n.detached.dom_2024 * 100) : 0,
+                                    invChange: n.detached.inventory_2024 ? ((n.detached.inventory_2025 - n.detached.inventory_2024) / n.detached.inventory_2024 * 100) : 0
                                 } : DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
                                 attached: n.attached ? {
                                     medianPrice: n.attached.median_price_2025 || 0,
                                     avgPrice: n.attached.avg_price_2025 || 0,
-                                    closedSales: n.attached.closed_sales || 0,
-                                    pendingSales: n.attached.pending_sales || 0,
-                                    newListings: n.attached.new_listings || 0,
+                                    closedSales: n.attached.closed_sales_2025 || 0,
+                                    pendingSales: n.attached.pending_sales_2025 || 0,
+                                    newListings: n.attached.new_listings_2025 || 0,
                                     daysOnMarket: n.attached.dom_2025 || 0,
                                     pctOrigPrice: n.attached.pct_orig_price || 97,
-                                    inventory: n.attached.inventory || 0,
-                                    monthsSupply: n.attached.months_supply || 2,
+                                    inventory: n.attached.inventory_2025 || 0,
+                                    monthsSupply: n.attached.months_supply_2025 || 2,
                                     priceChange: n.attached.median_price_2024 ? ((n.attached.median_price_2025 - n.attached.median_price_2024) / n.attached.median_price_2024 * 100) : 0,
-                                    salesChange: 0, domChange: 0, invChange: 0
+                                    salesChange: n.attached.closed_sales_2024 ? ((n.attached.closed_sales_2025 - n.attached.closed_sales_2024) / n.attached.closed_sales_2024 * 100) : 0,
+                                    domChange: n.attached.dom_2024 ? ((n.attached.dom_2025 - n.attached.dom_2024) / n.attached.dom_2024 * 100) : 0,
+                                    invChange: n.attached.inventory_2024 ? ((n.attached.inventory_2025 - n.attached.inventory_2024) / n.attached.inventory_2024 * 100) : 0
                                 } : DEFAULT_NEIGHBORHOOD_DATA['all'].attached
                             };
                         });

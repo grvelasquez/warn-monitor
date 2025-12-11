@@ -1,9 +1,55 @@
 {
   "meta": {
-    "generated": "2025-12-09T20:29:32.692863",
-    "source": "SDAR Local Market Updates",
+    "generated": "2025-12-11T15:54:45.503757",
+    "source": "SDAR Local Market Updates & Monthly Indicators",
     "report_period": "November 2025",
     "neighborhoods_count": 85
+  },
+  "county_wide": {
+    "detached": {
+      "new_listings_2024": 1317,
+      "new_listings_2025": 1108,
+      "pending_sales_2024": 1069,
+      "pending_sales_2025": 1010,
+      "closed_sales_2024": 1130,
+      "closed_sales_2025": 1009,
+      "median_price_2024": 1019500,
+      "median_price_2025": 1050000,
+      "avg_price_2024": 1349355,
+      "avg_price_2025": 1440659,
+      "pct_orig_price_2024": 97.9,
+      "pct_orig_price_2025": 97.1,
+      "dom_2024": 36,
+      "dom_2025": 43,
+      "inventory_2024": 2838,
+      "inventory_2025": 2667,
+      "months_supply_2024": 2.3,
+      "months_supply_2025": 2.2,
+      "affordability_2024": 39,
+      "affordability_2025": 40
+    },
+    "attached": {
+      "new_listings_2024": 792,
+      "new_listings_2025": 715,
+      "pending_sales_2024": 597,
+      "pending_sales_2025": 527,
+      "closed_sales_2024": 613,
+      "closed_sales_2025": 577,
+      "median_price_2024": 670000,
+      "median_price_2025": 660000,
+      "avg_price_2024": 790919,
+      "avg_price_2025": 813085,
+      "pct_orig_price_2024": 97.8,
+      "pct_orig_price_2025": 96.5,
+      "dom_2024": 37,
+      "dom_2025": 49,
+      "inventory_2024": 1851,
+      "inventory_2025": 2016,
+      "months_supply_2024": 2.7,
+      "months_supply_2025": 3.0,
+      "affordability_2024": 60,
+      "affordability_2025": 64
+    }
   },
   "summary": {
     "avg_detached_median": 1389162,
