@@ -1,0 +1,41 @@
+name: Update FRED Economic Data
+
+on:
+  schedule:
+    # Runs at 7:00 AM UTC on the 1st and 15th of every month (biweekly)
+    - cron: '0 7 1,15 * *'
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  update-fred-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install requests
+          
+      - name: Fetch FRED lending data
+        run: |
+          python scripts/fetch_lending_data.py
+          
+      - name: Fetch FRED unemployment data
+        run: |
+          python scripts/fetch_unemployment_data.py
+          
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/lending_data.json public/data/unemployment_data.json
+          git diff --staged --quiet || git commit -m "chore: Update FRED economic data [automated]"
+          git push
