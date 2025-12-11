@@ -1,25 +1,94 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Coffee, Dumbbell, Beer, Palette, Store, Dog, Briefcase, MapPin, ChevronDown, Filter } from 'lucide-react';
+import { Coffee, Dumbbell, Beer, Palette, Store, Dog, Briefcase, MapPin, ChevronDown, Filter, Scissors, Sparkles, Heart, Cannabis, Home, Building } from 'lucide-react';
 
-// Icon mapping for categories
+// Icon mapping for categories - expanded for Yelp data
 const CATEGORY_ICONS = {
-    coffee_specialty: Coffee,
-    yoga_fitness: Dumbbell,
-    brewery_taproom: Beer,
-    art_gallery: Palette,
-    organic_grocery: Store,
-    pet_services: Dog,
+    // Dining & Nightlife
+    restaurants: Store,
+    bars: Beer,
+    breweries: Beer,
+    coffee: Coffee,
+    juicebars: Coffee,
+    vegan: Heart,
+    wine_bars: Beer,
+    cocktailbars: Beer,
+    // Creative / Hipster
+    tattoo: Sparkles,
+    galleries: Palette,
+    vintage: Store,
+    thrift_stores: Store,
+    antiques: Store,
+    vinyl_records: Store,
+    bookstores: Store,
+    // Personal Services
+    hair_salons: Scissors,
+    barbers: Scissors,
+    nail_salons: Sparkles,
+    spas: Sparkles,
+    skincare: Sparkles,
+    waxing: Sparkles,
+    // Fitness
+    yoga: Dumbbell,
+    pilates: Dumbbell,
+    gyms: Dumbbell,
+    crossfit: Dumbbell,
+    boxing: Dumbbell,
+    cycling: Dumbbell,
+    // Pet Services
+    pet_stores: Dog,
+    pet_groomers: Dog,
+    dog_walkers: Dog,
+    pet_boarding: Dog,
+    veterinarians: Dog,
+    // Retail
+    shopping: Store,
+    bicycles: Store,
+    florists: Store,
+    cannabis: Cannabis,
+    furniture: Home,
+    home_decor: Home,
+    // Hospitality
+    hotels: Building,
+    hostels: Building,
+    vacation_rentals: Building,
     coworking: Briefcase,
+    // Traditional
+    laundromat: Store,
+    check_cashing: Store,
+    pawn_shops: Store,
+    payday_loans: Store,
+    dollar_stores: Store,
+    fast_food: Store,
+    taquerias: Store,
+    auto_repair: Store,
+    tire_shops: Store,
 };
 
-const CATEGORY_COLORS = {
-    coffee_specialty: 'text-amber-400',
-    yoga_fitness: 'text-purple-400',
-    brewery_taproom: 'text-orange-400',
-    art_gallery: 'text-pink-400',
-    organic_grocery: 'text-green-400',
-    pet_services: 'text-blue-400',
-    coworking: 'text-cyan-400',
+// Color by type
+const TYPE_COLORS = {
+    gentrifying: 'text-purple-400',
+    traditional: 'text-amber-400',
+    core: 'text-blue-400',
+};
+
+// Category type mapping
+const CATEGORY_TYPES = {
+    restaurants: 'core', bars: 'core', breweries: 'gentrifying', coffee: 'gentrifying',
+    juicebars: 'gentrifying', vegan: 'gentrifying', wine_bars: 'gentrifying', cocktailbars: 'gentrifying',
+    tattoo: 'gentrifying', galleries: 'gentrifying', vintage: 'gentrifying', thrift_stores: 'gentrifying',
+    antiques: 'gentrifying', vinyl_records: 'gentrifying', bookstores: 'gentrifying',
+    hair_salons: 'gentrifying', barbers: 'traditional', nail_salons: 'core', spas: 'gentrifying',
+    skincare: 'gentrifying', waxing: 'gentrifying',
+    yoga: 'gentrifying', pilates: 'gentrifying', gyms: 'core', crossfit: 'gentrifying',
+    boxing: 'gentrifying', cycling: 'gentrifying',
+    pet_stores: 'gentrifying', pet_groomers: 'gentrifying', dog_walkers: 'gentrifying',
+    pet_boarding: 'gentrifying', veterinarians: 'core',
+    shopping: 'core', bicycles: 'gentrifying', florists: 'gentrifying', cannabis: 'gentrifying',
+    furniture: 'core', home_decor: 'gentrifying',
+    hotels: 'core', hostels: 'core', vacation_rentals: 'gentrifying', coworking: 'gentrifying',
+    laundromat: 'traditional', check_cashing: 'traditional', pawn_shops: 'traditional',
+    payday_loans: 'traditional', dollar_stores: 'traditional', fast_food: 'traditional',
+    taquerias: 'traditional', auto_repair: 'traditional', tire_shops: 'traditional',
 };
 
 // Region groupings
@@ -27,65 +96,69 @@ const REGIONS = {
     all: { label: 'All Neighborhoods', neighborhoods: null },
     central: {
         label: 'Central SD',
-        neighborhoods: ['Downtown', 'Gaslamp', 'Little Italy', 'Hillcrest', 'North Park', 'South Park', 'University Heights', 'Normal Heights']
+        neighborhoods: ['Downtown (Gaslamp)', 'East Village', 'Little Italy', 'Hillcrest', 'North Park', 'South Park', 'University Heights', 'Normal Heights', 'Kensington', 'Mission Hills']
     },
     coastal: {
         label: 'Coastal',
-        neighborhoods: ['La Jolla', 'Pacific Beach', 'Ocean Beach', 'Mission Beach', 'Coronado']
-    },
-    south: {
-        label: 'South Bay',
-        neighborhoods: ['Chula Vista', 'Barrio Logan', 'National City', 'Imperial Beach', 'San Ysidro']
-    },
-    east: {
-        label: 'East County',
-        neighborhoods: ['City Heights', 'El Cajon', 'La Mesa', 'Santee', 'Spring Valley']
+        neighborhoods: ['La Jolla', 'Pacific Beach', 'Ocean Beach', 'Coronado', 'Del Mar', 'Point Loma', 'Bay Park']
     },
     north: {
-        label: 'North County',
-        neighborhoods: ['Oceanside', 'Carlsbad', 'Encinitas', 'Escondido', 'Vista', 'San Marcos']
+        label: 'North',
+        neighborhoods: ['Clairemont']
     },
 };
 
-// Risk color based on score
+// Risk color based on score (0-100 now)
 const getScoreColor = (score) => {
-    if (score >= 0.7) return { bg: 'bg-red-500', text: 'text-red-400', label: 'High' };
-    if (score >= 0.5) return { bg: 'bg-orange-500', text: 'text-orange-400', label: 'Moderate' };
-    if (score >= 0.3) return { bg: 'bg-yellow-500', text: 'text-yellow-400', label: 'Low' };
-    return { bg: 'bg-green-500', text: 'text-green-400', label: 'Stable' };
+    if (score >= 78) return { bg: 'bg-purple-500', text: 'text-purple-400', label: 'High' };
+    if (score >= 76) return { bg: 'bg-blue-500', text: 'text-blue-400', label: 'Moderate' };
+    if (score >= 74) return { bg: 'bg-green-500', text: 'text-green-400', label: 'Emerging' };
+    return { bg: 'bg-slate-500', text: 'text-slate-400', label: 'Stable' };
 };
 
-// Compact neighborhood card
+// Compact neighborhood card - updated for Yelp data structure
 function NeighborhoodCard({ neighborhood, rank }) {
-    const scoreInfo = getScoreColor(neighborhood.gentrificationScore);
+    // Calculate score from gentrifying vs traditional counts
+    const genCount = Object.entries(neighborhood.categories || {})
+        .filter(([key]) => CATEGORY_TYPES[key] === 'gentrifying')
+        .reduce((sum, [, cat]) => sum + (cat.count || 0), 0);
 
-    // Sum gentrifying counts
-    const genCount = Object.values(neighborhood.gentrifying || {}).reduce(
-        (sum, cat) => sum + (cat.count || 0), 0
-    );
+    const tradCount = Object.entries(neighborhood.categories || {})
+        .filter(([key]) => CATEGORY_TYPES[key] === 'traditional')
+        .reduce((sum, [, cat]) => sum + (cat.count || 0), 0);
+
+    const total = genCount + tradCount;
+    const score = total > 0 ? Math.round((genCount / total) * 100) : 50;
+    const scoreInfo = getScoreColor(score);
+
+    // Top categories by count
+    const topCategories = Object.entries(neighborhood.categories || {})
+        .filter(([, cat]) => cat.count > 0)
+        .sort((a, b) => b[1].count - a[1].count)
+        .slice(0, 5);
 
     return (
-        <div className={`bg-slate-800/50 border rounded-lg p-3 ${rank <= 3 ? 'border-orange-500/40' : 'border-slate-700/50'}`}>
+        <div className={`bg-slate-800/50 border rounded-lg p-3 ${rank <= 3 ? 'border-purple-500/40' : 'border-slate-700/50'}`}>
             <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2 min-w-0">
-                    {rank <= 3 && <span className="text-orange-400 text-xs font-medium">#{rank}</span>}
+                    {rank <= 3 && <span className="text-purple-400 text-xs font-medium">#{rank}</span>}
                     <span className="text-sm font-medium text-white truncate">{neighborhood.name}</span>
                 </div>
                 <span className={`text-xs font-medium ${scoreInfo.text} flex-shrink-0`}>
-                    {(neighborhood.gentrificationScore * 100).toFixed(0)}%
+                    {score}%
                 </span>
             </div>
             <div className="w-full h-1 bg-slate-700 rounded-full overflow-hidden mb-2">
-                <div className={`h-full ${scoreInfo.bg}`} style={{ width: `${neighborhood.gentrificationScore * 100}%` }} />
+                <div className={`h-full ${scoreInfo.bg}`} style={{ width: `${score}%` }} />
             </div>
             {/* Quick category icons */}
             <div className="flex gap-1.5 flex-wrap">
-                {Object.entries(neighborhood.gentrifying || {}).slice(0, 4).map(([key, data]) => {
-                    if (!data.count) return null;
+                {topCategories.map(([key, data]) => {
                     const Icon = CATEGORY_ICONS[key] || Store;
-                    const color = CATEGORY_COLORS[key] || 'text-slate-400';
+                    const catType = CATEGORY_TYPES[key] || 'core';
+                    const color = TYPE_COLORS[catType];
                     return (
-                        <div key={key} className="flex items-center gap-0.5 text-[10px]">
+                        <div key={key} className="flex items-center gap-0.5 text-[10px]" title={data.label}>
                             <Icon className={`w-3 h-3 ${color}`} />
                             <span className="text-slate-400">{data.count}</span>
                         </div>
@@ -96,15 +169,16 @@ function NeighborhoodCard({ neighborhood, rank }) {
     );
 }
 
-// Sort options - by category
+// Sort options
 const SORT_OPTIONS = [
+    { value: 'score_desc', label: 'Gentrification Score' },
     { value: 'name_asc', label: 'Name: A-Z' },
+    { value: 'restaurants_desc', label: 'Most Restaurants' },
     { value: 'coffee_desc', label: 'Most Coffee Shops' },
-    { value: 'yoga_desc', label: 'Most Yoga/Fitness' },
-    { value: 'brewery_desc', label: 'Most Breweries/Pubs' },
-    { value: 'gallery_desc', label: 'Most Art Galleries' },
-    { value: 'grocery_desc', label: 'Most Grocery/Markets' },
-    { value: 'pet_desc', label: 'Most Pet Services' },
+    { value: 'breweries_desc', label: 'Most Breweries' },
+    { value: 'tattoo_desc', label: 'Most Tattoo Shops' },
+    { value: 'yoga_desc', label: 'Most Yoga Studios' },
+    { value: 'pet_stores_desc', label: 'Most Pet Stores' },
 ];
 
 // Main component with filtering
@@ -118,16 +192,17 @@ export function RetailSignals({ className = "" }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch('/data/retail_data.json');
+                const res = await fetch('/data/yelp_snapshot.json');
                 if (res.ok) setRetailData(await res.json());
             } catch (err) {
-                console.error('Retail data fetch error:', err);
+                console.error('Yelp data fetch error:', err);
             } finally {
                 setLoading(false);
             }
         };
         fetchData();
     }, []);
+
 
     // Filter and sort neighborhoods
     const filteredNeighborhoods = useMemo(() => {
@@ -141,37 +216,53 @@ export function RetailSignals({ className = "" }) {
             result = result.filter(n => regionNames.includes(n.name));
         }
 
-        // Sort by category
-        const getCategoryCount = (n, category) => n.gentrifying?.[category]?.count || 0;
+        // Helper to get category count from Yelp data
+        const getCategoryCount = (n, category) => n.categories?.[category]?.count || 0;
+
+        // Helper to calculate gentrification score
+        const getGenScore = (n) => {
+            const genCount = Object.entries(n.categories || {})
+                .filter(([key]) => CATEGORY_TYPES[key] === 'gentrifying')
+                .reduce((sum, [, cat]) => sum + (cat.count || 0), 0);
+            const tradCount = Object.entries(n.categories || {})
+                .filter(([key]) => CATEGORY_TYPES[key] === 'traditional')
+                .reduce((sum, [, cat]) => sum + (cat.count || 0), 0);
+            const total = genCount + tradCount;
+            return total > 0 ? (genCount / total) * 100 : 50;
+        };
 
         switch (sortBy) {
+            case 'score_desc':
+                result.sort((a, b) => getGenScore(b) - getGenScore(a));
+                break;
             case 'name_asc':
                 result.sort((a, b) => a.name.localeCompare(b.name));
                 break;
+            case 'restaurants_desc':
+                result.sort((a, b) => getCategoryCount(b, 'restaurants') - getCategoryCount(a, 'restaurants'));
+                break;
             case 'coffee_desc':
-                result.sort((a, b) => getCategoryCount(b, 'coffee_specialty') - getCategoryCount(a, 'coffee_specialty'));
+                result.sort((a, b) => getCategoryCount(b, 'coffee') - getCategoryCount(a, 'coffee'));
+                break;
+            case 'breweries_desc':
+                result.sort((a, b) => getCategoryCount(b, 'breweries') - getCategoryCount(a, 'breweries'));
+                break;
+            case 'tattoo_desc':
+                result.sort((a, b) => getCategoryCount(b, 'tattoo') - getCategoryCount(a, 'tattoo'));
                 break;
             case 'yoga_desc':
-                result.sort((a, b) => getCategoryCount(b, 'yoga_fitness') - getCategoryCount(a, 'yoga_fitness'));
+                result.sort((a, b) => getCategoryCount(b, 'yoga') - getCategoryCount(a, 'yoga'));
                 break;
-            case 'brewery_desc':
-                result.sort((a, b) => getCategoryCount(b, 'brewery_taproom') - getCategoryCount(a, 'brewery_taproom'));
-                break;
-            case 'gallery_desc':
-                result.sort((a, b) => getCategoryCount(b, 'art_gallery') - getCategoryCount(a, 'art_gallery'));
-                break;
-            case 'grocery_desc':
-                result.sort((a, b) => getCategoryCount(b, 'organic_grocery') - getCategoryCount(a, 'organic_grocery'));
-                break;
-            case 'pet_desc':
-                result.sort((a, b) => getCategoryCount(b, 'pet_services') - getCategoryCount(a, 'pet_services'));
+            case 'pet_stores_desc':
+                result.sort((a, b) => getCategoryCount(b, 'pet_stores') - getCategoryCount(a, 'pet_stores'));
                 break;
             default:
-                result.sort((a, b) => a.name.localeCompare(b.name));
+                result.sort((a, b) => getGenScore(b) - getGenScore(a));
         }
 
         return result;
     }, [retailData, selectedRegion, sortBy]);
+
 
     // Display count
     const displayCount = showAll ? filteredNeighborhoods.length : Math.min(8, filteredNeighborhoods.length);
@@ -180,7 +271,7 @@ export function RetailSignals({ className = "" }) {
     if (loading) {
         return (
             <div className="flex items-center justify-center h-24">
-                <div className="animate-spin w-5 h-5 border-2 border-slate-600 border-t-orange-500 rounded-full" />
+                <div className="animate-spin w-5 h-5 border-2 border-slate-600 border-t-purple-500 rounded-full" />
             </div>
         );
     }
@@ -191,15 +282,19 @@ export function RetailSignals({ className = "" }) {
         return (
             <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4 text-center">
                 <p className="text-slate-400 text-sm">
-                    Run <code className="bg-slate-700 px-1.5 py-0.5 rounded text-xs">python scripts/fetch_retail_data.py</code> to load retail data
+                    Run <code className="bg-slate-700 px-1.5 py-0.5 rounded text-xs">python scripts/fetch_yelp_data.py</code> to load Yelp data
                 </p>
             </div>
         );
     }
 
-    // Get summary counts
-    const summary = retailData?.summary?.totalGentrifying || {};
-    const summaryItems = Object.entries(summary).filter(([k, v]) => v > 0).slice(0, 6);
+    // Get summary counts from Yelp data - pick key categories
+    const totalCounts = retailData?.summary?.total_counts || {};
+    const keyCategories = ['restaurants', 'coffee', 'breweries', 'tattoo', 'yoga', 'pet_stores', 'hair_salons', 'laundromat'];
+    const summaryItems = keyCategories
+        .filter(key => totalCounts[key] > 0)
+        .slice(0, 6)
+        .map(key => [key, totalCounts[key]]);
 
     return (
         <div className={`space-y-4 ${className}`}>
@@ -208,16 +303,16 @@ export function RetailSignals({ className = "" }) {
                 <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                     {summaryItems.map(([key, count]) => {
                         const Icon = CATEGORY_ICONS[key] || Store;
-                        const color = CATEGORY_COLORS[key] || 'text-slate-400';
-                        const sortValue = `${key.replace('_', '_')}_desc`;
+                        const catType = CATEGORY_TYPES[key] || 'core';
+                        const color = TYPE_COLORS[catType];
                         // Map category keys to sort values
                         const sortMap = {
-                            'coffee_specialty': 'coffee_desc',
-                            'yoga_fitness': 'yoga_desc',
-                            'brewery_taproom': 'brewery_desc',
-                            'art_gallery': 'gallery_desc',
-                            'organic_grocery': 'grocery_desc',
-                            'pet_services': 'pet_desc',
+                            'restaurants': 'restaurants_desc',
+                            'coffee': 'coffee_desc',
+                            'breweries': 'breweries_desc',
+                            'tattoo': 'tattoo_desc',
+                            'yoga': 'yoga_desc',
+                            'pet_stores': 'pet_stores_desc',
                         };
                         const thisSortValue = sortMap[key];
                         const isActive = sortBy === thisSortValue;
@@ -227,16 +322,17 @@ export function RetailSignals({ className = "" }) {
                                 key={key}
                                 onClick={() => thisSortValue && setSortBy(thisSortValue)}
                                 className={`bg-slate-800/40 border rounded-lg p-2 text-center transition-all cursor-pointer hover:bg-slate-700/50 ${isActive
-                                        ? 'border-purple-500 ring-1 ring-purple-500/50'
-                                        : 'border-slate-700/50 hover:border-slate-600'
+                                    ? 'border-purple-500 ring-1 ring-purple-500/50'
+                                    : 'border-slate-700/50 hover:border-slate-600'
                                     }`}
                             >
                                 <Icon className={`w-4 h-4 ${color} mx-auto mb-1`} />
-                                <p className="text-lg font-bold text-white">{count}</p>
+                                <p className="text-lg font-bold text-white">{count.toLocaleString()}</p>
                                 <p className="text-[10px] text-slate-500 capitalize truncate">{key.replace(/_/g, ' ')}</p>
                             </button>
                         );
                     })}
+
                 </div>
             )}
 
