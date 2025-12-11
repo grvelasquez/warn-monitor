@@ -14,6 +14,7 @@ const SD_LOCATIONS = [
 // Surf spot locations
 const SURF_LOCATIONS = [
     { name: 'Ocean Beach', lat: 32.75, lon: -117.25 },
+    { name: 'Pacific Beach', lat: 32.80, lon: -117.26 },
     { name: 'La Jolla', lat: 32.85, lon: -117.27 },
     { name: 'Del Mar', lat: 32.96, lon: -117.27 },
     { name: 'Oceanside', lat: 33.19, lon: -117.39 },
