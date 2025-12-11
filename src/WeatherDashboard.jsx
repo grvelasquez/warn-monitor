@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sun, Cloud, CloudRain, Wind, Droplets, Thermometer, Eye, Sunrise, Sunset, MapPin, RefreshCw } from 'lucide-react';
+import { Sun, Cloud, CloudRain, Wind, Droplets, Thermometer, Eye, Sunrise, Sunset, MapPin, RefreshCw, Waves } from 'lucide-react';
 
 // San Diego locations with coordinates
 const SD_LOCATIONS = [
@@ -194,28 +194,62 @@ function SunTimes({ data }) {
     };
 
     return (
-        <div className="bg-gradient-to-r from-orange-900/20 to-indigo-900/20 border border-slate-700/50 rounded-xl p-3 sm:p-4 md:p-6">
-            <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Sun Schedule</h3>
+        <div className="bg-gradient-to-r from-orange-900/20 to-indigo-900/20 border border-slate-700/50 rounded-xl p-3">
+            <h3 className="text-sm font-semibold text-white mb-2">Sun Schedule</h3>
             <div className="flex justify-around">
-                <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="p-2 sm:p-3 bg-orange-900/30 rounded-full">
-                        <Sunrise className="w-5 h-5 sm:w-6 sm:h-6 text-orange-400" />
+                <div className="flex items-center gap-2">
+                    <div className="p-1.5 bg-orange-900/30 rounded-full">
+                        <Sunrise className="w-4 h-4 text-orange-400" />
                     </div>
                     <div>
-                        <p className="text-xs text-slate-400">Sunrise</p>
-                        <p className="text-lg sm:text-xl font-medium text-white">{formatTime(sunrise)}</p>
+                        <p className="text-xs text-slate-400">Rise</p>
+                        <p className="text-sm font-medium text-white">{formatTime(sunrise)}</p>
                     </div>
                 </div>
                 <div className="w-px bg-slate-700/50" />
-                <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="p-2 sm:p-3 bg-indigo-900/30 rounded-full">
-                        <Sunset className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-400" />
+                <div className="flex items-center gap-2">
+                    <div className="p-1.5 bg-indigo-900/30 rounded-full">
+                        <Sunset className="w-4 h-4 text-indigo-400" />
                     </div>
                     <div>
-                        <p className="text-xs text-slate-400">Sunset</p>
-                        <p className="text-lg sm:text-xl font-medium text-white">{formatTime(sunset)}</p>
+                        <p className="text-xs text-slate-400">Set</p>
+                        <p className="text-sm font-medium text-white">{formatTime(sunset)}</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    );
+}
+
+function TideSchedule({ tideData }) {
+    if (!tideData || tideData.length === 0) {
+        return (
+            <div className="bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-slate-700/50 rounded-xl p-3">
+                <h3 className="text-sm font-semibold text-white mb-2">Tides (San Diego)</h3>
+                <p className="text-xs text-slate-400">Loading...</p>
+            </div>
+        );
+    }
+
+    const formatTideTime = (t) => {
+        const date = new Date(t);
+        return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    };
+
+    return (
+        <div className="bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-slate-700/50 rounded-xl p-3">
+            <h3 className="text-sm font-semibold text-white mb-2">Tides (San Diego)</h3>
+            <div className="space-y-1.5">
+                {tideData.slice(0, 4).map((tide, idx) => (
+                    <div key={idx} className="flex items-center justify-between text-xs">
+                        <div className="flex items-center gap-1.5">
+                            <Waves className={`w-3 h-3 ${tide.type === 'H' ? 'text-cyan-400' : 'text-blue-400'}`} />
+                            <span className="text-slate-400">{tide.type === 'H' ? 'High' : 'Low'}</span>
+                        </div>
+                        <span className="text-white font-medium">{formatTideTime(tide.t)}</span>
+                        <span className="text-slate-500">{parseFloat(tide.v).toFixed(1)} ft</span>
+                    </div>
+                ))}
             </div>
         </div>
     );
@@ -249,6 +283,7 @@ function LocationCard({ location, data, isSelected, onClick }) {
 
 export default function WeatherDashboard() {
     const [weatherData, setWeatherData] = useState(null);
+    const [tideData, setTideData] = useState([]);
     const [locationWeather, setLocationWeather] = useState({});
     const [selectedLocation, setSelectedLocation] = useState(SD_LOCATIONS[0]);
     const [loading, setLoading] = useState(true);
@@ -281,6 +316,21 @@ export default function WeatherDashboard() {
             const locMap = {};
             locResults.forEach(r => { locMap[r.name] = r; });
             setLocationWeather(locMap);
+
+            // Fetch tide data from NOAA
+            try {
+                const today = new Date();
+                const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
+                const tideRes = await fetch(
+                    `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?station=9410170&product=predictions&datum=MLLW&interval=hilo&units=english&time_zone=lst_ldt&format=json&begin_date=${dateStr}&end_date=${dateStr}`
+                );
+                if (tideRes.ok) {
+                    const tideJson = await tideRes.json();
+                    setTideData(tideJson.predictions || []);
+                }
+            } catch (tideErr) {
+                console.error('Tide fetch error:', tideErr);
+            }
 
             setLastUpdated(new Date());
         } catch (err) {
@@ -340,10 +390,11 @@ export default function WeatherDashboard() {
                         <div className="lg:col-span-2 space-y-6">
                             <CurrentWeather data={weatherData} location={selectedLocation.name} />
                             <HourlyForecast data={weatherData} />
-                            <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+                            <div className="grid grid-cols-2 gap-3">
                                 <SunTimes data={weatherData} />
-                                <DailyForecast data={weatherData} />
+                                <TideSchedule tideData={tideData} />
                             </div>
+                            <DailyForecast data={weatherData} />
                         </div>
 
                         {/* Locations Sidebar */}
