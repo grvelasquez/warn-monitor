@@ -255,6 +255,58 @@ function TideSchedule({ tideData }) {
     );
 }
 
+function SurfForecast({ surfData }) {
+    if (!surfData) {
+        return (
+            <div className="bg-gradient-to-r from-teal-900/20 to-cyan-900/20 border border-slate-700/50 rounded-xl p-3">
+                <h3 className="text-sm font-semibold text-white mb-2">Surf Forecast</h3>
+                <p className="text-xs text-slate-400">Loading...</p>
+            </div>
+        );
+    }
+
+    const waveHeight = surfData.current?.wave_height || 0;
+    const wavePeriod = surfData.current?.wave_period || 0;
+    const waveDirection = surfData.current?.wave_direction || 0;
+
+    const getDirectionLabel = (deg) => {
+        const dirs = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+        return dirs[Math.round(deg / 45) % 8];
+    };
+
+    const getConditionLabel = (height) => {
+        if (height < 0.5) return { label: 'Flat', color: 'text-gray-400' };
+        if (height < 1) return { label: 'Small', color: 'text-blue-400' };
+        if (height < 1.5) return { label: 'Fun', color: 'text-green-400' };
+        if (height < 2.5) return { label: 'Good', color: 'text-yellow-400' };
+        return { label: 'Big', color: 'text-orange-400' };
+    };
+
+    const condition = getConditionLabel(waveHeight);
+
+    return (
+        <div className="bg-gradient-to-r from-teal-900/20 to-cyan-900/20 border border-slate-700/50 rounded-xl p-3">
+            <h3 className="text-sm font-semibold text-white mb-2">Surf Forecast</h3>
+            <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-400">Waves</span>
+                    <span className={`font-medium ${condition.color}`}>
+                        {(waveHeight * 3.28).toFixed(1)} ft ({condition.label})
+                    </span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-400">Period</span>
+                    <span className="text-white font-medium">{wavePeriod.toFixed(0)}s</span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-400">Direction</span>
+                    <span className="text-white font-medium">{getDirectionLabel(waveDirection)} ({Math.round(waveDirection)}°)</span>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 function LocationCard({ location, data, isSelected, onClick }) {
     const weatherInfo = getWeatherInfo(data?.weather_code);
     const WeatherIcon = weatherInfo.icon;
@@ -284,6 +336,7 @@ function LocationCard({ location, data, isSelected, onClick }) {
 export default function WeatherDashboard() {
     const [weatherData, setWeatherData] = useState(null);
     const [tideData, setTideData] = useState([]);
+    const [surfData, setSurfData] = useState(null);
     const [locationWeather, setLocationWeather] = useState({});
     const [selectedLocation, setSelectedLocation] = useState(SD_LOCATIONS[0]);
     const [loading, setLoading] = useState(true);
@@ -330,6 +383,19 @@ export default function WeatherDashboard() {
                 }
             } catch (tideErr) {
                 console.error('Tide fetch error:', tideErr);
+            }
+
+            // Fetch surf/marine data from Open-Meteo
+            try {
+                const surfRes = await fetch(
+                    `https://marine-api.open-meteo.com/v1/marine?latitude=32.8&longitude=-117.25&current=wave_height,wave_period,wave_direction&timezone=America/Los_Angeles`
+                );
+                if (surfRes.ok) {
+                    const surfJson = await surfRes.json();
+                    setSurfData(surfJson);
+                }
+            } catch (surfErr) {
+                console.error('Surf fetch error:', surfErr);
             }
 
             setLastUpdated(new Date());
@@ -390,9 +456,10 @@ export default function WeatherDashboard() {
                         <div className="lg:col-span-2 space-y-6">
                             <CurrentWeather data={weatherData} location={selectedLocation.name} />
                             <HourlyForecast data={weatherData} />
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-3 gap-3">
                                 <SunTimes data={weatherData} />
                                 <TideSchedule tideData={tideData} />
+                                <SurfForecast surfData={surfData} />
                             </div>
                             <DailyForecast data={weatherData} />
                         </div>
