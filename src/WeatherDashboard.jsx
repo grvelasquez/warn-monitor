@@ -167,13 +167,13 @@ function DailyForecast({ data }) {
                     return (
                         <div key={idx} className="flex items-center py-1.5 sm:py-2 border-b border-slate-700/30 last:border-0">
                             <p className={`text-xs sm:text-sm ${isToday ? 'text-white font-medium' : 'text-slate-400'} w-20 sm:w-24 flex-shrink-0`}>
-                                {isToday ? 'Today' : `${dayNames[date.getDay()]} ${date.getMonth() + 1}/${date.getDate()}`}
+                                {isToday ? 'Today' : dayNames[date.getDay()]} {date.getMonth() + 1}/{date.getDate()}
                             </p>
                             <WeatherIcon className={`w-4 h-4 ${weatherInfo.color} flex-shrink-0 mx-2`} />
                             <div className="flex items-center gap-1 ml-auto flex-shrink-0">
-                                <p className="text-white font-medium text-xs sm:text-sm">{formatTemp(maxTemps[idx])}</p>
-                                <div className="w-6 sm:w-10 h-1 bg-gradient-to-r from-blue-500 via-yellow-500 to-red-500 rounded-full opacity-50" />
                                 <p className="text-slate-500 text-xs sm:text-sm">{formatTemp(minTemps[idx])}</p>
+                                <div className="w-6 sm:w-10 h-1 bg-gradient-to-r from-blue-500 via-yellow-500 to-red-500 rounded-full opacity-50" />
+                                <p className="text-white font-medium text-xs sm:text-sm">{formatTemp(maxTemps[idx])}</p>
                             </div>
                         </div>
                     );
