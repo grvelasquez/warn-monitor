@@ -234,15 +234,6 @@ export default function SDARDashboard() {
 
                 </div>
 
-                {/* November 2025 Neighborhood Data from PDFs */}
-                <div className="mb-8">
-                    <div className="flex items-center gap-2 mb-4">
-                        <h2 className="text-lg font-semibold text-white">November 2025 Market Data</h2>
-                        <span className="text-[10px] px-2 py-0.5 bg-blue-900/50 text-blue-400 rounded-full">From SDAR PDFs</span>
-                    </div>
-                    <SDARNeighborhoodDashboard />
-                </div>
-
                 {/* Filter Panel - Always visible */}
                 {true && (
                     <div className="mb-6 p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl">
@@ -545,6 +536,15 @@ export default function SDARDashboard() {
                             </div>
                         </>
                     )}
+                </div>
+
+                {/* Neighborhood Data from SDAR PDFs */}
+                <div className="mt-10">
+                    <div className="flex items-center gap-2 mb-4">
+                        <h2 className="text-lg font-semibold text-white">All Neighborhoods</h2>
+                        <span className="text-[10px] px-2 py-0.5 bg-blue-900/50 text-blue-400 rounded-full">November 2025 SDAR Data</span>
+                    </div>
+                    <SDARNeighborhoodDashboard />
                 </div>
 
                 {/* Footer */}
