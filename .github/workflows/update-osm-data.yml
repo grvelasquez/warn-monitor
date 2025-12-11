@@ -1,0 +1,37 @@
+name: Update OSM Retail Data
+
+on:
+  schedule:
+    # Runs at 8:00 AM UTC on the 1st and 15th of every month (biweekly, offset from Yelp)
+    - cron: '0 8 1,15 * *'
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  update-osm-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30  # OSM fetch can take 10-15 minutes
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install requests
+          
+      - name: Fetch OSM retail data
+        run: |
+          python scripts/fetch_retail_data.py
+          
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/retail_data.json
+          git diff --staged --quiet || git commit -m "chore: Update OSM retail data [automated]"
+          git push
