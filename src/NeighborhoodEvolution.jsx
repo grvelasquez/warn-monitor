@@ -9,7 +9,7 @@ const neighborhoodData = {
         zip: '92101',
         subAreas: ['Gaslamp', 'East Village', 'Little Italy', 'Columbia'],
         description: 'Urban entertainment hub with condo-dominant housing',
-        color: '#3b82f6',
+        color: '#1d4ed8',
         data: [
             { year: 2010, price: 340000, restaurants: 180, breweries: 4, coffeeShops: 25, boutiques: 45, artGalleries: 18, hotels: 22, nightclubs: 35, condoUnits: 8500, phase: 'Post-Crash', event: 'Recovery begins' },
             { year: 2011, price: 310000, restaurants: 185, breweries: 5, coffeeShops: 28, boutiques: 48, artGalleries: 20, hotels: 23, nightclubs: 36, condoUnits: 9200, phase: 'Bottom' },
@@ -34,7 +34,7 @@ const neighborhoodData = {
         zip: '92104',
         subAreas: [],
         description: 'Classic gentrification: breweries, boutiques, and walkability',
-        color: '#22c55e',
+        color: '#16a34a',
         data: [
             { year: 2010, price: 385000, restaurants: 55, breweries: 2, coffeeShops: 12, boutiques: 35, artGalleries: 8, hotels: 2, nightclubs: 8, condoUnits: 1200, phase: 'Pre-Boom', event: 'Arts district emerging' },
             { year: 2011, price: 365000, restaurants: 58, breweries: 2, coffeeShops: 14, boutiques: 38, artGalleries: 9, hotels: 2, nightclubs: 9, condoUnits: 1300, phase: 'Bottom' },
@@ -59,7 +59,7 @@ const neighborhoodData = {
         zip: '92103',
         subAreas: ['Mission Hills'],
         description: 'LGBTQ+ cultural hub with eclectic dining and nightlife',
-        color: '#a855f7',
+        color: '#9333ea',
         data: [
             { year: 2010, price: 420000, restaurants: 85, breweries: 2, coffeeShops: 18, boutiques: 55, artGalleries: 10, hotels: 4, nightclubs: 15, condoUnits: 2800, phase: 'Established', event: 'Pride parade tradition' },
             { year: 2011, price: 395000, restaurants: 88, breweries: 2, coffeeShops: 20, boutiques: 58, artGalleries: 11, hotels: 4, nightclubs: 15, condoUnits: 2900, phase: 'Bottom' },
@@ -84,7 +84,7 @@ const neighborhoodData = {
         zip: '92037',
         subAreas: ['Village', 'Shores', 'Bird Rock'],
         description: 'Luxury coastal market with high-end retail and dining',
-        color: '#0ea5e9',
+        color: '#0284c7',
         data: [
             { year: 2010, price: 1450000, restaurants: 95, breweries: 1, coffeeShops: 22, boutiques: 85, artGalleries: 25, hotels: 12, nightclubs: 5, condoUnits: 3200, phase: 'Luxury', event: 'Coastal premium holds' },
             { year: 2011, price: 1380000, restaurants: 98, breweries: 1, coffeeShops: 24, boutiques: 88, artGalleries: 26, hotels: 12, nightclubs: 5, condoUnits: 3300, phase: 'Dip' },
@@ -109,7 +109,7 @@ const neighborhoodData = {
         zip: '92109',
         subAreas: ['Mission Beach'],
         description: 'Beach lifestyle with strong rental market and nightlife',
-        color: '#f59e0b',
+        color: '#d97706',
         data: [
             { year: 2010, price: 620000, restaurants: 75, breweries: 3, coffeeShops: 15, boutiques: 40, artGalleries: 5, hotels: 8, nightclubs: 25, condoUnits: 4500, phase: 'Beach', event: 'Party reputation' },
             { year: 2011, price: 585000, restaurants: 78, breweries: 3, coffeeShops: 16, boutiques: 42, artGalleries: 5, hotels: 8, nightclubs: 26, condoUnits: 4600, phase: 'Bottom' },
@@ -134,7 +134,7 @@ const neighborhoodData = {
         zip: '92116',
         subAreas: ['Kensington'],
         description: 'Emerging arts district with neighborhood character',
-        color: '#ec4899',
+        color: '#db2777',
         data: [
             { year: 2010, price: 340000, restaurants: 22, breweries: 1, coffeeShops: 5, boutiques: 15, artGalleries: 4, hotels: 1, nightclubs: 6, condoUnits: 650, phase: 'Hidden Gem', event: 'Artists moving in' },
             { year: 2011, price: 315000, restaurants: 24, breweries: 1, coffeeShops: 6, boutiques: 16, artGalleries: 5, hotels: 1, nightclubs: 6, condoUnits: 680, phase: 'Bottom' },
@@ -159,7 +159,7 @@ const neighborhoodData = {
         zip: '92014',
         subAreas: [],
         description: 'Upscale coastal village with horse racing culture',
-        color: '#14b8a6',
+        color: '#0d9488',
         data: [
             { year: 2010, price: 1280000, restaurants: 45, breweries: 1, coffeeShops: 10, boutiques: 55, artGalleries: 12, hotels: 5, nightclubs: 3, condoUnits: 1200, phase: 'Coastal', event: 'Del Mar Fairgrounds' },
             { year: 2011, price: 1220000, restaurants: 46, breweries: 1, coffeeShops: 11, boutiques: 56, artGalleries: 12, hotels: 5, nightclubs: 3, condoUnits: 1220, phase: 'Dip' },
@@ -184,7 +184,7 @@ const neighborhoodData = {
         zip: '92107',
         subAreas: [],
         description: 'Bohemian beach community resisting chain retail',
-        color: '#ef4444',
+        color: '#dc2626',
         data: [
             { year: 2010, price: 485000, restaurants: 55, breweries: 2, coffeeShops: 12, boutiques: 45, artGalleries: 8, hotels: 4, nightclubs: 12, condoUnits: 1800, phase: 'Bohemian', event: 'Anti-chain culture' },
             { year: 2011, price: 455000, restaurants: 56, breweries: 2, coffeeShops: 13, boutiques: 46, artGalleries: 8, hotels: 4, nightclubs: 12, condoUnits: 1850, phase: 'Bottom' },
@@ -209,7 +209,7 @@ const neighborhoodData = {
         zip: '92101',
         subAreas: [],
         description: 'Downtown arts district with Petco Park and urban lofts',
-        color: '#6366f1',
+        color: '#4f46e5',
         data: [
             { year: 2010, price: 320000, restaurants: 45, breweries: 2, coffeeShops: 8, boutiques: 20, artGalleries: 12, hotels: 5, nightclubs: 8, condoUnits: 4500, phase: 'Post-Crash', event: 'Petco Park anchors area' },
             { year: 2011, price: 295000, restaurants: 48, breweries: 2, coffeeShops: 10, boutiques: 22, artGalleries: 14, hotels: 5, nightclubs: 9, condoUnits: 4800, phase: 'Bottom' },
@@ -234,7 +234,7 @@ const neighborhoodData = {
         zip: '92118',
         subAreas: [],
         description: 'Upscale island community with Hotel del Coronado',
-        color: '#0284c7',
+        color: '#0369a1',
         data: [
             { year: 2010, price: 1150000, restaurants: 42, breweries: 1, coffeeShops: 8, boutiques: 48, artGalleries: 10, hotels: 6, nightclubs: 4, condoUnits: 1400, phase: 'Luxury', event: 'Hotel del renovations' },
             { year: 2011, price: 1080000, restaurants: 43, breweries: 1, coffeeShops: 9, boutiques: 50, artGalleries: 10, hotels: 6, nightclubs: 4, condoUnits: 1420, phase: 'Dip' },
@@ -259,7 +259,7 @@ const neighborhoodData = {
         zip: '92102',
         subAreas: [],
         description: 'Hip walkable village with independent boutiques',
-        color: '#d946ef',
+        color: '#c026d3',
         data: [
             { year: 2010, price: 320000, restaurants: 18, breweries: 1, coffeeShops: 4, boutiques: 15, artGalleries: 5, hotels: 1, nightclubs: 3, condoUnits: 450, phase: 'Hidden', event: 'Local shops emerging' },
             { year: 2011, price: 295000, restaurants: 20, breweries: 1, coffeeShops: 5, boutiques: 16, artGalleries: 6, hotels: 1, nightclubs: 3, condoUnits: 480, phase: 'Bottom' },
@@ -284,7 +284,7 @@ const neighborhoodData = {
         zip: '92104',
         subAreas: [],
         description: 'Historic streetcar suburb with neighborhood cafes',
-        color: '#f97316',
+        color: '#ea580c',
         data: [
             { year: 2010, price: 355000, restaurants: 28, breweries: 1, coffeeShops: 8, boutiques: 18, artGalleries: 4, hotels: 1, nightclubs: 5, condoUnits: 520, phase: 'Historic', event: 'Park Blvd revival' },
             { year: 2011, price: 330000, restaurants: 30, breweries: 1, coffeeShops: 9, boutiques: 20, artGalleries: 5, hotels: 1, nightclubs: 5, condoUnits: 540, phase: 'Bottom' },
@@ -309,7 +309,7 @@ const neighborhoodData = {
         zip: '92116',
         subAreas: [],
         description: 'Historic village with classic architecture and cafes',
-        color: '#84cc16',
+        color: '#65a30d',
         data: [
             { year: 2010, price: 395000, restaurants: 15, breweries: 0, coffeeShops: 4, boutiques: 12, artGalleries: 3, hotels: 0, nightclubs: 2, condoUnits: 280, phase: 'Historic', event: 'Ken Theatre landmark' },
             { year: 2011, price: 370000, restaurants: 16, breweries: 0, coffeeShops: 5, boutiques: 13, artGalleries: 3, hotels: 0, nightclubs: 2, condoUnits: 290, phase: 'Bottom' },
@@ -334,7 +334,7 @@ const neighborhoodData = {
         zip: '92103',
         subAreas: [],
         description: 'Historic hilltop neighborhood with upscale dining',
-        color: '#be185d',
+        color: '#a21caf',
         data: [
             { year: 2010, price: 580000, restaurants: 25, breweries: 1, coffeeShops: 6, boutiques: 22, artGalleries: 5, hotels: 2, nightclubs: 3, condoUnits: 650, phase: 'Established' },
             { year: 2011, price: 545000, restaurants: 27, breweries: 1, coffeeShops: 7, boutiques: 24, artGalleries: 6, hotels: 2, nightclubs: 3, condoUnits: 680, phase: 'Bottom' },
@@ -359,7 +359,7 @@ const neighborhoodData = {
         zip: '92110',
         subAreas: [],
         description: 'Family-oriented with Mission Bay access',
-        color: '#0891b2',
+        color: '#0e7490',
         data: [
             { year: 2010, price: 445000, restaurants: 12, breweries: 1, coffeeShops: 3, boutiques: 8, artGalleries: 2, hotels: 1, nightclubs: 1, condoUnits: 380, phase: 'Residential', event: 'Bay access premium' },
             { year: 2011, price: 415000, restaurants: 13, breweries: 1, coffeeShops: 3, boutiques: 9, artGalleries: 2, hotels: 1, nightclubs: 1, condoUnits: 395, phase: 'Bottom' },
@@ -384,7 +384,7 @@ const neighborhoodData = {
         zip: '92117',
         subAreas: [],
         description: 'Established suburb with growing retail corridor',
-        color: '#7c3aed',
+        color: '#6d28d9',
         data: [
             { year: 2010, price: 385000, restaurants: 35, breweries: 1, coffeeShops: 8, boutiques: 15, artGalleries: 2, hotels: 3, nightclubs: 3, condoUnits: 1200, phase: 'Suburban', event: 'Affordable suburb' },
             { year: 2011, price: 355000, restaurants: 36, breweries: 1, coffeeShops: 9, boutiques: 16, artGalleries: 2, hotels: 3, nightclubs: 3, condoUnits: 1250, phase: 'Bottom' },
@@ -409,7 +409,7 @@ const neighborhoodData = {
         zip: '92106',
         subAreas: ['Liberty Station'],
         description: 'Peninsula community with maritime heritage',
-        color: '#059669',
+        color: '#047857',
         data: [
             { year: 2010, price: 685000, restaurants: 40, breweries: 2, coffeeShops: 10, boutiques: 32, artGalleries: 6, hotels: 4, nightclubs: 5, condoUnits: 1500, phase: 'Coastal', event: 'Liberty Station redevelopment' },
             { year: 2011, price: 645000, restaurants: 42, breweries: 2, coffeeShops: 11, boutiques: 34, artGalleries: 7, hotels: 4, nightclubs: 5, condoUnits: 1580, phase: 'Bottom' },
@@ -489,6 +489,18 @@ function MetricCard({ label, value, change, sublabel, icon: Icon, color = 'blue'
 export default function NeighborhoodEvolution() {
     const [selectedNeighborhood, setSelectedNeighborhood] = useState('downtown');
     const [activeView, setActiveView] = useState('combined');
+    const [selectedRegion, setSelectedRegion] = useState('all');
+
+    // Region groupings for filter
+    const regions = {
+        all: { label: 'All Neighborhoods', neighborhoods: Object.keys(neighborhoodData) },
+        downtown: { label: 'Downtown', neighborhoods: ['downtown', 'eastVillage'] },
+        central: { label: 'Central', neighborhoods: ['northPark', 'hillcrest', 'southPark', 'universityHeights', 'normalHeights', 'kensington', 'missionHills'] },
+        coastal: { label: 'Coastal', neighborhoods: ['laJolla', 'pacificBeach', 'oceanBeach', 'delMar', 'coronado', 'pointLoma'] },
+        north: { label: 'North', neighborhoods: ['bayPark', 'clairemont'] },
+    };
+
+    const filteredNeighborhoods = regions[selectedRegion]?.neighborhoods || Object.keys(neighborhoodData);
 
     const neighborhood = neighborhoodData[selectedNeighborhood];
     const data = neighborhood.data;
@@ -514,26 +526,55 @@ export default function NeighborhoodEvolution() {
                         </div>
                         <h1 className="text-xl sm:text-2xl font-bold">Neighborhood Evolution</h1>
                     </div>
-                    <p className="text-sm text-gray-400">15 Years of Urban Development: 2010-2025</p>
+                    <p className="text-sm text-gray-400">15 Years of Urban Development: 2010-2025 | 18 San Diego Neighborhoods</p>
                 </div>
 
-                {/* Neighborhood Selector */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                    {Object.entries(neighborhoodData).map(([key, n]) => (
-                        <button
-                            key={key}
-                            onClick={() => setSelectedNeighborhood(key)}
-                            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${selectedNeighborhood === key
-                                ? 'text-white shadow-lg'
-                                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-                                }`}
-                            style={selectedNeighborhood === key ? { backgroundColor: n.color } : {}}
-                        >
-                            <span>{n.name}</span>
-                            <span className="text-xs opacity-70">{n.zip}</span>
-                        </button>
-                    ))}
+                {/* Region Filter */}
+                <div className="flex items-center gap-4 mb-4">
+                    <span className="text-sm text-gray-400">Filter by region:</span>
+                    <div className="flex flex-wrap gap-2">
+                        {Object.entries(regions).map(([key, { label }]) => (
+                            <button
+                                key={key}
+                                onClick={() => {
+                                    setSelectedRegion(key);
+                                    // If current neighborhood not in new region, select first in region
+                                    if (key !== 'all' && !regions[key].neighborhoods.includes(selectedNeighborhood)) {
+                                        setSelectedNeighborhood(regions[key].neighborhoods[0]);
+                                    }
+                                }}
+                                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${selectedRegion === key
+                                    ? 'bg-indigo-600 text-white'
+                                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                                    }`}
+                            >
+                                {label} ({regions[key].neighborhoods.length})
+                            </button>
+                        ))}
+                    </div>
                 </div>
+
+                {/* Neighborhood Selector - filtered by region */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                    {filteredNeighborhoods.map((key) => {
+                        const n = neighborhoodData[key];
+                        return (
+                            <button
+                                key={key}
+                                onClick={() => setSelectedNeighborhood(key)}
+                                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${selectedNeighborhood === key
+                                    ? 'text-white shadow-lg'
+                                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                                    }`}
+                                style={selectedNeighborhood === key ? { backgroundColor: n.color } : {}}
+                            >
+                                <span>{n.name}</span>
+                                <span className="text-xs opacity-70">{n.zip}</span>
+                            </button>
+                        );
+                    })}
+                </div>
+
 
                 {/* Sub-areas */}
                 {neighborhood.subAreas.length > 0 && (
