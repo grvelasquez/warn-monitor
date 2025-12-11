@@ -64,31 +64,37 @@ const CATEGORY_ICONS = {
     tire_shops: Store,
 };
 
-// Color by type
+// Color by type - more balanced distribution
 const TYPE_COLORS = {
     gentrifying: 'text-purple-400',
     traditional: 'text-amber-400',
     core: 'text-blue-400',
+    neutral: 'text-gray-400',
 };
 
-// Category type mapping
+// Category type mapping - rebalanced for better color distribution
 const CATEGORY_TYPES = {
-    restaurants: 'core', bars: 'core', breweries: 'gentrifying', coffee: 'gentrifying',
-    juicebars: 'gentrifying', vegan: 'gentrifying', wine_bars: 'gentrifying', cocktailbars: 'gentrifying',
-    tattoo: 'gentrifying', galleries: 'gentrifying', vintage: 'gentrifying', thrift_stores: 'gentrifying',
-    antiques: 'gentrifying', vinyl_records: 'gentrifying', bookstores: 'gentrifying',
-    hair_salons: 'gentrifying', barbers: 'traditional', nail_salons: 'core', spas: 'gentrifying',
-    skincare: 'gentrifying', waxing: 'gentrifying',
-    yoga: 'gentrifying', pilates: 'gentrifying', gyms: 'core', crossfit: 'gentrifying',
-    boxing: 'gentrifying', cycling: 'gentrifying',
-    pet_stores: 'gentrifying', pet_groomers: 'gentrifying', dog_walkers: 'gentrifying',
-    pet_boarding: 'gentrifying', veterinarians: 'core',
-    shopping: 'core', bicycles: 'gentrifying', florists: 'gentrifying', cannabis: 'gentrifying',
-    furniture: 'core', home_decor: 'gentrifying',
-    hotels: 'core', hostels: 'core', vacation_rentals: 'gentrifying', coworking: 'gentrifying',
-    laundromat: 'traditional', check_cashing: 'traditional', pawn_shops: 'traditional',
-    payday_loans: 'traditional', dollar_stores: 'traditional', fast_food: 'traditional',
-    taquerias: 'traditional', auto_repair: 'traditional', tire_shops: 'traditional',
+    // Core (blue) - standard businesses
+    restaurants: 'core', bars: 'core', hotels: 'core', gyms: 'core',
+    nail_salons: 'core', veterinarians: 'core', shopping: 'core',
+    furniture: 'core', hostels: 'core', hair_salons: 'core',
+    // Gentrifying (purple) - hipster/upscale indicators
+    breweries: 'gentrifying', coffee: 'gentrifying', juicebars: 'gentrifying',
+    vegan: 'gentrifying', wine_bars: 'gentrifying', cocktailbars: 'gentrifying',
+    galleries: 'gentrifying', vintage: 'gentrifying', yoga: 'gentrifying',
+    pilates: 'gentrifying', coworking: 'gentrifying', cycling: 'gentrifying',
+    // Traditional (amber) - established community businesses  
+    barbers: 'traditional', laundromat: 'traditional', check_cashing: 'traditional',
+    pawn_shops: 'traditional', payday_loans: 'traditional', dollar_stores: 'traditional',
+    fast_food: 'traditional', taquerias: 'traditional', auto_repair: 'traditional',
+    tire_shops: 'traditional',
+    // Neutral (gray) - mixed indicators
+    tattoo: 'neutral', thrift_stores: 'neutral', antiques: 'neutral',
+    vinyl_records: 'neutral', bookstores: 'neutral', spas: 'neutral',
+    skincare: 'neutral', waxing: 'neutral', crossfit: 'neutral', boxing: 'neutral',
+    pet_stores: 'neutral', pet_groomers: 'neutral', dog_walkers: 'neutral',
+    pet_boarding: 'neutral', bicycles: 'neutral', florists: 'neutral',
+    cannabis: 'neutral', home_decor: 'neutral', vacation_rentals: 'neutral',
 };
 
 // Region groupings
@@ -108,11 +114,11 @@ const REGIONS = {
     },
 };
 
-// Risk color based on score (0-100 now)
+// Risk color based on score (0-100 now) - wider thresholds
 const getScoreColor = (score) => {
-    if (score >= 78) return { bg: 'bg-purple-500', text: 'text-purple-400', label: 'High' };
-    if (score >= 76) return { bg: 'bg-blue-500', text: 'text-blue-400', label: 'Moderate' };
-    if (score >= 74) return { bg: 'bg-green-500', text: 'text-green-400', label: 'Emerging' };
+    if (score >= 70) return { bg: 'bg-purple-500', text: 'text-purple-400', label: 'High' };
+    if (score >= 55) return { bg: 'bg-blue-500', text: 'text-blue-400', label: 'Moderate' };
+    if (score >= 40) return { bg: 'bg-green-500', text: 'text-green-400', label: 'Emerging' };
     return { bg: 'bg-slate-500', text: 'text-slate-400', label: 'Stable' };
 };
 
@@ -389,13 +395,18 @@ export function RetailSignals({ className = "" }) {
                 </button>
             )}
 
-            {/* Compact legend */}
-            <div className="flex flex-wrap items-center justify-center gap-3 text-[10px] text-slate-500">
-                <span>Risk:</span>
-                <span className="flex items-center gap-1"><span className="w-2 h-2 bg-green-500 rounded-full" /> Stable</span>
-                <span className="flex items-center gap-1"><span className="w-2 h-2 bg-yellow-500 rounded-full" /> Low</span>
-                <span className="flex items-center gap-1"><span className="w-2 h-2 bg-orange-500 rounded-full" /> Moderate</span>
-                <span className="flex items-center gap-1"><span className="w-2 h-2 bg-red-500 rounded-full" /> High</span>
+            {/* Compact legend with last fetched date */}
+            <div className="flex flex-wrap items-center justify-between gap-3 text-[10px] text-slate-500">
+                <div className="flex flex-wrap items-center gap-3">
+                    <span>Categories:</span>
+                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-purple-500 rounded-full" /> Gentrifying</span>
+                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-blue-500 rounded-full" /> Core</span>
+                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-amber-500 rounded-full" /> Traditional</span>
+                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-gray-500 rounded-full" /> Neutral</span>
+                </div>
+                <div className="text-slate-500">
+                    Yelp data: {retailData?.meta?.generated ? new Date(retailData.meta.generated).toLocaleDateString() : 'Unknown'}
+                </div>
             </div>
         </div>
     );
