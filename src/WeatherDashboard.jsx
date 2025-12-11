@@ -156,7 +156,10 @@ function DailyForecast({ data }) {
             <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">7-Day Forecast</h3>
             <div className="space-y-2 sm:space-y-3">
                 {days.slice(0, 7).map((day, idx) => {
-                    const date = new Date(day);
+                    // Start with the date string (YYYY-MM-DD) and force local time interpretation
+                    // by appending 'T00:00:00'. This ensures it's treated as local midnight,
+                    // preventing timezone shifts (e.g. UTC midnight -> previous day 4PM PST).
+                    const date = new Date(day + 'T00:00:00');
                     const weatherInfo = getWeatherInfo(codes[idx]);
                     const WeatherIcon = weatherInfo.icon;
                     const isToday = idx === 0;
