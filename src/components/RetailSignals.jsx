@@ -122,26 +122,30 @@ const getScoreColor = (score) => {
     return { bg: 'bg-slate-500', text: 'text-slate-400', label: 'Stable' };
 };
 
+// Key categories to display (curated list for meaningful comparison)
+const KEY_CATEGORIES = ['restaurants', 'coffee', 'bars', 'breweries', 'yoga'];
+
 // Compact neighborhood card - updated for Yelp data structure
 function NeighborhoodCard({ neighborhood, rank }) {
-    // Calculate score from gentrifying vs traditional counts
-    const genCount = Object.entries(neighborhood.categories || {})
-        .filter(([key]) => CATEGORY_TYPES[key] === 'gentrifying')
-        .reduce((sum, [, cat]) => sum + (cat.count || 0), 0);
+    // Calculate meaningful gentrification indicators ratio
+    const genIndicators = ['breweries', 'coffee', 'yoga', 'pilates', 'galleries', 'vintage', 'wine_bars', 'cocktailbars', 'coworking', 'vegan', 'juicebars'];
+    const tradIndicators = ['laundromat', 'fast_food', 'taquerias', 'auto_repair', 'dollar_stores', 'pawn_shops', 'barbers'];
 
-    const tradCount = Object.entries(neighborhood.categories || {})
-        .filter(([key]) => CATEGORY_TYPES[key] === 'traditional')
-        .reduce((sum, [, cat]) => sum + (cat.count || 0), 0);
+    const genCount = genIndicators.reduce((sum, key) => sum + (neighborhood.categories?.[key]?.count || 0), 0);
+    const tradCount = tradIndicators.reduce((sum, key) => sum + (neighborhood.categories?.[key]?.count || 0), 0);
 
     const total = genCount + tradCount;
     const score = total > 0 ? Math.round((genCount / total) * 100) : 50;
     const scoreInfo = getScoreColor(score);
 
-    // Top categories by count
-    const topCategories = Object.entries(neighborhood.categories || {})
-        .filter(([, cat]) => cat.count > 0)
-        .sort((a, b) => b[1].count - a[1].count)
-        .slice(0, 5);
+    // Show curated key categories with variety of colors
+    const displayCategories = KEY_CATEGORIES
+        .map(key => {
+            const cat = neighborhood.categories?.[key];
+            if (!cat || cat.count === 0) return null;
+            return [key, cat];
+        })
+        .filter(Boolean);
 
     return (
         <div className={`bg-slate-800/50 border rounded-lg p-3 ${rank <= 3 ? 'border-purple-500/40' : 'border-slate-700/50'}`}>
@@ -157,12 +161,19 @@ function NeighborhoodCard({ neighborhood, rank }) {
             <div className="w-full h-1 bg-slate-700 rounded-full overflow-hidden mb-2">
                 <div className={`h-full ${scoreInfo.bg}`} style={{ width: `${score}%` }} />
             </div>
-            {/* Quick category icons */}
+            {/* Key category icons with distinct colors */}
             <div className="flex gap-1.5 flex-wrap">
-                {topCategories.map(([key, data]) => {
+                {displayCategories.map(([key, data]) => {
                     const Icon = CATEGORY_ICONS[key] || Store;
-                    const catType = CATEGORY_TYPES[key] || 'core';
-                    const color = TYPE_COLORS[catType];
+                    // Use distinct colors for key categories
+                    const colorMap = {
+                        restaurants: 'text-green-400',
+                        coffee: 'text-amber-400',
+                        bars: 'text-blue-400',
+                        breweries: 'text-purple-400',
+                        yoga: 'text-pink-400',
+                    };
+                    const color = colorMap[key] || 'text-gray-400';
                     return (
                         <div key={key} className="flex items-center gap-0.5 text-[10px]" title={data.label}>
                             <Icon className={`w-3 h-3 ${color}`} />
@@ -174,6 +185,7 @@ function NeighborhoodCard({ neighborhood, rank }) {
         </div>
     );
 }
+
 
 // Sort options
 const SORT_OPTIONS = [
