@@ -108,9 +108,15 @@ function CurrentWeather({ data, location }) {
 }
 
 function HourlyForecast({ data }) {
-    const hours = data?.hourly?.time?.slice(0, 24) || [];
-    const temps = data?.hourly?.temperature_2m?.slice(0, 24) || [];
-    const codes = data?.hourly?.weather_code?.slice(0, 24) || [];
+    const currentHour = new Date().getHours();
+
+    // Find the index that matches the current hour
+    const startIndex = data?.hourly?.time?.findIndex(t => new Date(t).getHours() === currentHour) ?? 0;
+    const finalStartIndex = startIndex === -1 ? 0 : startIndex;
+
+    const hours = data?.hourly?.time?.slice(finalStartIndex, finalStartIndex + 24) || [];
+    const temps = data?.hourly?.temperature_2m?.slice(finalStartIndex, finalStartIndex + 24) || [];
+    const codes = data?.hourly?.weather_code?.slice(finalStartIndex, finalStartIndex + 24) || [];
 
     return (
         <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-3 sm:p-4 md:p-6 overflow-hidden">
