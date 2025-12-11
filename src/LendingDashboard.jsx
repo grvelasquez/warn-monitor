@@ -11,21 +11,9 @@ const defaultData = {
     sanDiego: { unemploymentRate: 4.2 }
 };
 
-// Affordability calculations based on median home price
-const affordabilityData = {
-    medianIncome: 106900,
-    medianHomePrice: 895000,
-    dti: 65.5,
-    priceToIncome: 8.4,
-};
-
-// Market health metrics (static - would need MBA data)
-const marketMetrics = {
-    purchaseAppIndex: 142.3,
-    refiAppIndex: 438.2,
-    mortgageDelinquency: 1.8,
-    foreclosureRate: 0.23,
-};
+// San Diego median values for affordability calc (from SDAR data)
+const SD_MEDIAN_HOME_PRICE = 895000;
+const SD_MEDIAN_INCOME = 106900;
 
 // Format functions
 const formatPercent = (val) => val !== undefined && val !== null ? `${val.toFixed(2)}%` : 'N/A';
@@ -81,12 +69,17 @@ function MetricCard({ title, value, subtext, trend, format = 'number' }) {
     );
 }
 
-function AffordabilityGauge({ dti, rate30 }) {
+function AffordabilityGauge({ rate30 }) {
     // Calculate monthly payment based on current rate
-    const loanAmount = affordabilityData.medianHomePrice * 0.8; // 20% down
+    const loanAmount = SD_MEDIAN_HOME_PRICE * 0.8; // 20% down
     const monthlyRate = rate30 / 100 / 12;
     const months = 360;
     const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+
+    // Calculate DTI based on median income
+    const monthlyIncome = SD_MEDIAN_INCOME / 12;
+    const dti = Math.round((monthlyPayment / monthlyIncome) * 100);
+    const priceToIncome = (SD_MEDIAN_HOME_PRICE / SD_MEDIAN_INCOME).toFixed(1);
 
     const getColor = (val) => {
         if (val <= 36) return 'bg-green-500';
@@ -118,7 +111,7 @@ function AffordabilityGauge({ dti, rate30 }) {
                     <span className="text-2xl font-bold text-white">{dti}%</span>
                     <span className={`text-xs px-2 py-0.5 rounded ${getColor(dti)} text-white`}>{getLabel(dti)}</span>
                 </div>
-                <p className="text-xs text-slate-500 mt-1">Based on median income & home price</p>
+                <p className="text-xs text-slate-500 mt-1">Based on SD median income & home price</p>
             </div>
             <MetricCard
                 title="Monthly Payment"
@@ -128,7 +121,7 @@ function AffordabilityGauge({ dti, rate30 }) {
             />
             <MetricCard
                 title="Price-to-Income"
-                value={affordabilityData.priceToIncome}
+                value={parseFloat(priceToIncome)}
                 subtext="Median home / Median income"
                 format="number"
             />
@@ -286,7 +279,7 @@ export default function LendingDashboard() {
                     </div>
 
                     {/* Affordability Panel */}
-                    <AffordabilityGauge dti={affordabilityData.dti} rate30={lendingData.currentRates.rate30} />
+                    <AffordabilityGauge rate30={lendingData.currentRates.rate30} />
                 </div>
 
                 {/* Loan Limits & Market Metrics */}
@@ -333,31 +326,31 @@ export default function LendingDashboard() {
                     <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6">
                         <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
                             <TrendingUp className="w-5 h-5 text-slate-500" />
-                            Market Health Indicators
+                            Economic Indicators
                         </h2>
                         <div className="grid grid-cols-2 gap-4">
-                            <MetricCard
-                                title="Purchase Apps"
-                                value={marketMetrics.purchaseAppIndex}
-                                subtext="MBA Index"
-                                trend={-2.3}
-                            />
-                            <MetricCard
-                                title="Refi Apps"
-                                value={marketMetrics.refiAppIndex}
-                                subtext="MBA Index"
-                                trend={12.5}
-                            />
-                            <MetricCard
-                                title="Delinquency Rate"
-                                value={marketMetrics.mortgageDelinquency}
-                                subtext="30+ days late"
-                                format="percent"
-                            />
                             <MetricCard
                                 title="SD Unemployment"
                                 value={lendingData.sanDiego?.unemploymentRate || 4.2}
                                 subtext="San Diego County"
+                                format="percent"
+                            />
+                            <MetricCard
+                                title="Fed Funds Rate"
+                                value={lendingData.currentRates.fedFunds}
+                                subtext="FOMC Target"
+                                format="percent"
+                            />
+                            <MetricCard
+                                title="30-Year Rate"
+                                value={lendingData.currentRates.rate30}
+                                subtext="Conventional"
+                                format="percent"
+                            />
+                            <MetricCard
+                                title="15-Year Rate"
+                                value={lendingData.currentRates.rate15}
+                                subtext="Conventional"
                                 format="percent"
                             />
                         </div>
@@ -390,8 +383,9 @@ export default function LendingDashboard() {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-12 pt-6 border-t border-slate-800 text-center">
-                    <p className="text-xs text-slate-500">Data sources: FRED (Federal Reserve Economic Data) • Updated weekly on Thursdays</p>
+                <div className="mt-12 pt-6 border-t border-slate-800 text-center space-y-2">
+                    <p className="text-xs text-slate-500">Data sources: FRED (Federal Reserve Economic Data) • Updated weekly</p>
+                    <p className="text-xs text-slate-600">Gregory Velasquez | LPT Realty | DRE #02252032</p>
                 </div>
             </div>
         </div>
