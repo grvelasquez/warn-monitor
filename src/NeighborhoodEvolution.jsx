@@ -1,8 +1,8 @@
 import { useState, useEffect, useMemo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Line } from 'recharts';
-import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown, Store, Coffee, UtensilsCrossed } from 'lucide-react';
+import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown } from 'lucide-react';
 
-// Region groupings by ZIP prefix (for SDAR) and name (for Yelp)
+// Region groupings by ZIP prefix (for SDAR)
 const REGIONS = {
     all: { label: 'All', zips: null },
     downtown: { label: 'Downtown/Central', zips: ['92101', '92102', '92103', '92104', '92105', '92108', '92110', '92111', '92113', '92114', '92115', '92116'] },
@@ -13,26 +13,7 @@ const REGIONS = {
 };
 
 // Map Yelp neighborhoods to SDAR zip codes
-const YELP_TO_ZIP = {
-    'Downtown (Gaslamp)': '92101',
-    'East Village': '92101',
-    'Little Italy': '92101',
-    'North Park': '92104',
-    'Hillcrest': '92103',
-    'South Park': '92102',
-    'University Heights': '92104',
-    'Normal Heights': '92116',
-    'Kensington': '92116',
-    'Mission Hills': '92103',
-    'La Jolla': '92037',
-    'Pacific Beach': '92109',
-    'Ocean Beach': '92107',
-    'Del Mar': '92014',
-    'Coronado': '92118',
-    'Point Loma': '92106',
-    'Bay Park': '92110',
-    'Clairemont': '92117',
-};
+
 
 // Color palette by region
 const getRegionColor = (zipCode) => {
@@ -76,17 +57,13 @@ function MetricCard({ label, value, sublabel, icon: Icon, color = 'blue', trend 
 }
 
 // Neighborhood Card (SDAR + Yelp data)
-function NeighborhoodCard({ data, yelpData, isSelected, onClick }) {
+function NeighborhoodCard({ data, isSelected, onClick }) {
     const color = getRegionColor(data.zip_code);
     const detached = data.detached || {};
 
     const priceChange = detached.median_price_2024 && detached.median_price_2025
         ? ((detached.median_price_2025 - detached.median_price_2024) / detached.median_price_2024 * 100)
         : null;
-
-    // Get Yelp stats if available
-    const restaurants = yelpData?.categories?.restaurants?.count || 0;
-    const coffee = yelpData?.categories?.coffee?.count || 0;
 
     return (
         <button
@@ -113,17 +90,10 @@ function NeighborhoodCard({ data, yelpData, isSelected, onClick }) {
                         ${detached.median_price_2025 ? (detached.median_price_2025 / 1000).toFixed(0) + 'k' : 'N/A'}
                     </p>
                 </div>
-                {restaurants > 0 ? (
-                    <div>
-                        <span className="text-gray-500">Restaurants</span>
-                        <p className="text-purple-400 font-medium">{restaurants}</p>
-                    </div>
-                ) : (
-                    <div>
-                        <span className="text-gray-500">DOM</span>
-                        <p className="text-blue-400 font-medium">{detached.dom_2025 || 'N/A'}</p>
-                    </div>
-                )}
+                <div>
+                    <span className="text-gray-500">DOM</span>
+                    <p className="text-blue-400 font-medium">{detached.dom_2025 || 'N/A'}</p>
+                </div>
             </div>
             {priceChange !== null && (
                 <div className={`mt-2 text-xs ${priceChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
@@ -136,7 +106,7 @@ function NeighborhoodCard({ data, yelpData, isSelected, onClick }) {
 
 export default function NeighborhoodEvolution() {
     const [sdarData, setSdarData] = useState(null);
-    const [yelpData, setYelpData] = useState(null);
+
     const [zillowData, setZillowData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [selectedRegion, setSelectedRegion] = useState('all');
@@ -149,9 +119,8 @@ export default function NeighborhoodEvolution() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [sdarRes, yelpRes, zillowRes] = await Promise.all([
+                const [sdarRes, zillowRes] = await Promise.all([
                     fetch('/data/sdar_neighborhood_data.json'),
-                    fetch('/data/yelp_snapshot.json'),
                     fetch('/data/zillow_rental_data.json')
                 ]);
 
@@ -161,10 +130,6 @@ export default function NeighborhoodEvolution() {
                     if (data.neighborhoods?.length > 0) {
                         setSelectedNeighborhood(data.neighborhoods[0]);
                     }
-                }
-                if (yelpRes.ok) {
-                    const data = await yelpRes.json();
-                    setYelpData(data);
                 }
                 if (zillowRes.ok) {
                     const data = await zillowRes.json();
@@ -179,33 +144,7 @@ export default function NeighborhoodEvolution() {
         fetchData();
     }, []);
 
-    // Map Yelp data by zip code
-    const yelpByZip = useMemo(() => {
-        if (!yelpData?.neighborhoods) return {};
-        const map = {};
-        yelpData.neighborhoods.forEach(n => {
-            const zip = YELP_TO_ZIP[n.name];
-            if (zip) {
-                // If multiple Yelp areas map to same zip, merge them
-                if (!map[zip]) {
-                    map[zip] = { ...n };
-                } else {
-                    // Merge categories
-                    Object.entries(n.categories || {}).forEach(([key, val]) => {
-                        if (!map[zip].categories[key]) {
-                            map[zip].categories[key] = val;
-                        } else {
-                            map[zip].categories[key] = {
-                                ...val,
-                                count: (map[zip].categories[key].count || 0) + (val.count || 0)
-                            };
-                        }
-                    });
-                }
-            }
-        });
-        return map;
-    }, [yelpData]);
+
 
     // Map Zillow rent data by zip code
     const zillowByZip = useMemo(() => {
@@ -253,36 +192,13 @@ export default function NeighborhoodEvolution() {
                 const domB = propertyType === 'detached' ? (b.detached?.dom_2025 || 999) : (b.attached?.dom_2025 || 999);
                 return domA - domB;
             });
-        } else if (sortBy === 'restaurants') {
-            filtered = [...filtered].sort((a, b) => {
-                const restA = yelpByZip[a.zip_code]?.categories?.restaurants?.count || 0;
-                const restB = yelpByZip[b.zip_code]?.categories?.restaurants?.count || 0;
-                return restB - restA;
-            });
         }
 
+
         return filtered;
-    }, [sdarData, selectedRegion, sortBy, propertyType, yelpByZip]);
+    }, [sdarData, selectedRegion, sortBy, propertyType]);
 
-    // Get Yelp data for selected neighborhood
-    const selectedYelpData = useMemo(() => {
-        if (!selectedNeighborhood) return null;
-        return yelpByZip[selectedNeighborhood.zip_code];
-    }, [selectedNeighborhood, yelpByZip]);
 
-    // Chart data for comparison view
-    const comparisonData = useMemo(() => {
-        return filteredNeighborhoods.slice(0, 20).map(n => {
-            const prop = propertyType === 'detached' ? n.detached : n.attached;
-            const yelp = yelpByZip[n.zip_code];
-            return {
-                name: n.neighborhood.substring(0, 12),
-                fullName: `${n.zip_code} - ${n.neighborhood}`,
-                medianPrice: prop?.median_price_2025 || 0,
-                restaurants: yelp?.categories?.restaurants?.count || 0,
-            };
-        });
-    }, [filteredNeighborhoods, propertyType, yelpByZip]);
 
     // Summary stats
     const summaryStats = useMemo(() => {
@@ -290,11 +206,7 @@ export default function NeighborhoodEvolution() {
         return sdarData.summary;
     }, [sdarData]);
 
-    // Yelp summary
-    const yelpSummary = useMemo(() => {
-        if (!yelpData?.summary) return {};
-        return yelpData.summary;
-    }, [yelpData]);
+
 
     if (loading) {
         return (
@@ -326,7 +238,7 @@ export default function NeighborhoodEvolution() {
                         <h1 className="text-xl sm:text-2xl font-bold">SD County Neighborhoods</h1>
                     </div>
                     <p className="text-sm text-gray-400">
-                        {sdarData?.meta?.neighborhoods_count || 0} zip codes • SDAR Housing + Yelp + Zillow Rentals
+                        {sdarData?.meta?.neighborhoods_count || 0} zip codes • SDAR Housing + Zillow Rentals
                     </p>
                 </div>
 
@@ -354,13 +266,7 @@ export default function NeighborhoodEvolution() {
                         color="purple"
                         trend={zillowData?.summary?.avg_yoy_change > 0 ? 'up' : zillowData?.summary?.avg_yoy_change < 0 ? 'down' : null}
                     />
-                    <MetricCard
-                        label="Total Restaurants"
-                        value={(yelpSummary?.total_counts?.restaurants || 0).toLocaleString()}
-                        sublabel="Yelp tracked areas"
-                        icon={UtensilsCrossed}
-                        color="orange"
-                    />
+
                 </div>
 
                 {/* Filters Row */}
@@ -401,7 +307,7 @@ export default function NeighborhoodEvolution() {
                             <option value="price">Sort by Price (High→Low)</option>
                             <option value="change">Sort by YoY Change</option>
                             <option value="dom">Sort by Days on Market</option>
-                            <option value="restaurants">Sort by Restaurants</option>
+
                         </select>
                     </div>
                     <div className="flex items-center gap-2">
@@ -426,13 +332,7 @@ export default function NeighborhoodEvolution() {
                     >
                         Grid View ({filteredNeighborhoods.length})
                     </button>
-                    <button
-                        onClick={() => setActiveView('compare')}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeView === 'compare' ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-                            }`}
-                    >
-                        Price vs Restaurants
-                    </button>
+
                     {selectedNeighborhood && (
                         <button
                             onClick={() => setActiveView('details')}
@@ -451,7 +351,7 @@ export default function NeighborhoodEvolution() {
                             <NeighborhoodCard
                                 key={n.zip_code}
                                 data={n}
-                                yelpData={yelpByZip[n.zip_code]}
+
                                 isSelected={selectedNeighborhood?.zip_code === n.zip_code}
                                 onClick={() => {
                                     setSelectedNeighborhood(n);
@@ -462,33 +362,7 @@ export default function NeighborhoodEvolution() {
                     </div>
                 )}
 
-                {/* Compare Chart - Price vs Restaurants */}
-                {activeView === 'compare' && (
-                    <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800">
-                        <h3 className="text-lg font-semibold mb-4">
-                            Median Price vs Restaurant Count (Top 20)
-                        </h3>
-                        <ResponsiveContainer width="100%" height={500}>
-                            <ComposedChart data={comparisonData}>
-                                <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                                <XAxis dataKey="name" stroke="#9ca3af" angle={-45} textAnchor="end" height={80} fontSize={11} />
-                                <YAxis yAxisId="left" stroke="#22c55e" tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
-                                <YAxis yAxisId="right" orientation="right" stroke="#a855f7" />
-                                <Tooltip
-                                    contentStyle={{ backgroundColor: '#1f2937', border: '1px solid #374151' }}
-                                    labelFormatter={(label, payload) => payload?.[0]?.payload?.fullName || label}
-                                    formatter={(value, name) => [
-                                        name === 'medianPrice' ? `$${(value / 1000).toFixed(0)}k` : value.toLocaleString(),
-                                        name === 'medianPrice' ? 'Median Price' : 'Restaurants'
-                                    ]}
-                                />
-                                <Legend />
-                                <Bar yAxisId="left" dataKey="medianPrice" name="Median Price" fill="#22c55e" radius={[4, 4, 0, 0]} />
-                                <Line yAxisId="right" type="monotone" dataKey="restaurants" name="Restaurants" stroke="#a855f7" strokeWidth={2} dot={{ fill: '#a855f7' }} />
-                            </ComposedChart>
-                        </ResponsiveContainer>
-                    </div>
-                )}
+
 
                 {/* Details View */}
                 {activeView === 'details' && selectedNeighborhood && (
@@ -551,38 +425,12 @@ export default function NeighborhoodEvolution() {
                             </div>
                         </div>
 
-                        {/* Business Data (Yelp) */}
-                        <div className="bg-gray-900/50 rounded-xl p-5 border border-gray-800">
-                            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                                <Store className="w-5 h-5 text-purple-400" />
-                                Business Data (Yelp)
-                            </h3>
-                            {selectedYelpData ? (
-                                <div className="space-y-2 max-h-80 overflow-y-auto">
-                                    {Object.entries(selectedYelpData.categories || {})
-                                        .filter(([, cat]) => cat?.count > 0)
-                                        .sort((a, b) => (b[1]?.count || 0) - (a[1]?.count || 0))
-                                        .slice(0, 15)
-                                        .map(([key, cat]) => (
-                                            <div key={key} className="flex items-center justify-between py-2 border-b border-gray-800 last:border-0">
-                                                <div className="flex items-center gap-2">
-                                                    <span className="text-lg">{cat.icon || '📍'}</span>
-                                                    <span className="text-white text-sm">{cat.label || key}</span>
-                                                </div>
-                                                <span className="text-purple-400 font-medium">{cat.count}</span>
-                                            </div>
-                                        ))}
-                                </div>
-                            ) : (
-                                <p className="text-gray-400 text-sm">No Yelp data available for this zip code. Yelp data covers 18 popular neighborhoods.</p>
-                            )}
-                        </div>
                     </div>
                 )}
 
                 {/* Footer */}
                 <div className="mt-8 text-center text-xs text-gray-500">
-                    <p>Housing: SDAR {sdarData?.meta?.report_period} • Business: Yelp ({yelpData?.meta?.neighborhoods_count || 0} neighborhoods)</p>
+                    <p>Housing: SDAR {sdarData?.meta?.report_period}</p>
                 </div>
             </div>
         </div>
