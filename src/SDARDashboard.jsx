@@ -14,7 +14,6 @@ const FilterIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" heig
 const XIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>;
 
 import { regions } from './sdarData';
-import { SDARNeighborhoodDashboard } from './components/SDARNeighborhoodDashboard';
 
 // Default fallback data when JSON not loaded
 const DEFAULT_NEIGHBORHOOD_DATA = {
@@ -623,15 +622,6 @@ export default function SDARDashboard() {
                         )}
                     </div>
                 )}
-
-                {/* Neighborhood Data from SDAR PDFs */}
-                <div className="mt-10">
-                    <div className="flex items-center gap-2 mb-4">
-                        <h2 className="text-lg font-semibold text-white">All Neighborhoods</h2>
-                        <span className="text-[10px] px-2 py-0.5 bg-blue-900/50 text-blue-400 rounded-full">November 2025 SDAR Data</span>
-                    </div>
-                    <SDARNeighborhoodDashboard />
-                </div>
 
                 {/* Footer */}
                 <div className="mt-12 pt-6 border-t border-slate-800 text-center">
