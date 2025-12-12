@@ -82,6 +82,18 @@ def extract_all_metrics(text):
             if len(numbers) >= 2:
                 result[current_section]['months_supply_2024'] = float(numbers[0])
                 result[current_section]['months_supply_2025'] = float(numbers[1])
+                
+        elif 'Pending Sales' in line_clean:
+            numbers = re.findall(r'\b(\d+)\b', line_clean)
+            if len(numbers) >= 2:
+                result[current_section]['pending_sales_2024'] = int(numbers[0])
+                result[current_section]['pending_sales_2025'] = int(numbers[1])
+                
+        elif 'Percent of Original List Price' in line_clean or 'List Price Received' in line_clean:
+            percentages = re.findall(r'([\d.]+)%', line_clean)
+            if len(percentages) >= 2:
+                result[current_section]['pct_orig_price_2024'] = float(percentages[0])
+                result[current_section]['pct_orig_price_2025'] = float(percentages[1])
     
     return result
 
