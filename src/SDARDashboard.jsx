@@ -468,7 +468,7 @@ export default function SDARDashboard() {
                                             <strong className="text-white">{locationName}</strong> has a median price of <strong className="text-white">{formatCurrency(currentData?.medianPrice || 0)}</strong>
                                             {(currentData?.priceChange || 0) > 0 ? ' (up ' : ' (down '}
                                             <span className={(currentData?.priceChange || 0) > 0 ? 'text-emerald-400 font-semibold' : 'text-rose-400 font-semibold'}>
-                                                {Math.abs(currentData?.priceChange || 0)}%
+                                                {Math.abs(currentData?.priceChange || 0).toFixed(2)}%
                                             </span> YoY).
                                             Homes sell in <strong className="text-white">{currentData?.daysOnMarket || 0} days</strong> with <strong className="text-white">{currentData?.monthsSupply || 0} months</strong> supply.
                                         </p>
