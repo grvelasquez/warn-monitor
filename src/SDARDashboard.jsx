@@ -75,37 +75,66 @@ export default function SDARDashboard() {
                     // Transform individual neighborhoods
                     if (data.neighborhoods) {
                         data.neighborhoods.forEach(n => {
+                            const det = n.detached || {};
+                            const att = n.attached || {};
+
+                            // Calculate totals for 'all' property type
+                            const totalClosedSales2025 = (det.closed_sales_2025 || 0) + (att.closed_sales_2025 || 0);
+                            const totalClosedSales2024 = (det.closed_sales_2024 || 0) + (att.closed_sales_2024 || 0);
+                            const totalInventory2025 = (det.inventory_2025 || 0) + (att.inventory_2025 || 0);
+                            const totalInventory2024 = (det.inventory_2024 || 0) + (att.inventory_2024 || 0);
+
+                            // Use detached median for 'all' if available, otherwise attached
+                            const allMedianPrice2025 = det.median_price_2025 || att.median_price_2025 || 0;
+                            const allMedianPrice2024 = det.median_price_2024 || att.median_price_2024 || 0;
+                            const allDom2025 = det.dom_2025 || att.dom_2025 || 0;
+                            const allDom2024 = det.dom_2024 || att.dom_2024 || 0;
+
                             transformed[n.zip_code] = {
-                                all: n.detached || n.attached || DEFAULT_NEIGHBORHOOD_DATA['all'].all,
+                                all: {
+                                    medianPrice: allMedianPrice2025,
+                                    avgPrice: det.avg_price_2025 || att.avg_price_2025 || 0,
+                                    closedSales: totalClosedSales2025,
+                                    pendingSales: (det.pending_sales_2025 || 0) + (att.pending_sales_2025 || 0),
+                                    newListings: (det.new_listings_2025 || 0) + (att.new_listings_2025 || 0),
+                                    daysOnMarket: allDom2025,
+                                    pctOrigPrice: det.pct_orig_price_2025 || att.pct_orig_price_2025 || 97,
+                                    inventory: totalInventory2025,
+                                    monthsSupply: det.months_supply_2025 || att.months_supply_2025 || 2,
+                                    priceChange: allMedianPrice2024 ? ((allMedianPrice2025 - allMedianPrice2024) / allMedianPrice2024 * 100) : 0,
+                                    salesChange: totalClosedSales2024 ? ((totalClosedSales2025 - totalClosedSales2024) / totalClosedSales2024 * 100) : 0,
+                                    domChange: allDom2024 ? ((allDom2025 - allDom2024) / allDom2024 * 100) : 0,
+                                    invChange: totalInventory2024 ? ((totalInventory2025 - totalInventory2024) / totalInventory2024 * 100) : 0
+                                },
                                 detached: n.detached ? {
-                                    medianPrice: n.detached.median_price_2025 || 0,
-                                    avgPrice: n.detached.avg_price_2025 || 0,
-                                    closedSales: n.detached.closed_sales_2025 || 0,
-                                    pendingSales: n.detached.pending_sales_2025 || 0,
-                                    newListings: n.detached.new_listings_2025 || 0,
-                                    daysOnMarket: n.detached.dom_2025 || 0,
-                                    pctOrigPrice: n.detached.pct_orig_price_2025 || 97,
-                                    inventory: n.detached.inventory_2025 || 0,
-                                    monthsSupply: n.detached.months_supply_2025 || 2,
-                                    priceChange: n.detached.median_price_2024 ? ((n.detached.median_price_2025 - n.detached.median_price_2024) / n.detached.median_price_2024 * 100) : 0,
-                                    salesChange: n.detached.closed_sales_2024 ? ((n.detached.closed_sales_2025 - n.detached.closed_sales_2024) / n.detached.closed_sales_2024 * 100) : 0,
-                                    domChange: n.detached.dom_2024 ? ((n.detached.dom_2025 - n.detached.dom_2024) / n.detached.dom_2024 * 100) : 0,
-                                    invChange: n.detached.inventory_2024 ? ((n.detached.inventory_2025 - n.detached.inventory_2024) / n.detached.inventory_2024 * 100) : 0
+                                    medianPrice: det.median_price_2025 || 0,
+                                    avgPrice: det.avg_price_2025 || 0,
+                                    closedSales: det.closed_sales_2025 || 0,
+                                    pendingSales: det.pending_sales_2025 || 0,
+                                    newListings: det.new_listings_2025 || 0,
+                                    daysOnMarket: det.dom_2025 || 0,
+                                    pctOrigPrice: det.pct_orig_price_2025 || 97,
+                                    inventory: det.inventory_2025 || 0,
+                                    monthsSupply: det.months_supply_2025 || 2,
+                                    priceChange: det.median_price_2024 ? ((det.median_price_2025 - det.median_price_2024) / det.median_price_2024 * 100) : 0,
+                                    salesChange: det.closed_sales_2024 ? ((det.closed_sales_2025 - det.closed_sales_2024) / det.closed_sales_2024 * 100) : 0,
+                                    domChange: det.dom_2024 ? ((det.dom_2025 - det.dom_2024) / det.dom_2024 * 100) : 0,
+                                    invChange: det.inventory_2024 ? ((det.inventory_2025 - det.inventory_2024) / det.inventory_2024 * 100) : 0
                                 } : DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
                                 attached: n.attached ? {
-                                    medianPrice: n.attached.median_price_2025 || 0,
-                                    avgPrice: n.attached.avg_price_2025 || 0,
-                                    closedSales: n.attached.closed_sales_2025 || 0,
-                                    pendingSales: n.attached.pending_sales_2025 || 0,
-                                    newListings: n.attached.new_listings_2025 || 0,
-                                    daysOnMarket: n.attached.dom_2025 || 0,
-                                    pctOrigPrice: n.attached.pct_orig_price_2025 || 97,
-                                    inventory: n.attached.inventory_2025 || 0,
-                                    monthsSupply: n.attached.months_supply_2025 || 2,
-                                    priceChange: n.attached.median_price_2024 ? ((n.attached.median_price_2025 - n.attached.median_price_2024) / n.attached.median_price_2024 * 100) : 0,
-                                    salesChange: n.attached.closed_sales_2024 ? ((n.attached.closed_sales_2025 - n.attached.closed_sales_2024) / n.attached.closed_sales_2024 * 100) : 0,
-                                    domChange: n.attached.dom_2024 ? ((n.attached.dom_2025 - n.attached.dom_2024) / n.attached.dom_2024 * 100) : 0,
-                                    invChange: n.attached.inventory_2024 ? ((n.attached.inventory_2025 - n.attached.inventory_2024) / n.attached.inventory_2024 * 100) : 0
+                                    medianPrice: att.median_price_2025 || 0,
+                                    avgPrice: att.avg_price_2025 || 0,
+                                    closedSales: att.closed_sales_2025 || 0,
+                                    pendingSales: att.pending_sales_2025 || 0,
+                                    newListings: att.new_listings_2025 || 0,
+                                    daysOnMarket: att.dom_2025 || 0,
+                                    pctOrigPrice: att.pct_orig_price_2025 || 97,
+                                    inventory: att.inventory_2025 || 0,
+                                    monthsSupply: att.months_supply_2025 || 2,
+                                    priceChange: att.median_price_2024 ? ((att.median_price_2025 - att.median_price_2024) / att.median_price_2024 * 100) : 0,
+                                    salesChange: att.closed_sales_2024 ? ((att.closed_sales_2025 - att.closed_sales_2024) / att.closed_sales_2024 * 100) : 0,
+                                    domChange: att.dom_2024 ? ((att.dom_2025 - att.dom_2024) / att.dom_2024 * 100) : 0,
+                                    invChange: att.inventory_2024 ? ((att.inventory_2025 - att.inventory_2024) / att.inventory_2024 * 100) : 0
                                 } : DEFAULT_NEIGHBORHOOD_DATA['all'].attached
                             };
                         });
