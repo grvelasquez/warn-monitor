@@ -43,26 +43,39 @@ export default function SDARDashboard() {
                     // Transform SDAR JSON format to component format
                     const transformed = {};
 
+                    // Helper to transform property type data including YTD
+                    const transformPropertyType = (pt) => pt ? {
+                        // Monthly data
+                        medianPrice: pt.median_price_2025 || 0,
+                        avgPrice: pt.avg_price_2025 || 0,
+                        closedSales: pt.closed_sales_2025 || 0,
+                        pendingSales: pt.pending_sales_2025 || 0,
+                        newListings: pt.new_listings_2025 || 0,
+                        daysOnMarket: pt.dom_2025 || 0,
+                        pctOrigPrice: pt.pct_orig_price_2025 || 97,
+                        inventory: pt.inventory_2025 || 0,
+                        monthsSupply: pt.months_supply_2025 || 2,
+                        affordability: pt.affordability_2025 || 50,
+                        priceChange: pt.median_price_2024 ? ((pt.median_price_2025 - pt.median_price_2024) / pt.median_price_2024 * 100) : 0,
+                        salesChange: pt.closed_sales_2024 ? ((pt.closed_sales_2025 - pt.closed_sales_2024) / pt.closed_sales_2024 * 100) : 0,
+                        domChange: pt.dom_2024 ? ((pt.dom_2025 - pt.dom_2024) / pt.dom_2024 * 100) : 0,
+                        invChange: pt.inventory_2024 ? ((pt.inventory_2025 - pt.inventory_2024) / pt.inventory_2024 * 100) : 0,
+                        // YTD data
+                        medianPriceYtd: pt.median_price_ytd_2025 || 0,
+                        closedSalesYtd: pt.closed_sales_ytd_2025 || 0,
+                        pendingSalesYtd: pt.pending_sales_ytd_2025 || 0,
+                        newListingsYtd: pt.new_listings_ytd_2025 || 0,
+                        daysOnMarketYtd: pt.dom_ytd_2025 || 0,
+                        pctOrigPriceYtd: pt.pct_orig_price_ytd_2025 || 0,
+                        priceChangeYtd: pt.median_price_ytd_2024 ? ((pt.median_price_ytd_2025 - pt.median_price_ytd_2024) / pt.median_price_ytd_2024 * 100) : 0,
+                        salesChangeYtd: pt.closed_sales_ytd_2024 ? ((pt.closed_sales_ytd_2025 - pt.closed_sales_ytd_2024) / pt.closed_sales_ytd_2024 * 100) : 0,
+                        domChangeYtd: pt.dom_ytd_2024 ? ((pt.dom_ytd_2025 - pt.dom_ytd_2024) / pt.dom_ytd_2024 * 100) : 0,
+                        newListingsChangeYtd: pt.new_listings_ytd_2024 ? ((pt.new_listings_ytd_2025 - pt.new_listings_ytd_2024) / pt.new_listings_ytd_2024 * 100) : 0,
+                    } : DEFAULT_NEIGHBORHOOD_DATA['all'].all;
+
                     // Use county_wide data from Monthly Indicators PDF for 'all' selection
                     if (data.county_wide) {
                         const cw = data.county_wide;
-                        const transformPropertyType = (pt) => pt ? {
-                            medianPrice: pt.median_price_2025 || 0,
-                            avgPrice: pt.avg_price_2025 || 0,
-                            closedSales: pt.closed_sales_2025 || 0,
-                            pendingSales: pt.pending_sales_2025 || 0,
-                            newListings: pt.new_listings_2025 || 0,
-                            daysOnMarket: pt.dom_2025 || 0,
-                            pctOrigPrice: pt.pct_orig_price_2025 || 97,
-                            inventory: pt.inventory_2025 || 0,
-                            monthsSupply: pt.months_supply_2025 || 2,
-                            affordability: pt.affordability_2025 || 50,
-                            priceChange: pt.median_price_2024 ? ((pt.median_price_2025 - pt.median_price_2024) / pt.median_price_2024 * 100) : 0,
-                            salesChange: pt.closed_sales_2024 ? ((pt.closed_sales_2025 - pt.closed_sales_2024) / pt.closed_sales_2024 * 100) : 0,
-                            domChange: pt.dom_2024 ? ((pt.dom_2025 - pt.dom_2024) / pt.dom_2024 * 100) : 0,
-                            invChange: pt.inventory_2024 ? ((pt.inventory_2025 - pt.inventory_2024) / pt.inventory_2024 * 100) : 0
-                        } : DEFAULT_NEIGHBORHOOD_DATA['all'].all;
-
                         transformed['all'] = {
                             all: transformPropertyType(cw.detached), // Default to detached for 'all' view
                             detached: transformPropertyType(cw.detached),
@@ -78,64 +91,10 @@ export default function SDARDashboard() {
                             const det = n.detached || {};
                             const att = n.attached || {};
 
-                            // Calculate totals for 'all' property type
-                            const totalClosedSales2025 = (det.closed_sales_2025 || 0) + (att.closed_sales_2025 || 0);
-                            const totalClosedSales2024 = (det.closed_sales_2024 || 0) + (att.closed_sales_2024 || 0);
-                            const totalInventory2025 = (det.inventory_2025 || 0) + (att.inventory_2025 || 0);
-                            const totalInventory2024 = (det.inventory_2024 || 0) + (att.inventory_2024 || 0);
-
-                            // Use detached median for 'all' if available, otherwise attached
-                            const allMedianPrice2025 = det.median_price_2025 || att.median_price_2025 || 0;
-                            const allMedianPrice2024 = det.median_price_2024 || att.median_price_2024 || 0;
-                            const allDom2025 = det.dom_2025 || att.dom_2025 || 0;
-                            const allDom2024 = det.dom_2024 || att.dom_2024 || 0;
-
                             transformed[n.zip_code] = {
-                                all: {
-                                    medianPrice: allMedianPrice2025,
-                                    avgPrice: det.avg_price_2025 || att.avg_price_2025 || 0,
-                                    closedSales: totalClosedSales2025,
-                                    pendingSales: (det.pending_sales_2025 || 0) + (att.pending_sales_2025 || 0),
-                                    newListings: (det.new_listings_2025 || 0) + (att.new_listings_2025 || 0),
-                                    daysOnMarket: allDom2025,
-                                    pctOrigPrice: det.pct_orig_price_2025 || att.pct_orig_price_2025 || 97,
-                                    inventory: totalInventory2025,
-                                    monthsSupply: det.months_supply_2025 || att.months_supply_2025 || 2,
-                                    priceChange: allMedianPrice2024 ? ((allMedianPrice2025 - allMedianPrice2024) / allMedianPrice2024 * 100) : 0,
-                                    salesChange: totalClosedSales2024 ? ((totalClosedSales2025 - totalClosedSales2024) / totalClosedSales2024 * 100) : 0,
-                                    domChange: allDom2024 ? ((allDom2025 - allDom2024) / allDom2024 * 100) : 0,
-                                    invChange: totalInventory2024 ? ((totalInventory2025 - totalInventory2024) / totalInventory2024 * 100) : 0
-                                },
-                                detached: n.detached ? {
-                                    medianPrice: det.median_price_2025 || 0,
-                                    avgPrice: det.avg_price_2025 || 0,
-                                    closedSales: det.closed_sales_2025 || 0,
-                                    pendingSales: det.pending_sales_2025 || 0,
-                                    newListings: det.new_listings_2025 || 0,
-                                    daysOnMarket: det.dom_2025 || 0,
-                                    pctOrigPrice: det.pct_orig_price_2025 || 97,
-                                    inventory: det.inventory_2025 || 0,
-                                    monthsSupply: det.months_supply_2025 || 2,
-                                    priceChange: det.median_price_2024 ? ((det.median_price_2025 - det.median_price_2024) / det.median_price_2024 * 100) : 0,
-                                    salesChange: det.closed_sales_2024 ? ((det.closed_sales_2025 - det.closed_sales_2024) / det.closed_sales_2024 * 100) : 0,
-                                    domChange: det.dom_2024 ? ((det.dom_2025 - det.dom_2024) / det.dom_2024 * 100) : 0,
-                                    invChange: det.inventory_2024 ? ((det.inventory_2025 - det.inventory_2024) / det.inventory_2024 * 100) : 0
-                                } : DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
-                                attached: n.attached ? {
-                                    medianPrice: att.median_price_2025 || 0,
-                                    avgPrice: att.avg_price_2025 || 0,
-                                    closedSales: att.closed_sales_2025 || 0,
-                                    pendingSales: att.pending_sales_2025 || 0,
-                                    newListings: att.new_listings_2025 || 0,
-                                    daysOnMarket: att.dom_2025 || 0,
-                                    pctOrigPrice: att.pct_orig_price_2025 || 97,
-                                    inventory: att.inventory_2025 || 0,
-                                    monthsSupply: att.months_supply_2025 || 2,
-                                    priceChange: att.median_price_2024 ? ((att.median_price_2025 - att.median_price_2024) / att.median_price_2024 * 100) : 0,
-                                    salesChange: att.closed_sales_2024 ? ((att.closed_sales_2025 - att.closed_sales_2024) / att.closed_sales_2024 * 100) : 0,
-                                    domChange: att.dom_2024 ? ((att.dom_2025 - att.dom_2024) / att.dom_2024 * 100) : 0,
-                                    invChange: att.inventory_2024 ? ((att.inventory_2025 - att.inventory_2024) / att.inventory_2024 * 100) : 0
-                                } : DEFAULT_NEIGHBORHOOD_DATA['all'].attached
+                                all: transformPropertyType(det.median_price_2025 ? det : att),
+                                detached: transformPropertyType(det),
+                                attached: transformPropertyType(att)
                             };
                         });
                     }
@@ -178,43 +137,53 @@ export default function SDARDashboard() {
     }, [selectedArea, availableAreas]);
 
     // Check if data exists for the selected area
+    // Data is only available for: 1) All San Diego (county-wide), 2) Specific zip code, 3) Area with zip data
     const hasDataForSelection = useMemo(() => {
+        // Specific ZIP with data
         if (selectedZip !== 'all') {
             return !!neighborhoodData[selectedZip];
         }
+
+        // Area selected - check first zip in the area
         if (selectedArea !== 'all') {
             const area = availableAreas.find(a => a.id === selectedArea);
-            return area && area.zips.length > 0 && !!neighborhoodData[area.zips[0]];
+            return area && area.zips?.length > 0 && !!neighborhoodData[area.zips[0]];
         }
-        // 'all' always has data
+
+        // Region selected without area - no data at region level
+        if (selectedRegion !== 'all') {
+            return false;
+        }
+
+        // All filters at 'all' - county-wide data available
         return true;
-    }, [selectedZip, selectedArea, availableAreas, neighborhoodData]);
+    }, [selectedZip, selectedArea, selectedRegion, availableAreas, neighborhoodData]);
 
     const currentData = useMemo(() => {
-        // Return default county data for 'all' selections
-        if (selectedZip === 'all' && selectedArea === 'all') {
+        // Only return county-wide data when ALL filters are at 'all'
+        if (selectedZip === 'all' && selectedArea === 'all' && selectedRegion === 'all') {
             const zipData = neighborhoodData['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'];
             return zipData?.[propertyType] || zipData?.['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'].all;
         }
 
-        // Check specific ZIP
+        // Check specific ZIP - data available
         if (selectedZip !== 'all' && neighborhoodData[selectedZip]) {
             const zipData = neighborhoodData[selectedZip];
             return zipData?.[propertyType] || zipData?.['all'] || null;
         }
 
-        // Check specific area
+        // Check selected area - use first zip in the area
         if (selectedArea !== 'all') {
             const area = availableAreas.find(a => a.id === selectedArea);
-            if (area && area.zips.length > 0 && neighborhoodData[area.zips[0]]) {
+            if (area && area.zips?.length > 0 && neighborhoodData[area.zips[0]]) {
                 const zipData = neighborhoodData[area.zips[0]];
                 return zipData?.[propertyType] || zipData?.['all'] || null;
             }
         }
 
-        // No data available for this selection
+        // Region selected without area - no data at region level
         return null;
-    }, [selectedZip, selectedArea, availableAreas, propertyType, neighborhoodData]);
+    }, [selectedZip, selectedArea, selectedRegion, availableAreas, propertyType, neighborhoodData]);
 
     const locationName = useMemo(() => {
         if (selectedZip !== 'all') {
@@ -255,20 +224,39 @@ export default function SDARDashboard() {
     }, [currentData]);
 
     const comparisonData = useMemo(() => {
-        let zipData = neighborhoodData['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'];
+        // Only return county-wide data when ALL filters are at 'all'
+        if (selectedZip === 'all' && selectedArea === 'all' && selectedRegion === 'all') {
+            const zipData = neighborhoodData['all'] || DEFAULT_NEIGHBORHOOD_DATA['all'];
+            return {
+                detached: zipData?.detached || DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
+                attached: zipData?.attached || DEFAULT_NEIGHBORHOOD_DATA['all'].attached
+            };
+        }
+
+        // Specific ZIP selected - data available
         if (selectedZip !== 'all' && neighborhoodData[selectedZip]) {
-            zipData = neighborhoodData[selectedZip];
-        } else if (selectedArea !== 'all') {
+            const zipData = neighborhoodData[selectedZip];
+            return {
+                detached: zipData?.detached || DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
+                attached: zipData?.attached || DEFAULT_NEIGHBORHOOD_DATA['all'].attached
+            };
+        }
+
+        // Check selected area - use first zip in the area
+        if (selectedArea !== 'all') {
             const area = availableAreas.find(a => a.id === selectedArea);
-            if (area && area.zips.length > 0 && neighborhoodData[area.zips[0]]) {
-                zipData = neighborhoodData[area.zips[0]];
+            if (area && area.zips?.length > 0 && neighborhoodData[area.zips[0]]) {
+                const zipData = neighborhoodData[area.zips[0]];
+                return {
+                    detached: zipData?.detached || DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
+                    attached: zipData?.attached || DEFAULT_NEIGHBORHOOD_DATA['all'].attached
+                };
             }
         }
-        return {
-            detached: zipData?.detached || DEFAULT_NEIGHBORHOOD_DATA['all'].detached,
-            attached: zipData?.attached || DEFAULT_NEIGHBORHOOD_DATA['all'].attached
-        };
-    }, [selectedZip, selectedArea, availableAreas, neighborhoodData]);
+
+        // Region selected without area - no data at this level
+        return null;
+    }, [selectedZip, selectedArea, selectedRegion, availableAreas, neighborhoodData]);
 
     const ChangeIndicator = ({ value, inverse = false }) => {
         // For inverse metrics (like DOM), flip the sign: increase (bad) shows as negative, decrease (good) shows as positive
@@ -396,12 +384,12 @@ export default function SDARDashboard() {
                     <div className="bg-amber-900/20 border border-amber-700/50 rounded-xl p-8 mb-6">
                         <div className="text-center">
                             <div className="text-4xl mb-3">📊</div>
-                            <h3 className="text-lg font-bold text-amber-400 mb-2">Data Not Available</h3>
+                            <h3 className="text-lg font-bold text-amber-400 mb-2">Select a ZIP Code</h3>
                             <p className="text-slate-400 text-sm mb-4">
-                                No SDAR data available for <strong className="text-white">{locationName}</strong>.
+                                No aggregated data available for <strong className="text-white">{locationName}</strong>.
                             </p>
                             <p className="text-slate-500 text-xs">
-                                Currently tracking 85 ZIP codes from SDAR reports. Select "All San Diego" or browse available neighborhoods below.
+                                SDAR data is available at the ZIP code level. Please select a specific ZIP code from the dropdown, or view county-wide data.
                             </p>
                             <button
                                 onClick={clearFilters}
@@ -412,25 +400,61 @@ export default function SDARDashboard() {
                         </div>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
-                        {[
-                            { icon: <DollarIcon />, title: 'Median Price', value: formatCurrency(currentData?.medianPrice || 0), change: currentData?.priceChange || 0 },
-                            { icon: <HomeIcon />, title: 'Closed Sales', value: formatNumber(currentData?.closedSales || 0), change: currentData?.salesChange || 0 },
-                            { icon: <ClockIcon />, title: 'Days on Market', value: currentData?.daysOnMarket || 0, change: currentData?.domChange || 0, inverse: true },
-                            { icon: <BuildingIcon />, title: 'Inventory', value: formatNumber(currentData?.inventory || 0), change: currentData?.invChange || 0 },
-                            { icon: <BuildingIcon />, title: 'Months Supply', value: currentData?.monthsSupply || 0, change: 0 },
-                            { icon: <DollarIcon />, title: 'Sale-to-List', value: `${currentData?.pctOrigPrice || 0}%`, change: 0 },
-                        ].map((metric, i) => (
-                            <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 backdrop-blur-sm">
-                                <div className="flex items-start justify-between mb-2">
-                                    <div className="p-2 bg-slate-700/50 rounded-lg text-blue-400">{metric.icon}</div>
-                                    {metric.change !== 0 && <ChangeIndicator value={metric.change} inverse={metric.inverse} />}
-                                </div>
-                                <p className="text-xl font-bold text-white">{metric.value}</p>
-                                <p className="text-xs text-slate-500">{metric.title}</p>
+                    <>
+                        {/* Monthly Key Metrics */}
+                        <div className="mb-2">
+                            <div className="flex items-center gap-2 mb-3">
+                                <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">NOVEMBER 2025</span>
+                                <span className="text-slate-500 text-xs">Monthly Data</span>
                             </div>
-                        ))}
-                    </div>
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                                {[
+                                    { icon: <DollarIcon />, title: 'Median Price', value: formatCurrency(currentData?.medianPrice || 0), change: currentData?.priceChange || 0 },
+                                    { icon: <HomeIcon />, title: 'Closed Sales', value: formatNumber(currentData?.closedSales || 0), change: currentData?.salesChange || 0 },
+                                    { icon: <ClockIcon />, title: 'Days on Market', value: currentData?.daysOnMarket || 0, change: currentData?.domChange || 0, inverse: true },
+                                    { icon: <BuildingIcon />, title: 'Inventory', value: formatNumber(currentData?.inventory || 0), change: currentData?.invChange || 0 },
+                                    { icon: <BuildingIcon />, title: 'Months Supply', value: currentData?.monthsSupply || 0, change: 0 },
+                                    { icon: <DollarIcon />, title: 'Sale-to-List', value: `${currentData?.pctOrigPrice || 0}%`, change: 0 },
+                                ].map((metric, i) => (
+                                    <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 backdrop-blur-sm">
+                                        <div className="flex items-start justify-between mb-2">
+                                            <div className="p-2 bg-slate-700/50 rounded-lg text-blue-400">{metric.icon}</div>
+                                            {metric.change !== 0 && <ChangeIndicator value={metric.change} inverse={metric.inverse} />}
+                                        </div>
+                                        <p className="text-xl font-bold text-white">{metric.value}</p>
+                                        <p className="text-xs text-slate-500">{metric.title}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* YTD Key Metrics */}
+                        <div className="mb-6">
+                            <div className="flex items-center gap-2 mb-3">
+                                <span className="px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-bold rounded">YEAR-TO-DATE</span>
+                                <span className="text-slate-500 text-xs">Jan - Nov 2025</span>
+                            </div>
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                                {[
+                                    { icon: <DollarIcon />, title: 'Median Price', value: currentData?.medianPriceYtd ? formatCurrency(currentData.medianPriceYtd) : '—', change: currentData?.priceChangeYtd || 0 },
+                                    { icon: <HomeIcon />, title: 'Closed Sales', value: currentData?.closedSalesYtd ? formatNumber(currentData.closedSalesYtd) : '—', change: currentData?.salesChangeYtd || 0 },
+                                    { icon: <ClockIcon />, title: 'Days on Market', value: currentData?.daysOnMarketYtd ? currentData.daysOnMarketYtd : '—', change: currentData?.domChangeYtd || 0, inverse: true },
+                                    { icon: <HomeIcon />, title: 'New Listings', value: currentData?.newListingsYtd ? formatNumber(currentData.newListingsYtd) : '—', change: currentData?.newListingsChangeYtd || 0 },
+                                    { icon: <HomeIcon />, title: 'Pending Sales', value: currentData?.pendingSalesYtd ? formatNumber(currentData.pendingSalesYtd) : '—', change: 0 },
+                                    { icon: <DollarIcon />, title: 'Sale-to-List', value: currentData?.pctOrigPriceYtd ? `${currentData.pctOrigPriceYtd}%` : '—', change: 0 },
+                                ].map((metric, i) => (
+                                    <div key={i} className="bg-emerald-950/30 border border-emerald-800/30 rounded-xl p-4 backdrop-blur-sm">
+                                        <div className="flex items-start justify-between mb-2">
+                                            <div className="p-2 bg-emerald-900/50 rounded-lg text-emerald-400">{metric.icon}</div>
+                                            {metric.change !== 0 && <ChangeIndicator value={metric.change} inverse={metric.inverse} />}
+                                        </div>
+                                        <p className="text-xl font-bold text-white">{metric.value}</p>
+                                        <p className="text-xs text-slate-500">{metric.title}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </>
                 )}
 
                 {/* Tabs - Only show if data is available */}
