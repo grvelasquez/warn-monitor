@@ -23,6 +23,11 @@ const formatChange = (val) => {
     if (val < 0) return `${val.toFixed(2)}%`;
     return '0.00%';
 };
+const formatDate = (dateStr) => {
+    if (!dateStr) return '';
+    const [year, month, day] = dateStr.split('-');
+    return `${month}/${day}/${year.slice(2)}`;
+};
 
 function RateCard({ title, rate, change, icon: Icon, color, subtitle }) {
     const isPositive = change > 0;
@@ -183,13 +188,13 @@ export default function LendingDashboard() {
                                 <DollarSign className="w-6 h-6 text-teal-400" />
                             </div>
                             <h1 className="text-2xl font-bold tracking-tight">Lending & Rates</h1>
-                            {data?.meta?.lastUpdate && <span className="px-2 py-0.5 bg-slate-700/50 text-slate-300 text-xs rounded-full">Updated {data.meta.lastUpdate}</span>}
+                            {data?.meta?.lastUpdate && <span className="px-2 py-0.5 bg-slate-700/50 text-slate-300 text-xs rounded-full">Updated {formatDate(data.meta.lastUpdate)}</span>}
                         </div>
                         <p className="text-slate-400">San Diego County • Mortgage Market Intelligence</p>
                     </div>
                     <div className="text-right">
                         <p className="text-xs text-slate-500">FRED Data as of</p>
-                        <p className="text-sm text-slate-400">{data?.meta?.lastUpdate || new Date().toLocaleDateString()}</p>
+                        <p className="text-sm text-slate-400">{data?.meta?.lastUpdate ? formatDate(data.meta.lastUpdate) : new Date().toLocaleDateString()}</p>
                     </div>
                 </div>
 
