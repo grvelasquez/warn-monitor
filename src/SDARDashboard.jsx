@@ -267,12 +267,16 @@ export default function SDARDashboard() {
     }, [selectedZip, selectedArea, availableAreas, neighborhoodData]);
 
     const ChangeIndicator = ({ value, inverse = false }) => {
-        const isPositive = inverse ? value < 0 : value > 0;
+        // For inverse metrics (like DOM), positive change is bad, negative is good
+        const isGood = inverse ? value < 0 : value > 0;
         const isNeutral = Math.abs(value) < 0.5;
+        const displayValue = value.toFixed(2);
+        const isUp = value > 0; // Arrow direction matches actual value direction
         return (
-            <span className={`inline-flex items-center gap-1 text-sm font-semibold ${isNeutral ? 'text-slate-500' : isPositive ? 'text-emerald-400' : 'text-rose-400'}`}>
-                {!isNeutral && (isPositive ? <TrendUpIcon /> : <TrendDownIcon />)}
-                {value > 0 ? '+' : ''}{value.toFixed(1)}%
+            <span className={`inline-flex items-center gap-1 text-sm font-semibold ${isNeutral ? 'text-slate-500' : isGood ? 'text-emerald-400' : 'text-rose-400'}`}>
+                {!isNeutral && (isUp ? <TrendUpIcon /> : <TrendDownIcon />)}
+                {value > 0 ? '+' : ''}{displayValue}%
+                <span className="text-slate-500 text-xs font-normal">vs 2024</span>
             </span>
         );
     };
