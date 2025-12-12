@@ -264,82 +264,103 @@ def parse_market_overview_page(text):
     """
     metrics = {}
     
-    # Split text by percent signs to separate monthly from YTD sections
-    # Each metric row has: Monthly1 Monthly2 %Change YTD1 YTD2 %Change
+    def parse_pct(sign, value):
+        """Parse a percentage with optional sign."""
+        pct = float(value) if value else 0.0
+        if sign and '-' in sign:
+            pct = -pct
+        return pct
     
     # New Listings: "New Listings 1,317 1,108 - 15.9% 18,991 21,757 + 14.6%"
-    match = re.search(r'New Listings\s+([\d,]+)\s+([\d,]+)\s*[+-]?\s*[\d.]+%\s*([\d,]+)\s+([\d,]+)', text)
+    match = re.search(r'New Listings\s+([\d,]+)\s+([\d,]+)\s*([+-])?\s*([\d.]+)%\s*([\d,]+)\s+([\d,]+)\s*([+-])?\s*([\d.]+)%', text)
     if match:
         metrics['new_listings_2024'] = parse_number(match.group(1))
         metrics['new_listings_2025'] = parse_number(match.group(2))
-        metrics['new_listings_ytd_2024'] = parse_number(match.group(3))
-        metrics['new_listings_ytd_2025'] = parse_number(match.group(4))
+        metrics['new_listings_pct_change'] = parse_pct(match.group(3), match.group(4))
+        metrics['new_listings_ytd_2024'] = parse_number(match.group(5))
+        metrics['new_listings_ytd_2025'] = parse_number(match.group(6))
+        metrics['new_listings_ytd_pct_change'] = parse_pct(match.group(7), match.group(8))
     
     # Pending Sales
-    match = re.search(r'Pending Sales\s+([\d,]+)\s+([\d,]+)\s*[+-]?\s*[\d.]+%\s*([\d,]+)\s+([\d,]+)', text)
+    match = re.search(r'Pending Sales\s+([\d,]+)\s+([\d,]+)\s*([+-])?\s*([\d.]+)%\s*([\d,]+)\s+([\d,]+)\s*([+-])?\s*([\d.]+)%', text)
     if match:
         metrics['pending_sales_2024'] = parse_number(match.group(1))
         metrics['pending_sales_2025'] = parse_number(match.group(2))
-        metrics['pending_sales_ytd_2024'] = parse_number(match.group(3))
-        metrics['pending_sales_ytd_2025'] = parse_number(match.group(4))
+        metrics['pending_sales_pct_change'] = parse_pct(match.group(3), match.group(4))
+        metrics['pending_sales_ytd_2024'] = parse_number(match.group(5))
+        metrics['pending_sales_ytd_2025'] = parse_number(match.group(6))
+        metrics['pending_sales_ytd_pct_change'] = parse_pct(match.group(7), match.group(8))
     
     # Closed Sales
-    match = re.search(r'Closed Sales\s+([\d,]+)\s+([\d,]+)\s*[+-]?\s*[\d.]+%\s*([\d,]+)\s+([\d,]+)', text)
+    match = re.search(r'Closed Sales\s+([\d,]+)\s+([\d,]+)\s*([+-])?\s*([\d.]+)%\s*([\d,]+)\s+([\d,]+)\s*([+-])?\s*([\d.]+)%', text)
     if match:
         metrics['closed_sales_2024'] = parse_number(match.group(1))
         metrics['closed_sales_2025'] = parse_number(match.group(2))
-        metrics['closed_sales_ytd_2024'] = parse_number(match.group(3))
-        metrics['closed_sales_ytd_2025'] = parse_number(match.group(4))
+        metrics['closed_sales_pct_change'] = parse_pct(match.group(3), match.group(4))
+        metrics['closed_sales_ytd_2024'] = parse_number(match.group(5))
+        metrics['closed_sales_ytd_2025'] = parse_number(match.group(6))
+        metrics['closed_sales_ytd_pct_change'] = parse_pct(match.group(7), match.group(8))
     
-    # Median Sales Price: "$1,019,500$1,050,000 + 3.0% $1,050,000$1,055,000"
-    match = re.search(r'Median Sales Price\s*\$?([\d,]+)\s*\$?([\d,]+)\s*[+-]?\s*[\d.]+%\s*\$?([\d,]+)\s*\$?([\d,]+)', text)
+    # Median Sales Price: "$1,019,500 $1,050,000 + 3.0% $1,050,000 $1,055,000 + 0.5%"
+    match = re.search(r'Median Sales Price\s*\$?([\d,]+)\s*\$?([\d,]+)\s*([+-])?\s*([\d.]+)%\s*\$?([\d,]+)\s*\$?([\d,]+)\s*([+-])?\s*([\d.]+)%', text)
     if match:
         metrics['median_price_2024'] = parse_number(match.group(1))
         metrics['median_price_2025'] = parse_number(match.group(2))
-        metrics['median_price_ytd_2024'] = parse_number(match.group(3))
-        metrics['median_price_ytd_2025'] = parse_number(match.group(4))
+        metrics['median_price_pct_change'] = parse_pct(match.group(3), match.group(4))
+        metrics['median_price_ytd_2024'] = parse_number(match.group(5))
+        metrics['median_price_ytd_2025'] = parse_number(match.group(6))
+        metrics['median_price_ytd_pct_change'] = parse_pct(match.group(7), match.group(8))
     
     # Average Sales Price
-    match = re.search(r'Average Sales Price\s*\$?([\d,]+)\s*\$?([\d,]+)\s*[+-]?\s*[\d.]+%\s*\$?([\d,]+)\s*\$?([\d,]+)', text)
+    match = re.search(r'Average Sales Price\s*\$?([\d,]+)\s*\$?([\d,]+)\s*([+-])?\s*([\d.]+)%\s*\$?([\d,]+)\s*\$?([\d,]+)\s*([+-])?\s*([\d.]+)%', text)
     if match:
         metrics['avg_price_2024'] = parse_number(match.group(1))
         metrics['avg_price_2025'] = parse_number(match.group(2))
-        metrics['avg_price_ytd_2024'] = parse_number(match.group(3))
-        metrics['avg_price_ytd_2025'] = parse_number(match.group(4))
+        metrics['avg_price_pct_change'] = parse_pct(match.group(3), match.group(4))
+        metrics['avg_price_ytd_2024'] = parse_number(match.group(5))
+        metrics['avg_price_ytd_2025'] = parse_number(match.group(6))
+        metrics['avg_price_ytd_pct_change'] = parse_pct(match.group(7), match.group(8))
     
-    # Pct of Orig Price Received: "97.9% 97.1% - 0.8% 99.2% 97.8%"
-    match = re.search(r'Pct\.?\s*of\s*Orig\.?\s*Price\s*Received\s*([\d.]+)%\s*([\d.]+)%\s*[+-]?\s*[\d.]+%\s*([\d.]+)%\s*([\d.]+)%', text)
+    # Pct of Orig Price Received: "97.9% 97.1% - 0.8% 99.2% 97.8% - 1.4%"
+    match = re.search(r'Pct\.?\s*of\s*Orig\.?\s*Price\s*Received\s*([\d.]+)%\s*([\d.]+)%\s*([+-])?\s*([\d.]+)%\s*([\d.]+)%\s*([\d.]+)%\s*([+-])?\s*([\d.]+)%', text)
     if match:
         metrics['pct_orig_price_2024'] = float(match.group(1))
         metrics['pct_orig_price_2025'] = float(match.group(2))
-        metrics['pct_orig_price_ytd_2024'] = float(match.group(3))
-        metrics['pct_orig_price_ytd_2025'] = float(match.group(4))
+        metrics['pct_orig_price_pct_change'] = parse_pct(match.group(3), match.group(4))
+        metrics['pct_orig_price_ytd_2024'] = float(match.group(5))
+        metrics['pct_orig_price_ytd_2025'] = float(match.group(6))
+        metrics['pct_orig_price_ytd_pct_change'] = parse_pct(match.group(7), match.group(8))
     
-    # Days on Market: "36 43 + 19.4% 30 37"
-    match = re.search(r'Days on Market Until Sale\s+(\d+)\s+(\d+)\s*[+-]?\s*[\d.]+%\s*(\d+)\s+(\d+)', text)
+    # Days on Market: "36 43 + 19.4% 30 37 + 23.3%"
+    match = re.search(r'Days on Market Until Sale\s+(\d+)\s+(\d+)\s*([+-])?\s*([\d.]+)%\s*(\d+)\s+(\d+)\s*([+-])?\s*([\d.]+)%', text)
     if match:
         metrics['dom_2024'] = int(match.group(1))
         metrics['dom_2025'] = int(match.group(2))
-        metrics['dom_ytd_2024'] = int(match.group(3))
-        metrics['dom_ytd_2025'] = int(match.group(4))
+        metrics['dom_pct_change'] = parse_pct(match.group(3), match.group(4))
+        metrics['dom_ytd_2024'] = int(match.group(5))
+        metrics['dom_ytd_2025'] = int(match.group(6))
+        metrics['dom_ytd_pct_change'] = parse_pct(match.group(7), match.group(8))
     
-    # Inventory: "2,838 2,667" (no YTD for inventory)
-    match = re.search(r'Inventory of Homes for Sale\s+([\d,]+)\s+([\d,]+)', text)
+    # Inventory: "2,838 2,667 - 6.0%" (no YTD for inventory)
+    match = re.search(r'Inventory of Homes for Sale\s+([\d,]+)\s+([\d,]+)\s*([+-])?\s*([\d.]+)%', text)
     if match:
         metrics['inventory_2024'] = parse_number(match.group(1))
         metrics['inventory_2025'] = parse_number(match.group(2))
+        metrics['inventory_pct_change'] = parse_pct(match.group(3), match.group(4))
     
-    # Months Supply: "2.3 2.2" (no YTD for months supply)
-    match = re.search(r'Months Supply of Inventory\s+([\d.]+)\s+([\d.]+)', text)
+    # Months Supply: "2.3 2.2 - 4.3%" (no YTD for months supply)
+    match = re.search(r'Months Supply of Inventory\s+([\d.]+)\s+([\d.]+)\s*([+-])?\s*([\d.]+)%', text)
     if match:
         metrics['months_supply_2024'] = float(match.group(1))
         metrics['months_supply_2025'] = float(match.group(2))
+        metrics['months_supply_pct_change'] = parse_pct(match.group(3), match.group(4))
     
-    # Housing Affordability Index
-    match = re.search(r'Housing Affordability Index\s+(\d+)\s+(\d+)', text)
+    # Housing Affordability Index: "39 40 + 2.6%"
+    match = re.search(r'Housing Affordability Index\s+(\d+)\s+(\d+)\s*([+-])?\s*([\d.]+)%', text)
     if match:
         metrics['affordability_2024'] = int(match.group(1))
         metrics['affordability_2025'] = int(match.group(2))
+        metrics['affordability_pct_change'] = parse_pct(match.group(3), match.group(4))
     
     return metrics
 
