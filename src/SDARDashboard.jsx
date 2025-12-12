@@ -269,11 +269,10 @@ export default function SDARDashboard() {
     const ChangeIndicator = ({ value, inverse = false }) => {
         // For inverse metrics (like DOM), flip the sign: increase (bad) shows as negative, decrease (good) shows as positive
         const displayValue = inverse ? -value : value;
-        const isGood = displayValue > 0;
         const isNeutral = Math.abs(displayValue) < 0.5;
         const isUp = displayValue > 0;
         return (
-            <span className={`inline-flex items-center gap-1 text-sm font-semibold ${isNeutral ? 'text-slate-500' : isGood ? 'text-emerald-400' : 'text-rose-400'}`}>
+            <span className="inline-flex items-center gap-1 text-sm font-semibold text-white">
                 {!isNeutral && (isUp ? <TrendUpIcon /> : <TrendDownIcon />)}
                 {displayValue > 0 ? '+' : ''}{displayValue.toFixed(2)}%
                 <span className="text-slate-500 text-xs font-normal">vs 2024</span>
