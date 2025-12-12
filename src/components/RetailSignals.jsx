@@ -21,46 +21,33 @@ const TYPE_COLORS = {
     traditional: 'text-amber-400',
 };
 
-// Risk color based on score (0-1 scale for OSM data)
-const getScoreColor = (score) => {
-    if (score >= 0.7) return { bg: 'bg-purple-500', text: 'text-purple-400', label: 'High' };
-    if (score >= 0.5) return { bg: 'bg-blue-500', text: 'text-blue-400', label: 'Moderate' };
-    if (score >= 0.3) return { bg: 'bg-green-500', text: 'text-green-400', label: 'Emerging' };
-    return { bg: 'bg-slate-500', text: 'text-slate-400', label: 'Stable' };
-};
+
 
 // Compact neighborhood card for OSM data structure
-function NeighborhoodCard({ neighborhood, rank }) {
-    const score = neighborhood.gentrificationScore || 0;
-    const scoreInfo = getScoreColor(score);
-
-    // Get top gentrifying categories
+function NeighborhoodCard({ neighborhood }) {
+    // Get all categories with counts
     const genCategories = Object.entries(neighborhood.gentrifying || {})
         .filter(([, data]) => data.count > 0)
-        .sort((a, b) => b[1].count - a[1].count)
-        .slice(0, 4);
+        .sort((a, b) => b[1].count - a[1].count);
 
-    // Get traditional count
-    const tradTotal = Object.values(neighborhood.traditional || {})
-        .reduce((sum, cat) => sum + (cat.count || 0), 0);
+    const tradCategories = Object.entries(neighborhood.traditional || {})
+        .filter(([, data]) => data.count > 0)
+        .sort((a, b) => b[1].count - a[1].count);
+
+    const totalBusinesses = genCategories.reduce((sum, [, d]) => sum + d.count, 0) +
+        tradCategories.reduce((sum, [, d]) => sum + d.count, 0);
 
     return (
-        <div className={`bg-slate-800/50 border rounded-lg p-3 ${rank <= 3 ? 'border-purple-500/40' : 'border-slate-700/50'}`}>
+        <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3">
             <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2 min-w-0">
-                    {rank <= 3 && <span className="text-purple-400 text-xs font-medium">#{rank}</span>}
-                    <span className="text-sm font-medium text-white truncate">{neighborhood.name}</span>
-                </div>
-                <span className={`text-xs font-medium ${scoreInfo.text} flex-shrink-0`}>
-                    {Math.round(score * 100)}%
+                <span className="text-sm font-medium text-white truncate">{neighborhood.name}</span>
+                <span className="text-xs text-slate-400 flex-shrink-0">
+                    {totalBusinesses} total
                 </span>
-            </div>
-            <div className="w-full h-1 bg-slate-700 rounded-full overflow-hidden mb-2">
-                <div className={`h-full ${scoreInfo.bg}`} style={{ width: `${score * 100}%` }} />
             </div>
             {/* Category icons */}
             <div className="flex gap-1.5 flex-wrap">
-                {genCategories.map(([key, data]) => {
+                {genCategories.slice(0, 4).map(([key, data]) => {
                     const Icon = CATEGORY_ICONS[key] || Store;
                     return (
                         <div key={key} className="flex items-center gap-0.5 text-[10px]" title={data.label}>
@@ -69,12 +56,15 @@ function NeighborhoodCard({ neighborhood, rank }) {
                         </div>
                     );
                 })}
-                {tradTotal > 0 && (
-                    <div className="flex items-center gap-0.5 text-[10px]" title="Traditional">
-                        <Store className="w-3 h-3 text-amber-400" />
-                        <span className="text-slate-400">{tradTotal}</span>
-                    </div>
-                )}
+                {tradCategories.slice(0, 2).map(([key, data]) => {
+                    const Icon = CATEGORY_ICONS[key] || Store;
+                    return (
+                        <div key={key} className="flex items-center gap-0.5 text-[10px]" title={data.label}>
+                            <Icon className="w-3 h-3 text-amber-400" />
+                            <span className="text-slate-400">{data.count}</span>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
@@ -82,7 +72,7 @@ function NeighborhoodCard({ neighborhood, rank }) {
 
 // Sort options
 const SORT_OPTIONS = [
-    { value: 'score_desc', label: 'Gentrification Score' },
+    { value: 'total_desc', label: 'Most Businesses' },
     { value: 'name_asc', label: 'Name: A-Z' },
     { value: 'coffee_desc', label: 'Most Coffee Shops' },
     { value: 'fitness_desc', label: 'Most Fitness Studios' },
@@ -93,7 +83,7 @@ const SORT_OPTIONS = [
 export function RetailSignals({ className = "" }) {
     const [retailData, setRetailData] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [sortBy, setSortBy] = useState('score_desc');
+    const [sortBy, setSortBy] = useState('total_desc');
     const [showAll, setShowAll] = useState(false);
 
     useEffect(() => {
@@ -110,6 +100,13 @@ export function RetailSignals({ className = "" }) {
         fetchData();
     }, []);
 
+    // Helper to calculate total businesses for a neighborhood
+    const getTotalBusinesses = (n) => {
+        const genTotal = Object.values(n.gentrifying || {}).reduce((sum, d) => sum + (d.count || 0), 0);
+        const tradTotal = Object.values(n.traditional || {}).reduce((sum, d) => sum + (d.count || 0), 0);
+        return genTotal + tradTotal;
+    };
+
     // Filter and sort neighborhoods
     const sortedNeighborhoods = useMemo(() => {
         if (!retailData?.neighborhoods) return [];
@@ -120,8 +117,8 @@ export function RetailSignals({ className = "" }) {
         const getCount = (n, type, cat) => n[type]?.[cat]?.count || 0;
 
         switch (sortBy) {
-            case 'score_desc':
-                result.sort((a, b) => (b.gentrificationScore || 0) - (a.gentrificationScore || 0));
+            case 'total_desc':
+                result.sort((a, b) => getTotalBusinesses(b) - getTotalBusinesses(a));
                 break;
             case 'name_asc':
                 result.sort((a, b) => a.name.localeCompare(b.name));
@@ -136,7 +133,7 @@ export function RetailSignals({ className = "" }) {
                 result.sort((a, b) => getCount(b, 'gentrifying', 'brewery_taproom') - getCount(a, 'gentrifying', 'brewery_taproom'));
                 break;
             default:
-                result.sort((a, b) => (b.gentrificationScore || 0) - (a.gentrificationScore || 0));
+                result.sort((a, b) => getTotalBusinesses(b) - getTotalBusinesses(a));
         }
 
         return result;
@@ -216,8 +213,8 @@ export function RetailSignals({ className = "" }) {
 
             {/* Neighborhoods grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-                {displayedNeighborhoods.map((n, idx) => (
-                    <NeighborhoodCard key={n.name} neighborhood={n} rank={idx + 1} />
+                {displayedNeighborhoods.map((n) => (
+                    <NeighborhoodCard key={n.name} neighborhood={n} />
                 ))}
             </div>
 
