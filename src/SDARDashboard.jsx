@@ -337,12 +337,13 @@ export default function SDARDashboard() {
                                     className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300"
                                 >
                                     <option value="all">All San Diego</option>
-                                    <option value="coastal">🌊 Coastal</option>
-                                    <option value="north">🏔️ North County</option>
+                                    <option value="northCoast">🌊 North Coast</option>
+                                    <option value="northInland">🏔️ North Inland</option>
+                                    <option value="centralCoastal">🏖️ Central Coastal</option>
                                     <option value="central">🏘️ Central</option>
-                                    <option value="urban">🏙️ Urban</option>
-                                    <option value="east">⛰️ East County</option>
-                                    <option value="south">🌴 South County</option>
+                                    <option value="eastSuburbs">🏡 East Suburbs</option>
+                                    <option value="eastCounty">⛰️ East County</option>
+                                    <option value="southBay">🌴 South Bay</option>
                                 </select>
                             </div>
                             <div className="flex-1 min-w-[160px]">
