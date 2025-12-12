@@ -183,7 +183,7 @@ export default function LendingDashboard() {
                                 <DollarSign className="w-6 h-6 text-teal-400" />
                             </div>
                             <h1 className="text-2xl font-bold tracking-tight">Lending & Rates</h1>
-                            {data && <span className="px-2 py-0.5 bg-green-900/50 text-green-400 text-xs rounded-full">LIVE</span>}
+                            {data?.meta?.lastUpdate && <span className="px-2 py-0.5 bg-slate-700/50 text-slate-300 text-xs rounded-full">Updated {data.meta.lastUpdate}</span>}
                         </div>
                         <p className="text-slate-400">San Diego County • Mortgage Market Intelligence</p>
                     </div>
