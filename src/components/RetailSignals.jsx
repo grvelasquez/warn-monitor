@@ -149,6 +149,9 @@ export function RetailSignals({ className = "" }) {
         // Filter by specific category if selected
         if (filterCategory !== 'all') {
             result = result.filter(n => (n.categories?.[filterCategory]?.count || 0) > 0);
+            // Auto-sort by this category count
+            result.sort((a, b) => (b.categories?.[filterCategory]?.count || 0) - (a.categories?.[filterCategory]?.count || 0));
+            return result;
         }
 
         // Helper functions
