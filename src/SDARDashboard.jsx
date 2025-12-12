@@ -223,7 +223,11 @@ export default function SDARDashboard() {
         }
         if (selectedArea !== 'all') {
             const area = availableAreas.find(a => a.id === selectedArea);
-            return area?.name || 'San Diego County';
+            if (area) {
+                const zip = area.zips?.[0];
+                return zip ? `${area.name} (${zip})` : area.name;
+            }
+            return 'San Diego County';
         }
         if (selectedRegion !== 'all') {
             return regions[selectedRegion]?.name || 'San Diego County';
@@ -356,18 +360,6 @@ export default function SDARDashboard() {
                                 >
                                     <option value="all">All Areas</option>
                                     {availableAreas.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}
-                                </select>
-                            </div>
-                            <div className="flex-1 min-w-[140px]">
-                                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wide">ZIP Code</label>
-                                <select
-                                    value={selectedZip}
-                                    onChange={(e) => setSelectedZip(e.target.value)}
-                                    disabled={availableZips.length === 0}
-                                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300 disabled:opacity-50"
-                                >
-                                    <option value="all">All ZIPs</option>
-                                    {availableZips.map(z => <option key={z} value={z}>{z}</option>)}
                                 </select>
                             </div>
                             {hasActiveFilters && (
