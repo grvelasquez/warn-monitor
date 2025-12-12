@@ -26,7 +26,7 @@ const DEFAULT_NEIGHBORHOOD_DATA = {
 
 export default function SDARDashboard() {
     const [activeTab, setActiveTab] = useState('overview');
-    const [propertyType, setPropertyType] = useState('all');
+    const [propertyType, setPropertyType] = useState('detached');
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedArea, setSelectedArea] = useState('all');
     const [selectedZip, setSelectedZip] = useState('all');
@@ -286,7 +286,6 @@ export default function SDARDashboard() {
     const hasActiveFilters = selectedRegion !== 'all' || selectedArea !== 'all' || selectedZip !== 'all';
 
     const propertyTypes = [
-        { id: 'all', label: 'All Properties', icon: '🏘️' },
         { id: 'detached', label: 'Single Family', icon: '🏠' },
         { id: 'attached', label: 'Condos/Townhomes', icon: '🏢' },
     ];
