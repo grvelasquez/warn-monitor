@@ -227,12 +227,12 @@ export function RetailSignals({ className = "" }) {
                 <select
                     value={filterCategory}
                     onChange={(e) => setFilterCategory(e.target.value)}
-                    className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-purple-500 max-w-[150px]"
+                    className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-purple-500 max-w-[180px]"
                 >
                     <option value="all">All Categories</option>
                     {availableCategories.map(cat => (
                         <option key={cat} value={cat}>
-                            {cat.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                            {cat.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())} ({totalCounts[cat] || 0})
                         </option>
                     ))}
                 </select>
