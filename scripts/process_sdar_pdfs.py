@@ -24,16 +24,47 @@ def parse_number(value_str):
         return None
 
 def extract_all_metrics(text):
-    """Extract all metrics using line-by-line parsing, including YTD data.
+    """Extract all metrics using line-by-line parsing, including YTD data AND percentage changes.
     
     PDF format per row: 
     MetricName Monthly2024 Monthly2025 PercentChange% YTD2024 YTD2025 PercentChange%
     Example: New Listings 13 13 0.0% 189 232 + 22.8%
+    
+    Strategy: Split each line by '%' to separate:
+      - Part 0: Metric name + Monthly2024 + Monthly2025 + PercentChange (without %)
+      - Part 1: YTD2024 + YTD2025 + YTDPercentChange (without %)
+      - Part 2+: Remaining text (usually empty or footnotes)
     """
     result = {'detached': {}, 'attached': {}}
     
     lines = text.split('\n')
     current_section = None
+    
+    def parse_pct(s):
+        """Parse a percentage string like '+ 77.8' or '- 33.3' or '0.0' to float."""
+        if not s:
+            return 0.0
+        s = s.strip()
+        # Handle formats like "+ 77.8" or "- 33.3" or "77.8"
+        s = s.replace(' ', '')
+        try:
+            return float(s)
+        except:
+            return 0.0
+    
+    def get_trailing_pct(s):
+        """Extract the trailing percentage change from a string like '13 13 0.0' -> 0.0"""
+        match = re.search(r'([+-]?\s*[\d.]+)\s*$', s.strip())
+        return parse_pct(match.group(1)) if match else 0.0
+    
+    def get_numbers_before_pct(s):
+        """Extract value numbers from a string, excluding the trailing pct change number."""
+        # Remove the trailing pct change and get remaining numbers
+        s = s.strip()
+        # Match pattern: numbers... then possibly a pct change at end
+        # The pct change often has a sign or decimal, values are usually plain integers
+        nums = re.findall(r'\b(\d[\d,]*)\b', s)
+        return [int(n.replace(',', '')) for n in nums]
     
     for i, line in enumerate(lines):
         line_clean = line.strip()
@@ -49,98 +80,114 @@ def extract_all_metrics(text):
         if not current_section:
             continue
         
-        # Split the line at percent signs to separate monthly from YTD sections
-        # Format: "Metric Monthly1 Monthly2 +/-X.X% YTD1 YTD2 +/-X.X%"
-        parts = re.split(r'[+-]?\s*[\d.]+%', line_clean)
+        # Split by '%' to separate monthly and YTD sections
+        parts = line_clean.split('%')
+        monthly_part = parts[0] if len(parts) > 0 else ''
+        ytd_part = parts[1] if len(parts) > 1 else ''
         
-        if 'Median Sales Price' in line_clean:
-            # Find dollar amounts in each section
-            all_prices = re.findall(r'\$([\d,]+)', line_clean)
-            if len(all_prices) >= 2:
-                result[current_section]['median_price_2024'] = parse_number(all_prices[0])
-                result[current_section]['median_price_2025'] = parse_number(all_prices[1])
-            if len(all_prices) >= 4:
-                result[current_section]['median_price_ytd_2024'] = parse_number(all_prices[2])
-                result[current_section]['median_price_ytd_2025'] = parse_number(all_prices[3])
-                
-        elif 'Days on Market' in line_clean:
-            # Extract all plain numbers, but we need to be smart about which ones are values vs percent components
-            # The pattern is: Value1 Value2 % Value3 Value4 %
-            # Use the split parts approach
-            if len(parts) >= 2:
-                monthly_nums = re.findall(r'\b(\d+)\b', parts[0])
-                ytd_nums = re.findall(r'\b(\d+)\b', parts[1]) if len(parts) > 1 else []
-                
-                # Monthly values are typically the last 2 numbers in the first part
-                if len(monthly_nums) >= 2:
-                    result[current_section]['dom_2024'] = int(monthly_nums[-2])
-                    result[current_section]['dom_2025'] = int(monthly_nums[-1])
-                # YTD values are the first 2 numbers in the second part
-                if len(ytd_nums) >= 2:
-                    result[current_section]['dom_ytd_2024'] = int(ytd_nums[0])
-                    result[current_section]['dom_ytd_2025'] = int(ytd_nums[1])
-                
-        elif 'Inventory of Homes' in line_clean:
-            # Inventory has no YTD (point-in-time metric)
-            if len(parts) >= 1:
-                nums = re.findall(r'\b(\d+)\b', parts[0])
-                if len(nums) >= 2:
-                    result[current_section]['inventory_2024'] = int(nums[-2])
-                    result[current_section]['inventory_2025'] = int(nums[-1])
-                
-        elif 'Closed Sales' in line_clean and 'Price' not in line_clean:
-            if len(parts) >= 2:
-                monthly_nums = re.findall(r'\b(\d+)\b', parts[0])
-                ytd_nums = re.findall(r'\b(\d+)\b', parts[1]) if len(parts) > 1 else []
-                
-                if len(monthly_nums) >= 2:
-                    result[current_section]['closed_sales_2024'] = int(monthly_nums[-2])
-                    result[current_section]['closed_sales_2025'] = int(monthly_nums[-1])
-                if len(ytd_nums) >= 2:
-                    result[current_section]['closed_sales_ytd_2024'] = int(ytd_nums[0])
-                    result[current_section]['closed_sales_ytd_2025'] = int(ytd_nums[1])
-                
-        elif 'New Listings' in line_clean:
-            if len(parts) >= 2:
-                monthly_nums = re.findall(r'\b(\d+)\b', parts[0])
-                ytd_nums = re.findall(r'\b(\d+)\b', parts[1]) if len(parts) > 1 else []
-                
-                if len(monthly_nums) >= 2:
-                    result[current_section]['new_listings_2024'] = int(monthly_nums[-2])
-                    result[current_section]['new_listings_2025'] = int(monthly_nums[-1])
-                if len(ytd_nums) >= 2:
-                    result[current_section]['new_listings_ytd_2024'] = int(ytd_nums[0])
-                    result[current_section]['new_listings_ytd_2025'] = int(ytd_nums[1])
-                
-        elif 'Months Supply' in line_clean:
-            # Months Supply has no YTD
-            if len(parts) >= 1:
-                nums = re.findall(r'([\d.]+)', parts[0])
-                if len(nums) >= 2:
-                    result[current_section]['months_supply_2024'] = float(nums[-2])
-                    result[current_section]['months_supply_2025'] = float(nums[-1])
+        # Extract the percentage change value (the last number before the %)
+        monthly_pct = get_trailing_pct(monthly_part)
+        ytd_pct = get_trailing_pct(ytd_part) if ytd_part and '--' not in ytd_part else 0.0
+        
+        if 'New Listings' in line_clean:
+            # Monthly: "New Listings 13 13 0.0"
+            monthly_nums = get_numbers_before_pct(monthly_part.replace('New Listings', ''))
+            ytd_nums = get_numbers_before_pct(ytd_part) if ytd_part else []
+            
+            if len(monthly_nums) >= 2:
+                result[current_section]['new_listings_2024'] = monthly_nums[0]
+                result[current_section]['new_listings_2025'] = monthly_nums[1]
+            if len(ytd_nums) >= 2:
+                result[current_section]['new_listings_ytd_2024'] = ytd_nums[0]
+                result[current_section]['new_listings_ytd_2025'] = ytd_nums[1]
+            result[current_section]['new_listings_pct_change'] = monthly_pct
+            result[current_section]['new_listings_ytd_pct_change'] = ytd_pct
                 
         elif 'Pending Sales' in line_clean:
-            if len(parts) >= 2:
-                monthly_nums = re.findall(r'\b(\d+)\b', parts[0])
-                ytd_nums = re.findall(r'\b(\d+)\b', parts[1]) if len(parts) > 1 else []
+            monthly_nums = get_numbers_before_pct(monthly_part.replace('Pending Sales', ''))
+            ytd_nums = get_numbers_before_pct(ytd_part) if ytd_part else []
+            
+            if len(monthly_nums) >= 2:
+                result[current_section]['pending_sales_2024'] = monthly_nums[0]
+                result[current_section]['pending_sales_2025'] = monthly_nums[1]
+            if len(ytd_nums) >= 2:
+                result[current_section]['pending_sales_ytd_2024'] = ytd_nums[0]
+                result[current_section]['pending_sales_ytd_2025'] = ytd_nums[1]
+            result[current_section]['pending_sales_pct_change'] = monthly_pct
+            result[current_section]['pending_sales_ytd_pct_change'] = ytd_pct
                 
-                if len(monthly_nums) >= 2:
-                    result[current_section]['pending_sales_2024'] = int(monthly_nums[-2])
-                    result[current_section]['pending_sales_2025'] = int(monthly_nums[-1])
-                if len(ytd_nums) >= 2:
-                    result[current_section]['pending_sales_ytd_2024'] = int(ytd_nums[0])
-                    result[current_section]['pending_sales_ytd_2025'] = int(ytd_nums[1])
+        elif 'Closed Sales' in line_clean and 'Price' not in line_clean:
+            monthly_nums = get_numbers_before_pct(monthly_part.replace('Closed Sales', ''))
+            ytd_nums = get_numbers_before_pct(ytd_part) if ytd_part else []
+            
+            if len(monthly_nums) >= 2:
+                result[current_section]['closed_sales_2024'] = monthly_nums[0]
+                result[current_section]['closed_sales_2025'] = monthly_nums[1]
+            if len(ytd_nums) >= 2:
+                result[current_section]['closed_sales_ytd_2024'] = ytd_nums[0]
+                result[current_section]['closed_sales_ytd_2025'] = ytd_nums[1]
+            result[current_section]['closed_sales_pct_change'] = monthly_pct
+            result[current_section]['closed_sales_ytd_pct_change'] = ytd_pct
+                
+        elif 'Median Sales Price' in line_clean:
+            # Prices are in format $XXX,XXX
+            monthly_prices = re.findall(r'\$([\d,]+)', monthly_part)
+            ytd_prices = re.findall(r'\$([\d,]+)', ytd_part) if ytd_part else []
+            
+            if len(monthly_prices) >= 2:
+                result[current_section]['median_price_2024'] = parse_number(monthly_prices[0])
+                result[current_section]['median_price_2025'] = parse_number(monthly_prices[1])
+            if len(ytd_prices) >= 2:
+                result[current_section]['median_price_ytd_2024'] = parse_number(ytd_prices[0])
+                result[current_section]['median_price_ytd_2025'] = parse_number(ytd_prices[1])
+            result[current_section]['median_price_pct_change'] = monthly_pct
+            result[current_section]['median_price_ytd_pct_change'] = ytd_pct
                 
         elif 'Percent of Original List Price' in line_clean or 'List Price Received' in line_clean:
-            percentages = re.findall(r'([\d.]+)%', line_clean)
-            # Format: Monthly2024% Monthly2025% Change% YTD2024% YTD2025% Change%
-            if len(percentages) >= 2:
-                result[current_section]['pct_orig_price_2024'] = float(percentages[0])
-                result[current_section]['pct_orig_price_2025'] = float(percentages[1])
-            if len(percentages) >= 5:
-                result[current_section]['pct_orig_price_ytd_2024'] = float(percentages[3])
-                result[current_section]['pct_orig_price_ytd_2025'] = float(percentages[4])
+            # This line is special: "93.9% 94.3% + 0.4% 97.8% 97.4% - 0.4%"
+            # When split by '%': parts[0]=val1, parts[1]=val2, parts[2]=change, parts[3]=ytd1, parts[4]=ytd2, parts[5]=ytdchange
+            all_nums = re.findall(r'([\d.]+)', line_clean)
+            if len(all_nums) >= 2:
+                result[current_section]['pct_orig_price_2024'] = float(all_nums[0])
+                result[current_section]['pct_orig_price_2025'] = float(all_nums[1])
+            if len(all_nums) >= 5:
+                result[current_section]['pct_orig_price_ytd_2024'] = float(all_nums[3])
+                result[current_section]['pct_orig_price_ytd_2025'] = float(all_nums[4])
+            # Get change from parts[2] for monthly and parts[5] for YTD
+            if len(parts) >= 3:
+                result[current_section]['pct_orig_price_pct_change'] = get_trailing_pct(parts[2])
+            if len(parts) >= 6:
+                result[current_section]['pct_orig_price_ytd_pct_change'] = get_trailing_pct(parts[5])
+                
+        elif 'Days on Market' in line_clean:
+            monthly_nums = get_numbers_before_pct(monthly_part.replace('Days on Market Until Sale', '').replace('Days on Market', ''))
+            ytd_nums = get_numbers_before_pct(ytd_part) if ytd_part else []
+            
+            if len(monthly_nums) >= 2:
+                result[current_section]['dom_2024'] = monthly_nums[0]
+                result[current_section]['dom_2025'] = monthly_nums[1]
+            if len(ytd_nums) >= 2:
+                result[current_section]['dom_ytd_2024'] = ytd_nums[0]
+                result[current_section]['dom_ytd_2025'] = ytd_nums[1]
+            result[current_section]['dom_pct_change'] = monthly_pct
+            result[current_section]['dom_ytd_pct_change'] = ytd_pct
+                
+        elif 'Inventory of Homes' in line_clean:
+            monthly_nums = get_numbers_before_pct(monthly_part.replace('Inventory of Homes for Sale', ''))
+            
+            if len(monthly_nums) >= 2:
+                result[current_section]['inventory_2024'] = monthly_nums[0]
+                result[current_section]['inventory_2025'] = monthly_nums[1]
+            result[current_section]['inventory_pct_change'] = monthly_pct
+                
+        elif 'Months Supply' in line_clean:
+            # Months supply has decimals like 2.4, 2.9
+            monthly_nums = re.findall(r'([\d.]+)', monthly_part.replace('Months Supply of Inventory', ''))
+            
+            if len(monthly_nums) >= 2:
+                result[current_section]['months_supply_2024'] = float(monthly_nums[0])
+                result[current_section]['months_supply_2025'] = float(monthly_nums[1])
+            result[current_section]['months_supply_pct_change'] = monthly_pct
     
     return result
 

@@ -44,33 +44,42 @@ export default function SDARDashboard() {
                     const transformed = {};
 
                     // Helper to transform property type data including YTD
+                    // NOW USING PERCENTAGE CHANGES DIRECTLY FROM PDF (not calculated)
                     const transformPropertyType = (pt) => pt ? {
-                        // Monthly data
-                        medianPrice: pt.median_price_2025 || 0,
-                        avgPrice: pt.avg_price_2025 || 0,
-                        closedSales: pt.closed_sales_2025 || 0,
-                        pendingSales: pt.pending_sales_2025 || 0,
+                        // Monthly data - 6 main metrics from PDF (Inventory/Months Supply go to Market Summary)
                         newListings: pt.new_listings_2025 || 0,
+                        pendingSales: pt.pending_sales_2025 || 0,
+                        closedSales: pt.closed_sales_2025 || 0,
+                        medianPrice: pt.median_price_2025 || 0,
+                        pctOrigPrice: pt.pct_orig_price_2025 || 0,
                         daysOnMarket: pt.dom_2025 || 0,
-                        pctOrigPrice: pt.pct_orig_price_2025 || 97,
                         inventory: pt.inventory_2025 || 0,
-                        monthsSupply: pt.months_supply_2025 || 2,
+                        monthsSupply: pt.months_supply_2025 || 0,
+                        avgPrice: pt.avg_price_2025 || 0,
                         affordability: pt.affordability_2025 || 50,
-                        priceChange: pt.median_price_2024 ? ((pt.median_price_2025 - pt.median_price_2024) / pt.median_price_2024 * 100) : 0,
-                        salesChange: pt.closed_sales_2024 ? ((pt.closed_sales_2025 - pt.closed_sales_2024) / pt.closed_sales_2024 * 100) : 0,
-                        domChange: pt.dom_2024 ? ((pt.dom_2025 - pt.dom_2024) / pt.dom_2024 * 100) : 0,
-                        invChange: pt.inventory_2024 ? ((pt.inventory_2025 - pt.inventory_2024) / pt.inventory_2024 * 100) : 0,
+                        // Monthly percentage changes - DIRECTLY FROM PDF (not calculated)
+                        newListingsChange: pt.new_listings_pct_change || 0,
+                        pendingChange: pt.pending_sales_pct_change || 0,
+                        salesChange: pt.closed_sales_pct_change || 0,
+                        priceChange: pt.median_price_pct_change || 0,
+                        pctOrigPriceChange: pt.pct_orig_price_pct_change || 0,
+                        domChange: pt.dom_pct_change || 0,
+                        invChange: pt.inventory_pct_change || 0,
+                        monthsSupplyChange: pt.months_supply_pct_change || 0,
                         // YTD data
-                        medianPriceYtd: pt.median_price_ytd_2025 || 0,
-                        closedSalesYtd: pt.closed_sales_ytd_2025 || 0,
-                        pendingSalesYtd: pt.pending_sales_ytd_2025 || 0,
                         newListingsYtd: pt.new_listings_ytd_2025 || 0,
-                        daysOnMarketYtd: pt.dom_ytd_2025 || 0,
+                        pendingSalesYtd: pt.pending_sales_ytd_2025 || 0,
+                        closedSalesYtd: pt.closed_sales_ytd_2025 || 0,
+                        medianPriceYtd: pt.median_price_ytd_2025 || 0,
                         pctOrigPriceYtd: pt.pct_orig_price_ytd_2025 || 0,
-                        priceChangeYtd: pt.median_price_ytd_2024 ? ((pt.median_price_ytd_2025 - pt.median_price_ytd_2024) / pt.median_price_ytd_2024 * 100) : 0,
-                        salesChangeYtd: pt.closed_sales_ytd_2024 ? ((pt.closed_sales_ytd_2025 - pt.closed_sales_ytd_2024) / pt.closed_sales_ytd_2024 * 100) : 0,
-                        domChangeYtd: pt.dom_ytd_2024 ? ((pt.dom_ytd_2025 - pt.dom_ytd_2024) / pt.dom_ytd_2024 * 100) : 0,
-                        newListingsChangeYtd: pt.new_listings_ytd_2024 ? ((pt.new_listings_ytd_2025 - pt.new_listings_ytd_2024) / pt.new_listings_ytd_2024 * 100) : 0,
+                        daysOnMarketYtd: pt.dom_ytd_2025 || 0,
+                        // YTD percentage changes - DIRECTLY FROM PDF (not calculated)
+                        newListingsChangeYtd: pt.new_listings_ytd_pct_change || 0,
+                        pendingChangeYtd: pt.pending_sales_ytd_pct_change || 0,
+                        salesChangeYtd: pt.closed_sales_ytd_pct_change || 0,
+                        priceChangeYtd: pt.median_price_ytd_pct_change || 0,
+                        pctOrigPriceChangeYtd: pt.pct_orig_price_ytd_pct_change || 0,
+                        domChangeYtd: pt.dom_ytd_pct_change || 0,
                     } : DEFAULT_NEIGHBORHOOD_DATA['all'].all;
 
                     // Use county_wide data from Monthly Indicators PDF for 'all' selection
@@ -407,22 +416,19 @@ export default function SDARDashboard() {
                                 <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">NOVEMBER 2025</span>
                                 <span className="text-slate-500 text-xs">Monthly Data</span>
                             </div>
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                            <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
                                 {[
-                                    { icon: <DollarIcon />, title: 'Median Price', value: formatCurrency(currentData?.medianPrice || 0), change: currentData?.priceChange || 0 },
-                                    { icon: <HomeIcon />, title: 'Closed Sales', value: formatNumber(currentData?.closedSales || 0), change: currentData?.salesChange || 0 },
-                                    { icon: <ClockIcon />, title: 'Days on Market', value: currentData?.daysOnMarket || 0, change: currentData?.domChange || 0, inverse: true },
-                                    { icon: <BuildingIcon />, title: 'Inventory', value: formatNumber(currentData?.inventory || 0), change: currentData?.invChange || 0 },
-                                    { icon: <BuildingIcon />, title: 'Months Supply', value: currentData?.monthsSupply || 0, change: 0 },
-                                    { icon: <DollarIcon />, title: 'Sale-to-List', value: `${currentData?.pctOrigPrice || 0}%`, change: 0 },
+                                    { title: 'New Listings', value: formatNumber(currentData?.newListings || 0), change: currentData?.newListingsChange || 0 },
+                                    { title: 'Pending Sales', value: formatNumber(currentData?.pendingSales || 0), change: currentData?.pendingChange || 0 },
+                                    { title: 'Closed Sales', value: formatNumber(currentData?.closedSales || 0), change: currentData?.salesChange || 0 },
+                                    { title: 'Median Price', value: formatCurrency(currentData?.medianPrice || 0), change: currentData?.priceChange || 0 },
+                                    { title: 'Sale-to-List', value: `${(currentData?.pctOrigPrice || 0).toFixed(1)}%`, change: currentData?.pctOrigPriceChange || 0 },
+                                    { title: 'Days on Market', value: currentData?.daysOnMarket || 0, change: currentData?.domChange || 0 },
                                 ].map((metric, i) => (
-                                    <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 backdrop-blur-sm">
-                                        <div className="flex items-start justify-between mb-2">
-                                            <div className="p-2 bg-slate-700/50 rounded-lg text-blue-400">{metric.icon}</div>
-                                            {metric.change !== 0 && <ChangeIndicator value={metric.change} inverse={metric.inverse} />}
-                                        </div>
-                                        <p className="text-xl font-bold text-white">{metric.value}</p>
-                                        <p className="text-xs text-slate-500">{metric.title}</p>
+                                    <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3 backdrop-blur-sm">
+                                        <p className="text-lg font-bold text-white">{metric.value}</p>
+                                        <p className="text-[10px] text-slate-500 mb-1">{metric.title}</p>
+                                        <ChangeIndicator value={metric.change} inverse={metric.inverse} />
                                     </div>
                                 ))}
                             </div>
@@ -434,22 +440,19 @@ export default function SDARDashboard() {
                                 <span className="px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-bold rounded">YEAR-TO-DATE</span>
                                 <span className="text-slate-500 text-xs">Jan - Nov 2025</span>
                             </div>
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                            <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
                                 {[
-                                    { icon: <DollarIcon />, title: 'Median Price', value: currentData?.medianPriceYtd ? formatCurrency(currentData.medianPriceYtd) : '—', change: currentData?.priceChangeYtd || 0 },
-                                    { icon: <HomeIcon />, title: 'Closed Sales', value: currentData?.closedSalesYtd ? formatNumber(currentData.closedSalesYtd) : '—', change: currentData?.salesChangeYtd || 0 },
-                                    { icon: <ClockIcon />, title: 'Days on Market', value: currentData?.daysOnMarketYtd ? currentData.daysOnMarketYtd : '—', change: currentData?.domChangeYtd || 0, inverse: true },
-                                    { icon: <HomeIcon />, title: 'New Listings', value: currentData?.newListingsYtd ? formatNumber(currentData.newListingsYtd) : '—', change: currentData?.newListingsChangeYtd || 0 },
-                                    { icon: <HomeIcon />, title: 'Pending Sales', value: currentData?.pendingSalesYtd ? formatNumber(currentData.pendingSalesYtd) : '—', change: 0 },
-                                    { icon: <DollarIcon />, title: 'Sale-to-List', value: currentData?.pctOrigPriceYtd ? `${currentData.pctOrigPriceYtd}%` : '—', change: 0 },
+                                    { title: 'New Listings', value: currentData?.newListingsYtd ? formatNumber(currentData.newListingsYtd) : '—', change: currentData?.newListingsChangeYtd || 0 },
+                                    { title: 'Pending Sales', value: currentData?.pendingSalesYtd ? formatNumber(currentData.pendingSalesYtd) : '—', change: currentData?.pendingChangeYtd || 0 },
+                                    { title: 'Closed Sales', value: currentData?.closedSalesYtd ? formatNumber(currentData.closedSalesYtd) : '—', change: currentData?.salesChangeYtd || 0 },
+                                    { title: 'Median Price', value: currentData?.medianPriceYtd ? formatCurrency(currentData.medianPriceYtd) : '—', change: currentData?.priceChangeYtd || 0 },
+                                    { title: 'Sale-to-List', value: currentData?.pctOrigPriceYtd ? `${currentData.pctOrigPriceYtd.toFixed(1)}%` : '—', change: currentData?.pctOrigPriceChangeYtd || 0 },
+                                    { title: 'Days on Market', value: currentData?.daysOnMarketYtd ? currentData.daysOnMarketYtd : '—', change: currentData?.domChangeYtd || 0 },
                                 ].map((metric, i) => (
-                                    <div key={i} className="bg-emerald-950/30 border border-emerald-800/30 rounded-xl p-4 backdrop-blur-sm">
-                                        <div className="flex items-start justify-between mb-2">
-                                            <div className="p-2 bg-emerald-900/50 rounded-lg text-emerald-400">{metric.icon}</div>
-                                            {metric.change !== 0 && <ChangeIndicator value={metric.change} inverse={metric.inverse} />}
-                                        </div>
-                                        <p className="text-xl font-bold text-white">{metric.value}</p>
-                                        <p className="text-xs text-slate-500">{metric.title}</p>
+                                    <div key={i} className="bg-emerald-950/30 border border-emerald-800/30 rounded-lg p-3 backdrop-blur-sm">
+                                        <p className="text-lg font-bold text-white">{metric.value}</p>
+                                        <p className="text-[10px] text-slate-500 mb-1">{metric.title}</p>
+                                        <ChangeIndicator value={metric.change} inverse={metric.inverse} />
                                     </div>
                                 ))}
                             </div>
@@ -484,10 +487,23 @@ export default function SDARDashboard() {
                                             <strong className="text-white">{locationName}</strong> has a median price of <strong className="text-white">{formatCurrency(currentData?.medianPrice || 0)}</strong>
                                             {(currentData?.priceChange || 0) > 0 ? ' (up ' : ' (down '}
                                             <span className="text-white font-semibold">
-                                                {Math.abs(currentData?.priceChange || 0).toFixed(2)}%
+                                                {Math.abs(currentData?.priceChange || 0).toFixed(1)}%
                                             </span> YoY).
-                                            Homes sell in <strong className="text-white">{currentData?.daysOnMarket || 0} days</strong> with <strong className="text-white">{currentData?.monthsSupply || 0} months</strong> supply.
+                                            Homes sell in <strong className="text-white">{currentData?.daysOnMarket || 0} days</strong>.
                                         </p>
+                                    </div>
+                                    {/* Inventory & Months Supply */}
+                                    <div className="grid grid-cols-2 gap-3 mb-4">
+                                        <div className="p-3 bg-slate-700/30 rounded-lg">
+                                            <p className="text-xl font-bold text-white">{formatNumber(currentData?.inventory || 0)}</p>
+                                            <p className="text-xs text-slate-500">Inventory</p>
+                                            <ChangeIndicator value={currentData?.invChange || 0} />
+                                        </div>
+                                        <div className="p-3 bg-slate-700/30 rounded-lg">
+                                            <p className="text-xl font-bold text-white">{currentData?.monthsSupply || 0}</p>
+                                            <p className="text-xs text-slate-500">Months Supply</p>
+                                            <ChangeIndicator value={currentData?.monthsSupplyChange || 0} />
+                                        </div>
                                     </div>
                                     <div className="p-4 bg-slate-700/30 rounded-xl">
                                         <p className="text-sm font-semibold text-slate-300 mb-3">Market Balance</p>
