@@ -49,7 +49,7 @@ const CATEGORY_ICONS = {
 };
 
 // Compact neighborhood card for OSM data structure
-function NeighborhoodCard({ neighborhood }) {
+function NeighborhoodCard({ neighborhood, filterCategory = 'all' }) {
     // Get all categories with counts
     const categories = Object.entries(neighborhood.categories || {})
         .filter(([, data]) => data.count > 0)
@@ -57,6 +57,28 @@ function NeighborhoodCard({ neighborhood }) {
 
     const totalBusinesses = neighborhood.total_businesses || 0;
 
+    // If filtering by a specific category, show only that category
+    if (filterCategory !== 'all') {
+        const categoryData = neighborhood.categories?.[filterCategory];
+        const count = categoryData?.count || 0;
+        const Icon = CATEGORY_ICONS[filterCategory] || Store;
+
+        return (
+            <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3 hover:border-slate-600 transition-colors">
+                <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-medium text-white truncate pr-2" title={neighborhood.name}>
+                        {neighborhood.name.replace(/^\d+-/, '')}
+                    </span>
+                    <div className="flex items-center gap-1.5 bg-purple-900/30 px-2 py-1 rounded-lg border border-purple-700/50">
+                        <Icon className="w-4 h-4 text-purple-400" />
+                        <span className="text-lg font-bold text-white">{count}</span>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // Otherwise, show top categories as before
     return (
         <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3 hover:border-slate-600 transition-colors">
             <div className="flex items-center justify-between mb-2">
@@ -246,7 +268,7 @@ export function RetailSignals({ className = "" }) {
             {/* Neighborhoods grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
                 {displayedNeighborhoods.map((n) => (
-                    <NeighborhoodCard key={n.name} neighborhood={n} />
+                    <NeighborhoodCard key={n.name} neighborhood={n} filterCategory={filterCategory} />
                 ))}
             </div>
 
