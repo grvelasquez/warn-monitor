@@ -1,70 +1,86 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Coffee, Dumbbell, Beer, Palette, Store, Dog, Briefcase, MapPin } from 'lucide-react';
+import {
+    Coffee, Utensils, Pizza, Wine, Beer, ShoppingCart,
+    Sprout, Store, Shirt, Laptop, Dog, Cookie,
+    Landmark, CreditCard, Scissors, Wrench, Fuel,
+    Pill, Dumbbell, Stethoscope, Smile, GraduationCap,
+    Book, Trees, Briefcase, IceCream, MapPin, Search
+} from 'lucide-react';
 
 // Icon mapping for OSM categories
 const CATEGORY_ICONS = {
+    // Food & Drink
     coffee_specialty: Coffee,
-    yoga_fitness: Dumbbell,
+    restaurant: Utensils,
+    fast_food: Pizza, // or Store
+    bar: Wine,
     brewery_taproom: Beer,
-    art_gallery: Palette,
-    organic_grocery: Store,
-    pet_services: Dog,
+    ice_cream: IceCream,
+
+    // Retail
+    grocery: ShoppingCart,
+    organic_grocery: Sprout,
+    convenience: Store,
+    clothing: Shirt,
+    electronics: Laptop,
+    pet_shop: Dog,
+    bakery: Cookie,
+
+    // Services
+    bank: Landmark,
+    atm: CreditCard,
+    laundromat: Shirt, // Close enough
+    hair_salon: Scissors,
+    car_repair: Wrench,
+    gas_station: Fuel,
+
+    // Health
+    pharmacy: Pill,
+    fitness: Dumbbell,
+    clinic: Stethoscope,
+    dentist: Smile,
+
+    // Community
+    school: GraduationCap,
+    library: Book,
+    park: Trees,
+    place_of_worship: MapPin, // Generic
     coworking: Briefcase,
-    laundromat: Store,
-    fast_food: Store,
-    check_cashing: Store,
 };
-
-// Colors for gentrifying vs traditional
-const TYPE_COLORS = {
-    gentrifying: 'text-purple-400',
-    traditional: 'text-amber-400',
-};
-
-
 
 // Compact neighborhood card for OSM data structure
 function NeighborhoodCard({ neighborhood }) {
     // Get all categories with counts
-    const genCategories = Object.entries(neighborhood.gentrifying || {})
+    const categories = Object.entries(neighborhood.categories || {})
         .filter(([, data]) => data.count > 0)
         .sort((a, b) => b[1].count - a[1].count);
 
-    const tradCategories = Object.entries(neighborhood.traditional || {})
-        .filter(([, data]) => data.count > 0)
-        .sort((a, b) => b[1].count - a[1].count);
-
-    const totalBusinesses = genCategories.reduce((sum, [, d]) => sum + d.count, 0) +
-        tradCategories.reduce((sum, [, d]) => sum + d.count, 0);
+    const totalBusinesses = neighborhood.total_businesses || 0;
 
     return (
-        <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3">
+        <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3 hover:border-slate-600 transition-colors">
             <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-white truncate">{neighborhood.name}</span>
-                <span className="text-xs text-slate-400 flex-shrink-0">
-                    {totalBusinesses} total
+                <span className="text-sm font-medium text-white truncate pr-2" title={neighborhood.name}>
+                    {neighborhood.name.replace(/^\d+-/, '')} {/* Remove zip prefix for cleaner display */}
+                </span>
+                <span className="text-xs text-slate-400 flex-shrink-0 bg-slate-800 px-1.5 py-0.5 rounded">
+                    {totalBusinesses}
                 </span>
             </div>
-            {/* Category icons */}
+            {/* Top categories icons */}
             <div className="flex gap-1.5 flex-wrap">
-                {genCategories.slice(0, 4).map(([key, data]) => {
+                {categories.slice(0, 6).map(([key, data]) => {
                     const Icon = CATEGORY_ICONS[key] || Store;
                     return (
-                        <div key={key} className="flex items-center gap-0.5 text-[10px]" title={data.label}>
-                            <Icon className="w-3 h-3 text-purple-400" />
-                            <span className="text-slate-400">{data.count}</span>
+                        <div key={key} className="flex items-center gap-1 text-[10px] bg-slate-800/50 px-1.5 py-0.5 rounded border border-slate-700/30" title={data.label}>
+                            <Icon className="w-3 h-3 text-slate-300" />
+                            <span className="text-slate-400 font-medium">{data.count}</span>
                         </div>
                     );
                 })}
-                {tradCategories.slice(0, 2).map(([key, data]) => {
-                    const Icon = CATEGORY_ICONS[key] || Store;
-                    return (
-                        <div key={key} className="flex items-center gap-0.5 text-[10px]" title={data.label}>
-                            <Icon className="w-3 h-3 text-amber-400" />
-                            <span className="text-slate-400">{data.count}</span>
-                        </div>
-                    );
-                })}
+                {categories.length > 6 && (
+                    <span className="text-[10px] text-slate-500 self-center">+{categories.length - 6}</span>
+                )}
             </div>
         </div>
     );
@@ -75,8 +91,9 @@ const SORT_OPTIONS = [
     { value: 'total_desc', label: 'Most Businesses' },
     { value: 'name_asc', label: 'Name: A-Z' },
     { value: 'coffee_desc', label: 'Most Coffee Shops' },
-    { value: 'fitness_desc', label: 'Most Fitness Studios' },
-    { value: 'brewery_desc', label: 'Most Breweries' },
+    { value: 'restaurant_desc', label: 'Most Restaurants' },
+    { value: 'fitness_desc', label: 'Most Fitness' },
+    { value: 'park_desc', label: 'Most Parks' },
 ];
 
 // Main component
@@ -85,6 +102,7 @@ export function RetailSignals({ className = "" }) {
     const [loading, setLoading] = useState(true);
     const [sortBy, setSortBy] = useState('total_desc');
     const [showAll, setShowAll] = useState(false);
+    const [filterCategory, setFilterCategory] = useState('all');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -100,44 +118,45 @@ export function RetailSignals({ className = "" }) {
         fetchData();
     }, []);
 
-    // Helper to calculate total businesses for a neighborhood
-    const getTotalBusinesses = (n) => {
-        const genTotal = Object.values(n.gentrifying || {}).reduce((sum, d) => sum + (d.count || 0), 0);
-        const tradTotal = Object.values(n.traditional || {}).reduce((sum, d) => sum + (d.count || 0), 0);
-        return genTotal + tradTotal;
-    };
-
     // Filter and sort neighborhoods
     const sortedNeighborhoods = useMemo(() => {
         if (!retailData?.neighborhoods) return [];
 
         let result = [...retailData.neighborhoods];
 
+        // Filter by specific category if selected
+        if (filterCategory !== 'all') {
+            result = result.filter(n => (n.categories?.[filterCategory]?.count || 0) > 0);
+        }
+
         // Helper functions
-        const getCount = (n, type, cat) => n[type]?.[cat]?.count || 0;
+        const getCount = (n, cat) => n.categories?.[cat]?.count || 0;
 
         switch (sortBy) {
             case 'total_desc':
-                result.sort((a, b) => getTotalBusinesses(b) - getTotalBusinesses(a));
+                result.sort((a, b) => (b.total_businesses || 0) - (a.total_businesses || 0));
                 break;
             case 'name_asc':
                 result.sort((a, b) => a.name.localeCompare(b.name));
                 break;
             case 'coffee_desc':
-                result.sort((a, b) => getCount(b, 'gentrifying', 'coffee_specialty') - getCount(a, 'gentrifying', 'coffee_specialty'));
+                result.sort((a, b) => getCount(b, 'coffee_specialty') - getCount(a, 'coffee_specialty'));
+                break;
+            case 'restaurant_desc':
+                result.sort((a, b) => getCount(b, 'restaurant') - getCount(a, 'restaurant'));
                 break;
             case 'fitness_desc':
-                result.sort((a, b) => getCount(b, 'gentrifying', 'yoga_fitness') - getCount(a, 'gentrifying', 'yoga_fitness'));
+                result.sort((a, b) => getCount(b, 'fitness') - getCount(a, 'fitness'));
                 break;
-            case 'brewery_desc':
-                result.sort((a, b) => getCount(b, 'gentrifying', 'brewery_taproom') - getCount(a, 'gentrifying', 'brewery_taproom'));
+            case 'park_desc':
+                result.sort((a, b) => getCount(b, 'park') - getCount(a, 'park'));
                 break;
             default:
-                result.sort((a, b) => getTotalBusinesses(b) - getTotalBusinesses(a));
+                result.sort((a, b) => (b.total_businesses || 0) - (a.total_businesses || 0));
         }
 
         return result;
-    }, [retailData, sortBy]);
+    }, [retailData, sortBy, filterCategory]);
 
     const displayCount = showAll ? sortedNeighborhoods.length : Math.min(12, sortedNeighborhoods.length);
     const displayedNeighborhoods = sortedNeighborhoods.slice(0, displayCount);
@@ -163,28 +182,29 @@ export function RetailSignals({ className = "" }) {
     }
 
     // Get summary counts
-    const summary = retailData?.summary || {};
-    const totalGen = summary.totalGentrifying || {};
-    const totalTrad = summary.totalTraditional || {};
+    const totalCounts = retailData?.summary?.totalCounts || {};
+
+    // Get all available categories for filter dropdown
+    const availableCategories = Object.keys(totalCounts).sort();
 
     return (
         <div className={`space-y-4 ${className}`}>
             {/* Quick stats row */}
             <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                 {[
-                    { key: 'coffee_specialty', label: 'Coffee', count: totalGen.coffee_specialty, Icon: Coffee, color: 'text-purple-400' },
-                    { key: 'yoga_fitness', label: 'Fitness', count: totalGen.yoga_fitness, Icon: Dumbbell, color: 'text-purple-400' },
-                    { key: 'brewery_taproom', label: 'Breweries', count: totalGen.brewery_taproom, Icon: Beer, color: 'text-purple-400' },
-                    { key: 'organic_grocery', label: 'Grocery', count: totalGen.organic_grocery, Icon: Store, color: 'text-purple-400' },
-                    { key: 'fast_food', label: 'Fast Food', count: totalTrad.fast_food, Icon: Store, color: 'text-amber-400' },
-                    { key: 'laundromat', label: 'Laundromat', count: totalTrad.laundromat, Icon: Store, color: 'text-amber-400' },
-                ].filter(item => item.count > 0).map(({ key, label, count, Icon, color }) => (
+                    { key: 'coffee_specialty', label: 'Coffee', Icon: Coffee },
+                    { key: 'restaurant', label: 'Restaurants', Icon: Utensils },
+                    { key: 'fitness', label: 'Fitness', Icon: Dumbbell },
+                    { key: 'park', label: 'Parks', Icon: Trees },
+                    { key: 'school', label: 'Schools', Icon: GraduationCap },
+                    { key: 'grocery', label: 'Grocery', Icon: ShoppingCart },
+                ].map(({ key, label, Icon }) => (
                     <div
                         key={key}
                         className="bg-slate-800/40 border border-slate-700/50 rounded-lg p-2 text-center"
                     >
-                        <Icon className={`w-4 h-4 ${color} mx-auto mb-1`} />
-                        <p className="text-lg font-bold text-white">{count?.toLocaleString() || 0}</p>
+                        <Icon className="w-4 h-4 text-purple-400 mx-auto mb-1" />
+                        <p className="text-lg font-bold text-white">{(totalCounts[key] || 0).toLocaleString()}</p>
                         <p className="text-[10px] text-slate-500 capitalize truncate">{label}</p>
                     </div>
                 ))}
@@ -193,21 +213,33 @@ export function RetailSignals({ className = "" }) {
             {/* Filters row */}
             <div className="flex flex-wrap gap-2 items-center">
                 {/* Sort dropdown */}
-                <div className="relative">
-                    <select
-                        value={sortBy}
-                        onChange={(e) => setSortBy(e.target.value)}
-                        className="appearance-none bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 pr-8 text-sm text-white cursor-pointer hover:border-slate-600 focus:outline-none focus:border-purple-500"
-                    >
-                        {SORT_OPTIONS.map(({ value, label }) => (
-                            <option key={value} value={value}>{label}</option>
-                        ))}
-                    </select>
-                </div>
+                <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-purple-500"
+                >
+                    {SORT_OPTIONS.map(({ value, label }) => (
+                        <option key={value} value={value}>{label}</option>
+                    ))}
+                </select>
+
+                {/* Category Filter */}
+                <select
+                    value={filterCategory}
+                    onChange={(e) => setFilterCategory(e.target.value)}
+                    className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-purple-500 max-w-[150px]"
+                >
+                    <option value="all">All Categories</option>
+                    {availableCategories.map(cat => (
+                        <option key={cat} value={cat}>
+                            {cat.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                        </option>
+                    ))}
+                </select>
 
                 <div className="flex-1" />
                 <span className="text-xs text-slate-500">
-                    Showing {displayedNeighborhoods.length} of {neighborhoods.length} neighborhoods
+                    {displayedNeighborhoods.length} areas
                 </span>
             </div>
 
@@ -228,16 +260,8 @@ export function RetailSignals({ className = "" }) {
                 </button>
             )}
 
-            {/* Footer with legend */}
-            <div className="flex flex-wrap items-center justify-between gap-3 text-[10px] text-slate-500">
-                <div className="flex flex-wrap items-center gap-3">
-                    <span>Categories:</span>
-                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-purple-500 rounded-full" /> Gentrifying</span>
-                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-amber-500 rounded-full" /> Traditional</span>
-                </div>
-                <div className="text-slate-500">
-                    OSM data: {retailData?.meta?.generated ? new Date(retailData.meta.generated).toLocaleDateString() : 'Unknown'}
-                </div>
+            <div className="text-center text-[10px] text-slate-600 mt-2">
+                Data: OpenStreetMap • Last updated: {retailData?.meta?.generated ? new Date(retailData.meta.generated).toLocaleDateString() : 'Unknown'}
             </div>
         </div>
     );
