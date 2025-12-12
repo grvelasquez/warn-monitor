@@ -63,3 +63,30 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
+
+/* Fix dropdown flicker - style native select elements */
+select {
+  background-color: #1e293b !important;
+  color: #cbd5e1 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select option {
+  background-color: #1e293b;
+  color: #cbd5e1;
+}
+
+select:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+/* Prevent flicker on dropdown open */
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #1e293b inset;
+  -webkit-text-fill-color: #cbd5e1;
+}
