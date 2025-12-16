@@ -356,7 +356,7 @@ export default function SDARDashboard() {
                                     className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300 disabled:opacity-50"
                                 >
                                     <option value="all">All Areas</option>
-                                    {availableAreas.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}
+                                    {availableAreas.map(a => <option key={a.id} value={a.id}>{a.name} ({a.zips.join(', ')})</option>)}
                                 </select>
                             </div>
                             {hasActiveFilters && (
