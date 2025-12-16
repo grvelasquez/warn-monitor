@@ -4,7 +4,8 @@ import { Map, Home, TrendingUp, TrendingDown, DollarSign, X, Filter, Layers } fr
 import 'leaflet/dist/leaflet.css';
 import { regions } from './sdarData';
 
-// San Diego center coordinates - focused on the county
+// San Diego center coordinates - focused on the county (zoom=9, minZoom=9)
+// Map settings: zoom=9, minZoom=9, maxZoom=14 to focus on SD County only
 const SD_CENTER = [32.95, -117.10];
 const SD_BOUNDS = [[32.50, -117.60], [33.50, -116.08]];
 
