@@ -1,22 +1,30 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
+import L from 'leaflet';
 import { Map, Home, TrendingUp, TrendingDown, DollarSign, X, Filter, Layers } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 import { regions } from './sdarData';
 
-// San Diego County bounds - tighter focus
-const SD_CENTER = [32.83, -117.05];
-const SD_BOUNDS = [[32.53, -117.45], [33.45, -116.55]];
+// San Diego County bounds - using Leaflet's latLngBounds for proper formatting
+const SD_CENTER = L.latLng(32.83, -117.05);
+const SD_BOUNDS = L.latLngBounds(
+    L.latLng(32.53, -117.45),  // Southwest corner
+    L.latLng(33.45, -116.55)   // Northeast corner
+);
 
-// Component to set view on mount using the actual Leaflet map instance
+// Component to set view on mount - calls setView immediately and on whenReady
 function SetViewOnMount() {
     const map = useMap();
 
     useEffect(() => {
-        // Use whenReady to ensure map is fully initialized
+        // Call immediately
+        map.setView([32.83, -117.05], 10);
+        map.fitBounds(SD_BOUNDS, { padding: [10, 10], maxZoom: 10 });
+
+        // Also call on whenReady as backup
         map.whenReady(() => {
-            map.setView(SD_CENTER, 10);
-            map.fitBounds(SD_BOUNDS, { padding: [10, 10] });
+            map.setView([32.83, -117.05], 10);
+            map.fitBounds(SD_BOUNDS, { padding: [10, 10], maxZoom: 10 });
         });
     }, [map]);
 
