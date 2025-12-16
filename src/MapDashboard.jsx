@@ -8,6 +8,21 @@ import { regions } from './sdarData';
 const SD_CENTER = [32.83, -117.05];
 const SD_BOUNDS = [[32.53, -117.45], [33.45, -116.55]];
 
+// Component to set view on mount using the actual Leaflet map instance
+function SetViewOnMount() {
+    const map = useMap();
+
+    useEffect(() => {
+        // Use whenReady to ensure map is fully initialized
+        map.whenReady(() => {
+            map.setView(SD_CENTER, 10);
+            map.fitBounds(SD_BOUNDS, { padding: [10, 10] });
+        });
+    }, [map]);
+
+    return null;
+}
+
 // Price tier colors (sequential from low to high)
 const PRICE_TIERS = [
     { min: 0, max: 500000, color: '#22c55e', label: 'Under $500K' },
@@ -400,22 +415,16 @@ export default function MapDashboard() {
 
                 {geoData && (
                     <MapContainer
-                        center={SD_CENTER}
-                        zoom={10}
+                        bounds={SD_BOUNDS}
+                        boundsOptions={{ padding: [10, 10] }}
                         minZoom={9}
                         maxZoom={14}
                         className="h-full w-full"
                         maxBounds={SD_BOUNDS}
                         maxBoundsViscosity={1.0}
                         scrollWheelZoom={true}
-                        ref={(map) => {
-                            if (map) {
-                                setTimeout(() => {
-                                    map.fitBounds(SD_BOUNDS, { padding: [20, 20], maxZoom: 10 });
-                                }, 100);
-                            }
-                        }}
                     >
+                        <SetViewOnMount />
                         <TileLayer
                             attribution='&copy; <a href="https://carto.com/">CARTO</a>'
                             url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
