@@ -4,10 +4,20 @@ import { Map, Home, TrendingUp, TrendingDown, DollarSign, X, Filter, Layers } fr
 import 'leaflet/dist/leaflet.css';
 import { regions } from './sdarData';
 
-// San Diego center coordinates - focused on the county (zoom=9, minZoom=9)
-// Map settings: zoom=9, minZoom=9, maxZoom=14 to focus on SD County only
-const SD_CENTER = [32.95, -117.10];
-const SD_BOUNDS = [[32.50, -117.60], [33.50, -116.08]];
+// San Diego County bounds - tighter focus
+const SD_CENTER = [32.83, -117.05];
+const SD_BOUNDS = [[32.53, -117.45], [33.45, -116.55]];
+
+// Component to force map bounds on load
+function FitBounds({ bounds }) {
+    const map = useMap();
+    useEffect(() => {
+        if (bounds) {
+            map.fitBounds(bounds, { padding: [20, 20], maxZoom: 10 });
+        }
+    }, [map, bounds]);
+    return null;
+}
 
 // Price tier colors (sequential from low to high)
 const PRICE_TIERS = [
@@ -402,13 +412,15 @@ export default function MapDashboard() {
                 {geoData && (
                     <MapContainer
                         center={SD_CENTER}
-                        zoom={9}
+                        zoom={10}
                         minZoom={9}
                         maxZoom={14}
                         className="h-full w-full"
                         maxBounds={SD_BOUNDS}
                         maxBoundsViscosity={1.0}
+                        scrollWheelZoom={true}
                     >
+                        <FitBounds bounds={SD_BOUNDS} />
                         <TileLayer
                             attribution='&copy; <a href="https://carto.com/">CARTO</a>'
                             url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
