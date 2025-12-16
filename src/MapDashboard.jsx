@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
 import { Map, Home, TrendingUp, TrendingDown, DollarSign, X, Filter, Layers } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
@@ -7,17 +7,6 @@ import { regions } from './sdarData';
 // San Diego County bounds - tighter focus
 const SD_CENTER = [32.83, -117.05];
 const SD_BOUNDS = [[32.53, -117.45], [33.45, -116.55]];
-
-// Component to force map bounds on load
-function FitBounds({ bounds }) {
-    const map = useMap();
-    useEffect(() => {
-        if (bounds) {
-            map.fitBounds(bounds, { padding: [20, 20], maxZoom: 10 });
-        }
-    }, [map, bounds]);
-    return null;
-}
 
 // Price tier colors (sequential from low to high)
 const PRICE_TIERS = [
@@ -419,8 +408,14 @@ export default function MapDashboard() {
                         maxBounds={SD_BOUNDS}
                         maxBoundsViscosity={1.0}
                         scrollWheelZoom={true}
+                        ref={(map) => {
+                            if (map) {
+                                setTimeout(() => {
+                                    map.fitBounds(SD_BOUNDS, { padding: [20, 20], maxZoom: 10 });
+                                }, 100);
+                            }
+                        }}
                     >
-                        <FitBounds bounds={SD_BOUNDS} />
                         <TileLayer
                             attribution='&copy; <a href="https://carto.com/">CARTO</a>'
                             url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
