@@ -5,26 +5,34 @@ import { Map, Home, TrendingUp, TrendingDown, DollarSign, X, Filter, Layers } fr
 import 'leaflet/dist/leaflet.css';
 import { regions } from './sdarData';
 
-// San Diego County bounds - using Leaflet's latLngBounds for proper formatting
-const SD_CENTER = L.latLng(32.83, -117.05);
-const SD_BOUNDS = L.latLngBounds(
-    L.latLng(32.53, -117.45),  // Southwest corner
-    L.latLng(33.45, -116.55)   // Northeast corner
-);
+// San Diego County coordinates - simple arrays for reliable production builds
+const SD_CENTER = [32.83, -117.05];
+const SD_BOUNDS_COORDS = {
+    south: 32.53,
+    west: -117.45,
+    north: 33.45,
+    east: -116.55
+};
 
-// Component to set view on mount - calls setView immediately and on whenReady
+// Component to set view on mount - creates bounds inside useEffect for production reliability
 function SetViewOnMount() {
     const map = useMap();
 
     useEffect(() => {
-        // Call immediately
-        map.setView([32.83, -117.05], 10);
-        map.fitBounds(SD_BOUNDS, { padding: [10, 10], maxZoom: 10 });
+        // Create bounds using Leaflet inside the effect (after map is ready)
+        const bounds = L.latLngBounds(
+            L.latLng(SD_BOUNDS_COORDS.south, SD_BOUNDS_COORDS.west),
+            L.latLng(SD_BOUNDS_COORDS.north, SD_BOUNDS_COORDS.east)
+        );
 
-        // Also call on whenReady as backup
+        // Set view immediately
+        map.setView(SD_CENTER, 10);
+        map.fitBounds(bounds, { padding: [10, 10], maxZoom: 10 });
+
+        // Also set on whenReady as backup
         map.whenReady(() => {
-            map.setView([32.83, -117.05], 10);
-            map.fitBounds(SD_BOUNDS, { padding: [10, 10], maxZoom: 10 });
+            map.setView(SD_CENTER, 10);
+            map.fitBounds(bounds, { padding: [10, 10], maxZoom: 10 });
         });
     }, [map]);
 
@@ -423,12 +431,12 @@ export default function MapDashboard() {
 
                 {geoData && (
                     <MapContainer
-                        bounds={SD_BOUNDS}
-                        boundsOptions={{ padding: [10, 10] }}
+                        center={SD_CENTER}
+                        zoom={10}
                         minZoom={9}
                         maxZoom={14}
                         className="h-full w-full"
-                        maxBounds={SD_BOUNDS}
+                        maxBounds={[[SD_BOUNDS_COORDS.south, SD_BOUNDS_COORDS.west], [SD_BOUNDS_COORDS.north, SD_BOUNDS_COORDS.east]]}
                         maxBoundsViscosity={1.0}
                         scrollWheelZoom={true}
                     >
