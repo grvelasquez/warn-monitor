@@ -411,7 +411,7 @@ export default function MapDashboard() {
             </div>
 
             {/* Map Container */}
-            <div className="relative h-[calc(100vh-220px)] min-h-[500px]">
+            <div className="relative h-[calc(100vh-280px)] min-h-[400px]">
                 <style>{`
           .leaflet-tooltip-custom {
             background: rgba(17, 24, 39, 0.95) !important;
