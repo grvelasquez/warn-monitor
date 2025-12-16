@@ -319,7 +319,7 @@ export default function MapDashboard() {
     return (
         <div className="min-h-screen bg-gray-950">
             {/* Header */}
-            <div className="sticky top-0 z-50 p-4 sm:p-6 border-b border-gray-800 bg-gray-950/95 backdrop-blur-sm">
+            <div className="sticky top-14 z-40 p-4 sm:p-6 border-b border-gray-800 bg-gray-950/95 backdrop-blur-sm">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
