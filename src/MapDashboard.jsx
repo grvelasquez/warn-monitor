@@ -27,7 +27,7 @@ function SetViewOnMount() {
 
         // Function to properly initialize the map
         const initializeMap = () => {
-            map.invalidateSize();  // Force recalculation of map size
+            map.invalidateSize({ animate: false });  // Force recalculation of map size
             map.setView(SD_CENTER, 10);
             map.fitBounds(bounds, { padding: [10, 10], maxZoom: 10 });
         };
@@ -35,13 +35,25 @@ function SetViewOnMount() {
         // Call immediately
         initializeMap();
 
-        // Call again after a short delay to handle hidden tab rendering
-        const timeout = setTimeout(initializeMap, 100);
+        // Call multiple times with staggered delays to ensure it catches the right moment
+        const timeouts = [
+            setTimeout(initializeMap, 100),
+            setTimeout(initializeMap, 300),
+            setTimeout(initializeMap, 500),
+            setTimeout(initializeMap, 1000)
+        ];
 
-        // Also call on whenReady as backup
+        // Also call on whenReady
         map.whenReady(initializeMap);
 
-        return () => clearTimeout(timeout);
+        // Listen for window resize to handle any edge cases
+        const handleResize = () => map.invalidateSize({ animate: false });
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            timeouts.forEach(t => clearTimeout(t));
+            window.removeEventListener('resize', handleResize);
+        };
     }, [map]);
 
     return null;
