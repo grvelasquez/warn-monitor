@@ -25,15 +25,23 @@ function SetViewOnMount() {
             L.latLng(SD_BOUNDS_COORDS.north, SD_BOUNDS_COORDS.east)
         );
 
-        // Set view immediately
-        map.setView(SD_CENTER, 10);
-        map.fitBounds(bounds, { padding: [10, 10], maxZoom: 10 });
-
-        // Also set on whenReady as backup
-        map.whenReady(() => {
+        // Function to properly initialize the map
+        const initializeMap = () => {
+            map.invalidateSize();  // Force recalculation of map size
             map.setView(SD_CENTER, 10);
             map.fitBounds(bounds, { padding: [10, 10], maxZoom: 10 });
-        });
+        };
+
+        // Call immediately
+        initializeMap();
+
+        // Call again after a short delay to handle hidden tab rendering
+        const timeout = setTimeout(initializeMap, 100);
+
+        // Also call on whenReady as backup
+        map.whenReady(initializeMap);
+
+        return () => clearTimeout(timeout);
     }, [map]);
 
     return null;
