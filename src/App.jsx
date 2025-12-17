@@ -133,9 +133,11 @@ export default function App() {
       <div className={activeView === 'neighborhoods' ? 'block' : 'hidden'}>
         <NeighborhoodEvolution />
       </div>
-      <div className={activeView === 'map' ? 'block' : 'hidden'}>
-        <MapDashboard />
-      </div>
+      {activeView === 'map' && (
+        <div className="block">
+          <MapDashboard />
+        </div>
+      )}
       <div className={activeView === 'warn' ? 'block' : 'hidden'}>
         <WarnDashboard />
       </div>
