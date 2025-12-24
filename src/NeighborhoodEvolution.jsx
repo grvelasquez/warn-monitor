@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Line } from 'recharts';
-import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown } from 'lucide-react';
+import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown, Shield } from 'lucide-react';
 
 // Region groupings by ZIP prefix (for SDAR)
 const REGIONS = {
@@ -106,6 +106,7 @@ function NeighborhoodCard({ data, isSelected, onClick }) {
 
 export default function NeighborhoodEvolution() {
     const [sdarData, setSdarData] = useState(null);
+    const [militaryData, setMilitaryData] = useState({});
 
     const [zillowData, setZillowData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -134,6 +135,24 @@ export default function NeighborhoodEvolution() {
                 if (zillowRes.ok) {
                     const data = await zillowRes.json();
                     setZillowData(data);
+                }
+
+                // Fetch military data
+                const militaryRes = await fetch('/data/military_income_floor_2025.csv');
+                if (militaryRes.ok) {
+                    const text = await militaryRes.text();
+                    const rows = text.split('\n').filter(row => row.trim() !== '');
+                    const headers = rows[0].split(',');
+                    const parsed = {};
+                    rows.slice(1).forEach(row => {
+                        const values = row.split(',');
+                        const obj = headers.reduce((acc, h, i) => {
+                            acc[h.trim()] = values[i]?.trim();
+                            return acc;
+                        }, {});
+                        parsed[obj.zip_code] = obj;
+                    });
+                    setMilitaryData(parsed);
                 }
             } catch (err) {
                 console.error('Failed to load data:', err);
@@ -424,6 +443,48 @@ export default function NeighborhoodEvolution() {
                                 </div>
                             </div>
                         </div>
+
+                        {/* Military Income Floor Data */}
+                        {militaryData[selectedNeighborhood.zip_code] && (
+                            <div className="bg-gray-900/50 rounded-xl p-5 border border-gray-800">
+                                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                                    <Shield className="w-5 h-5 text-indigo-400" />
+                                    Military Income Floor (2025)
+                                </h3>
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${militaryData[selectedNeighborhood.zip_code].mha_code === 'CA024'
+                                                ? 'bg-teal-900/30 text-teal-400'
+                                                : 'bg-blue-900/30 text-blue-400'
+                                            }`}>
+                                            {militaryData[selectedNeighborhood.zip_code].zone}
+                                        </span>
+                                        <span className="text-xs text-gray-500">
+                                            MHA {militaryData[selectedNeighborhood.zip_code].mha_code}
+                                        </span>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <div className="bg-gray-800/50 rounded-lg p-3">
+                                            <p className="text-xs text-gray-500">E-5 Single</p>
+                                            <p className="text-lg font-bold text-indigo-400">
+                                                ${parseInt(militaryData[selectedNeighborhood.zip_code].income_e5_without_dep).toLocaleString()}
+                                            </p>
+                                            <p className="text-xs text-gray-600">BAH: ${parseInt(militaryData[selectedNeighborhood.zip_code].bah_e5_without_dep).toLocaleString()}</p>
+                                        </div>
+                                        <div className="bg-gray-800/50 rounded-lg p-3">
+                                            <p className="text-xs text-gray-500">E-5 w/ Dependents</p>
+                                            <p className="text-lg font-bold text-emerald-400">
+                                                ${parseInt(militaryData[selectedNeighborhood.zip_code].income_e5_with_dep).toLocaleString()}
+                                            </p>
+                                            <p className="text-xs text-gray-600">BAH: ${parseInt(militaryData[selectedNeighborhood.zip_code].bah_e5_with_dep).toLocaleString()}</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-xs text-gray-500 mt-2">
+                                        Income Floor = Base Pay + BAH + BAS. BAH is tax-free.
+                                    </p>
+                                </div>
+                            </div>
+                        )}
 
                     </div>
                 )}

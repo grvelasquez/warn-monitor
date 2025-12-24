@@ -1,0 +1,76 @@
+zip_code,city,zone,mha_code,income_e5_with_dep,income_e5_without_dep,bah_e5_with_dep,bah_e5_without_dep
+91901,Alpine,Metro San Diego,CA038,7650,6750,3987,3132
+91902,Bonita,Metro San Diego,CA038,7650,6750,3987,3132
+91910,Chula Vista North,Metro San Diego,CA038,7650,6750,3987,3132
+91911,Chula Vista South,Metro San Diego,CA038,7650,6750,3987,3132
+91913,Chula Vista Eastlake,Metro San Diego,CA038,7650,6750,3987,3132
+91914,Chula Vista NE,Metro San Diego,CA038,7650,6750,3987,3132
+91915,Chula Vista SE,Metro San Diego,CA038,7650,6750,3987,3132
+91932,Imperial Beach,Metro San Diego,CA038,7650,6750,3987,3132
+91935,Jamul,Metro San Diego,CA038,7650,6750,3987,3132
+91941,La Mesa Mount Helix,Metro San Diego,CA038,7650,6750,3987,3132
+91942,La Mesa Grossmont,Metro San Diego,CA038,7650,6750,3987,3132
+91945,Lemon Grove,Metro San Diego,CA038,7650,6750,3987,3132
+91950,National City,Metro San Diego,CA038,7650,6750,3987,3132
+92003,Bonsall,Camp Pendleton Area,CA024,7580,6700,3921,3084
+92007,Cardiff,Metro San Diego,CA038,7650,6750,3987,3132
+92008,Carlsbad NW,Metro San Diego,CA038,7650,6750,3987,3132
+92009,Carlsbad SE,Metro San Diego,CA038,7650,6750,3987,3132
+92010,Carlsbad NE,Metro San Diego,CA038,7650,6750,3987,3132
+92011,Carlsbad SW,Metro San Diego,CA038,7650,6750,3987,3132
+92014,Del Mar,Metro San Diego,CA038,7650,6750,3987,3132
+92024,Encinitas,Metro San Diego,CA038,7650,6750,3987,3132
+92025,Escondido South,Metro San Diego,CA038,7650,6750,3987,3132
+92026,Escondido North,Metro San Diego,CA038,7650,6750,3987,3132
+92027,Escondido East,Metro San Diego,CA038,7650,6750,3987,3132
+92028,Fallbrook,Camp Pendleton Area,CA024,7580,6700,3921,3084
+92029,Escondido West,Metro San Diego,CA038,7650,6750,3987,3132
+92037,La Jolla,Metro San Diego,CA038,7650,6750,3987,3132
+92040,Lakeside,Metro San Diego,CA038,7650,6750,3987,3132
+92054,Oceanside South,Camp Pendleton Area,CA024,7580,6700,3921,3084
+92055,Camp Pendleton,Camp Pendleton Area,CA024,7580,6700,3921,3084
+92056,Oceanside East,Camp Pendleton Area,CA024,7580,6700,3921,3084
+92057,Oceanside North,Camp Pendleton Area,CA024,7580,6700,3921,3084
+92058,Oceanside,Camp Pendleton Area,CA024,7580,6700,3921,3084
+92064,Poway,Metro San Diego,CA038,7650,6750,3987,3132
+92065,Ramona,Metro San Diego,CA038,7650,6750,3987,3132
+92067,Rancho Santa Fe,Metro San Diego,CA038,7650,6750,3987,3132
+92069,San Marcos,Metro San Diego,CA038,7650,6750,3987,3132
+92071,Santee,Metro San Diego,CA038,7650,6750,3987,3132
+92075,Solana Beach,Metro San Diego,CA038,7650,6750,3987,3132
+92078,San Marcos South,Metro San Diego,CA038,7650,6750,3987,3132
+92081,Vista South,Camp Pendleton Area,CA024,7580,6700,3921,3084
+92082,Valley Center,Metro San Diego,CA038,7650,6750,3987,3132
+92083,Vista West,Camp Pendleton Area,CA024,7580,6700,3921,3084
+92084,Vista East,Camp Pendleton Area,CA024,7580,6700,3921,3084
+92101,Downtown,Metro San Diego,CA038,7650,6750,3987,3132
+92102,Golden Hill,Metro San Diego,CA038,7650,6750,3987,3132
+92103,Hillcrest,Metro San Diego,CA038,7650,6750,3987,3132
+92104,North Park,Metro San Diego,CA038,7650,6750,3987,3132
+92105,City Heights,Metro San Diego,CA038,7650,6750,3987,3132
+92106,Point Loma,Metro San Diego,CA038,7650,6750,3987,3132
+92107,Ocean Beach,Metro San Diego,CA038,7650,6750,3987,3132
+92108,Mission Valley,Metro San Diego,CA038,7650,6750,3987,3132
+92109,Pacific Beach,Metro San Diego,CA038,7650,6750,3987,3132
+92110,Morena,Metro San Diego,CA038,7650,6750,3987,3132
+92111,Linda Vista,Metro San Diego,CA038,7650,6750,3987,3132
+92113,Logan Heights,Metro San Diego,CA038,7650,6750,3987,3132
+92114,Encanto,Metro San Diego,CA038,7650,6750,3987,3132
+92115,College,Metro San Diego,CA038,7650,6750,3987,3132
+92116,Kensington,Metro San Diego,CA038,7650,6750,3987,3132
+92117,Clairemont,Metro San Diego,CA038,7650,6750,3987,3132
+92118,Coronado,Metro San Diego,CA038,7650,6750,3987,3132
+92119,San Carlos,Metro San Diego,CA038,7650,6750,3987,3132
+92120,Allied Gardens,Metro San Diego,CA038,7650,6750,3987,3132
+92122,University City,Metro San Diego,CA038,7650,6750,3987,3132
+92123,Serra Mesa,Metro San Diego,CA038,7650,6750,3987,3132
+92124,Tierrasanta,Metro San Diego,CA038,7650,6750,3987,3132
+92126,Mira Mesa,Metro San Diego,CA038,7650,6750,3987,3132
+92127,Del Sur 4S Ranch,Metro San Diego,CA038,7650,6750,3987,3132
+92128,Rancho Bernardo,Metro San Diego,CA038,7650,6750,3987,3132
+92129,Penasquitos,Metro San Diego,CA038,7650,6750,3987,3132
+92130,Carmel Valley,Metro San Diego,CA038,7650,6750,3987,3132
+92131,Scripps Ranch,Metro San Diego,CA038,7650,6750,3987,3132
+92139,Paradise Hills,Metro San Diego,CA038,7650,6750,3987,3132
+92154,Otay Mesa,Metro San Diego,CA038,7650,6750,3987,3132
+92173,San Ysidro,Metro San Diego,CA038,7650,6750,3987,3132

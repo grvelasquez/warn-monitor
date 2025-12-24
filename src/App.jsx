@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map } from 'lucide-react';
+import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote } from 'lucide-react';
 import WarnDashboard from './WarnDashboard';
 import SDARDashboard from './SDARDashboard';
 import LendingDashboard from './LendingDashboard';
@@ -8,6 +8,7 @@ import WeatherDashboard from './WeatherDashboard';
 import GentrificationDashboard from './GentrificationDashboard';
 import NeighborhoodEvolution from './NeighborhoodEvolution';
 import MapDashboard from './MapDashboard';
+import VotingDashboard from './VotingDashboard';
 
 
 export default function App() {
@@ -99,6 +100,16 @@ export default function App() {
                   <span className="hidden sm:inline">Map</span>
                 </button>
                 <button
+                  onClick={() => setActiveView('voting')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'voting'
+                    ? 'bg-violet-600 text-white shadow-lg shadow-violet-600/25'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                >
+                  <Vote className="w-4 h-4" />
+                  <span className="hidden sm:inline">Voting</span>
+                </button>
+                <button
                   onClick={() => setActiveView('warn')}
                   className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'warn'
                     ? 'bg-red-600 text-white shadow-lg shadow-red-600/25'
@@ -136,6 +147,11 @@ export default function App() {
       {activeView === 'map' && (
         <div className="block">
           <MapDashboard />
+        </div>
+      )}
+      {activeView === 'voting' && (
+        <div className="block">
+          <VotingDashboard />
         </div>
       )}
       <div className={activeView === 'warn' ? 'block' : 'hidden'}>
