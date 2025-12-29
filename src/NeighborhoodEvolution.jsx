@@ -1,16 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Line } from 'recharts';
-import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown, Shield } from 'lucide-react';
-
-// Region groupings by ZIP prefix (for SDAR)
-const REGIONS = {
-    all: { label: 'All', zips: null },
-    downtown: { label: 'Downtown/Central', zips: ['92101', '92102', '92103', '92104', '92105', '92108', '92110', '92111', '92113', '92114', '92115', '92116'] },
-    coastal: { label: 'Coastal', zips: ['92106', '92107', '92109', '92118', '92037', '92014', '92024', '92007', '92075', '92130'] },
-    north: { label: 'North County', zips: ['92054', '92056', '92057', '92058', '92008', '92009', '92010', '92011', '92064', '92065', '92067', '92069', '92078', '92081', '92082', '92083', '92084', '92091'] },
-    east: { label: 'East County', zips: ['91901', '91941', '91942', '91945', '92040', '92071', '92119', '92120', '92124', '92131', '92127', '92128', '92129'] },
-    south: { label: 'South Bay', zips: ['91902', '91910', '91911', '91913', '91914', '91915', '91932', '91935', '91945', '91950', '92139', '92154', '92173'] },
-};
+import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown, Shield, X } from 'lucide-react';
+import { regions } from './sdarData';
 
 // Map Yelp neighborhoods to SDAR zip codes
 
@@ -111,6 +102,7 @@ export default function NeighborhoodEvolution() {
     const [zillowData, setZillowData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [selectedRegion, setSelectedRegion] = useState('all');
+    const [selectedArea, setSelectedArea] = useState('all');
     const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
     const [activeView, setActiveView] = useState('overview');
     const [sortBy, setSortBy] = useState('name');
@@ -175,14 +167,40 @@ export default function NeighborhoodEvolution() {
         return map;
     }, [zillowData]);
 
-    // Filter neighborhoods by region
+    // Available areas based on region selection
+    const availableAreas = useMemo(() => {
+        if (selectedRegion === 'all') {
+            return Object.values(regions).filter(r => r.areas).flatMap(r => r.areas);
+        }
+        return regions[selectedRegion]?.areas || [];
+    }, [selectedRegion]);
+
+    // Clear filters function
+    const clearFilters = () => {
+        setSelectedRegion('all');
+        setSelectedArea('all');
+        setSelectedNeighborhood(null);
+    };
+
+    const hasActiveFilters = selectedRegion !== 'all' || selectedArea !== 'all';
+
+    // Filter neighborhoods by region and area
     const filteredNeighborhoods = useMemo(() => {
         if (!sdarData?.neighborhoods) return [];
 
         let filtered = sdarData.neighborhoods;
 
-        if (selectedRegion !== 'all' && REGIONS[selectedRegion]?.zips) {
-            filtered = filtered.filter(n => REGIONS[selectedRegion].zips.includes(n.zip_code));
+        // Filter by selected area (specific neighborhood with zips)
+        if (selectedArea !== 'all') {
+            const area = availableAreas.find(a => a.id === selectedArea);
+            if (area?.zips) {
+                filtered = filtered.filter(n => area.zips.includes(n.zip_code));
+            }
+        } else if (selectedRegion !== 'all') {
+            // Filter by region if no specific area selected
+            const regionAreas = regions[selectedRegion]?.areas || [];
+            const regionZips = regionAreas.flatMap(a => a.zips);
+            filtered = filtered.filter(n => regionZips.includes(n.zip_code));
         }
 
         // Sort
@@ -215,7 +233,7 @@ export default function NeighborhoodEvolution() {
 
 
         return filtered;
-    }, [sdarData, selectedRegion, sortBy, propertyType]);
+    }, [sdarData, selectedRegion, selectedArea, availableAreas, sortBy, propertyType]);
 
 
 
@@ -288,57 +306,67 @@ export default function NeighborhoodEvolution() {
 
                 </div>
 
-                {/* Filters Row */}
-                <div className="flex flex-wrap items-center gap-4 mb-4">
-                    <div className="flex items-center gap-2">
-                        <Filter className="w-4 h-4 text-gray-400" />
-                        <span className="text-sm text-gray-400">Region:</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                        {Object.entries(REGIONS).map(([key, { label }]) => (
-                            <button
-                                key={key}
-                                onClick={() => {
-                                    setSelectedRegion(key);
-                                    setSelectedNeighborhood(null);
-                                }}
-                                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${selectedRegion === key
-                                    ? 'bg-indigo-600 text-white'
-                                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-                                    }`}
+                {/* Filter Panel - Matching Real Estate Tab */}
+                <div className="mb-6 p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl">
+                    <div className="flex flex-wrap gap-4 items-end">
+                        <div className="flex-1 min-w-[160px]">
+                            <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wide">Region</label>
+                            <select
+                                value={selectedRegion}
+                                onChange={(e) => { setSelectedRegion(e.target.value); setSelectedArea('all'); setSelectedNeighborhood(null); }}
+                                className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300"
                             >
-                                {label}
+                                <option value="all">All San Diego</option>
+                                <option value="northCoast">🌊 North Coast</option>
+                                <option value="northInland">🏔️ North Inland</option>
+                                <option value="centralCoastal">🏖️ Central Coastal</option>
+                                <option value="central">🏘️ Central</option>
+                                <option value="eastSuburbs">🏡 East Suburbs</option>
+                                <option value="eastCounty">⛰️ East County</option>
+                                <option value="southBay">🌴 South Bay</option>
+                            </select>
+                        </div>
+                        <div className="flex-1 min-w-[160px]">
+                            <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wide">Neighborhood</label>
+                            <select
+                                value={selectedArea}
+                                onChange={(e) => { setSelectedArea(e.target.value); setSelectedNeighborhood(null); }}
+                                disabled={availableAreas.length === 0}
+                                className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300 disabled:opacity-50"
+                            >
+                                <option value="all">All Areas</option>
+                                {availableAreas.map(a => <option key={a.id} value={a.id}>{a.name} ({a.zips.join(', ')})</option>)}
+                            </select>
+                        </div>
+                        <div className="flex-1 min-w-[120px]">
+                            <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wide">Property Type</label>
+                            <select
+                                value={propertyType}
+                                onChange={(e) => setPropertyType(e.target.value)}
+                                className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300"
+                            >
+                                <option value="detached">🏠 Detached Homes</option>
+                                <option value="attached">🏢 Attached/Condos</option>
+                            </select>
+                        </div>
+                        <div className="flex-1 min-w-[120px]">
+                            <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wide">Sort By</label>
+                            <select
+                                value={sortBy}
+                                onChange={(e) => setSortBy(e.target.value)}
+                                className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300"
+                            >
+                                <option value="name">Name</option>
+                                <option value="price">Price (High→Low)</option>
+                                <option value="change">YoY Change</option>
+                                <option value="dom">Days on Market</option>
+                            </select>
+                        </div>
+                        {hasActiveFilters && (
+                            <button onClick={clearFilters} className="flex items-center gap-1.5 px-3 py-2 text-sm text-slate-400 hover:text-rose-400 hover:bg-rose-900/20 rounded-lg transition-all font-medium">
+                                <X className="w-4 h-4" /> Clear
                             </button>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Sort & Property Type */}
-                <div className="flex flex-wrap items-center gap-4 mb-6">
-                    <div className="flex items-center gap-2">
-                        <ArrowUpDown className="w-4 h-4 text-gray-400" />
-                        <select
-                            value={sortBy}
-                            onChange={(e) => setSortBy(e.target.value)}
-                            className="bg-gray-800 text-white text-sm rounded-lg px-3 py-1.5 border border-gray-700"
-                        >
-                            <option value="name">Sort by Name</option>
-                            <option value="price">Sort by Price (High→Low)</option>
-                            <option value="change">Sort by YoY Change</option>
-                            <option value="dom">Sort by Days on Market</option>
-
-                        </select>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Home className="w-4 h-4 text-gray-400" />
-                        <select
-                            value={propertyType}
-                            onChange={(e) => setPropertyType(e.target.value)}
-                            className="bg-gray-800 text-white text-sm rounded-lg px-3 py-1.5 border border-gray-700"
-                        >
-                            <option value="detached">Detached Homes</option>
-                            <option value="attached">Attached/Condos</option>
-                        </select>
+                        )}
                     </div>
                 </div>
 
@@ -454,8 +482,8 @@ export default function NeighborhoodEvolution() {
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-2 mb-3">
                                         <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${militaryData[selectedNeighborhood.zip_code].mha_code === 'CA024'
-                                                ? 'bg-teal-900/30 text-teal-400'
-                                                : 'bg-blue-900/30 text-blue-400'
+                                            ? 'bg-teal-900/30 text-teal-400'
+                                            : 'bg-blue-900/30 text-blue-400'
                                             }`}>
                                             {militaryData[selectedNeighborhood.zip_code].zone}
                                         </span>
