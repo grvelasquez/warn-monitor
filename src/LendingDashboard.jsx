@@ -116,18 +116,21 @@ function KeyIndicatorsPanel({ homePriceData, lendingData, formatPercent }) {
 
 export default function LendingDashboard() {
     const [data, setData] = useState(null);
-    const [homePriceData, setHomePriceData] = useState(null);
+    const [homePriceData, setHomePriceData] = useState(null);  // San Diego HPI
+    const [usHomePriceData, setUsHomePriceData] = useState(null);  // US National HPI
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         Promise.all([
             fetch('/data/lending_data.json').then(res => res.ok ? res.json() : null),
-            fetch('/data/home_price_index.json').then(res => res.ok ? res.json() : null)
+            fetch('/data/home_price_index.json').then(res => res.ok ? res.json() : null),  // SD
+            fetch('/data/us_home_price_index.json').then(res => res.ok ? res.json() : null)  // US National
         ])
-            .then(([lendingData, hpiData]) => {
+            .then(([lendingData, sdHpiData, usHpiData]) => {
                 setData(lendingData);
-                setHomePriceData(hpiData);
+                setHomePriceData(sdHpiData);
+                setUsHomePriceData(usHpiData);
             })
             .catch(err => {
                 console.error('Error loading data:', err);
@@ -275,7 +278,7 @@ export default function LendingDashboard() {
                     </div>
 
                     {/* Key Indicators Panel */}
-                    <KeyIndicatorsPanel homePriceData={homePriceData} lendingData={lendingData} formatPercent={formatPercent} />
+                    <KeyIndicatorsPanel homePriceData={usHomePriceData} lendingData={lendingData} formatPercent={formatPercent} />
                 </div>
 
                 {/* Loan Limits & Market Metrics */}

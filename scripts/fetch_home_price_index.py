@@ -13,8 +13,14 @@ from pathlib import Path
 FRED_API_KEY = "a72b02db4318645167d222b3d497ae02"
 FRED_BASE_URL = "https://api.stlouisfed.org/fred/series/observations"
 
+# San Diego Home Price Index series
+SD_HOME_PRICE_SERIES = {
+    "SDXRSA": {"name": "Seasonally Adjusted", "key": "sa"},
+    "SDXRNSA": {"name": "Not Seasonally Adjusted", "key": "nsa"},
+}
+
 # U.S. National Home Price Index series (Case-Shiller)
-HOME_PRICE_SERIES = {
+US_HOME_PRICE_SERIES = {
     "CSUSHPISA": {"name": "Seasonally Adjusted", "key": "sa"},
     "CSUSHPINSA": {"name": "Not Seasonally Adjusted", "key": "nsa"},
 }
@@ -84,16 +90,16 @@ def build_history(sa_obs: list, nsa_obs: list, limit: int = 36) -> list:
     return history
 
 
-def fetch_home_price_data() -> dict:
-    """Fetch all home price index data and compile into JSON."""
-    print("Fetching U.S. National Home Price Index data from FRED...")
+def fetch_home_price_data(sa_series: str, nsa_series: str, description: str) -> dict:
+    """Fetch home price index data and compile into JSON."""
+    print(f"Fetching {description} data from FRED...")
     
     # Fetch series
-    sa_obs = fetch_fred_series("CSUSHPISA", 60)
-    nsa_obs = fetch_fred_series("CSUSHPINSA", 60)
+    sa_obs = fetch_fred_series(sa_series, 60)
+    nsa_obs = fetch_fred_series(nsa_series, 60)
     
     if not sa_obs and not nsa_obs:
-        print("Warning: No data fetched from FRED")
+        print(f"Warning: No data fetched for {description}")
         return None
     
     # Current values
@@ -126,7 +132,7 @@ def fetch_home_price_data() -> dict:
             "generated": datetime.now().isoformat(),
             "source": "FRED (S&P CoreLogic Case-Shiller)",
             "lastUpdate": sa_obs[0]["date"] if sa_obs else None,
-            "description": "S&P CoreLogic Case-Shiller U.S. National Home Price Index (Jan 2000 = 100)"
+            "description": description
         },
         "current": current,
         "changes": changes,
@@ -148,17 +154,27 @@ def save_data(data: dict, output_path: str):
 
 
 def main():
-    output_path = Path(__file__).parent.parent / "public" / "data" / "home_price_index.json"
+    base_path = Path(__file__).parent.parent / "public" / "data"
     
-    data = fetch_home_price_data()
-    if data:
-        save_data(data, str(output_path))
-        
-        print(f"\nCurrent SA Index: {data['current']['seasonallyAdjusted']['value']}")
-        print(f"Current NSA Index: {data['current']['notSeasonallyAdjusted']['value']}")
-        print(f"YoY Change (SA): {data['changes']['yearOverYear']['sa']}%")
-    else:
-        print("Failed to fetch data")
+    # Fetch San Diego HPI (for main panel)
+    sd_data = fetch_home_price_data(
+        "SDXRSA", "SDXRNSA", 
+        "S&P CoreLogic Case-Shiller CA-San Diego Home Price Index (Jan 2000 = 100)"
+    )
+    if sd_data:
+        save_data(sd_data, str(base_path / "home_price_index.json"))
+        print(f"\nSan Diego SA Index: {sd_data['current']['seasonallyAdjusted']['value']}")
+        print(f"San Diego YoY Change (SA): {sd_data['changes']['yearOverYear']['sa']}%")
+    
+    # Fetch US National HPI (for key indicators panel)
+    us_data = fetch_home_price_data(
+        "CSUSHPISA", "CSUSHPINSA",
+        "S&P CoreLogic Case-Shiller U.S. National Home Price Index (Jan 2000 = 100)"
+    )
+    if us_data:
+        save_data(us_data, str(base_path / "us_home_price_index.json"))
+        print(f"\nUS National SA Index: {us_data['current']['seasonallyAdjusted']['value']}")
+        print(f"US National YoY Change (SA): {us_data['changes']['yearOverYear']['sa']}%")
 
 
 if __name__ == "__main__":
