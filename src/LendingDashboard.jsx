@@ -11,9 +11,7 @@ const defaultData = {
     sanDiego: { unemploymentRate: 4.2 }
 };
 
-// San Diego median values for affordability calc (from SDAR data)
-const SD_MEDIAN_HOME_PRICE = 895000;
-const SD_MEDIAN_INCOME = 106900;
+
 
 // Format functions
 const formatPercent = (val) => val !== undefined && val !== null ? `${val.toFixed(2)}%` : 'N/A';
@@ -74,62 +72,44 @@ function MetricCard({ title, value, subtext, trend, format = 'number' }) {
     );
 }
 
-function AffordabilityGauge({ rate30 }) {
-    // Calculate monthly payment based on current rate
-    const loanAmount = SD_MEDIAN_HOME_PRICE * 0.8; // 20% down
-    const monthlyRate = rate30 / 100 / 12;
-    const months = 360;
-    const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
-
-    // Calculate DTI based on median income
-    const monthlyIncome = SD_MEDIAN_INCOME / 12;
-    const dti = Math.round((monthlyPayment / monthlyIncome) * 100);
-    const priceToIncome = (SD_MEDIAN_HOME_PRICE / SD_MEDIAN_INCOME).toFixed(1);
-
-    const getColor = (val) => {
-        if (val <= 36) return 'bg-green-500';
-        if (val <= 43) return 'bg-yellow-500';
-        if (val <= 50) return 'bg-orange-500';
-        return 'bg-red-500';
-    };
-
-    const getLabel = (val) => {
-        if (val <= 36) return 'Ideal';
-        if (val <= 43) return 'Acceptable';
-        if (val <= 50) return 'Stretched';
-        return 'Challenging';
-    };
+function KeyIndicatorsPanel({ homePriceData, lendingData, formatPercent }) {
+    const caseShillerValue = homePriceData?.current?.seasonallyAdjusted?.value;
+    const caseShillerChange = homePriceData?.changes?.yearOverYear?.sa;
+    const caseShillerDate = homePriceData?.current?.seasonallyAdjusted?.date;
+    const unemploymentRate = lendingData?.sanDiego?.unemploymentRate || 4.2;
+    const fedFundsRate = lendingData?.currentRates?.fedFunds || 5.33;
 
     return (
         <div className="space-y-4">
+            {/* Case Shiller Index */}
             <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
-                <p className="text-sm font-medium text-slate-400 mb-3">Debt-to-Income Ratio</p>
-                <div className="relative h-3 bg-slate-700 rounded-full overflow-hidden mb-2">
-                    <div
-                        className={`absolute left-0 top-0 h-full ${getColor(dti)} transition-all`}
-                        style={{ width: `${Math.min(dti, 100)}%` }}
-                    />
-                    <div className="absolute left-[36%] top-0 h-full w-0.5 bg-slate-600" />
-                    <div className="absolute left-[43%] top-0 h-full w-0.5 bg-slate-600" />
+                <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">Case-Shiller Index</p>
+                <div className="flex items-center justify-between">
+                    <p className="text-2xl font-bold text-orange-400">
+                        {caseShillerValue ? caseShillerValue.toFixed(1) : 'N/A'}
+                    </p>
+                    {caseShillerChange !== undefined && (
+                        <span className={`text-xs px-2 py-0.5 rounded ${caseShillerChange >= 0 ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+                            {caseShillerChange >= 0 ? '+' : ''}{caseShillerChange}% YoY
+                        </span>
+                    )}
                 </div>
-                <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-white">{dti}%</span>
-                    <span className={`text-xs px-2 py-0.5 rounded ${getColor(dti)} text-white`}>{getLabel(dti)}</span>
-                </div>
-                <p className="text-xs text-slate-500 mt-1">Based on SD median income & home price</p>
+                <p className="text-xs text-slate-500 mt-1">S&P CoreLogic • {caseShillerDate || 'Updated monthly'}</p>
             </div>
-            <MetricCard
-                title="Monthly Payment"
-                value={Math.round(monthlyPayment)}
-                subtext={`@ ${formatPercent(rate30)} rate, 20% down`}
-                format="currency"
-            />
-            <MetricCard
-                title="Price-to-Income"
-                value={parseFloat(priceToIncome)}
-                subtext="Median home / Median income"
-                format="number"
-            />
+
+            {/* SD Unemployment */}
+            <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
+                <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">SD Unemployment Rate</p>
+                <p className="text-2xl font-bold text-blue-400">{formatPercent(unemploymentRate)}</p>
+                <p className="text-xs text-slate-500 mt-1">San Diego County • FRED</p>
+            </div>
+
+            {/* Fed Funds Rate */}
+            <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
+                <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">Fed Funds Rate</p>
+                <p className="text-2xl font-bold text-teal-400">{formatPercent(fedFundsRate)}</p>
+                <p className="text-xs text-slate-500 mt-1">FOMC Target • Updated weekly</p>
+            </div>
         </div>
     );
 }
@@ -294,8 +274,8 @@ export default function LendingDashboard() {
                         )}
                     </div>
 
-                    {/* Affordability Panel */}
-                    <AffordabilityGauge rate30={lendingData.currentRates.rate30} />
+                    {/* Key Indicators Panel */}
+                    <KeyIndicatorsPanel homePriceData={homePriceData} lendingData={lendingData} formatPercent={formatPercent} />
                 </div>
 
                 {/* Loan Limits & Market Metrics */}
