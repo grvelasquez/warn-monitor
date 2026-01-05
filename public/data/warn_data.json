@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2025-12-25T17:12:11.622652",
+    "generated": "2026-01-01T17:13:32.801761",
     "county": "San Diego",
-    "total_notices": 79,
-    "total_employees_affected": 3172
+    "total_notices": 80,
+    "total_employees_affected": 3173
   },
   "notices": [
     {
@@ -874,6 +874,17 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "University City"
+    },
+    {
+      "notice_id": "9ffa2124",
+      "company_name": "Illumina, Inc.",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 1,
+      "layoff_date": "2025-12-22",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
     }
   ],
   "risk_scores": {
@@ -1128,7 +1139,7 @@
     "92122": {
       "score": 27,
       "risk_level": "Moderate",
-      "total_employees": 135,
+      "total_employees": 136,
       "factors": [
         "9 employees affected",
         "Plant closure",
@@ -1138,7 +1149,8 @@
         "4 employees affected",
         "28 employees affected",
         "8 employees affected",
-        "7 employees affected"
+        "7 employees affected",
+        "1 employees affected"
       ]
     },
     "92154": {
@@ -1160,8 +1172,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 38,
-      "total_employees": 1462
+      "notice_count": 39,
+      "total_employees": 1463
     },
     "South County": {
       "notice_count": 7,
