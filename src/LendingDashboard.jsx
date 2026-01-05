@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
-import { TrendingUp, TrendingDown, DollarSign, Home, Users, Calendar, ArrowUpRight, ArrowDownRight } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { TrendingUp, TrendingDown, DollarSign, Home, Users, Calendar, ArrowUpRight, ArrowDownRight, BarChart3 } from 'lucide-react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 
 // Default static data as fallback
 const defaultData = {
@@ -136,18 +136,21 @@ function AffordabilityGauge({ rate30 }) {
 
 export default function LendingDashboard() {
     const [data, setData] = useState(null);
+    const [homePriceData, setHomePriceData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('/data/lending_data.json')
-            .then(res => {
-                if (!res.ok) throw new Error('Failed to load data');
-                return res.json();
+        Promise.all([
+            fetch('/data/lending_data.json').then(res => res.ok ? res.json() : null),
+            fetch('/data/home_price_index.json').then(res => res.ok ? res.json() : null)
+        ])
+            .then(([lendingData, hpiData]) => {
+                setData(lendingData);
+                setHomePriceData(hpiData);
             })
-            .then(setData)
             .catch(err => {
-                console.error('Error loading lending data:', err);
+                console.error('Error loading data:', err);
                 setError(err.message);
             })
             .finally(() => setLoading(false));
@@ -162,6 +165,14 @@ export default function LendingDashboard() {
             month: item.date ? item.date.split('-')[1] + '/' + item.date.split('-')[0].slice(2) : ''
         }));
     }, [lendingData.rateHistory]);
+
+    const hpiChartData = useMemo(() => {
+        if (!homePriceData?.history || homePriceData.history.length === 0) return [];
+        return homePriceData.history.map(item => ({
+            ...item,
+            month: item.date ? item.date.split('-')[1] + '/' + item.date.split('-')[0].slice(2) : ''
+        }));
+    }, [homePriceData]);
 
     if (loading) {
         return (
@@ -362,6 +373,87 @@ export default function LendingDashboard() {
                     </div>
                 </div>
 
+                {/* San Diego Home Price Index */}
+                {homePriceData && (
+                    <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 mb-8">
+                        <div className="flex items-center justify-between mb-6">
+                            <h2 className="text-lg font-semibold flex items-center gap-2">
+                                <BarChart3 className="w-5 h-5 text-orange-400" />
+                                San Diego Home Price Index
+                            </h2>
+                            <span className="text-xs text-slate-500">S&P CoreLogic Case-Shiller • Jan 2000 = 100</span>
+                        </div>
+
+                        {/* Current Values */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                            <div className="bg-slate-800/50 rounded-lg p-4">
+                                <p className="text-xs text-slate-500 uppercase tracking-wide">Seasonally Adjusted</p>
+                                <p className="text-2xl font-bold text-orange-400">{homePriceData.current?.seasonallyAdjusted?.value?.toFixed(1)}</p>
+                                <p className="text-xs text-slate-500">{homePriceData.current?.seasonallyAdjusted?.date}</p>
+                            </div>
+                            <div className="bg-slate-800/50 rounded-lg p-4">
+                                <p className="text-xs text-slate-500 uppercase tracking-wide">Not Seasonally Adj.</p>
+                                <p className="text-2xl font-bold text-amber-400">{homePriceData.current?.notSeasonallyAdjusted?.value?.toFixed(1)}</p>
+                                <p className="text-xs text-slate-500">{homePriceData.current?.notSeasonallyAdjusted?.date}</p>
+                            </div>
+                            <div className="bg-slate-800/50 rounded-lg p-4">
+                                <p className="text-xs text-slate-500 uppercase tracking-wide">Year-over-Year (SA)</p>
+                                <div className="flex items-center gap-2">
+                                    <p className={`text-2xl font-bold ${homePriceData.changes?.yearOverYear?.sa >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                                        {homePriceData.changes?.yearOverYear?.sa >= 0 ? '+' : ''}{homePriceData.changes?.yearOverYear?.sa}%
+                                    </p>
+                                    {homePriceData.changes?.yearOverYear?.sa >= 0 ?
+                                        <TrendingUp className="w-4 h-4 text-green-400" /> :
+                                        <TrendingDown className="w-4 h-4 text-red-400" />
+                                    }
+                                </div>
+                            </div>
+                            <div className="bg-slate-800/50 rounded-lg p-4">
+                                <p className="text-xs text-slate-500 uppercase tracking-wide">Month-over-Month (SA)</p>
+                                <div className="flex items-center gap-2">
+                                    <p className={`text-2xl font-bold ${homePriceData.changes?.monthOverMonth?.sa >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                                        {homePriceData.changes?.monthOverMonth?.sa >= 0 ? '+' : ''}{homePriceData.changes?.monthOverMonth?.sa}%
+                                    </p>
+                                    {homePriceData.changes?.monthOverMonth?.sa >= 0 ?
+                                        <TrendingUp className="w-4 h-4 text-green-400" /> :
+                                        <TrendingDown className="w-4 h-4 text-red-400" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Chart */}
+                        {hpiChartData.length > 0 && (
+                            <div>
+                                <div className="flex gap-4 text-xs mb-2">
+                                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-orange-500 rounded-full"></span>Seasonally Adjusted</span>
+                                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-amber-400 rounded-full"></span>Not Seasonally Adjusted</span>
+                                </div>
+                                <ResponsiveContainer width="100%" height={200}>
+                                    <AreaChart data={hpiChartData}>
+                                        <defs>
+                                            <linearGradient id="colorSa" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="5%" stopColor="#f97316" stopOpacity={0.3} />
+                                                <stop offset="95%" stopColor="#f97316" stopOpacity={0} />
+                                            </linearGradient>
+                                        </defs>
+                                        <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                                        <XAxis dataKey="month" stroke="#64748b" fontSize={10} />
+                                        <YAxis domain={['auto', 'auto']} stroke="#64748b" fontSize={10} />
+                                        <Tooltip
+                                            contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }}
+                                            labelStyle={{ color: '#94a3b8' }}
+                                            formatter={(value) => value ? [value.toFixed(1)] : ['N/A']}
+                                        />
+                                        <Area type="monotone" dataKey="sa" stroke="#f97316" strokeWidth={2} fill="url(#colorSa)" name="SA" connectNulls />
+                                        <Line type="monotone" dataKey="nsa" stroke="#fbbf24" strokeWidth={1.5} dot={false} name="NSA" connectNulls strokeDasharray="4 2" />
+                                    </AreaChart>
+                                </ResponsiveContainer>
+                            </div>
+                        )}
+                    </div>
+                )}
+
                 {/* Rate Insight Panel */}
                 <div className="bg-gradient-to-r from-teal-900/30 to-blue-900/30 border border-teal-700/30 rounded-xl p-6 mb-8">
                     <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
@@ -376,13 +468,13 @@ export default function LendingDashboard() {
                         </div>
                         <div>
                             <p className="text-xs text-teal-400 uppercase tracking-wide mb-1">Next FOMC Meeting</p>
-                            <p className="text-2xl font-bold text-white">Dec 17-18</p>
+                            <p className="text-2xl font-bold text-white">Jan 28-29</p>
                             <p className="text-xs text-slate-400 mt-1">Rate decision expected</p>
                         </div>
                         <div>
                             <p className="text-xs text-teal-400 uppercase tracking-wide mb-1">Market Expectation</p>
-                            <p className="text-2xl font-bold text-white">-25 bps</p>
-                            <p className="text-xs text-slate-400 mt-1">Probability: 86%</p>
+                            <p className="text-2xl font-bold text-white">Hold</p>
+                            <p className="text-xs text-slate-400 mt-1">No change expected</p>
                         </div>
                     </div>
                 </div>

@@ -32,10 +32,14 @@ jobs:
         run: |
           python scripts/fetch_unemployment_data.py
           
+      - name: Fetch FRED home price index
+        run: |
+          python scripts/fetch_home_price_index.py
+          
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add public/data/lending_data.json public/data/unemployment_data.json
+          git add public/data/lending_data.json public/data/unemployment_data.json public/data/home_price_index.json
           git diff --staged --quiet || git commit -m "chore: Update FRED economic data [automated]"
           git push
