@@ -76,12 +76,12 @@ function NeighborhoodCard({ data, isSelected, onClick }) {
                 <div>
                     <span className="text-gray-500">Median</span>
                     <p className="text-green-400 font-medium">
-                        ${detached.median_price_2025 ? detached.median_price_2025.toLocaleString() : 'N/A'}
+                        ${detached.median_price_ytd_2025 ? detached.median_price_ytd_2025.toLocaleString() : 'N/A'}
                     </p>
                 </div>
                 <div>
                     <span className="text-gray-500">DOM</span>
-                    <p className="text-blue-400 font-medium">{detached.dom_2025 || 'N/A'}</p>
+                    <p className="text-blue-400 font-medium">{detached.dom_ytd_2025 || 'N/A'}</p>
                 </div>
             </div>
             {priceChange !== null && (
@@ -205,11 +205,11 @@ export default function NeighborhoodEvolution() {
         if (sortBy === 'price') {
             filtered = [...filtered].sort((a, b) => {
                 const priceA = propertyType === 'detached'
-                    ? (a.detached?.median_price_2025 || 0)
-                    : (a.attached?.median_price_2025 || 0);
+                    ? (a.detached?.median_price_ytd_2025 || 0)
+                    : (a.attached?.median_price_ytd_2025 || 0);
                 const priceB = propertyType === 'detached'
-                    ? (b.detached?.median_price_2025 || 0)
-                    : (b.attached?.median_price_2025 || 0);
+                    ? (b.detached?.median_price_ytd_2025 || 0)
+                    : (b.attached?.median_price_ytd_2025 || 0);
                 return priceB - priceA;
             });
         } else if (sortBy === 'change') {
@@ -222,8 +222,8 @@ export default function NeighborhoodEvolution() {
             });
         } else if (sortBy === 'dom') {
             filtered = [...filtered].sort((a, b) => {
-                const domA = propertyType === 'detached' ? (a.detached?.dom_2025 || 999) : (a.attached?.dom_2025 || 999);
-                const domB = propertyType === 'detached' ? (b.detached?.dom_2025 || 999) : (b.attached?.dom_2025 || 999);
+                const domA = propertyType === 'detached' ? (a.detached?.dom_ytd_2025 || 999) : (a.attached?.dom_ytd_2025 || 999);
+                const domB = propertyType === 'detached' ? (b.detached?.dom_ytd_2025 || 999) : (b.attached?.dom_ytd_2025 || 999);
                 return domA - domB;
             });
         }
@@ -423,15 +423,15 @@ export default function NeighborhoodEvolution() {
                                     <h4 className="text-sm font-medium text-gray-400 mb-2">Detached Homes</h4>
                                     <div className="grid grid-cols-3 gap-3">
                                         <div className="bg-gray-800/50 rounded-lg p-3">
-                                            <p className="text-xs text-gray-500">Median 2025</p>
+                                            <p className="text-xs text-gray-500">Median YTD 2025</p>
                                             <p className="text-lg font-bold text-green-400">
-                                                ${(selectedNeighborhood.detached?.median_price_2025 || 0).toLocaleString()}
+                                                ${(selectedNeighborhood.detached?.median_price_ytd_2025 || 0).toLocaleString()}
                                             </p>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3">
-                                            <p className="text-xs text-gray-500">DOM</p>
+                                            <p className="text-xs text-gray-500">DOM YTD</p>
                                             <p className="text-lg font-bold text-blue-400">
-                                                {selectedNeighborhood.detached?.dom_2025 || 'N/A'}
+                                                {selectedNeighborhood.detached?.dom_ytd_2025 || 'N/A'}
                                             </p>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3">
@@ -447,15 +447,15 @@ export default function NeighborhoodEvolution() {
                                     <h4 className="text-sm font-medium text-gray-400 mb-2">Attached/Condos</h4>
                                     <div className="grid grid-cols-3 gap-3">
                                         <div className="bg-gray-800/50 rounded-lg p-3">
-                                            <p className="text-xs text-gray-500">Median 2025</p>
+                                            <p className="text-xs text-gray-500">Median YTD 2025</p>
                                             <p className="text-lg font-bold text-green-400">
-                                                ${(selectedNeighborhood.attached?.median_price_2025 || 0).toLocaleString()}
+                                                ${(selectedNeighborhood.attached?.median_price_ytd_2025 || 0).toLocaleString()}
                                             </p>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3">
-                                            <p className="text-xs text-gray-500">DOM</p>
+                                            <p className="text-xs text-gray-500">DOM YTD</p>
                                             <p className="text-lg font-bold text-blue-400">
-                                                {selectedNeighborhood.attached?.dom_2025 || 'N/A'}
+                                                {selectedNeighborhood.attached?.dom_ytd_2025 || 'N/A'}
                                             </p>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3">
