@@ -236,8 +236,8 @@ export default function NeighborhoodEvolution() {
 
     // Summary stats
     const summaryStats = useMemo(() => {
-        if (!sdarData?.summary) return {};
-        return sdarData.summary;
+        if (!sdarData?.summary || !sdarData?.county_wide) return {};
+        return { ...sdarData.summary, county_wide: sdarData.county_wide };
     }, [sdarData]);
 
 
@@ -279,15 +279,15 @@ export default function NeighborhoodEvolution() {
                 {/* Summary Stats */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                     <MetricCard
-                        label="Avg Detached Median"
-                        value={`$${(summaryStats.avg_detached_median || 0).toLocaleString()}`}
-                        sublabel="County-wide"
+                        label="County Median YTD"
+                        value={`$${(summaryStats.county_wide?.detached?.median_price_ytd_2025 || 0).toLocaleString()}`}
+                        sublabel="Detached Homes"
                         icon={Home}
                         color="green"
                     />
                     <MetricCard
-                        label="Avg Attached Median"
-                        value={`$${(summaryStats.avg_attached_median || 0).toLocaleString()}`}
+                        label="County Median YTD"
+                        value={`$${(summaryStats.county_wide?.attached?.median_price_ytd_2025 || 0).toLocaleString()}`}
                         sublabel="Condos/Townhomes"
                         icon={Building}
                         color="blue"
