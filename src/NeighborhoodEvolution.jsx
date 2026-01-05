@@ -48,11 +48,11 @@ function MetricCard({ label, value, sublabel, icon: Icon, color = 'blue', trend 
 }
 
 // Neighborhood Card (SDAR + Yelp data)
-function NeighborhoodCard({ data, isSelected, onClick }) {
+function NeighborhoodCard({ data, isSelected, onClick, propertyType }) {
     const color = getRegionColor(data.zip_code);
-    const detached = data.detached || {};
+    const stats = data[propertyType] || {};
 
-    const priceChange = detached.median_price_ytd_pct_change || 0;
+    const priceChange = stats.median_price_ytd_pct_change || 0;
 
     return (
         <button
@@ -76,12 +76,12 @@ function NeighborhoodCard({ data, isSelected, onClick }) {
                 <div>
                     <span className="text-gray-500">Median</span>
                     <p className="text-green-400 font-medium">
-                        ${detached.median_price_ytd_2025 ? detached.median_price_ytd_2025.toLocaleString() : 'N/A'}
+                        ${stats.median_price_ytd_2025 ? stats.median_price_ytd_2025.toLocaleString() : 'N/A'}
                     </p>
                 </div>
                 <div>
                     <span className="text-gray-500">DOM</span>
-                    <p className="text-blue-400 font-medium">{detached.dom_ytd_2025 || 'N/A'}</p>
+                    <p className="text-blue-400 font-medium">{stats.dom_ytd_2025 || 'N/A'}</p>
                 </div>
             </div>
             {priceChange !== null && (
@@ -395,7 +395,7 @@ export default function NeighborhoodEvolution() {
                             <NeighborhoodCard
                                 key={n.zip_code}
                                 data={n}
-
+                                propertyType={propertyType}
                                 isSelected={selectedNeighborhood?.zip_code === n.zip_code}
                                 onClick={() => {
                                     setSelectedNeighborhood(n);
