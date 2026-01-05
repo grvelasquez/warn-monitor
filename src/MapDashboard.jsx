@@ -146,7 +146,7 @@ function DetailPanel({ data, onClose, propertyType }) {
     if (!data) return null;
 
     const propData = data[propertyType] || {};
-    const priceChange = propData.median_price_pct_change || 0;
+    const priceChange = propData.median_price_ytd_pct_change || 0;
 
     return (
         <div className="absolute top-6 right-6 z-[1000] w-80 bg-gray-900/95 backdrop-blur-sm rounded-xl border border-gray-700 shadow-xl overflow-hidden">
@@ -174,7 +174,7 @@ function DetailPanel({ data, onClose, propertyType }) {
                             <TrendingDown className="w-4 h-4 text-red-400" />
                         ) : null}
                         <span className={`text-sm ${priceChange > 0 ? 'text-green-400' : priceChange < 0 ? 'text-red-400' : 'text-gray-400'}`}>
-                            {priceChange > 0 ? '+' : ''}{priceChange.toFixed(1)}% YoY
+                            {priceChange > 0 ? '+' : ''}{priceChange.toFixed(1)}% YTD
                         </span>
                     </div>
                 </div>
