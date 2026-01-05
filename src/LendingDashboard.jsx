@@ -7,7 +7,7 @@ const defaultData = {
     currentRates: { rate30: 6.85, rate15: 6.02, rateARM: 6.18, jumboRate: 7.12, fhaRate: 6.45, vaRate: 6.25, fedFunds: 5.33 },
     weekChange: { rate30: 0, rate15: 0, rateARM: 0 },
     rateHistory: [],
-    loanLimits: { conforming: 766550, highBalance: 1149825, jumbo: 1149826, fha: 1149825 },
+    loanLimits: { conforming: 806500, highBalance: 1077550, jumbo: 1077551, fha: 1077550 },
     sanDiego: { unemploymentRate: 4.2 }
 };
 
@@ -241,7 +241,7 @@ export default function LendingDashboard() {
                         change={0}
                         icon={DollarSign}
                         color="bg-amber-600"
-                        subtitle="> $1.15M"
+                        subtitle="> $1.08M"
                     />
                     <RateCard
                         title="FHA"
@@ -304,7 +304,7 @@ export default function LendingDashboard() {
                     <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6">
                         <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
                             <DollarSign className="w-5 h-5 text-slate-500" />
-                            2024 San Diego Loan Limits
+                            2025 San Diego Loan Limits
                         </h2>
                         <div className="space-y-3">
                             <div className="flex justify-between items-center py-2 border-b border-slate-700/50">

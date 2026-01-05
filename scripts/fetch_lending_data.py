@@ -129,12 +129,13 @@ def fetch_lending_data() -> dict:
         "unemploymentRate": sd_unemployment[0]["value"] if sd_unemployment else 4.2,
     }
     
-    # 2024 San Diego Loan Limits (static - updated annually by FHFA)
+    # 2025 San Diego Loan Limits (static - updated annually by FHFA)
+    # SD County is a high-cost area: conforming=$806,500, high-balance/FHA=$1,077,550
     loan_limits = {
-        "conforming": 766550,
-        "highBalance": 1149825,
-        "jumbo": 1149826,
-        "fha": 1149825,
+        "conforming": 806500,
+        "highBalance": 1077550,
+        "jumbo": 1077551,
+        "fha": 1077550,
     }
     
     # Compile output
