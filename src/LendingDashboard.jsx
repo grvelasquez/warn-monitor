@@ -94,7 +94,7 @@ function KeyIndicatorsPanel({ homePriceData, lendingData, formatPercent }) {
                         </span>
                     )}
                 </div>
-                <p className="text-xs text-slate-500 mt-1">S&P CoreLogic • {caseShillerDate || 'Updated monthly'}</p>
+                <p className="text-xs text-slate-500 mt-1">S&P CoreLogic U.S. National • {caseShillerDate || 'Updated monthly'}</p>
             </div>
 
             {/* SD Unemployment */}

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-FRED Data Fetcher for San Diego Home Price Index
-Fetches S&P CoreLogic Case-Shiller Home Price Index data from Federal Reserve Economic Data API.
+FRED Data Fetcher for Case-Shiller Home Price Index
+Fetches S&P CoreLogic Case-Shiller U.S. National Home Price Index data from Federal Reserve Economic Data API.
 """
 
 import json
@@ -13,10 +13,10 @@ from pathlib import Path
 FRED_API_KEY = "a72b02db4318645167d222b3d497ae02"
 FRED_BASE_URL = "https://api.stlouisfed.org/fred/series/observations"
 
-# San Diego Home Price Index series
+# U.S. National Home Price Index series (Case-Shiller)
 HOME_PRICE_SERIES = {
-    "SDXRSA": {"name": "Seasonally Adjusted", "key": "sa"},
-    "SDXRNSA": {"name": "Not Seasonally Adjusted", "key": "nsa"},
+    "CSUSHPISA": {"name": "Seasonally Adjusted", "key": "sa"},
+    "CSUSHPINSA": {"name": "Not Seasonally Adjusted", "key": "nsa"},
 }
 
 
@@ -86,11 +86,11 @@ def build_history(sa_obs: list, nsa_obs: list, limit: int = 36) -> list:
 
 def fetch_home_price_data() -> dict:
     """Fetch all home price index data and compile into JSON."""
-    print("Fetching San Diego Home Price Index data from FRED...")
+    print("Fetching U.S. National Home Price Index data from FRED...")
     
     # Fetch series
-    sa_obs = fetch_fred_series("SDXRSA", 60)
-    nsa_obs = fetch_fred_series("SDXRNSA", 60)
+    sa_obs = fetch_fred_series("CSUSHPISA", 60)
+    nsa_obs = fetch_fred_series("CSUSHPINSA", 60)
     
     if not sa_obs and not nsa_obs:
         print("Warning: No data fetched from FRED")
@@ -126,7 +126,7 @@ def fetch_home_price_data() -> dict:
             "generated": datetime.now().isoformat(),
             "source": "FRED (S&P CoreLogic Case-Shiller)",
             "lastUpdate": sa_obs[0]["date"] if sa_obs else None,
-            "description": "S&P CoreLogic Case-Shiller CA-San Diego Home Price Index (Jan 2000 = 100)"
+            "description": "S&P CoreLogic Case-Shiller U.S. National Home Price Index (Jan 2000 = 100)"
         },
         "current": current,
         "changes": changes,
