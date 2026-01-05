@@ -52,9 +52,7 @@ function NeighborhoodCard({ data, isSelected, onClick }) {
     const color = getRegionColor(data.zip_code);
     const detached = data.detached || {};
 
-    const priceChange = detached.median_price_2024 && detached.median_price_2025
-        ? ((detached.median_price_2025 - detached.median_price_2024) / detached.median_price_2024 * 100)
-        : null;
+    const priceChange = detached.median_price_ytd_pct_change || 0;
 
     return (
         <button
@@ -78,7 +76,7 @@ function NeighborhoodCard({ data, isSelected, onClick }) {
                 <div>
                     <span className="text-gray-500">Median</span>
                     <p className="text-green-400 font-medium">
-                        ${detached.median_price_2025 ? (detached.median_price_2025 / 1000).toFixed(0) + 'k' : 'N/A'}
+                        ${detached.median_price_2025 ? detached.median_price_2025.toLocaleString() : 'N/A'}
                     </p>
                 </div>
                 <div>
@@ -88,7 +86,7 @@ function NeighborhoodCard({ data, isSelected, onClick }) {
             </div>
             {priceChange !== null && (
                 <div className={`mt-2 text-xs ${priceChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                    {priceChange >= 0 ? '↑' : '↓'} {Math.abs(priceChange).toFixed(1)}% YoY
+                    {priceChange >= 0 ? '↑' : '↓'} {Math.abs(priceChange).toFixed(1)}% YTD
                 </div>
             )}
         </button>
@@ -216,12 +214,11 @@ export default function NeighborhoodEvolution() {
             });
         } else if (sortBy === 'change') {
             filtered = [...filtered].sort((a, b) => {
-                const calcChange = (n) => {
+                const getChange = (n) => {
                     const prop = propertyType === 'detached' ? n.detached : n.attached;
-                    if (!prop?.median_price_2024 || !prop?.median_price_2025) return -999;
-                    return ((prop.median_price_2025 - prop.median_price_2024) / prop.median_price_2024 * 100);
+                    return prop?.median_price_ytd_pct_change || -999;
                 };
-                return calcChange(b) - calcChange(a);
+                return getChange(b) - getChange(a);
             });
         } else if (sortBy === 'dom') {
             filtered = [...filtered].sort((a, b) => {
@@ -283,14 +280,14 @@ export default function NeighborhoodEvolution() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                     <MetricCard
                         label="Avg Detached Median"
-                        value={`$${((summaryStats.avg_detached_median || 0) / 1000).toFixed(0)}k`}
+                        value={`$${(summaryStats.avg_detached_median || 0).toLocaleString()}`}
                         sublabel="County-wide"
                         icon={Home}
                         color="green"
                     />
                     <MetricCard
                         label="Avg Attached Median"
-                        value={`$${((summaryStats.avg_attached_median || 0) / 1000).toFixed(0)}k`}
+                        value={`$${(summaryStats.avg_attached_median || 0).toLocaleString()}`}
                         sublabel="Condos/Townhomes"
                         icon={Building}
                         color="blue"
@@ -358,7 +355,7 @@ export default function NeighborhoodEvolution() {
                             >
                                 <option value="name">Name</option>
                                 <option value="price">Price (High→Low)</option>
-                                <option value="change">YoY Change</option>
+                                <option value="change">YTD Change</option>
                                 <option value="dom">Days on Market</option>
                             </select>
                         </div>
@@ -428,7 +425,7 @@ export default function NeighborhoodEvolution() {
                                         <div className="bg-gray-800/50 rounded-lg p-3">
                                             <p className="text-xs text-gray-500">Median 2025</p>
                                             <p className="text-lg font-bold text-green-400">
-                                                ${((selectedNeighborhood.detached?.median_price_2025 || 0) / 1000).toFixed(0)}k
+                                                ${(selectedNeighborhood.detached?.median_price_2025 || 0).toLocaleString()}
                                             </p>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3">
@@ -452,7 +449,7 @@ export default function NeighborhoodEvolution() {
                                         <div className="bg-gray-800/50 rounded-lg p-3">
                                             <p className="text-xs text-gray-500">Median 2025</p>
                                             <p className="text-lg font-bold text-green-400">
-                                                ${((selectedNeighborhood.attached?.median_price_2025 || 0) / 1000).toFixed(0)}k
+                                                ${(selectedNeighborhood.attached?.median_price_2025 || 0).toLocaleString()}
                                             </p>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3">
