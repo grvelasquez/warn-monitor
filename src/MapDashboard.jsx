@@ -112,10 +112,19 @@ function StatCard({ label, value, icon: Icon, color = 'blue', subtext }) {
 }
 
 // Legend component
-function Legend() {
+function Legend({ onClose }) {
     return (
         <div className="absolute bottom-6 left-6 z-[1000] bg-gray-900/95 backdrop-blur-sm rounded-xl p-4 border border-gray-700 shadow-xl">
-            <h4 className="text-sm font-semibold text-white mb-3">Median Price</h4>
+            <div className="flex items-center justify-between mb-3">
+                <h4 className="text-sm font-semibold text-white">Median Price</h4>
+                <button
+                    onClick={onClose}
+                    className="p-1 hover:bg-gray-700 rounded-lg transition-colors -mr-1"
+                    aria-label="Close legend"
+                >
+                    <X className="w-4 h-4 text-gray-400 hover:text-white" />
+                </button>
+            </div>
             <div className="space-y-2">
                 {PRICE_TIERS.map((tier, i) => (
                     <div key={i} className="flex items-center gap-2">
@@ -219,6 +228,7 @@ export default function MapDashboard() {
     const [hoveredZip, setHoveredZip] = useState(null);
     const [propertyType, setPropertyType] = useState('detached');
     const [selectedRegion, setSelectedRegion] = useState('all');
+    const [showLegend, setShowLegend] = useState(true);
 
     // Fetch data
     useEffect(() => {
@@ -474,7 +484,18 @@ export default function MapDashboard() {
                     </MapContainer>
                 )}
 
-                <Legend />
+                {showLegend ? (
+                    <Legend onClose={() => setShowLegend(false)} />
+                ) : (
+                    <button
+                        onClick={() => setShowLegend(true)}
+                        className="absolute bottom-6 left-6 z-[1000] bg-gray-900/95 backdrop-blur-sm rounded-xl px-4 py-2 border border-gray-700 shadow-xl text-sm text-white hover:bg-gray-800 transition-colors flex items-center gap-2"
+                        aria-label="Show legend"
+                    >
+                        <div className="w-3 h-3 rounded bg-gradient-to-r from-green-500 via-yellow-500 to-red-500" />
+                        <span>Legend</span>
+                    </button>
+                )}
 
                 {selectedZip && (
                     <DetailPanel
