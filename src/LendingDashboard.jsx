@@ -72,11 +72,12 @@ function MetricCard({ title, value, subtext, trend, format = 'number' }) {
     );
 }
 
-function KeyIndicatorsPanel({ homePriceData, lendingData, formatPercent }) {
+function KeyIndicatorsPanel({ homePriceData, unemploymentData, lendingData, formatPercent }) {
     const caseShillerValue = homePriceData?.current?.seasonallyAdjusted?.value;
     const caseShillerChange = homePriceData?.changes?.yearOverYear?.sa;
     const caseShillerDate = homePriceData?.current?.seasonallyAdjusted?.date;
-    const unemploymentRate = lendingData?.sanDiego?.unemploymentRate || 4.2;
+    const unemploymentRate = unemploymentData?.currentRate || lendingData?.sanDiego?.unemploymentRate || 4.2;
+    const unemploymentDate = unemploymentData?.meta?.lastUpdate;
     const fedFundsRate = lendingData?.currentRates?.fedFunds || 5.33;
 
     return (
@@ -101,7 +102,7 @@ function KeyIndicatorsPanel({ homePriceData, lendingData, formatPercent }) {
             <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
                 <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">SD Unemployment Rate</p>
                 <p className="text-2xl font-bold text-blue-400">{formatPercent(unemploymentRate)}</p>
-                <p className="text-xs text-slate-500 mt-1">San Diego County • FRED</p>
+                <p className="text-xs text-slate-500 mt-1">CA EDD LAUS • {unemploymentDate || 'Updated monthly'}</p>
             </div>
 
             {/* Fed Funds Rate */}
@@ -118,6 +119,7 @@ export default function LendingDashboard() {
     const [data, setData] = useState(null);
     const [homePriceData, setHomePriceData] = useState(null);  // San Diego HPI
     const [usHomePriceData, setUsHomePriceData] = useState(null);  // US National HPI
+    const [unemploymentData, setUnemploymentData] = useState(null);  // CA EDD unemployment
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -125,12 +127,14 @@ export default function LendingDashboard() {
         Promise.all([
             fetch('/data/lending_data.json').then(res => res.ok ? res.json() : null),
             fetch('/data/home_price_index.json').then(res => res.ok ? res.json() : null),  // SD
-            fetch('/data/us_home_price_index.json').then(res => res.ok ? res.json() : null)  // US National
+            fetch('/data/us_home_price_index.json').then(res => res.ok ? res.json() : null),  // US National
+            fetch('/data/unemployment_data.json').then(res => res.ok ? res.json() : null)  // CA EDD
         ])
-            .then(([lendingData, sdHpiData, usHpiData]) => {
+            .then(([lendingData, sdHpiData, usHpiData, eddData]) => {
                 setData(lendingData);
                 setHomePriceData(sdHpiData);
                 setUsHomePriceData(usHpiData);
+                setUnemploymentData(eddData);
             })
             .catch(err => {
                 console.error('Error loading data:', err);
@@ -278,7 +282,7 @@ export default function LendingDashboard() {
                     </div>
 
                     {/* Key Indicators Panel */}
-                    <KeyIndicatorsPanel homePriceData={usHomePriceData} lendingData={lendingData} formatPercent={formatPercent} />
+                    <KeyIndicatorsPanel homePriceData={usHomePriceData} unemploymentData={unemploymentData} lendingData={lendingData} formatPercent={formatPercent} />
                 </div>
 
                 {/* Loan Limits & Market Metrics */}
