@@ -212,6 +212,16 @@ export default function NeighborhoodEvolution() {
                     : (b.attached?.median_price_ytd_2025 || 0);
                 return priceB - priceA;
             });
+        } else if (sortBy === 'price_low') {
+            filtered = [...filtered].sort((a, b) => {
+                const priceA = propertyType === 'detached'
+                    ? (a.detached?.median_price_ytd_2025 || 0)
+                    : (a.attached?.median_price_ytd_2025 || 0);
+                const priceB = propertyType === 'detached'
+                    ? (b.detached?.median_price_ytd_2025 || 0)
+                    : (b.attached?.median_price_ytd_2025 || 0);
+                return priceA - priceB;
+            });
         } else if (sortBy === 'change') {
             filtered = [...filtered].sort((a, b) => {
                 const getChange = (n) => {
@@ -219,6 +229,14 @@ export default function NeighborhoodEvolution() {
                     return prop?.median_price_ytd_pct_change || -999;
                 };
                 return getChange(b) - getChange(a);
+            });
+        } else if (sortBy === 'change_worst') {
+            filtered = [...filtered].sort((a, b) => {
+                const getChange = (n) => {
+                    const prop = propertyType === 'detached' ? n.detached : n.attached;
+                    return prop?.median_price_ytd_pct_change || 999;
+                };
+                return getChange(a) - getChange(b);
             });
         } else if (sortBy === 'dom') {
             filtered = [...filtered].sort((a, b) => {
@@ -355,7 +373,9 @@ export default function NeighborhoodEvolution() {
                             >
                                 <option value="name">Name</option>
                                 <option value="price">Price (High→Low)</option>
-                                <option value="change">YTD Change</option>
+                                <option value="price_low">Price (Low→High)</option>
+                                <option value="change">YTD Change (Best→Worst)</option>
+                                <option value="change_worst">YTD Change (Worst→Best)</option>
                                 <option value="dom">Days on Market</option>
                             </select>
                         </div>
