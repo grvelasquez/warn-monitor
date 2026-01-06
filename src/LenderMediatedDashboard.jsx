@@ -1,0 +1,833 @@
+import { useState, useEffect, useMemo } from 'react';
+import {
+    TrendingUp, TrendingDown, Home, Building2, DollarSign,
+    BarChart3, Search, ArrowUpRight, ArrowDownRight, FileText,
+    ChevronDown, ChevronUp, Package, Clock
+} from 'lucide-react';
+
+// Format utilities
+const formatCurrency = (value) => {
+    if (value === null || value === undefined) return 'N/A';
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    }).format(value);
+};
+
+const formatNumber = (value) => {
+    if (value === null || value === undefined) return 'N/A';
+    return new Intl.NumberFormat('en-US').format(value);
+};
+
+const formatPercent = (value) => {
+    if (value === null || value === undefined) return 'N/A';
+    const sign = value >= 0 ? '+' : '';
+    return `${sign}${value.toFixed(1)}%`;
+};
+
+// Change indicator component
+const ChangeIndicator = ({ value, inverted = false, className = '' }) => {
+    if (value === null || value === undefined) return <span className="text-gray-400">--</span>;
+
+    const isPositive = inverted ? value < 0 : value >= 0;
+    const colorClass = isPositive ? 'text-emerald-400' : 'text-red-400';
+    const Icon = value >= 0 ? ArrowUpRight : ArrowDownRight;
+
+    return (
+        <span className={`flex items-center gap-1 ${colorClass} ${className}`}>
+            <Icon className="w-3 h-3" />
+            {formatPercent(value)}
+        </span>
+    );
+};
+
+// Summary Card Component
+const SummaryCard = ({ icon: Icon, title, value, change, subValue, subLabel, iconColor = 'text-blue-400' }) => (
+    <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl p-4 border border-gray-700/50">
+        <div className="flex items-start justify-between mb-2">
+            <div className={`p-2 rounded-lg bg-gray-700/50 ${iconColor}`}>
+                <Icon className="w-5 h-5" />
+            </div>
+            <ChangeIndicator value={change} />
+        </div>
+        <div className="text-2xl font-bold text-white mb-1">{value}</div>
+        <div className="text-sm text-gray-400">{title}</div>
+        {subValue && (
+            <div className="mt-2 pt-2 border-t border-gray-700/50 text-xs text-gray-500">
+                {subLabel}: <span className="text-gray-300">{subValue}</span>
+            </div>
+        )}
+    </div>
+);
+
+// Data Table Component
+const DataTable = ({ title, headers, rows, columnAligns = [] }) => (
+    <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+        <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+            <h3 className="text-sm font-semibold text-white">{title}</h3>
+        </div>
+        <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+                <thead>
+                    <tr className="bg-gray-800/40">
+                        {headers.map((header, i) => (
+                            <th
+                                key={i}
+                                className={`px-4 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider ${columnAligns[i] || (i === 0 ? 'text-left' : 'text-right')
+                                    }`}
+                            >
+                                {header}
+                            </th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-700/50">
+                    {rows.map((row, i) => (
+                        <tr key={i} className="hover:bg-gray-700/30 transition-colors">
+                            {row.map((cell, j) => (
+                                <td
+                                    key={j}
+                                    className={`px-4 py-3 whitespace-nowrap ${columnAligns[j] || (j === 0 ? 'text-left text-gray-300' : 'text-right text-gray-200')
+                                        }`}
+                                >
+                                    {cell}
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    </div>
+);
+
+// Comparison Table (Lender-Mediated vs Traditional vs Total)
+const ComparisonTable = ({ title, data, valueFormatter = formatNumber, showShare = true }) => {
+    if (!data || data.length === 0) return null;
+
+    const headers = showShare
+        ? ['', 'Lender-Mediated', 'Chg', 'Traditional', 'Chg', 'Total Market', 'Chg', 'LM Share']
+        : ['', 'Lender-Mediated', 'Chg', 'Traditional', 'Chg', 'Total Market', 'Chg'];
+
+    const rows = data.map(item => {
+        const baseRow = [
+            <span className="font-medium text-white">{item.type || item.range}</span>,
+            valueFormatter(item.lender_mediated?.['2025']),
+            <ChangeIndicator value={item.lender_mediated?.change} />,
+            valueFormatter(item.traditional?.['2025']),
+            <ChangeIndicator value={item.traditional?.change} />,
+            valueFormatter(item.total_market?.['2025']),
+            <ChangeIndicator value={item.total_market?.change} />
+        ];
+
+        if (showShare && item.share) {
+            baseRow.push(
+                <span className="text-amber-400 font-medium">{item.share['2025']?.toFixed(1)}%</span>
+            );
+        }
+
+        return baseRow;
+    });
+
+    return <DataTable title={title} headers={headers} rows={rows} />;
+};
+
+// Inventory Comparison Table with 2024 and 2025 data (matching PDF format)
+const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = formatNumber }) => {
+    if (!data || data.length === 0) return null;
+
+    return (
+        <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+            <div className="px-4 py-3 bg-gray-808/60 border-b border-gray-700/50">
+                <h3 className="text-sm font-semibold text-white">{title}</h3>
+                {subtitle && <p className="text-xs text-gray-400 mt-1">{subtitle}</p>}
+            </div>
+            <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                    <thead>
+                        <tr className="bg-gray-800/40">
+                            <th className="px-3 py-2 text-xs font-medium text-gray-400 uppercase tracking-wider text-left" rowSpan="2"></th>
+                            <th className="px-3 py-2 text-xs font-medium text-amber-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="3">Lender-Mediated</th>
+                            <th className="px-3 py-2 text-xs font-medium text-gray-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="3">Traditional</th>
+                            <th className="px-3 py-2 text-xs font-medium text-gray-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="3">Total Market</th>
+                            <th className="px-3 py-2 text-xs font-medium text-purple-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="2">LM Share</th>
+                        </tr>
+                        <tr className="bg-gray-800/30">
+                            {/* Lender-Mediated */}
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
+                            {/* Traditional */}
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
+                            {/* Total Market */}
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
+                            {/* Share */}
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-700/50">
+                        {data.map((item, i) => (
+                            <tr key={i} className="hover:bg-gray-700/30 transition-colors">
+                                <td className="px-3 py-2 text-gray-300 font-medium whitespace-nowrap">
+                                    {item.type || item.range}
+                                </td>
+                                {/* Lender-Mediated */}
+                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.lender_mediated?.['2024'])}</td>
+                                <td className="px-2 py-2 text-right text-amber-400 font-medium">{valueFormatter(item.lender_mediated?.['2025'])}</td>
+                                <td className="px-2 py-2 text-center"><ChangeIndicator value={item.lender_mediated?.change} className="pr-4" /></td>
+                                {/* Traditional */}
+                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.traditional?.['2024'])}</td>
+                                <td className="px-2 py-2 text-right text-gray-200">{valueFormatter(item.traditional?.['2025'])}</td>
+                                <td className="px-2 py-2 text-center"><ChangeIndicator value={item.traditional?.change} className="pr-4" /></td>
+                                {/* Total Market */}
+                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.total_market?.['2024'])}</td>
+                                <td className="px-2 py-2 text-right text-gray-200">{valueFormatter(item.total_market?.['2025'])}</td>
+                                <td className="px-2 py-2 text-center"><ChangeIndicator value={item.total_market?.change} className="pr-4" /></td>
+                                {/* Share */}
+                                <td className="px-2 py-2 text-right text-gray-400">{item.share?.['2024']?.toFixed(1)}%</td>
+                                <td className="px-2 py-2 text-right text-purple-400 font-medium">{item.share?.['2025']?.toFixed(1)}%</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    );
+};
+
+// Area Search Table
+const AreaSearchTable = ({ data, title, type = 'inventory' }) => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [sortField, setSortField] = useState('zip_code');
+    const [sortDirection, setSortDirection] = useState('asc');
+
+    const filteredData = useMemo(() => {
+        let filtered = data.filter(item =>
+            item.zip_code?.includes(searchTerm) ||
+            item.neighborhood?.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+        filtered.sort((a, b) => {
+            let aVal, bVal;
+
+            if (sortField === 'zip_code') {
+                aVal = a.zip_code;
+                bVal = b.zip_code;
+            } else if (sortField === 'neighborhood') {
+                aVal = a.neighborhood;
+                bVal = b.neighborhood;
+            } else if (type === 'inventory') {
+                if (sortField === 'inv_total') {
+                    aVal = a.inventory?.total_market || 0;
+                    bVal = b.inventory?.total_market || 0;
+                } else if (sortField === 'inv_share') {
+                    aVal = a.inventory?.share || 0;
+                    bVal = b.inventory?.share || 0;
+                } else if (sortField === 'sales_total') {
+                    aVal = a.closed_sales?.total_market || 0;
+                    bVal = b.closed_sales?.total_market || 0;
+                } else if (sortField === 'sales_share') {
+                    aVal = a.closed_sales?.share || 0;
+                    bVal = b.closed_sales?.share || 0;
+                }
+            } else if (type === 'price') {
+                if (sortField === 'lm_price') {
+                    aVal = a.lender_mediated?.['2025'] || 0;
+                    bVal = b.lender_mediated?.['2025'] || 0;
+                } else if (sortField === 'lm_change') {
+                    aVal = a.lender_mediated?.change || 0;
+                    bVal = b.lender_mediated?.change || 0;
+                } else if (sortField === 'trad_price') {
+                    aVal = a.traditional?.['2025'] || 0;
+                    bVal = b.traditional?.['2025'] || 0;
+                } else if (sortField === 'trad_change') {
+                    aVal = a.traditional?.change || 0;
+                    bVal = b.traditional?.change || 0;
+                }
+            }
+
+            if (typeof aVal === 'string') {
+                return sortDirection === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+            }
+            return sortDirection === 'asc' ? aVal - bVal : bVal - aVal;
+        });
+
+        return filtered;
+    }, [data, searchTerm, sortField, sortDirection, type]);
+
+    const toggleSort = (field) => {
+        if (sortField === field) {
+            setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+        } else {
+            setSortField(field);
+            setSortDirection('asc');
+        }
+    };
+
+    const SortHeader = ({ field, children }) => (
+        <th
+            className="px-3 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider cursor-pointer hover:text-white transition-colors"
+            onClick={() => toggleSort(field)}
+        >
+            <div className="flex items-center gap-1 justify-end">
+                {children}
+                {sortField === field && (
+                    sortDirection === 'asc' ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />
+                )}
+            </div>
+        </th>
+    );
+
+    return (
+        <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+            <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50 flex items-center justify-between">
+                <h3 className="text-sm font-semibold text-white">{title}</h3>
+                <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                    <input
+                        type="text"
+                        placeholder="Search zip or area..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="pl-9 pr-4 py-1.5 bg-gray-700/50 border border-gray-600/50 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 w-48"
+                    />
+                </div>
+            </div>
+            <div className="overflow-x-auto max-h-96 overflow-y-auto">
+                <table className="w-full text-sm">
+                    <thead className="sticky top-0 bg-gray-800">
+                        <tr>
+                            <th
+                                className="px-3 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-left cursor-pointer hover:text-white"
+                                onClick={() => toggleSort('zip_code')}
+                            >
+                                <div className="flex items-center gap-1">
+                                    Zip Code
+                                    {sortField === 'zip_code' && (
+                                        sortDirection === 'asc' ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />
+                                    )}
+                                </div>
+                            </th>
+                            <th
+                                className="px-3 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-left cursor-pointer hover:text-white"
+                                onClick={() => toggleSort('neighborhood')}
+                            >
+                                <div className="flex items-center gap-1">
+                                    Area
+                                    {sortField === 'neighborhood' && (
+                                        sortDirection === 'asc' ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />
+                                    )}
+                                </div>
+                            </th>
+                            {type === 'inventory' ? (
+                                <>
+                                    <SortHeader field="inv_total">Inventory</SortHeader>
+                                    <th className="px-3 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-right">LM</th>
+                                    <SortHeader field="inv_share">LM Share</SortHeader>
+                                    <SortHeader field="sales_total">Closed Sales</SortHeader>
+                                    <th className="px-3 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-right">LM</th>
+                                    <SortHeader field="sales_share">LM Share</SortHeader>
+                                </>
+                            ) : (
+                                <>
+                                    <SortHeader field="lm_price">LM Price</SortHeader>
+                                    <SortHeader field="lm_change">Chg</SortHeader>
+                                    <SortHeader field="trad_price">Traditional</SortHeader>
+                                    <SortHeader field="trad_change">Chg</SortHeader>
+                                </>
+                            )}
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-700/50">
+                        {filteredData.map((item, i) => (
+                            <tr key={i} className="hover:bg-gray-700/30 transition-colors">
+                                <td className="px-3 py-2 text-blue-400 font-mono">{item.zip_code}</td>
+                                <td className="px-3 py-2 text-gray-300">{item.neighborhood}</td>
+                                {type === 'inventory' ? (
+                                    <>
+                                        <td className="px-3 py-2 text-right text-gray-200">{formatNumber(item.inventory?.total_market)}</td>
+                                        <td className="px-3 py-2 text-right text-amber-400">{formatNumber(item.inventory?.lender_mediated)}</td>
+                                        <td className="px-3 py-2 text-right">
+                                            <span className={item.inventory?.share > 10 ? 'text-red-400' : 'text-gray-400'}>
+                                                {item.inventory?.share?.toFixed(1)}%
+                                            </span>
+                                        </td>
+                                        <td className="px-3 py-2 text-right text-gray-200">{formatNumber(item.closed_sales?.total_market)}</td>
+                                        <td className="px-3 py-2 text-right text-amber-400">{formatNumber(item.closed_sales?.lender_mediated)}</td>
+                                        <td className="px-3 py-2 text-right">
+                                            <span className={item.closed_sales?.share > 10 ? 'text-red-400' : 'text-gray-400'}>
+                                                {item.closed_sales?.share?.toFixed(1)}%
+                                            </span>
+                                        </td>
+                                    </>
+                                ) : (
+                                    <>
+                                        <td className="px-3 py-2 text-right text-amber-400">{formatCurrency(item.lender_mediated?.['2025'])}</td>
+                                        <td className="px-3 py-2 text-right"><ChangeIndicator value={item.lender_mediated?.change} /></td>
+                                        <td className="px-3 py-2 text-right text-gray-200">{formatCurrency(item.traditional?.['2025'])}</td>
+                                        <td className="px-3 py-2 text-right"><ChangeIndicator value={item.traditional?.change} /></td>
+                                    </>
+                                )}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <div className="px-4 py-2 bg-gray-800/60 border-t border-gray-700/50 text-xs text-gray-500">
+                Showing {filteredData.length} of {data.length} areas
+            </div>
+        </div>
+    );
+};
+
+export default function LenderMediatedDashboard() {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [activeTab, setActiveTab] = useState('summary');
+
+    useEffect(() => {
+        fetch('/data/lender_mediated_data.json')
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to load data');
+                return res.json();
+            })
+            .then(setData)
+            .catch(err => setError(err.message))
+            .finally(() => setLoading(false));
+    }, []);
+
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-gray-950 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="min-h-screen bg-gray-950 flex items-center justify-center">
+                <div className="text-red-400 bg-red-900/20 px-6 py-4 rounded-lg border border-red-500/30">
+                    Error: {error}
+                </div>
+            </div>
+        );
+    }
+
+    const summary = data?.summary || {};
+    const inventory = data?.inventory || {};
+    const activity = data?.activity || {};
+    const priceDom = data?.price_dom || {};
+    const areaInventory = data?.area_inventory_sales || [];
+    const areaPrices = data?.area_median_prices || [];
+
+    const tabs = [
+        { id: 'summary', label: 'Summary', icon: BarChart3 },
+        { id: 'inventory', label: 'Inventory', icon: Package },
+        { id: 'activity', label: 'Activity', icon: TrendingUp },
+        { id: 'prices', label: 'Prices & DOM', icon: DollarSign },
+        { id: 'areas', label: 'By Area', icon: Home }
+    ];
+
+    return (
+        <div className="min-h-screen bg-gray-950 p-4 md:p-6">
+            <div className="max-w-7xl mx-auto space-y-6">
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <div className="flex items-center gap-3 mb-2">
+                            <div className="p-2 bg-amber-600/20 rounded-lg">
+                                <FileText className="w-6 h-6 text-amber-400" />
+                            </div>
+                            <h1 className="text-2xl md:text-3xl font-bold text-white">
+                                Lender-Mediated Properties
+                            </h1>
+                        </div>
+                        <p className="text-gray-400 text-sm">
+                            {data?.meta?.report_period} • Source: {data?.meta?.source}
+                        </p>
+                    </div>
+
+                    {/* Tab Navigation */}
+                    <div className="flex gap-1 bg-gray-800/50 p-1 rounded-lg overflow-x-auto">
+                        {tabs.map(tab => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap ${activeTab === tab.id
+                                    ? 'bg-amber-600 text-white'
+                                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                                    }`}
+                            >
+                                <tab.icon className="w-4 h-4" />
+                                <span className="hidden sm:inline">{tab.label}</span>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Summary Tab */}
+                {activeTab === 'summary' && (
+                    <div className="space-y-6">
+                        {/* Key Metrics */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <SummaryCard
+                                icon={Home}
+                                title="Total Closed Sales"
+                                value={formatNumber(summary.closed_sales_total)}
+                                change={summary.closed_sales_change}
+                                subValue={formatNumber(summary.closed_sales_lender_mediated)}
+                                subLabel="Lender-Mediated"
+                                iconColor="text-blue-400"
+                            />
+                            <SummaryCard
+                                icon={TrendingUp}
+                                title="New Listings"
+                                value={formatNumber(summary.new_listings_total)}
+                                change={summary.new_listings_change}
+                                subValue={formatNumber(summary.new_listings_lender_mediated)}
+                                subLabel="Lender-Mediated"
+                                iconColor="text-emerald-400"
+                            />
+                            <SummaryCard
+                                icon={DollarSign}
+                                title="Median Sales Price"
+                                value={formatCurrency(summary.median_price_total)}
+                                change={summary.median_price_change}
+                                subValue={formatCurrency(summary.median_price_lender_mediated)}
+                                subLabel="Lender-Mediated"
+                                iconColor="text-amber-400"
+                            />
+                            <SummaryCard
+                                icon={BarChart3}
+                                title="LM Share of Sales"
+                                value={`${summary.share_closed_sales}%`}
+                                change={null}
+                                subValue={`${summary.share_new_listings}%`}
+                                subLabel="LM Share of Listings"
+                                iconColor="text-purple-400"
+                            />
+                        </div>
+
+                        {/* Market Breakdown */}
+                        <div className="grid md:grid-cols-3 gap-4">
+                            <div className="bg-gray-800/40 rounded-xl p-4 border border-gray-700/50">
+                                <h3 className="text-sm font-medium text-gray-400 mb-3">Traditional Sales</h3>
+                                <div className="text-2xl font-bold text-white mb-1">{formatNumber(summary.closed_sales_traditional)}</div>
+                                <ChangeIndicator value={summary.closed_sales_traditional_change} />
+                                <div className="mt-3 text-sm text-gray-500">
+                                    Median: {formatCurrency(summary.median_price_traditional)}
+                                </div>
+                            </div>
+                            <div className="bg-amber-900/20 rounded-xl p-4 border border-amber-700/50">
+                                <h3 className="text-sm font-medium text-amber-400 mb-3">Lender-Mediated Sales</h3>
+                                <div className="text-2xl font-bold text-white mb-1">{formatNumber(summary.closed_sales_lender_mediated)}</div>
+                                <ChangeIndicator value={summary.closed_sales_lender_mediated_change} />
+                                <div className="mt-3 text-sm text-amber-400/70">
+                                    Median: {formatCurrency(summary.median_price_lender_mediated)}
+                                </div>
+                            </div>
+                            <div className="bg-gray-800/40 rounded-xl p-4 border border-gray-700/50">
+                                <h3 className="text-sm font-medium text-gray-400 mb-3">Traditional Listings</h3>
+                                <div className="text-2xl font-bold text-white mb-1">{formatNumber(summary.new_listings_traditional)}</div>
+                                <ChangeIndicator value={summary.new_listings_traditional_change} />
+                            </div>
+                        </div>
+
+                        {/* Methodology Note */}
+                        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/30 text-sm text-gray-400">
+                            <strong className="text-gray-300">Methodology:</strong> A property is considered "lender-mediated" when marked in the San Diego MLS with:
+                            Court Approval Required, Deed Restricted Program, Estate, HAP, HUD, NOD Filed/Foreclosure Pending,
+                            Need Short Sale, Pre SS Pkg submitted, Probate Subject to Overbid, REO, or Short Sale Approved.
+                        </div>
+                    </div>
+                )}
+
+                {/* Inventory Tab */}
+                {activeTab === 'inventory' && (
+                    <div className="space-y-6">
+                        {/* Inventory by Property Type - Table */}
+                        <InventoryComparisonTable
+                            title="Inventory of Homes for Sale"
+                            data={inventory.by_property_type}
+                        />
+
+                        {/* Lender-Mediated Inventory by Property Type - Bar Chart */}
+                        <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                            <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                <h3 className="text-sm font-semibold text-white">Lender-Mediated Inventory by Property Type</h3>
+                                <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                            </div>
+                            <div className="p-6">
+                                <div className="flex items-end justify-around gap-8 h-48">
+                                    {inventory.by_property_type?.map((item, i) => {
+                                        const val2024 = item.lender_mediated?.['2024'] || 0;
+                                        const val2025 = item.lender_mediated?.['2025'] || 0;
+                                        const maxVal = Math.max(...inventory.by_property_type.map(x =>
+                                            Math.max(x.lender_mediated?.['2024'] || 0, x.lender_mediated?.['2025'] || 0)
+                                        ));
+                                        const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
+                                        const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
+                                        const change = item.lender_mediated?.change;
+
+                                        return (
+                                            <div key={i} className="flex flex-col items-center flex-1">
+                                                <div className="flex items-end gap-2 h-36">
+                                                    {/* 2024 Bar */}
+                                                    <div className="flex flex-col items-center h-full justify-end w-12">
+                                                        <span className="text-xs text-gray-400 mb-1">{val2024}</span>
+                                                        <div
+                                                            className="w-full bg-gray-500 rounded-t transition-all"
+                                                            style={{ height: `${height2024}%`, minHeight: val2024 > 0 ? '4px' : '0' }}
+                                                        />
+                                                    </div>
+                                                    {/* 2025 Bar */}
+                                                    <div className="flex flex-col items-center h-full justify-end w-12">
+                                                        <span className="text-xs text-amber-400 mb-1">{val2025}</span>
+                                                        <div
+                                                            className="w-full bg-amber-500 rounded-t transition-all"
+                                                            style={{ height: `${height2025}%`, minHeight: val2025 > 0 ? '4px' : '0' }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                {/* Change Label */}
+                                                <div className={`mt-2 text-sm font-medium ${change >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                                    {change >= 0 ? '+' : ''}{change?.toFixed(1)}%
+                                                </div>
+                                                {/* Category Label */}
+                                                <div className="mt-1 text-xs text-gray-400 text-center max-w-24">
+                                                    {item.type === 'Condos - Townhomes' ? 'Condos/Townhomes' : item.type}
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                                {/* Legend */}
+                                <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 bg-gray-500 rounded" />
+                                        <span className="text-xs text-gray-400">12-2024</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 bg-amber-500 rounded" />
+                                        <span className="text-xs text-gray-400">12-2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Inventory by Price Range - Table */}
+                        <InventoryComparisonTable
+                            title="Inventory by Price Range"
+                            data={inventory.by_price_range}
+                        />
+
+                        {/* Lender-Mediated Inventory by Price Range - Bar Chart */}
+                        <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                            <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                <h3 className="text-sm font-semibold text-white">Lender-Mediated Inventory by Price Range</h3>
+                                <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                            </div>
+                            <div className="p-6">
+                                <div className="flex items-end justify-around gap-4 h-48 overflow-x-auto">
+                                    {inventory.by_price_range?.map((item, i) => {
+                                        const val2024 = item.lender_mediated?.['2024'] || 0;
+                                        const val2025 = item.lender_mediated?.['2025'] || 0;
+                                        const maxVal = Math.max(...inventory.by_price_range.map(x =>
+                                            Math.max(x.lender_mediated?.['2024'] || 0, x.lender_mediated?.['2025'] || 0)
+                                        ));
+                                        const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
+                                        const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
+                                        const change = item.lender_mediated?.change;
+
+                                        // Shorten price range labels
+                                        const shortLabel = item.range
+                                            ?.replace(' and Below', '')
+                                            .replace(/\$/g, '')
+                                            .replace(/1,000,000/g, '1M')
+                                            .replace(/1,000,001/g, '1M')
+                                            .replace(/1,250,001/g, '1.25M')
+                                            .replace(/1,250,000/g, '1.25M')
+                                            .replace(/1,500,001/g, '1.5M')
+                                            .replace(/1,500,000/g, '1.5M')
+                                            .replace(/2,000,001/g, '2M')
+                                            .replace(/2,000,000/g, '2M')
+                                            .replace(/5,000,001/g, '5M')
+                                            .replace(/5,000,000/g, '5M')
+                                            .replace(/,000,000/g, 'M')
+                                            .replace(/,000/g, 'K')
+                                            .replace(/,001/g, 'K')
+                                            .replace(/,250/g, 'K')
+                                            .replace(' and Above', '+')
+                                            .replace(' to ', '-')
+                                            // Handle edge case where 250K became just 250K after 'and Below' removal
+                                            .replace(/^250K$/, '0-250K');
+
+                                        return (
+                                            <div key={i} className="flex flex-col items-center flex-1 min-w-32">
+                                                <div className="flex items-end gap-1 h-40">
+                                                    {/* 2024 Bar */}
+                                                    <div className="flex flex-col items-center h-full justify-end w-8">
+                                                        <span className="text-[10px] text-gray-400 mb-1">{val2024}</span>
+                                                        <div
+                                                            className="w-full bg-gray-500 rounded-t transition-all"
+                                                            style={{ height: `${height2024}%`, minHeight: val2024 > 0 ? '4px' : '0' }}
+                                                        />
+                                                    </div>
+                                                    {/* 2025 Bar */}
+                                                    <div className="flex flex-col items-center h-full justify-end w-8">
+                                                        <span className="text-[10px] text-amber-400 mb-1">{val2025}</span>
+                                                        <div
+                                                            className="w-full bg-amber-500 rounded-t transition-all"
+                                                            style={{ height: `${height2025}%`, minHeight: val2025 > 0 ? '4px' : '0' }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                {/* Change Label */}
+                                                <div className={`mt-2 text-[10px] font-medium ${change >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                                    {change >= 0 ? '+' : ''}{change?.toFixed(0)}%
+                                                </div>
+                                                {/* Price Range Label */}
+                                                <div className="mt-1 text-xs text-gray-400 text-center whitespace-nowrap">
+                                                    {shortLabel}
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                                {/* Legend */}
+                                <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 bg-gray-500 rounded" />
+                                        <span className="text-xs text-gray-400">12-2024</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 bg-amber-500 rounded" />
+                                        <span className="text-xs text-gray-400">12-2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Activity Tab */}
+                {activeTab === 'activity' && (
+                    <div className="space-y-6">
+                        {activity.new_listings && (
+                            <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                                <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                    <h3 className="text-sm font-semibold text-white">New Listings (December)</h3>
+                                </div>
+                                <div className="p-4">
+                                    <div className="grid md:grid-cols-4 gap-4">
+                                        <div className="text-center p-3 bg-amber-900/20 rounded-lg border border-amber-700/30">
+                                            <div className="text-xs text-amber-400 mb-1">Lender-Mediated</div>
+                                            <div className="text-xl font-bold text-white">{activity.new_listings.lender_mediated['2025']}</div>
+                                            <ChangeIndicator value={activity.new_listings.lender_mediated.change} />
+                                        </div>
+                                        <div className="text-center p-3 bg-gray-700/30 rounded-lg border border-gray-600/30">
+                                            <div className="text-xs text-gray-400 mb-1">Traditional</div>
+                                            <div className="text-xl font-bold text-white">{formatNumber(activity.new_listings.traditional['2025'])}</div>
+                                            <ChangeIndicator value={activity.new_listings.traditional.change} />
+                                        </div>
+                                        <div className="text-center p-3 bg-gray-700/30 rounded-lg border border-gray-600/30">
+                                            <div className="text-xs text-gray-400 mb-1">Total Market</div>
+                                            <div className="text-xl font-bold text-white">{formatNumber(activity.new_listings.total_market['2025'])}</div>
+                                            <ChangeIndicator value={activity.new_listings.total_market.change} />
+                                        </div>
+                                        <div className="text-center p-3 bg-purple-900/20 rounded-lg border border-purple-700/30">
+                                            <div className="text-xs text-purple-400 mb-1">LM Share</div>
+                                            <div className="text-xl font-bold text-white">{activity.new_listings.share['2025']}%</div>
+                                            <div className="text-xs text-gray-500">was {activity.new_listings.share['2024']}%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {activity.closed_sales && (
+                            <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                                <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                    <h3 className="text-sm font-semibold text-white">Closed Sales (December)</h3>
+                                </div>
+                                <div className="p-4">
+                                    <div className="grid md:grid-cols-4 gap-4">
+                                        <div className="text-center p-3 bg-amber-900/20 rounded-lg border border-amber-700/30">
+                                            <div className="text-xs text-amber-400 mb-1">Lender-Mediated</div>
+                                            <div className="text-xl font-bold text-white">{activity.closed_sales.lender_mediated['2025']}</div>
+                                            <ChangeIndicator value={activity.closed_sales.lender_mediated.change} />
+                                        </div>
+                                        <div className="text-center p-3 bg-gray-700/30 rounded-lg border border-gray-600/30">
+                                            <div className="text-xs text-gray-400 mb-1">Traditional</div>
+                                            <div className="text-xl font-bold text-white">{formatNumber(activity.closed_sales.traditional['2025'])}</div>
+                                            <ChangeIndicator value={activity.closed_sales.traditional.change} />
+                                        </div>
+                                        <div className="text-center p-3 bg-gray-700/30 rounded-lg border border-gray-600/30">
+                                            <div className="text-xs text-gray-400 mb-1">Total Market</div>
+                                            <div className="text-xl font-bold text-white">{formatNumber(activity.closed_sales.total_market['2025'])}</div>
+                                            <ChangeIndicator value={activity.closed_sales.total_market.change} />
+                                        </div>
+                                        <div className="text-center p-3 bg-purple-900/20 rounded-lg border border-purple-700/30">
+                                            <div className="text-xs text-purple-400 mb-1">LM Share</div>
+                                            <div className="text-xl font-bold text-white">{activity.closed_sales.share['2025']}%</div>
+                                            <div className="text-xs text-gray-500">was {activity.closed_sales.share['2024']}%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {/* Prices & DOM Tab */}
+                {activeTab === 'prices' && (
+                    <div className="space-y-6">
+                        <ComparisonTable
+                            title="Median Sales Price by Property Type"
+                            data={priceDom.median_price}
+                            valueFormatter={formatCurrency}
+                            showShare={false}
+                        />
+                        {priceDom.days_on_market && priceDom.days_on_market.length > 0 && (
+                            <ComparisonTable
+                                title="Days on Market by Property Type"
+                                data={priceDom.days_on_market}
+                                showShare={false}
+                            />
+                        )}
+                    </div>
+                )}
+
+                {/* Areas Tab */}
+                {activeTab === 'areas' && (
+                    <div className="space-y-6">
+                        <AreaSearchTable
+                            data={areaInventory}
+                            title="Inventory & Closed Sales by Area"
+                            type="inventory"
+                        />
+                        <AreaSearchTable
+                            data={areaPrices}
+                            title="Median Sales Price by Area (YTD)"
+                            type="price"
+                        />
+                    </div>
+                )}
+
+                {/* Footer */}
+                <div className="text-center text-xs text-gray-500 pt-4 border-t border-gray-800">
+                    Current as of January 5, 2026. All data from the San Diego MLS. | Report © 2026 ShowingTime Plus, LLC.
+                </div>
+            </div>
+        </div>
+    );
+}

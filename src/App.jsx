@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote } from 'lucide-react';
+import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote, FileText } from 'lucide-react';
 import WarnDashboard from './WarnDashboard';
 import SDARDashboard from './SDARDashboard';
 import LendingDashboard from './LendingDashboard';
@@ -9,6 +9,7 @@ import GentrificationDashboard from './GentrificationDashboard';
 import NeighborhoodEvolution from './NeighborhoodEvolution';
 import MapDashboard from './MapDashboard';
 import VotingDashboard from './VotingDashboard';
+import LenderMediatedDashboard from './LenderMediatedDashboard';
 
 
 export default function App() {
@@ -110,6 +111,16 @@ export default function App() {
                   <span className="hidden sm:inline">Voting</span>
                 </button>
                 <button
+                  onClick={() => setActiveView('lendermediated')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'lendermediated'
+                    ? 'bg-amber-600 text-white shadow-lg shadow-amber-600/25'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                >
+                  <FileText className="w-4 h-4" />
+                  <span className="hidden sm:inline">Foreclosures</span>
+                </button>
+                <button
                   onClick={() => setActiveView('warn')}
                   className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'warn'
                     ? 'bg-red-600 text-white shadow-lg shadow-red-600/25'
@@ -152,6 +163,11 @@ export default function App() {
       {activeView === 'voting' && (
         <div className="block">
           <VotingDashboard />
+        </div>
+      )}
+      {activeView === 'lendermediated' && (
+        <div className="block">
+          <LenderMediatedDashboard />
         </div>
       )}
       <div className={activeView === 'warn' ? 'block' : 'hidden'}>
