@@ -55,8 +55,9 @@ def extract_all_metrics(text):
         if not current_section:
             continue
             
-        # 1. New Listings
+        # 1. New Listings - handle '--' for monthly pct change when values are 0
         if 'New Listings' in line_clean:
+            # Try standard pattern first
             match = re.search(r'New Listings\*?\s+([\d,]+)\s+([\d,]+)\s*([+-]?\s*[\d.]+)%\s*([\d,]+)\s+([\d,]+)\s*([+-]?\s*[\d.]+)%', line_clean)
             if match:
                 result[current_section]['new_listings_2024'] = parse_number(match.group(1))
@@ -65,6 +66,16 @@ def extract_all_metrics(text):
                 result[current_section]['new_listings_ytd_2024'] = parse_number(match.group(4))
                 result[current_section]['new_listings_ytd_2025'] = parse_number(match.group(5))
                 result[current_section]['new_listings_ytd_pct_change'] = parse_pct(match.group(6))
+            else:
+                # Handle case where monthly pct is '--' (when both monthly values are 0)
+                match = re.search(r'New Listings\*?\s+([\d,]+)\s+([\d,]+)\s*--\s*([\d,]+)\s+([\d,]+)\s*([+-]?\s*[\d.]+)%', line_clean)
+                if match:
+                    result[current_section]['new_listings_2024'] = parse_number(match.group(1))
+                    result[current_section]['new_listings_2025'] = parse_number(match.group(2))
+                    result[current_section]['new_listings_pct_change'] = 0.0  # -- means no change
+                    result[current_section]['new_listings_ytd_2024'] = parse_number(match.group(3))
+                    result[current_section]['new_listings_ytd_2025'] = parse_number(match.group(4))
+                    result[current_section]['new_listings_ytd_pct_change'] = parse_pct(match.group(5))
 
         # 2. Pending Sales
         elif 'Pending Sales' in line_clean:

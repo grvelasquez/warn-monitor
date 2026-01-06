@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-01-05T15:22:19.495923",
+    "generated": "2026-01-05T17:05:14.388420",
     "source": "SDAR Local Market Updates & Monthly Indicators",
     "report_period": "December 2025",
     "neighborhoods_count": 93
@@ -316,6 +316,12 @@
       "neighborhood": "Boulevard",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 14,
+        "new_listings_ytd_2025": 19,
+        "new_listings_ytd_pct_change": 35.7,
         "closed_sales_2024": 1,
         "closed_sales_2025": 2,
         "closed_sales_pct_change": 100.0,
@@ -701,6 +707,12 @@
       "neighborhood": "ChulaVistaNE",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 132,
+        "new_listings_ytd_2025": 103,
+        "new_listings_ytd_pct_change": -22.0,
         "pending_sales_2024": 5,
         "pending_sales_2025": 3,
         "pending_sales_pct_change": -40.0,
@@ -922,6 +934,12 @@
       "neighborhood": "Dulzura",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 6,
+        "new_listings_ytd_2025": 4,
+        "new_listings_ytd_pct_change": -33.3,
         "closed_sales_2024": 2,
         "closed_sales_2025": 0,
         "closed_sales_pct_change": -100.0,
@@ -955,6 +973,12 @@
       "neighborhood": "Guatay",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 4,
+        "new_listings_ytd_2025": 5,
+        "new_listings_ytd_pct_change": 25.0,
         "pending_sales_2024": 1,
         "pending_sales_2025": 0,
         "pending_sales_pct_change": -100.0,
@@ -970,6 +994,12 @@
       "neighborhood": "ImperialBeach",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 178,
+        "new_listings_ytd_2025": 144,
+        "new_listings_ytd_pct_change": -19.1,
         "pending_sales_2024": 9,
         "pending_sales_2025": 3,
         "pending_sales_pct_change": -66.7,
@@ -1058,6 +1088,12 @@
       "neighborhood": "Jacumba",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 20,
+        "new_listings_ytd_2025": 11,
+        "new_listings_ytd_pct_change": -45.0,
         "pending_sales_2024": 1,
         "pending_sales_2025": 0,
         "pending_sales_pct_change": -100.0,
@@ -1122,7 +1158,14 @@
         "months_supply_2025": 1.2,
         "months_supply_pct_change": -73.9
       },
-      "attached": {}
+      "attached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 4,
+        "new_listings_ytd_2025": 0,
+        "new_listings_ytd_pct_change": -100.0
+      }
     },
     {
       "file": "91941-LaMesa,MountHelix.pdf",
@@ -1174,6 +1217,12 @@
         "months_supply_pct_change": -52.9
       },
       "attached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 47,
+        "new_listings_ytd_2025": 20,
+        "new_listings_ytd_pct_change": -57.4,
         "pending_sales_2024": 1,
         "pending_sales_2025": 0,
         "pending_sales_pct_change": -100.0,
@@ -1312,6 +1361,12 @@
       "neighborhood": "LemonGrove",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 178,
+        "new_listings_ytd_2025": 166,
+        "new_listings_ytd_pct_change": -6.7,
         "pending_sales_2024": 8,
         "pending_sales_2025": 5,
         "pending_sales_pct_change": -37.5,
@@ -1400,6 +1455,12 @@
       "neighborhood": "MountLaguna",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 15,
+        "new_listings_ytd_2025": 10,
+        "new_listings_ytd_pct_change": -33.3,
         "pending_sales_2024": 1,
         "pending_sales_2025": 0,
         "pending_sales_pct_change": -100.0,
@@ -1582,7 +1643,14 @@
         "months_supply_2025": 2.6,
         "months_supply_pct_change": -39.5
       },
-      "attached": {}
+      "attached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 1,
+        "new_listings_ytd_2025": 5,
+        "new_listings_ytd_pct_change": 400.0
+      }
     },
     {
       "file": "91963-Potrero.pdf",
@@ -1590,6 +1658,12 @@
       "neighborhood": "Potrero",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 9,
+        "new_listings_ytd_2025": 8,
+        "new_listings_ytd_pct_change": -11.1,
         "closed_sales_2024": 1,
         "closed_sales_2025": 1,
         "closed_sales_pct_change": 0.0,
@@ -1723,6 +1797,12 @@
       "neighborhood": "RanchoSanDiego",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 64,
+        "new_listings_ytd_2025": 57,
+        "new_listings_ytd_pct_change": -10.9,
         "pending_sales_2024": 2,
         "pending_sales_2025": 5,
         "pending_sales_pct_change": 150.0,
@@ -1811,6 +1891,12 @@
       "neighborhood": "Bonsall",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 65,
+        "new_listings_ytd_2025": 72,
+        "new_listings_ytd_pct_change": 10.8,
         "pending_sales_2024": 3,
         "pending_sales_2025": 4,
         "pending_sales_pct_change": 33.3,
@@ -2369,6 +2455,12 @@
       "neighborhood": "CarlsbadSW",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 160,
+        "new_listings_ytd_2025": 149,
+        "new_listings_ytd_pct_change": -6.9,
         "pending_sales_2024": 9,
         "pending_sales_2025": 3,
         "pending_sales_pct_change": -66.7,
@@ -3279,6 +3371,12 @@
       "neighborhood": "EscondidoWest",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 218,
+        "new_listings_ytd_2025": 266,
+        "new_listings_ytd_pct_change": 22.0,
         "pending_sales_2024": 7,
         "pending_sales_2025": 15,
         "pending_sales_pct_change": 114.3,
@@ -3317,6 +3415,12 @@
         "months_supply_pct_change": -62.5
       },
       "attached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 1,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 11,
+        "new_listings_ytd_2025": 11,
+        "new_listings_ytd_pct_change": 0.0,
         "inventory_2024": 3,
         "inventory_2025": 1,
         "inventory_pct_change": -66.7,
@@ -3375,6 +3479,12 @@
         "months_supply_pct_change": -1.9
       },
       "attached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 3,
+        "new_listings_ytd_2025": 2,
+        "new_listings_ytd_pct_change": -33.3,
         "inventory_2024": 1,
         "inventory_2025": 1,
         "inventory_pct_change": 0.0,
@@ -3858,7 +3968,14 @@
       "zip_code": "92059",
       "neighborhood": "Pala",
       "report_month": "December 2025",
-      "detached": {},
+      "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 2,
+        "new_listings_ytd_2025": 3,
+        "new_listings_ytd_pct_change": 50.0
+      },
       "attached": {}
     },
     {
@@ -3867,6 +3984,12 @@
       "neighborhood": "PalomarMountain",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 15,
+        "new_listings_ytd_2025": 22,
+        "new_listings_ytd_pct_change": 46.7,
         "pending_sales_2024": 1,
         "pending_sales_2025": 0,
         "pending_sales_pct_change": -100.0,
@@ -3912,6 +4035,12 @@
       "neighborhood": "PaumaValley",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 34,
+        "new_listings_ytd_2025": 44,
+        "new_listings_ytd_pct_change": 29.4,
         "pending_sales_2024": 2,
         "pending_sales_2025": 1,
         "pending_sales_pct_change": -50.0,
@@ -3949,7 +4078,14 @@
         "months_supply_2025": 4.7,
         "months_supply_pct_change": -11.3
       },
-      "attached": {}
+      "attached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 4,
+        "new_listings_ytd_2025": 10,
+        "new_listings_ytd_pct_change": 150.0
+      }
     },
     {
       "file": "92064-Poway.pdf",
@@ -4145,6 +4281,12 @@
       "neighborhood": "Ranchita",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 9,
+        "new_listings_ytd_2025": 9,
+        "new_listings_ytd_pct_change": 0.0,
         "inventory_2024": 5,
         "inventory_2025": 1,
         "inventory_pct_change": -80.0,
@@ -4670,7 +4812,14 @@
         "months_supply_2025": 1.7,
         "months_supply_pct_change": -72.1
       },
-      "attached": {}
+      "attached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 2,
+        "new_listings_ytd_2025": 0,
+        "new_listings_ytd_pct_change": -100.0
+      }
     },
     {
       "file": "92091-RanchoSantaFe.pdf",
@@ -4772,6 +4921,12 @@
       "neighborhood": "Downtown",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 5,
+        "new_listings_ytd_2025": 22,
+        "new_listings_ytd_pct_change": 340.0,
         "inventory_2024": 1,
         "inventory_2025": 3,
         "inventory_pct_change": 200.0,
@@ -5746,6 +5901,12 @@
       "neighborhood": "LoganHeights",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 120,
+        "new_listings_ytd_2025": 118,
+        "new_listings_ytd_pct_change": -1.7,
         "pending_sales_2024": 5,
         "pending_sales_2025": 4,
         "pending_sales_pct_change": -20.0,
@@ -6468,6 +6629,12 @@
       "neighborhood": "SorrentoValley",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 13,
+        "new_listings_ytd_2025": 15,
+        "new_listings_ytd_pct_change": 15.4,
         "closed_sales_2024": 1,
         "closed_sales_2025": 0,
         "closed_sales_pct_change": -100.0,
@@ -7208,6 +7375,12 @@
       "neighborhood": "CarmelValley",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 283,
+        "new_listings_ytd_2025": 278,
+        "new_listings_ytd_pct_change": -1.8,
         "pending_sales_2024": 15,
         "pending_sales_2025": 6,
         "pending_sales_pct_change": -60.0,
@@ -7390,6 +7563,12 @@
       "neighborhood": "ParadiseHills",
       "report_month": "December 2025",
       "detached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 129,
+        "new_listings_ytd_2025": 117,
+        "new_listings_ytd_pct_change": -9.3,
         "pending_sales_2024": 9,
         "pending_sales_2025": 5,
         "pending_sales_pct_change": -44.4,
@@ -7616,6 +7795,12 @@
         "months_supply_pct_change": -54.3
       },
       "attached": {
+        "new_listings_2024": 0,
+        "new_listings_2025": 0,
+        "new_listings_pct_change": 0.0,
+        "new_listings_ytd_2024": 35,
+        "new_listings_ytd_2025": 38,
+        "new_listings_ytd_pct_change": 8.6,
         "closed_sales_2024": 2,
         "closed_sales_2025": 1,
         "closed_sales_pct_change": -50.0,
