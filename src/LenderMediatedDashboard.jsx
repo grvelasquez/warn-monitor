@@ -135,7 +135,7 @@ const ComparisonTable = ({ title, data, valueFormatter = formatNumber, showShare
 };
 
 // Inventory Comparison Table with 2024 and 2025 data (matching PDF format)
-const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = formatNumber }) => {
+const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = formatNumber, showShare = true }) => {
     if (!data || data.length === 0) return null;
 
     return (
@@ -152,7 +152,7 @@ const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = form
                             <th className="px-3 py-2 text-xs font-medium text-amber-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="3">Lender-Mediated</th>
                             <th className="px-3 py-2 text-xs font-medium text-gray-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="3">Traditional</th>
                             <th className="px-3 py-2 text-xs font-medium text-gray-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="3">Total Market</th>
-                            <th className="px-3 py-2 text-xs font-medium text-purple-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="2">LM Share</th>
+                            {showShare && <th className="px-3 py-2 text-xs font-medium text-purple-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="2">LM Share</th>}
                         </tr>
                         <tr className="bg-gray-800/30">
                             {/* Lender-Mediated */}
@@ -168,8 +168,12 @@ const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = form
                             <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Share */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                            {showShare && (
+                                <>
+                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
+                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                                </>
+                            )}
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-700/50">
@@ -191,8 +195,12 @@ const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = form
                                 <td className="px-2 py-2 text-right text-gray-200">{valueFormatter(item.total_market?.['2025'])}</td>
                                 <td className="px-2 py-2 text-center"><ChangeIndicator value={item.total_market?.change} className="pr-4" /></td>
                                 {/* Share */}
-                                <td className="px-2 py-2 text-right text-gray-400">{item.share?.['2024']?.toFixed(1)}%</td>
-                                <td className="px-2 py-2 text-right text-purple-400 font-medium">{item.share?.['2025']?.toFixed(1)}%</td>
+                                {showShare && (
+                                    <>
+                                        <td className="px-2 py-2 text-right text-gray-400">{item.share?.['2024']?.toFixed(1)}%</td>
+                                        <td className="px-2 py-2 text-right text-purple-400 font-medium">{item.share?.['2025']?.toFixed(1)}%</td>
+                                    </>
+                                )}
                             </tr>
                         ))}
                     </tbody>
@@ -722,87 +730,513 @@ export default function LenderMediatedDashboard() {
                 {/* Activity Tab */}
                 {activeTab === 'activity' && (
                     <div className="space-y-6">
-                        {activity.new_listings && (
+                        {/* Activity Comparison Table - New Listings & Closed Sales */}
+                        {(activity.new_listings || activity.closed_sales) && (
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
-                                <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
-                                    <h3 className="text-sm font-semibold text-white">New Listings (December)</h3>
+                                <div className="px-4 py-3 bg-gray-808/60 border-b border-gray-700/50">
+                                    <h3 className="text-sm font-semibold text-white">New Listings and Closed Sales</h3>
+                                    <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
                                 </div>
-                                <div className="p-4">
-                                    <div className="grid md:grid-cols-4 gap-4">
-                                        <div className="text-center p-3 bg-amber-900/20 rounded-lg border border-amber-700/30">
-                                            <div className="text-xs text-amber-400 mb-1">Lender-Mediated</div>
-                                            <div className="text-xl font-bold text-white">{activity.new_listings.lender_mediated['2025']}</div>
-                                            <ChangeIndicator value={activity.new_listings.lender_mediated.change} />
-                                        </div>
-                                        <div className="text-center p-3 bg-gray-700/30 rounded-lg border border-gray-600/30">
-                                            <div className="text-xs text-gray-400 mb-1">Traditional</div>
-                                            <div className="text-xl font-bold text-white">{formatNumber(activity.new_listings.traditional['2025'])}</div>
-                                            <ChangeIndicator value={activity.new_listings.traditional.change} />
-                                        </div>
-                                        <div className="text-center p-3 bg-gray-700/30 rounded-lg border border-gray-600/30">
-                                            <div className="text-xs text-gray-400 mb-1">Total Market</div>
-                                            <div className="text-xl font-bold text-white">{formatNumber(activity.new_listings.total_market['2025'])}</div>
-                                            <ChangeIndicator value={activity.new_listings.total_market.change} />
-                                        </div>
-                                        <div className="text-center p-3 bg-purple-900/20 rounded-lg border border-purple-700/30">
-                                            <div className="text-xs text-purple-400 mb-1">LM Share</div>
-                                            <div className="text-xl font-bold text-white">{activity.new_listings.share['2025']}%</div>
-                                            <div className="text-xs text-gray-500">was {activity.new_listings.share['2024']}%</div>
-                                        </div>
-                                    </div>
+                                <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                        <thead>
+                                            <tr className="bg-gray-800/40">
+                                                <th className="px-3 py-2 text-xs font-medium text-gray-400 uppercase tracking-wider text-left" rowSpan="2"></th>
+                                                <th className="px-3 py-2 text-xs font-medium text-amber-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="3">Lender-Mediated</th>
+                                                <th className="px-3 py-2 text-xs font-medium text-gray-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="3">Traditional</th>
+                                                <th className="px-3 py-2 text-xs font-medium text-gray-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="3">Total Market</th>
+                                                <th className="px-3 py-2 text-xs font-medium text-purple-400 uppercase tracking-wider text-center border-b border-gray-700/30" colSpan="2">LM Share</th>
+                                            </tr>
+                                            <tr className="bg-gray-800/30">
+                                                {/* Lender-Mediated */}
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
+                                                {/* Traditional */}
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
+                                                {/* Total Market */}
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
+                                                {/* Share */}
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-700/50">
+                                            {activity.new_listings && (
+                                                <tr className="hover:bg-gray-700/30 transition-colors">
+                                                    <td className="px-3 py-2 text-gray-300 font-medium whitespace-nowrap">New Listings</td>
+                                                    {/* Lender-Mediated */}
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.new_listings.lender_mediated?.['2024'])}</td>
+                                                    <td className="px-2 py-2 text-right text-amber-400 font-medium">{formatNumber(activity.new_listings.lender_mediated?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.new_listings.lender_mediated?.change} className="pr-4" /></td>
+                                                    {/* Traditional */}
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.new_listings.traditional?.['2024'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.new_listings.traditional?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.new_listings.traditional?.change} className="pr-4" /></td>
+                                                    {/* Total Market */}
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.new_listings.total_market?.['2024'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.new_listings.total_market?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.new_listings.total_market?.change} className="pr-4" /></td>
+                                                    {/* Share */}
+                                                    <td className="px-2 py-2 text-right text-gray-400">{activity.new_listings.share?.['2024']?.toFixed(1)}%</td>
+                                                    <td className="px-2 py-2 text-right text-purple-400 font-medium">{activity.new_listings.share?.['2025']?.toFixed(1)}%</td>
+                                                </tr>
+                                            )}
+                                            {activity.closed_sales && (
+                                                <tr className="hover:bg-gray-700/30 transition-colors">
+                                                    <td className="px-3 py-2 text-gray-300 font-medium whitespace-nowrap">Closed Sales</td>
+                                                    {/* Lender-Mediated */}
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.closed_sales.lender_mediated?.['2024'])}</td>
+                                                    <td className="px-2 py-2 text-right text-amber-400 font-medium">{formatNumber(activity.closed_sales.lender_mediated?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.closed_sales.lender_mediated?.change} className="pr-4" /></td>
+                                                    {/* Traditional */}
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.closed_sales.traditional?.['2024'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.closed_sales.traditional?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.closed_sales.traditional?.change} className="pr-4" /></td>
+                                                    {/* Total Market */}
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.closed_sales.total_market?.['2024'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.closed_sales.total_market?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.closed_sales.total_market?.change} className="pr-4" /></td>
+                                                    {/* Share */}
+                                                    <td className="px-2 py-2 text-right text-gray-400">{activity.closed_sales.share?.['2024']?.toFixed(1)}%</td>
+                                                    <td className="px-2 py-2 text-right text-purple-400 font-medium">{activity.closed_sales.share?.['2025']?.toFixed(1)}%</td>
+                                                </tr>
+                                            )}
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         )}
 
-                        {activity.closed_sales && (
-                            <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
-                                <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
-                                    <h3 className="text-sm font-semibold text-white">Closed Sales (December)</h3>
+                        {/* Lender-Mediated Activity Bar Chart */}
+                        <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                            <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                <h3 className="text-sm font-semibold text-white">Lender-Mediated Activity Comparison</h3>
+                                <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                            </div>
+                            <div className="p-6">
+                                <div className="flex items-end justify-around gap-8 h-48">
+                                    {/* New Listings Bar */}
+                                    {activity.new_listings && (() => {
+                                        const val2024 = activity.new_listings.lender_mediated?.['2024'] || 0;
+                                        const val2025 = activity.new_listings.lender_mediated?.['2025'] || 0;
+                                        const maxVal = Math.max(
+                                            activity.new_listings.lender_mediated?.['2024'] || 0,
+                                            activity.new_listings.lender_mediated?.['2025'] || 0,
+                                            activity.closed_sales?.lender_mediated?.['2024'] || 0,
+                                            activity.closed_sales?.lender_mediated?.['2025'] || 0
+                                        );
+                                        const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
+                                        const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
+                                        const change = activity.new_listings.lender_mediated?.change;
+
+                                        return (
+                                            <div className="flex flex-col items-center flex-1">
+                                                <div className="flex items-end gap-2 h-36">
+                                                    {/* 2024 Bar */}
+                                                    <div className="flex flex-col items-center h-full justify-end w-12">
+                                                        <span className="text-xs text-gray-400 mb-1">{val2024}</span>
+                                                        <div
+                                                            className="w-full bg-gray-500 rounded-t transition-all"
+                                                            style={{ height: `${height2024}%`, minHeight: val2024 > 0 ? '4px' : '0' }}
+                                                        />
+                                                    </div>
+                                                    {/* 2025 Bar */}
+                                                    <div className="flex flex-col items-center h-full justify-end w-12">
+                                                        <span className="text-xs text-amber-400 mb-1">{val2025}</span>
+                                                        <div
+                                                            className="w-full bg-amber-500 rounded-t transition-all"
+                                                            style={{ height: `${height2025}%`, minHeight: val2025 > 0 ? '4px' : '0' }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                {/* Change Label */}
+                                                <div className={`mt-2 text-sm font-medium ${change >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                                    {change >= 0 ? '+' : ''}{change?.toFixed(1)}%
+                                                </div>
+                                                {/* Category Label */}
+                                                <div className="mt-1 text-xs text-gray-400 text-center max-w-24">
+                                                    New Listings
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
+
+                                    {/* Closed Sales Bar */}
+                                    {activity.closed_sales && (() => {
+                                        const val2024 = activity.closed_sales.lender_mediated?.['2024'] || 0;
+                                        const val2025 = activity.closed_sales.lender_mediated?.['2025'] || 0;
+                                        const maxVal = Math.max(
+                                            activity.new_listings?.lender_mediated?.['2024'] || 0,
+                                            activity.new_listings?.lender_mediated?.['2025'] || 0,
+                                            activity.closed_sales?.lender_mediated?.['2024'] || 0,
+                                            activity.closed_sales?.lender_mediated?.['2025'] || 0
+                                        );
+                                        const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
+                                        const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
+                                        const change = activity.closed_sales.lender_mediated?.change;
+
+                                        return (
+                                            <div className="flex flex-col items-center flex-1">
+                                                <div className="flex items-end gap-2 h-36">
+                                                    {/* 2024 Bar */}
+                                                    <div className="flex flex-col items-center h-full justify-end w-12">
+                                                        <span className="text-xs text-gray-400 mb-1">{val2024}</span>
+                                                        <div
+                                                            className="w-full bg-gray-500 rounded-t transition-all"
+                                                            style={{ height: `${height2024}%`, minHeight: val2024 > 0 ? '4px' : '0' }}
+                                                        />
+                                                    </div>
+                                                    {/* 2025 Bar */}
+                                                    <div className="flex flex-col items-center h-full justify-end w-12">
+                                                        <span className="text-xs text-amber-400 mb-1">{val2025}</span>
+                                                        <div
+                                                            className="w-full bg-amber-500 rounded-t transition-all"
+                                                            style={{ height: `${height2025}%`, minHeight: val2025 > 0 ? '4px' : '0' }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                {/* Change Label */}
+                                                <div className={`mt-2 text-sm font-medium ${change >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                                    {change >= 0 ? '+' : ''}{change?.toFixed(1)}%
+                                                </div>
+                                                {/* Category Label */}
+                                                <div className="mt-1 text-xs text-gray-400 text-center max-w-24">
+                                                    Closed Sales
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
                                 </div>
-                                <div className="p-4">
-                                    <div className="grid md:grid-cols-4 gap-4">
-                                        <div className="text-center p-3 bg-amber-900/20 rounded-lg border border-amber-700/30">
-                                            <div className="text-xs text-amber-400 mb-1">Lender-Mediated</div>
-                                            <div className="text-xl font-bold text-white">{activity.closed_sales.lender_mediated['2025']}</div>
-                                            <ChangeIndicator value={activity.closed_sales.lender_mediated.change} />
-                                        </div>
-                                        <div className="text-center p-3 bg-gray-700/30 rounded-lg border border-gray-600/30">
-                                            <div className="text-xs text-gray-400 mb-1">Traditional</div>
-                                            <div className="text-xl font-bold text-white">{formatNumber(activity.closed_sales.traditional['2025'])}</div>
-                                            <ChangeIndicator value={activity.closed_sales.traditional.change} />
-                                        </div>
-                                        <div className="text-center p-3 bg-gray-700/30 rounded-lg border border-gray-600/30">
-                                            <div className="text-xs text-gray-400 mb-1">Total Market</div>
-                                            <div className="text-xl font-bold text-white">{formatNumber(activity.closed_sales.total_market['2025'])}</div>
-                                            <ChangeIndicator value={activity.closed_sales.total_market.change} />
-                                        </div>
-                                        <div className="text-center p-3 bg-purple-900/20 rounded-lg border border-purple-700/30">
-                                            <div className="text-xs text-purple-400 mb-1">LM Share</div>
-                                            <div className="text-xl font-bold text-white">{activity.closed_sales.share['2025']}%</div>
-                                            <div className="text-xs text-gray-500">was {activity.closed_sales.share['2024']}%</div>
-                                        </div>
+                                {/* Legend */}
+                                <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 bg-gray-500 rounded" />
+                                        <span className="text-xs text-gray-400">12-2024</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 bg-amber-500 rounded" />
+                                        <span className="text-xs text-gray-400">12-2025</span>
                                     </div>
                                 </div>
                             </div>
-                        )}
+                        </div>
+
+                        {/* Line Graphs - New Listings and Closed Sales Trends */}
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {/* New Listings Trend */}
+                            {activity.new_listings && (
+                                <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                                    <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                        <h3 className="text-sm font-semibold text-white">New Listings Trend</h3>
+                                        <p className="text-xs text-gray-400 mt-1">December 2024 to December 2025</p>
+                                    </div>
+                                    <div className="p-6">
+                                        <div className="relative h-64">
+                                            <svg className="w-full h-full" viewBox="0 0 400 200" preserveAspectRatio="none">
+                                                {/* Grid lines */}
+                                                <line x1="0" y1="0" x2="0" y2="200" stroke="#374151" strokeWidth="1" />
+                                                <line x1="0" y1="200" x2="400" y2="200" stroke="#374151" strokeWidth="1" />
+                                                <line x1="0" y1="150" x2="400" y2="150" stroke="#374151" strokeWidth="0.5" opacity="0.3" strokeDasharray="4" />
+                                                <line x1="0" y1="100" x2="400" y2="100" stroke="#374151" strokeWidth="0.5" opacity="0.3" strokeDasharray="4" />
+                                                <line x1="0" y1="50" x2="400" y2="50" stroke="#374151" strokeWidth="0.5" opacity="0.3" strokeDasharray="4" />
+
+                                                {(() => {
+                                                    const maxVal = Math.max(
+                                                        activity.new_listings.lender_mediated?.['2024'] || 0,
+                                                        activity.new_listings.lender_mediated?.['2025'] || 0,
+                                                        activity.new_listings.traditional?.['2024'] || 0,
+                                                        activity.new_listings.traditional?.['2025'] || 0
+                                                    );
+
+                                                    // Calculate Y positions (inverted for SVG coordinates)
+                                                    const lm2024Y = 190 - ((activity.new_listings.lender_mediated?.['2024'] || 0) / maxVal * 180);
+                                                    const lm2025Y = 190 - ((activity.new_listings.lender_mediated?.['2025'] || 0) / maxVal * 180);
+                                                    const trad2024Y = 190 - ((activity.new_listings.traditional?.['2024'] || 0) / maxVal * 180);
+                                                    const trad2025Y = 190 - ((activity.new_listings.traditional?.['2025'] || 0) / maxVal * 180);
+
+                                                    return (
+                                                        <>{/* Traditional Line */}
+                                                            <polyline
+                                                                points={`50,${trad2024Y} 350,${trad2025Y}`}
+                                                                fill="none"
+                                                                stroke="#60A5FA"
+                                                                strokeWidth="2"
+                                                            />
+                                                            <circle cx="50" cy={trad2024Y} r="4" fill="#60A5FA" />
+                                                            <circle cx="350" cy={trad2025Y} r="4" fill="#60A5FA" />
+
+                                                            {/* Lender-Mediated Line */}
+                                                            <polyline
+                                                                points={`50,${lm2024Y} 350,${lm2025Y}`}
+                                                                fill="none"
+                                                                stroke="#F59E0B"
+                                                                strokeWidth="3"
+                                                            />
+                                                            <circle cx="50" cy={lm2024Y} r="5" fill="#F59E0B" />
+                                                            <circle cx="350" cy={lm2025Y} r="5" fill="#F59E0B" />
+                                                        </>
+                                                    );
+                                                })()}
+                                            </svg>
+                                            {/* X-axis labels */}
+                                            <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 text-xs text-gray-500">
+                                                <span>Dec 2024</span>
+                                                <span>Dec 2025</span>
+                                            </div>
+                                        </div>
+                                        {/* Legend */}
+                                        <div className="flex justify-center gap-4 mt-4 pt-4 border-t border-gray-700/50 text-xs">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-3 h-3 bg-amber-500 rounded-full"></div>
+                                                <span className="text-gray-400">Lender-Mediated</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
+                                                <span className="text-gray-400">Traditional</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Closed Sales Trend */}
+                            {activity.closed_sales && (
+                                <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                                    <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                        <h3 className="text-sm font-semibold text-white">Closed Sales Trend</h3>
+                                        <p className="text-xs text-gray-400 mt-1">December 2024 to December 2025</p>
+                                    </div>
+                                    <div className="p-6">
+                                        <div className="relative h-64">
+                                            <svg className="w-full h-full" viewBox="0 0 400 200" preserveAspectRatio="none">
+                                                {/* Grid lines */}
+                                                <line x1="0" y1="0" x2="0" y2="200" stroke="#374151" strokeWidth="1" />
+                                                <line x1="0" y1="200" x2="400" y2="200" stroke="#374151" strokeWidth="1" />
+                                                <line x1="0" y1="150" x2="400" y2="150" stroke="#374151" strokeWidth="0.5" opacity="0.3" strokeDasharray="4" />
+                                                <line x1="0" y1="100" x2="400" y2="100" stroke="#374151" strokeWidth="0.5" opacity="0.3" strokeDasharray="4" />
+                                                <line x1="0" y1="50" x2="400" y2="50" stroke="#374151" strokeWidth="0.5" opacity="0.3" strokeDasharray="4" />
+
+                                                {(() => {
+                                                    const maxVal = Math.max(
+                                                        activity.closed_sales.lender_mediated?.['2024'] || 0,
+                                                        activity.closed_sales.lender_mediated?.['2025'] || 0,
+                                                        activity.closed_sales.traditional?.['2024'] || 0,
+                                                        activity.closed_sales.traditional?.['2025'] || 0,
+                                                        activity.closed_sales.total_market?.['2024'] || 0,
+                                                        activity.closed_sales.total_market?.['2025'] || 0
+                                                    );
+
+                                                    // Calculate Y positions (inverted for SVG coordinates)
+                                                    const lm2024Y = 190 - ((activity.closed_sales.lender_mediated?.['2024'] || 0) / maxVal * 180);
+                                                    const lm2025Y = 190 - ((activity.closed_sales.lender_mediated?.['2025'] || 0) / maxVal * 180);
+                                                    const trad2024Y = 190 - ((activity.closed_sales.traditional?.['2024'] || 0) / maxVal * 180);
+                                                    const trad2025Y = 190 - ((activity.closed_sales.traditional?.['2025'] || 0) / maxVal * 180);
+                                                    const total2024Y = 190 - ((activity.closed_sales.total_market?.['2024'] || 0) / maxVal * 180);
+                                                    const total2025Y = 190 - ((activity.closed_sales.total_market?.['2025'] || 0) / maxVal * 180);
+
+                                                    return (
+                                                        <>{/* Traditional Line */}
+                                                            <polyline
+                                                                points={`50,${trad2024Y} 350,${trad2025Y}`}
+                                                                fill="none"
+                                                                stroke="#60A5FA"
+                                                                strokeWidth="2"
+                                                            />
+                                                            <circle cx="50" cy={trad2024Y} r="4" fill="#60A5FA" />
+                                                            <circle cx="350" cy={trad2025Y} r="4" fill="#60A5FA" />
+
+                                                            {/* Lender-Mediated Line */}
+                                                            <polyline
+                                                                points={`50,${lm2024Y} 350,${lm2025Y}`}
+                                                                fill="none"
+                                                                stroke="#F59E0B"
+                                                                strokeWidth="3"
+                                                            />
+                                                            <circle cx="50" cy={lm2024Y} r="5" fill="#F59E0B" />
+                                                            <circle cx="350" cy={lm2025Y} r="5" fill="#F59E0B" />
+                                                        </>
+                                                    );
+                                                })()}
+                                            </svg>
+                                            {/* X-axis labels */}
+                                            <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 text-xs text-gray-500">
+                                                <span>Dec 2024</span>
+                                                <span>Dec 2025</span>
+                                            </div>
+                                        </div>
+                                        {/* Legend */}
+                                        <div className="flex justify-center gap-4 mt-4 pt-4 border-t border-gray-700/50 text-xs">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-3 h-3 bg-amber-500 rounded-full"></div>
+                                                <span className="text-gray-400">Lender-Mediated</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
+                                                <span className="text-gray-400">Traditional</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 )}
 
                 {/* Prices & DOM Tab */}
                 {activeTab === 'prices' && (
                     <div className="space-y-6">
-                        <ComparisonTable
+                        {/* Median Sales Price Table */}
+                        <InventoryComparisonTable
                             title="Median Sales Price by Property Type"
+                            subtitle="December 2024 vs December 2025"
                             data={priceDom.median_price}
                             valueFormatter={formatCurrency}
                             showShare={false}
                         />
+
+                        {/* Median Sales Price Bar Chart by Property Type */}
+                        <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                            <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                <h3 className="text-sm font-semibold text-white">Lender-Mediated Median Sales Price by Property Type</h3>
+                                <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                            </div>
+                            <div className="p-6">
+                                <div className="flex items-end justify-around gap-8 h-64">
+                                    {priceDom.median_price?.map((item, i) => {
+                                        const val2024 = item.lender_mediated?.['2024'] || 0;
+                                        const val2025 = item.lender_mediated?.['2025'] || 0;
+                                        const maxVal = Math.max(...priceDom.median_price.map(x =>
+                                            Math.max(x.lender_mediated?.['2024'] || 0, x.lender_mediated?.['2025'] || 0)
+                                        ));
+                                        const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
+                                        const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
+                                        const change = item.lender_mediated?.change;
+
+                                        return (
+                                            <div key={i} className="flex flex-col items-center flex-1">
+                                                <div className="flex items-end gap-2 h-48">
+                                                    {/* 2024 Bar */}
+                                                    <div className="flex flex-col items-center h-full justify-end w-16">
+                                                        <span className="text-[10px] text-gray-400 mb-1">{formatCurrency(val2024)}</span>
+                                                        <div
+                                                            className="w-full bg-gray-500 rounded-t transition-all"
+                                                            style={{ height: `${height2024}%`, minHeight: val2024 > 0 ? '4px' : '0' }}
+                                                        />
+                                                    </div>
+                                                    {/* 2025 Bar */}
+                                                    <div className="flex flex-col items-center h-full justify-end w-16">
+                                                        <span className="text-[10px] text-amber-400 mb-1">{formatCurrency(val2025)}</span>
+                                                        <div
+                                                            className="w-full bg-amber-500 rounded-t transition-all"
+                                                            style={{ height: `${height2025}%`, minHeight: val2025 > 0 ? '4px' : '0' }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                {/* Change Label */}
+                                                <div className={`mt-2 text-sm font-medium ${change >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                                    {change >= 0 ? '+' : ''}{change?.toFixed(1)}%
+                                                </div>
+                                                {/* Category Label */}
+                                                <div className="mt-1 text-xs text-gray-400 text-center max-w-28">
+                                                    {item.type === 'Condos - Townhomes' ? 'Condos/Townhomes' : item.type}
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                                {/* Legend */}
+                                <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 bg-gray-500 rounded" />
+                                        <span className="text-xs text-gray-400">12-2024</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 bg-amber-500 rounded" />
+                                        <span className="text-xs text-gray-400">12-2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Days on Market Table */}
                         {priceDom.days_on_market && priceDom.days_on_market.length > 0 && (
-                            <ComparisonTable
-                                title="Days on Market by Property Type"
-                                data={priceDom.days_on_market}
-                                showShare={false}
-                            />
+                            <>
+                                <InventoryComparisonTable
+                                    title="Days on Market Until Sale by Property Type"
+                                    subtitle="December 2024 vs December 2025"
+                                    data={priceDom.days_on_market}
+                                    showShare={false}
+                                />
+
+                                {/* Days on Market Bar Chart by Property Type */}
+                                <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                                    <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                        <h3 className="text-sm font-semibold text-white">Lender-Mediated Days on Market by Property Type</h3>
+                                        <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                                    </div>
+                                    <div className="p-6">
+                                        <div className="flex items-end justify-around gap-8 h-64">
+                                            {priceDom.days_on_market?.map((item, i) => {
+                                                const val2024 = item.lender_mediated?.['2024'] || 0;
+                                                const val2025 = item.lender_mediated?.['2025'] || 0;
+                                                const maxVal = Math.max(...priceDom.days_on_market.map(x =>
+                                                    Math.max(x.lender_mediated?.['2024'] || 0, x.lender_mediated?.['2025'] || 0)
+                                                ));
+                                                const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
+                                                const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
+                                                const change = item.lender_mediated?.change;
+
+                                                return (
+                                                    <div key={i} className="flex flex-col items-center flex-1">
+                                                        <div className="flex items-end gap-2 h-48">
+                                                            {/* 2024 Bar */}
+                                                            <div className="flex flex-col items-center h-full justify-end w-16">
+                                                                <span className="text-xs text-gray-400 mb-1">{val2024} days</span>
+                                                                <div
+                                                                    className="w-full bg-gray-500 rounded-t transition-all"
+                                                                    style={{ height: `${height2024}%`, minHeight: val2024 > 0 ? '4px' : '0' }}
+                                                                />
+                                                            </div>
+                                                            {/* 2025 Bar */}
+                                                            <div className="flex flex-col items-center h-full justify-end w-16">
+                                                                <span className="text-xs text-amber-400 mb-1">{val2025} days</span>
+                                                                <div
+                                                                    className="w-full bg-amber-500 rounded-t transition-all"
+                                                                    style={{ height: `${height2025}%`, minHeight: val2025 > 0 ? '4px' : '0' }}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        {/* Change Label */}
+                                                        <div className={`mt-2 text-sm font-medium ${change >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                                            {change >= 0 ? '+' : ''}{change?.toFixed(1)}%
+                                                        </div>
+                                                        {/* Category Label */}
+                                                        <div className="mt-1 text-xs text-gray-400 text-center max-w-28">
+                                                            {item.type === 'Condos - Townhomes' ? 'Condos/Townhomes' : item.type}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                        {/* Legend */}
+                                        <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-4 h-4 bg-gray-500 rounded" />
+                                                <span className="text-xs text-gray-400">12-2024</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-4 h-4 bg-amber-500 rounded" />
+                                                <span className="text-xs text-gray-400">12-2025</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
                         )}
                     </div>
                 )}

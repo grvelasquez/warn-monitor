@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-01-06T10:30:09.299820",
+    "generated": "2026-01-06T14:12:22.554674",
     "source": "SDAR Lender-Mediated Properties Report",
     "report_period": "December 2025"
   },
@@ -331,7 +331,62 @@
         }
       }
     ],
-    "days_on_market": []
+    "days_on_market": [
+      {
+        "type": "Single-Family Homes",
+        "lender_mediated": {
+          "2024": 47,
+          "2025": 60,
+          "change": 27.7
+        },
+        "traditional": {
+          "2024": 40,
+          "2025": 43,
+          "change": 7.5
+        },
+        "total_market": {
+          "2024": 40,
+          "2025": 44,
+          "change": 10.0
+        }
+      },
+      {
+        "type": "Condos - Townhomes",
+        "lender_mediated": {
+          "2024": 50,
+          "2025": 38,
+          "change": -24.0
+        },
+        "traditional": {
+          "2024": 40,
+          "2025": 51,
+          "change": 27.5
+        },
+        "total_market": {
+          "2024": 41,
+          "2025": 51,
+          "change": 24.4
+        }
+      },
+      {
+        "type": "All Properties",
+        "lender_mediated": {
+          "2024": 48,
+          "2025": 53,
+          "change": 10.4
+        },
+        "traditional": {
+          "2024": 40,
+          "2025": 46,
+          "change": 15.0
+        },
+        "total_market": {
+          "2024": 40,
+          "2025": 46,
+          "change": 15.0
+        }
+      }
+    ]
   },
   "area_inventory_sales": [
     {
