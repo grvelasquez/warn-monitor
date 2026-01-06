@@ -1,7 +1,7 @@
 // Simple Real Estate News Feed with static data and links
 const newsItems = [
     {
-        title: "San Diego Home Prices Hit Record High in November",
+        title: "San Diego Home Prices Hit Record High in December",
         source: "SDAR",
         time: "2h ago",
         tag: "RE",
