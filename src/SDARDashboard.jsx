@@ -542,9 +542,9 @@ export default function SDARDashboard() {
                                     </div>
                                     <ResponsiveContainer width="100%" height={180}>
                                         <BarChart data={[
-                                            { name: 'Closed', detached: comparisonData.detached.closedSales, attached: comparisonData.attached.closedSales },
-                                            { name: 'Pending', detached: comparisonData.detached.pendingSales, attached: comparisonData.attached.pendingSales },
-                                            { name: 'New', detached: comparisonData.detached.newListings, attached: comparisonData.attached.newListings },
+                                            { name: 'Closed', detached: comparisonData.detached.closedSalesYtd, attached: comparisonData.attached.closedSalesYtd },
+                                            { name: 'Pending', detached: comparisonData.detached.pendingSalesYtd, attached: comparisonData.attached.pendingSalesYtd },
+                                            { name: 'New', detached: comparisonData.detached.newListingsYtd, attached: comparisonData.attached.newListingsYtd },
                                         ]} layout="vertical" margin={{ left: 55 }}>
                                             <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
                                             <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} />
@@ -633,9 +633,9 @@ export default function SDARDashboard() {
                                     <h3 className="text-lg font-bold text-white mb-4">Activity Comparison</h3>
                                     <ResponsiveContainer width="100%" height={280}>
                                         <BarChart data={[
-                                            { name: 'New Listings', detached: comparisonData.detached.newListings, attached: comparisonData.attached.newListings },
-                                            { name: 'Pending Sales', detached: comparisonData.detached.pendingSales, attached: comparisonData.attached.pendingSales },
-                                            { name: 'Closed Sales', detached: comparisonData.detached.closedSales, attached: comparisonData.attached.closedSales },
+                                            { name: 'New Listings', detached: comparisonData.detached.newListingsYtd, attached: comparisonData.attached.newListingsYtd },
+                                            { name: 'Pending Sales', detached: comparisonData.detached.pendingSalesYtd, attached: comparisonData.attached.pendingSalesYtd },
+                                            { name: 'Closed Sales', detached: comparisonData.detached.closedSalesYtd, attached: comparisonData.attached.closedSalesYtd },
                                         ]} layout="vertical" margin={{ left: 85 }}>
                                             <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
                                             <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} />
