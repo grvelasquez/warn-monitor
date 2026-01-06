@@ -21,7 +21,8 @@ export const regions = {
     northInland: {
         name: 'North Inland',
         areas: [
-            { id: 'san-marcos-south', name: 'San Marcos South', zips: ['92069', '92078'] },
+            { id: 'san-marcos-69', name: 'San Marcos (92069)', zips: ['92069'] },
+            { id: 'san-marcos-78', name: 'San Marcos (92078)', zips: ['92078'] },
             { id: 'escondido-south', name: 'Escondido South', zips: ['92025'] },
             { id: 'escondido-north', name: 'Escondido North', zips: ['92026'] },
             { id: 'escondido-east', name: 'Escondido East', zips: ['92027'] },
@@ -33,7 +34,8 @@ export const regions = {
             { id: 'valley-center', name: 'Valley Center', zips: ['92082'] },
             { id: 'ramona', name: 'Ramona', zips: ['92065'] },
             { id: 'poway', name: 'Poway', zips: ['92064'] },
-            { id: 'rancho-santa-fe', name: 'Rancho Santa Fe', zips: ['92067', '92091'] },
+            { id: 'rancho-santa-fe-67', name: 'Rancho Santa Fe (92067)', zips: ['92067'] },
+            { id: 'rancho-santa-fe-91', name: 'Rancho Santa Fe (92091)', zips: ['92091'] },
         ]
     },
     centralCoastal: {

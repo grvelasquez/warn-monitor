@@ -1,899 +1,783 @@
 {
   "meta": {
-    "generated": "2025-12-11T10:47:49.241914",
+    "generated": "2026-01-05T16:17:36.061075",
     "source": "Zillow ZORI (Observed Rent Index)",
-    "data_date": "2025-10-31",
-    "neighborhoods_count": 65,
+    "data_date": "2025-11-30",
+    "neighborhoods_count": 63,
     "data_freshness_months": 2
   },
   "summary": {
-    "avg_rent": 3136,
-    "max_rent": 5413.0,
-    "min_rent": 2124.0,
-    "avg_yoy_change": 2.4
+    "avg_rent": 3085,
+    "max_rent": 5529.0,
+    "min_rent": 2024.0,
+    "avg_yoy_change": 2.1
   },
   "neighborhoods": [
     {
-      "zip_code": "92075",
-      "neighborhood": "Solana Beach",
-      "current_rent": 5413.0,
-      "yoy_change": 4.9,
-      "three_month_change": 2.7,
+      "zip_code": "92115",
+      "neighborhood": "College",
+      "current_rent": 5529.0,
+      "yoy_change": 0.3,
+      "three_month_change": -1.3,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 5357.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 5291.0
+          "rent": 5549.0
         },
         {
           "date": "2025-07-31",
-          "rent": 5214.0
+          "rent": 5565.0
         },
         {
           "date": "2025-08-31",
-          "rent": 5271.0
+          "rent": 5574.0
         },
         {
           "date": "2025-09-30",
-          "rent": 5318.0
+          "rent": 5599.0
         },
         {
           "date": "2025-10-31",
-          "rent": 5413.0
+          "rent": 5577.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 5529.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92075",
+      "neighborhood": "Solana Beach",
+      "current_rent": 4982.0,
+      "yoy_change": 8.1,
+      "three_month_change": 4.6,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 4700.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 4644.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 4706.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 4761.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 4867.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 4982.0
         }
       ]
     },
     {
       "zip_code": "92014",
       "neighborhood": "Del Mar",
-      "current_rent": 5386.0,
-      "yoy_change": 9.8,
-      "three_month_change": 2.4,
+      "current_rent": 4580.0,
+      "yoy_change": 12.7,
+      "three_month_change": 5.2,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 5048.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 5127.0
+          "rent": 4216.0
         },
         {
           "date": "2025-07-31",
-          "rent": 5217.0
+          "rent": 4294.0
         },
         {
           "date": "2025-08-31",
-          "rent": 5260.0
+          "rent": 4332.0
         },
         {
           "date": "2025-09-30",
-          "rent": 5280.0
+          "rent": 4353.0
         },
         {
           "date": "2025-10-31",
-          "rent": 5386.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92115",
-      "neighborhood": "College",
-      "current_rent": 4691.0,
-      "yoy_change": 1.7,
-      "three_month_change": 0.3,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 4652.0
+          "rent": 4459.0
         },
         {
-          "date": "2025-06-30",
-          "rent": 4643.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 4661.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 4678.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 4704.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 4691.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92118",
-      "neighborhood": "Coronado",
-      "current_rent": 4439.0,
-      "yoy_change": 10.1,
-      "three_month_change": 4.3,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 4080.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 4058.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 4182.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 4257.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 4438.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 4439.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92037",
-      "neighborhood": "La Jolla",
-      "current_rent": 4141.0,
-      "yoy_change": 1.7,
-      "three_month_change": 0.4,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 4086.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 4102.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 4113.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 4126.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 4113.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 4141.0
+          "date": "2025-11-30",
+          "rent": 4580.0
         }
       ]
     },
     {
       "zip_code": "92007",
       "neighborhood": "Cardiff",
-      "current_rent": 4119.0,
-      "yoy_change": 2.7,
-      "three_month_change": 1.4,
+      "current_rent": 4308.0,
+      "yoy_change": 2.0,
+      "three_month_change": 0.6,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 4113.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 4101.0
+          "rent": 4289.0
         },
         {
           "date": "2025-07-31",
-          "rent": 4076.0
+          "rent": 4264.0
         },
         {
           "date": "2025-08-31",
-          "rent": 4061.0
+          "rent": 4250.0
         },
         {
           "date": "2025-09-30",
-          "rent": 4094.0
+          "rent": 4283.0
         },
         {
           "date": "2025-10-31",
-          "rent": 4119.0
+          "rent": 4304.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 4308.0
         }
       ]
     },
     {
       "zip_code": "92024",
       "neighborhood": "Encinitas",
-      "current_rent": 4105.0,
-      "yoy_change": 1.9,
-      "three_month_change": 1.0,
+      "current_rent": 4220.0,
+      "yoy_change": 3.3,
+      "three_month_change": 0.6,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 4059.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 4059.0
+          "rent": 4134.0
         },
         {
           "date": "2025-07-31",
-          "rent": 4061.0
+          "rent": 4138.0
         },
         {
           "date": "2025-08-31",
-          "rent": 4066.0
+          "rent": 4158.0
         },
         {
           "date": "2025-09-30",
-          "rent": 4097.0
+          "rent": 4195.0
         },
         {
           "date": "2025-10-31",
-          "rent": 4105.0
+          "rent": 4207.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 4220.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92118",
+      "neighborhood": "Coronado",
+      "current_rent": 4161.0,
+      "yoy_change": 7.7,
+      "three_month_change": -0.1,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 3831.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 3942.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 4002.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 4167.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 4155.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 4161.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92037",
+      "neighborhood": "La Jolla",
+      "current_rent": 4003.0,
+      "yoy_change": 2.9,
+      "three_month_change": 1.5,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 3919.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 3936.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 3950.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 3943.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 3973.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 4003.0
         }
       ]
     },
     {
       "zip_code": "92011",
       "neighborhood": "Carlsbad SW",
-      "current_rent": 4076.0,
-      "yoy_change": 2.8,
-      "three_month_change": 0.7,
+      "current_rent": 3941.0,
+      "yoy_change": 4.0,
+      "three_month_change": 1.4,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 4042.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 4020.0
+          "rent": 3836.0
         },
         {
           "date": "2025-07-31",
-          "rent": 4032.0
+          "rent": 3852.0
         },
         {
           "date": "2025-08-31",
-          "rent": 4049.0
+          "rent": 3874.0
         },
         {
           "date": "2025-09-30",
-          "rent": 4058.0
+          "rent": 3887.0
         },
         {
           "date": "2025-10-31",
-          "rent": 4076.0
+          "rent": 3911.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3941.0
         }
       ]
     },
     {
       "zip_code": "92130",
       "neighborhood": "Carmel Valley",
-      "current_rent": 3989.0,
-      "yoy_change": -0.1,
+      "current_rent": 3914.0,
+      "yoy_change": 0.5,
       "three_month_change": 0.7,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3942.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 3942.0
+          "rent": 3844.0
         },
         {
           "date": "2025-07-31",
-          "rent": 3949.0
+          "rent": 3853.0
         },
         {
           "date": "2025-08-31",
-          "rent": 3963.0
+          "rent": 3869.0
         },
         {
           "date": "2025-09-30",
-          "rent": 3976.0
+          "rent": 3886.0
         },
         {
           "date": "2025-10-31",
-          "rent": 3989.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92127",
-      "neighborhood": "Rancho Bernardo West",
-      "current_rent": 3682.0,
-      "yoy_change": 1.7,
-      "three_month_change": 0.0,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 3674.0
+          "rent": 3901.0
         },
         {
-          "date": "2025-06-30",
-          "rent": 3659.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 3681.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 3682.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3705.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3682.0
-        }
-      ]
-    },
-    {
-      "zip_code": "91914",
-      "neighborhood": "Chula Vista NE",
-      "current_rent": 3654.0,
-      "yoy_change": null,
-      "three_month_change": -2.9,
-      "history": [
-        {
-          "date": "2025-07-31",
-          "rent": 3788.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 3765.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3734.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3654.0
+          "date": "2025-11-30",
+          "rent": 3914.0
         }
       ]
     },
     {
       "zip_code": "92009",
       "neighborhood": "Carlsbad SE",
-      "current_rent": 3620.0,
-      "yoy_change": 3.6,
-      "three_month_change": 0.8,
+      "current_rent": 3704.0,
+      "yoy_change": 6.0,
+      "three_month_change": 2.2,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3602.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 3608.0
+          "rent": 3614.0
         },
         {
           "date": "2025-07-31",
-          "rent": 3584.0
+          "rent": 3596.0
         },
         {
           "date": "2025-08-31",
-          "rent": 3593.0
+          "rent": 3609.0
         },
         {
           "date": "2025-09-30",
-          "rent": 3601.0
+          "rent": 3624.0
         },
         {
           "date": "2025-10-31",
-          "rent": 3620.0
+          "rent": 3650.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3704.0
         }
       ]
     },
     {
-      "zip_code": "92010",
-      "neighborhood": "Carlsbad NE",
-      "current_rent": 3616.0,
-      "yoy_change": 1.7,
-      "three_month_change": 0.4,
+      "zip_code": "91914",
+      "neighborhood": "Chula Vista NE",
+      "current_rent": 3688.0,
+      "yoy_change": null,
+      "three_month_change": -4.9,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3634.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 3593.0
-        },
-        {
           "date": "2025-07-31",
-          "rent": 3603.0
+          "rent": 3947.0
         },
         {
           "date": "2025-08-31",
-          "rent": 3603.0
+          "rent": 3920.0
         },
         {
           "date": "2025-09-30",
-          "rent": 3612.0
+          "rent": 3877.0
         },
         {
           "date": "2025-10-31",
-          "rent": 3616.0
+          "rent": 3786.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3688.0
         }
       ]
     },
     {
       "zip_code": "92129",
       "neighborhood": "Penasquitos",
-      "current_rent": 3475.0,
-      "yoy_change": 2.2,
-      "three_month_change": 1.0,
+      "current_rent": 3534.0,
+      "yoy_change": 1.5,
+      "three_month_change": 0.6,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3408.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 3419.0
+          "rent": 3481.0
         },
         {
           "date": "2025-07-31",
-          "rent": 3429.0
+          "rent": 3489.0
         },
         {
           "date": "2025-08-31",
-          "rent": 3441.0
+          "rent": 3501.0
         },
         {
           "date": "2025-09-30",
-          "rent": 3454.0
+          "rent": 3512.0
         },
         {
           "date": "2025-10-31",
-          "rent": 3475.0
+          "rent": 3528.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3534.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92127",
+      "neighborhood": "Rancho Bernardo West",
+      "current_rent": 3518.0,
+      "yoy_change": 1.4,
+      "three_month_change": -0.7,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 3500.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 3521.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 3523.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 3542.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 3522.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3518.0
         }
       ]
     },
     {
       "zip_code": "92139",
       "neighborhood": "Paradise Hills",
-      "current_rent": 3470.0,
-      "yoy_change": 8.2,
-      "three_month_change": 2.5,
+      "current_rent": 3399.0,
+      "yoy_change": 8.6,
+      "three_month_change": 0.7,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3292.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 3322.0
+          "rent": 3272.0
         },
         {
           "date": "2025-07-31",
-          "rent": 3285.0
+          "rent": 3232.0
         },
         {
           "date": "2025-08-31",
-          "rent": 3384.0
+          "rent": 3325.0
         },
         {
           "date": "2025-09-30",
-          "rent": 3439.0
+          "rent": 3376.0
         },
         {
           "date": "2025-10-31",
-          "rent": 3470.0
+          "rent": 3406.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3399.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92010",
+      "neighborhood": "Carlsbad NE",
+      "current_rent": 3399.0,
+      "yoy_change": 0.2,
+      "three_month_change": -1.1,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 3435.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 3440.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 3434.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 3437.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 3435.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3399.0
         }
       ]
     },
     {
       "zip_code": "92131",
       "neighborhood": "Scripps Ranch",
-      "current_rent": 3431.0,
-      "yoy_change": -0.3,
-      "three_month_change": -0.8,
+      "current_rent": 3380.0,
+      "yoy_change": -0.6,
+      "three_month_change": -0.2,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3442.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 3449.0
+          "rent": 3392.0
         },
         {
           "date": "2025-07-31",
-          "rent": 3456.0
+          "rent": 3402.0
         },
         {
           "date": "2025-08-31",
-          "rent": 3460.0
+          "rent": 3407.0
         },
         {
           "date": "2025-09-30",
-          "rent": 3439.0
+          "rent": 3387.0
         },
         {
           "date": "2025-10-31",
-          "rent": 3431.0
+          "rent": 3382.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3380.0
         }
       ]
     },
     {
       "zip_code": "92078",
       "neighborhood": "San Marcos North",
-      "current_rent": 3400.0,
-      "yoy_change": 0.1,
-      "three_month_change": -0.4,
+      "current_rent": 3273.0,
+      "yoy_change": 1.6,
+      "three_month_change": 1.5,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3391.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 3430.0
+          "rent": 3249.0
         },
         {
           "date": "2025-07-31",
-          "rent": 3417.0
+          "rent": 3240.0
         },
         {
           "date": "2025-08-31",
-          "rent": 3414.0
+          "rent": 3241.0
         },
         {
           "date": "2025-09-30",
-          "rent": 3391.0
+          "rent": 3226.0
         },
         {
           "date": "2025-10-31",
-          "rent": 3400.0
+          "rent": 3239.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3273.0
         }
       ]
     },
     {
       "zip_code": "91915",
       "neighborhood": "Chula Vista SE",
-      "current_rent": 3387.0,
-      "yoy_change": 0.2,
-      "three_month_change": -1.3,
+      "current_rent": 3265.0,
+      "yoy_change": -1.4,
+      "three_month_change": -2.0,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3405.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 3423.0
+          "rent": 3344.0
         },
         {
           "date": "2025-07-31",
-          "rent": 3421.0
+          "rent": 3339.0
         },
         {
           "date": "2025-08-31",
-          "rent": 3432.0
+          "rent": 3347.0
         },
         {
           "date": "2025-09-30",
-          "rent": 3421.0
+          "rent": 3332.0
         },
         {
           "date": "2025-10-31",
-          "rent": 3387.0
-        }
-      ]
-    },
-    {
-      "zip_code": "91902",
-      "neighborhood": "Bonita",
-      "current_rent": 3281.0,
-      "yoy_change": null,
-      "three_month_change": null,
-      "history": [
-        {
-          "date": "2025-09-30",
-          "rent": 3218.0
+          "rent": 3297.0
         },
         {
-          "date": "2025-10-31",
-          "rent": 3281.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92069",
-      "neighborhood": "San Marcos South",
-      "current_rent": 3233.0,
-      "yoy_change": 1.1,
-      "three_month_change": 1.6,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 3219.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 3217.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 3194.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 3181.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3197.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3233.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92109",
-      "neighborhood": "Pacific Beach",
-      "current_rent": 3198.0,
-      "yoy_change": 1.3,
-      "three_month_change": -0.2,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 3205.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 3206.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 3204.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 3206.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3209.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3198.0
+          "date": "2025-11-30",
+          "rent": 3265.0
         }
       ]
     },
     {
       "zip_code": "92122",
       "neighborhood": "University City",
-      "current_rent": 3188.0,
-      "yoy_change": 0.1,
-      "three_month_change": 0.8,
+      "current_rent": 3151.0,
+      "yoy_change": -0.0,
+      "three_month_change": 0.6,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3157.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 3143.0
+          "rent": 3096.0
         },
         {
           "date": "2025-07-31",
-          "rent": 3140.0
+          "rent": 3095.0
         },
         {
           "date": "2025-08-31",
-          "rent": 3162.0
+          "rent": 3119.0
         },
         {
           "date": "2025-09-30",
-          "rent": 3171.0
+          "rent": 3133.0
         },
         {
           "date": "2025-10-31",
-          "rent": 3188.0
-        }
-      ]
-    },
-    {
-      "zip_code": "91913",
-      "neighborhood": "Chula Vista Eastlake",
-      "current_rent": 3169.0,
-      "yoy_change": 0.5,
-      "three_month_change": -0.5,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 3153.0
+          "rent": 3152.0
         },
         {
-          "date": "2025-06-30",
-          "rent": 3154.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 3174.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 3184.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3177.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3169.0
+          "date": "2025-11-30",
+          "rent": 3151.0
         }
       ]
     },
     {
       "zip_code": "92008",
       "neighborhood": "Carlsbad NW",
-      "current_rent": 3160.0,
-      "yoy_change": 2.9,
-      "three_month_change": 1.1,
+      "current_rent": 3134.0,
+      "yoy_change": 2.3,
+      "three_month_change": 0.5,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3123.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 3123.0
+          "rent": 3098.0
         },
         {
           "date": "2025-07-31",
-          "rent": 3120.0
+          "rent": 3093.0
         },
         {
           "date": "2025-08-31",
-          "rent": 3126.0
+          "rent": 3099.0
         },
         {
           "date": "2025-09-30",
-          "rent": 3146.0
+          "rent": 3118.0
         },
         {
           "date": "2025-10-31",
-          "rent": 3160.0
+          "rent": 3132.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3134.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92109",
+      "neighborhood": "Pacific Beach",
+      "current_rent": 3125.0,
+      "yoy_change": 0.4,
+      "three_month_change": -0.6,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 3146.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 3143.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 3143.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 3145.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 3133.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3125.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92069",
+      "neighborhood": "San Marcos South",
+      "current_rent": 3111.0,
+      "yoy_change": 1.9,
+      "three_month_change": 1.6,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 3073.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 3054.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 3043.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 3061.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 3098.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3111.0
+        }
+      ]
+    },
+    {
+      "zip_code": "91913",
+      "neighborhood": "Chula Vista Eastlake",
+      "current_rent": 3079.0,
+      "yoy_change": -0.5,
+      "three_month_change": -0.7,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 3082.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 3101.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 3112.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 3102.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 3095.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3079.0
         }
       ]
     },
     {
       "zip_code": "92108",
       "neighborhood": "Mission Valley",
-      "current_rent": 3105.0,
-      "yoy_change": 0.0,
-      "three_month_change": 0.7,
+      "current_rent": 3028.0,
+      "yoy_change": 0.4,
+      "three_month_change": 0.5,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 3100.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 3089.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 3080.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 3084.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3089.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3105.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92064",
-      "neighborhood": "Poway",
-      "current_rent": 3088.0,
-      "yoy_change": 4.4,
-      "three_month_change": 0.7,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 3021.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 3010.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 3034.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 3068.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3086.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3088.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92110",
-      "neighborhood": "Morena",
-      "current_rent": 3055.0,
-      "yoy_change": 1.7,
-      "three_month_change": 0.1,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 3034.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 3055.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 3060.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 3053.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3047.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3055.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92054",
-      "neighborhood": "Oceanside South",
-      "current_rent": 3039.0,
-      "yoy_change": 3.8,
-      "three_month_change": 1.1,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2969.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2988.0
+          "rent": 3012.0
         },
         {
           "date": "2025-07-31",
@@ -901,40 +785,7 @@
         },
         {
           "date": "2025-08-31",
-          "rent": 3007.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3020.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3039.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92124",
-      "neighborhood": "Tierrasanta",
-      "current_rent": 3026.0,
-      "yoy_change": 0.6,
-      "three_month_change": 1.0,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 3008.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 3010.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 3010.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2995.0
+          "rent": 3009.0
         },
         {
           "date": "2025-09-30",
@@ -942,420 +793,519 @@
         },
         {
           "date": "2025-10-31",
-          "rent": 3026.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92057",
-      "neighborhood": "Oceanside North",
-      "current_rent": 3012.0,
-      "yoy_change": 2.3,
-      "three_month_change": 0.7,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2957.0
+          "rent": 3029.0
         },
         {
-          "date": "2025-06-30",
-          "rent": 2968.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2971.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2990.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3013.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3012.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92111",
-      "neighborhood": "Linda Vista",
-      "current_rent": 3012.0,
-      "yoy_change": 1.0,
-      "three_month_change": -1.3,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 3034.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 3055.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 3040.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 3053.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 3038.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 3012.0
+          "date": "2025-11-30",
+          "rent": 3028.0
         }
       ]
     },
     {
       "zip_code": "92123",
       "neighborhood": "Serra Mesa",
-      "current_rent": 2991.0,
-      "yoy_change": 0.2,
-      "three_month_change": 0.6,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2988.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2981.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2980.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2974.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2984.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2991.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92128",
-      "neighborhood": "Rancho Bernardo East",
-      "current_rent": 2982.0,
-      "yoy_change": 0.9,
-      "three_month_change": 0.3,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2954.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2961.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2966.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2974.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2986.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2982.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92056",
-      "neighborhood": "Oceanside East",
-      "current_rent": 2927.0,
-      "yoy_change": 4.1,
-      "three_month_change": 1.5,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2871.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2857.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2866.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2885.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2920.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2927.0
-        }
-      ]
-    },
-    {
-      "zip_code": "91932",
-      "neighborhood": "Imperial Beach",
-      "current_rent": 2919.0,
-      "yoy_change": 4.2,
-      "three_month_change": -0.2,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2868.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2890.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2905.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2925.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2930.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2919.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92103",
-      "neighborhood": "Hillcrest/Mission Hills",
-      "current_rent": 2913.0,
-      "yoy_change": 1.7,
+      "current_rent": 3009.0,
+      "yoy_change": -0.5,
       "three_month_change": 0.1,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2883.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2895.0
+          "rent": 3000.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2904.0
+          "rent": 2998.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2911.0
+          "rent": 2995.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2921.0
+          "rent": 3005.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2913.0
+          "rent": 3011.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 3009.0
         }
       ]
     },
     {
-      "zip_code": "92154",
-      "neighborhood": "Nestor/Otay Mesa",
-      "current_rent": 2905.0,
-      "yoy_change": 2.2,
-      "three_month_change": 0.0,
+      "zip_code": "92064",
+      "neighborhood": "Poway",
+      "current_rent": 2994.0,
+      "yoy_change": 6.5,
+      "three_month_change": 2.6,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2868.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2888.0
+          "rent": 2827.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2881.0
+          "rent": 2855.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2905.0
+          "rent": 2894.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2889.0
+          "rent": 2918.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2905.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92126",
-      "neighborhood": "Mira Mesa",
-      "current_rent": 2900.0,
-      "yoy_change": -2.0,
-      "three_month_change": -0.8,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2942.0
-        },
-        {
-          "date": "2025-06-30",
           "rent": 2935.0
         },
         {
-          "date": "2025-07-31",
-          "rent": 2930.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2924.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2916.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2900.0
+          "date": "2025-11-30",
+          "rent": 2994.0
         }
       ]
     },
     {
-      "zip_code": "92101",
-      "neighborhood": "Downtown",
-      "current_rent": 2899.0,
-      "yoy_change": 1.5,
+      "zip_code": "92124",
+      "neighborhood": "Tierrasanta",
+      "current_rent": 2981.0,
+      "yoy_change": 1.2,
       "three_month_change": 0.6,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2868.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2872.0
+          "rent": 2949.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2872.0
+          "rent": 2950.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2882.0
+          "rent": 2940.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2887.0
+          "rent": 2962.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2899.0
+          "rent": 2975.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2981.0
         }
       ]
     },
     {
-      "zip_code": "92120",
-      "neighborhood": "Allied Gardens/Del Cerro",
-      "current_rent": 2899.0,
-      "yoy_change": 2.0,
-      "three_month_change": 0.9,
+      "zip_code": "92054",
+      "neighborhood": "Oceanside South",
+      "current_rent": 2971.0,
+      "yoy_change": 3.6,
+      "three_month_change": 1.0,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2884.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2867.0
+          "rent": 2910.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2871.0
+          "rent": 2925.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2872.0
+          "rent": 2929.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2900.0
+          "rent": 2941.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2899.0
+          "rent": 2958.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2971.0
         }
       ]
     },
     {
-      "zip_code": "92058",
-      "neighborhood": "92058",
-      "current_rent": 2861.0,
-      "yoy_change": 5.2,
-      "three_month_change": 1.5,
+      "zip_code": "92110",
+      "neighborhood": "Morena",
+      "current_rent": 2957.0,
+      "yoy_change": -0.1,
+      "three_month_change": -0.5,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2799.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2800.0
+          "rent": 2982.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2812.0
+          "rent": 2985.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2820.0
+          "rent": 2978.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2860.0
+          "rent": 2973.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2861.0
+          "rent": 2976.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2957.0
         }
       ]
     },
     {
       "zip_code": "91911",
       "neighborhood": "Chula Vista South",
-      "current_rent": 2857.0,
-      "yoy_change": 2.4,
-      "three_month_change": 0.3,
+      "current_rent": 2929.0,
+      "yoy_change": 2.3,
+      "three_month_change": 0.6,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2812.0
+          "date": "2025-06-30",
+          "rent": 2882.0
         },
         {
+          "date": "2025-07-31",
+          "rent": 2899.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2917.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2912.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2930.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2929.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92128",
+      "neighborhood": "Rancho Bernardo East",
+      "current_rent": 2916.0,
+      "yoy_change": 0.3,
+      "three_month_change": -0.3,
+      "history": [
+        {
           "date": "2025-06-30",
-          "rent": 2816.0
+          "rent": 2903.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2907.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2916.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2926.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2921.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2916.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92114",
+      "neighborhood": "Encanto",
+      "current_rent": 2893.0,
+      "yoy_change": 4.2,
+      "three_month_change": -0.6,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2808.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2858.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2860.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2909.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2862.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2893.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92057",
+      "neighborhood": "Oceanside North",
+      "current_rent": 2889.0,
+      "yoy_change": 1.7,
+      "three_month_change": -0.1,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2857.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2857.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2874.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2892.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2894.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2889.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92111",
+      "neighborhood": "Linda Vista",
+      "current_rent": 2873.0,
+      "yoy_change": -1.2,
+      "three_month_change": -1.6,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2938.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2922.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2936.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2919.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2891.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2873.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92101",
+      "neighborhood": "Downtown",
+      "current_rent": 2869.0,
+      "yoy_change": 1.1,
+      "three_month_change": 0.4,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2843.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2842.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2852.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2858.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2868.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2869.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92120",
+      "neighborhood": "Allied Gardens/Del Cerro",
+      "current_rent": 2857.0,
+      "yoy_change": 0.8,
+      "three_month_change": -0.0,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2826.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2830.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2831.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2858.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2858.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2857.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92056",
+      "neighborhood": "Oceanside East",
+      "current_rent": 2848.0,
+      "yoy_change": 1.8,
+      "three_month_change": -0.2,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2796.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2804.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2822.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2854.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2856.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2848.0
+        }
+      ]
+    },
+    {
+      "zip_code": "91945",
+      "neighborhood": "Lemon Grove",
+      "current_rent": 2839.0,
+      "yoy_change": 4.1,
+      "three_month_change": 2.5,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2739.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2744.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2753.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2769.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2801.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2839.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92126",
+      "neighborhood": "Mira Mesa",
+      "current_rent": 2837.0,
+      "yoy_change": -1.2,
+      "three_month_change": -0.1,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2846.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2845.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2842.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2840.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2830.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2837.0
+        }
+      ]
+    },
+    {
+      "zip_code": "91932",
+      "neighborhood": "Imperial Beach",
+      "current_rent": 2835.0,
+      "yoy_change": 3.2,
+      "three_month_change": -0.5,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2822.0
         },
         {
           "date": "2025-07-31",
@@ -1363,692 +1313,692 @@
         },
         {
           "date": "2025-08-31",
-          "rent": 2849.0
+          "rent": 2850.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2841.0
+          "rent": 2849.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2857.0
+          "rent": 2837.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2835.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92103",
+      "neighborhood": "Hillcrest/Mission Hills",
+      "current_rent": 2821.0,
+      "yoy_change": 0.4,
+      "three_month_change": -0.9,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2829.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2836.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2841.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2847.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2836.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2821.0
         }
       ]
     },
     {
       "zip_code": "92107",
       "neighborhood": "Ocean Beach",
-      "current_rent": 2821.0,
-      "yoy_change": 0.0,
-      "three_month_change": 0.0,
+      "current_rent": 2817.0,
+      "yoy_change": 0.7,
+      "three_month_change": 0.6,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2814.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2814.0
+          "rent": 2798.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2823.0
+          "rent": 2810.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2821.0
+          "rent": 2811.0
         },
         {
           "date": "2025-09-30",
+          "rent": 2800.0
+        },
+        {
+          "date": "2025-10-31",
           "rent": 2809.0
         },
         {
-          "date": "2025-10-31",
-          "rent": 2821.0
+          "date": "2025-11-30",
+          "rent": 2817.0
         }
       ]
     },
     {
-      "zip_code": "91945",
-      "neighborhood": "Lemon Grove",
-      "current_rent": 2818.0,
-      "yoy_change": 1.1,
-      "three_month_change": 1.2,
+      "zip_code": "92154",
+      "neighborhood": "Nestor/Otay Mesa",
+      "current_rent": 2789.0,
+      "yoy_change": -0.7,
+      "three_month_change": -1.0,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2801.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2790.0
+          "rent": 2828.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2785.0
+          "rent": 2817.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2785.0
+          "rent": 2835.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2792.0
+          "rent": 2817.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2818.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92081",
-      "neighborhood": "Vista South",
-      "current_rent": 2741.0,
-      "yoy_change": -0.2,
-      "three_month_change": -0.0,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2757.0
+          "rent": 2825.0
         },
         {
-          "date": "2025-06-30",
-          "rent": 2735.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2743.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2742.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2748.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2741.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92117",
-      "neighborhood": "Clairemont",
-      "current_rent": 2733.0,
-      "yoy_change": 1.5,
-      "three_month_change": -0.5,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2724.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2732.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2737.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2747.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2730.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2733.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92084",
-      "neighborhood": "92084",
-      "current_rent": 2733.0,
-      "yoy_change": 5.9,
-      "three_month_change": 1.6,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2637.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2632.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2659.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2691.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2711.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2733.0
+          "date": "2025-11-30",
+          "rent": 2789.0
         }
       ]
     },
     {
       "zip_code": "92071",
       "neighborhood": "Santee",
-      "current_rent": 2719.0,
-      "yoy_change": 2.7,
-      "three_month_change": 1.3,
+      "current_rent": 2736.0,
+      "yoy_change": 1.4,
+      "three_month_change": -0.3,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2651.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2645.0
+          "rent": 2689.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2661.0
+          "rent": 2704.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2684.0
+          "rent": 2723.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2706.0
+          "rent": 2743.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2719.0
+          "rent": 2750.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2736.0
         }
       ]
     },
     {
-      "zip_code": "92114",
-      "neighborhood": "Encanto",
-      "current_rent": 2712.0,
-      "yoy_change": 4.6,
-      "three_month_change": 0.2,
+      "zip_code": "92117",
+      "neighborhood": "Clairemont",
+      "current_rent": 2702.0,
+      "yoy_change": 1.3,
+      "three_month_change": -0.0,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2660.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2662.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2709.0
-        },
-        {
-          "date": "2025-08-31",
           "rent": 2707.0
         },
         {
-          "date": "2025-09-30",
-          "rent": 2754.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2712.0
-        }
-      ]
-    },
-    {
-      "zip_code": "91942",
-      "neighborhood": "La Mesa Grossmont",
-      "current_rent": 2705.0,
-      "yoy_change": 1.4,
-      "three_month_change": 0.9,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2655.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2660.0
-        },
-        {
           "date": "2025-07-31",
-          "rent": 2661.0
+          "rent": 2712.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2682.0
+          "rent": 2723.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2691.0
+          "rent": 2703.0
         },
         {
           "date": "2025-10-31",
           "rent": 2705.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92083",
-      "neighborhood": "92083",
-      "current_rent": 2661.0,
-      "yoy_change": 4.2,
-      "three_month_change": 1.5,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2566.0
         },
         {
-          "date": "2025-06-30",
-          "rent": 2557.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2583.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2622.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2650.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2661.0
-        }
-      ]
-    },
-    {
-      "zip_code": "91910",
-      "neighborhood": "Chula Vista North",
-      "current_rent": 2646.0,
-      "yoy_change": 0.7,
-      "three_month_change": -0.7,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2653.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2659.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2671.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2665.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2652.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2646.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92065",
-      "neighborhood": "Ramona",
-      "current_rent": 2639.0,
-      "yoy_change": 4.3,
-      "three_month_change": -1.0,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2627.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2685.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2700.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2666.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2636.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2639.0
+          "date": "2025-11-30",
+          "rent": 2702.0
         }
       ]
     },
     {
       "zip_code": "92106",
       "neighborhood": "Point Loma",
-      "current_rent": 2613.0,
-      "yoy_change": 1.3,
-      "three_month_change": 2.1,
+      "current_rent": 2692.0,
+      "yoy_change": 2.4,
+      "three_month_change": 1.3,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2561.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2557.0
+          "rent": 2602.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2563.0
+          "rent": 2610.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2559.0
+          "rent": 2607.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2603.0
+          "rent": 2657.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2613.0
+          "rent": 2672.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2692.0
         }
       ]
     },
     {
-      "zip_code": "91941",
-      "neighborhood": "La Mesa Mount Helix",
-      "current_rent": 2605.0,
-      "yoy_change": 3.9,
-      "three_month_change": 0.5,
+      "zip_code": "92081",
+      "neighborhood": "Vista South",
+      "current_rent": 2686.0,
+      "yoy_change": -0.5,
+      "three_month_change": -0.1,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2563.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2574.0
+          "rent": 2674.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2582.0
+          "rent": 2684.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2591.0
+          "rent": 2683.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2599.0
+          "rent": 2690.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2605.0
+          "rent": 2688.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2686.0
         }
       ]
     },
     {
-      "zip_code": "92173",
-      "neighborhood": "San Ysidro",
-      "current_rent": 2583.0,
-      "yoy_change": 4.4,
-      "three_month_change": 2.6,
+      "zip_code": "92084",
+      "neighborhood": "92084",
+      "current_rent": 2682.0,
+      "yoy_change": 4.2,
+      "three_month_change": 0.7,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2497.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2535.0
+          "rent": 2598.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2489.0
+          "rent": 2619.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2517.0
+          "rent": 2649.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2551.0
+          "rent": 2664.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2583.0
+          "rent": 2681.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2682.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92058",
+      "neighborhood": "92058",
+      "current_rent": 2682.0,
+      "yoy_change": 1.7,
+      "three_month_change": -1.6,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2683.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2690.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2692.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2725.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2720.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2682.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92083",
+      "neighborhood": "92083",
+      "current_rent": 2633.0,
+      "yoy_change": 1.8,
+      "three_month_change": -0.5,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2567.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2590.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2624.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2646.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2651.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2633.0
         }
       ]
     },
     {
       "zip_code": "92119",
       "neighborhood": "San Carlos",
-      "current_rent": 2562.0,
-      "yoy_change": 1.6,
-      "three_month_change": -0.6,
+      "current_rent": 2592.0,
+      "yoy_change": 1.8,
+      "three_month_change": 0.3,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2558.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2568.0
+          "rent": 2587.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2579.0
+          "rent": 2599.0
         },
         {
           "date": "2025-08-31",
+          "rent": 2599.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2583.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2582.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2592.0
+        }
+      ]
+    },
+    {
+      "zip_code": "91942",
+      "neighborhood": "La Mesa Grossmont",
+      "current_rent": 2584.0,
+      "yoy_change": 0.2,
+      "three_month_change": -0.1,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2564.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2563.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2581.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2587.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2597.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2584.0
+        }
+      ]
+    },
+    {
+      "zip_code": "91910",
+      "neighborhood": "Chula Vista North",
+      "current_rent": 2582.0,
+      "yoy_change": 0.5,
+      "three_month_change": -0.1,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2589.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2602.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2597.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2585.0
+        },
+        {
+          "date": "2025-10-31",
           "rent": 2578.0
         },
         {
-          "date": "2025-09-30",
-          "rent": 2561.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2562.0
+          "date": "2025-11-30",
+          "rent": 2582.0
         }
       ]
     },
     {
-      "zip_code": "91950",
-      "neighborhood": "National City",
-      "current_rent": 2548.0,
-      "yoy_change": 3.4,
-      "three_month_change": 0.7,
+      "zip_code": "91941",
+      "neighborhood": "La Mesa Mount Helix",
+      "current_rent": 2560.0,
+      "yoy_change": 2.4,
+      "three_month_change": 0.4,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2529.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2530.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2531.0
-        },
-        {
-          "date": "2025-08-31",
-          "rent": 2530.0
-        },
-        {
-          "date": "2025-09-30",
-          "rent": 2541.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2548.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92104",
-      "neighborhood": "North Park",
-      "current_rent": 2540.0,
-      "yoy_change": 1.9,
-      "three_month_change": 0.7,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2510.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2507.0
-        },
-        {
-          "date": "2025-07-31",
-          "rent": 2511.0
-        },
-        {
-          "date": "2025-08-31",
           "rent": 2523.0
         },
         {
-          "date": "2025-09-30",
-          "rent": 2526.0
-        },
-        {
-          "date": "2025-10-31",
-          "rent": 2540.0
-        }
-      ]
-    },
-    {
-      "zip_code": "92116",
-      "neighborhood": "Kensington/Normal Heights",
-      "current_rent": 2506.0,
-      "yoy_change": 2.0,
-      "three_month_change": 0.8,
-      "history": [
-        {
-          "date": "2025-05-31",
-          "rent": 2474.0
-        },
-        {
-          "date": "2025-06-30",
-          "rent": 2472.0
-        },
-        {
           "date": "2025-07-31",
-          "rent": 2477.0
+          "rent": 2532.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2485.0
+          "rent": 2541.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2499.0
+          "rent": 2549.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2506.0
+          "rent": 2555.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2560.0
         }
       ]
     },
     {
       "zip_code": "92040",
       "neighborhood": "Lakeside",
-      "current_rent": 2433.0,
-      "yoy_change": 6.8,
-      "three_month_change": 3.4,
+      "current_rent": 2499.0,
+      "yoy_change": 5.8,
+      "three_month_change": 1.7,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2312.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2323.0
+          "rent": 2409.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2322.0
+          "rent": 2409.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2353.0
+          "rent": 2433.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2383.0
+          "rent": 2458.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2433.0
+          "rent": 2500.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2499.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92116",
+      "neighborhood": "Kensington/Normal Heights",
+      "current_rent": 2492.0,
+      "yoy_change": 2.0,
+      "three_month_change": 0.7,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2447.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2451.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2461.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2475.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2483.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2492.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92104",
+      "neighborhood": "North Park",
+      "current_rent": 2481.0,
+      "yoy_change": 2.1,
+      "three_month_change": 0.6,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2445.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2450.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2462.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2465.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2477.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2481.0
+        }
+      ]
+    },
+    {
+      "zip_code": "91950",
+      "neighborhood": "National City",
+      "current_rent": 2379.0,
+      "yoy_change": 2.8,
+      "three_month_change": -0.6,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2388.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2393.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2389.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2393.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2392.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2379.0
+        }
+      ]
+    },
+    {
+      "zip_code": "92065",
+      "neighborhood": "Ramona",
+      "current_rent": 2361.0,
+      "yoy_change": 9.8,
+      "three_month_change": 2.6,
+      "history": [
+        {
+          "date": "2025-06-30",
+          "rent": 2328.0
+        },
+        {
+          "date": "2025-07-31",
+          "rent": 2342.0
+        },
+        {
+          "date": "2025-08-31",
+          "rent": 2320.0
+        },
+        {
+          "date": "2025-09-30",
+          "rent": 2302.0
+        },
+        {
+          "date": "2025-10-31",
+          "rent": 2316.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2361.0
         }
       ]
     },
     {
       "zip_code": "92102",
       "neighborhood": "Golden Hill/South Park",
-      "current_rent": 2283.0,
-      "yoy_change": 0.8,
-      "three_month_change": -0.9,
+      "current_rent": 2302.0,
+      "yoy_change": 0.9,
+      "three_month_change": -0.7,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2296.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2306.0
+          "rent": 2327.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2313.0
+          "rent": 2333.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2303.0
+          "rent": 2324.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2297.0
+          "rent": 2318.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2283.0
+          "rent": 2306.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2302.0
         }
       ]
     },
     {
       "zip_code": "92113",
       "neighborhood": "Logan Heights",
-      "current_rent": 2205.0,
-      "yoy_change": 1.3,
-      "three_month_change": 0.8,
+      "current_rent": 2196.0,
+      "yoy_change": 0.6,
+      "three_month_change": 0.3,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2172.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2169.0
+          "rent": 2170.0
         },
         {
           "date": "2025-07-31",
@@ -2056,81 +2006,85 @@
         },
         {
           "date": "2025-08-31",
-          "rent": 2188.0
+          "rent": 2189.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2188.0
+          "rent": 2190.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2205.0
+          "rent": 2206.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2196.0
         }
       ]
     },
     {
       "zip_code": "91901",
       "neighborhood": "Alpine",
-      "current_rent": 2194.0,
-      "yoy_change": 1.4,
-      "three_month_change": -0.9,
+      "current_rent": 2136.0,
+      "yoy_change": -1.7,
+      "three_month_change": -1.2,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2208.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2231.0
+          "rent": 2220.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2227.0
+          "rent": 2211.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2215.0
+          "rent": 2195.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2187.0
+          "rent": 2161.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2194.0
+          "rent": 2162.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2136.0
         }
       ]
     },
     {
       "zip_code": "92105",
       "neighborhood": "City Heights",
-      "current_rent": 2124.0,
-      "yoy_change": 1.8,
-      "three_month_change": 0.2,
+      "current_rent": 2024.0,
+      "yoy_change": 0.9,
+      "three_month_change": 0.1,
       "history": [
         {
-          "date": "2025-05-31",
-          "rent": 2107.0
-        },
-        {
           "date": "2025-06-30",
-          "rent": 2117.0
+          "rent": 2028.0
         },
         {
           "date": "2025-07-31",
-          "rent": 2110.0
+          "rent": 2020.0
         },
         {
           "date": "2025-08-31",
-          "rent": 2120.0
+          "rent": 2029.0
         },
         {
           "date": "2025-09-30",
-          "rent": 2115.0
+          "rent": 2022.0
         },
         {
           "date": "2025-10-31",
-          "rent": 2124.0
+          "rent": 2028.0
+        },
+        {
+          "date": "2025-11-30",
+          "rent": 2024.0
         }
       ]
     }

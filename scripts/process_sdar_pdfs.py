@@ -45,10 +45,10 @@ def extract_all_metrics(text):
         line_clean = line.strip()
         
         # Detect section headers
-        if 'Detached' in line_clean and 'November' in line_clean:
+        if 'Detached' in line_clean and 'December' in line_clean:
             current_section = 'detached'
             continue
-        elif 'Attached' in line_clean and 'November' in line_clean:
+        elif 'Attached' in line_clean and 'December' in line_clean:
             current_section = 'attached'
             continue
             
@@ -174,7 +174,7 @@ def parse_zip_pdf(pdf_path):
                 'file': filename,
                 'zip_code': zip_code,
                 'neighborhood': neighborhood,
-                'report_month': 'November 2025',
+                'report_month': 'December 2025',
                 'detached': metrics['detached'],
                 'attached': metrics['attached']
             }
@@ -322,7 +322,7 @@ def parse_market_overview_page(text):
 
 def main():
     """Main function."""
-    reports_dir = Path(__file__).parent.parent / "sdar_reports"
+    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "December 2025"
     output_path = Path(__file__).parent.parent / "public" / "data" / "sdar_neighborhood_data.json"
     
     if not reports_dir.exists():
@@ -330,7 +330,7 @@ def main():
         return
     
     # Parse Monthly Indicators for county-wide data
-    monthly_indicators_path = reports_dir / "Monthly Indicators November 2025.pdf"
+    monthly_indicators_path = reports_dir / "Monthly Indicators.pdf"
     county_data = None
     if monthly_indicators_path.exists():
         print(f"Processing Monthly Indicators for county-wide data...")
@@ -368,7 +368,7 @@ def main():
         "meta": {
             "generated": datetime.now().isoformat(),
             "source": "SDAR Local Market Updates & Monthly Indicators",
-            "report_period": "November 2025",
+            "report_period": "December 2025",
             "neighborhoods_count": len(neighborhoods)
         },
         "county_wide": county_data,  # Full San Diego County data from Monthly Indicators
