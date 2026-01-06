@@ -413,7 +413,7 @@ export default function SDARDashboard() {
                         {/* Monthly Key Metrics */}
                         <div className="mb-2">
                             <div className="flex items-center gap-2 mb-3">
-                                <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">NOVEMBER 2025</span>
+                                <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">DECEMBER 2025</span>
                                 <span className="text-slate-500 text-xs">Monthly Data</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
@@ -438,7 +438,7 @@ export default function SDARDashboard() {
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
                                 <span className="px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-bold rounded">YEAR-TO-DATE</span>
-                                <span className="text-slate-500 text-xs">Jan - Nov 2025</span>
+                                <span className="text-slate-500 text-xs">Jan - Dec 2025</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
                                 {[
