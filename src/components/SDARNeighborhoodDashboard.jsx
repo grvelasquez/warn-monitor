@@ -116,6 +116,16 @@ export function SDARNeighborhoodDashboard() {
                     (a[propertyType]?.dom_2025 || 999) - (b[propertyType]?.dom_2025 || 999)
                 );
                 break;
+            case 'change_best':
+                items.sort((a, b) =>
+                    (b[propertyType]?.median_price_pct_change || -999) - (a[propertyType]?.median_price_pct_change || -999)
+                );
+                break;
+            case 'change_worst':
+                items.sort((a, b) =>
+                    (a[propertyType]?.median_price_pct_change || 999) - (b[propertyType]?.median_price_pct_change || 999)
+                );
+                break;
             default: // price_desc
                 items.sort((a, b) =>
                     (b[propertyType]?.median_price_2025 || 0) - (a[propertyType]?.median_price_2025 || 0)
@@ -217,6 +227,8 @@ export function SDARNeighborhoodDashboard() {
                 >
                     <option value="price_desc">Price: High to Low</option>
                     <option value="price_asc">Price: Low to High</option>
+                    <option value="change_best">% Change: Best to Worst</option>
+                    <option value="change_worst">% Change: Worst to Best</option>
                     <option value="name_asc">Name: A-Z</option>
                     <option value="dom_asc">Fastest Selling</option>
                 </select>
