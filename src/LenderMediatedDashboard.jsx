@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import {
     TrendingUp, TrendingDown, Home, Building2, DollarSign,
     BarChart3, Search, ArrowUpRight, ArrowDownRight, FileText,
-    ChevronDown, ChevronUp, Package, Clock, Info
+    ChevronDown, ChevronUp, Package, Clock, Info, MapPin, Lightbulb
 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend } from 'recharts';
 
@@ -486,48 +486,6 @@ export default function LenderMediatedDashboard() {
                 {/* Summary Tab */}
                 {activeTab === 'summary' && (
                     <div className="space-y-6">
-                        {/* Why It Matters */}
-                        <div className="bg-gradient-to-br from-blue-900/20 to-slate-900/20 rounded-xl border border-blue-800/30 p-6 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 p-4 opacity-10">
-                                <Info className="w-24 h-24 text-blue-400" />
-                            </div>
-                            <div className="relative z-10">
-                                <h3 className="text-lg font-bold text-blue-400 mb-2 flex items-center gap-2">
-                                    <Info className="w-5 h-5" />
-                                    Why Lender-Mediated Properties Matter
-                                </h3>
-                                <p className="text-slate-300 text-sm leading-relaxed max-w-3xl">
-                                    Lender-mediated properties (foreclosures, REOs, short sales) serve as a critical health indicator for the overall real estate market.
-                                    A low share of these properties suggests a healthy market where homeowners have sufficient equity to avoid foreclosure.
-                                    Conversely, a rising trend can signal economic stress or market shifts. Tracking this inventory helps investors identify opportunities
-                                    and homeowners understand market stability.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Market Pulse: AI Executive Summary */}
-                        <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm">
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="p-2 bg-purple-500/10 rounded-lg">
-                                    <BarChart3 className="w-5 h-5 text-purple-400" />
-                                </div>
-                                <h3 className="text-lg font-bold text-white">Market Pulse: Executive Summary</h3>
-                            </div>
-                            <div className="prose prose-invert max-w-none">
-                                <p className="text-slate-300 leading-relaxed">
-                                    In <strong className="text-white">{data?.meta?.report_period || 'the current period'}</strong>, the San Diego market demonstrated exceptional stability with minimal distress.
-                                    Lender-mediated listings represented just <strong className="text-amber-400">{summary.share_new_listings}%</strong> of all new inventory,
-                                    a significant decrease from the previous year. Specifically, new lender-mediated listings dropped by <strong className="text-emerald-400">{Math.abs(summary.new_listings_lender_mediated_change)}%</strong>.
-                                </p>
-                                <p className="text-slate-300 leading-relaxed mt-4">
-                                    On the sales side, distressed property sales accounted for <strong className="text-white">{summary.share_closed_sales}%</strong> of total market activity.
-                                    Interestingly, the median price for lender-mediated homes is <strong className="text-white">{formatCurrency(summary.median_price_lender_mediated)}</strong>,
-                                    showing an increase of <strong className="text-emerald-400">{summary.median_price_lender_mediated_change}%</strong> year-over-year.
-                                    This price growth outpaced the traditional market ({summary.median_price_traditional_change}%), suggesting high demand even for distressed assets.
-                                </p>
-                            </div>
-                        </div>
-
                         {/* Inventory Trend Chart */}
                         <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm">
                             <h3 className="text-lg font-bold text-white mb-6">Inventory of Lender-Mediated Properties in San Diego County</h3>
@@ -611,6 +569,165 @@ export default function LenderMediatedDashboard() {
                             <p className="text-xs text-slate-500 mt-4 text-center italic">
                                 Source: Data digitized from SDAR Lender-Mediated Report (2020-2025)
                             </p>
+                        </div>
+
+                        {/* Executive Summary Section */}
+                        <div className="space-y-6">
+                            {/* Header & Intro */}
+                            <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="p-2 bg-indigo-500/10 rounded-lg">
+                                        <FileText className="w-5 h-5 text-indigo-400" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white">Executive Summary: December 2025 Analysis</h3>
+                                </div>
+                                <p className="text-slate-300 leading-relaxed text-lg">
+                                    The San Diego market for December 2025 shows a distinct <strong className="text-white">tightening of distressed inventory</strong>.
+                                    While the general market saw significant decreases in new listings and sales, the lender-mediated segment saw even sharper declines in single-family inventory,
+                                    though condo inventory surged. Prices for these "distressed" assets rose more aggressively (<span className="text-emerald-400">+8.1%</span>) than traditional homes,
+                                    narrowing the discount gap.
+                                </p>
+                            </div>
+
+                            {/* Analysis Grid */}
+                            <div className="grid md:grid-cols-2 gap-6">
+
+                                {/* 1. Inventory */}
+                                <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 hover:bg-slate-800/60 transition-colors">
+                                    <h4 className="flex items-center gap-2 text-lg font-semibold text-amber-400 mb-4">
+                                        <Package className="w-5 h-5" />
+                                        1. Inventory & Listings
+                                    </h4>
+                                    <p className="text-sm text-slate-400 mb-3">Supply shrinking for single-family, expanding for attached.</p>
+                                    <ul className="space-y-3 text-sm text-slate-300">
+                                        <li className="flex gap-2">
+                                            <span className="text-red-400 font-bold min-w-[12px]">•</span>
+                                            <span>
+                                                <strong className="text-white">New Listings:</strong> Dropped <span className="text-red-400">68.2%</span> YoY to just 21 units.
+                                            </span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-red-400 font-bold min-w-[12px]">•</span>
+                                            <span>
+                                                <strong className="text-white">Single-Family:</strong> Plummeted <span className="text-red-400">45.9%</span> (111 to 60 units).
+                                            </span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
+                                            <span>
+                                                <strong className="text-white">Condos:</strong> Doubled (<span className="text-emerald-400">+100%</span>) from 73 to 146 units.
+                                            </span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-blue-400 font-bold min-w-[12px]">•</span>
+                                            <span>
+                                                <strong className="text-white">Market Share:</strong> Rose to 6.4% of total inventory (from 4.8%).
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                {/* 2. Sales & Pricing */}
+                                <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 hover:bg-slate-800/60 transition-colors">
+                                    <h4 className="flex items-center gap-2 text-lg font-semibold text-emerald-400 mb-4">
+                                        <DollarSign className="w-5 h-5" />
+                                        2. Sales & Pricing Dynamics
+                                    </h4>
+                                    <p className="text-sm text-slate-400 mb-3">Distressed assets are appreciating and selling fast.</p>
+                                    <ul className="space-y-3 text-sm text-slate-300">
+                                        <li className="flex gap-2">
+                                            <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
+                                            <span>
+                                                <strong className="text-white">Median Price:</strong> Lender-Mediated rose <span className="text-emerald-400">8.1%</span> to $848,600.
+                                            </span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-blue-400 font-bold min-w-[12px]">•</span>
+                                            <span>
+                                                <strong className="text-white">The Gap:</strong> Price gap vs traditional is only ~$55,400.
+                                            </span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-amber-400 font-bold min-w-[12px]">•</span>
+                                            <span>
+                                                <strong className="text-white">Low-End Activity:</strong> $250k & Below inventory doubled (+100%).
+                                            </span>
+                                        </li>
+                                        <li className="flex gap-2">
+                                            <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
+                                            <span>
+                                                <strong className="text-white">Speed:</strong> DOM dropped to 48 days (-10.4%).
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                {/* 3. Geographic Hotspots */}
+                                <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 hover:bg-slate-800/60 transition-colors">
+                                    <h4 className="flex items-center gap-2 text-lg font-semibold text-blue-400 mb-4">
+                                        <MapPin className="w-5 h-5" />
+                                        3. Geographic Hotspots
+                                    </h4>
+                                    <div className="space-y-3">
+                                        <div className="bg-slate-900/50 p-3 rounded-lg border border-slate-700/50">
+                                            <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">Highest Share (Dec 2025)</div>
+                                            <div className="space-y-2">
+                                                <div className="flex justify-between text-sm">
+                                                    <span className="text-white">91942 (La Mesa)</span>
+                                                    <span className="text-amber-400 font-mono">42.9%</span>
+                                                </div>
+                                                <div className="flex justify-between text-sm">
+                                                    <span className="text-white">91950 (National City)</span>
+                                                    <span className="text-amber-400 font-mono">33.3%</span>
+                                                </div>
+                                                <div className="flex justify-between text-sm">
+                                                    <span className="text-white">92010 (Carlsbad NE)</span>
+                                                    <span className="text-amber-400 font-mono">33.3%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="text-sm text-slate-300">
+                                            <strong className="text-emerald-400">Zero Inventory:</strong> La Jolla (92037), Rancho Santa Fe (92067), Carmel Valley (92130).
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 4. Strategic Takeaways */}
+                                <div className="bg-gradient-to-br from-purple-900/20 to-slate-800/40 rounded-xl border border-purple-500/30 p-6">
+                                    <h4 className="flex items-center gap-2 text-lg font-semibold text-purple-400 mb-4">
+                                        <Lightbulb className="w-5 h-5" />
+                                        4. Strategic Takeaways
+                                    </h4>
+                                    <ul className="space-y-4 text-sm text-slate-300">
+                                        <li className="relative pl-4 border-l-2 border-purple-500/50">
+                                            <strong className="block text-white mb-1">Condo Opportunities</strong>
+                                            Investors may find more volume in the attached market (inventory +100%) than single-family.
+                                        </li>
+                                        <li className="relative pl-4 border-l-2 border-purple-500/50">
+                                            <strong className="block text-white mb-1">Tight Luxury Market</strong>
+                                            High-end "deals" have dried up ($1.25M+ inventory down 47%).
+                                        </li>
+                                        <li className="relative pl-4 border-l-2 border-purple-500/50">
+                                            <strong className="block text-white mb-1">Pricing Power</strong>
+                                            Lenders are pricing near market value (+8.1% increase) due to overall scarcity.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Methodology Note */}
+                        <div className="bg-slate-900/50 rounded-xl border border-slate-800 p-6 flex gap-4 mt-8">
+                            <div className="space-y-2 w-full">
+                                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Methodology</h4>
+                                <p className="text-[10px] text-slate-500 leading-relaxed text-justify">
+                                    A property is considered to be "lender-mediated" when properties are those marked in the San Diego MLS with the following: Call Agent; Court Approval Required; Deed
+                                    Restricted Program; Estate; HAP (Home Assistance Program); HUD (Housing and Urban Development); NOD Filed/Foreclosure Pending; Need Short Sale – No Lender
+                                    Knowledge; Other/Remarks; Pre SS Pkg submitted to lenders(s), ready to consider offers; Probate Subject to Overbid; REO; Short Sale Approved. This list may be adjusted at
+                                    any time. Residential activity only. Total Market is not necessarily a sum of traditional and lender-mediated activity, as some lender-mediated homes can be listed both as
+                                    foreclosure and short sale.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 )}
@@ -780,6 +897,8 @@ export default function LenderMediatedDashboard() {
                                 </div>
                             </div>
                         </div>
+                        {/* Methodology Note */}
+
                     </div>
                 )}
 
@@ -1318,6 +1437,6 @@ export default function LenderMediatedDashboard() {
                     Current as of January 5, 2026. All data from the San Diego MLS. | Report © 2026 ShowingTime Plus, LLC.
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

@@ -61,6 +61,16 @@ export default function App() {
                   <span className="hidden sm:inline">Lending</span>
                 </button>
                 <button
+                  onClick={() => setActiveView('lendermediated')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'lendermediated'
+                    ? 'bg-amber-600 text-white shadow-lg shadow-amber-600/25'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                >
+                  <FileText className="w-4 h-4" />
+                  <span className="hidden sm:inline">Lender-Mediated</span>
+                </button>
+                <button
                   onClick={() => setActiveView('development')}
                   className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'development'
                     ? 'bg-orange-600 text-white shadow-lg shadow-orange-600/25'
@@ -110,16 +120,7 @@ export default function App() {
                   <Vote className="w-4 h-4" />
                   <span className="hidden sm:inline">Voting</span>
                 </button>
-                <button
-                  onClick={() => setActiveView('lendermediated')}
-                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'lendermediated'
-                    ? 'bg-amber-600 text-white shadow-lg shadow-amber-600/25'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                    }`}
-                >
-                  <FileText className="w-4 h-4" />
-                  <span className="hidden sm:inline">Lender-Mediated</span>
-                </button>
+
                 <button
                   onClick={() => setActiveView('warn')}
                   className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'warn'
@@ -146,6 +147,11 @@ export default function App() {
       <div className={activeView === 'lending' ? 'block' : 'hidden'}>
         <LendingDashboard />
       </div>
+      {activeView === 'lendermediated' && (
+        <div className="block">
+          <LenderMediatedDashboard />
+        </div>
+      )}
       <div className={activeView === 'development' ? 'block' : 'hidden'}>
         <DevelopmentDashboard />
       </div>
@@ -165,11 +171,7 @@ export default function App() {
           <VotingDashboard />
         </div>
       )}
-      {activeView === 'lendermediated' && (
-        <div className="block">
-          <LenderMediatedDashboard />
-        </div>
-      )}
+
       <div className={activeView === 'warn' ? 'block' : 'hidden'}>
         <WarnDashboard />
       </div>
