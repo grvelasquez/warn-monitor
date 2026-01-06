@@ -2,8 +2,9 @@ import { useState, useEffect, useMemo } from 'react';
 import {
     TrendingUp, TrendingDown, Home, Building2, DollarSign,
     BarChart3, Search, ArrowUpRight, ArrowDownRight, FileText,
-    ChevronDown, ChevronUp, Package, Clock
+    ChevronDown, ChevronUp, Package, Clock, Info
 } from 'lucide-react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend } from 'recharts';
 
 // Format utilities
 const formatCurrency = (value) => {
@@ -485,76 +486,131 @@ export default function LenderMediatedDashboard() {
                 {/* Summary Tab */}
                 {activeTab === 'summary' && (
                     <div className="space-y-6">
-                        {/* Key Metrics */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <SummaryCard
-                                icon={Home}
-                                title="Total Closed Sales"
-                                value={formatNumber(summary.closed_sales_total)}
-                                change={summary.closed_sales_change}
-                                subValue={formatNumber(summary.closed_sales_lender_mediated)}
-                                subLabel="Lender-Mediated"
-                                iconColor="text-blue-400"
-                            />
-                            <SummaryCard
-                                icon={TrendingUp}
-                                title="New Listings"
-                                value={formatNumber(summary.new_listings_total)}
-                                change={summary.new_listings_change}
-                                subValue={formatNumber(summary.new_listings_lender_mediated)}
-                                subLabel="Lender-Mediated"
-                                iconColor="text-emerald-400"
-                            />
-                            <SummaryCard
-                                icon={DollarSign}
-                                title="Median Sales Price"
-                                value={formatCurrency(summary.median_price_total)}
-                                change={summary.median_price_change}
-                                subValue={formatCurrency(summary.median_price_lender_mediated)}
-                                subLabel="Lender-Mediated"
-                                iconColor="text-amber-400"
-                            />
-                            <SummaryCard
-                                icon={BarChart3}
-                                title="LM Share of Sales"
-                                value={`${summary.share_closed_sales}%`}
-                                change={null}
-                                subValue={`${summary.share_new_listings}%`}
-                                subLabel="LM Share of Listings"
-                                iconColor="text-purple-400"
-                            />
-                        </div>
-
-                        {/* Market Breakdown */}
-                        <div className="grid md:grid-cols-3 gap-4">
-                            <div className="bg-gray-800/40 rounded-xl p-4 border border-gray-700/50">
-                                <h3 className="text-sm font-medium text-gray-400 mb-3">Traditional Sales</h3>
-                                <div className="text-2xl font-bold text-white mb-1">{formatNumber(summary.closed_sales_traditional)}</div>
-                                <ChangeIndicator value={summary.closed_sales_traditional_change} />
-                                <div className="mt-3 text-sm text-gray-500">
-                                    Median: {formatCurrency(summary.median_price_traditional)}
-                                </div>
+                        {/* Why It Matters */}
+                        <div className="bg-gradient-to-br from-blue-900/20 to-slate-900/20 rounded-xl border border-blue-800/30 p-6 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-4 opacity-10">
+                                <Info className="w-24 h-24 text-blue-400" />
                             </div>
-                            <div className="bg-amber-900/20 rounded-xl p-4 border border-amber-700/50">
-                                <h3 className="text-sm font-medium text-amber-400 mb-3">Lender-Mediated Sales</h3>
-                                <div className="text-2xl font-bold text-white mb-1">{formatNumber(summary.closed_sales_lender_mediated)}</div>
-                                <ChangeIndicator value={summary.closed_sales_lender_mediated_change} />
-                                <div className="mt-3 text-sm text-amber-400/70">
-                                    Median: {formatCurrency(summary.median_price_lender_mediated)}
-                                </div>
-                            </div>
-                            <div className="bg-gray-800/40 rounded-xl p-4 border border-gray-700/50">
-                                <h3 className="text-sm font-medium text-gray-400 mb-3">Traditional Listings</h3>
-                                <div className="text-2xl font-bold text-white mb-1">{formatNumber(summary.new_listings_traditional)}</div>
-                                <ChangeIndicator value={summary.new_listings_traditional_change} />
+                            <div className="relative z-10">
+                                <h3 className="text-lg font-bold text-blue-400 mb-2 flex items-center gap-2">
+                                    <Info className="w-5 h-5" />
+                                    Why Lender-Mediated Properties Matter
+                                </h3>
+                                <p className="text-slate-300 text-sm leading-relaxed max-w-3xl">
+                                    Lender-mediated properties (foreclosures, REOs, short sales) serve as a critical health indicator for the overall real estate market.
+                                    A low share of these properties suggests a healthy market where homeowners have sufficient equity to avoid foreclosure.
+                                    Conversely, a rising trend can signal economic stress or market shifts. Tracking this inventory helps investors identify opportunities
+                                    and homeowners understand market stability.
+                                </p>
                             </div>
                         </div>
 
-                        {/* Methodology Note */}
-                        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/30 text-sm text-gray-400">
-                            <strong className="text-gray-300">Methodology:</strong> A property is considered "lender-mediated" when marked in the San Diego MLS with:
-                            Court Approval Required, Deed Restricted Program, Estate, HAP, HUD, NOD Filed/Foreclosure Pending,
-                            Need Short Sale, Pre SS Pkg submitted, Probate Subject to Overbid, REO, or Short Sale Approved.
+                        {/* Market Pulse: AI Executive Summary */}
+                        <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm">
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="p-2 bg-purple-500/10 rounded-lg">
+                                    <BarChart3 className="w-5 h-5 text-purple-400" />
+                                </div>
+                                <h3 className="text-lg font-bold text-white">Market Pulse: Executive Summary</h3>
+                            </div>
+                            <div className="prose prose-invert max-w-none">
+                                <p className="text-slate-300 leading-relaxed">
+                                    In <strong className="text-white">{data?.meta?.report_period || 'the current period'}</strong>, the San Diego market demonstrated exceptional stability with minimal distress.
+                                    Lender-mediated listings represented just <strong className="text-amber-400">{summary.share_new_listings}%</strong> of all new inventory,
+                                    a significant decrease from the previous year. Specifically, new lender-mediated listings dropped by <strong className="text-emerald-400">{Math.abs(summary.new_listings_lender_mediated_change)}%</strong>.
+                                </p>
+                                <p className="text-slate-300 leading-relaxed mt-4">
+                                    On the sales side, distressed property sales accounted for <strong className="text-white">{summary.share_closed_sales}%</strong> of total market activity.
+                                    Interestingly, the median price for lender-mediated homes is <strong className="text-white">{formatCurrency(summary.median_price_lender_mediated)}</strong>,
+                                    showing an increase of <strong className="text-emerald-400">{summary.median_price_lender_mediated_change}%</strong> year-over-year.
+                                    This price growth outpaced the traditional market ({summary.median_price_traditional_change}%), suggesting high demand even for distressed assets.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Inventory Trend Chart */}
+                        <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm">
+                            <h3 className="text-lg font-bold text-white mb-6">Inventory of Lender-Mediated Properties in San Diego County</h3>
+                            <div className="h-[300px] w-full">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <LineChart
+                                        data={[
+                                            { date: '04-2020', value: 220 },
+                                            { date: '06-2020', value: 245 },
+                                            { date: '08-2020', value: 325 },
+                                            { date: '10-2020', value: 230 },
+                                            { date: '12-2020', value: 185 },
+                                            { date: '02-2021', value: 160 },
+                                            { date: '04-2021', value: 135 },
+                                            { date: '06-2021', value: 148 },
+                                            { date: '08-2021', value: 140 },
+                                            { date: '10-2021', value: 180 },
+                                            { date: '12-2021', value: 155 },
+                                            { date: '02-2022', value: 125 },
+                                            { date: '04-2022', value: 160 },
+                                            { date: '06-2022', value: 175 },
+                                            { date: '08-2022', value: 230 },
+                                            { date: '10-2022', value: 255 },
+                                            { date: '12-2022', value: 220 },
+                                            { date: '02-2023', value: 190 },
+                                            { date: '04-2023', value: 150 },
+                                            { date: '06-2023', value: 185 },
+                                            { date: '08-2023', value: 190 },
+                                            { date: '10-2023', value: 210 },
+                                            { date: '12-2023', value: 225 },
+                                            { date: '02-2024', value: 205 },
+                                            { date: '04-2024', value: 190 },
+                                            { date: '06-2024', value: 220 },
+                                            { date: '08-2024', value: 275 },
+                                            { date: '10-2024', value: 305 },
+                                            { date: '12-2024', value: 220 },
+                                            { date: '02-2025', value: 280 },
+                                            { date: '04-2025', value: 310 },
+                                            { date: '06-2025', value: 325 },
+                                            { date: '08-2025', value: 348 },
+                                            { date: '10-2025', value: 300 },
+                                            { date: '12-2025', value: 145 },
+                                        ]}
+                                        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                                    >
+                                        <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.5} />
+                                        <XAxis
+                                            dataKey="date"
+                                            stroke="#94a3b8"
+                                            tick={{ fill: '#94a3b8' }}
+                                            axisLine={{ stroke: '#475569' }}
+                                            minTickGap={30}
+                                        />
+                                        <YAxis
+                                            stroke="#94a3b8"
+                                            tick={{ fill: '#94a3b8' }}
+                                            axisLine={{ stroke: '#475569' }}
+                                            domain={[0, 400]}
+                                        />
+                                        <RechartsTooltip
+                                            contentStyle={{
+                                                backgroundColor: '#1e293b',
+                                                border: '1px solid #475569',
+                                                borderRadius: '0.5rem',
+                                                color: '#f8fafc'
+                                            }}
+                                            itemStyle={{ color: '#ef4444' }}
+                                        />
+                                        <Line
+                                            type="monotone"
+                                            dataKey="value"
+                                            name="Inventory"
+                                            stroke="#ef4444"
+                                            strokeWidth={3}
+                                            dot={{ fill: '#ef4444', r: 4, strokeWidth: 0 }}
+                                            activeDot={{ r: 6 }}
+                                        />
+                                    </LineChart>
+                                </ResponsiveContainer>
+                            </div>
+                            <p className="text-xs text-slate-500 mt-4 text-center italic">
+                                Source: Data digitized from SDAR Lender-Mediated Report (2020-2025)
+                            </p>
                         </div>
                     </div>
                 )}

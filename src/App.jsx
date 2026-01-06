@@ -118,7 +118,7 @@ export default function App() {
                     }`}
                 >
                   <FileText className="w-4 h-4" />
-                  <span className="hidden sm:inline">Foreclosures</span>
+                  <span className="hidden sm:inline">Lender-Mediated</span>
                 </button>
                 <button
                   onClick={() => setActiveView('warn')}
