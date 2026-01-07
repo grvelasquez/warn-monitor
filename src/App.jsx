@@ -29,7 +29,7 @@ export default function App() {
             </div>
 
             {/* Navigation Tabs - scrollable on mobile */}
-            <div className="flex-1 overflow-x-auto scrollbar-hide">
+            <div className="flex-1 overflow-x-auto pb-1">
               <div className="flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 bg-gray-800/50 rounded-lg w-max min-w-full sm:w-auto sm:min-w-0">
                 <button
                   onClick={() => setActiveView('weather')}
@@ -62,16 +62,6 @@ export default function App() {
                   <span className="hidden sm:inline">Lending</span>
                 </button>
                 <button
-                  onClick={() => setActiveView('lendermediated')}
-                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'lendermediated'
-                    ? 'bg-amber-600 text-white shadow-lg shadow-amber-600/25'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                    }`}
-                >
-                  <FileText className="w-4 h-4" />
-                  <span className="hidden sm:inline">Lender-Mediated</span>
-                </button>
-                <button
                   onClick={() => setActiveView('supply')}
                   className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'supply'
                     ? 'bg-green-600 text-white shadow-lg shadow-green-600/25'
@@ -80,6 +70,16 @@ export default function App() {
                 >
                   <Warehouse className="w-4 h-4" />
                   <span className="hidden sm:inline">Supply</span>
+                </button>
+                <button
+                  onClick={() => setActiveView('lendermediated')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'lendermediated'
+                    ? 'bg-amber-600 text-white shadow-lg shadow-amber-600/25'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                >
+                  <FileText className="w-4 h-4" />
+                  <span className="hidden sm:inline">Lender-Mediated</span>
                 </button>
                 <button
                   onClick={() => setActiveView('development')}
@@ -158,14 +158,14 @@ export default function App() {
       <div className={activeView === 'lending' ? 'block' : 'hidden'}>
         <LendingDashboard />
       </div>
-      {activeView === 'lendermediated' && (
-        <div className="block">
-          <LenderMediatedDashboard />
-        </div>
-      )}
       {activeView === 'supply' && (
         <div className="block">
           <SupplyDashboard />
+        </div>
+      )}
+      {activeView === 'lendermediated' && (
+        <div className="block">
+          <LenderMediatedDashboard />
         </div>
       )}
       <div className={activeView === 'development' ? 'block' : 'hidden'}>
