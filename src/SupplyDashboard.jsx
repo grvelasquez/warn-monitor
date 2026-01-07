@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import {
     TrendingUp, TrendingDown, Home, Building2, DollarSign,
     BarChart3, Search, ArrowUpRight, ArrowDownRight, FileText,
-    ChevronDown, ChevronUp, Package, Clock, Info, Warehouse
+    ChevronDown, ChevronUp, Package, Clock, Info, Warehouse, Lightbulb
 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend, BarChart, Bar } from 'recharts';
 
@@ -205,21 +205,98 @@ const SupplyBarChart = ({ title, data, dataKey = 'all_properties' }) => {
     );
 };
 
+const FREDTrendChart = ({ data, title, subTitle }) => {
+    if (!data || data.length === 0) return null;
+
+    // Format dates for display (e.g., "2024-01-01" -> "Jan 24")
+    const formattedData = data.map(item => ({
+        ...item,
+        displayDate: new Date(item.date).toLocaleDateString('en-US', { month: 'short', year: '2-digit' })
+    }));
+
+    return (
+        <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm">
+            <div className="mb-6">
+                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5 text-indigo-400" />
+                    {title}
+                </h3>
+                {subTitle && <div className="text-sm text-slate-400 mt-1">{subTitle}</div>}
+            </div>
+            <div className="h-64 w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={formattedData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#374151" vertical={false} />
+                        <XAxis
+                            dataKey="displayDate"
+                            stroke="#9ca3af"
+                            tick={{ fill: '#9ca3af', fontSize: 12 }}
+                            tickLine={false}
+                            axisLine={false}
+                            minTickGap={30}
+                        />
+                        <YAxis
+                            stroke="#9ca3af"
+                            tick={{ fill: '#9ca3af', fontSize: 12 }}
+                            tickFormatter={(value) => value >= 1000 ? `${(value / 1000).toFixed(1)}k` : value}
+                            tickLine={false}
+                            axisLine={false}
+                        />
+                        <RechartsTooltip
+                            contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
+                            itemStyle={{ color: '#818cf8' }}
+                            labelStyle={{ color: '#9ca3af', marginBottom: '0.5rem' }}
+                            formatter={(value) => [formatNumber(value), 'Active Listings']}
+                        />
+                        <Line
+                            type="monotone"
+                            dataKey="value"
+                            stroke="#818cf8"
+                            strokeWidth={3}
+                            dot={false}
+                            activeDot={{ r: 6, fill: '#818cf8', stroke: '#c7d2fe', strokeWidth: 2 }}
+                        />
+                    </LineChart>
+                </ResponsiveContainer>
+            </div>
+        </div>
+    );
+};
+
 export default function SupplyDashboard() {
     const [data, setData] = useState(null);
+    const [fredData, setFredData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [activeTab, setActiveTab] = useState('summary');
 
     useEffect(() => {
-        fetch('/data/housing_supply_data.json')
-            .then(res => {
-                if (!res.ok) throw new Error('Failed to load data');
-                return res.json();
-            })
-            .then(setData)
-            .catch(err => setError(err.message))
-            .finally(() => setLoading(false));
+        const fetchData = async () => {
+            try {
+                const [supplyRes, fredRes] = await Promise.all([
+                    fetch('/data/housing_supply_data.json'),
+                    fetch('/data/supply_history.json')
+                ]);
+
+                if (!supplyRes.ok) throw new Error('Failed to load supply data');
+                // Fred data is optional, don't fail hard if missing, but try to parse
+                const supplyJson = await supplyRes.json();
+
+                let fredJson = null;
+                if (fredRes.ok) {
+                    fredJson = await fredRes.json();
+                }
+
+                setData(supplyJson);
+                setFredData(fredJson);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
     }, []);
 
     if (loading) {
@@ -307,53 +384,205 @@ export default function SupplyDashboard() {
                 {/* Summary Tab */}
                 {activeTab === 'summary' && (
                     <div className="space-y-6">
-                        {/* Key Metrics Cards */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <SummaryCard
-                                icon={TrendingUp}
-                                title="Pending Sales (12-Mo)"
-                                value={formatNumber(totalPendingSales2025)}
-                                change={data?.summary?.pending_sales_change}
-                                iconColor="text-green-400"
+                        {/* FRED Trend Chart */}
+                        {fredData && fredData.history && (
+                            <FREDTrendChart
+                                data={fredData.history}
+                                title="Historical Active Listings"
+                                subTitle="San Diego County, CA - Last 10 Years"
                             />
-                            <SummaryCard
-                                icon={Home}
-                                title="Closed Sales (12-Mo)"
-                                value={formatNumber(totalClosedSales2025)}
-                                change={null}
-                                iconColor="text-blue-400"
-                            />
-                            <SummaryCard
-                                icon={Package}
-                                title="Active Inventory"
-                                value={formatNumber(totalInventory2025)}
-                                change={data?.summary?.inventory_change}
-                                iconColor="text-purple-400"
-                            />
-                            <SummaryCard
-                                icon={Clock}
-                                title="Months Supply ($750K-$1M)"
-                                value={`${avgMonthsSupply} mo`}
-                                change={data?.summary?.months_supply_change}
-                                iconColor="text-amber-400"
-                            />
-                        </div>
+                        )}
 
-                        {/* Executive Summary */}
-                        <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm">
+                        {/* Executive Summary Header */}
+                        <div className="bg-gradient-to-r from-indigo-900/40 to-slate-800/40 rounded-xl border border-indigo-500/30 p-6 backdrop-blur-sm">
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="p-2 bg-green-500/10 rounded-lg">
-                                    <FileText className="w-5 h-5 text-green-400" />
+                                <div className="p-2 bg-indigo-500/20 rounded-lg">
+                                    <FileText className="w-6 h-6 text-indigo-400" />
                                 </div>
-                                <h3 className="text-xl font-bold text-white">Market Overview: December 2025</h3>
+                                <h3 className="text-2xl font-bold text-white">Executive Summary: The "Gridlock" Market</h3>
                             </div>
                             <p className="text-slate-300 leading-relaxed text-lg">
-                                The San Diego housing market shows <strong className="text-white">strong buyer activity</strong> with
-                                pending sales up <span className="text-emerald-400">+5.6%</span> year-over-year.
-                                Total inventory sits at <span className="text-green-400">{formatNumber(totalInventory2025)}</span> active listings,
-                                representing a relatively low <span className="text-amber-400">{avgMonthsSupply} months</span> of supply in the
-                                $750K-$1M range—still a seller's market.
+                                The San Diego housing market is currently defined by a <strong className="text-indigo-400">massive supply shortage</strong> that has created a gridlock.
+                                While inventory has collapsed by over <span className="text-rose-400 font-bold">50%</span>, prices have remained effectively flat
+                                (<span className="text-emerald-400">+0.3%</span>). This indicates that while few homeowners are selling, buyer demand has also tempered
+                                enough to prevent a price explosion. For a realtor, the key narrative is <strong className="text-amber-400">scarcity</strong>:
+                                there is almost nothing to buy, but the homes that are available are taking longer to sell.
                             </p>
+                        </div>
+
+                        {/* Analysis Grid */}
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {/* 1. Inventory & Supply Crisis */}
+                            <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 hover:bg-slate-800/60 transition-colors">
+                                <h4 className="flex items-center gap-2 text-lg font-semibold text-rose-400 mb-4">
+                                    <Package className="w-5 h-5" />
+                                    1. Inventory & Supply Crisis
+                                </h4>
+                                <p className="text-sm text-slate-400 mb-3">The most critical data point: dramatic contraction in available homes.</p>
+                                <ul className="space-y-3 text-sm text-slate-300">
+                                    <li className="flex gap-2">
+                                        <span className="text-rose-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Total Inventory:</strong> Dropped <span className="text-rose-400 font-bold">50.6%</span> YoY.
+                                            Only 1,876 active listings vs 3,794 last year.
+                                        </span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-rose-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Single-Family:</strong> Fell <span className="text-rose-400">54.7%</span> to just 1,027 units,
+                                            resulting in <span className="text-amber-400 font-bold">0.8 months</span> of supply.
+                                        </span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-rose-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Condo Supply:</strong> Dropped <span className="text-rose-400">44.5%</span>,
+                                            leaving <span className="text-amber-400">1.3 months</span> of supply.
+                                        </span>
+                                    </li>
+                                </ul>
+                                <div className="mt-4 p-3 bg-slate-900/50 rounded-lg border border-slate-700/50 text-xs text-slate-400">
+                                    <strong className="text-slate-300">Context:</strong> A balanced market is 4–6 months of supply. At 0.8–1.3 months,
+                                    San Diego is in "hyper-seller's market" territory regarding supply, yet price behavior suggests otherwise.
+                                </div>
+                            </div>
+
+                            {/* 2. Pricing Stability */}
+                            <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 hover:bg-slate-800/60 transition-colors">
+                                <h4 className="flex items-center gap-2 text-lg font-semibold text-emerald-400 mb-4">
+                                    <DollarSign className="w-5 h-5" />
+                                    2. Pricing Stability
+                                </h4>
+                                <p className="text-sm text-slate-400 mb-3">Despite the inventory squeeze, prices are not skyrocketing—suggesting an affordability ceiling.</p>
+                                <ul className="space-y-3 text-sm text-slate-300">
+                                    <li className="flex gap-2">
+                                        <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Overall Median:</strong> Rose nominally by <span className="text-emerald-400">+0.3%</span> to
+                                            <span className="text-white font-bold"> $900,000</span>.
+                                        </span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-gray-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Single-Family:</strong> Completely flat at <span className="text-white font-bold">$1,050,500</span>
+                                            (<span className="text-gray-400">0.0%</span> change).
+                                        </span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-rose-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Condos:</strong> Slightly down, dropping <span className="text-rose-400">0.7%</span> to
+                                            <span className="text-white font-bold"> $670,000</span>.
+                                        </span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-amber-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Negotiation Power:</strong> Pct of List Price fell from 99.0% to
+                                            <span className="text-amber-400 font-bold"> 97.7%</span>. Buyers are pushing back.
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* 3. Sales Velocity & Volume */}
+                            <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 hover:bg-slate-800/60 transition-colors">
+                                <h4 className="flex items-center gap-2 text-lg font-semibold text-blue-400 mb-4">
+                                    <Clock className="w-5 h-5" />
+                                    3. Sales Velocity & Volume
+                                </h4>
+                                <p className="text-sm text-slate-400 mb-3">The market is moving slower and transacting less volume than the previous year.</p>
+                                <ul className="space-y-3 text-sm text-slate-300">
+                                    <li className="flex gap-2">
+                                        <span className="text-rose-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Closed Sales:</strong> Overall volume decreased <span className="text-rose-400">1.9%</span>.
+                                        </span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-rose-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Days on Market:</strong> Increased <span className="text-rose-400 font-bold">21.9%</span>,
+                                            jumping from 32 days to <span className="text-white font-bold">39 days</span>.
+                                        </span>
+                                    </li>
+                                </ul>
+                                <div className="mt-4 space-y-2">
+                                    <div className="flex justify-between text-sm">
+                                        <span className="text-slate-400">Fastest Sellers ($1.25M–$2M):</span>
+                                        <span className="text-emerald-400 font-mono">37 days</span>
+                                    </div>
+                                    <div className="flex justify-between text-sm">
+                                        <span className="text-slate-400">Slowest Sellers ($5M+):</span>
+                                        <span className="text-rose-400 font-mono">74 days</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* 4. Luxury & High-End Anomaly */}
+                            <div className="bg-gradient-to-br from-purple-900/20 to-slate-800/40 rounded-xl border border-purple-500/30 p-6">
+                                <h4 className="flex items-center gap-2 text-lg font-semibold text-purple-400 mb-4">
+                                    <TrendingUp className="w-5 h-5" />
+                                    4. The Luxury & High-End Anomaly
+                                </h4>
+                                <p className="text-sm text-slate-400 mb-3">The $5M+ market is behaving differently than the general market.</p>
+                                <ul className="space-y-3 text-sm text-slate-300">
+                                    <li className="flex gap-2">
+                                        <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Sales Surge:</strong> Pending Sales for $5M+ rose <span className="text-emerald-400">+5.6%</span>,
+                                            Closed Sales jumped <span className="text-emerald-400 font-bold">+15.8%</span>.
+                                        </span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Price Strength:</strong> Large homes (6,001+ Sq Ft) surged
+                                            <span className="text-emerald-400 font-bold"> +9.9%</span> to <span className="text-white font-bold">$6,100,000</span>.
+                                        </span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-rose-400 font-bold min-w-[12px]">•</span>
+                                        <span>
+                                            <strong className="text-white">Inventory:</strong> Even in this bracket, inventory fell
+                                            <span className="text-rose-400"> 27.4%</span>—scarcity affects all demographics.
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* 5. Strategic Takeaways */}
+                        <div className="bg-gradient-to-r from-amber-900/20 to-slate-800/40 rounded-xl border border-amber-500/30 p-6">
+                            <h4 className="flex items-center gap-2 text-lg font-semibold text-amber-400 mb-4">
+                                <Lightbulb className="w-5 h-5" />
+                                5. Strategic Takeaways
+                            </h4>
+                            <div className="grid md:grid-cols-3 gap-4">
+                                <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
+                                    <div className="text-xs text-amber-400 uppercase tracking-wider mb-2 font-bold">The "Inventory Cliff"</div>
+                                    <div className="text-2xl font-bold text-white mb-1">3,794 → 1,876</div>
+                                    <div className="text-sm text-slate-400">
+                                        "It's not you, it's the market. Options are down <span className="text-rose-400 font-bold">50%</span>."
+                                    </div>
+                                </div>
+                                <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
+                                    <div className="text-xs text-blue-400 uppercase tracking-wider mb-2 font-bold">The "Patience Index"</div>
+                                    <div className="text-2xl font-bold text-white mb-1">32 → 39 days</div>
+                                    <div className="text-sm text-slate-400">
+                                        DOM up <span className="text-rose-400 font-bold">+21.9%</span>. Despite scarcity, sales aren't instant.
+                                    </div>
+                                </div>
+                                <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
+                                    <div className="text-xs text-emerald-400 uppercase tracking-wider mb-2 font-bold">The "Affordability Ceiling"</div>
+                                    <div className="text-2xl font-bold text-white mb-1">97.7%</div>
+                                    <div className="text-sm text-slate-400">
+                                        List price received down <span className="text-rose-400">1.3%</span>. Overpricing is dangerous.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Quick Charts */}
