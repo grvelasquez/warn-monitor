@@ -141,9 +141,8 @@ export default function ADUDashboard() {
         const monthlyCashFlow = effectiveRent - totalMonthlyExpenses;
         const annualCashFlow = monthlyCashFlow * 12;
 
-        // ROI & Payback
+        // ROI (payback is calculated in the projection loop below)
         const cashOnCashReturn = downPayment > 0 ? (annualCashFlow / downPayment) * 100 : 0;
-        const paybackYears = monthlyCashFlow > 0 ? downPayment / annualCashFlow : Infinity;
 
         // Cost breakdown for chart
         const costBreakdown = [
@@ -157,6 +156,9 @@ export default function ADUDashboard() {
         const cashFlowProjection = [];
         let cumulative = -downPayment;
         let projectedRent = totalMonthlyRent;
+        let paybackYears = Infinity;
+        let paybackFound = false;
+
         for (let year = 1; year <= 10; year++) {
             // Apply rent increase after year 1
             if (year > 1) {
@@ -169,7 +171,21 @@ export default function ADUDashboard() {
             const projectedMonthlyExpenses = monthlyMortgage + monthlyPropertyTax + monthlyInsurance + projectedMaintenance + projectedVacancy;
             const projectedMonthlyCashFlow = projectedEffectiveRent - projectedMonthlyExpenses;
             const projectedAnnualCashFlow = projectedMonthlyCashFlow * 12;
+
+            const previousCumulative = cumulative;
             cumulative += projectedAnnualCashFlow;
+
+            // Calculate payback year (when cumulative goes from negative to positive)
+            if (!paybackFound && previousCumulative < 0 && cumulative >= 0 && projectedAnnualCashFlow > 0) {
+                // Interpolate to find exact payback point within the year
+                const fractionOfYear = Math.abs(previousCumulative) / projectedAnnualCashFlow;
+                paybackYears = (year - 1) + fractionOfYear;
+                paybackFound = true;
+            } else if (!paybackFound && cumulative >= 0 && projectedAnnualCashFlow > 0) {
+                paybackYears = year;
+                paybackFound = true;
+            }
+
             cashFlowProjection.push({
                 year: `Year ${year}`,
                 annual: projectedAnnualCashFlow,
