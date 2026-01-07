@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote, FileText } from 'lucide-react';
+import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote, FileText, Warehouse } from 'lucide-react';
 import WarnDashboard from './WarnDashboard';
 import SDARDashboard from './SDARDashboard';
 import LendingDashboard from './LendingDashboard';
@@ -10,6 +10,7 @@ import NeighborhoodEvolution from './NeighborhoodEvolution';
 import MapDashboard from './MapDashboard';
 import VotingDashboard from './VotingDashboard';
 import LenderMediatedDashboard from './LenderMediatedDashboard';
+import SupplyDashboard from './SupplyDashboard';
 
 
 export default function App() {
@@ -69,6 +70,16 @@ export default function App() {
                 >
                   <FileText className="w-4 h-4" />
                   <span className="hidden sm:inline">Lender-Mediated</span>
+                </button>
+                <button
+                  onClick={() => setActiveView('supply')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'supply'
+                    ? 'bg-green-600 text-white shadow-lg shadow-green-600/25'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                >
+                  <Warehouse className="w-4 h-4" />
+                  <span className="hidden sm:inline">Supply</span>
                 </button>
                 <button
                   onClick={() => setActiveView('development')}
@@ -150,6 +161,11 @@ export default function App() {
       {activeView === 'lendermediated' && (
         <div className="block">
           <LenderMediatedDashboard />
+        </div>
+      )}
+      {activeView === 'supply' && (
+        <div className="block">
+          <SupplyDashboard />
         </div>
       )}
       <div className={activeView === 'development' ? 'block' : 'hidden'}>
