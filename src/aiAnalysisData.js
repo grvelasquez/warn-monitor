@@ -1,0 +1,4 @@
+export const aiAnalysisData = {
+    detached: "The single-family market closes 2025 defined by a severe inventory shortage. New listings plummeted 74.3% in December, resulting in just **0.8 months of supply**—indicating an ultra-competitive seller's market. This scarcity drove a **5.0% year-over-year median price increase to $1,050,000**, despite a slight cooling in sales volume (-2.8%). The market remains tight, with inventory levels down nearly 55% from last year.",
+    attached: "Condos and townhomes show similar constraints, with **median price rising 3.0% to $680,000** in December. Inventory has dropped significantly (-44.5%), creating a **1.3-month supply**. While the market remains seller-favored, buyers are exercising more patience, as days on market increased by 24% to 51 days. Sales activity slowed by 12.5%, reflecting the dual impact of limited supply and affordability challenges."
+};

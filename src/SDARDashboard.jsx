@@ -14,6 +14,15 @@ const FilterIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" heig
 const XIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>;
 
 import { regions } from './sdarData';
+import { aiAnalysisData } from './aiAnalysisData';
+
+// Icons as simple SVG components
+const SparklesIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+    </svg>
+);
+
 
 // Default fallback data when JSON not loaded
 const DEFAULT_NEIGHBORHOOD_DATA = {
@@ -25,7 +34,7 @@ const DEFAULT_NEIGHBORHOOD_DATA = {
 };
 
 export default function SDARDashboard() {
-    const [activeTab, setActiveTab] = useState('overview');
+    const [activeTab, setActiveTab] = useState('summary');
     const [propertyType, setPropertyType] = useState('detached');
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedArea, setSelectedArea] = useState('all');
@@ -462,7 +471,7 @@ export default function SDARDashboard() {
                 {/* Tabs - Only show if data is available */}
                 {hasDataForSelection && (
                     <div className="flex gap-1 p-1 bg-slate-800/50 rounded-xl border border-slate-700/50 mb-6 overflow-x-auto">
-                        {['Overview', 'Prices', 'Inventory', 'Velocity'].map((tab) => (
+                        {['Summary', 'Overview', 'Prices', 'Inventory', 'Velocity'].map((tab) => (
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(tab.toLowerCase())}
@@ -477,6 +486,26 @@ export default function SDARDashboard() {
                 {/* Content - Only show if data is available */}
                 {hasDataForSelection && (
                     <div className="grid lg:grid-cols-2 gap-6">
+                        {activeTab === 'summary' && (
+                            <div className="lg:col-span-2">
+                                <div className={`border rounded-xl p-6 backdrop-blur-sm relative overflow-hidden transition-all group ${propertyType === 'detached'
+                                    ? 'bg-gradient-to-br from-blue-900/40 to-slate-900/40 border-blue-500/20 hover:border-blue-500/40'
+                                    : 'bg-gradient-to-br from-purple-900/40 to-slate-900/40 border-purple-500/20 hover:border-purple-500/40'
+                                    }`}>
+                                    <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                                        <SparklesIcon />
+                                    </div>
+                                    <div className={`flex items-center gap-2 mb-4 ${propertyType === 'detached' ? 'text-blue-300' : 'text-purple-300'}`}>
+                                        <SparklesIcon />
+                                        <h4 className="text-sm font-bold uppercase tracking-wider">Market Summary</h4>
+                                    </div>
+                                    <p className="text-base text-slate-300 leading-loose">
+                                        {aiAnalysisData[propertyType]}
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+
                         {activeTab === 'overview' && (
                             <>
                                 <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm">
