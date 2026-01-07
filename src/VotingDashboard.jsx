@@ -364,10 +364,10 @@ export default function VotingDashboard() {
         fetchData();
     }, []);
 
-    // Reset selection when switching view mode
+    // Reset selection only when switching view mode (not when changing year)
     useEffect(() => {
         setSelectedLocation('all');
-    }, [viewMode, selectedYear]);
+    }, [viewMode]);
 
     const currentData = votingData?.elections?.[selectedYear];
 
