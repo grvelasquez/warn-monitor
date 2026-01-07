@@ -16,6 +16,8 @@ const SD_ADU_RULES = {
     sewerFee: 2577,
     permitCostBase: 6500,
     permitCostMax: 21000,
+    feasibilityStudy: 3500,  // One-time cost for architectural/engineering review
+    appliancesPerUnit: 8000, // Kitchen appliances, HVAC, water heater per unit
 };
 
 const ADU_TYPES = [
@@ -109,14 +111,18 @@ export default function ADUDashboard() {
             : 0;
         const waterSewerFeesPerUnit = SD_ADU_RULES.waterFee + SD_ADU_RULES.sewerFee;
         const permitFeesPerUnit = SD_ADU_RULES.permitCostBase + (effectiveSize / SD_ADU_RULES.maxSize) * (SD_ADU_RULES.permitCostMax - SD_ADU_RULES.permitCostBase);
+        const appliancesPerUnit = SD_ADU_RULES.appliancesPerUnit;
 
-        const totalFeesPerUnit = schoolFeePerUnit + waterSewerFeesPerUnit + permitFeesPerUnit;
+        const totalFeesPerUnit = schoolFeePerUnit + waterSewerFeesPerUnit + permitFeesPerUnit + appliancesPerUnit;
         const totalProjectCostPerUnit = constructionCostPerUnit + totalFeesPerUnit;
 
-        // Total costs (multiplied by number of units)
+        // One-time costs (don't multiply by units)
+        const feasibilityStudy = SD_ADU_RULES.feasibilityStudy;
+
+        // Total costs (multiplied by number of units + one-time costs)
         const constructionCost = constructionCostPerUnit * numberOfUnits;
-        const totalFees = totalFeesPerUnit * numberOfUnits;
-        const totalProjectCost = totalProjectCostPerUnit * numberOfUnits;
+        const totalFees = (totalFeesPerUnit * numberOfUnits) + feasibilityStudy;
+        const totalProjectCost = (totalProjectCostPerUnit * numberOfUnits) + feasibilityStudy;
 
         // Financing
         const downPayment = totalProjectCost * (downPaymentPct / 100);
@@ -145,9 +151,11 @@ export default function ADUDashboard() {
         // Cost breakdown for chart
         const costBreakdown = [
             { name: 'Construction', value: constructionCost, fill: '#10b981' },
+            { name: 'Appliances', value: appliancesPerUnit * numberOfUnits, fill: '#06b6d4' },
             { name: 'Permits', value: permitFeesPerUnit * numberOfUnits, fill: '#3b82f6' },
             { name: 'Water/Sewer', value: waterSewerFeesPerUnit * numberOfUnits, fill: '#8b5cf6' },
             { name: 'School Fees', value: schoolFeePerUnit * numberOfUnits, fill: '#f59e0b' },
+            { name: 'Feasibility Study', value: feasibilityStudy, fill: '#ec4899' },
         ];
 
         // Cash flow projection (10 years with rent increases) and payback calculation
