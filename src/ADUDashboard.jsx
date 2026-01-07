@@ -156,8 +156,8 @@ export default function ADUDashboard() {
         let projectedRent = totalMonthlyRent;
         let paybackYears = Infinity;
 
-        // Calculate payback over up to 30 years (to find the break-even point)
-        for (let year = 1; year <= 30; year++) {
+        // Calculate payback over up to 100 years (to find the break-even point)
+        for (let year = 1; year <= 100; year++) {
             // Apply rent increase after year 1
             if (year > 1) {
                 projectedRent = projectedRent * (1 + annualRentIncrease / 100);
