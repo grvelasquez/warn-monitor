@@ -345,7 +345,7 @@ export default function VotingDashboard() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [selectedYear, setSelectedYear] = useState('2024');
-    const [viewMode, setViewMode] = useState('city'); // 'city' or 'zip'
+    const [viewMode, setViewMode] = useState('zip'); // 'city' or 'zip'
     const [selectedLocation, setSelectedLocation] = useState('all'); // City Name or Zip Code
 
     useEffect(() => {
