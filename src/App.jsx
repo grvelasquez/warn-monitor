@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote, FileText, Warehouse } from 'lucide-react';
+import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote, FileText, Warehouse, Building2 } from 'lucide-react';
 import WarnDashboard from './WarnDashboard';
 import SDARDashboard from './SDARDashboard';
 import LendingDashboard from './LendingDashboard';
@@ -11,6 +11,7 @@ import MapDashboard from './MapDashboard';
 import VotingDashboard from './VotingDashboard';
 import LenderMediatedDashboard from './LenderMediatedDashboard';
 import SupplyDashboard from './SupplyDashboard';
+import ADUDashboard from './ADUDashboard';
 
 
 export default function App() {
@@ -43,7 +44,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => setActiveView('realestate')}
-                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'realestate'
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${['realestate', 'neighborhoods', 'map'].includes(activeView)
                     ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25'
                     : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                     }`}
@@ -101,26 +102,7 @@ export default function App() {
                   <BarChart3 className="w-4 h-4" />
                   <span className="hidden sm:inline">Trends</span>
                 </button>
-                <button
-                  onClick={() => setActiveView('neighborhoods')}
-                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'neighborhoods'
-                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/25'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                    }`}
-                >
-                  <MapPin className="w-4 h-4" />
-                  <span className="hidden sm:inline">Neighborhoods</span>
-                </button>
-                <button
-                  onClick={() => setActiveView('map')}
-                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'map'
-                    ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-600/25'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                    }`}
-                >
-                  <Map className="w-4 h-4" />
-                  <span className="hidden sm:inline">Map</span>
-                </button>
+
                 <button
                   onClick={() => setActiveView('voting')}
                   className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'voting'
@@ -130,6 +112,16 @@ export default function App() {
                 >
                   <Vote className="w-4 h-4" />
                   <span className="hidden sm:inline">Voting</span>
+                </button>
+                <button
+                  onClick={() => setActiveView('adu')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'adu'
+                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/25'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                >
+                  <Building2 className="w-4 h-4" />
+                  <span className="hidden sm:inline">ADU</span>
                 </button>
 
                 <button
@@ -153,7 +145,7 @@ export default function App() {
         <WeatherDashboard />
       </div>
       <div className={activeView === 'realestate' ? 'block' : 'hidden'}>
-        <SDARDashboard />
+        <SDARDashboard setActiveView={setActiveView} />
       </div>
       <div className={activeView === 'lending' ? 'block' : 'hidden'}>
         <LendingDashboard />
@@ -185,6 +177,11 @@ export default function App() {
       {activeView === 'voting' && (
         <div className="block">
           <VotingDashboard />
+        </div>
+      )}
+      {activeView === 'adu' && (
+        <div className="block">
+          <ADUDashboard />
         </div>
       )}
 

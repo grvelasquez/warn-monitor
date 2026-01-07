@@ -33,8 +33,10 @@ const DEFAULT_NEIGHBORHOOD_DATA = {
     }
 };
 
-export default function SDARDashboard() {
-    const [activeTab, setActiveTab] = useState('ai summary');
+import { MapPin, Map as MapIcon } from 'lucide-react';
+
+export default function SDARDashboard({ setActiveView }) {
+    const [activeTab, setActiveTab] = useState('summary');
     const [propertyType, setPropertyType] = useState('detached');
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedArea, setSelectedArea] = useState('all');
@@ -350,6 +352,34 @@ export default function SDARDashboard() {
                             )}
                         </div>
                         <p className="text-slate-400">San Diego County • SDAR MLS Data</p>
+                    </div>
+
+                    {/* Sub-Navigation */}
+                    <div className="flex gap-3 mb-6">
+                        <button
+                            onClick={() => setActiveView('neighborhoods')}
+                            className="flex items-center gap-2 px-4 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-all shadow-lg shadow-indigo-900/20 group flex-1 sm:flex-none justify-center"
+                        >
+                            <div className="p-1.5 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                                <MapPin className="w-5 h-5" />
+                            </div>
+                            <div className="text-left">
+                                <p className="text-xs font-medium text-indigo-200">View</p>
+                                <p className="text-sm font-bold">Neighborhoods</p>
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setActiveView('map')}
+                            className="flex items-center gap-2 px-4 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl transition-all shadow-lg shadow-cyan-900/20 group flex-1 sm:flex-none justify-center"
+                        >
+                            <div className="p-1.5 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                                <MapIcon className="w-5 h-5" />
+                            </div>
+                            <div className="text-left">
+                                <p className="text-xs font-medium text-cyan-200">View</p>
+                                <p className="text-sm font-bold">Interactive Map</p>
+                            </div>
+                        </button>
                     </div>
 
                 </div>
