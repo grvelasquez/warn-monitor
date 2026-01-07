@@ -20,8 +20,6 @@ const SD_ADU_RULES = {
 
 const ADU_TYPES = [
     { id: 'detached', label: 'Detached ADU', icon: '🏠', description: 'Standalone unit in backyard' },
-    { id: 'attached', label: 'Attached ADU', icon: '🏘️', description: 'Connected to main house' },
-    { id: 'conversion', label: 'Garage Conversion', icon: '🚗', description: 'Convert existing garage' },
     { id: 'jadu', label: 'Junior ADU', icon: '🏡', description: 'Up to 500 sq ft, within home' },
 ];
 
