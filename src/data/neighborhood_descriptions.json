@@ -1,0 +1,1619 @@
+[
+    {
+        "zipCode": "91901",
+        "region": "East - Rural",
+        "neighborhood": "Alpine Central",
+        "description": "The gateway to the mountains, Viejas Casino influence, semi-rural but getting denser",
+        "tag": "Commuter / Rural"
+    },
+    {
+        "zipCode": "91901",
+        "region": "East - Rural",
+        "neighborhood": "Crown Hills",
+        "description": "Gated community, distinct from the rest of Alpine, suburban feel in the hills",
+        "tag": "HOA / Stable"
+    },
+    {
+        "zipCode": "91902",
+        "region": "South Bay - Bonita",
+        "neighborhood": "Bonita Valley",
+        "description": "Equestrian trails, large lots, hidden wealthy pockets, golf course living",
+        "tag": "Estate / Equestrian"
+    },
+    {
+        "zipCode": "91902",
+        "region": "South Bay - Bonita",
+        "neighborhood": "San Miguel Ranch",
+        "description": "Newer master-planned edge, gated enclaves, spilling over from Chula Vista",
+        "tag": "Luxury / Family"
+    },
+    {
+        "zipCode": "91905",
+        "region": "East - Backcountry",
+        "neighborhood": "Boulevard",
+        "description": "High desert, rugged terrain, border patrol presence, off-grid potential",
+        "tag": "Land / Rural"
+    },
+    {
+        "zipCode": "91906",
+        "region": "East - Backcountry",
+        "neighborhood": "Campo",
+        "description": "Historic railroad town, very rural, affordable acreage, high fire risk",
+        "tag": "Affordable / Land"
+    },
+    {
+        "zipCode": "91910",
+        "region": "South Bay - Chula Vista",
+        "neighborhood": "Downtown Chula Vista",
+        "description": "Third Avenue revival, breweries and trendy food, gentrifying rapidly",
+        "tag": "Walkable / Gentrification"
+    },
+    {
+        "zipCode": "91910",
+        "region": "South Bay - Chula Vista",
+        "neighborhood": "Rancho Del Rey",
+        "description": "Hillside views, 90s build, no Mello-Roos (mostly), move-up buyers",
+        "tag": "Move-Up / View"
+    },
+    {
+        "zipCode": "91910",
+        "region": "South Bay - Chula Vista",
+        "neighborhood": "Terra Nova",
+        "description": "1980s planned community, established trees, close to 805, practical family living",
+        "tag": "Stable / Commuter"
+    },
+    {
+        "zipCode": "91911",
+        "region": "South Bay - Chula Vista",
+        "neighborhood": "Castle Park",
+        "description": "Older stock, large flat lots, ADU paradise, working class roots",
+        "tag": "ADU Play / Value"
+    },
+    {
+        "zipCode": "91911",
+        "region": "South Bay - Chula Vista",
+        "neighborhood": "Otay River Valley",
+        "description": "Southern edge, industrial adjacency, affordable entry point",
+        "tag": "Entry Level"
+    },
+    {
+        "zipCode": "91913",
+        "region": "South Bay - Eastlake",
+        "neighborhood": "Eastlake Vistas",
+        "description": "Views of the lake, massive homes, clubhouse lifestyle, top-tier schools",
+        "tag": "Lifestyle / School District"
+    },
+    {
+        "zipCode": "91913",
+        "region": "South Bay - Eastlake",
+        "neighborhood": "Otay Ranch",
+        "description": "The master-plan giant, heavy Mello-Roos, walkable town centers, young families",
+        "tag": "Turnkey / Family"
+    },
+    {
+        "zipCode": "91914",
+        "region": "South Bay - Eastlake",
+        "neighborhood": "Eastlake Woods",
+        "description": "Custom estates, no Mello-Roos in parts, prestigious gated enclaves",
+        "tag": "Luxury / Estate"
+    },
+    {
+        "zipCode": "91914",
+        "region": "South Bay - Eastlake",
+        "neighborhood": "Rolling Hills Ranch",
+        "description": "Resort-style living, heavy HOA amenities, executive homes",
+        "tag": "Executive / HOA"
+    },
+    {
+        "zipCode": "91915",
+        "region": "South Bay - Eastlake",
+        "neighborhood": "Eastlake Greens",
+        "description": "Golf course frontage, slightly older (90s), lower price point than Vistas",
+        "tag": "Golf / Family"
+    },
+    {
+        "zipCode": "91915",
+        "region": "South Bay - Eastlake",
+        "neighborhood": "Windingwalk",
+        "description": "Newer builds, high density, walk to schools and pools",
+        "tag": "Modern / Density"
+    },
+    {
+        "zipCode": "91916",
+        "region": "East - Rural",
+        "neighborhood": "Descanso",
+        "description": "Oak trees, cabin life, true four seasons (sort of), quiet retreat",
+        "tag": "Rural / Vacation"
+    },
+    {
+        "zipCode": "91917",
+        "region": "East - Rural",
+        "neighborhood": "Dulzura",
+        "description": "Highway 94 corridor, winding roads, winery potential, very isolated",
+        "tag": "Agri-Business / Land"
+    },
+    {
+        "zipCode": "91931",
+        "region": "East - Rural",
+        "neighborhood": "Guatay",
+        "description": "Tiny mountain hamlet, pine trees, blink and you miss it",
+        "tag": "Niche / Rural"
+    },
+    {
+        "zipCode": "91932",
+        "region": "South Bay - Beach",
+        "neighborhood": "Imperial Beach (Inland)",
+        "description": "Bayside bike path, older bungalows, helicopter noise, last affordable beach buy",
+        "tag": "Value Coastal"
+    },
+    {
+        "zipCode": "91932",
+        "region": "South Bay - Beach",
+        "neighborhood": "Imperial Beach (Seacoast)",
+        "description": "The pier area, aggressive development, new hotels, AirBnB heavy",
+        "tag": "STR / Coastal"
+    },
+    {
+        "zipCode": "91934",
+        "region": "East - Backcountry",
+        "neighborhood": "Jacumba Hot Springs",
+        "description": "Historic hot springs revitalization, hipster desert destination emerging, very cheap",
+        "tag": "Speculative / Hip"
+    },
+    {
+        "zipCode": "91935",
+        "region": "East - Rural",
+        "neighborhood": "Jamul",
+        "description": "Custom estates, massive lots, rural but close to Rancho San Diego, Hollywood Casino traffic",
+        "tag": "Estate / Privacy"
+    },
+    {
+        "zipCode": "91941",
+        "region": "East - La Mesa",
+        "neighborhood": "Mount Helix",
+        "description": "Winding narrow roads, incredible views, custom mid-century estates, distinct prestige",
+        "tag": "Luxury / View"
+    },
+    {
+        "zipCode": "91941",
+        "region": "East - La Mesa",
+        "neighborhood": "The Village",
+        "description": "Walkable downtown La Mesa, antique row, farmers market, highly desirable rentals",
+        "tag": "Walkable / Lifestyle"
+    },
+    {
+        "zipCode": "91942",
+        "region": "East - La Mesa",
+        "neighborhood": "Fletcher Hills",
+        "description": "Mid-century ranch homes, wide streets, family focused, canyon views",
+        "tag": "Stable / Family"
+    },
+    {
+        "zipCode": "91942",
+        "region": "East - La Mesa",
+        "neighborhood": "Grossmont",
+        "description": "Shopping mall anchor, apartments, hospital proximity, practical density",
+        "tag": "Rental / Commercial"
+    },
+    {
+        "zipCode": "91945",
+        "region": "East - Lemon Grove",
+        "neighborhood": "Lemon Grove",
+        "description": "Big lots, rural feel in the city, the giant lemon, zoning allows for density",
+        "tag": "Zoning / Value"
+    },
+    {
+        "zipCode": "91948",
+        "region": "East - Mountain",
+        "neighborhood": "Mount Laguna",
+        "description": "High altitude, snow in winter, cabin leases (often US Forest land), strictly vacation",
+        "tag": "Recreation / Cabin"
+    },
+    {
+        "zipCode": "91950",
+        "region": "South Bay - National City",
+        "neighborhood": "Downtown National City",
+        "description": "Industrial mix, historic brick buildings, working class, affordable density",
+        "tag": "Urban / Industrial"
+    },
+    {
+        "zipCode": "91950",
+        "region": "South Bay - National City",
+        "neighborhood": "Quarter Mile",
+        "description": "Auto row revenue, commercial dominant, transitional residential",
+        "tag": "Commercial"
+    },
+    {
+        "zipCode": "91962",
+        "region": "East - Mountain",
+        "neighborhood": "Pine Valley",
+        "description": "Alpine feel but deeper in, horse property, gateway to the dunes",
+        "tag": "Equestrian / Rural"
+    },
+    {
+        "zipCode": "91963",
+        "region": "East - Backcountry",
+        "neighborhood": "Potrero",
+        "description": "Border adjacent, rural valleys, affordable land, very quiet",
+        "tag": "Land / Border"
+    },
+    {
+        "zipCode": "91977",
+        "region": "East - Spring Valley",
+        "neighborhood": "Dictionary Hill",
+        "description": "Steep roads, incredible views for cheap, hard to build, eclectic mix",
+        "tag": "View / Difficult Build"
+    },
+    {
+        "zipCode": "91977",
+        "region": "East - Spring Valley",
+        "neighborhood": "La Presa",
+        "description": "Dense residential, southern edge near 125, affordable starter homes",
+        "tag": "Entry Level"
+    },
+    {
+        "zipCode": "91978",
+        "region": "East - Rancho San Diego",
+        "neighborhood": "Rancho San Diego",
+        "description": "Golf courses, Cuyamaca College, suburbia with heat, condo affordability",
+        "tag": "Suburban / Condo"
+    },
+    {
+        "zipCode": "92003",
+        "region": "North - Rural",
+        "neighborhood": "Bonsall",
+        "description": "Rolling hills, thoroughbred farms, rural luxury, San Luis Rey river valley",
+        "tag": "Equestrian / Estate"
+    },
+    {
+        "zipCode": "92004",
+        "region": "East - Desert",
+        "neighborhood": "Borrego Springs",
+        "description": "Dark sky community, golf resorts, retirement slowing down, art installations",
+        "tag": "Retirement / Vacation"
+    },
+    {
+        "zipCode": "92007",
+        "region": "Coastal - Encinitas",
+        "neighborhood": "Cardiff-by-the-Sea",
+        "description": "Composer District, walking distance to Seaside Market, surfing culture, ultra-premium",
+        "tag": "Trophy / Lifestyle"
+    },
+    {
+        "zipCode": "92007",
+        "region": "Coastal - Encinitas",
+        "neighborhood": "Walking District",
+        "description": "Tight grid, ocean views, duplexes, high demand for rentals",
+        "tag": "STR / Density"
+    },
+    {
+        "zipCode": "92008",
+        "region": "Coastal - Carlsbad",
+        "neighborhood": "Carlsbad Village",
+        "description": "The downtown, hotels, tourists, walkable to train, condo boom",
+        "tag": "Tourism / Urban"
+    },
+    {
+        "zipCode": "92008",
+        "region": "Coastal - Carlsbad",
+        "neighborhood": "Olde Carlsbad",
+        "description": "Mid-century ranchers, large lots, lagoon views, no HOA, character",
+        "tag": "Character / Remodel"
+    },
+    {
+        "zipCode": "92009",
+        "region": "Coastal - Carlsbad",
+        "neighborhood": "La Costa",
+        "description": "Resort living, Omni hotel, golf course condos, valley heat but prestige",
+        "tag": "Golf / Resort"
+    },
+    {
+        "zipCode": "92009",
+        "region": "Coastal - Carlsbad",
+        "neighborhood": "Rancho Carrillo",
+        "description": "Master-planned, historicLeo Carrillo ranch, trails, family density",
+        "tag": "Family / HOA"
+    },
+    {
+        "zipCode": "92010",
+        "region": "Coastal - Carlsbad",
+        "neighborhood": "Calavera Hills",
+        "description": "Nature preserve adjacent, newer homes, slightly more affordable for Carlsbad",
+        "tag": "Nature / Family"
+    },
+    {
+        "zipCode": "92011",
+        "region": "Coastal - Carlsbad",
+        "neighborhood": "Aviara",
+        "description": "Four Seasons resort, manicured perfection, gated communities, high-end golf",
+        "tag": "Luxury / Resort"
+    },
+    {
+        "zipCode": "92014",
+        "region": "Coastal - Del Mar",
+        "neighborhood": "Del Mar Heights",
+        "description": "West of I-5, ocean view ridges, torn down for modern mansions",
+        "tag": "Redevelopment / View"
+    },
+    {
+        "zipCode": "92014",
+        "region": "Coastal - Del Mar",
+        "neighborhood": "Del Mar Village",
+        "description": "The track, the plaza, old money, steep hills to the sand, prestigious",
+        "tag": "Ultra Luxury"
+    },
+    {
+        "zipCode": "92019",
+        "region": "East - El Cajon",
+        "neighborhood": "Granite Hills",
+        "description": "Estate lots, rural feel, custom homes, rock formations, pool weather",
+        "tag": "Estate / Custom"
+    },
+    {
+        "zipCode": "92019",
+        "region": "East - El Cajon",
+        "neighborhood": "Rancho San Diego (North)",
+        "description": "Spillover from 91978, condo complexes, shopping centers",
+        "tag": "Entry Level"
+    },
+    {
+        "zipCode": "92020",
+        "region": "East - El Cajon",
+        "neighborhood": "El Cajon Valley",
+        "description": "Flat, hot, apartment density, refugee resettlement hub, affordable rentals",
+        "tag": "Cash Flow / Density"
+    },
+    {
+        "zipCode": "92021",
+        "region": "East - El Cajon",
+        "neighborhood": "Blossom Valley",
+        "description": "Technically El Cajon address but feels like Alpine, estate lots, views",
+        "tag": "Estate / Rural"
+    },
+    {
+        "zipCode": "92021",
+        "region": "East - El Cajon",
+        "neighborhood": "Lakeside Border",
+        "description": "Transition to rural, larger lots, industrial pockets",
+        "tag": "Workforce / Industrial"
+    },
+    {
+        "zipCode": "92024",
+        "region": "Coastal - Encinitas",
+        "neighborhood": "Leucadia",
+        "description": "Funky surf vibes, tree-lined 101, keep it weird, eucalyptus canopy",
+        "tag": "Lifestyle / Eclectic"
+    },
+    {
+        "zipCode": "92024",
+        "region": "Coastal - Encinitas",
+        "neighborhood": "New Encinitas",
+        "description": "El Camino Real corridor, suburban tracts, shopping centers, practical",
+        "tag": "Suburban / Family"
+    },
+    {
+        "zipCode": "92024",
+        "region": "Coastal - Encinitas",
+        "neighborhood": "Olivenhain",
+        "description": "Dark skies, horse trails, 2-acre minimums, country living near the beach",
+        "tag": "Equestrian / Luxury"
+    },
+    {
+        "zipCode": "92025",
+        "region": "North - Inland",
+        "neighborhood": "Kit Carson",
+        "description": "Park adjacent, mall proximity, older suburban tracts",
+        "tag": "Convenience / Family"
+    },
+    {
+        "zipCode": "92025",
+        "region": "North - Inland",
+        "neighborhood": "San Pasqual Valley",
+        "description": "Agricultural preserve, Safari Park neighbors, citrus groves, rural",
+        "tag": "Agri / Estate"
+    },
+    {
+        "zipCode": "92026",
+        "region": "North - Inland",
+        "neighborhood": "Daley Ranch",
+        "description": "Rural northern edge, hiking access, larger parcels",
+        "tag": "Nature / Rural"
+    },
+    {
+        "zipCode": "92026",
+        "region": "North - Inland",
+        "neighborhood": "Hidden Meadows",
+        "description": "Hilltop community north of Escondido, golf course, boulder views, distinct",
+        "tag": "Golf / View"
+    },
+    {
+        "zipCode": "92027",
+        "region": "North - Inland",
+        "neighborhood": "Hidden Trails",
+        "description": "Eastern edge of Escondido, newer builds, hot summers, family value",
+        "tag": "Value / New Build"
+    },
+    {
+        "zipCode": "92028",
+        "region": "North - Rural",
+        "neighborhood": "Fallbrook",
+        "description": "Avocado capital, fiercely independent, micro-climates, rolling hills",
+        "tag": "Agri / Lifestyle"
+    },
+    {
+        "zipCode": "92029",
+        "region": "North - Inland",
+        "neighborhood": "Elfin Forest",
+        "description": "Spooky legends, creek crossing, ultra-private estates, distinct environment",
+        "tag": "Niche / Luxury"
+    },
+    {
+        "zipCode": "92029",
+        "region": "North - Inland",
+        "neighborhood": "Harmony Grove",
+        "description": "Newer development blending with rural history, village feel",
+        "tag": "Master Plan / Rural"
+    },
+    {
+        "zipCode": "92036",
+        "region": "East - Mountain",
+        "neighborhood": "Julian",
+        "description": "Apple pie tourism, gold rush history, snow days, distinct mountain culture",
+        "tag": "Tourism / Historic"
+    },
+    {
+        "zipCode": "92037",
+        "region": "Coastal - La Jolla",
+        "neighborhood": "Bird Rock",
+        "description": "Roundabouts, boutiques, family-centric but hip, surfer moms",
+        "tag": "Boutique / Family"
+    },
+    {
+        "zipCode": "92037",
+        "region": "Coastal - La Jolla",
+        "neighborhood": "La Jolla Shores",
+        "description": "Flat walkable beach access, Gold Coast estates, separate vibe from the Village",
+        "tag": "Beachfront / Elite"
+    },
+    {
+        "zipCode": "92037",
+        "region": "Coastal - La Jolla",
+        "neighborhood": "Muirlands",
+        "description": "Massive hillside lots, no sidewalks, pure estate living, old money privacy",
+        "tag": "Estate / Privacy"
+    },
+    {
+        "zipCode": "92037",
+        "region": "Coastal - La Jolla",
+        "neighborhood": "The Village",
+        "description": "The postcard image, Prospect Street dining, tourists, cove smells, and ultra-high-end condos",
+        "tag": "Trophy / Tourism"
+    },
+    {
+        "zipCode": "92037",
+        "region": "Coastal - La Jolla",
+        "neighborhood": "Windansea",
+        "description": "Surfer heritage, Beach Barber Tract, dense, expensive cottages, highly coveted",
+        "tag": "Surfer / Historic"
+    },
+    {
+        "zipCode": "92040",
+        "region": "East - Lakeside",
+        "neighborhood": "Eucalyptus Hills",
+        "description": "Winding roads, estate lots on septic, rural privacy, views",
+        "tag": "Estate / Rural"
+    },
+    {
+        "zipCode": "92040",
+        "region": "East - Lakeside",
+        "neighborhood": "Lakeside Proper",
+        "description": "Rodeo grounds, trucking/industrial roots, affordable single family",
+        "tag": "Industrial / Rodeo"
+    },
+    {
+        "zipCode": "92054",
+        "region": "Coastal - Oceanside",
+        "neighborhood": "Fire Mountain",
+        "description": "Hilltop custom homes, ocean views, large lots, no sidewalks, eclectic",
+        "tag": "View / Character"
+    },
+    {
+        "zipCode": "92054",
+        "region": "Coastal - Oceanside",
+        "neighborhood": "South O",
+        "description": "The hipster pocket, walkable to coffee/bars, flip renovation central, highly coveted",
+        "tag": "Gentrification / Hip"
+    },
+    {
+        "zipCode": "92056",
+        "region": "Coastal - Oceanside",
+        "neighborhood": "Rancho Del Oro",
+        "description": "The suburban heart of O-side, 80s/90s tracts, manicured, family stable",
+        "tag": "Stable / Family"
+    },
+    {
+        "zipCode": "92057",
+        "region": "Coastal - Oceanside",
+        "neighborhood": "San Luis Rey",
+        "description": "Near the Mission, valley floor, affordable manufacturing housing and starter homes",
+        "tag": "Affordable / Entry"
+    },
+    {
+        "zipCode": "92058",
+        "region": "Coastal - Oceanside",
+        "neighborhood": "Camp Pendleton Edge",
+        "description": "Back gate traffic, military rentals, practical housing",
+        "tag": "Military / Rental"
+    },
+    {
+        "zipCode": "92059",
+        "region": "North - Rural",
+        "neighborhood": "Pala",
+        "description": "Casino influence, tribal lands, remote valleys, avocado groves",
+        "tag": "Rural / Casino"
+    },
+    {
+        "zipCode": "92060",
+        "region": "North - Mountain",
+        "neighborhood": "Palomar Mountain",
+        "description": "Observatory, deep forest, winding access, motorcycle destination",
+        "tag": "Cabin / Forest"
+    },
+    {
+        "zipCode": "92061",
+        "region": "North - Rural",
+        "neighborhood": "Pauma Valley",
+        "description": "Casino resorts, citrus belts, private country clubs (Pauma Valley CC)",
+        "tag": "Golf / Agri"
+    },
+    {
+        "zipCode": "92064",
+        "region": "North - Inland",
+        "neighborhood": "Poway (North)",
+        "description": "The Heritage, multi-million dollar estates, Maderas Golf, new money",
+        "tag": "Ultra Luxury"
+    },
+    {
+        "zipCode": "92064",
+        "region": "North - Inland",
+        "neighborhood": "Poway (South)",
+        "description": "Older horse properties, 'City in the Country' slogan, top tier schools",
+        "tag": "School District / Rural"
+    },
+    {
+        "zipCode": "92065",
+        "region": "East - Rural",
+        "neighborhood": "Ramona Main",
+        "description": "Main street western vibe, affordable country living, commuter traffic",
+        "tag": "Affordable / Rural"
+    },
+    {
+        "zipCode": "92065",
+        "region": "East - Rural",
+        "neighborhood": "San Diego Country Estates",
+        "description": "HOA dominant, golf course, equestrian center, isolated but amenitized",
+        "tag": "HOA / Lifestyle"
+    },
+    {
+        "zipCode": "92066",
+        "region": "East - Rural",
+        "neighborhood": "Ranchita",
+        "description": "The gateway to the desert, high elevation, very sparse",
+        "tag": "Remote / Land"
+    },
+    {
+        "zipCode": "92067",
+        "region": "North - Luxury",
+        "neighborhood": "Fairbanks Ranch",
+        "description": "Gated, security patrolled, lakes, tennis courts, 80s/90s opulence",
+        "tag": "Gated / Estate"
+    },
+    {
+        "zipCode": "92067",
+        "region": "North - Luxury",
+        "neighborhood": "The Covenant",
+        "description": "Historic Rancho Santa Fe, strict art jury, prestigious, old money center",
+        "tag": "Historic / Elite"
+    },
+    {
+        "zipCode": "92069",
+        "region": "North - Inland",
+        "neighborhood": "Lake San Marcos",
+        "description": "Retirement roots turning young, golf cart lifestyle, dock access",
+        "tag": "Lifestyle / Lake"
+    },
+    {
+        "zipCode": "92069",
+        "region": "North - Inland",
+        "neighborhood": "San Marcos (South)",
+        "description": "CSUSM influence, discovery lake, family hiking, older suburbs",
+        "tag": "University / Family"
+    },
+    {
+        "zipCode": "92071",
+        "region": "East - Santee",
+        "neighborhood": "Fanita Ranch",
+        "description": "Future development site (controversial), open space edges",
+        "tag": "Future Speculation"
+    },
+    {
+        "zipCode": "92071",
+        "region": "East - Santee",
+        "neighborhood": "Santee Lakes",
+        "description": "Recreation focus, suburban tracts, hot summers, affordable family buying",
+        "tag": "Recreation / Family"
+    },
+    {
+        "zipCode": "92075",
+        "region": "Coastal - Solana Beach",
+        "neighborhood": "Cedros Design District",
+        "description": "Designers, music venue (Belly Up), train station, walkable luxury",
+        "tag": "Culture / Retail"
+    },
+    {
+        "zipCode": "92075",
+        "region": "Coastal - Solana Beach",
+        "neighborhood": "Solana Circle",
+        "description": "Condos near the track, older stock, heavy rental demand",
+        "tag": "Rental / Track"
+    },
+    {
+        "zipCode": "92081",
+        "region": "North - Vista",
+        "neighborhood": "Shadowridge",
+        "description": "Golf course community, condo heavy, winding loops, practical",
+        "tag": "Golf / Condo"
+    },
+    {
+        "zipCode": "92082",
+        "region": "North - Rural",
+        "neighborhood": "Valley Center",
+        "description": "Casino traffic, transitioning from ag to estates, large lots, gentrifying",
+        "tag": "Transitional / Land"
+    },
+    {
+        "zipCode": "92083",
+        "region": "North - Vista",
+        "neighborhood": "Vista Village",
+        "description": "Revitalized downtown, breweries, court complex, high density apartments",
+        "tag": "Urban / Density"
+    },
+    {
+        "zipCode": "92084",
+        "region": "North - Vista",
+        "neighborhood": "The War Zone (Historic)",
+        "description": "Old name, now gentrifying hills, large lots, ocean peeks, undervalued",
+        "tag": "Value Add / View"
+    },
+    {
+        "zipCode": "92086",
+        "region": "East - Backcountry",
+        "neighborhood": "Warner Springs",
+        "description": "Glider port, hot springs, vast ranch lands, PCT hikers",
+        "tag": "Recreation / Ranch"
+    },
+    {
+        "zipCode": "92091",
+        "region": "North - Luxury",
+        "neighborhood": "Morgan Run",
+        "description": "Golf resort living, smaller lots than The Covenant, gated attached housing options",
+        "tag": "Golf / Second Home"
+    },
+    {
+        "zipCode": "92101",
+        "region": "Central - Downtown",
+        "neighborhood": "Civic/Core",
+        "description": "Government buildings, courthouse, Central Library gem, unhoused population concentrated",
+        "tag": "Civic / Institutional"
+    },
+    {
+        "zipCode": "92101",
+        "region": "Central - Downtown",
+        "neighborhood": "Columbia District",
+        "description": "Waterfront high-rises, convention center, corporate housing, views over soul",
+        "tag": "Luxury / Corporate"
+    },
+    {
+        "zipCode": "92101",
+        "region": "Central - Downtown",
+        "neighborhood": "Core District",
+        "description": "Office buildings, Horton Plaza ghost, transit hub, daytime only",
+        "tag": "Commercial / Redevelopment"
+    },
+    {
+        "zipCode": "92101",
+        "region": "Central - Downtown",
+        "neighborhood": "Cortez Hill",
+        "description": "Oldest downtown residential, El Cortez landmark, quieter urban, some rent control",
+        "tag": "Stable / Residential"
+    },
+    {
+        "zipCode": "92101",
+        "region": "Central - Downtown",
+        "neighborhood": "East Village",
+        "description": "Petco Park anchor, newest development, tech office spillover, homeless services tension",
+        "tag": "Growth / Transitional"
+    },
+    {
+        "zipCode": "92101",
+        "region": "Central - Downtown",
+        "neighborhood": "Gaslamp Quarter",
+        "description": "Tourist nightlife, restaurants, Padres game days, loft living over bars",
+        "tag": "Short-Term Rental / Commercial"
+    },
+    {
+        "zipCode": "92101",
+        "region": "Central - Downtown",
+        "neighborhood": "Little Italy",
+        "description": "Restaurant row, Italian roots fading to general foodie, high-rise boom, Piazza energy",
+        "tag": "Appreciation / Luxury"
+    },
+    {
+        "zipCode": "92101",
+        "region": "Central - Downtown",
+        "neighborhood": "Marina District",
+        "description": "Seaport Village adjacent, Marriott corridor, tourist-heavy, few actual residents",
+        "tag": "Second Home / Luxury"
+    },
+    {
+        "zipCode": "92102",
+        "region": "Central - Southeast",
+        "neighborhood": "Brooklyn Heights",
+        "description": "Transitional, between Golden Hill and everything else, affordable pockets",
+        "tag": "Value Add"
+    },
+    {
+        "zipCode": "92102",
+        "region": "Central - Southeast",
+        "neighborhood": "Golden Hill",
+        "description": "Victorian gems, gentrifying craftsmans, 25th Street vibe, Balboa Park adjacent",
+        "tag": "Gentrification / Historic"
+    },
+    {
+        "zipCode": "92102",
+        "region": "Central - Southeast",
+        "neighborhood": "Grant Hill",
+        "description": "Small pocket, transitioning, proximity to everything",
+        "tag": "View Potential"
+    },
+    {
+        "zipCode": "92102",
+        "region": "Central - Southeast",
+        "neighborhood": "Logan Heights",
+        "description": "Chicano Park murals, historic barrio, 5 freeway trauma, resilient culture",
+        "tag": "Cultural / Transitional"
+    },
+    {
+        "zipCode": "92102",
+        "region": "Central - Southeast",
+        "neighborhood": "Memorial",
+        "description": "Cemetery-adjacent quiet, small residential pocket",
+        "tag": "Niche"
+    },
+    {
+        "zipCode": "92102",
+        "region": "Central - Southeast",
+        "neighborhood": "Mountain View",
+        "description": "Historic Black neighborhood, freeway-scarred, community pride persists",
+        "tag": "Community / Long Hold"
+    },
+    {
+        "zipCode": "92102",
+        "region": "Central - Southeast",
+        "neighborhood": "Shelltown",
+        "description": "Gang history, tight-knit, generational families, undervalued",
+        "tag": "Deep Value"
+    },
+    {
+        "zipCode": "92102",
+        "region": "Central - Southeast",
+        "neighborhood": "South Park",
+        "description": "Fern Street boutiques, young families now, brunch economy, pride in neighborhood",
+        "tag": "Appreciation / Lifestyle"
+    },
+    {
+        "zipCode": "92102",
+        "region": "Central - Southeast",
+        "neighborhood": "Southcrest",
+        "description": "Working class, improving slowly, community gardens emerging",
+        "tag": "Up-and-Coming"
+    },
+    {
+        "zipCode": "92102",
+        "region": "Central - Southeast",
+        "neighborhood": "Stockton",
+        "description": "Working class, industrial edges, overlooked",
+        "tag": "Industrial / Workforce"
+    },
+    {
+        "zipCode": "92103",
+        "region": "Central - Metro",
+        "neighborhood": "Bankers Hill",
+        "description": "Historic mansions, Balboa Park western edge, medical professionals, old money meets new condos",
+        "tag": "Prestige / Medical"
+    },
+    {
+        "zipCode": "92103",
+        "region": "Central - Metro",
+        "neighborhood": "Hillcrest",
+        "description": "LGBTQ+ Main Street, rainbow crosswalks, walkable urban village, Trader Joe's madness",
+        "tag": "High Density / Walkable"
+    },
+    {
+        "zipCode": "92103",
+        "region": "Central - Metro",
+        "neighborhood": "Medical Complex Area",
+        "description": "Hospital workers, practical housing, parking nightmares",
+        "tag": "Rental Demand"
+    },
+    {
+        "zipCode": "92103",
+        "region": "Central - Metro",
+        "neighborhood": "Middletown",
+        "description": "Washington Street corridor, India Street bars, transitional between neighborhoods",
+        "tag": "Transit Corridor"
+    },
+    {
+        "zipCode": "92103",
+        "region": "Central - Metro",
+        "neighborhood": "Mission Hills",
+        "description": "Goldfish Point, historic homes, Fort Stockton views, Lewis Street boutiques, established wealth",
+        "tag": "Luxury / Historic"
+    },
+    {
+        "zipCode": "92103",
+        "region": "Central - Metro",
+        "neighborhood": "Park West",
+        "description": "Condo canyon, freeway adjacent, affordable entry to the zip",
+        "tag": "Entry Level Metro"
+    },
+    {
+        "zipCode": "92103",
+        "region": "Central - Metro",
+        "neighborhood": "University Heights (West)",
+        "description": "Spills into 92103, walkable to Hillcrest, bungalow charm",
+        "tag": "Lifestyle / Condo"
+    },
+    {
+        "zipCode": "92104",
+        "region": "Central - North Park",
+        "neighborhood": "Altadena",
+        "description": "Small pocket, residential streets, quiet family vibe",
+        "tag": "Residential / Quiet"
+    },
+    {
+        "zipCode": "92104",
+        "region": "Central - North Park",
+        "neighborhood": "Azalea Park",
+        "description": "Transitional pocket, between University Heights and City Heights energy",
+        "tag": "First Time Buyer"
+    },
+    {
+        "zipCode": "92104",
+        "region": "Central - North Park",
+        "neighborhood": "Burlingame",
+        "description": "Between North Park and City Heights, working class, overlooked upside",
+        "tag": "Historic Overlay / Value"
+    },
+    {
+        "zipCode": "92104",
+        "region": "Central - North Park",
+        "neighborhood": "Normal Heights (South)",
+        "description": "Adams Avenue spills down, bungalows, community feel",
+        "tag": "Starter Home / ADU"
+    },
+    {
+        "zipCode": "92104",
+        "region": "Central - North Park",
+        "neighborhood": "North Park Core",
+        "description": "30th Street is the spine, craft beer ground zero, Ray at Night arts, peak walkability",
+        "tag": "Lifestyle / Retail"
+    },
+    {
+        "zipCode": "92104",
+        "region": "Central - North Park",
+        "neighborhood": "North Park East",
+        "description": "More residential, family pockets emerging among rentals, Adams Ave spillover",
+        "tag": "Family / Rental Mix"
+    },
+    {
+        "zipCode": "92104",
+        "region": "Central - North Park",
+        "neighborhood": "North Park West",
+        "description": "Closer to Hillcrest energy, slightly older housing stock",
+        "tag": "Walkable / Historic"
+    },
+    {
+        "zipCode": "92104",
+        "region": "Central - North Park",
+        "neighborhood": "University Heights",
+        "description": "Trolley Barn Park, neighborhood identity distinct from NP, slightly more chill",
+        "tag": "Community / Stable"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Castle",
+        "description": "Small enclave, modest homes, tight streets",
+        "tag": "Workforce Housing"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Cherokee Point",
+        "description": "Residential pocket, improving, community investment",
+        "tag": "Revitalization"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Chollas Creek",
+        "description": "Named for the creek, apartments, transitional",
+        "tag": "Multifamily"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "City Heights Core",
+        "description": "Immigrant hub, 50+ languages spoken, IRC clients, El Cajon Blvd revival",
+        "tag": "High Density / Cash Flow"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Colina del Sol",
+        "description": "Name means hill of sun, residential, modest",
+        "tag": "Density Play"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Corridor",
+        "description": "El Cajon Blvd commercial strip, pho and tacos and everything",
+        "tag": "Commercial / Mixed Use"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Fairmount Park",
+        "description": "Near the park, residential streets, family homes",
+        "tag": "Affordable Family"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Fox Canyon",
+        "description": "Apartments, density, affordable",
+        "tag": "Rental Yield"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Hollywood Park",
+        "description": "Small residential pocket, working class roots",
+        "tag": "Starter Home"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Islenair",
+        "description": "Tiny enclave, residential",
+        "tag": "Niche"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Oak Park",
+        "description": "More established homes, older families, stability",
+        "tag": "Long Term Hold"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Ridgeview/Webster",
+        "description": "Eastern edge, transitional",
+        "tag": "Value Add"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Swan Canyon",
+        "description": "Named for canyon, residential streets",
+        "tag": "Canyon Lots"
+    },
+    {
+        "zipCode": "92105",
+        "region": "Central - City Heights",
+        "neighborhood": "Teralta East/West",
+        "description": "Divided pockets, apartments and small homes",
+        "tag": "High Density"
+    },
+    {
+        "zipCode": "92106",
+        "region": "Coastal - Point Loma",
+        "neighborhood": "Fleetridge",
+        "description": "Mid-century estate lots, oversized parcels, quiet wealth, no sidewalks, expansive skyline views",
+        "tag": "Estate / View"
+    },
+    {
+        "zipCode": "92106",
+        "region": "Coastal - Point Loma",
+        "neighborhood": "La Playa",
+        "description": "Old money, private piers, bay-front mansions, distinct Portofino feel, heavily protected views",
+        "tag": "Ultra Luxury"
+    },
+    {
+        "zipCode": "92106",
+        "region": "Coastal - Point Loma",
+        "neighborhood": "Liberty Station",
+        "description": "The new town square, massive mixed-use success, high-end retail/dining, touristy but polished",
+        "tag": "Mixed-Use / Premium"
+    },
+    {
+        "zipCode": "92106",
+        "region": "Coastal - Point Loma",
+        "neighborhood": "Loma Portal",
+        "description": "Point Loma Pause, flight path noise vs charm trade-off, historic streetlights, highly desirable family zone",
+        "tag": "Family / Character"
+    },
+    {
+        "zipCode": "92106",
+        "region": "Coastal - Point Loma",
+        "neighborhood": "Roseville (The Village)",
+        "description": "Tunaville history, hills rising from the bay, nautical vibe, dense mix of cottages and apartments",
+        "tag": "Historic / Marine"
+    },
+    {
+        "zipCode": "92106",
+        "region": "Coastal - Point Loma",
+        "neighborhood": "Wooded Area",
+        "description": "Eucalyptus canopy, tucked away, quiet and prestigious, feels distinct from the beach",
+        "tag": "Privacy / Luxury"
+    },
+    {
+        "zipCode": "92107",
+        "region": "Coastal - OB",
+        "neighborhood": "Ocean Beach Proper",
+        "description": "Keep OB Weird, last true unpolished beach town, Newport Ave grit, fiercely anti-corporate",
+        "tag": "Beach Rental / Lifestyle"
+    },
+    {
+        "zipCode": "92107",
+        "region": "Coastal - OB",
+        "neighborhood": "Point Loma Heights",
+        "description": "The transitional hill between OB and Point Loma, ocean breezes without the boardwalk noise, walkable-ish",
+        "tag": "Move-Up Buyer"
+    },
+    {
+        "zipCode": "92107",
+        "region": "Coastal - OB",
+        "neighborhood": "Sunset Cliffs",
+        "description": "The prestige pocket, erosion battles vs world-class views, tourist sunset crowds, high-dollar estates",
+        "tag": "Trophy Property"
+    },
+    {
+        "zipCode": "92108",
+        "region": "Central - Mission Valley",
+        "neighborhood": "Friars Road Corridor",
+        "description": "Car dealerships, big box retail, suburban form in urban location",
+        "tag": "Commercial"
+    },
+    {
+        "zipCode": "92108",
+        "region": "Central - Mission Valley",
+        "neighborhood": "Grantville (Portion)",
+        "description": "Eastern edge, auto dealers giving way to mixed-use, trolley accessible",
+        "tag": "Redevelopment"
+    },
+    {
+        "zipCode": "92108",
+        "region": "Central - Mission Valley",
+        "neighborhood": "Hotel Circle",
+        "description": "Exactly what it sounds like, conference travelers, freeway noise",
+        "tag": "Hospitality"
+    },
+    {
+        "zipCode": "92108",
+        "region": "Central - Mission Valley",
+        "neighborhood": "Mission Valley East",
+        "description": "Hazard Center, SDSU trolley, apartment density increasing",
+        "tag": "Transit Oriented"
+    },
+    {
+        "zipCode": "92108",
+        "region": "Central - Mission Valley",
+        "neighborhood": "Mission Valley West",
+        "description": "Fashion Valley Mall anchor, hotels, apartments over retail",
+        "tag": "Retail / High Density"
+    },
+    {
+        "zipCode": "92108",
+        "region": "Central - Mission Valley",
+        "neighborhood": "Riverwalk",
+        "description": "Golf course redevelopment coming, massive change ahead, 4000+ units planned",
+        "tag": "Future Development"
+    },
+    {
+        "zipCode": "92108",
+        "region": "Central - Mission Valley",
+        "neighborhood": "Stadium Site",
+        "description": "SDSU Mission Valley project, Snapdragon Stadium, river park emerging",
+        "tag": "University / Sports"
+    },
+    {
+        "zipCode": "92109",
+        "region": "Coastal - Beach",
+        "neighborhood": "Crown Point",
+        "description": "Bayside, quieter, arguably the most desirable pocket for locals, easier parking",
+        "tag": "Bayside / Premium"
+    },
+    {
+        "zipCode": "92109",
+        "region": "Coastal - Beach",
+        "neighborhood": "Mission Beach (North)",
+        "description": "Closer to the coaster, higher foot traffic, rollerblades and boardwalk life",
+        "tag": "High Traffic / STR"
+    },
+    {
+        "zipCode": "92109",
+        "region": "Coastal - Beach",
+        "neighborhood": "Mission Beach (South)",
+        "description": "The Jetty, volleyball courts, densely packed STRs, endless activity",
+        "tag": "Vacation Rental"
+    },
+    {
+        "zipCode": "92109",
+        "region": "Coastal - Beach",
+        "neighborhood": "North PB",
+        "description": "The adult section, quiet streets, families, tourmaline surf culture, distinct from the party zone",
+        "tag": "Family Beach"
+    },
+    {
+        "zipCode": "92109",
+        "region": "Coastal - Beach",
+        "neighborhood": "The Village (PB Central)",
+        "description": "Garnet Avenue chaos, bars, post-college party rentals, high turnover",
+        "tag": "Student / STR"
+    },
+    {
+        "zipCode": "92110",
+        "region": "Central - Bay Park",
+        "neighborhood": "Bay Park",
+        "description": "Families and professional singles, mid-century gems, bay views from hills, underrated gem",
+        "tag": "View / Remodel"
+    },
+    {
+        "zipCode": "92110",
+        "region": "Central - Bay Park",
+        "neighborhood": "Linda Vista (South)",
+        "description": "Spills in from 92111, working class, diverse",
+        "tag": "Affordable Central"
+    },
+    {
+        "zipCode": "92110",
+        "region": "Central - Bay Park",
+        "neighborhood": "Morena",
+        "description": "Industrial converting to residential, breweries in warehouses, trolley coming through",
+        "tag": "Zoning Play"
+    },
+    {
+        "zipCode": "92110",
+        "region": "Central - Bay Park",
+        "neighborhood": "Sports Arena Area",
+        "description": "Redevelopment coming eventually, Midway District plans, currently sad retail",
+        "tag": "Future Speculation"
+    },
+    {
+        "zipCode": "92110",
+        "region": "Central - Bay Park",
+        "neighborhood": "West Mission Valley",
+        "description": "Costco/Lowes corridor, practical retail, apartment clusters",
+        "tag": "Convenience"
+    },
+    {
+        "zipCode": "92111",
+        "region": "Central - Mesa",
+        "neighborhood": "Kearny Mesa (West)",
+        "description": "Convoy Street is the draw, best Asian food in county, period",
+        "tag": "Culinary / Commercial"
+    },
+    {
+        "zipCode": "92111",
+        "region": "Central - Mesa",
+        "neighborhood": "Linda Vista",
+        "description": "USD on the hill, historic defense worker housing, diverse Asian community now",
+        "tag": "Student / Cultural"
+    },
+    {
+        "zipCode": "92111",
+        "region": "Central - Mesa",
+        "neighborhood": "Mesa College Area",
+        "description": "Community college anchor, student housing, practical neighborhood",
+        "tag": "Student Rental"
+    },
+    {
+        "zipCode": "92113",
+        "region": "Central - Barrio",
+        "neighborhood": "Barrio Logan",
+        "description": "The cultural heart, Chicano Park anchor, heavy industrial zoning clashes with art galleries",
+        "tag": "Arts / Industrial"
+    },
+    {
+        "zipCode": "92113",
+        "region": "Central - Barrio",
+        "neighborhood": "Memorial",
+        "description": "Very small, cemetery dominant, flat lots, transitional investment zone",
+        "tag": "Transitional"
+    },
+    {
+        "zipCode": "92114",
+        "region": "Southeast",
+        "neighborhood": "Emerald Hills",
+        "description": "The hidden jewel, massive lots, custom homes, Black Beverly Hills legacy, incredible views",
+        "tag": "Undervalued View"
+    },
+    {
+        "zipCode": "92114",
+        "region": "Southeast",
+        "neighborhood": "Encanto",
+        "description": "Rural pockets in the city, canyon terrain, hilly, horse property potential",
+        "tag": "Large Lot / Rural"
+    },
+    {
+        "zipCode": "92114",
+        "region": "Southeast",
+        "neighborhood": "Lincoln Park",
+        "description": "Deep community roots, active revitalization, focus of city investment dollars",
+        "tag": "Revitalization"
+    },
+    {
+        "zipCode": "92114",
+        "region": "Southeast",
+        "neighborhood": "Valencia Park",
+        "description": "Residential quiet, well-maintained pockets, close to trolley lines",
+        "tag": "Transit / Affordable"
+    },
+    {
+        "zipCode": "92115",
+        "region": "Central - College",
+        "neighborhood": "College Area",
+        "description": "SDSU surrounds, rental dominated, game day chaos, student life",
+        "tag": "Student Housing"
+    },
+    {
+        "zipCode": "92115",
+        "region": "Central - College",
+        "neighborhood": "El Cerrito",
+        "description": "Working class, small homes, overlooked",
+        "tag": "Entry Level"
+    },
+    {
+        "zipCode": "92115",
+        "region": "Central - College",
+        "neighborhood": "Rolando",
+        "description": "Distinct from campus, more families, mid-century homes, neighborhood identity",
+        "tag": "Family Starter"
+    },
+    {
+        "zipCode": "92115",
+        "region": "Central - College",
+        "neighborhood": "Talmadge (East)",
+        "description": "Some overflow from 92116",
+        "tag": "Spillover"
+    },
+    {
+        "zipCode": "92116",
+        "region": "Central - Kensington",
+        "neighborhood": "Kensington",
+        "description": "English village feel, Kensington sign landmark, movie theater historic, tight community",
+        "tag": "Premium / Historic"
+    },
+    {
+        "zipCode": "92116",
+        "region": "Central - Kensington",
+        "neighborhood": "Normal Heights",
+        "description": "Adams Avenue is the soul, Antique Row, neighborhood bars, bungalow heaven",
+        "tag": "Walkable / Character"
+    },
+    {
+        "zipCode": "92116",
+        "region": "Central - Kensington",
+        "neighborhood": "Talmadge",
+        "description": "Named for silent film stars, mid-century modest, canyon edges, distinct pride",
+        "tag": "Community / Pride"
+    },
+    {
+        "zipCode": "92117",
+        "region": "Central - Clairemont",
+        "neighborhood": "Bay Ho",
+        "description": "Canyon views, slightly more affordable entry, Costco proximity is the anchor",
+        "tag": "Value / View"
+    },
+    {
+        "zipCode": "92117",
+        "region": "Central - Clairemont",
+        "neighborhood": "Clairemont Mesa",
+        "description": "The Fast Times suburb, massive inventory, 1950s tract homes, ADU paradise",
+        "tag": "ADU Play"
+    },
+    {
+        "zipCode": "92117",
+        "region": "Central - Clairemont",
+        "neighborhood": "Mount Streets",
+        "description": "High ground, best ocean breezes in the zip, quiet residential loops",
+        "tag": "Premium Clairemont"
+    },
+    {
+        "zipCode": "92117",
+        "region": "Central - Clairemont",
+        "neighborhood": "North Clairemont",
+        "description": "The affordable edge, canyon rim lots command premiums, traditionally working class",
+        "tag": "First Time Buyer"
+    },
+    {
+        "zipCode": "92118",
+        "region": "Coastal - Coronado",
+        "neighborhood": "The Cays",
+        "description": "Bayfront living, private boat slips, gated, distinct from the village vibe",
+        "tag": "Boating / Gated"
+    },
+    {
+        "zipCode": "92118",
+        "region": "Coastal - Coronado",
+        "neighborhood": "The Village",
+        "description": "Mayberry on the beach, officers, tourists, flat walkable grid, Hotel Del",
+        "tag": "Trophy / Historic"
+    },
+    {
+        "zipCode": "92119",
+        "region": "East - San Carlos",
+        "neighborhood": "Lake Murray",
+        "description": "Life revolves around the lake, active lifestyle, mid-century ranch homes",
+        "tag": "Lifestyle / Active"
+    },
+    {
+        "zipCode": "92119",
+        "region": "East - San Carlos",
+        "neighborhood": "San Carlos",
+        "description": "The other Del Cerro, Cowles Mountain base, highly stable family suburb",
+        "tag": "Stable Family"
+    },
+    {
+        "zipCode": "92120",
+        "region": "East - Allied Gardens",
+        "neighborhood": "Allied Gardens",
+        "description": "Post-war suburban, veterans built it, community center active, family stability",
+        "tag": "Starter Family"
+    },
+    {
+        "zipCode": "92120",
+        "region": "East - Allied Gardens",
+        "neighborhood": "Del Cerro",
+        "description": "Cowles Mountain access, hikers everywhere, slightly higher-end than Allied Gardens",
+        "tag": "Move-Up Family"
+    },
+    {
+        "zipCode": "92121",
+        "region": "North - Sorrento",
+        "neighborhood": "Lopez Ridge",
+        "description": "The residential slice, hiking trail access, quiet evenings after work traffic dies",
+        "tag": "Quiet / Nature"
+    },
+    {
+        "zipCode": "92121",
+        "region": "North - Sorrento",
+        "neighborhood": "Sorrento Valley",
+        "description": "Mostly commercial/bio-tech industrial, but pockets of condos/townhomes exist",
+        "tag": "Tech Hub"
+    },
+    {
+        "zipCode": "92122",
+        "region": "North - UTC",
+        "neighborhood": "Renaissance / La Jolla Colony",
+        "description": "Condo-heavy, master-planned look, manicured, young professionals and downsizing boomers",
+        "tag": "Turnkey / Condo"
+    },
+    {
+        "zipCode": "92122",
+        "region": "North - UTC",
+        "neighborhood": "UTC Commercial Core",
+        "description": "High-rise living, Westfield Mall anchor, student density (UCSD), transit-oriented",
+        "tag": "Urban / Retail"
+    },
+    {
+        "zipCode": "92122",
+        "region": "North - UTC",
+        "neighborhood": "University City (South)",
+        "description": "Golden Triangle single-family homes, canyon rims, professor housing, incredibly stable",
+        "tag": "Stable / Academic"
+    },
+    {
+        "zipCode": "92123",
+        "region": "Central - Serra Mesa",
+        "neighborhood": "Kearny Mesa (East)",
+        "description": "Business parks, aerospace legacy, Convoy food scene spills over",
+        "tag": "Business / Industrial"
+    },
+    {
+        "zipCode": "92123",
+        "region": "Central - Serra Mesa",
+        "neighborhood": "Murphy Canyon",
+        "description": "Apartment complexes, stadium adjacent, cookie-cutter but functional",
+        "tag": "High Density Rental"
+    },
+    {
+        "zipCode": "92123",
+        "region": "Central - Serra Mesa",
+        "neighborhood": "Serra Mesa",
+        "description": "Family suburban, military families historically, Rady Childrens Hospital anchor",
+        "tag": "Medical / Military"
+    },
+    {
+        "zipCode": "92124",
+        "region": "Central - Tierrasanta",
+        "neighborhood": "Mission Trails Edge",
+        "description": "Defines eastern boundary, hiking destination, wildlife corridor",
+        "tag": "Nature / Active"
+    },
+    {
+        "zipCode": "92124",
+        "region": "Central - Tierrasanta",
+        "neighborhood": "Tierrasanta",
+        "description": "Land of the Saints, master-planned 1970s, isolated intentionally, military families",
+        "tag": "Secluded / Family"
+    },
+    {
+        "zipCode": "92126",
+        "region": "North - Mira Mesa",
+        "neighborhood": "Canyon Country",
+        "description": "Rim lots overlooking Los Pe\u00c3\u00b1asquitos, higher values, quiet cul-de-sacs",
+        "tag": "Premium Tract"
+    },
+    {
+        "zipCode": "92126",
+        "region": "North - Mira Mesa",
+        "neighborhood": "Mira Mesa West",
+        "description": "Smaller lots, starter homes, walkable to schools, the classic 70s tract feel",
+        "tag": "Starter / Bio-Tech"
+    },
+    {
+        "zipCode": "92126",
+        "region": "North - Mira Mesa",
+        "neighborhood": "Sorrento Mesa Edge",
+        "description": "Tech worker rentals, higher density, newer builds near the job centers",
+        "tag": "Rental Demand"
+    },
+    {
+        "zipCode": "92127",
+        "region": "North - Inland",
+        "neighborhood": "4S Ranch",
+        "description": "Technically county but feels like city, walkable town center, family utopia, Mello-Roos",
+        "tag": "Family / Master Plan"
+    },
+    {
+        "zipCode": "92127",
+        "region": "North - Inland",
+        "neighborhood": "Del Sur",
+        "description": "Newer than 4S, eco-friendly branding, tight community events, top schools",
+        "tag": "Lifestyle / Schools"
+    },
+    {
+        "zipCode": "92127",
+        "region": "North - Inland",
+        "neighborhood": "Santaluz",
+        "description": "Golf club, circular planned community, Tuscan vibes, immense prestige",
+        "tag": "Luxury / Golf"
+    },
+    {
+        "zipCode": "92128",
+        "region": "North - I-15",
+        "neighborhood": "Bernardo Heights",
+        "description": "Golf course living, older demographic, master-planned stability",
+        "tag": "Retirement / Golf"
+    },
+    {
+        "zipCode": "92128",
+        "region": "North - I-15",
+        "neighborhood": "High Country West",
+        "description": "Entry-level detached homes for the area, tight lots, great schools",
+        "tag": "School District"
+    },
+    {
+        "zipCode": "92129",
+        "region": "North - I-15",
+        "neighborhood": "Black Mountain Ranch",
+        "description": "High-end custom estates, gated, exclusive",
+        "tag": "Luxury Estate"
+    },
+    {
+        "zipCode": "92129",
+        "region": "North - I-15",
+        "neighborhood": "Park Village",
+        "description": "The bottom of the hill, highly coveted for the elementary school, family dense",
+        "tag": "Top Schools"
+    },
+    {
+        "zipCode": "92129",
+        "region": "North - I-15",
+        "neighborhood": "Pe\u00c3\u00b1asquitos Bluffs",
+        "description": "Older stock, larger lots, no HOA, potential for value-add renovation",
+        "tag": "Value Add / Reno"
+    },
+    {
+        "zipCode": "92130",
+        "region": "North - Carmel Valley",
+        "neighborhood": "Carmel Valley Central",
+        "description": "The original grid, walk to schools, family central, Soccer Mom capital",
+        "tag": "Top Schools / Family"
+    },
+    {
+        "zipCode": "92130",
+        "region": "North - Carmel Valley",
+        "neighborhood": "Del Mar Mesa",
+        "description": "Semi-rural estates, horse property, custom builds, the hidden wealthy zone",
+        "tag": "Equestrian / Estate"
+    },
+    {
+        "zipCode": "92130",
+        "region": "North - Carmel Valley",
+        "neighborhood": "Pacific Highlands Ranch",
+        "description": "The newest luxury expansion, massive homes, curated retail village, new money",
+        "tag": "New Build / Luxury"
+    },
+    {
+        "zipCode": "92131",
+        "region": "North - Scripps Ranch",
+        "neighborhood": "Old Scripps",
+        "description": "Eucalyptus forests, no streetlights (dark sky policy), custom 70s/80s homes, rustic feel",
+        "tag": "Character / Wooded"
+    },
+    {
+        "zipCode": "92131",
+        "region": "North - Scripps Ranch",
+        "neighborhood": "Scripps Ranch Villages",
+        "description": "Newer, manicured, HOA driven, Stonebridge estates, suburban perfection",
+        "tag": "HOA / Manicured"
+    },
+    {
+        "zipCode": "92139",
+        "region": "South Bay",
+        "neighborhood": "Bay Terraces",
+        "description": "Master-planned feel from the 70s/80s, terraced distinct levels, views for days",
+        "tag": "View / Entry"
+    },
+    {
+        "zipCode": "92139",
+        "region": "South Bay",
+        "neighborhood": "Paradise Hills",
+        "description": "Rolling topography, highest affordability in the metro, tight-knit multigenerational families",
+        "tag": "Affordability"
+    },
+    {
+        "zipCode": "92154",
+        "region": "South Bay",
+        "neighborhood": "Ocean View Hills",
+        "description": "The Carmel Valley of the South, newer big box homes, master-planned",
+        "tag": "Value / New"
+    },
+    {
+        "zipCode": "92154",
+        "region": "South Bay",
+        "neighborhood": "Otay Mesa West",
+        "description": "Older stock, flat lots, high investor activity, ADU potential is massive",
+        "tag": "Investor / ADU"
+    },
+    {
+        "zipCode": "92173",
+        "region": "South Bay",
+        "neighborhood": "Border Village",
+        "description": "Dense, commercial overlap, heavy foot traffic, duplex/triplex density",
+        "tag": "Cash Flow / Zone"
+    },
+    {
+        "zipCode": "92173",
+        "region": "South Bay",
+        "neighborhood": "San Ysidro West",
+        "description": "Residential pockets, outlet mall adjacent, hilltop views of Tijuana in parts",
+        "tag": "Affordable / Border"
+    }
+]

@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Line } from 'recharts';
-import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown, Shield, X } from 'lucide-react';
+import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown, Shield, X, Sparkles } from 'lucide-react';
+import neighborhoodDescriptions from './data/neighborhood_descriptions.json';
 import { regions } from './sdarData';
 
 // Map Yelp neighborhoods to SDAR zip codes
@@ -102,7 +103,7 @@ export default function NeighborhoodEvolution() {
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedArea, setSelectedArea] = useState('all');
     const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
-    const [activeView, setActiveView] = useState('overview');
+    const [activeView, setActiveView] = useState('details');
     const [sortBy, setSortBy] = useState('name');
     const [propertyType, setPropertyType] = useState('detached');
 
@@ -345,7 +346,26 @@ export default function NeighborhoodEvolution() {
                             <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wide">Neighborhood</label>
                             <select
                                 value={selectedArea}
-                                onChange={(e) => { setSelectedArea(e.target.value); setSelectedNeighborhood(null); }}
+                                onChange={(e) => {
+                                    const val = e.target.value;
+                                    setSelectedArea(val);
+
+                                    if (val !== 'all') {
+                                        const area = availableAreas.find(a => a.id === val);
+                                        if (area && area.zips && area.zips.length > 0 && sdarData?.neighborhoods) {
+                                            const match = sdarData.neighborhoods.find(n => n.zip_code === area.zips[0]);
+                                            if (match) {
+                                                setSelectedNeighborhood(match);
+                                                setActiveView('details');
+                                            } else {
+                                                setSelectedNeighborhood(null);
+                                            }
+                                        }
+                                    } else {
+                                        setSelectedNeighborhood(null);
+                                        setActiveView('overview');
+                                    }
+                                }}
                                 disabled={availableAreas.length === 0}
                                 className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300 disabled:opacity-50"
                             >
@@ -531,6 +551,31 @@ export default function NeighborhoodEvolution() {
                             </div>
                         )}
 
+                        {/* Neighborhood Details Card */}
+                        {neighborhoodDescriptions.some(d => String(d.zipCode) === String(selectedNeighborhood.zip_code)) && (
+                            <div className="bg-gray-900/50 rounded-xl p-5 border border-gray-800 lg:col-span-2">
+                                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                                    <Sparkles className="w-5 h-5 text-purple-400" />
+                                    Neighborhood Snapshot
+                                </h3>
+                                <div className="bg-gray-800/50 rounded-lg p-4 space-y-4">
+                                    {neighborhoodDescriptions
+                                        .filter(d => String(d.zipCode) === String(selectedNeighborhood.zip_code))
+                                        .map((details, idx) => (
+                                            <div key={idx} className={`flex flex-col gap-2 ${idx > 0 ? 'pt-4 border-t border-gray-700/50' : ''}`}>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-sm font-medium text-purple-300 bg-purple-900/30 px-2 py-1 rounded">
+                                                        {details.region}
+                                                    </span>
+                                                    <span className="text-gray-400 text-sm">•</span>
+                                                    <span className="text-white font-medium">{details.neighborhood}</span>
+                                                </div>
+                                                <p className="text-gray-300 italic">"{details.description}"</p>
+                                            </div>
+                                        ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 )}
 
