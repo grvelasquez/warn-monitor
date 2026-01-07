@@ -337,7 +337,7 @@ export default function SupplyDashboard() {
         { id: 'summary', label: 'Summary', icon: BarChart3 },
         { id: 'pending', label: 'Pending', icon: TrendingUp },
         { id: 'closed', label: 'Closed', icon: Home },
-        { id: 'median', label: 'Price', icon: DollarSign },
+        { id: 'median', label: 'Square Footage', icon: DollarSign },
         { id: 'pctlist', label: 'List %', icon: BarChart3 },
         { id: 'dom', label: 'DOM', icon: Clock },
         { id: 'inventory', label: 'Inventory', icon: Package },
