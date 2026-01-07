@@ -350,7 +350,7 @@ export default function ADUDashboard() {
                             <ResultCard
                                 title="Total Project Cost"
                                 value={formatCurrency(calculations.totalProjectCost)}
-                                subtitle={`${formatNumber(calculations.effectiveSize)} sq ft`}
+                                subtitle={numberOfUnits > 1 ? `${numberOfUnits} units × ${formatNumber(calculations.effectiveSize)} sq ft` : `${formatNumber(calculations.effectiveSize)} sq ft`}
                                 icon={DollarSign}
                                 color="blue"
                             />
