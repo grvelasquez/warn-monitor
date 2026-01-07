@@ -1,6 +1,21 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Vote, TrendingUp, TrendingDown, Users, ChevronDown } from 'lucide-react';
+import { Vote, TrendingUp, TrendingDown, Users, ChevronDown, MapPin } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { regions } from './sdarData';
+
+// Helper to get neighborhood name for a zip code
+const getNeighborhoodName = (zipCode) => {
+    for (const region of Object.values(regions)) {
+        if (region.areas) {
+            for (const area of region.areas) {
+                if (area.zips && area.zips.includes(zipCode)) {
+                    return area.name;
+                }
+            }
+        }
+    }
+    return null;
+};
 
 // Colors for political parties
 const COLORS = {
@@ -494,19 +509,36 @@ export default function VotingDashboard() {
                         ))}
                     </div>
 
-                    {/* Location dropdown */}
-                    <div className="relative">
-                        <select
-                            value={selectedLocation}
-                            onChange={(e) => setSelectedLocation(e.target.value)}
-                            className="appearance-none bg-gray-800 text-gray-200 text-sm rounded-lg px-4 py-2 pr-10 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer min-w-[150px]"
-                        >
-                            <option value="all">All {viewMode === 'city' ? 'Cities' : 'Zip Codes'}</option>
-                            {locationList.filter(l => l !== 'all').map((loc) => (
-                                <option key={loc} value={loc}>{loc}</option>
-                            ))}
-                        </select>
-                        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+                    {/* Location dropdown - styled to match other dashboards */}
+                    <div className="flex-1 min-w-[200px] max-w-[320px]">
+                        <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
+                            {viewMode === 'city' ? 'City' : 'Neighborhood'}
+                        </label>
+                        <div className="relative">
+                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-purple-400">
+                                <MapPin className="w-4 h-4" />
+                            </div>
+                            <select
+                                value={selectedLocation}
+                                onChange={(e) => setSelectedLocation(e.target.value)}
+                                className="w-full appearance-none bg-gray-800 text-gray-200 text-sm rounded-lg pl-9 pr-10 py-2.5 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer hover:border-purple-500/50 transition-colors"
+                            >
+                                <option value="all">📍 All {viewMode === 'city' ? 'Cities' : 'Neighborhoods'}</option>
+                                {locationList.filter(l => l !== 'all').map((loc) => {
+                                    // For zip mode, show neighborhood name alongside zip code
+                                    if (viewMode === 'zip') {
+                                        const neighborhoodName = getNeighborhoodName(loc);
+                                        return (
+                                            <option key={loc} value={loc}>
+                                                {neighborhoodName ? `${loc} - ${neighborhoodName}` : loc}
+                                            </option>
+                                        );
+                                    }
+                                    return <option key={loc} value={loc}>{loc}</option>;
+                                })}
+                            </select>
+                            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+                        </div>
                     </div>
                 </div>
 
