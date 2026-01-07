@@ -658,6 +658,20 @@
         "tag": "Rental / Track"
     },
     {
+        "zipCode": "92078",
+        "region": "North - Inland",
+        "neighborhood": "San Marcos (North)",
+        "description": "CSUSM influence, Creekside Marketplace, newer master-planned communities, family-oriented suburban living",
+        "tag": "University / Family"
+    },
+    {
+        "zipCode": "92078",
+        "region": "North - Inland",
+        "neighborhood": "Twin Oaks Valley",
+        "description": "Rural residential, equestrian properties, winery corridor, transitioning to estates",
+        "tag": "Equestrian / Estate"
+    },
+    {
         "zipCode": "92081",
         "region": "North - Vista",
         "neighborhood": "Shadowridge",
