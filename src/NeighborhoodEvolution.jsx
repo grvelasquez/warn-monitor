@@ -168,10 +168,19 @@ export default function NeighborhoodEvolution() {
 
     // Available areas based on region selection
     const availableAreas = useMemo(() => {
+        let areas = [];
         if (selectedRegion === 'all') {
-            return Object.values(regions).filter(r => r.areas).flatMap(r => r.areas);
+            areas = Object.values(regions).filter(r => r.areas).flatMap(r => r.areas);
+        } else {
+            areas = regions[selectedRegion]?.areas || [];
         }
-        return regions[selectedRegion]?.areas || [];
+
+        // Sort by zip code (using the first zip in the array)
+        return [...areas].sort((a, b) => {
+            const zipA = a.zips && a.zips.length > 0 ? parseInt(a.zips[0]) : 0;
+            const zipB = b.zips && b.zips.length > 0 ? parseInt(b.zips[0]) : 0;
+            return zipA - zipB;
+        });
     }, [selectedRegion]);
 
     // Clear filters function
