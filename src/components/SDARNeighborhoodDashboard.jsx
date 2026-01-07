@@ -82,14 +82,15 @@ export function SDARNeighborhoodDashboard() {
     const [showAll, setShowAll] = useState(false);
 
     useEffect(() => {
+        // Fetch main data first
         fetch('/data/sdar_neighborhood_data.json')
             .then(res => res.json())
-            .then(d => {
-                setData(d);
+            .then(sdarData => {
+                setData(sdarData);
                 setLoading(false);
             })
             .catch(err => {
-                console.error('Failed to load neighborhood data:', err);
+                console.error('Failed to load main neighborhood data:', err);
                 setLoading(false);
             });
     }, []);

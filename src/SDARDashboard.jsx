@@ -136,6 +136,16 @@ export default function SDARDashboard() {
             .catch(() => { });
     }, []);
 
+    const [analysisData, setAnalysisData] = useState(null);
+
+    // Fetch neighborhood analysis data
+    useEffect(() => {
+        fetch(`/data/neighborhood_analysis.json?t=${Date.now()}`)
+            .then(res => res.ok ? res.json() : null)
+            .then(data => setAnalysisData(data))
+            .catch(err => console.warn('Failed to load analysis data:', err));
+    }, []);
+
     const latestReportUrl = fetchedData?.report_url;
     const latestDate = fetchedData?.current_period?.report_date;
 
@@ -176,6 +186,15 @@ export default function SDARDashboard() {
         // All filters at 'all' - county-wide data available
         return true;
     }, [selectedZip, selectedArea, selectedRegion, availableAreas, neighborhoodData]);
+
+    const analysisZip = useMemo(() => {
+        if (selectedZip !== 'all') return selectedZip;
+        if (selectedArea !== 'all') {
+            const area = availableAreas.find(a => a.id === selectedArea);
+            return area?.zips?.[0] || null;
+        }
+        return null;
+    }, [selectedZip, selectedArea, availableAreas]);
 
     const currentData = useMemo(() => {
         // Only return county-wide data when ALL filters are at 'all'
@@ -497,10 +516,22 @@ export default function SDARDashboard() {
                                     </div>
                                     <div className={`flex items-center gap-2 mb-4 ${propertyType === 'detached' ? 'text-blue-300' : 'text-purple-300'}`}>
                                         <SparklesIcon />
-                                        <h4 className="text-sm font-bold uppercase tracking-wider">AI Summary</h4>
+                                        <h4 className="text-sm font-bold uppercase tracking-wider">Executive Summary</h4>
                                     </div>
                                     <p className="text-base text-slate-300 leading-loose">
-                                        {aiAnalysisData[propertyType]}
+                                        {analysisZip && analysisData && analysisData[analysisZip] ? (
+                                            <>
+                                                <span className="block mb-4">{analysisData[analysisZip].general_overview}</span>
+                                                <span className="block">
+                                                    <strong className={propertyType === 'detached' ? 'text-blue-300' : 'text-purple-300'}>
+                                                        {propertyType === 'detached' ? 'Single Family Analysis: ' : 'Condo/Townhome Analysis: '}
+                                                    </strong>
+                                                    {analysisData[analysisZip][propertyType]}
+                                                </span>
+                                            </>
+                                        ) : (
+                                            aiAnalysisData[propertyType]
+                                        )}
                                     </p>
                                 </div>
                             </div>
