@@ -36,7 +36,7 @@ const DEFAULT_NEIGHBORHOOD_DATA = {
 import { MapPin, Map as MapIcon } from 'lucide-react';
 
 export default function SDARDashboard({ setActiveView }) {
-    const [activeTab, setActiveTab] = useState('summary');
+    const [activeTab, setActiveTab] = useState('ai summary');
     const [propertyType, setPropertyType] = useState('detached');
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedArea, setSelectedArea] = useState('all');
