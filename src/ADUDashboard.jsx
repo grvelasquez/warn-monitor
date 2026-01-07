@@ -94,6 +94,7 @@ export default function ADUDashboard() {
     const [insuranceAnnual, setInsuranceAnnual] = useState(1200);
     const [maintenancePct, setMaintenancePct] = useState(5);
     const [vacancyPct, setVacancyPct] = useState(5);
+    const [annualRentIncrease, setAnnualRentIncrease] = useState(3);
 
     // Calculations
     const calculations = useMemo(() => {
@@ -152,14 +153,26 @@ export default function ADUDashboard() {
             { name: 'School Fees', value: schoolFeePerUnit * numberOfUnits, fill: '#f59e0b' },
         ];
 
-        // Cash flow projection (10 years)
+        // Cash flow projection (10 years with rent increases)
         const cashFlowProjection = [];
         let cumulative = -downPayment;
+        let projectedRent = totalMonthlyRent;
         for (let year = 1; year <= 10; year++) {
-            cumulative += annualCashFlow;
+            // Apply rent increase after year 1
+            if (year > 1) {
+                projectedRent = projectedRent * (1 + annualRentIncrease / 100);
+            }
+            const projectedEffectiveRent = projectedRent * (1 - vacancyPct / 100);
+            const projectedMaintenance = projectedRent * (maintenancePct / 100);
+            const projectedVacancy = projectedRent * (vacancyPct / 100);
+            // Fixed costs stay the same (mortgage, property tax, insurance)
+            const projectedMonthlyExpenses = monthlyMortgage + monthlyPropertyTax + monthlyInsurance + projectedMaintenance + projectedVacancy;
+            const projectedMonthlyCashFlow = projectedEffectiveRent - projectedMonthlyExpenses;
+            const projectedAnnualCashFlow = projectedMonthlyCashFlow * 12;
+            cumulative += projectedAnnualCashFlow;
             cashFlowProjection.push({
                 year: `Year ${year}`,
-                annual: annualCashFlow,
+                annual: projectedAnnualCashFlow,
                 cumulative: cumulative,
             });
         }
@@ -187,7 +200,7 @@ export default function ADUDashboard() {
             costBreakdown,
             cashFlowProjection,
         };
-    }, [aduType, numberOfUnits, size, costPerSqFt, monthlyRent, downPaymentPct, interestRate, loanTermYears, propertyTaxRate, insuranceAnnual, maintenancePct, vacancyPct]);
+    }, [aduType, numberOfUnits, size, costPerSqFt, monthlyRent, downPaymentPct, interestRate, loanTermYears, propertyTaxRate, insuranceAnnual, maintenancePct, vacancyPct, annualRentIncrease]);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
@@ -306,6 +319,16 @@ export default function ADUDashboard() {
                                 min={0}
                                 max={15}
                                 suffix="%"
+                            />
+                            <InputSlider
+                                label="Annual Rent Increase"
+                                value={annualRentIncrease}
+                                onChange={setAnnualRentIncrease}
+                                min={0}
+                                max={10}
+                                step={0.5}
+                                suffix="%"
+                                helpText="SD historical avg: 3-5%/year"
                             />
                         </div>
 
