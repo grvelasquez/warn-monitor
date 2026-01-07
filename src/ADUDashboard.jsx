@@ -83,6 +83,7 @@ function ResultCard({ title, value, subtitle, icon: Icon, color = 'emerald', tre
 export default function ADUDashboard() {
     // Inputs
     const [aduType, setAduType] = useState('detached');
+    const [numberOfUnits, setNumberOfUnits] = useState(1);
     const [size, setSize] = useState(600);
     const [costPerSqFt, setCostPerSqFt] = useState(350);
     const [monthlyRent, setMonthlyRent] = useState(2200);
@@ -99,19 +100,24 @@ export default function ADUDashboard() {
         const isJadu = aduType === 'jadu';
         const effectiveSize = isJadu ? Math.min(size, SD_ADU_RULES.jaduMaxSize) : size;
 
-        // Construction Cost
-        const constructionCost = effectiveSize * costPerSqFt;
+        // Construction Cost (per unit)
+        const constructionCostPerUnit = effectiveSize * costPerSqFt;
 
-        // Fees (San Diego specific)
+        // Fees (San Diego specific, per unit)
         const impactFeeWaived = effectiveSize <= SD_ADU_RULES.impactFeeWaiverThreshold;
-        const schoolFee = effectiveSize > SD_ADU_RULES.schoolFeeThreshold
+        const schoolFeePerUnit = effectiveSize > SD_ADU_RULES.schoolFeeThreshold
             ? effectiveSize * SD_ADU_RULES.schoolFeePerSqFt
             : 0;
-        const waterSewerFees = SD_ADU_RULES.waterFee + SD_ADU_RULES.sewerFee;
-        const permitFees = SD_ADU_RULES.permitCostBase + (effectiveSize / SD_ADU_RULES.maxSize) * (SD_ADU_RULES.permitCostMax - SD_ADU_RULES.permitCostBase);
+        const waterSewerFeesPerUnit = SD_ADU_RULES.waterFee + SD_ADU_RULES.sewerFee;
+        const permitFeesPerUnit = SD_ADU_RULES.permitCostBase + (effectiveSize / SD_ADU_RULES.maxSize) * (SD_ADU_RULES.permitCostMax - SD_ADU_RULES.permitCostBase);
 
-        const totalFees = schoolFee + waterSewerFees + permitFees;
-        const totalProjectCost = constructionCost + totalFees;
+        const totalFeesPerUnit = schoolFeePerUnit + waterSewerFeesPerUnit + permitFeesPerUnit;
+        const totalProjectCostPerUnit = constructionCostPerUnit + totalFeesPerUnit;
+
+        // Total costs (multiplied by number of units)
+        const constructionCost = constructionCostPerUnit * numberOfUnits;
+        const totalFees = totalFeesPerUnit * numberOfUnits;
+        const totalProjectCost = totalProjectCostPerUnit * numberOfUnits;
 
         // Financing
         const downPayment = totalProjectCost * (downPaymentPct / 100);
@@ -122,14 +128,15 @@ export default function ADUDashboard() {
             ? (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1)
             : 0;
 
-        // Monthly Expenses
+        // Monthly Expenses (scaled for all units)
         const monthlyPropertyTax = (totalProjectCost * (propertyTaxRate / 100)) / 12;
-        const monthlyInsurance = insuranceAnnual / 12;
-        const monthlyMaintenance = (monthlyRent * (maintenancePct / 100));
-        const monthlyVacancy = monthlyRent * (vacancyPct / 100);
+        const monthlyInsurance = (insuranceAnnual * numberOfUnits) / 12;
+        const totalMonthlyRent = monthlyRent * numberOfUnits;
+        const monthlyMaintenance = (totalMonthlyRent * (maintenancePct / 100));
+        const monthlyVacancy = totalMonthlyRent * (vacancyPct / 100);
 
         const totalMonthlyExpenses = monthlyMortgage + monthlyPropertyTax + monthlyInsurance + monthlyMaintenance + monthlyVacancy;
-        const effectiveRent = monthlyRent * (1 - vacancyPct / 100);
+        const effectiveRent = totalMonthlyRent * (1 - vacancyPct / 100);
         const monthlyCashFlow = effectiveRent - totalMonthlyExpenses;
         const annualCashFlow = monthlyCashFlow * 12;
 
@@ -140,9 +147,9 @@ export default function ADUDashboard() {
         // Cost breakdown for chart
         const costBreakdown = [
             { name: 'Construction', value: constructionCost, fill: '#10b981' },
-            { name: 'Permits', value: permitFees, fill: '#3b82f6' },
-            { name: 'Water/Sewer', value: waterSewerFees, fill: '#8b5cf6' },
-            { name: 'School Fees', value: schoolFee, fill: '#f59e0b' },
+            { name: 'Permits', value: permitFeesPerUnit * numberOfUnits, fill: '#3b82f6' },
+            { name: 'Water/Sewer', value: waterSewerFeesPerUnit * numberOfUnits, fill: '#8b5cf6' },
+            { name: 'School Fees', value: schoolFeePerUnit * numberOfUnits, fill: '#f59e0b' },
         ];
 
         // Cash flow projection (10 years)
@@ -159,6 +166,7 @@ export default function ADUDashboard() {
 
         return {
             effectiveSize,
+            numberOfUnits,
             constructionCost,
             totalFees,
             totalProjectCost,
@@ -171,6 +179,7 @@ export default function ADUDashboard() {
             monthlyMaintenance,
             monthlyVacancy,
             totalMonthlyExpenses,
+            totalMonthlyRent,
             monthlyCashFlow,
             annualCashFlow,
             cashOnCashReturn,
@@ -178,7 +187,7 @@ export default function ADUDashboard() {
             costBreakdown,
             cashFlowProjection,
         };
-    }, [aduType, size, costPerSqFt, monthlyRent, downPaymentPct, interestRate, loanTermYears, propertyTaxRate, insuranceAnnual, maintenancePct, vacancyPct]);
+    }, [aduType, numberOfUnits, size, costPerSqFt, monthlyRent, downPaymentPct, interestRate, loanTermYears, propertyTaxRate, insuranceAnnual, maintenancePct, vacancyPct]);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
@@ -231,6 +240,18 @@ export default function ADUDashboard() {
                                         <p className="text-xs font-medium mt-1">{type.label}</p>
                                     </button>
                                 ))}
+                            </div>
+
+                            {/* Number of Units */}
+                            <div className="mt-4 pt-4 border-t border-slate-700">
+                                <InputSlider
+                                    label="Number of Units"
+                                    value={numberOfUnits}
+                                    onChange={setNumberOfUnits}
+                                    min={1}
+                                    max={4}
+                                    helpText="SB 9 allows up to 4 units on single-family lots"
+                                />
                             </div>
                         </div>
 
@@ -343,7 +364,7 @@ export default function ADUDashboard() {
                             <ResultCard
                                 title="Monthly Cash Flow"
                                 value={formatCurrency(calculations.monthlyCashFlow)}
-                                subtitle={`${formatCurrency(monthlyRent)} rent - expenses`}
+                                subtitle={`${formatCurrency(calculations.totalMonthlyRent)} rent - expenses`}
                                 icon={TrendingUp}
                                 color={calculations.monthlyCashFlow >= 0 ? 'emerald' : 'rose'}
                             />
