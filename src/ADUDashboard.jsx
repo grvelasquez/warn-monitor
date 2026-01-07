@@ -95,6 +95,7 @@ export default function ADUDashboard() {
     const [maintenancePct, setMaintenancePct] = useState(5);
     const [vacancyPct, setVacancyPct] = useState(5);
     const [annualRentIncrease, setAnnualRentIncrease] = useState(3);
+    const [mgmtFeePct, setMgmtFeePct] = useState(8);
 
     // Calculations
     const calculations = useMemo(() => {
@@ -139,8 +140,9 @@ export default function ADUDashboard() {
         const totalMonthlyRent = monthlyRent * numberOfUnits;
         const monthlyMaintenance = (totalMonthlyRent * (maintenancePct / 100));
         const monthlyVacancy = totalMonthlyRent * (vacancyPct / 100);
+        const monthlyMgmtFee = totalMonthlyRent * (mgmtFeePct / 100);
 
-        const totalMonthlyExpenses = monthlyMortgage + monthlyPropertyTax + monthlyInsurance + monthlyMaintenance + monthlyVacancy;
+        const totalMonthlyExpenses = monthlyMortgage + monthlyPropertyTax + monthlyInsurance + monthlyMaintenance + monthlyVacancy + monthlyMgmtFee;
         const effectiveRent = totalMonthlyRent * (1 - vacancyPct / 100);
         const monthlyCashFlow = effectiveRent - totalMonthlyExpenses;
         const annualCashFlow = monthlyCashFlow * 12;
@@ -173,8 +175,9 @@ export default function ADUDashboard() {
             const projectedEffectiveRent = projectedRent * (1 - vacancyPct / 100);
             const projectedMaintenance = projectedRent * (maintenancePct / 100);
             const projectedVacancy = projectedRent * (vacancyPct / 100);
+            const projectedMgmtFee = projectedRent * (mgmtFeePct / 100);
             // Fixed costs stay the same (mortgage, property tax, insurance)
-            const projectedMonthlyExpenses = monthlyMortgage + monthlyPropertyTax + monthlyInsurance + projectedMaintenance + projectedVacancy;
+            const projectedMonthlyExpenses = monthlyMortgage + monthlyPropertyTax + monthlyInsurance + projectedMaintenance + projectedVacancy + projectedMgmtFee;
             const projectedMonthlyCashFlow = projectedEffectiveRent - projectedMonthlyExpenses;
             const projectedAnnualCashFlow = projectedMonthlyCashFlow * 12;
 
@@ -212,6 +215,7 @@ export default function ADUDashboard() {
             monthlyInsurance,
             monthlyMaintenance,
             monthlyVacancy,
+            monthlyMgmtFee,
             totalMonthlyExpenses,
             totalMonthlyRent,
             monthlyCashFlow,
@@ -221,7 +225,7 @@ export default function ADUDashboard() {
             costBreakdown,
             cashFlowProjection,
         };
-    }, [aduType, numberOfUnits, size, costPerSqFt, monthlyRent, downPaymentPct, interestRate, loanTermYears, propertyTaxRate, insuranceAnnual, maintenancePct, vacancyPct, annualRentIncrease]);
+    }, [aduType, numberOfUnits, size, costPerSqFt, monthlyRent, downPaymentPct, interestRate, loanTermYears, propertyTaxRate, insuranceAnnual, maintenancePct, vacancyPct, annualRentIncrease, mgmtFeePct]);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
@@ -459,14 +463,59 @@ export default function ADUDashboard() {
                         {/* Monthly Expense Breakdown */}
                         <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
                             <h3 className="text-lg font-semibold mb-4">Monthly Expense Breakdown</h3>
-                            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+
+                            {/* Expense Sliders */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <InputSlider
+                                    label="Property Tax Rate"
+                                    value={propertyTaxRate}
+                                    onChange={setPropertyTaxRate}
+                                    min={0.5}
+                                    max={2.5}
+                                    step={0.1}
+                                    suffix="%"
+                                    helpText="San Diego avg: 1.1%"
+                                />
+                                <InputSlider
+                                    label="Annual Insurance"
+                                    value={insuranceAnnual}
+                                    onChange={setInsuranceAnnual}
+                                    min={500}
+                                    max={3000}
+                                    step={100}
+                                    prefix="$"
+                                    suffix="/unit"
+                                    helpText="Per unit, per year"
+                                />
+                                <InputSlider
+                                    label="Maintenance Reserve"
+                                    value={maintenancePct}
+                                    onChange={setMaintenancePct}
+                                    min={0}
+                                    max={15}
+                                    suffix="%"
+                                    helpText="% of rent for repairs"
+                                />
+                                <InputSlider
+                                    label="Management Fee"
+                                    value={mgmtFeePct}
+                                    onChange={setMgmtFeePct}
+                                    min={0}
+                                    max={15}
+                                    suffix="%"
+                                    helpText="0% if self-managed, 8-10% typical"
+                                />
+                            </div>
+
+                            {/* Expense Summary */}
+                            <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
                                 <div className="p-3 bg-slate-700/30 rounded-lg text-center">
                                     <p className="text-lg font-bold text-white">{formatCurrency(calculations.monthlyMortgage)}</p>
                                     <p className="text-xs text-slate-500">Mortgage</p>
                                 </div>
                                 <div className="p-3 bg-slate-700/30 rounded-lg text-center">
                                     <p className="text-lg font-bold text-white">{formatCurrency(calculations.monthlyPropertyTax)}</p>
-                                    <p className="text-xs text-slate-500">Property Tax</p>
+                                    <p className="text-xs text-slate-500">Prop Tax</p>
                                 </div>
                                 <div className="p-3 bg-slate-700/30 rounded-lg text-center">
                                     <p className="text-lg font-bold text-white">{formatCurrency(calculations.monthlyInsurance)}</p>
@@ -474,11 +523,15 @@ export default function ADUDashboard() {
                                 </div>
                                 <div className="p-3 bg-slate-700/30 rounded-lg text-center">
                                     <p className="text-lg font-bold text-white">{formatCurrency(calculations.monthlyMaintenance)}</p>
-                                    <p className="text-xs text-slate-500">Maintenance</p>
+                                    <p className="text-xs text-slate-500">Maint.</p>
                                 </div>
                                 <div className="p-3 bg-slate-700/30 rounded-lg text-center">
                                     <p className="text-lg font-bold text-white">{formatCurrency(calculations.monthlyVacancy)}</p>
                                     <p className="text-xs text-slate-500">Vacancy</p>
+                                </div>
+                                <div className="p-3 bg-slate-700/30 rounded-lg text-center">
+                                    <p className="text-lg font-bold text-white">{formatCurrency(calculations.monthlyMgmtFee)}</p>
+                                    <p className="text-xs text-slate-500">Mgmt Fee</p>
                                 </div>
                             </div>
                         </div>
