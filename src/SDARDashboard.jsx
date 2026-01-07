@@ -34,7 +34,7 @@ const DEFAULT_NEIGHBORHOOD_DATA = {
 };
 
 export default function SDARDashboard() {
-    const [activeTab, setActiveTab] = useState('summary');
+    const [activeTab, setActiveTab] = useState('ai summary');
     const [propertyType, setPropertyType] = useState('detached');
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedArea, setSelectedArea] = useState('all');
@@ -471,7 +471,7 @@ export default function SDARDashboard() {
                 {/* Tabs - Only show if data is available */}
                 {hasDataForSelection && (
                     <div className="flex gap-1 p-1 bg-slate-800/50 rounded-xl border border-slate-700/50 mb-6 overflow-x-auto">
-                        {['Summary', 'Overview', 'Prices', 'Inventory', 'Velocity'].map((tab) => (
+                        {['AI Summary', 'Overview', 'Prices', 'Inventory', 'Velocity'].map((tab) => (
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(tab.toLowerCase())}
@@ -486,7 +486,7 @@ export default function SDARDashboard() {
                 {/* Content - Only show if data is available */}
                 {hasDataForSelection && (
                     <div className="grid lg:grid-cols-2 gap-6">
-                        {activeTab === 'summary' && (
+                        {activeTab === 'ai summary' && (
                             <div className="lg:col-span-2">
                                 <div className={`border rounded-xl p-6 backdrop-blur-sm relative overflow-hidden transition-all group ${propertyType === 'detached'
                                     ? 'bg-gradient-to-br from-blue-900/40 to-slate-900/40 border-blue-500/20 hover:border-blue-500/40'
@@ -497,7 +497,7 @@ export default function SDARDashboard() {
                                     </div>
                                     <div className={`flex items-center gap-2 mb-4 ${propertyType === 'detached' ? 'text-blue-300' : 'text-purple-300'}`}>
                                         <SparklesIcon />
-                                        <h4 className="text-sm font-bold uppercase tracking-wider">Market Summary</h4>
+                                        <h4 className="text-sm font-bold uppercase tracking-wider">AI Summary</h4>
                                     </div>
                                     <p className="text-base text-slate-300 leading-loose">
                                         {aiAnalysisData[propertyType]}
