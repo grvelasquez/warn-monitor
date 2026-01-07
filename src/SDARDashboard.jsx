@@ -466,20 +466,21 @@ export default function SDARDashboard() {
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
                                 <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">DECEMBER 2025</span>
-                                <span className="text-slate-500 text-xs">Monthly Snapshot</span>
+                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs Dec 2024)</span>
                             </div>
-                            <div className="grid grid-cols-6 gap-2">
+                            <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[
-                                    { title: 'Listings', value: formatNumber(currentData?.newListings || 0), change: currentData?.newListingsChange || 0 },
-                                    { title: 'Pending', value: formatNumber(currentData?.pendingSales || 0), change: currentData?.pendingChange || 0 },
-                                    { title: 'Closed', value: formatNumber(currentData?.closedSales || 0), change: currentData?.salesChange || 0 },
-                                    { title: 'Median', value: formatCurrency(currentData?.medianPrice || 0), change: currentData?.priceChange || 0 },
+                                    { title: 'New Listings', value: formatNumber(currentData?.newListings || 0), change: currentData?.newListingsChange || 0 },
+                                    { title: 'Pending Sales', value: formatNumber(currentData?.pendingSales || 0), change: currentData?.pendingChange || 0 },
+                                    { title: 'Closed Sales', value: formatNumber(currentData?.closedSales || 0), change: currentData?.salesChange || 0 },
+                                    { title: 'Median Price', value: formatCurrency(currentData?.medianPrice || 0), change: currentData?.priceChange || 0 },
                                     { title: 'Inventory', value: formatNumber(currentData?.inventory || 0), change: currentData?.invChange || 0 },
-                                    { title: 'DOM', value: currentData?.daysOnMarket || 0, change: currentData?.domChange || 0 },
+                                    { title: 'Days on Market', value: currentData?.daysOnMarket || 0, change: currentData?.domChange || 0 },
                                 ].map((metric, i) => (
-                                    <div key={i} className="bg-slate-800/30 border border-slate-700/30 rounded-lg p-2 backdrop-blur-sm text-center">
-                                        <p className="text-sm font-bold text-white">{metric.value}</p>
-                                        <p className="text-[9px] text-slate-500">{metric.title}</p>
+                                    <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 backdrop-blur-sm">
+                                        <p className="text-2xl font-bold text-white">{metric.value}</p>
+                                        <p className="text-xs text-slate-400 mb-1">{metric.title}</p>
+                                        <ChangeIndicator value={metric.change} inverse={metric.inverse} />
                                     </div>
                                 ))}
                             </div>
