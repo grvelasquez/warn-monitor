@@ -392,7 +392,7 @@ export default function WarnDashboard() {
                 )}
 
                 {activeView === 'homeless' && (
-                    <div className="max-w-5xl mx-auto">
+                    <div>
                         <div className="mb-6">
                             <span className="text-sm px-2 py-0.5 bg-slate-700 text-slate-300 rounded-full">Jan 2024 PIT Count</span>
                         </div>
