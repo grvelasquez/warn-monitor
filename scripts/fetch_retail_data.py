@@ -6,19 +6,59 @@ for gentrification indicators (cafes, yoga studios, breweries, etc.)
 
 import json
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from collections import defaultdict
 
 # Overpass API endpoint (no API key required)
 OVERPASS_API = "https://overpass-api.de/api/interpreter"
 
-# San Diego County bounding box (approximate)
-SD_BBOX = {
-    "south": 32.5,
-    "west": -117.6,
-    "north": 33.5,
-    "east": -116.1
+# Global Chains List (for Boutique Logic)
+CHAINS = {
+    "Starbucks", "McDonald's", "Subway", "7-Eleven", "Burger King", 
+    "Taco Bell", "Jack in the Box", "Chick-fil-A", "Dunkin'", 
+    "Domino's Pizza", "Pizza Hut", "KFC", "Wendy's", "Panda Express",
+    "Chipotle Mexican Grill", "Jersey Mike's Subs", "The Coffee Bean & Tea Leaf",
+    "Peet's Coffee", "Vons", "Ralphs", "Albertsons", "Whole Foods Market",
+    "Trader Joe's", "Costco", "Target", "Walmart", "CVS Pharmacy", 
+    "Walgreens", "Rite Aid", "Chase", "Bank of America", "Wells Fargo",
+    "US Bank", "Citibank", "Shell", "Chevron", "Mobil", "ARCO", "76"
+}
+
+# Vibe Tags Configuration (User Specified + Inferred)
+VIBE_TAGS = {
+    "92101-Downtown": "The Urban Core",
+    "92102-Golden Hill South Park": "Historic Charm",
+    "92103-Hillcrest Mission Hills": "Pride & Pedestrian",
+    "92104-North Park": "Hipster Central",
+    "92105-City Heights": "Global Eats",
+    "92106-Point Loma": "Nautical Heritage",
+    "92107-Ocean Beach": "Bohemian Surf",
+    "92108-Mission Valley": "The Mixed-Use Hub",
+    "92109-Pacific Beach Mission Beach": "Party & Surf",
+    "92110-Morena": "Design District",
+    "92111-Linda Vista": "University Adjacent",
+    "92113-Logan Heights": "Cultural Appreciation Play",
+    "92114-Encanto": "Community Rising",
+    "92115-College": "Student Life",
+    "92116-Kensington Normal Heights": "Village Vibes",
+    "92117-Clairemont": "Mid-Century Family",
+    "92118-Coronado": "Crown Jewel",
+    "92119-San Carlos": "Scenic Suburbia",
+    "92120-Allied Gardens Del Cerro": "Navajo Community",
+    "92121-Sorrento Valley": "Tech Hub",
+    "92122-University City": "The Golden Triangle",
+    "92123-Serra Mesa": "Central Connection",
+    "92124-Tierrasanta": "Island in the Hills",
+    "92126-Mira Mesa": "Bio-Tech Burbs",
+    "92127-Rancho Bernardo West": "Luxury Master-Plan",
+    "92128-Rancho Bernardo East": "Golf & Seniors",
+    "92129-Penasquitos": "Canyon Living",
+    "92130-Carmel Valley": "High-Income Schools",
+    "92131-Scripps Ranch": "Eucalyptus Living",
+    "92139-Paradise Hills": "Skyline Views",
+    "92154-Nestor Otay Mesa": "Border Commerce",
+    "92173-San Ysidro": "Gateway to Mexico"
 }
 
 # San Diego County ZIP codes with bounding boxes (matching SDAR data - 85 zip codes)
@@ -58,7 +98,6 @@ SD_NEIGHBORHOODS = {
     "92154-Nestor Otay Mesa": {"s": 32.55, "w": -117.06, "n": 32.62, "e": -116.98},
     "92173-San Ysidro": {"s": 32.54, "w": -117.08, "n": 32.58, "e": -117.02},
 }
-
 
 # Comprehensive OSM Categories
 CATEGORIES = {
@@ -101,21 +140,19 @@ CATEGORIES = {
     "coworking": {"query": 'amenity=coworking_space', "label": "Coworking", "icon": "💼"},
 }
 
-
 def build_overpass_query(category_query, bbox):
-    """Build Overpass QL query for a specific category and bounding box."""
+    """Build Overpass QL query for a specific category and bounding box, fetching metadata."""
     return f"""
     [out:json][timeout:30];
     (
       node[{category_query}]({bbox['s']},{bbox['w']},{bbox['n']},{bbox['e']});
       way[{category_query}]({bbox['s']},{bbox['w']},{bbox['n']},{bbox['e']});
     );
-    out count;
+    out meta;
     """
 
-
-def fetch_poi_count(category_query, bbox, timeout=30):
-    """Fetch POI count from Overpass API."""
+def fetch_category_data(category_query, bbox, timeout=30):
+    """Fetch POI elements (nodes/ways) with metadata from Overpass API."""
     query = build_overpass_query(category_query, bbox)
     
     try:
@@ -126,43 +163,85 @@ def fetch_poi_count(category_query, bbox, timeout=30):
         )
         response.raise_for_status()
         data = response.json()
-        
-        # Extract count from response
-        count = data.get("elements", [{}])[0].get("tags", {}).get("total", 0)
-        if count == 0 and "elements" in data:
-            count = len(data.get("elements", []))
-        
-        return int(count)
+        return data.get("elements", [])
     except Exception as e:
         print(f"  Error fetching {category_query}: {e}")
-        return 0
+        return []
 
+def is_recent(element, days=365):
+    """Check if element was modified/created in the last X days."""
+    timestamp_str = element.get("timestamp")
+    if not timestamp_str:
+        return False
+    try:
+        # Format: "2023-12-01T20:00:00Z"
+        ts = datetime.strptime(timestamp_str, "%Y-%m-%dT%H:%M:%SZ")
+        cutoff = datetime.now() - timedelta(days=days)
+        return ts > cutoff
+    except:
+        return False
+
+def is_boutique(element):
+    """Check if element is likely NOT a national chain."""
+    name = element.get("tags", {}).get("name", "")
+    if not name:
+        return True # Assume unnamed/local is boutique
+    
+    # Check exact match or substring for chains
+    for chain in CHAINS:
+        if chain.lower() in name.lower():
+            return False
+    return True
 
 def fetch_neighborhood_data(neighborhood_name, bbox):
-    """Fetch all indicator counts for a neighborhood."""
+    """Fetch all indicator counts for a neighborhood with momentum analysis."""
     print(f"  Fetching {neighborhood_name}...")
     
     result = {
         "name": neighborhood_name,
+        "vibe": VIBE_TAGS.get(neighborhood_name, "Emerging Community"),
         "categories": {},
-        "total_businesses": 0
+        "total_businesses": 0,
+        "total_new_openings": 0,
+        "boutique_count": 0,
+        "chain_count": 0
     }
     
     total = 0
+    new_openings_total = 0
+    boutique_total = 0
+    chain_total = 0
     
     # Fetch all categories
     for key, config in CATEGORIES.items():
-        count = fetch_poi_count(config["query"], bbox)
+        elements = fetch_category_data(config["query"], bbox)
+        count = len(elements)
+        
+        # Calculate Momentrum & Boutique stats
+        new_in_category = sum(1 for e in elements if is_recent(e, days=365))
+        boutique_in_category = sum(1 for e in elements if is_boutique(e))
+        
         result["categories"][key] = {
             "count": count,
             "label": config["label"],
             "icon": config["icon"],
+            "new_openings": new_in_category
         }
+        
         total += count
+        new_openings_total += new_in_category
+        boutique_total += boutique_in_category
+        chain_total += (count - boutique_in_category)
     
     result["total_businesses"] = total
+    result["total_new_openings"] = new_openings_total
+    
+    if total > 0:
+        result["boutique_ratio"] = round(boutique_total / total * 100) # As percentage integer
+    else:
+        result["boutique_ratio"] = 0
+        
     return result
-
 
 def fetch_all_neighborhoods():
     """Fetch data for all neighborhoods."""
@@ -180,12 +259,13 @@ def fetch_all_neighborhoods():
     
     return neighborhoods
 
-
 def calculate_county_summary(neighborhoods):
     """Calculate county-wide summary statistics."""
     total_counts = defaultdict(int)
+    total_new = 0
     
     for n in neighborhoods:
+        total_new += n.get("total_new_openings", 0)
         for key, data in n.get("categories", {}).items():
             total_counts[key] += data["count"]
     
@@ -198,9 +278,9 @@ def calculate_county_summary(neighborhoods):
     
     return {
         "totalCounts": dict(total_counts),
+        "totalNewOpenings": total_new,
         "topBusinessDistricts": [n["name"] for n in sorted_neighborhoods[:5]],
     }
-
 
 def main():
     output_path = Path(__file__).parent.parent / "public" / "data" / "retail_data.json"
@@ -235,7 +315,6 @@ def main():
     print(f"\nSuccessfully saved data to {output_path}")
     print(f"Neighborhoods: {len(neighborhoods)}")
     print(f"Top districts: {summary['topBusinessDistricts']}")
-
 
 if __name__ == "__main__":
     main()

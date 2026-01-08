@@ -473,7 +473,7 @@ export default function WeatherDashboard() {
                         <div className="lg:col-span-2 space-y-6">
                             <CurrentWeather data={weatherData} location={selectedLocation.name} />
                             <HourlyForecast data={weatherData} />
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <SunTimes data={weatherData} />
                                 <TideSchedule tideData={tideData} />
                             </div>
