@@ -30,17 +30,55 @@ function StatCard({ label, value, subValue, trend, icon: Icon, color = "text-sla
     );
 }
 
+// Neighborhood to zip code mapping
+const neighborhoodZipCodes = {
+    'Downtown': '92101',
+    'East Village': '92101',
+    'Gaslamp': '92101',
+    'Barrio Logan': '92113',
+    'Logan Heights': '92113',
+    'City Heights': '92105',
+    'Hillcrest': '92103',
+    'North Park': '92104',
+    'Normal Heights': '92116',
+    'University Heights': '92104',
+    'South Park': '92102',
+    'Mission Valley': '92108',
+    'Pacific Beach': '92109',
+    'Ocean Beach': '92107',
+    'La Jolla': '92037',
+    'Mission Beach': '92109',
+    'Point Loma': '92106',
+    'Chula Vista': '91910',
+    'National City': '91950',
+    'Imperial Beach': '91932',
+    'San Ysidro': '92173',
+    'El Cajon': '92020',
+    'La Mesa': '91942',
+    'Santee': '92071',
+    'Spring Valley': '91977',
+    'Oceanside': '92054',
+    'Escondido': '92025',
+    'Vista': '92083',
+    'Carlsbad': '92008',
+    'Encinitas': '92024',
+    'San Marcos': '92069',
+};
+
 // Neighborhood row
 function NeighborhoodRow({ name, data }) {
     const riskInfo = getRiskColor(data.risk);
     const unshelteredRate = Math.round((data.unsheltered / data.total) * 100);
+    const zipCode = neighborhoodZipCodes[name] || '';
 
     return (
         <div className="flex items-center gap-3 py-2 border-b border-slate-800 last:border-0">
             <div className={`w-2 h-2 ${riskInfo.bg} rounded-full flex-shrink-0`} />
-            <span className="text-sm text-white flex-1 truncate">{name}</span>
-            <span className="text-sm text-slate-400 w-12 text-right">{data.total}</span>
-            <span className="text-xs text-slate-500 w-12 text-right">{unshelteredRate}%</span>
+            <span className="text-sm text-white flex-1 truncate">
+                {name} {zipCode && <span className="text-slate-500">({zipCode})</span>}
+            </span>
+            <span className="text-sm text-slate-400 w-16 text-right">{data.total}</span>
+            <span className="text-xs text-slate-500 w-16 text-right">{unshelteredRate}%</span>
         </div>
     );
 }
@@ -199,7 +237,7 @@ export function HomelessSignals({ className = "" }) {
                 )}
 
                 {/* Neighborhoods by risk */}
-                <div className="bg-slate-800/30 border border-slate-700/50 rounded-lg p-3 h-fit">
+                <div className="bg-slate-800/30 border border-slate-700/50 rounded-lg p-4 h-fit">
                     <div className="flex items-center justify-between mb-3">
                         <h4 className="text-xs font-medium text-slate-400">By Neighborhood</h4>
                         <div className="relative">
@@ -220,24 +258,24 @@ export function HomelessSignals({ className = "" }) {
                     </div>
 
                     {/* Header */}
-                    <div className="flex items-center gap-3 text-[10px] text-slate-500 pb-1 border-b border-slate-700 select-none">
+                    <div className="flex items-center gap-3 text-[10px] text-slate-500 pb-1 border-b border-slate-700 select-none pr-4">
                         <span className="w-2" />
                         <button onClick={() => handleSort('name')} className="flex-1 text-left hover:text-slate-300 transition-colors flex items-center gap-1">
                             Neighborhood
                             {sortConfig.key === 'name' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
                         </button>
-                        <button onClick={() => handleSort('total')} className="w-12 text-right hover:text-slate-300 transition-colors flex items-center justify-end gap-1">
+                        <button onClick={() => handleSort('total')} className="w-16 text-right hover:text-slate-300 transition-colors flex items-center justify-end gap-1">
                             Total
                             {sortConfig.key === 'total' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
                         </button>
-                        <button onClick={() => handleSort('unshelteredRate')} className="w-12 text-right hover:text-slate-300 transition-colors flex items-center justify-end gap-1">
+                        <button onClick={() => handleSort('unshelteredRate')} className="w-16 text-right hover:text-slate-300 transition-colors flex items-center justify-end gap-1">
                             Unshltr
                             {sortConfig.key === 'unshelteredRate' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
                         </button>
                     </div>
 
                     {/* Rows */}
-                    <div className="max-h-[300px] overflow-y-auto">
+                    <div className="max-h-[400px] overflow-y-auto pr-4">
                         {filteredNeighborhoods.map(([name, neighborhoodData]) => (
                             <NeighborhoodRow key={name} name={name} data={neighborhoodData} />
                         ))}
