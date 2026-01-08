@@ -454,7 +454,7 @@ export default function NeighborhoodEvolution({ setActiveView }) {
                                 isSelected={selectedNeighborhood?.zip_code === n.zip_code}
                                 onClick={() => {
                                     setSelectedNeighborhood(n);
-                                    setActiveView('details');
+                                    setActiveViewLocal('details');
                                 }}
                             />
                         ))}
