@@ -253,7 +253,7 @@ export function RetailSignals({ className = "" }) {
     const [retailData, setRetailData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [sortBy, setSortBy] = useState('momentum_desc');
-    const [showAll, setShowAll] = useState(false);
+    const [showAll, setShowAll] = useState(true);
     const [filterCategory, setFilterCategory] = useState('all');
 
     useEffect(() => {
