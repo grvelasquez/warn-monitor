@@ -376,7 +376,7 @@ export default function VotingDashboard() {
         '2024': '2020',
         '2020': '2016',
         '2016': '2012',
-        '2012': null
+        '2012': '2024'
     }[selectedYear];
 
     // Determine current location data for chart
