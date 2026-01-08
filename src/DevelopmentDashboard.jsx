@@ -383,8 +383,8 @@ export default function DevelopmentDashboard() {
                                         <div className="flex items-center justify-between">
                                             <span className="text-sm text-white">{project.name}</span>
                                             <span className={`text-[10px] px-1.5 py-0.5 rounded ${project.status === 'Complete' ? 'bg-green-900/50 text-green-400' :
-                                                    project.status === 'Under Construction' ? 'bg-amber-900/50 text-amber-400' :
-                                                        'bg-slate-700/50 text-slate-400'
+                                                project.status === 'Under Construction' ? 'bg-amber-900/50 text-amber-400' :
+                                                    'bg-slate-700/50 text-slate-400'
                                                 }`}>
                                                 {project.status}
                                             </span>

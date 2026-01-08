@@ -303,11 +303,13 @@ export default function SDARDashboard({ setActiveView }) {
         const isNeutral = Math.abs(displayValue) < 0.5;
         const isUp = displayValue > 0;
         return (
-            <span className="inline-flex items-center gap-1 text-sm font-semibold text-white">
-                {!isNeutral && (isUp ? <TrendUpIcon /> : <TrendDownIcon />)}
-                {displayValue > 0 ? '+' : ''}{displayValue.toFixed(2)}%
-                <span className="text-slate-500 text-xs font-normal">vs 2024</span>
-            </span>
+            <div className="flex flex-col items-start sm:flex-row sm:items-center sm:gap-1">
+                <span className="inline-flex items-center gap-1 text-sm font-semibold text-white">
+                    {!isNeutral && (isUp ? <TrendUpIcon /> : <TrendDownIcon />)}
+                    {displayValue > 0 ? '+' : ''}{displayValue.toFixed(2)}%
+                </span>
+                <span className="text-slate-500 text-[10px] sm:text-xs font-normal">vs 2024</span>
+            </div>
         );
     };
 
