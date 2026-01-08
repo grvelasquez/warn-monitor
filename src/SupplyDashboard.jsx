@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import {
     TrendingUp, TrendingDown, Home, Building2, DollarSign,
     BarChart3, Search, ArrowUpRight, ArrowDownRight, FileText,
-    ChevronDown, ChevronUp, Package, Clock, Info, Warehouse, Lightbulb
+    ChevronDown, ChevronUp, Package, Clock, Info, Warehouse, Lightbulb, Sparkles
 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend, BarChart, Bar } from 'recharts';
 
@@ -397,9 +397,9 @@ export default function SupplyDashboard() {
                         <div className="bg-gradient-to-r from-indigo-900/40 to-slate-800/40 rounded-xl border border-indigo-500/30 p-6 backdrop-blur-sm">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="p-2 bg-indigo-500/20 rounded-lg">
-                                    <FileText className="w-6 h-6 text-indigo-400" />
+                                    <Sparkles className="w-6 h-6 text-indigo-400" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white">Executive Summary: The "Gridlock" Market</h3>
+                                <h3 className="text-2xl font-bold text-white">AI Executive Summary: The "Gridlock" Market</h3>
                             </div>
                             <p className="text-slate-300 leading-relaxed text-lg">
                                 The San Diego housing market is currently defined by a <strong className="text-indigo-400">massive supply shortage</strong> that has created a gridlock.

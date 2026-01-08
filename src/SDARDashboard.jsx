@@ -561,7 +561,7 @@ export default function SDARDashboard({ setActiveView }) {
                                     </div>
                                     <div className={`flex items-center gap-2 mb-4 ${propertyType === 'detached' ? 'text-blue-300' : 'text-purple-300'}`}>
                                         <SparklesIcon />
-                                        <h4 className="text-sm font-bold uppercase tracking-wider">Executive Summary</h4>
+                                        <h4 className="text-sm font-bold uppercase tracking-wider">AI Executive Summary</h4>
                                     </div>
                                     <p className="text-base text-slate-300 leading-loose">
                                         {analysisZip && analysisData && analysisData[analysisZip] ? (

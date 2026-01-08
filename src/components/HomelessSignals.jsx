@@ -92,7 +92,7 @@ function ExecutiveSummary({ aiAnalysis, subpopulations, health }) {
             {/* Header */}
             <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-indigo-400" />
-                <h3 className="text-sm font-semibold text-white">Executive Summary</h3>
+                <h3 className="text-sm font-semibold text-white">AI Executive Summary</h3>
                 <span className="text-[10px] text-indigo-400 bg-indigo-500/20 px-2 py-0.5 rounded-full">AI Analysis</span>
             </div>
 

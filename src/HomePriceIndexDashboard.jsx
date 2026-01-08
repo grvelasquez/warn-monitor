@@ -127,7 +127,7 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                         <div className="p-1.5 bg-indigo-500/20 rounded-lg">
                             <Sparkles className="w-4 h-4 text-indigo-300" />
                         </div>
-                        <h3 className="text-lg font-semibold text-white">Executive Summary</h3>
+                        <h3 className="text-lg font-semibold text-white">AI Executive Summary</h3>
                     </div>
                     <div className="text-slate-300 text-sm leading-relaxed relative z-10">
                         <p>

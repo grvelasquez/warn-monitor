@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import {
     TrendingUp, TrendingDown, Home, Building2, DollarSign,
     BarChart3, Search, ArrowUpRight, ArrowDownRight, FileText,
-    ChevronDown, ChevronUp, Package, Clock, Info, MapPin, Lightbulb
+    ChevronDown, ChevronUp, Package, Clock, Info, MapPin, Lightbulb, Sparkles
 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend } from 'recharts';
 
@@ -577,9 +577,9 @@ export default function LenderMediatedDashboard() {
                             <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm">
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="p-2 bg-indigo-500/10 rounded-lg">
-                                        <FileText className="w-5 h-5 text-indigo-400" />
+                                        <Sparkles className="w-5 h-5 text-indigo-400" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-white">Executive Summary: December 2025 Analysis</h3>
+                                    <h3 className="text-xl font-bold text-white">AI Executive Summary: December 2025 Analysis</h3>
                                 </div>
                                 <p className="text-slate-300 leading-relaxed text-lg">
                                     The San Diego market for December 2025 shows a distinct <strong className="text-white">tightening of distressed inventory</strong>.
