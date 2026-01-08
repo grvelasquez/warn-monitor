@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { BarChart3, Store, Users } from 'lucide-react';
 import { RetailSignals } from './components/RetailSignals';
-import { HomelessSignals } from './components/HomelessSignals';
+
 
 // Main Dashboard Component - Only real data, no sample data
-export default function GentrificationDashboard() {
+export default function TrendsDashboard() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
             {/* Subtle grid overlay */}
@@ -19,7 +19,7 @@ export default function GentrificationDashboard() {
                         </div>
                         <h1 className="text-xl sm:text-2xl font-bold">Trends</h1>
                     </div>
-                    <p className="text-sm text-slate-400">San Diego • Gentrification & Displacement Indicators</p>
+                    <p className="text-sm text-slate-400">San Diego • Trends & Displacement Indicators</p>
                 </div>
 
                 {/* Retail Signals */}
@@ -34,17 +34,7 @@ export default function GentrificationDashboard() {
                     <RetailSignals />
                 </div>
 
-                {/* Homeless Signals */}
-                <div className="mb-6">
-                    <div className="flex items-center justify-between mb-3">
-                        <h2 className="text-base font-semibold text-white flex items-center gap-2">
-                            <Users className="w-4 h-4 text-red-400" />
-                            Homeless Population
-                        </h2>
-                        <span className="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-400 rounded-full">Jan 2024 PIT Count</span>
-                    </div>
-                    <HomelessSignals />
-                </div>
+
 
                 {/* Footer */}
                 <div className="mt-12 pt-6 border-t border-slate-800 text-center">

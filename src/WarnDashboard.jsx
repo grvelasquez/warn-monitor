@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
-import { AlertTriangle, MapPin, Users, Calendar, TrendingDown, Building2, ChevronDown, ChevronUp, TrendingUp } from 'lucide-react';
+import { AlertTriangle, MapPin, Users, Calendar, TrendingDown, Building2, ChevronDown, ChevronUp, TrendingUp, ArrowLeft } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import NewsFeed from './NewsFeed';
+import { HomelessSignals } from './components/HomelessSignals';
 
 // Region and risk color schemes - aligned with SDAR Real Estate regions
 const regionColors = {
@@ -133,38 +133,6 @@ function RegionSummary({ region, data, onClick, isSelected }) {
     );
 }
 
-function TimelineItem({ notice }) {
-    const colors = regionColors[notice.region] || regionColors["Central San Diego"];
-    const daysUntil = Math.ceil((new Date(notice.layoff_date) - new Date()) / (1000 * 60 * 60 * 24));
-
-    return (
-        <div className="flex gap-4">
-            <div className="flex flex-col items-center">
-                <div className={`w-3 h-3 rounded-full ${colors.border.replace('border', 'bg')}`}></div>
-                <div className="w-0.5 h-full bg-slate-700"></div>
-            </div>
-            <div className="pb-6 flex-1">
-                <div className="flex items-start justify-between">
-                    <div>
-                        <p className="text-sm font-medium text-white">{notice.company_name}</p>
-                        <p className="text-xs text-slate-500">{notice.city} • {notice.zipcode}</p>
-                    </div>
-                    <div className="text-right">
-                        <p className="text-sm font-bold text-white">{notice.employees_affected}</p>
-                        <span className={`text-xs ${daysUntil <= 30 ? 'text-red-400' : daysUntil <= 60 ? 'text-yellow-400' : 'text-slate-500'}`}>
-                            {daysUntil > 0 ? `${daysUntil} days` : 'Imminent'}
-                        </span>
-                    </div>
-                </div>
-                <div className="mt-2 flex items-center gap-2">
-                    <span className={`text-xs px-2 py-0.5 rounded ${colors.bg} ${colors.text}`}>{notice.region}</span>
-                    <span className="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400">{notice.notice_type}</span>
-                </div>
-            </div>
-        </div>
-    );
-}
-
 function EmptyState() {
     return (
         <div className="text-center py-12">
@@ -179,6 +147,7 @@ function EmptyState() {
 }
 
 export default function WarnDashboard() {
+    const [activeView, setActiveView] = useState('warn');
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -187,7 +156,6 @@ export default function WarnDashboard() {
     const [unemploymentData, setUnemploymentData] = useState(null);
 
     useEffect(() => {
-        // Fetch WARN data
         fetch('/data/warn_data.json')
             .then(res => {
                 if (!res.ok) throw new Error('Failed to load data');
@@ -197,7 +165,6 @@ export default function WarnDashboard() {
             .catch(err => setError(err.message))
             .finally(() => setLoading(false));
 
-        // Fetch unemployment data
         fetch('/data/unemployment_data.json')
             .then(res => res.ok ? res.json() : null)
             .then(setUnemploymentData)
@@ -207,7 +174,6 @@ export default function WarnDashboard() {
     const sortedZipCodes = useMemo(() => {
         if (!data?.risk_scores) return [];
         const entries = Object.entries(data.risk_scores);
-
         if (sortBy === 'risk') {
             const riskOrder = { 'Critical': 0, 'High': 1, 'Moderate': 2, 'Low': 3 };
             return entries.sort((a, b) => riskOrder[a[1].risk_level] - riskOrder[b[1].risk_level]);
@@ -226,24 +192,18 @@ export default function WarnDashboard() {
         });
     }, [sortedZipCodes, selectedRegion, data?.notices]);
 
-    const upcomingLayoffs = useMemo(() => {
-        if (!data?.notices) return [];
-        return [...data.notices]
-            .filter(n => new Date(n.layoff_date) > new Date())
-            .sort((a, b) => new Date(a.layoff_date) - new Date(b.layoff_date));
-    }, [data?.notices]);
-
     const criticalCount = useMemo(() => {
         if (!data?.risk_scores) return 0;
         return Object.values(data.risk_scores).filter(r => r.risk_level === 'Critical' || r.risk_level === 'High').length;
     }, [data?.risk_scores]);
 
     const imminentCount = useMemo(() => {
-        return upcomingLayoffs.filter(n => {
+        if (!data?.notices) return 0;
+        return data.notices.filter(n => {
             const days = Math.ceil((new Date(n.layoff_date) - new Date()) / (1000 * 60 * 60 * 24));
             return days <= 30 && days > 0;
         }).length;
-    }, [upcomingLayoffs]);
+    }, [data?.notices]);
 
     if (loading) {
         return (
@@ -272,181 +232,162 @@ export default function WarnDashboard() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
-            {/* Subtle grid overlay */}
             <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-                {/* Header */}
-                <div className="flex items-start justify-between mb-8">
+                {/* Header with inline buttons */}
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-8">
                     <div>
                         <div className="flex items-center gap-3 mb-2">
+                            {activeView !== 'warn' && (
+                                <button
+                                    onClick={() => setActiveView('warn')}
+                                    className="p-2 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:bg-slate-700/50 transition-colors"
+                                >
+                                    <ArrowLeft className="w-5 h-5 text-slate-400" />
+                                </button>
+                            )}
                             <div className="p-2 bg-red-900/30 rounded-lg border border-red-800/50">
                                 <AlertTriangle className="w-6 h-6 text-red-400" />
                             </div>
-                            <h1 className="text-2xl font-bold tracking-tight">WARN Monitor</h1>
+                            <h1 className="text-2xl font-bold tracking-tight">
+                                {activeView === 'warn' ? 'WARN Monitor' : 'Homeless Population'}
+                            </h1>
                         </div>
                         <p className="text-slate-400">San Diego County • Pre-Distress Intelligence</p>
                     </div>
-                    <div className="text-right">
-                        <p className="text-xs text-slate-500">Last updated</p>
-                        <p className="text-sm text-slate-400">{data?.meta?.generated ? new Date(data.meta.generated).toLocaleDateString() : 'N/A'}</p>
-                    </div>
+
+                    {/* Navigation Buttons - Inline on right */}
+                    {activeView === 'warn' && (
+                        <div className="flex flex-wrap gap-3">
+                            <button
+                                onClick={() => setActiveView('homeless')}
+                                className="flex items-center gap-2 px-4 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-xl transition-all shadow-lg shadow-purple-900/20 group justify-center"
+                            >
+                                <div className="p-1.5 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                                    <Users className="w-5 h-5" />
+                                </div>
+                                <div className="text-left">
+                                    <p className="text-xs font-medium text-purple-200">View</p>
+                                    <p className="text-sm font-bold">Homeless Population</p>
+                                </div>
+                            </button>
+                        </div>
+                    )}
                 </div>
 
-                {/* Key Metrics */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <MetricCard
-                        icon={Building2}
-                        label="Active Notices"
-                        value={data?.meta?.total_notices || 0}
-                        subtext="In San Diego County"
-                    />
-                    <MetricCard
-                        icon={Users}
-                        label="Employees Affected"
-                        value={(data?.meta?.total_employees_affected || 0).toLocaleString()}
-                        subtext="Total displacement"
-                    />
-                    <MetricCard
-                        icon={MapPin}
-                        label="Zip Codes at Risk"
-                        value={criticalCount}
-                        subtext="High or Critical"
-                    />
-                    <MetricCard
-                        icon={Calendar}
-                        label="Next 30 Days"
-                        value={imminentCount}
-                        subtext="Imminent layoffs"
-                    />
-                </div>
-
-                {!hasData ? (
-                    <EmptyState />
-                ) : (
+                {activeView === 'warn' && (
                     <>
-                        {/* Region Summary */}
-                        {data?.by_region && Object.keys(data.by_region).length > 0 && (
-                            <div className="mb-8">
-                                <div className="flex items-center justify-between mb-4">
-                                    <h2 className="text-lg font-semibold flex items-center gap-2">
-                                        <TrendingDown className="w-5 h-5 text-slate-500" />
-                                        Impact by Region
-                                        <span className="text-xs text-slate-500 font-normal">(click to filter)</span>
-                                    </h2>
-                                    {selectedRegion !== 'all' && (
-                                        <button
-                                            onClick={() => setSelectedRegion('all')}
-                                            className="text-xs text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-700/50 hover:bg-slate-700"
-                                        >
-                                            Clear filter
-                                        </button>
-                                    )}
+                        {/* Unemployment Chart */}
+                        {unemploymentData && (
+                            <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 mb-8">
+                                <div className="flex items-center justify-between mb-6">
+                                    <div className="flex items-center gap-2">
+                                        <TrendingUp className="w-5 h-5 text-amber-500" />
+                                        <h3 className="text-lg font-semibold text-white">San Diego Unemployment Trend</h3>
+                                    </div>
+                                    <div className="text-right">
+                                        <span className="text-3xl font-bold text-amber-400">{unemploymentData.currentRate}%</span>
+                                        <p className="text-sm text-slate-500">Current Rate</p>
+                                    </div>
                                 </div>
-                                <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
-                                    {Object.entries(data.by_region).map(([region, regionData]) => (
-                                        <RegionSummary
-                                            key={region}
-                                            region={region}
-                                            data={regionData}
-                                            onClick={() => setSelectedRegion(selectedRegion === region ? 'all' : region)}
-                                            isSelected={selectedRegion === region}
+                                <ResponsiveContainer width="100%" height={200}>
+                                    <AreaChart data={unemploymentData.history.slice(-24).map(d => ({ ...d, month: d.date.split('-')[1] + '/' + d.date.split('-')[0].slice(2) }))}>
+                                        <defs>
+                                            <linearGradient id="unemploymentGradient" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3} />
+                                                <stop offset="95%" stopColor="#f59e0b" stopOpacity={0} />
+                                            </linearGradient>
+                                        </defs>
+                                        <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                                        <XAxis dataKey="month" stroke="#64748b" fontSize={11} />
+                                        <YAxis domain={['auto', 'auto']} stroke="#64748b" fontSize={11} tickFormatter={v => `${v}%`} />
+                                        <Tooltip
+                                            contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', fontSize: '12px' }}
+                                            formatter={(value) => [`${value}%`, 'Rate']}
                                         />
-                                    ))}
-                                </div>
+                                        <Area type="monotone" dataKey="rate" stroke="#f59e0b" fill="url(#unemploymentGradient)" strokeWidth={2} />
+                                    </AreaChart>
+                                </ResponsiveContainer>
+                                <p className="text-xs text-slate-600 text-center mt-2">Source: FRED (CASAND5URN) • Updated Monthly</p>
                             </div>
                         )}
 
-                        <div className="grid md:grid-cols-3 gap-8">
-                            {/* Zip Code Risk List */}
-                            <div className="md:col-span-2">
-                                <div className="flex items-center justify-between mb-4">
-                                    <h2 className="text-lg font-semibold flex items-center gap-2">
-                                        <MapPin className="w-5 h-5 text-slate-500" />
-                                        Zip Code Risk Analysis
-                                    </h2>
-                                    <div className="flex gap-2">
-                                        <select
-                                            value={selectedRegion}
-                                            onChange={(e) => setSelectedRegion(e.target.value)}
-                                            className="text-sm bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-300"
-                                        >
-                                            <option value="all">All Regions</option>
-                                            {data?.by_region && Object.keys(data.by_region).map(region => (
-                                                <option key={region} value={region}>{region}</option>
-                                            ))}
-                                        </select>
-                                        <select
-                                            value={sortBy}
-                                            onChange={(e) => setSortBy(e.target.value)}
-                                            className="text-sm bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-300"
-                                        >
-                                            <option value="risk">Sort by Risk</option>
-                                            <option value="employees">Sort by Employees</option>
-                                            <option value="zipcode">Sort by Zip Code</option>
-                                        </select>
-                                    </div>
-                                </div>
+                        {/* Key Metrics */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                            <MetricCard icon={Building2} label="Active Notices" value={data?.meta?.total_notices || 0} subtext="In San Diego County" />
+                            <MetricCard icon={Users} label="Employees Affected" value={(data?.meta?.total_employees_affected || 0).toLocaleString()} subtext="Total displacement" />
+                            <MetricCard icon={MapPin} label="Zip Codes at Risk" value={criticalCount} subtext="High or Critical" />
+                            <MetricCard icon={Calendar} label="Next 30 Days" value={imminentCount} subtext="Imminent layoffs" />
+                        </div>
 
-                                <div className="space-y-3">
-                                    {filteredZipCodes.map(([zipcode, riskData]) => (
-                                        <ZipCodeCard
-                                            key={zipcode}
-                                            zipcode={zipcode}
-                                            data={riskData}
-                                            notices={data.notices}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* News Feed */}
-                            <div className="space-y-6">
-                                {/* Unemployment Chart */}
-                                {unemploymentData && (
-                                    <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
+                        {!hasData ? (
+                            <EmptyState />
+                        ) : (
+                            <>
+                                {data?.by_region && Object.keys(data.by_region).length > 0 && (
+                                    <div className="mb-8">
                                         <div className="flex items-center justify-between mb-4">
-                                            <div className="flex items-center gap-2">
-                                                <TrendingUp className="w-4 h-4 text-amber-500" />
-                                                <h3 className="text-sm font-semibold text-white">SD Unemployment</h3>
-                                            </div>
-                                            <div className="text-right">
-                                                <span className="text-2xl font-bold text-amber-400">{unemploymentData.currentRate}%</span>
-                                                <p className="text-[10px] text-slate-500">Current Rate</p>
-                                            </div>
+                                            <h2 className="text-lg font-semibold flex items-center gap-2">
+                                                <TrendingDown className="w-5 h-5 text-slate-500" />
+                                                Impact by Region
+                                                <span className="text-xs text-slate-500 font-normal">(click to filter)</span>
+                                            </h2>
+                                            {selectedRegion !== 'all' && (
+                                                <button onClick={() => setSelectedRegion('all')} className="text-xs text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-700/50 hover:bg-slate-700">
+                                                    Clear filter
+                                                </button>
+                                            )}
                                         </div>
-                                        <ResponsiveContainer width="100%" height={150}>
-                                            <AreaChart data={unemploymentData.history.slice(-12).map(d => ({ ...d, month: d.date.split('-')[1] + '/' + d.date.split('-')[0].slice(2) }))}>
-                                                <defs>
-                                                    <linearGradient id="unemploymentGradient" x1="0" y1="0" x2="0" y2="1">
-                                                        <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3} />
-                                                        <stop offset="95%" stopColor="#f59e0b" stopOpacity={0} />
-                                                    </linearGradient>
-                                                </defs>
-                                                <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-                                                <XAxis dataKey="month" stroke="#64748b" fontSize={10} />
-                                                <YAxis domain={['auto', 'auto']} stroke="#64748b" fontSize={10} tickFormatter={v => `${v}%`} />
-                                                <Tooltip
-                                                    contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', fontSize: '12px' }}
-                                                    formatter={(value) => [`${value}%`, 'Rate']}
-                                                />
-                                                <Area type="monotone" dataKey="rate" stroke="#f59e0b" fill="url(#unemploymentGradient)" strokeWidth={2} />
-                                            </AreaChart>
-                                        </ResponsiveContainer>
-                                        <p className="text-[10px] text-slate-600 text-center mt-2">Source: FRED (CASAND5URN)</p>
+                                        <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+                                            {Object.entries(data.by_region).map(([region, regionData]) => (
+                                                <RegionSummary key={region} region={region} data={regionData} onClick={() => setSelectedRegion(selectedRegion === region ? 'all' : region)} isSelected={selectedRegion === region} />
+                                            ))}
+                                        </div>
                                     </div>
                                 )}
-                                <NewsFeed />
-                            </div>
-                        </div>
+
+                                <div>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <h2 className="text-lg font-semibold flex items-center gap-2">
+                                            <MapPin className="w-5 h-5 text-slate-500" />
+                                            Zip Code Risk Analysis
+                                        </h2>
+                                        <div className="flex gap-2">
+                                            <select value={selectedRegion} onChange={(e) => setSelectedRegion(e.target.value)} className="text-sm bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-300">
+                                                <option value="all">All Regions</option>
+                                                {data?.by_region && Object.keys(data.by_region).map(region => (<option key={region} value={region}>{region}</option>))}
+                                            </select>
+                                            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="text-sm bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-300">
+                                                <option value="risk">Sort by Risk</option>
+                                                <option value="employees">Sort by Employees</option>
+                                                <option value="zipcode">Sort by Zip Code</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className="grid md:grid-cols-2 gap-3">
+                                        {filteredZipCodes.map(([zipcode, riskData]) => (
+                                            <ZipCodeCard key={zipcode} zipcode={zipcode} data={riskData} notices={data.notices} />
+                                        ))}
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </>
+                )}
+
+                {activeView === 'homeless' && (
+                    <div className="max-w-5xl mx-auto">
+                        <div className="mb-6">
+                            <span className="text-sm px-2 py-0.5 bg-slate-700 text-slate-300 rounded-full">Jan 2024 PIT Count</span>
+                        </div>
+                        <HomelessSignals />
+                    </div>
                 )}
 
                 {/* Footer */}
                 <div className="mt-12 pt-6 border-t border-slate-800 text-center">
-                    <p className="text-xs text-slate-600">
-                        Threshold Advisory Group • Pre-Distress Intelligence Platform
-                    </p>
+                    <p className="text-xs text-slate-600">Threshold Advisory Group • Pre-Distress Intelligence Platform</p>
                 </div>
             </div>
         </div>

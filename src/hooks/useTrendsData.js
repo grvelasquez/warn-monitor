@@ -160,7 +160,7 @@ function calculateDisplacementRisk(priceVelocity, enrollmentVelocity) {
 /**
  * Custom hook for fetching and processing gentrification data
  */
-export function useGentrificationData(selectedDistrictId = "SD_unified") {
+export function useTrendsData(selectedDistrictId = "SD_unified") {
     const [rawData, setRawData] = useState([]);
     const [districts, setDistricts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -247,4 +247,4 @@ export function useGentrificationData(selectedDistrictId = "SD_unified") {
     };
 }
 
-export default useGentrificationData;
+export default useTrendsData;

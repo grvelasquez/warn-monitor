@@ -5,7 +5,7 @@ import SDARDashboard from './SDARDashboard';
 import LendingDashboard from './LendingDashboard';
 import DevelopmentDashboard from './DevelopmentDashboard';
 import WeatherDashboard from './WeatherDashboard';
-import GentrificationDashboard from './GentrificationDashboard';
+import TrendsDashboard from './TrendsDashboard';
 import NeighborhoodEvolution from './NeighborhoodEvolution';
 import MapDashboard from './MapDashboard';
 import VotingDashboard from './VotingDashboard';
@@ -94,8 +94,8 @@ export default function App() {
                   <span className="hidden sm:inline">Development</span>
                 </button>
                 <button
-                  onClick={() => setActiveView('gentrification')}
-                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'gentrification'
+                  onClick={() => setActiveView('trends')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'trends'
                     ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/25'
                     : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                     }`}
@@ -164,8 +164,8 @@ export default function App() {
       <div className={activeView === 'development' ? 'block' : 'hidden'}>
         <DevelopmentDashboard />
       </div>
-      <div className={activeView === 'gentrification' ? 'block' : 'hidden'}>
-        <GentrificationDashboard />
+      <div className={activeView === 'trends' ? 'block' : 'hidden'}>
+        <TrendsDashboard />
       </div>
       <div className={activeView === 'neighborhoods' ? 'block' : 'hidden'}>
         <NeighborhoodEvolution setActiveView={setActiveView} />
