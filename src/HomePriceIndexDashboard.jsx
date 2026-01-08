@@ -107,8 +107,14 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                         <p className="text-slate-400">S&P CoreLogic Case-Shiller • California Metro Comparison</p>
                     </div>
                     <div className="text-right">
-                        <p className="text-xs text-slate-500">Data as of</p>
-                        <p className="text-sm text-slate-400">{homePriceData?.current?.notSeasonallyAdjusted?.date || 'Loading...'}</p>
+                        <div className="mb-2">
+                            <p className="text-xs text-slate-500">Data as of</p>
+                            <p className="text-sm text-slate-400 font-medium">{homePriceData?.current?.notSeasonallyAdjusted?.date || 'Loading...'}</p>
+                        </div>
+                        <div>
+                            <p className="text-xs text-slate-500">Next Update</p>
+                            <p className="text-sm text-slate-400 font-medium">Jan 27, 2026</p>
+                        </div>
                     </div>
                 </div>
 
@@ -130,6 +136,71 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                     </div>
                 </div>
 
+                {/* Main Chart - All NSA */}
+                <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 mb-8">
+                    <div className="flex items-center justify-between mb-6">
+                        <h2 className="text-lg font-semibold flex items-center gap-2">
+                            <BarChart3 className="w-5 h-5 text-orange-400" />
+                            Case-Shiller Home Price Index Comparison
+                        </h2>
+                        <span className="text-xs text-slate-500">Not Seasonally Adjusted • Jan 2000 = 100</span>
+                    </div>
+
+                    {/* Legend */}
+                    <div className="flex flex-wrap gap-4 text-xs mb-4">
+                        <span className="flex items-center gap-1"><span className="w-3 h-3 bg-orange-500 rounded-full"></span>San Diego</span>
+                        <span className="flex items-center gap-1"><span className="w-3 h-3 bg-amber-400 rounded-full"></span>Los Angeles</span>
+                        <span className="flex items-center gap-1"><span className="w-3 h-3 bg-purple-500 rounded-full"></span>San Francisco</span>
+                        <span className="flex items-center gap-1"><span className="w-3 h-3 bg-teal-500 rounded-full"></span>U.S. National</span>
+                    </div>
+
+                    {combinedChartData.length > 0 && (
+                        <ResponsiveContainer width="100%" height={350}>
+                            <AreaChart data={combinedChartData}>
+                                <defs>
+                                    <linearGradient id="colorSd" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="5%" stopColor="#f97316" stopOpacity={0.3} />
+                                        <stop offset="95%" stopColor="#f97316" stopOpacity={0} />
+                                    </linearGradient>
+                                    <linearGradient id="colorLa" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="5%" stopColor="#fbbf24" stopOpacity={0.2} />
+                                        <stop offset="95%" stopColor="#fbbf24" stopOpacity={0} />
+                                    </linearGradient>
+                                    <linearGradient id="colorSf" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="5%" stopColor="#a855f7" stopOpacity={0.2} />
+                                        <stop offset="95%" stopColor="#a855f7" stopOpacity={0} />
+                                    </linearGradient>
+                                    <linearGradient id="colorUs" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.2} />
+                                        <stop offset="95%" stopColor="#14b8a6" stopOpacity={0} />
+                                    </linearGradient>
+                                </defs>
+                                <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                                <XAxis dataKey="month" stroke="#64748b" fontSize={10} />
+                                <YAxis domain={['auto', 'auto']} stroke="#64748b" fontSize={10} />
+                                <Tooltip
+                                    contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }}
+                                    labelStyle={{ color: '#94a3b8' }}
+                                    formatter={(value, name) => {
+                                        const labels = {
+                                            sd: 'San Diego',
+                                            la: 'Los Angeles',
+                                            sf: 'San Francisco',
+                                            us: 'U.S. National'
+                                        };
+                                        return value ? [value.toFixed(1), labels[name] || name] : ['N/A', name];
+                                    }}
+                                />
+                                <Area type="monotone" dataKey="sd" stroke="#f97316" strokeWidth={2} fill="url(#colorSd)" name="sd" connectNulls />
+                                <Area type="monotone" dataKey="la" stroke="#fbbf24" strokeWidth={2} fill="url(#colorLa)" name="la" connectNulls />
+                                <Area type="monotone" dataKey="sf" stroke="#a855f7" strokeWidth={2} fill="url(#colorSf)" name="sf" connectNulls />
+                                <Area type="monotone" dataKey="us" stroke="#14b8a6" strokeWidth={2} fill="url(#colorUs)" name="us" connectNulls />
+                            </AreaChart>
+                        </ResponsiveContainer>
+                    )}
+                </div>
+
+                <h3 className="text-lg font-semibold text-white mb-4">Current Values (Not Seasonally Adjusted)</h3>
                 {/* Current Values Cards - 4 columns - All NSA */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     {/* San Diego */}
@@ -211,137 +282,88 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                     </div>
                 </div>
 
-                {/* Main Chart - All NSA */}
-                <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 mb-8">
-                    <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-lg font-semibold flex items-center gap-2">
-                            <BarChart3 className="w-5 h-5 text-orange-400" />
-                            Case-Shiller Home Price Index Comparison
-                        </h2>
-                        <span className="text-xs text-slate-500">Not Seasonally Adjusted • Jan 2000 = 100</span>
-                    </div>
 
-                    {/* Legend */}
-                    <div className="flex flex-wrap gap-4 text-xs mb-4">
-                        <span className="flex items-center gap-1"><span className="w-3 h-3 bg-orange-500 rounded-full"></span>San Diego</span>
-                        <span className="flex items-center gap-1"><span className="w-3 h-3 bg-amber-400 rounded-full"></span>Los Angeles</span>
-                        <span className="flex items-center gap-1"><span className="w-3 h-3 bg-purple-500 rounded-full"></span>San Francisco</span>
-                        <span className="flex items-center gap-1"><span className="w-3 h-3 bg-teal-500 rounded-full"></span>U.S. National</span>
-                    </div>
 
-                    {combinedChartData.length > 0 && (
-                        <ResponsiveContainer width="100%" height={350}>
-                            <AreaChart data={combinedChartData}>
-                                <defs>
-                                    <linearGradient id="colorSd" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%" stopColor="#f97316" stopOpacity={0.3} />
-                                        <stop offset="95%" stopColor="#f97316" stopOpacity={0} />
-                                    </linearGradient>
-                                    <linearGradient id="colorLa" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%" stopColor="#fbbf24" stopOpacity={0.2} />
-                                        <stop offset="95%" stopColor="#fbbf24" stopOpacity={0} />
-                                    </linearGradient>
-                                    <linearGradient id="colorSf" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%" stopColor="#a855f7" stopOpacity={0.2} />
-                                        <stop offset="95%" stopColor="#a855f7" stopOpacity={0} />
-                                    </linearGradient>
-                                    <linearGradient id="colorUs" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.2} />
-                                        <stop offset="95%" stopColor="#14b8a6" stopOpacity={0} />
-                                    </linearGradient>
-                                </defs>
-                                <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-                                <XAxis dataKey="month" stroke="#64748b" fontSize={10} />
-                                <YAxis domain={['auto', 'auto']} stroke="#64748b" fontSize={10} />
-                                <Tooltip
-                                    contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }}
-                                    labelStyle={{ color: '#94a3b8' }}
-                                    formatter={(value, name) => {
-                                        const labels = {
-                                            sd: 'San Diego',
-                                            la: 'Los Angeles',
-                                            sf: 'San Francisco',
-                                            us: 'U.S. National'
-                                        };
-                                        return value ? [value.toFixed(1), labels[name] || name] : ['N/A', name];
-                                    }}
-                                />
-                                <Area type="monotone" dataKey="sd" stroke="#f97316" strokeWidth={2} fill="url(#colorSd)" name="sd" connectNulls />
-                                <Area type="monotone" dataKey="la" stroke="#fbbf24" strokeWidth={2} fill="url(#colorLa)" name="la" connectNulls />
-                                <Area type="monotone" dataKey="sf" stroke="#a855f7" strokeWidth={2} fill="url(#colorSf)" name="sf" connectNulls />
-                                <Area type="monotone" dataKey="us" stroke="#14b8a6" strokeWidth={2} fill="url(#colorUs)" name="us" connectNulls />
-                            </AreaChart>
-                        </ResponsiveContainer>
-                    )}
-                </div>
-
-                {/* Year-over-Year Comparison */}
+                {/* Seasonally Adjusted Cards */}
+                <h3 className="text-lg font-semibold text-white mb-4">Seasonally Adjusted (SA)</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    {/* San Diego */}
-                    <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
-                        <h3 className="text-sm font-semibold text-orange-400 mb-3">San Diego</h3>
-                        <div className="bg-slate-800/50 rounded-lg p-3">
-                            <p className="text-xs text-slate-500 uppercase tracking-wide">Year-over-Year</p>
-                            <div className="flex items-center gap-2">
-                                <p className={`text-xl font-bold ${homePriceData?.changes?.yearOverYear?.nsa >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                                    {homePriceData?.changes?.yearOverYear?.nsa >= 0 ? '+' : ''}{homePriceData?.changes?.yearOverYear?.nsa}%
-                                </p>
-                                {homePriceData?.changes?.yearOverYear?.nsa >= 0 ?
-                                    <TrendingUp className="w-4 h-4 text-green-400" /> :
-                                    <TrendingDown className="w-4 h-4 text-red-400" />
-                                }
-                            </div>
+                    {/* San Diego SA */}
+                    <div className="bg-orange-900/10 border border-orange-700/30 rounded-xl p-4">
+                        <p className="text-xs text-orange-400 uppercase tracking-wide font-bold mb-1">San Diego</p>
+                        <p className="text-2xl font-bold text-orange-400">{homePriceData?.current?.seasonallyAdjusted?.value?.toFixed(1) || 'N/A'}</p>
+                        <div className="flex items-center gap-2 mt-2 flex-wrap">
+                            {homePriceData?.changes?.yearOverYear?.sa >= 0 ? (
+                                <span className="text-xs px-2 py-0.5 rounded bg-green-500/20 text-green-400 flex items-center gap-1">
+                                    <TrendingUp className="w-3 h-3" />
+                                    +{homePriceData?.changes?.yearOverYear?.sa}% YoY
+                                </span>
+                            ) : (
+                                <span className="text-xs px-2 py-0.5 rounded bg-red-500/20 text-red-400 flex items-center gap-1">
+                                    <TrendingDown className="w-3 h-3" />
+                                    {homePriceData?.changes?.yearOverYear?.sa}% YoY
+                                </span>
+                            )}
                         </div>
                     </div>
 
-                    {/* Los Angeles */}
-                    <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
-                        <h3 className="text-sm font-semibold text-amber-400 mb-3">Los Angeles</h3>
-                        <div className="bg-slate-800/50 rounded-lg p-3">
-                            <p className="text-xs text-slate-500 uppercase tracking-wide">Year-over-Year</p>
-                            <div className="flex items-center gap-2">
-                                <p className={`text-xl font-bold ${laHomePriceData?.changes?.yearOverYear?.nsa >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                                    {laHomePriceData?.changes?.yearOverYear?.nsa >= 0 ? '+' : ''}{laHomePriceData?.changes?.yearOverYear?.nsa}%
-                                </p>
-                                {laHomePriceData?.changes?.yearOverYear?.nsa >= 0 ?
-                                    <TrendingUp className="w-4 h-4 text-green-400" /> :
-                                    <TrendingDown className="w-4 h-4 text-red-400" />
-                                }
-                            </div>
+                    {/* Los Angeles SA */}
+                    <div className="bg-amber-900/10 border border-amber-700/30 rounded-xl p-4">
+                        <p className="text-xs text-amber-400 uppercase tracking-wide font-bold mb-1">Los Angeles</p>
+                        <p className="text-2xl font-bold text-amber-400">{laHomePriceData?.current?.seasonallyAdjusted?.value?.toFixed(1) || 'N/A'}</p>
+                        <div className="flex items-center gap-2 mt-2 flex-wrap">
+                            {laHomePriceData?.changes?.yearOverYear?.sa !== undefined && (
+                                laHomePriceData?.changes?.yearOverYear?.sa >= 0 ? (
+                                    <span className="text-xs px-2 py-0.5 rounded bg-green-500/20 text-green-400 flex items-center gap-1">
+                                        <TrendingUp className="w-3 h-3" />
+                                        +{laHomePriceData?.changes?.yearOverYear?.sa}% YoY
+                                    </span>
+                                ) : (
+                                    <span className="text-xs px-2 py-0.5 rounded bg-red-500/20 text-red-400 flex items-center gap-1">
+                                        <TrendingDown className="w-3 h-3" />
+                                        {laHomePriceData?.changes?.yearOverYear?.sa}% YoY
+                                    </span>
+                                )
+                            )}
                         </div>
                     </div>
 
-                    {/* San Francisco */}
-                    <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
-                        <h3 className="text-sm font-semibold text-purple-400 mb-3">San Francisco</h3>
-                        <div className="bg-slate-800/50 rounded-lg p-3">
-                            <p className="text-xs text-slate-500 uppercase tracking-wide">Year-over-Year</p>
-                            <div className="flex items-center gap-2">
-                                <p className={`text-xl font-bold ${sfHomePriceData?.changes?.yearOverYear?.nsa >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                                    {sfHomePriceData?.changes?.yearOverYear?.nsa >= 0 ? '+' : ''}{sfHomePriceData?.changes?.yearOverYear?.nsa || 'N/A'}%
-                                </p>
-                                {sfHomePriceData?.changes?.yearOverYear?.nsa >= 0 ?
-                                    <TrendingUp className="w-4 h-4 text-green-400" /> :
-                                    <TrendingDown className="w-4 h-4 text-red-400" />
-                                }
-                            </div>
+                    {/* San Francisco SA */}
+                    <div className="bg-purple-900/10 border border-purple-700/30 rounded-xl p-4">
+                        <p className="text-xs text-purple-400 uppercase tracking-wide font-bold mb-1">San Francisco</p>
+                        <p className="text-2xl font-bold text-purple-400">{sfHomePriceData?.current?.seasonallyAdjusted?.value?.toFixed(1) || 'N/A'}</p>
+                        <div className="flex items-center gap-2 mt-2 flex-wrap">
+                            {sfHomePriceData?.changes?.yearOverYear?.sa !== undefined && (
+                                sfHomePriceData?.changes?.yearOverYear?.sa >= 0 ? (
+                                    <span className="text-xs px-2 py-0.5 rounded bg-green-500/20 text-green-400 flex items-center gap-1">
+                                        <TrendingUp className="w-3 h-3" />
+                                        +{sfHomePriceData?.changes?.yearOverYear?.sa}% YoY
+                                    </span>
+                                ) : (
+                                    <span className="text-xs px-2 py-0.5 rounded bg-red-500/20 text-red-400 flex items-center gap-1">
+                                        <TrendingDown className="w-3 h-3" />
+                                        {sfHomePriceData?.changes?.yearOverYear?.sa}% YoY
+                                    </span>
+                                )
+                            )}
                         </div>
                     </div>
 
-                    {/* U.S. National */}
-                    <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
-                        <h3 className="text-sm font-semibold text-teal-400 mb-3">U.S. National</h3>
-                        <div className="bg-slate-800/50 rounded-lg p-3">
-                            <p className="text-xs text-slate-500 uppercase tracking-wide">Year-over-Year</p>
-                            <div className="flex items-center gap-2">
-                                <p className={`text-xl font-bold ${usHomePriceData?.changes?.yearOverYear?.nsa >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                                    {usHomePriceData?.changes?.yearOverYear?.nsa >= 0 ? '+' : ''}{usHomePriceData?.changes?.yearOverYear?.nsa}%
-                                </p>
-                                {usHomePriceData?.changes?.yearOverYear?.nsa >= 0 ?
-                                    <TrendingUp className="w-4 h-4 text-green-400" /> :
-                                    <TrendingDown className="w-4 h-4 text-red-400" />
-                                }
-                            </div>
+                    {/* US National SA */}
+                    <div className="bg-teal-900/10 border border-teal-700/30 rounded-xl p-4">
+                        <p className="text-xs text-teal-400 uppercase tracking-wide font-bold mb-1">U.S. National</p>
+                        <p className="text-2xl font-bold text-teal-400">{usHomePriceData?.current?.seasonallyAdjusted?.value?.toFixed(1) || 'N/A'}</p>
+                        <div className="flex items-center gap-2 mt-2 flex-wrap">
+                            {usHomePriceData?.changes?.yearOverYear?.sa >= 0 ? (
+                                <span className="text-xs px-2 py-0.5 rounded bg-green-500/20 text-green-400 flex items-center gap-1">
+                                    <TrendingUp className="w-3 h-3" />
+                                    +{usHomePriceData?.changes?.yearOverYear?.sa}% YoY
+                                </span>
+                            ) : (
+                                <span className="text-xs px-2 py-0.5 rounded bg-red-500/20 text-red-400 flex items-center gap-1">
+                                    <TrendingDown className="w-3 h-3" />
+                                    {usHomePriceData?.changes?.yearOverYear?.sa}% YoY
+                                </span>
+                            )}
                         </div>
                     </div>
                 </div>
