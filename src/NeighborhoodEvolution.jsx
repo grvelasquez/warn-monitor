@@ -371,14 +371,14 @@ export default function NeighborhoodEvolution({ setActiveView }) {
                                             const match = sdarData.neighborhoods.find(n => n.zip_code === area.zips[0]);
                                             if (match) {
                                                 setSelectedNeighborhood(match);
-                                                setActiveView('details');
+                                                setActiveViewLocal('details');
                                             } else {
                                                 setSelectedNeighborhood(null);
                                             }
                                         }
                                     } else {
                                         setSelectedNeighborhood(null);
-                                        setActiveView('overview');
+                                        setActiveViewLocal('overview');
                                     }
                                 }}
                                 disabled={availableAreas.length === 0}
@@ -425,7 +425,7 @@ export default function NeighborhoodEvolution({ setActiveView }) {
                 {/* View Toggle */}
                 <div className="flex gap-2 mb-6">
                     <button
-                        onClick={() => setActiveView('overview')}
+                        onClick={() => setActiveViewLocal('overview')}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeView === 'overview' ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
                             }`}
                     >
@@ -434,7 +434,7 @@ export default function NeighborhoodEvolution({ setActiveView }) {
 
                     {selectedNeighborhood && (
                         <button
-                            onClick={() => setActiveView('details')}
+                            onClick={() => setActiveViewLocal('details')}
                             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeView === 'details' ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
                                 }`}
                         >
