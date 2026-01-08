@@ -331,7 +331,7 @@ export default function SDARDashboard({ setActiveView }) {
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
                 {/* Header */}
-                <div className="flex items-start justify-between mb-8">
+                <div className="flex flex-wrap items-start justify-between mb-8 gap-4">
                     <div>
                         <div className="flex items-center gap-3 mb-2">
                             <div className="p-2 bg-blue-900/30 rounded-lg border border-blue-800/50">
@@ -355,7 +355,7 @@ export default function SDARDashboard({ setActiveView }) {
                     </div>
 
                     {/* Sub-Navigation */}
-                    <div className="flex gap-3 mb-6">
+                    <div className="flex flex-wrap gap-3 mb-6">
                         <button
                             onClick={() => setActiveView('neighborhoods')}
                             className="flex items-center gap-2 px-4 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-all shadow-lg shadow-indigo-900/20 group flex-1 sm:flex-none justify-center"

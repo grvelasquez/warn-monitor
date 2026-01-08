@@ -42,9 +42,9 @@ const CANDIDATE_PARTIES = {
     'La Riva': 'Other',
     // 2016
     'Clinton': 'Democrat',
-    'Trump': 'Republican',
+    // 'Trump': 'Republican', // Defined in 2024
     'Johnson': 'Libertarian',
-    'Stein': 'Green',
+    // 'Stein': 'Green', // Defined in 2024
     // 2012
     'Obama': 'Democrat',
     'Romney': 'Republican',
