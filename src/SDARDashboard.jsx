@@ -33,7 +33,7 @@ const DEFAULT_NEIGHBORHOOD_DATA = {
     }
 };
 
-import { MapPin, Map as MapIcon } from 'lucide-react';
+import { MapPin, Map as MapIcon, BarChart3 } from 'lucide-react';
 
 export default function SDARDashboard({ setActiveView }) {
     const [activeTab, setActiveTab] = useState('ai summary');
@@ -378,6 +378,18 @@ export default function SDARDashboard({ setActiveView }) {
                             <div className="text-left">
                                 <p className="text-xs font-medium text-cyan-200">View</p>
                                 <p className="text-sm font-bold">Interactive Map</p>
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setActiveView('homepriceindex')}
+                            className="flex items-center gap-2 px-4 py-3 bg-orange-600 hover:bg-orange-500 text-white rounded-xl transition-all shadow-lg shadow-orange-900/20 group flex-1 sm:flex-none justify-center"
+                        >
+                            <div className="p-1.5 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                                <BarChart3 className="w-5 h-5" />
+                            </div>
+                            <div className="text-left">
+                                <p className="text-xs font-medium text-orange-200">View</p>
+                                <p className="text-sm font-bold">Home Price Index</p>
                             </div>
                         </button>
                     </div>

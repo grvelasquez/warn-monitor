@@ -25,6 +25,18 @@ US_HOME_PRICE_SERIES = {
     "CSUSHPINSA": {"name": "Not Seasonally Adjusted", "key": "nsa"},
 }
 
+# Los Angeles Home Price Index series (Case-Shiller) - California comparison
+LA_HOME_PRICE_SERIES = {
+    "LXXRSA": {"name": "Seasonally Adjusted", "key": "sa"},
+    "LXXRNSA": {"name": "Not Seasonally Adjusted", "key": "nsa"},
+}
+
+# San Francisco Home Price Index series (Case-Shiller)
+SF_HOME_PRICE_SERIES = {
+    "SFXRSA": {"name": "Seasonally Adjusted", "key": "sa"},
+    "SFXRNSA": {"name": "Not Seasonally Adjusted", "key": "nsa"},
+}
+
 
 def fetch_fred_series(series_id: str, limit: int = 60) -> list:
     """Fetch observations from FRED API for a given series."""
@@ -175,6 +187,26 @@ def main():
         save_data(us_data, str(base_path / "us_home_price_index.json"))
         print(f"\nUS National SA Index: {us_data['current']['seasonallyAdjusted']['value']}")
         print(f"US National YoY Change (SA): {us_data['changes']['yearOverYear']['sa']}%")
+    
+    # Fetch Los Angeles HPI (for California comparison)
+    la_data = fetch_home_price_data(
+        "LXXRSA", "LXXRNSA",
+        "S&P CoreLogic Case-Shiller CA-Los Angeles Home Price Index (Jan 2000 = 100)"
+    )
+    if la_data:
+        save_data(la_data, str(base_path / "la_home_price_index.json"))
+        print(f"\nLos Angeles SA Index: {la_data['current']['seasonallyAdjusted']['value']}")
+        print(f"Los Angeles YoY Change (SA): {la_data['changes']['yearOverYear']['sa']}%")
+    
+    # Fetch San Francisco HPI (Case-Shiller)
+    sf_data = fetch_home_price_data(
+        "SFXRSA", "SFXRNSA",
+        "S&P CoreLogic Case-Shiller CA-San Francisco Home Price Index (Jan 2000 = 100)"
+    )
+    if sf_data:
+        save_data(sf_data, str(base_path / "sf_home_price_index.json"))
+        print(f"\nSan Francisco SA Index: {sf_data['current']['seasonallyAdjusted']['value']}")
+        print(f"San Francisco YoY Change (SA): {sf_data['changes']['yearOverYear']['sa']}%")
 
 
 if __name__ == "__main__":

@@ -12,6 +12,7 @@ import VotingDashboard from './VotingDashboard';
 import LenderMediatedDashboard from './LenderMediatedDashboard';
 import SupplyDashboard from './SupplyDashboard';
 import ADUDashboard from './ADUDashboard';
+import HomePriceIndexDashboard from './HomePriceIndexDashboard';
 
 
 export default function App() {
@@ -44,7 +45,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => setActiveView('realestate')}
-                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${['realestate', 'neighborhoods', 'map'].includes(activeView)
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${['realestate', 'neighborhoods', 'map', 'homepriceindex'].includes(activeView)
                     ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25'
                     : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                     }`}
@@ -182,6 +183,11 @@ export default function App() {
       {activeView === 'adu' && (
         <div className="block">
           <ADUDashboard />
+        </div>
+      )}
+      {activeView === 'homepriceindex' && (
+        <div className="block">
+          <HomePriceIndexDashboard setActiveView={setActiveView} />
         </div>
       )}
 
