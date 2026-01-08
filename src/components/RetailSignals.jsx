@@ -364,9 +364,7 @@ export function RetailSignals({ className = "" }) {
                         <div className="text-slate-400 text-[10px] uppercase tracking-wider mb-1 flex items-center gap-1.5">
                             <Star className="w-3 h-3 text-purple-400" /> Hot Sector
                         </div>
-                        <div className="text-xl font-bold text-white flex items-center gap-2">
-                            Specialty Coffee <span className="text-[10px] text-purple-300 bg-purple-900/40 px-1.5 py-0.5 rounded border border-purple-500/30">High Growth</span>
-                        </div>
+                        <div className="text-xl font-bold text-white">Specialty Coffee</div>
                     </div>
                 </div>
             </div>
@@ -405,7 +403,7 @@ export function RetailSignals({ className = "" }) {
             </div>
 
             {/* Neighborhoods Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-start">
                 {displayedNeighborhoods.map((n) => (
                     <NeighborhoodCard key={n.name} neighborhood={n} filterCategory={filterCategory} />
                 ))}

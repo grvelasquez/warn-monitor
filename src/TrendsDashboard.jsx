@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BarChart3, Store, Users } from 'lucide-react';
+import { BarChart3, Store, Users, Construction } from 'lucide-react';
 import { RetailSignals } from './components/RetailSignals';
 
 
@@ -17,9 +17,13 @@ export default function TrendsDashboard() {
                         <div className="p-2 bg-purple-900/30 rounded-lg border border-purple-800/50">
                             <BarChart3 className="w-5 h-5 text-purple-400" />
                         </div>
-                        <h1 className="text-xl sm:text-2xl font-bold">Trends</h1>
+                        <h1 className="text-xl sm:text-2xl font-bold">Trends and Market Signals</h1>
+                        <span className="flex items-center gap-1 text-xs px-2 py-1 bg-amber-900/40 text-amber-400 rounded-full border border-amber-700/50">
+                            <Construction className="w-3 h-3" />
+                            Under Construction
+                        </span>
                     </div>
-                    <p className="text-sm text-slate-400">San Diego • Trends & Displacement Indicators</p>
+                    <p className="text-sm text-slate-400">San Diego • Trends & Market Signals</p>
                 </div>
 
                 {/* Retail Signals */}
