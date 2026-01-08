@@ -50,8 +50,17 @@ function InputSlider({ label, value, onChange, min, max, step = 1, prefix = '', 
                 className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
             />
             <div className="flex justify-between text-xs text-slate-500 mt-1">
-                <span>{prefix}{formatNumber(min)}{suffix}</span>
-                <span>{prefix}{formatNumber(max)}{suffix}</span>
+                {(max - min <= 5 && step === 1) ? (
+                    // Show all values for small ranges (like 1-4 units)
+                    Array.from({ length: max - min + 1 }, (_, i) => min + i).map((val) => (
+                        <span key={val}>{prefix}{formatNumber(val)}{suffix}</span>
+                    ))
+                ) : (
+                    <>
+                        <span>{prefix}{formatNumber(min)}{suffix}</span>
+                        <span>{prefix}{formatNumber(max)}{suffix}</span>
+                    </>
+                )}
             </div>
             {helpText && <p className="text-xs text-slate-500 mt-1">{helpText}</p>}
         </div>
@@ -83,7 +92,7 @@ function ResultCard({ title, value, subtitle, icon: Icon, color = 'emerald', tre
 export default function ADUDashboard() {
     // Inputs
     const [aduType, setAduType] = useState('detached');
-    const [numberOfUnits, setNumberOfUnits] = useState(1);
+    const [numberOfUnits, setNumberOfUnits] = useState(4);
     const [size, setSize] = useState(600);
     const [costPerSqFt, setCostPerSqFt] = useState(350);
     const [monthlyRent, setMonthlyRent] = useState(2200);
