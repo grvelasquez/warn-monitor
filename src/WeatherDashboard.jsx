@@ -59,7 +59,7 @@ function CurrentWeather({ data, location }) {
     const WeatherIcon = weatherInfo.icon;
 
     return (
-        <div className={`bg-gradient-to-br ${getTimeGradient()} border border-slate-700/50 rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm`}>
+        <div className={`bg-gradient-to-br ${getTimeGradient()} border border-slate-700/50 rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm overflow-hidden`}>
             <div className="flex items-center gap-2 text-slate-400 mb-4">
                 <MapPin className="w-4 h-4" />
                 <span className="text-sm">{location}, San Diego</span>
@@ -130,7 +130,7 @@ function HourlyForecast({ data }) {
     return (
         <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-3 sm:p-4 md:p-6 overflow-hidden">
             <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Hourly Forecast</h3>
-            <div className="flex overflow-x-auto gap-2 sm:gap-4 pb-2 scrollbar-hide -mx-1 px-1">
+            <div className="flex overflow-x-auto gap-2 sm:gap-4 pb-2 scrollbar-hide">
                 {hours.slice(0, 12).map((time, idx) => {
                     const weatherInfo = getWeatherInfo(codes[idx]);
                     const WeatherIcon = weatherInfo.icon;
@@ -205,9 +205,9 @@ function SunTimes({ data }) {
     return (
         <div className="bg-gradient-to-r from-orange-900/20 to-indigo-900/20 border border-slate-700/50 rounded-xl p-3">
             <h3 className="text-sm font-semibold text-white mb-2">Sun Schedule</h3>
-            <div className="flex justify-around">
-                <div className="flex items-center gap-2">
-                    <div className="p-1.5 bg-orange-900/30 rounded-full">
+            <div className="grid grid-cols-2 gap-4 relative">
+                <div className="flex items-center gap-2 justify-center">
+                    <div className="p-1.5 bg-orange-900/30 rounded-full flex-shrink-0">
                         <Sunrise className="w-4 h-4 text-orange-400" />
                     </div>
                     <div>
@@ -215,9 +215,9 @@ function SunTimes({ data }) {
                         <p className="text-sm font-medium text-white">{formatTime(sunrise)}</p>
                     </div>
                 </div>
-                <div className="w-px bg-slate-700/50" />
-                <div className="flex items-center gap-2">
-                    <div className="p-1.5 bg-indigo-900/30 rounded-full">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-8 bg-slate-700/50" />
+                <div className="flex items-center gap-2 justify-center">
+                    <div className="p-1.5 bg-indigo-900/30 rounded-full flex-shrink-0">
                         <Sunset className="w-4 h-4 text-indigo-400" />
                     </div>
                     <div>
@@ -250,13 +250,13 @@ function TideSchedule({ tideData }) {
             <h3 className="text-sm font-semibold text-white mb-2">Tides (San Diego)</h3>
             <div className="space-y-1.5">
                 {tideData.slice(0, 4).map((tide, idx) => (
-                    <div key={idx} className="flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-1.5">
-                            <Waves className={`w-3 h-3 ${tide.type === 'H' ? 'text-cyan-400' : 'text-blue-400'}`} />
-                            <span className="text-slate-400">{tide.type === 'H' ? 'High' : 'Low'}</span>
+                    <div key={idx} className="grid grid-cols-3 items-center text-xs w-full gap-1">
+                        <div className="flex items-center gap-1.5 col-span-1">
+                            <Waves className={`w-3 h-3 flex-shrink-0 ${tide.type === 'H' ? 'text-cyan-400' : 'text-blue-400'}`} />
+                            <span className="text-slate-400 truncate">{tide.type === 'H' ? 'High' : 'Low'}</span>
                         </div>
-                        <span className="text-white font-medium">{formatTideTime(tide.t)}</span>
-                        <span className="text-slate-500">{parseFloat(tide.v).toFixed(1)} ft</span>
+                        <span className="text-white font-medium text-center col-span-1">{formatTideTime(tide.t)}</span>
+                        <span className="text-slate-500 text-right col-span-1">{parseFloat(tide.v).toFixed(1)} ft</span>
                     </div>
                 ))}
             </div>
@@ -435,7 +435,7 @@ export default function WeatherDashboard() {
                 <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
             </div>
 
-            <div className="relative w-full max-w-full md:max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+            <div className="relative w-full max-w-full md:max-w-7xl mx-auto px-2 sm:px-6 py-6 sm:py-8">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6 md:mb-8">
                     <div>
@@ -470,7 +470,7 @@ export default function WeatherDashboard() {
                 ) : (
                     <div className="grid lg:grid-cols-3 gap-6">
                         {/* Main Weather Column */}
-                        <div className="lg:col-span-2 space-y-6">
+                        <div className="lg:col-span-2 space-y-6 min-w-0">
                             <CurrentWeather data={weatherData} location={selectedLocation.name} />
                             <HourlyForecast data={weatherData} />
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -481,7 +481,7 @@ export default function WeatherDashboard() {
                         </div>
 
                         {/* Locations Sidebar */}
-                        <div className="space-y-4">
+                        <div className="space-y-4 min-w-0">
                             <h3 className="text-lg font-semibold text-white">San Diego Locations</h3>
                             <div className="space-y-3">
                                 {SD_LOCATIONS.map((loc) => (
