@@ -112,41 +112,21 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                     </div>
                 </div>
 
-                {/* AI Analysis Section */}
-                <div className="grid md:grid-cols-3 gap-6 mb-8">
-                    {/* Executive Summary */}
-                    <div className="md:col-span-2 bg-gradient-to-br from-indigo-900/30 to-slate-900/50 border border-indigo-500/30 rounded-xl p-6 relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <Sparkles className="w-24 h-24 text-indigo-400" />
-                        </div>
-                        <div className="flex items-center gap-2 mb-4">
-                            <div className="p-1.5 bg-indigo-500/20 rounded-lg">
-                                <Sparkles className="w-4 h-4 text-indigo-300" />
-                            </div>
-                            <h3 className="text-lg font-semibold text-white">Executive Summary</h3>
-                        </div>
-                        <div className="space-y-4 text-slate-300 text-sm leading-relaxed relative z-10">
-                            <p>
-                                <strong className="text-orange-300">San Diego's housing market</strong> shows a slight cooling trend with a <strong className="text-white">0.6% year-over-year decline</strong> in the Home Price Index, contrasting with the <strong className="text-teal-300">U.S. National Index</strong> which rose by <strong className="text-white">1.4%</strong>.
-                            </p>
-                            <p>
-                                While national prices continue to inch upward, San Diego's dip suggests a localized market correction or stabilization after previous gains.
-                                <strong className="text-amber-300"> Los Angeles</strong> and <strong className="text-purple-300">San Francisco</strong> remain relatively flat with negligible year-over-year movement (less than 1%), indicating a broader stabilization across California's major coastal metros compared to the national average.
-                            </p>
-                        </div>
+                {/* Executive Summary - Full Width */}
+                <div className="bg-gradient-to-br from-indigo-900/30 to-slate-900/50 border border-indigo-500/30 rounded-xl p-6 mb-8 relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <Sparkles className="w-24 h-24 text-indigo-400" />
                     </div>
-
-                    {/* What is Case-Shiller? */}
-                    <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6">
-                        <h3 className="text-lg font-semibold text-white mb-4">What is Case-Shiller?</h3>
-                        <div className="space-y-3 text-xs text-slate-400 leading-relaxed">
-                            <p>
-                                The <span className="text-slate-300 font-medium">S&P CoreLogic Case-Shiller Home Price Indices</span> are the leading measures of U.S. residential real estate prices, tracking changes in the value of residential real estate nationally and in 20 metropolitan regions.
-                            </p>
-                            <p>
-                                The indices use the <span className="text-slate-300 font-medium">"repeat sales method"</span>, which compares the sale prices of the same properties over time. This provides a more accurate picture of price appreciation or depreciation than simple median price calculations, which can be skewed by the mix of homes sold (e.g., more luxury homes selling in a month would artificially inflate the median price).
-                            </p>
+                    <div className="flex items-center gap-2 mb-3">
+                        <div className="p-1.5 bg-indigo-500/20 rounded-lg">
+                            <Sparkles className="w-4 h-4 text-indigo-300" />
                         </div>
+                        <h3 className="text-lg font-semibold text-white">Executive Summary</h3>
+                    </div>
+                    <div className="text-slate-300 text-sm leading-relaxed relative z-10">
+                        <p>
+                            <strong className="text-orange-300">San Diego's housing market</strong> shows a slight cooling trend with a <strong className="text-white">0.6% year-over-year decline</strong> in the Home Price Index, contrasting with the <strong className="text-teal-300">U.S. National Index</strong> which rose by <strong className="text-white">1.4%</strong>. While national prices continue to inch upward, San Diego's dip suggests a localized market correction or stabilization after previous gains. <strong className="text-amber-300">Los Angeles</strong> and <strong className="text-purple-300">San Francisco</strong> remain relatively flat with negligible year-over-year movement (less than 1%), indicating a broader stabilization across California's major coastal metros compared to the national average.
+                        </p>
                     </div>
                 </div>
 
@@ -362,6 +342,33 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                                     <TrendingDown className="w-4 h-4 text-red-400" />
                                 }
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* What is Case-Shiller? - Full Width */}
+                <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 mb-8">
+                    <h3 className="text-lg font-semibold text-white mb-3">What is Case-Shiller?</h3>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-slate-400 leading-relaxed">
+                        <div>
+                            <p>
+                                The <span className="text-slate-300 font-medium">S&P CoreLogic Case-Shiller Index</span> measures the change in value of single-family detached residences over time. It is widely considered the leading measure of U.S. residential real estate prices because it tracks the value of the same homes as they resell, rather than just averaging all sales.
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <span className="text-slate-300 font-medium">What It Tracks:</span> Single-family homes only (excludes condos, co-ops, new construction). Only counts homes sold at least twice ("sales pairs") using arm's-length transactions—filtering out family transfers and non-market sales.
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <span className="text-slate-300 font-medium">How It's Calculated:</span> The "repeat-sales" method compares prices of the same property over time. For example, if a San Diego home sold for $500K in 2015 and $800K in 2024, the index captures that appreciation across thousands of such pairs.
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <span className="text-slate-300 font-medium">Lag Time:</span> Data is reported with a 2-month lag. For example, reports released in late December cover sales through October.
+                            </p>
                         </div>
                     </div>
                 </div>
