@@ -365,10 +365,25 @@ export default function WarnDashboard() {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="grid md:grid-cols-2 gap-3">
+                                    {/* Mobile View: Single Stack */}
+                                    <div className="flex flex-col gap-3 md:hidden">
                                         {filteredZipCodes.map(([zipcode, riskData]) => (
                                             <ZipCodeCard key={zipcode} zipcode={zipcode} data={riskData} notices={data.notices} />
                                         ))}
+                                    </div>
+
+                                    {/* Desktop View: Two Independent Columns for Masonry Effect */}
+                                    <div className="hidden md:flex gap-3 items-start">
+                                        <div className="flex-1 flex flex-col gap-3">
+                                            {filteredZipCodes.filter((_, i) => i % 2 === 0).map(([zipcode, riskData]) => (
+                                                <ZipCodeCard key={zipcode} zipcode={zipcode} data={riskData} notices={data.notices} />
+                                            ))}
+                                        </div>
+                                        <div className="flex-1 flex flex-col gap-3">
+                                            {filteredZipCodes.filter((_, i) => i % 2 !== 0).map(([zipcode, riskData]) => (
+                                                <ZipCodeCard key={zipcode} zipcode={zipcode} data={riskData} notices={data.notices} />
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             </>
