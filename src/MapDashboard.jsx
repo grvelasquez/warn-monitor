@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { Map, Home, TrendingUp, TrendingDown, DollarSign, X, Filter, Layers } from 'lucide-react';
+import { Map, Home, TrendingUp, TrendingDown, DollarSign, X, Filter, Layers, ArrowLeft } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 import { regions } from './sdarData';
 
@@ -220,7 +220,7 @@ const getZipRegion = (zipCode) => {
 };
 
 // Main component
-export default function MapDashboard() {
+export default function MapDashboard({ setActiveView }) {
     const [geoData, setGeoData] = useState(null);
     const [neighborhoodData, setNeighborhoodData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -353,11 +353,19 @@ export default function MapDashboard() {
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
-                            <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-                                <Map className="w-6 h-6 text-blue-400" />
-                                San Diego Real Estate Map
-                            </h1>
-                            <p className="text-gray-400 text-sm mt-1">
+                            <div className="flex items-center gap-3 mb-1">
+                                <button
+                                    onClick={() => setActiveView('realestate')}
+                                    className="p-1.5 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:bg-slate-700/50 transition-colors"
+                                >
+                                    <ArrowLeft className="w-5 h-5 text-slate-400" />
+                                </button>
+                                <h1 className="text-2xl font-bold text-white flex items-center gap-2">
+                                    <Map className="w-6 h-6 text-blue-400" />
+                                    San Diego Real Estate Map
+                                </h1>
+                            </div>
+                            <p className="text-gray-400 text-sm pl-11">
                                 Interactive map showing median home prices by zip code
                             </p>
                         </div>

@@ -168,11 +168,11 @@ export default function App() {
         <GentrificationDashboard />
       </div>
       <div className={activeView === 'neighborhoods' ? 'block' : 'hidden'}>
-        <NeighborhoodEvolution />
+        <NeighborhoodEvolution setActiveView={setActiveView} />
       </div>
       {activeView === 'map' && (
         <div className="block">
-          <MapDashboard />
+          <MapDashboard setActiveView={setActiveView} />
         </div>
       )}
       {activeView === 'voting' && (

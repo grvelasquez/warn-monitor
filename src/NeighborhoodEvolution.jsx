@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Line } from 'recharts';
-import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown, Shield, X, Sparkles } from 'lucide-react';
+import { MapPin, Home, TrendingUp, Building, DollarSign, Clock, Package, Filter, ArrowUpDown, Shield, X, Sparkles, ArrowLeft } from 'lucide-react';
 import neighborhoodDescriptions from './data/neighborhood_descriptions.json';
 import { regions } from './sdarData';
 
@@ -94,7 +94,7 @@ function NeighborhoodCard({ data, isSelected, onClick, propertyType }) {
     );
 }
 
-export default function NeighborhoodEvolution() {
+export default function NeighborhoodEvolution({ setActiveView }) {
     const [sdarData, setSdarData] = useState(null);
     const [militaryData, setMilitaryData] = useState({});
 
@@ -103,7 +103,7 @@ export default function NeighborhoodEvolution() {
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedArea, setSelectedArea] = useState('all');
     const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
-    const [activeView, setActiveView] = useState('details');
+    const [activeView, setActiveViewLocal] = useState('details');
     const [sortBy, setSortBy] = useState('name');
     const [propertyType, setPropertyType] = useState('detached');
 
@@ -294,6 +294,12 @@ export default function NeighborhoodEvolution() {
                 {/* Header */}
                 <div className="mb-6">
                     <div className="flex items-center gap-3 mb-2">
+                        <button
+                            onClick={() => setActiveView('realestate')}
+                            className="p-2 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:bg-slate-700/50 transition-colors"
+                        >
+                            <ArrowLeft className="w-5 h-5 text-slate-400" />
+                        </button>
                         <div className="p-2 bg-indigo-900/30 rounded-lg border border-indigo-800/50">
                             <MapPin className="w-5 h-5 text-indigo-400" />
                         </div>
