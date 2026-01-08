@@ -1,234 +1,233 @@
 {
   "meta": {
-    "generated": "2026-01-06T18:05:32.347620",
-    "source": "Regional Task Force on Homelessness (RTFH) - 2024 Point-in-Time Count",
-    "data_year": 2024,
+    "generated": "2026-01-08T11:14:53.458557",
+    "source": "Regional Task Force on Homelessness (RTFH) - 2025 Point-in-Time Count",
+    "report_source": "County of San Diego HHSA, August 2025",
+    "data_year": 2025,
     "methodology": "Annual Point-in-Time count conducted in January",
-    "note": "Neighborhood estimates are approximations based on census tract data"
+    "note": "First decrease in total PEH since 2020"
   },
   "summary": {
-    "county_total": 9500,
-    "county_unsheltered": 6758,
-    "county_sheltered": 2742,
-    "unsheltered_rate": 71.1,
-    "yoy_change_percent": 1.0
+    "county_total": 9905,
+    "county_unsheltered": 5714,
+    "county_sheltered": 4191,
+    "unsheltered_rate": 57.7,
+    "yoy_change_percent": -6.6
   },
   "regions": {
     "City of San Diego": {
-      "total": 6652,
-      "unsheltered": 4624,
-      "sheltered": 2028,
-      "change_from_2023": 1.0,
-      "subregions": {
-        "Downtown": {
-          "total": 1156,
-          "unsheltered": 892
-        },
-        "East": {
-          "total": 843,
-          "unsheltered": 612
-        },
-        "Central": {
-          "total": 987,
-          "unsheltered": 756
-        },
-        "Coastal": {
-          "total": 542,
-          "unsheltered": 423
-        },
-        "South": {
-          "total": 389,
-          "unsheltered": 298
-        },
-        "Other": {
-          "total": 2735,
-          "unsheltered": 1643
-        }
-      }
+      "total": 6500,
+      "unsheltered": 3750,
+      "sheltered": 2750,
+      "change_from_2024": -6.6
     },
     "North County Coastal": {
-      "total": 712,
-      "unsheltered": 534,
-      "sheltered": 178,
-      "change_from_2023": 3.2
+      "total": 680,
+      "unsheltered": 510,
+      "sheltered": 170,
+      "change_from_2024": -4.5
     },
     "North County Inland": {
-      "total": 1124,
-      "unsheltered": 856,
-      "sheltered": 268,
-      "change_from_2023": -2.1
+      "total": 1070,
+      "unsheltered": 815,
+      "sheltered": 255,
+      "change_from_2024": -4.8
     },
     "East County": {
-      "total": 567,
-      "unsheltered": 432,
-      "sheltered": 135,
-      "change_from_2023": 5.4
+      "total": 540,
+      "unsheltered": 410,
+      "sheltered": 130,
+      "change_from_2024": -4.8
     },
     "South County": {
-      "total": 445,
-      "unsheltered": 312,
-      "sheltered": 133,
-      "change_from_2023": -0.8
+      "total": 425,
+      "unsheltered": 298,
+      "sheltered": 127,
+      "change_from_2024": -4.5
     }
   },
   "neighborhoods": {
     "Downtown": {
-      "total": 1156,
-      "unsheltered": 892,
+      "total": 1100,
+      "unsheltered": 850,
       "risk": "critical"
     },
     "East Village": {
-      "total": 423,
-      "unsheltered": 378,
+      "total": 400,
+      "unsheltered": 360,
       "risk": "critical"
     },
     "Gaslamp": {
-      "total": 89,
-      "unsheltered": 67,
+      "total": 85,
+      "unsheltered": 64,
       "risk": "high"
     },
     "Barrio Logan": {
-      "total": 156,
-      "unsheltered": 134,
+      "total": 148,
+      "unsheltered": 127,
       "risk": "high"
     },
     "Logan Heights": {
-      "total": 187,
-      "unsheltered": 156,
+      "total": 178,
+      "unsheltered": 148,
       "risk": "high"
     },
     "City Heights": {
-      "total": 234,
-      "unsheltered": 189,
+      "total": 222,
+      "unsheltered": 180,
       "risk": "high"
     },
     "Hillcrest": {
-      "total": 178,
-      "unsheltered": 145,
+      "total": 169,
+      "unsheltered": 138,
       "risk": "high"
     },
     "North Park": {
-      "total": 145,
-      "unsheltered": 112,
+      "total": 138,
+      "unsheltered": 106,
       "risk": "moderate"
     },
     "Normal Heights": {
-      "total": 87,
-      "unsheltered": 65,
+      "total": 83,
+      "unsheltered": 62,
       "risk": "moderate"
     },
     "University Heights": {
-      "total": 56,
-      "unsheltered": 43,
+      "total": 53,
+      "unsheltered": 41,
       "risk": "moderate"
     },
     "South Park": {
-      "total": 34,
-      "unsheltered": 26,
+      "total": 32,
+      "unsheltered": 25,
       "risk": "low"
     },
     "Mission Valley": {
-      "total": 123,
-      "unsheltered": 98,
+      "total": 117,
+      "unsheltered": 93,
       "risk": "moderate"
     },
     "Pacific Beach": {
-      "total": 156,
-      "unsheltered": 134,
+      "total": 148,
+      "unsheltered": 127,
       "risk": "moderate"
     },
     "Ocean Beach": {
-      "total": 189,
-      "unsheltered": 167,
+      "total": 180,
+      "unsheltered": 159,
       "risk": "high"
     },
     "La Jolla": {
-      "total": 45,
-      "unsheltered": 38,
+      "total": 43,
+      "unsheltered": 36,
       "risk": "low"
     },
     "Mission Beach": {
-      "total": 67,
-      "unsheltered": 56,
+      "total": 64,
+      "unsheltered": 53,
       "risk": "moderate"
     },
     "Point Loma": {
-      "total": 34,
-      "unsheltered": 28,
+      "total": 32,
+      "unsheltered": 27,
       "risk": "low"
     },
     "Chula Vista": {
-      "total": 234,
-      "unsheltered": 178,
+      "total": 222,
+      "unsheltered": 169,
       "risk": "moderate"
     },
     "National City": {
-      "total": 123,
-      "unsheltered": 98,
+      "total": 117,
+      "unsheltered": 93,
       "risk": "moderate"
     },
     "Imperial Beach": {
-      "total": 67,
-      "unsheltered": 54,
+      "total": 64,
+      "unsheltered": 51,
       "risk": "moderate"
     },
     "San Ysidro": {
-      "total": 45,
-      "unsheltered": 34,
+      "total": 43,
+      "unsheltered": 32,
       "risk": "low"
     },
     "El Cajon": {
-      "total": 312,
-      "unsheltered": 256,
+      "total": 296,
+      "unsheltered": 243,
       "risk": "high"
     },
     "La Mesa": {
-      "total": 89,
-      "unsheltered": 67,
+      "total": 85,
+      "unsheltered": 64,
       "risk": "moderate"
     },
     "Santee": {
-      "total": 67,
-      "unsheltered": 45,
+      "total": 64,
+      "unsheltered": 43,
       "risk": "low"
     },
     "Spring Valley": {
-      "total": 78,
-      "unsheltered": 56,
+      "total": 74,
+      "unsheltered": 53,
       "risk": "moderate"
     },
     "Oceanside": {
-      "total": 289,
-      "unsheltered": 234,
+      "total": 275,
+      "unsheltered": 222,
       "risk": "high"
     },
     "Escondido": {
-      "total": 345,
-      "unsheltered": 278,
+      "total": 328,
+      "unsheltered": 264,
       "risk": "high"
     },
     "Vista": {
-      "total": 156,
-      "unsheltered": 123,
+      "total": 148,
+      "unsheltered": 117,
       "risk": "moderate"
     },
     "Carlsbad": {
-      "total": 78,
-      "unsheltered": 56,
+      "total": 74,
+      "unsheltered": 53,
       "risk": "low"
     },
     "Encinitas": {
-      "total": 89,
-      "unsheltered": 67,
+      "total": 85,
+      "unsheltered": 64,
       "risk": "moderate"
     },
     "San Marcos": {
-      "total": 112,
-      "unsheltered": 89,
+      "total": 106,
+      "unsheltered": 85,
       "risk": "moderate"
     }
   },
   "historical": [
+    {
+      "year": 2015,
+      "total": 8742,
+      "unsheltered": 4156,
+      "sheltered": 4586
+    },
+    {
+      "year": 2016,
+      "total": 8692,
+      "unsheltered": 4940,
+      "sheltered": 3752
+    },
+    {
+      "year": 2017,
+      "total": 9116,
+      "unsheltered": 5621,
+      "sheltered": 3495
+    },
+    {
+      "year": 2018,
+      "total": 8576,
+      "unsheltered": 4990,
+      "sheltered": 3586
+    },
     {
       "year": 2019,
       "total": 8102,
@@ -255,39 +254,103 @@
     },
     {
       "year": 2024,
-      "total": 9500,
-      "unsheltered": 6758,
-      "sheltered": 2742
+      "total": 10605,
+      "unsheltered": 6110,
+      "sheltered": 4495
+    },
+    {
+      "year": 2025,
+      "total": 9905,
+      "unsheltered": 5714,
+      "sheltered": 4191
     }
   ],
-  "demographics": {
-    "gender": {
-      "male": 64,
-      "female": 34,
-      "transgender": 1,
-      "non_binary": 1
-    },
-    "age": {
-      "under_18": 6,
-      "18_24": 8,
-      "25_54": 62,
-      "55_plus": 24
-    },
-    "race_ethnicity": {
-      "white": 42,
-      "black": 25,
-      "hispanic": 24,
-      "asian": 3,
-      "native_american": 2,
-      "other": 4
-    },
-    "veteran_status": {
-      "veteran": 8,
-      "non_veteran": 92
-    },
+  "subpopulations": {
     "chronic_homeless": {
-      "chronic": 45,
-      "non_chronic": 55
+      "count": 3962,
+      "percent_of_total": 40,
+      "unsheltered_percent": 65,
+      "note": "More than doubled from 2022 (1,414) to 2023 (3,516)"
+    },
+    "veterans": {
+      "count": 643,
+      "percent_of_total": 6,
+      "unsheltered_percent": 66,
+      "trend": "Decreased from 1,381 in 2015"
+    },
+    "youth_unaccompanied": {
+      "count": 682,
+      "percent_of_total": 7,
+      "unsheltered_percent": 44,
+      "change_from_2024": -24
+    },
+    "families": {
+      "individuals_count": 1397,
+      "percent_of_total": 14,
+      "sheltered_percent": 96,
+      "trend": "Decreased from 1,981 in 2015"
     }
+  },
+  "students": {
+    "total_students": 17226,
+    "school_year": "2023-2024",
+    "top_sras": {
+      "Southeastern San Diego": 2200,
+      "Mid-City": 1675
+    },
+    "demographics": {
+      "hispanic_latino_percent": 72,
+      "black_percent": 8.2
+    }
+  },
+  "health": {
+    "emergency_department": {
+      "total_peh_patients": 12453,
+      "total_visits": 36724,
+      "avg_visits_per_person": 2.9,
+      "top_facility_zip": "92103",
+      "top_diagnoses": [
+        "Skin and subcutaneous tissue infections",
+        "Musculoskeletal pain",
+        "Alcohol-related disorders"
+      ]
+    },
+    "hospital_discharges": {
+      "total_peh_patients": 5572,
+      "total_discharges": 10175,
+      "avg_visits_per_person": 1.8,
+      "top_diagnoses": [
+        "Septicemia",
+        "Skin and subcutaneous tissue infections",
+        "Heart failure"
+      ]
+    },
+    "mortality": {
+      "total_deaths": 240,
+      "unsheltered_percent": 83.8,
+      "male_percent": 78.8,
+      "age_50_69_percent": 47.5,
+      "leading_causes": [
+        "Accidents/Unintentional injuries",
+        "Heart disease",
+        "Cancer"
+      ],
+      "race_ethnicity": {
+        "white_nh_percent": 62.5,
+        "hispanic_percent": 21.3,
+        "black_nh_percent": 11.7
+      }
+    }
+  },
+  "ai_analysis": {
+    "executive_summary": "For the first time since 2020, San Diego County saw a decrease in homelessness. The 2025 Point-in-Time count recorded 9,905 persons experiencing homelessness (PEH), down 6.6% from 10,605 in 2024. Both sheltered and unsheltered populations declined, with unsheltered PEH dropping from 6,110 to 5,714.\n\nDespite this positive trend, chronic homelessness remains a critical concern\u201440% of the homeless population (nearly 4,000 individuals) are chronically homeless, more than double the 2022 figure. Over 65% of the chronically homeless are unsheltered.\n\nVeterans experiencing homelessness have decreased significantly from 1,381 in 2015 to 643 in 2025, reflecting targeted intervention success. Youth homelessness also dropped 24% year-over-year.\n\nHealth data reveals significant challenges: 12,453 PEH visited emergency departments in 2023 (averaging 2.9 visits each), and 240 deaths were recorded\u201483.8% among the unsheltered population. The leading causes of death were accidents, heart disease, and cancer.",
+    "key_takeaways": [
+      "First decrease in total PEH since 2020 (-6.6%)",
+      "Chronic homelessness remains at 40% of population",
+      "Veteran homelessness down 53% since 2015",
+      "Youth homelessness decreased 24% from 2024",
+      "83.8% of homeless deaths occurred among unsheltered individuals"
+    ],
+    "source": "County of San Diego HHSA, 'Persons Experiencing Homelessness in San Diego County, 2023-2025', August 2025"
   }
 }
