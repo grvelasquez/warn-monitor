@@ -574,9 +574,8 @@ export default function ADUDashboard() {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-12 pt-6 border-t border-slate-800 text-center space-y-2">
+                <div className="mt-12 pt-6 border-t border-slate-800 text-center">
                     <p className="text-xs text-slate-500">City of San Diego ADU Guidelines • Updated 2025</p>
-                    <p className="text-xs text-slate-600">Gregory Velasquez | LPT Realty | DRE #02252032</p>
                 </div>
             </div>
         </div>

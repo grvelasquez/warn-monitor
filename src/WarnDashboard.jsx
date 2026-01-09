@@ -405,7 +405,7 @@ export default function WarnDashboard() {
 
                 {/* Footer */}
                 <div className="mt-12 pt-6 border-t border-slate-800 text-center">
-                    <p className="text-xs text-slate-600">Threshold Advisory Group • Pre-Distress Intelligence Platform</p>
+                    <p className="text-xs text-slate-600">Pre-Distress Intelligence Platform</p>
                 </div>
             </div>
         </div>
