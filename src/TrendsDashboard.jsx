@@ -14,7 +14,7 @@ export default function TrendsDashboard() {
                 {/* Header */}
                 <div className="mb-6">
                     <div className="flex items-center gap-3 mb-1">
-                        <div className="p-2 bg-purple-900/30 rounded-lg border border-purple-800/50">
+                        <div className="p-2 bg-slate-800 rounded-lg border border-slate-700/50">
                             <BarChart3 className="w-5 h-5 text-purple-400" />
                         </div>
                         <h1 className="text-xl sm:text-2xl font-bold">Trends and Market Signals</h1>

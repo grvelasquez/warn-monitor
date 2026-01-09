@@ -335,7 +335,7 @@ export function RetailSignals({ className = "" }) {
     return (
         <div className={`space-y-6 ${className}`}>
             {/* Header / Insight Banner */}
-            <div className="bg-gradient-to-r from-purple-900/40 to-slate-900/40 border border-purple-500/20 rounded-xl p-6 relative overflow-hidden group">
+            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none group-hover:bg-purple-500/20 transition-colors duration-700"></div>
 
                 <div className="flex items-center gap-3 mb-2 relative z-10">

@@ -183,7 +183,7 @@ export default function DevelopmentDashboard() {
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6 sm:mb-8">
                     <div>
                         <div className="flex items-center gap-3 mb-2">
-                            <div className="p-2 bg-orange-900/30 rounded-lg border border-orange-800/50">
+                            <div className="p-2 bg-slate-800 rounded-lg border border-slate-700/50">
                                 <Construction className="w-5 sm:w-6 h-5 sm:h-6 text-orange-400" />
                             </div>
                             <h1 className="text-xl sm:text-2xl font-bold tracking-tight">Development</h1>
@@ -198,7 +198,7 @@ export default function DevelopmentDashboard() {
                 </div>
 
                 {/* Investor Insight Banner */}
-                <div className="bg-gradient-to-r from-orange-900/30 to-amber-900/30 border border-orange-700/30 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
+                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
                     <h2 className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2">
                         <TrendingUp className="w-4 sm:w-5 h-4 sm:h-5 text-orange-400" />
                         Investor Insight
