@@ -138,7 +138,7 @@ function ComparisonChart({ currentData, prevData, currentYear, prevYear }) {
 
     return (
         <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700">
-            <h3 className="text-sm font-semibold text-white mb-4">{prevYear} vs {currentYear} Comparison</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">{currentYear} vs {prevYear} Comparison</h3>
             <div className="h-48">
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={chartData} layout="vertical" barGap={4}>

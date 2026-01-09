@@ -253,9 +253,9 @@ export default function SDARDashboard({ setActiveView }) {
 
     const historicalData = useMemo(() => {
         const basePrice = currentData?.medianPrice || 895000;
-        const multipliers = [0.96, 0.97, 0.98, 0.99, 0.995, 1.01, 1.005, 1.02, 1.01, 0.99, 0.985, 1.0];
+        const multipliers = [0.96, 0.97, 0.98, 0.99, 0.995, 1.01, 1.005, 1.02, 1.01, 0.99, 0.985, 1.0, 1.0];
         return multipliers.map((m, i) => ({
-            month: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'][i],
+            month: ["Dec '24", 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i],
             price: Math.round(basePrice * m),
             dom: Math.max(15, (currentData?.daysOnMarket || 45) - 12 + i * 2),
             sales: Math.round((currentData?.closedSales || 1000) * (0.9 + Math.random() * 0.4))

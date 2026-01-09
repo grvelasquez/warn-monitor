@@ -130,15 +130,15 @@ function ExecutiveSummary({ aiAnalysis, subpopulations, health }) {
                     </div>
                 )}
 
-                {/* Students */}
-                {health?.students && (
+                {/* Unaccompanied Youth */}
+                {subpopulations?.youth_unaccompanied && (
                     <div className="bg-slate-800/40 rounded-lg p-3">
                         <div className="flex items-center gap-2 mb-1">
-                            <GraduationCap className="w-4 h-4 text-amber-400" />
-                            <span className="text-xs text-slate-400">Students</span>
+                            <Users className="w-4 h-4 text-amber-400" />
+                            <span className="text-xs text-slate-400">Unaccompanied Youth</span>
                         </div>
-                        <p className="text-lg font-bold text-white">{health.students.total_students?.toLocaleString() || 'N/A'}</p>
-                        <p className="text-[10px] text-slate-500">{health.students.school_year || '2023-24'}</p>
+                        <p className="text-lg font-bold text-white">{subpopulations.youth_unaccompanied.count.toLocaleString()}</p>
+                        <p className="text-[10px] text-slate-500">{subpopulations.youth_unaccompanied.change_from_2024}% from 2024</p>
                     </div>
                 )}
 

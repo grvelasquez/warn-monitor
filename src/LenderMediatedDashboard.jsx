@@ -346,9 +346,11 @@ const AreaSearchTable = ({ data, title, type = 'inventory' }) => {
                                 </>
                             ) : (
                                 <>
-                                    <SortHeader field="lm_price">LM Price</SortHeader>
+                                    <th className="px-2 py-3 text-xs font-medium text-amber-400 uppercase tracking-wider text-right">LM '24</th>
+                                    <SortHeader field="lm_price">LM '25</SortHeader>
                                     <SortHeader field="lm_change">Chg</SortHeader>
-                                    <SortHeader field="trad_price">Traditional</SortHeader>
+                                    <th className="px-2 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-right">Trad '24</th>
+                                    <SortHeader field="trad_price">Trad '25</SortHeader>
                                     <SortHeader field="trad_change">Chg</SortHeader>
                                 </>
                             )}
@@ -378,10 +380,12 @@ const AreaSearchTable = ({ data, title, type = 'inventory' }) => {
                                     </>
                                 ) : (
                                     <>
-                                        <td className="px-3 py-2 text-right text-amber-400">{formatCurrency(item.lender_mediated?.['2025'])}</td>
-                                        <td className="px-3 py-2 text-right"><ChangeIndicator value={item.lender_mediated?.change} /></td>
-                                        <td className="px-3 py-2 text-right text-gray-200">{formatCurrency(item.traditional?.['2025'])}</td>
-                                        <td className="px-3 py-2 text-right"><ChangeIndicator value={item.traditional?.change} /></td>
+                                        <td className="px-2 py-2 text-right text-gray-400">{formatCurrency(item.lender_mediated?.['2024'])}</td>
+                                        <td className="px-2 py-2 text-right text-amber-400">{formatCurrency(item.lender_mediated?.['2025'])}</td>
+                                        <td className="px-2 py-2 text-right"><ChangeIndicator value={item.lender_mediated?.change} /></td>
+                                        <td className="px-2 py-2 text-right text-gray-400">{formatCurrency(item.traditional?.['2024'])}</td>
+                                        <td className="px-2 py-2 text-right text-gray-200">{formatCurrency(item.traditional?.['2025'])}</td>
+                                        <td className="px-2 py-2 text-right"><ChangeIndicator value={item.traditional?.change} /></td>
                                     </>
                                 )}
                             </tr>
@@ -571,6 +575,20 @@ export default function LenderMediatedDashboard() {
                             </p>
                         </div>
 
+                        {/* Methodology Note */}
+                        <div className="bg-slate-900/50 rounded-xl border border-slate-800 p-6 flex gap-4">
+                            <div className="space-y-2 w-full">
+                                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Methodology</h4>
+                                <p className="text-[10px] text-slate-500 leading-relaxed text-justify">
+                                    A property is considered to be "lender-mediated" when properties are those marked in the San Diego MLS with the following: Call Agent; Court Approval Required; Deed
+                                    Restricted Program; Estate; HAP (Home Assistance Program); HUD (Housing and Urban Development); NOD Filed/Foreclosure Pending; Need Short Sale – No Lender
+                                    Knowledge; Other/Remarks; Pre SS Pkg submitted to lenders(s), ready to consider offers; Probate Subject to Overbid; REO; Short Sale Approved. This list may be adjusted at
+                                    any time. Residential activity only. Total Market is not necessarily a sum of traditional and lender-mediated activity, as some lender-mediated homes can be listed both as
+                                    foreclosure and short sale.
+                                </p>
+                            </div>
+                        </div>
+
                         {/* Executive Summary Section */}
                         <div className="space-y-6">
                             {/* Header & Intro */}
@@ -713,20 +731,6 @@ export default function LenderMediatedDashboard() {
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                        </div>
-
-                        {/* Methodology Note */}
-                        <div className="bg-slate-900/50 rounded-xl border border-slate-800 p-6 flex gap-4 mt-8">
-                            <div className="space-y-2 w-full">
-                                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Methodology</h4>
-                                <p className="text-[10px] text-slate-500 leading-relaxed text-justify">
-                                    A property is considered to be "lender-mediated" when properties are those marked in the San Diego MLS with the following: Call Agent; Court Approval Required; Deed
-                                    Restricted Program; Estate; HAP (Home Assistance Program); HUD (Housing and Urban Development); NOD Filed/Foreclosure Pending; Need Short Sale – No Lender
-                                    Knowledge; Other/Remarks; Pre SS Pkg submitted to lenders(s), ready to consider offers; Probate Subject to Overbid; REO; Short Sale Approved. This list may be adjusted at
-                                    any time. Residential activity only. Total Market is not necessarily a sum of traditional and lender-mediated activity, as some lender-mediated homes can be listed both as
-                                    foreclosure and short sale.
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -1437,6 +1441,6 @@ export default function LenderMediatedDashboard() {
                     Current as of January 5, 2026. All data from the San Diego MLS. | Report © 2026 ShowingTime Plus, LLC.
                 </div>
             </div>
-        </div >
+        </div>
     );
 }

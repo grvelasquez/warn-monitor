@@ -255,6 +255,9 @@ export default function WarnDashboard() {
                             </h1>
                         </div>
                         <p className="text-slate-400">San Diego County • Pre-Distress Intelligence</p>
+                        {activeView === 'warn' && (
+                            <p className="text-xs text-slate-500 mt-1">Source: CA EDD WARN Act</p>
+                        )}
                     </div>
 
                     {/* Navigation Buttons - Inline on right */}
@@ -394,7 +397,7 @@ export default function WarnDashboard() {
                 {activeView === 'homeless' && (
                     <div>
                         <div className="mb-6">
-                            <span className="text-sm px-2 py-0.5 bg-slate-700 text-slate-300 rounded-full">Jan 2024 PIT Count</span>
+                            <span className="text-sm px-2 py-0.5 bg-slate-700 text-slate-300 rounded-full">Jan 2025 PIT Count</span>
                         </div>
                         <HomelessSignals />
                     </div>

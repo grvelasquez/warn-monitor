@@ -33,7 +33,7 @@ export default function TrendsDashboard() {
                             <Store className="w-4 h-4 text-orange-400" />
                             Retail Signals
                         </h2>
-                        <span className="text-[10px] px-2 py-0.5 bg-green-900/30 text-green-400 rounded-full">LIVE</span>
+                        <span className="text-[10px] px-2 py-0.5 bg-green-900/30 text-green-400 rounded-full">LIVE • OpenStreetMap</span>
                     </div>
                     <RetailSignals />
                 </div>

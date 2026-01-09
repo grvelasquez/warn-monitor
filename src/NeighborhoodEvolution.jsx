@@ -306,8 +306,9 @@ export default function NeighborhoodEvolution({ setActiveView }) {
                         <h1 className="text-xl sm:text-2xl font-bold">SD County Neighborhoods</h1>
                     </div>
                     <p className="text-sm text-gray-400">
-                        {sdarData?.meta?.neighborhoods_count || 0} zip codes • SDAR Housing + Zillow Rentals
+                        {sdarData?.meta?.neighborhoods_count || 0} zip codes
                     </p>
+                    <p className="text-xs text-slate-500 mt-1">Source: SDAR Housing Data + Zillow ZORI Rentals</p>
                 </div>
 
                 {/* Summary Stats */}
