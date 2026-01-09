@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote, FileText, Warehouse, Building2 } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import WarnDashboard from './WarnDashboard';
 import SDARDashboard from './SDARDashboard';
 import LendingDashboard from './LendingDashboard';
@@ -193,6 +194,8 @@ export default function App() {
       <div className={activeView === 'warn' ? 'block' : 'hidden'}>
         <WarnDashboard />
       </div>
+
+      <Analytics />
     </div>
   );
 }
