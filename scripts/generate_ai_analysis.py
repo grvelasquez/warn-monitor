@@ -44,10 +44,9 @@ def generate_property_analysis(metrics, prop_type_name):
     sales = metrics.get('closed_sales_2025')
     listings = metrics.get('new_listings_2025')
     
-    # Calculate months supply if not present (simple approximation)
-    months_supply = None
-    if sales and sales > 0:
-        months_supply = inventory / (sales / 12) if sales else 0
+    # Use months supply from source data if available
+    months_supply = metrics.get('months_supply_2025')
+    if months_supply is not None:
         months_supply = round(months_supply, 1)
 
     market_type = get_market_type(months_supply)
