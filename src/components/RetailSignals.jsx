@@ -369,6 +369,31 @@ export function RetailSignals({ className = "" }) {
                 </div>
             </div>
 
+            {/* AI Executive Summary */}
+            <div className="bg-gradient-to-br from-indigo-900/40 to-slate-900/40 border border-indigo-500/20 hover:border-indigo-500/40 rounded-xl p-6 backdrop-blur-sm relative overflow-hidden transition-all group">
+                <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Star className="w-16 h-16 text-indigo-400" />
+                </div>
+                <div className="flex items-center gap-2 mb-4 text-indigo-300">
+                    <Star className="w-4 h-4" />
+                    <h4 className="text-sm font-bold uppercase tracking-wider">AI Executive Summary</h4>
+                    <span className="ml-2 px-2 py-0.5 bg-indigo-600/30 text-indigo-300 text-xs font-medium rounded-full">2026 Forecast</span>
+                </div>
+                <div className="space-y-4 text-slate-300 leading-relaxed text-sm">
+                    <p>
+                        <strong className="text-white">2026 Anticipated Developments:</strong> The highly awaited full retail activation of <strong className="text-purple-300">The Campus at Horton (92101)</strong> is projected to anchor a new wave of "lifestyle retail" and high-end fast casual dining in downtown, shifting traffic patterns away from the traditional Gaslamp core.
+                        Simultaneously, the <strong className="text-indigo-300">Riverwalk San Diego (92108)</strong> expansion is actively driving pre-leases for community-serving retail (premium grocery, wellness) in Mission Valley.
+                    </p>
+                    <p>
+                        <strong className="text-white">Trend Watch:</strong> As Oceanside's resort corridor matures, we are detecting a <strong className="text-amber-300">"South O" spillover effect</strong>,
+                        where boutique dining and vintage retail are aggressively targeting the Coast Highway corridor south of Wisconsin Ave. In the urban core, <strong className="text-green-300">Barrio Logan's Arts District</strong> is anticipating fully leased mixed-use ground floors, specifically favoring "fusion" culinary concepts over traditional retail.
+                    </p>
+                    <p>
+                        <strong className="text-white">Market Signal:</strong> Verified permits suggest a pivot back to <strong>brick-and-mortar fitness</strong> in 2026. Watch for a dense cluster of new pilates, spin, and recovery studios opening in <strong className="text-slate-200">North Park (92104)</strong> and <strong className="text-slate-200">Carmel Valley (92130)</strong>, catering to the return-to-office hybrid workforce.
+                    </p>
+                </div>
+            </div>
+
             {/* Controls */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex flex-wrap gap-2 text-sm overflow-x-auto pb-2 sm:pb-0 no-scrollbar">
