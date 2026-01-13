@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-01-06T17:17:28.705744",
+    "generated": "2026-01-13T17:20:35.588574",
     "county": "San Diego",
-    "total_notices": 80,
-    "total_employees_affected": 3173
+    "total_notices": 81,
+    "total_employees_affected": 3280
   },
   "notices": [
     {
@@ -885,6 +885,17 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "University City"
+    },
+    {
+      "notice_id": "2a4f028d",
+      "company_name": "FormFactor, Inc.",
+      "city": "Carlsbad",
+      "zipcode": "92011",
+      "employees_affected": 107,
+      "layoff_date": "2026-12-18",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Carlsbad"
     }
   ],
   "risk_scores": {
@@ -1079,13 +1090,14 @@
       ]
     },
     "92011": {
-      "score": 44,
-      "risk_level": "Moderate",
-      "total_employees": 124,
+      "score": 66,
+      "risk_level": "High",
+      "total_employees": 231,
       "factors": [
         "119 employees affected",
         "Plant closure",
-        "5 employees affected"
+        "5 employees affected",
+        "107 employees affected"
       ]
     },
     "92130": {
@@ -1192,8 +1204,8 @@
       "total_employees": 611
     },
     "North County Inland": {
-      "notice_count": 5,
-      "total_employees": 207
+      "notice_count": 6,
+      "total_employees": 314
     }
   }
 }
