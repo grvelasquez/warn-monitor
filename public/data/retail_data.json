@@ -1,47 +1,47 @@
 {
   "meta": {
-    "generated": "2026-01-13T18:11:58.654773",
+    "generated": "2026-01-15T18:16:10.447628",
     "source": "OpenStreetMap Overpass API",
     "neighborhoods_count": 32
   },
   "summary": {
     "totalCounts": {
-      "coffee_specialty": 270,
-      "restaurant": 414,
-      "fast_food": 150,
-      "bar": 156,
-      "brewery_taproom": 12,
-      "ice_cream": 20,
-      "grocery": 71,
+      "coffee_specialty": 228,
+      "restaurant": 641,
+      "fast_food": 344,
+      "bar": 97,
+      "brewery_taproom": 21,
+      "ice_cream": 29,
+      "grocery": 92,
       "organic_grocery": 0,
-      "convenience": 103,
-      "clothing": 160,
+      "convenience": 50,
+      "clothing": 48,
       "electronics": 5,
-      "pet_shop": 9,
-      "bakery": 22,
-      "bank": 100,
-      "atm": 46,
-      "laundromat": 13,
-      "hair_salon": 39,
-      "car_repair": 36,
-      "gas_station": 83,
-      "pharmacy": 13,
-      "fitness": 65,
-      "clinic": 24,
-      "dentist": 53,
-      "school": 143,
-      "library": 33,
-      "park": 288,
-      "place_of_worship": 164,
+      "pet_shop": 5,
+      "bakery": 15,
+      "bank": 59,
+      "atm": 48,
+      "laundromat": 18,
+      "hair_salon": 32,
+      "car_repair": 42,
+      "gas_station": 71,
+      "pharmacy": 7,
+      "fitness": 63,
+      "clinic": 16,
+      "dentist": 32,
+      "school": 284,
+      "library": 28,
+      "park": 262,
+      "place_of_worship": 293,
       "coworking": 0
     },
-    "totalNewOpenings": 702,
+    "totalNewOpenings": 781,
     "topBusinessDistricts": [
       "92101-Downtown",
-      "92103-Hillcrest Mission Hills",
-      "92130-Carmel Valley",
-      "92127-Rancho Bernardo West",
-      "92173-San Ysidro"
+      "92117-Clairemont",
+      "92108-Mission Valley",
+      "92126-Mira Mesa",
+      "92122-University City"
     ]
   },
   "neighborhoods": [
@@ -62,10 +62,10 @@
           "new_openings": 72
         },
         "fast_food": {
-          "count": 0,
+          "count": 47,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 13
         },
         "bar": {
           "count": 62,
@@ -74,16 +74,16 @@
           "new_openings": 15
         },
         "brewery_taproom": {
-          "count": 0,
+          "count": 10,
           "label": "Pubs/Breweries",
           "icon": "\ud83c\udf7a",
-          "new_openings": 0
+          "new_openings": 3
         },
         "ice_cream": {
-          "count": 0,
+          "count": 5,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
-          "new_openings": 0
+          "new_openings": 2
         },
         "grocery": {
           "count": 0,
@@ -98,10 +98,10 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 24,
+          "count": 0,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
-          "new_openings": 3
+          "new_openings": 0
         },
         "clothing": {
           "count": 13,
@@ -122,13 +122,13 @@
           "new_openings": 0
         },
         "bakery": {
-          "count": 7,
+          "count": 0,
           "label": "Bakeries",
           "icon": "\ud83e\udd50",
-          "new_openings": 4
+          "new_openings": 0
         },
         "bank": {
-          "count": 11,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
           "new_openings": 0
@@ -146,10 +146,10 @@
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 0,
+          "count": 7,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
-          "new_openings": 0
+          "new_openings": 2
         },
         "car_repair": {
           "count": 0,
@@ -158,7 +158,7 @@
           "new_openings": 0
         },
         "gas_station": {
-          "count": 0,
+          "count": 6,
           "label": "Gas Stations",
           "icon": "\u26fd",
           "new_openings": 0
@@ -170,10 +170,10 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 5,
+          "count": 0,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
-          "new_openings": 1
+          "new_openings": 0
         },
         "clinic": {
           "count": 0,
@@ -188,16 +188,16 @@
           "new_openings": 0
         },
         "school": {
-          "count": 0,
+          "count": 21,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
-          "new_openings": 0
+          "new_openings": 2
         },
         "library": {
-          "count": 0,
+          "count": 6,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 0
+          "new_openings": 1
         },
         "park": {
           "count": 28,
@@ -218,11 +218,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 413,
-      "total_new_openings": 117,
+      "total_businesses": 468,
+      "total_new_openings": 132,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 91
+      "boutique_ratio": 94
     },
     {
       "name": "92102-Golden Hill South Park",
@@ -232,16 +232,16 @@
           "count": 4,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
-          "new_openings": 2
+          "new_openings": 1
         },
         "restaurant": {
-          "count": 13,
+          "count": 0,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 6
+          "new_openings": 0
         },
         "fast_food": {
-          "count": 5,
+          "count": 0,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
           "new_openings": 0
@@ -277,10 +277,10 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 0,
+          "count": 5,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
-          "new_openings": 0
+          "new_openings": 1
         },
         "clothing": {
           "count": 1,
@@ -295,7 +295,7 @@
           "new_openings": 0
         },
         "pet_shop": {
-          "count": 1,
+          "count": 0,
           "label": "Pet Shops",
           "icon": "\ud83d\udc15",
           "new_openings": 0
@@ -307,13 +307,13 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 0,
+          "count": 1,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
-          "new_openings": 0
+          "new_openings": 1
         },
         "atm": {
-          "count": 0,
+          "count": 1,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
           "new_openings": 0
@@ -337,7 +337,7 @@
           "new_openings": 0
         },
         "gas_station": {
-          "count": 0,
+          "count": 3,
           "label": "Gas Stations",
           "icon": "\u26fd",
           "new_openings": 0
@@ -355,7 +355,7 @@
           "new_openings": 0
         },
         "clinic": {
-          "count": 1,
+          "count": 0,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
           "new_openings": 0
@@ -385,10 +385,10 @@
           "new_openings": 0
         },
         "place_of_worship": {
-          "count": 0,
+          "count": 72,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 0
+          "new_openings": 2
         },
         "coworking": {
           "count": 0,
@@ -397,27 +397,27 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 52,
-      "total_new_openings": 16,
+      "total_businesses": 114,
+      "total_new_openings": 13,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 94
+      "boutique_ratio": 96
     },
     {
       "name": "92103-Hillcrest Mission Hills",
       "vibe": "Pride & Pedestrian",
       "categories": {
         "coffee_specialty": {
-          "count": 0,
+          "count": 18,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
-          "new_openings": 0
+          "new_openings": 4
         },
         "restaurant": {
-          "count": 66,
+          "count": 0,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 24
+          "new_openings": 0
         },
         "fast_food": {
           "count": 24,
@@ -432,10 +432,10 @@
           "new_openings": 0
         },
         "brewery_taproom": {
-          "count": 0,
+          "count": 2,
           "label": "Pubs/Breweries",
           "icon": "\ud83c\udf7a",
-          "new_openings": 0
+          "new_openings": 1
         },
         "ice_cream": {
           "count": 0,
@@ -444,10 +444,10 @@
           "new_openings": 0
         },
         "grocery": {
-          "count": 7,
+          "count": 0,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
-          "new_openings": 2
+          "new_openings": 0
         },
         "organic_grocery": {
           "count": 0,
@@ -456,7 +456,7 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 9,
+          "count": 0,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
           "new_openings": 0
@@ -468,16 +468,16 @@
           "new_openings": 0
         },
         "electronics": {
-          "count": 0,
+          "count": 1,
           "label": "Electronics",
           "icon": "\ud83d\udcf1",
           "new_openings": 0
         },
         "pet_shop": {
-          "count": 1,
+          "count": 0,
           "label": "Pet Shops",
           "icon": "\ud83d\udc15",
-          "new_openings": 1
+          "new_openings": 0
         },
         "bakery": {
           "count": 0,
@@ -486,13 +486,13 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 8,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
           "new_openings": 0
         },
         "atm": {
-          "count": 5,
+          "count": 0,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
           "new_openings": 0
@@ -504,10 +504,10 @@
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 9,
+          "count": 0,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
-          "new_openings": 1
+          "new_openings": 0
         },
         "car_repair": {
           "count": 3,
@@ -516,10 +516,10 @@
           "new_openings": 1
         },
         "gas_station": {
-          "count": 0,
+          "count": 6,
           "label": "Gas Stations",
           "icon": "\u26fd",
-          "new_openings": 0
+          "new_openings": 1
         },
         "pharmacy": {
           "count": 0,
@@ -546,16 +546,16 @@
           "new_openings": 0
         },
         "school": {
-          "count": 0,
+          "count": 10,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
           "new_openings": 0
         },
         "library": {
-          "count": 4,
+          "count": 0,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 2
+          "new_openings": 0
         },
         "park": {
           "count": 0,
@@ -564,10 +564,10 @@
           "new_openings": 0
         },
         "place_of_worship": {
-          "count": 0,
+          "count": 21,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 0
+          "new_openings": 5
         },
         "coworking": {
           "count": 0,
@@ -576,11 +576,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 141,
-      "total_new_openings": 35,
+      "total_businesses": 90,
+      "total_new_openings": 16,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 87
+      "boutique_ratio": 83
     },
     {
       "name": "92104-North Park",
@@ -599,34 +599,34 @@
           "new_openings": 29
         },
         "fast_food": {
-          "count": 0,
+          "count": 23,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 5
         },
         "bar": {
-          "count": 31,
+          "count": 0,
           "label": "Bars",
           "icon": "\ud83c\udf78",
-          "new_openings": 7
+          "new_openings": 0
         },
         "brewery_taproom": {
-          "count": 4,
+          "count": 0,
           "label": "Pubs/Breweries",
           "icon": "\ud83c\udf7a",
-          "new_openings": 2
+          "new_openings": 0
         },
         "ice_cream": {
-          "count": 1,
+          "count": 0,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
           "new_openings": 0
         },
         "grocery": {
-          "count": 0,
+          "count": 5,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
-          "new_openings": 0
+          "new_openings": 1
         },
         "organic_grocery": {
           "count": 0,
@@ -677,28 +677,28 @@
           "new_openings": 0
         },
         "laundromat": {
-          "count": 0,
+          "count": 3,
           "label": "Laundromats",
           "icon": "\ud83e\uddfa",
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 3,
+          "count": 0,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
           "new_openings": 0
         },
         "car_repair": {
-          "count": 4,
+          "count": 0,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
-          "new_openings": 3
+          "new_openings": 0
         },
         "gas_station": {
-          "count": 8,
+          "count": 0,
           "label": "Gas Stations",
           "icon": "\u26fd",
-          "new_openings": 4
+          "new_openings": 0
         },
         "pharmacy": {
           "count": 0,
@@ -719,10 +719,10 @@
           "new_openings": 0
         },
         "dentist": {
-          "count": 2,
+          "count": 0,
           "label": "Dentists",
           "icon": "\ud83e\uddb7",
-          "new_openings": 1
+          "new_openings": 0
         },
         "school": {
           "count": 0,
@@ -737,10 +737,10 @@
           "new_openings": 1
         },
         "park": {
-          "count": 0,
+          "count": 6,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 0
+          "new_openings": 3
         },
         "place_of_worship": {
           "count": 0,
@@ -755,11 +755,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 104,
-      "total_new_openings": 50,
+      "total_businesses": 88,
+      "total_new_openings": 42,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 92
+      "boutique_ratio": 85
     },
     {
       "name": "92105-City Heights",
@@ -772,22 +772,22 @@
           "new_openings": 4
         },
         "restaurant": {
-          "count": 0,
+          "count": 28,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 0
+          "new_openings": 26
         },
         "fast_food": {
-          "count": 0,
+          "count": 14,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 8
         },
         "bar": {
-          "count": 0,
+          "count": 5,
           "label": "Bars",
           "icon": "\ud83c\udf78",
-          "new_openings": 0
+          "new_openings": 1
         },
         "brewery_taproom": {
           "count": 0,
@@ -802,10 +802,10 @@
           "new_openings": 0
         },
         "grocery": {
-          "count": 0,
+          "count": 9,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
-          "new_openings": 0
+          "new_openings": 5
         },
         "organic_grocery": {
           "count": 0,
@@ -814,10 +814,10 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 5,
+          "count": 0,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
-          "new_openings": 2
+          "new_openings": 0
         },
         "clothing": {
           "count": 0,
@@ -844,10 +844,10 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 1,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
-          "new_openings": 1
+          "new_openings": 0
         },
         "atm": {
           "count": 0,
@@ -856,22 +856,22 @@
           "new_openings": 0
         },
         "laundromat": {
-          "count": 1,
+          "count": 0,
           "label": "Laundromats",
           "icon": "\ud83e\uddfa",
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 0,
+          "count": 2,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
-          "new_openings": 0
+          "new_openings": 2
         },
         "car_repair": {
-          "count": 6,
+          "count": 0,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
-          "new_openings": 5
+          "new_openings": 0
         },
         "gas_station": {
           "count": 2,
@@ -880,10 +880,10 @@
           "new_openings": 1
         },
         "pharmacy": {
-          "count": 1,
+          "count": 0,
           "label": "Pharmacies",
           "icon": "\ud83d\udc8a",
-          "new_openings": 1
+          "new_openings": 0
         },
         "fitness": {
           "count": 0,
@@ -892,10 +892,10 @@
           "new_openings": 0
         },
         "clinic": {
-          "count": 0,
+          "count": 3,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
-          "new_openings": 0
+          "new_openings": 2
         },
         "dentist": {
           "count": 0,
@@ -916,16 +916,16 @@
           "new_openings": 0
         },
         "park": {
-          "count": 0,
+          "count": 3,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 0
+          "new_openings": 2
         },
         "place_of_worship": {
-          "count": 0,
+          "count": 34,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 0
+          "new_openings": 8
         },
         "coworking": {
           "count": 0,
@@ -934,11 +934,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 39,
-      "total_new_openings": 17,
+      "total_businesses": 123,
+      "total_new_openings": 62,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 82
+      "boutique_ratio": 97
     },
     {
       "name": "92106-Point Loma",
@@ -957,10 +957,10 @@
           "new_openings": 12
         },
         "fast_food": {
-          "count": 0,
+          "count": 14,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 5
         },
         "bar": {
           "count": 2,
@@ -969,13 +969,13 @@
           "new_openings": 1
         },
         "brewery_taproom": {
-          "count": 2,
+          "count": 0,
           "label": "Pubs/Breweries",
           "icon": "\ud83c\udf7a",
-          "new_openings": 1
+          "new_openings": 0
         },
         "ice_cream": {
-          "count": 3,
+          "count": 0,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
           "new_openings": 0
@@ -993,7 +993,7 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 0,
+          "count": 4,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
           "new_openings": 0
@@ -1017,16 +1017,16 @@
           "new_openings": 0
         },
         "bakery": {
-          "count": 1,
+          "count": 0,
           "label": "Bakeries",
           "icon": "\ud83e\udd50",
           "new_openings": 0
         },
         "bank": {
-          "count": 0,
+          "count": 10,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
-          "new_openings": 0
+          "new_openings": 3
         },
         "atm": {
           "count": 0,
@@ -1089,16 +1089,16 @@
           "new_openings": 1
         },
         "library": {
-          "count": 1,
+          "count": 0,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 1
+          "new_openings": 0
         },
         "park": {
-          "count": 16,
+          "count": 0,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 1
+          "new_openings": 0
         },
         "place_of_worship": {
           "count": 0,
@@ -1113,11 +1113,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 83,
-      "total_new_openings": 26,
+      "total_businesses": 88,
+      "total_new_openings": 31,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 96
+      "boutique_ratio": 86
     },
     {
       "name": "92107-Ocean Beach",
@@ -1142,10 +1142,10 @@
           "new_openings": 0
         },
         "bar": {
-          "count": 16,
+          "count": 0,
           "label": "Bars",
           "icon": "\ud83c\udf78",
-          "new_openings": 2
+          "new_openings": 0
         },
         "brewery_taproom": {
           "count": 0,
@@ -1154,10 +1154,10 @@
           "new_openings": 0
         },
         "ice_cream": {
-          "count": 0,
+          "count": 2,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
-          "new_openings": 0
+          "new_openings": 1
         },
         "grocery": {
           "count": 0,
@@ -1244,10 +1244,10 @@
           "new_openings": 1
         },
         "fitness": {
-          "count": 7,
+          "count": 0,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
-          "new_openings": 2
+          "new_openings": 0
         },
         "clinic": {
           "count": 0,
@@ -1262,22 +1262,22 @@
           "new_openings": 0
         },
         "school": {
-          "count": 0,
+          "count": 6,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
-          "new_openings": 0
+          "new_openings": 2
         },
         "library": {
-          "count": 0,
+          "count": 1,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 0
+          "new_openings": 1
         },
         "park": {
-          "count": 13,
+          "count": 0,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 5
+          "new_openings": 0
         },
         "place_of_worship": {
           "count": 0,
@@ -1292,27 +1292,27 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 65,
-      "total_new_openings": 13,
+      "total_businesses": 38,
+      "total_new_openings": 8,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 88
+      "boutique_ratio": 79
     },
     {
       "name": "92108-Mission Valley",
       "vibe": "The Mixed-Use Hub",
       "categories": {
         "coffee_specialty": {
-          "count": 21,
+          "count": 0,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
-          "new_openings": 8
+          "new_openings": 0
         },
         "restaurant": {
-          "count": 0,
+          "count": 73,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 0
+          "new_openings": 20
         },
         "fast_food": {
           "count": 0,
@@ -1321,7 +1321,7 @@
           "new_openings": 0
         },
         "bar": {
-          "count": 18,
+          "count": 0,
           "label": "Bars",
           "icon": "\ud83c\udf78",
           "new_openings": 0
@@ -1339,10 +1339,10 @@
           "new_openings": 1
         },
         "grocery": {
-          "count": 0,
+          "count": 7,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
-          "new_openings": 0
+          "new_openings": 4
         },
         "organic_grocery": {
           "count": 0,
@@ -1363,10 +1363,10 @@
           "new_openings": 0
         },
         "electronics": {
-          "count": 2,
+          "count": 0,
           "label": "Electronics",
           "icon": "\ud83d\udcf1",
-          "new_openings": 1
+          "new_openings": 0
         },
         "pet_shop": {
           "count": 0,
@@ -1381,10 +1381,10 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 6,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
-          "new_openings": 1
+          "new_openings": 0
         },
         "atm": {
           "count": 4,
@@ -1405,10 +1405,10 @@
           "new_openings": 0
         },
         "car_repair": {
-          "count": 0,
+          "count": 3,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
-          "new_openings": 0
+          "new_openings": 1
         },
         "gas_station": {
           "count": 0,
@@ -1417,16 +1417,16 @@
           "new_openings": 0
         },
         "pharmacy": {
-          "count": 3,
+          "count": 0,
           "label": "Pharmacies",
           "icon": "\ud83d\udc8a",
-          "new_openings": 2
+          "new_openings": 0
         },
         "fitness": {
-          "count": 0,
+          "count": 3,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
-          "new_openings": 0
+          "new_openings": 1
         },
         "clinic": {
           "count": 0,
@@ -1447,22 +1447,22 @@
           "new_openings": 0
         },
         "library": {
-          "count": 2,
+          "count": 0,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 2
+          "new_openings": 0
         },
         "park": {
-          "count": 0,
+          "count": 14,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 0
+          "new_openings": 7
         },
         "place_of_worship": {
-          "count": 0,
+          "count": 17,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 0
+          "new_openings": 5
         },
         "coworking": {
           "count": 0,
@@ -1471,11 +1471,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 68,
-      "total_new_openings": 17,
+      "total_businesses": 133,
+      "total_new_openings": 41,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 78
+      "boutique_ratio": 96
     },
     {
       "name": "92109-Pacific Beach Mission Beach",
@@ -1518,7 +1518,7 @@
           "new_openings": 4
         },
         "grocery": {
-          "count": 0,
+          "count": 4,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
           "new_openings": 0
@@ -1530,7 +1530,7 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 7,
+          "count": 0,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
           "new_openings": 0
@@ -1548,7 +1548,7 @@
           "new_openings": 0
         },
         "pet_shop": {
-          "count": 2,
+          "count": 0,
           "label": "Pet Shops",
           "icon": "\ud83d\udc15",
           "new_openings": 0
@@ -1560,7 +1560,7 @@
           "new_openings": 1
         },
         "bank": {
-          "count": 6,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
           "new_openings": 0
@@ -1572,28 +1572,28 @@
           "new_openings": 0
         },
         "laundromat": {
-          "count": 0,
+          "count": 5,
           "label": "Laundromats",
           "icon": "\ud83e\uddfa",
-          "new_openings": 0
-        },
-        "hair_salon": {
-          "count": 9,
-          "label": "Hair Salons",
-          "icon": "\ud83d\udc87",
           "new_openings": 1
         },
-        "car_repair": {
+        "hair_salon": {
           "count": 0,
+          "label": "Hair Salons",
+          "icon": "\ud83d\udc87",
+          "new_openings": 0
+        },
+        "car_repair": {
+          "count": 4,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
           "new_openings": 0
         },
         "gas_station": {
-          "count": 10,
+          "count": 0,
           "label": "Gas Stations",
           "icon": "\u26fd",
-          "new_openings": 4
+          "new_openings": 0
         },
         "pharmacy": {
           "count": 0,
@@ -1602,13 +1602,13 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 0,
+          "count": 12,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
-          "new_openings": 0
+          "new_openings": 1
         },
         "clinic": {
-          "count": 0,
+          "count": 1,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
           "new_openings": 0
@@ -1626,16 +1626,16 @@
           "new_openings": 0
         },
         "library": {
-          "count": 0,
+          "count": 1,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 0
+          "new_openings": 1
         },
         "park": {
-          "count": 14,
+          "count": 0,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 7
+          "new_openings": 0
         },
         "place_of_worship": {
           "count": 0,
@@ -1650,27 +1650,27 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 99,
-      "total_new_openings": 37,
+      "total_businesses": 78,
+      "total_new_openings": 28,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 82
+      "boutique_ratio": 94
     },
     {
       "name": "92110-Morena",
       "vibe": "Design District",
       "categories": {
         "coffee_specialty": {
-          "count": 0,
+          "count": 8,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
-          "new_openings": 0
+          "new_openings": 1
         },
         "restaurant": {
-          "count": 18,
+          "count": 0,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 3
+          "new_openings": 0
         },
         "fast_food": {
           "count": 11,
@@ -1679,10 +1679,10 @@
           "new_openings": 2
         },
         "bar": {
-          "count": 7,
+          "count": 0,
           "label": "Bars",
           "icon": "\ud83c\udf78",
-          "new_openings": 1
+          "new_openings": 0
         },
         "brewery_taproom": {
           "count": 1,
@@ -1691,7 +1691,7 @@
           "new_openings": 1
         },
         "ice_cream": {
-          "count": 0,
+          "count": 1,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
           "new_openings": 0
@@ -1709,7 +1709,7 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 0,
+          "count": 5,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
           "new_openings": 0
@@ -1739,13 +1739,13 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 4,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
           "new_openings": 0
         },
         "atm": {
-          "count": 2,
+          "count": 0,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
           "new_openings": 0
@@ -1769,7 +1769,7 @@
           "new_openings": 0
         },
         "gas_station": {
-          "count": 0,
+          "count": 2,
           "label": "Gas Stations",
           "icon": "\u26fd",
           "new_openings": 0
@@ -1781,10 +1781,10 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 5,
+          "count": 0,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
-          "new_openings": 1
+          "new_openings": 0
         },
         "clinic": {
           "count": 0,
@@ -1805,10 +1805,10 @@
           "new_openings": 1
         },
         "library": {
-          "count": 0,
+          "count": 3,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 0
+          "new_openings": 3
         },
         "park": {
           "count": 11,
@@ -1829,21 +1829,21 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 67,
-      "total_new_openings": 16,
+      "total_businesses": 50,
+      "total_new_openings": 15,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 99
+      "boutique_ratio": 88
     },
     {
       "name": "92111-Linda Vista",
       "vibe": "University Adjacent",
       "categories": {
         "coffee_specialty": {
-          "count": 16,
+          "count": 0,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
-          "new_openings": 6
+          "new_openings": 0
         },
         "restaurant": {
           "count": 0,
@@ -1852,10 +1852,10 @@
           "new_openings": 0
         },
         "fast_food": {
-          "count": 12,
+          "count": 0,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 1
+          "new_openings": 0
         },
         "bar": {
           "count": 0,
@@ -1924,10 +1924,10 @@
           "new_openings": 0
         },
         "atm": {
-          "count": 0,
+          "count": 1,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
-          "new_openings": 0
+          "new_openings": 1
         },
         "laundromat": {
           "count": 0,
@@ -1936,7 +1936,7 @@
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 2,
+          "count": 0,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
           "new_openings": 0
@@ -1948,10 +1948,10 @@
           "new_openings": 0
         },
         "gas_station": {
-          "count": 0,
+          "count": 3,
           "label": "Gas Stations",
           "icon": "\u26fd",
-          "new_openings": 0
+          "new_openings": 1
         },
         "pharmacy": {
           "count": 0,
@@ -1960,13 +1960,13 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 3,
+          "count": 0,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
           "new_openings": 0
         },
         "clinic": {
-          "count": 5,
+          "count": 0,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
           "new_openings": 0
@@ -1996,10 +1996,10 @@
           "new_openings": 1
         },
         "place_of_worship": {
-          "count": 0,
+          "count": 15,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 0
+          "new_openings": 1
         },
         "coworking": {
           "count": 0,
@@ -2008,11 +2008,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 59,
-      "total_new_openings": 13,
+      "total_businesses": 40,
+      "total_new_openings": 9,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 88
+      "boutique_ratio": 92
     },
     {
       "name": "92113-Logan Heights",
@@ -2031,10 +2031,10 @@
           "new_openings": 2
         },
         "fast_food": {
-          "count": 0,
+          "count": 12,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 1
         },
         "bar": {
           "count": 0,
@@ -2055,7 +2055,7 @@
           "new_openings": 0
         },
         "grocery": {
-          "count": 0,
+          "count": 6,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
           "new_openings": 0
@@ -2067,10 +2067,10 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 0,
+          "count": 2,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
-          "new_openings": 0
+          "new_openings": 2
         },
         "clothing": {
           "count": 1,
@@ -2097,13 +2097,13 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 1,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
-          "new_openings": 1
+          "new_openings": 0
         },
         "atm": {
-          "count": 0,
+          "count": 2,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
           "new_openings": 0
@@ -2121,10 +2121,10 @@
           "new_openings": 0
         },
         "car_repair": {
-          "count": 1,
+          "count": 0,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
-          "new_openings": 1
+          "new_openings": 0
         },
         "gas_station": {
           "count": 0,
@@ -2139,10 +2139,10 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 0,
+          "count": 2,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
-          "new_openings": 0
+          "new_openings": 2
         },
         "clinic": {
           "count": 2,
@@ -2151,16 +2151,16 @@
           "new_openings": 1
         },
         "dentist": {
-          "count": 1,
+          "count": 0,
           "label": "Dentists",
           "icon": "\ud83e\uddb7",
           "new_openings": 0
         },
         "school": {
-          "count": 0,
+          "count": 27,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
-          "new_openings": 0
+          "new_openings": 2
         },
         "library": {
           "count": 2,
@@ -2169,16 +2169,16 @@
           "new_openings": 1
         },
         "park": {
-          "count": 0,
+          "count": 20,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 0
+          "new_openings": 1
         },
         "place_of_worship": {
-          "count": 80,
+          "count": 0,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 3
+          "new_openings": 0
         },
         "coworking": {
           "count": 0,
@@ -2187,11 +2187,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 90,
-      "total_new_openings": 10,
+      "total_businesses": 78,
+      "total_new_openings": 13,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 100
+      "boutique_ratio": 92
     },
     {
       "name": "92114-Encanto",
@@ -2204,10 +2204,10 @@
           "new_openings": 0
         },
         "restaurant": {
-          "count": 6,
+          "count": 0,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 6
+          "new_openings": 0
         },
         "fast_food": {
           "count": 8,
@@ -2228,16 +2228,16 @@
           "new_openings": 0
         },
         "ice_cream": {
-          "count": 1,
+          "count": 0,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
-          "new_openings": 1
+          "new_openings": 0
         },
         "grocery": {
-          "count": 0,
+          "count": 6,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
-          "new_openings": 0
+          "new_openings": 3
         },
         "organic_grocery": {
           "count": 0,
@@ -2288,10 +2288,10 @@
           "new_openings": 0
         },
         "laundromat": {
-          "count": 2,
+          "count": 0,
           "label": "Laundromats",
           "icon": "\ud83e\uddfa",
-          "new_openings": 2
+          "new_openings": 0
         },
         "hair_salon": {
           "count": 0,
@@ -2318,7 +2318,7 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 0,
+          "count": 1,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
           "new_openings": 0
@@ -2330,22 +2330,22 @@
           "new_openings": 0
         },
         "dentist": {
-          "count": 1,
+          "count": 0,
           "label": "Dentists",
           "icon": "\ud83e\uddb7",
-          "new_openings": 1
+          "new_openings": 0
         },
         "school": {
-          "count": 0,
+          "count": 22,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
-          "new_openings": 0
+          "new_openings": 4
         },
         "library": {
-          "count": 0,
+          "count": 1,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 0
+          "new_openings": 1
         },
         "park": {
           "count": 23,
@@ -2354,10 +2354,10 @@
           "new_openings": 6
         },
         "place_of_worship": {
-          "count": 0,
+          "count": 37,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 0
+          "new_openings": 5
         },
         "coworking": {
           "count": 0,
@@ -2366,11 +2366,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 45,
-      "total_new_openings": 25,
+      "total_businesses": 102,
+      "total_new_openings": 28,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 93
+      "boutique_ratio": 97
     },
     {
       "name": "92115-College",
@@ -2383,10 +2383,10 @@
           "new_openings": 0
         },
         "restaurant": {
-          "count": 0,
+          "count": 23,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 0
+          "new_openings": 10
         },
         "fast_food": {
           "count": 0,
@@ -2413,10 +2413,10 @@
           "new_openings": 0
         },
         "grocery": {
-          "count": 0,
+          "count": 3,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
-          "new_openings": 0
+          "new_openings": 1
         },
         "organic_grocery": {
           "count": 0,
@@ -2425,10 +2425,10 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 5,
+          "count": 0,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
-          "new_openings": 1
+          "new_openings": 0
         },
         "clothing": {
           "count": 1,
@@ -2455,10 +2455,10 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 5,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
-          "new_openings": 3
+          "new_openings": 0
         },
         "atm": {
           "count": 0,
@@ -2467,10 +2467,10 @@
           "new_openings": 0
         },
         "laundromat": {
-          "count": 1,
+          "count": 0,
           "label": "Laundromats",
           "icon": "\ud83e\uddfa",
-          "new_openings": 1
+          "new_openings": 0
         },
         "hair_salon": {
           "count": 2,
@@ -2509,28 +2509,28 @@
           "new_openings": 0
         },
         "dentist": {
-          "count": 1,
+          "count": 0,
           "label": "Dentists",
           "icon": "\ud83e\uddb7",
-          "new_openings": 1
-        },
-        "school": {
-          "count": 0,
-          "label": "Schools",
-          "icon": "\ud83c\udfeb",
           "new_openings": 0
         },
+        "school": {
+          "count": 10,
+          "label": "Schools",
+          "icon": "\ud83c\udfeb",
+          "new_openings": 1
+        },
         "library": {
-          "count": 4,
+          "count": 0,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 2
+          "new_openings": 0
         },
         "park": {
-          "count": 7,
+          "count": 0,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 3
+          "new_openings": 0
         },
         "place_of_worship": {
           "count": 17,
@@ -2545,21 +2545,21 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 53,
-      "total_new_openings": 16,
+      "total_businesses": 66,
+      "total_new_openings": 17,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 89
+      "boutique_ratio": 95
     },
     {
       "name": "92116-Kensington Normal Heights",
       "vibe": "Village Vibes",
       "categories": {
         "coffee_specialty": {
-          "count": 3,
+          "count": 0,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
-          "new_openings": 1
+          "new_openings": 0
         },
         "restaurant": {
           "count": 4,
@@ -2568,13 +2568,13 @@
           "new_openings": 1
         },
         "fast_food": {
-          "count": 2,
+          "count": 0,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
           "new_openings": 0
         },
         "bar": {
-          "count": 0,
+          "count": 2,
           "label": "Bars",
           "icon": "\ud83c\udf78",
           "new_openings": 0
@@ -2592,7 +2592,7 @@
           "new_openings": 0
         },
         "grocery": {
-          "count": 0,
+          "count": 1,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
           "new_openings": 0
@@ -2634,7 +2634,7 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 1,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
           "new_openings": 0
@@ -2658,7 +2658,7 @@
           "new_openings": 0
         },
         "car_repair": {
-          "count": 0,
+          "count": 1,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
           "new_openings": 0
@@ -2694,10 +2694,10 @@
           "new_openings": 0
         },
         "school": {
-          "count": 0,
+          "count": 2,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
-          "new_openings": 0
+          "new_openings": 1
         },
         "library": {
           "count": 0,
@@ -2712,10 +2712,10 @@
           "new_openings": 0
         },
         "place_of_worship": {
-          "count": 3,
+          "count": 0,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 2
+          "new_openings": 0
         },
         "coworking": {
           "count": 0,
@@ -2724,33 +2724,33 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 14,
-      "total_new_openings": 4,
+      "total_businesses": 11,
+      "total_new_openings": 2,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 71
+      "boutique_ratio": 91
     },
     {
       "name": "92117-Clairemont",
       "vibe": "Mid-Century Family",
       "categories": {
         "coffee_specialty": {
-          "count": 25,
+          "count": 0,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
-          "new_openings": 10
+          "new_openings": 0
         },
         "restaurant": {
-          "count": 0,
+          "count": 93,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 0
+          "new_openings": 31
         },
         "fast_food": {
-          "count": 0,
+          "count": 38,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 7
         },
         "bar": {
           "count": 0,
@@ -2759,22 +2759,22 @@
           "new_openings": 0
         },
         "brewery_taproom": {
-          "count": 0,
+          "count": 3,
           "label": "Pubs/Breweries",
           "icon": "\ud83c\udf7a",
           "new_openings": 0
         },
         "ice_cream": {
-          "count": 0,
+          "count": 4,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
-          "new_openings": 0
+          "new_openings": 2
         },
         "grocery": {
-          "count": 9,
+          "count": 0,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
-          "new_openings": 8
+          "new_openings": 0
         },
         "organic_grocery": {
           "count": 0,
@@ -2783,22 +2783,22 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 0,
+          "count": 7,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
-          "new_openings": 0
+          "new_openings": 1
         },
         "clothing": {
-          "count": 1,
+          "count": 0,
           "label": "Clothing",
           "icon": "\ud83d\udc57",
           "new_openings": 0
         },
         "electronics": {
-          "count": 1,
+          "count": 0,
           "label": "Electronics",
           "icon": "\ud83d\udcf1",
-          "new_openings": 1
+          "new_openings": 0
         },
         "pet_shop": {
           "count": 0,
@@ -2819,7 +2819,7 @@
           "new_openings": 0
         },
         "atm": {
-          "count": 1,
+          "count": 0,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
           "new_openings": 0
@@ -2837,10 +2837,10 @@
           "new_openings": 0
         },
         "car_repair": {
-          "count": 0,
+          "count": 9,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
-          "new_openings": 0
+          "new_openings": 2
         },
         "gas_station": {
           "count": 0,
@@ -2855,22 +2855,22 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 0,
+          "count": 3,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
           "new_openings": 0
         },
         "clinic": {
-          "count": 0,
+          "count": 2,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
           "new_openings": 0
         },
         "dentist": {
-          "count": 11,
+          "count": 0,
           "label": "Dentists",
           "icon": "\ud83e\uddb7",
-          "new_openings": 2
+          "new_openings": 0
         },
         "school": {
           "count": 18,
@@ -2903,11 +2903,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 82,
-      "total_new_openings": 32,
+      "total_businesses": 193,
+      "total_new_openings": 54,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 96
+      "boutique_ratio": 91
     },
     {
       "name": "92118-Coronado",
@@ -2920,13 +2920,13 @@
           "new_openings": 0
         },
         "restaurant": {
-          "count": 0,
+          "count": 25,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 0
+          "new_openings": 5
         },
         "fast_food": {
-          "count": 7,
+          "count": 0,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
           "new_openings": 0
@@ -2938,10 +2938,10 @@
           "new_openings": 0
         },
         "brewery_taproom": {
-          "count": 0,
+          "count": 1,
           "label": "Pubs/Breweries",
           "icon": "\ud83c\udf7a",
-          "new_openings": 0
+          "new_openings": 1
         },
         "ice_cream": {
           "count": 2,
@@ -2950,7 +2950,7 @@
           "new_openings": 1
         },
         "grocery": {
-          "count": 3,
+          "count": 0,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
           "new_openings": 0
@@ -2962,7 +2962,7 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 0,
+          "count": 1,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
           "new_openings": 0
@@ -2998,7 +2998,7 @@
           "new_openings": 2
         },
         "atm": {
-          "count": 0,
+          "count": 2,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
           "new_openings": 0
@@ -3034,7 +3034,7 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 1,
+          "count": 0,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
           "new_openings": 0
@@ -3052,22 +3052,22 @@
           "new_openings": 0
         },
         "school": {
-          "count": 0,
+          "count": 8,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
-          "new_openings": 0
+          "new_openings": 2
         },
         "library": {
-          "count": 1,
+          "count": 0,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 1
+          "new_openings": 0
         },
         "park": {
-          "count": 16,
+          "count": 0,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 12
+          "new_openings": 0
         },
         "place_of_worship": {
           "count": 0,
@@ -3082,11 +3082,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 34,
-      "total_new_openings": 16,
+      "total_businesses": 43,
+      "total_new_openings": 11,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 76
+      "boutique_ratio": 95
     },
     {
       "name": "92119-San Carlos",
@@ -3141,7 +3141,7 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 0,
+          "count": 7,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
           "new_openings": 0
@@ -3171,10 +3171,10 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 0,
+          "count": 6,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
-          "new_openings": 0
+          "new_openings": 2
         },
         "atm": {
           "count": 0,
@@ -3195,13 +3195,13 @@
           "new_openings": 0
         },
         "car_repair": {
-          "count": 2,
+          "count": 0,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
-          "new_openings": 1
+          "new_openings": 0
         },
         "gas_station": {
-          "count": 5,
+          "count": 0,
           "label": "Gas Stations",
           "icon": "\u26fd",
           "new_openings": 0
@@ -3213,13 +3213,13 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 1,
+          "count": 0,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
           "new_openings": 0
         },
         "clinic": {
-          "count": 0,
+          "count": 1,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
           "new_openings": 0
@@ -3231,25 +3231,25 @@
           "new_openings": 1
         },
         "school": {
-          "count": 0,
+          "count": 15,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
-          "new_openings": 0
+          "new_openings": 1
         },
         "library": {
-          "count": 3,
+          "count": 0,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
           "new_openings": 0
         },
         "park": {
-          "count": 9,
+          "count": 0,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 1
+          "new_openings": 0
         },
         "place_of_worship": {
-          "count": 0,
+          "count": 9,
           "label": "Worship",
           "icon": "\u26ea",
           "new_openings": 0
@@ -3261,24 +3261,24 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 44,
-      "total_new_openings": 5,
+      "total_businesses": 62,
+      "total_new_openings": 6,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 73
+      "boutique_ratio": 77
     },
     {
       "name": "92120-Allied Gardens Del Cerro",
       "vibe": "Navajo Community",
       "categories": {
         "coffee_specialty": {
-          "count": 0,
+          "count": 1,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
-          "new_openings": 0
+          "new_openings": 1
         },
         "restaurant": {
-          "count": 6,
+          "count": 0,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
           "new_openings": 0
@@ -3290,10 +3290,10 @@
           "new_openings": 6
         },
         "bar": {
-          "count": 0,
+          "count": 2,
           "label": "Bars",
           "icon": "\ud83c\udf78",
-          "new_openings": 0
+          "new_openings": 1
         },
         "brewery_taproom": {
           "count": 0,
@@ -3350,7 +3350,7 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 2,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
           "new_openings": 0
@@ -3368,10 +3368,10 @@
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 0,
+          "count": 1,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
-          "new_openings": 0
+          "new_openings": 1
         },
         "car_repair": {
           "count": 0,
@@ -3380,10 +3380,10 @@
           "new_openings": 0
         },
         "gas_station": {
-          "count": 0,
+          "count": 1,
           "label": "Gas Stations",
           "icon": "\u26fd",
-          "new_openings": 0
+          "new_openings": 1
         },
         "pharmacy": {
           "count": 0,
@@ -3398,10 +3398,10 @@
           "new_openings": 1
         },
         "clinic": {
-          "count": 0,
+          "count": 2,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
-          "new_openings": 0
+          "new_openings": 2
         },
         "dentist": {
           "count": 0,
@@ -3416,16 +3416,16 @@
           "new_openings": 2
         },
         "library": {
-          "count": 1,
+          "count": 0,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
           "new_openings": 0
         },
         "park": {
-          "count": 0,
+          "count": 11,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 0
+          "new_openings": 1
         },
         "place_of_worship": {
           "count": 0,
@@ -3440,33 +3440,33 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 26,
-      "total_new_openings": 10,
+      "total_businesses": 35,
+      "total_new_openings": 17,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 85
+      "boutique_ratio": 89
     },
     {
       "name": "92121-Sorrento Valley",
       "vibe": "Tech Hub",
       "categories": {
         "coffee_specialty": {
-          "count": 0,
+          "count": 8,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
-          "new_openings": 0
+          "new_openings": 4
         },
         "restaurant": {
-          "count": 10,
+          "count": 0,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 5
+          "new_openings": 0
         },
         "fast_food": {
-          "count": 0,
+          "count": 7,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 5
         },
         "bar": {
           "count": 0,
@@ -3475,10 +3475,10 @@
           "new_openings": 0
         },
         "brewery_taproom": {
-          "count": 1,
+          "count": 0,
           "label": "Pubs/Breweries",
           "icon": "\ud83c\udf7a",
-          "new_openings": 1
+          "new_openings": 0
         },
         "ice_cream": {
           "count": 0,
@@ -3499,7 +3499,7 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 0,
+          "count": 1,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
           "new_openings": 0
@@ -3529,13 +3529,13 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 0,
+          "count": 4,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
           "new_openings": 0
         },
         "atm": {
-          "count": 0,
+          "count": 1,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
           "new_openings": 0
@@ -3559,7 +3559,7 @@
           "new_openings": 1
         },
         "gas_station": {
-          "count": 2,
+          "count": 0,
           "label": "Gas Stations",
           "icon": "\u26fd",
           "new_openings": 0
@@ -3577,10 +3577,10 @@
           "new_openings": 0
         },
         "clinic": {
-          "count": 0,
+          "count": 3,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
-          "new_openings": 0
+          "new_openings": 1
         },
         "dentist": {
           "count": 0,
@@ -3589,7 +3589,7 @@
           "new_openings": 0
         },
         "school": {
-          "count": 1,
+          "count": 0,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
           "new_openings": 0
@@ -3619,11 +3619,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 23,
-      "total_new_openings": 8,
+      "total_businesses": 33,
+      "total_new_openings": 12,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 100
+      "boutique_ratio": 76
     },
     {
       "name": "92122-University City",
@@ -3636,10 +3636,10 @@
           "new_openings": 7
         },
         "restaurant": {
-          "count": 0,
+          "count": 39,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 0
+          "new_openings": 12
         },
         "fast_food": {
           "count": 0,
@@ -3648,16 +3648,16 @@
           "new_openings": 0
         },
         "bar": {
-          "count": 0,
+          "count": 1,
           "label": "Bars",
           "icon": "\ud83c\udf78",
-          "new_openings": 0
+          "new_openings": 1
         },
         "brewery_taproom": {
-          "count": 0,
+          "count": 1,
           "label": "Pubs/Breweries",
           "icon": "\ud83c\udf7a",
-          "new_openings": 0
+          "new_openings": 1
         },
         "ice_cream": {
           "count": 3,
@@ -3678,13 +3678,13 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 3,
+          "count": 0,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
-          "new_openings": 1
+          "new_openings": 0
         },
         "clothing": {
-          "count": 50,
+          "count": 0,
           "label": "Clothing",
           "icon": "\ud83d\udc57",
           "new_openings": 0
@@ -3708,13 +3708,13 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 0,
+          "count": 11,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
           "new_openings": 0
         },
         "atm": {
-          "count": 0,
+          "count": 4,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
           "new_openings": 0
@@ -3732,7 +3732,7 @@
           "new_openings": 0
         },
         "car_repair": {
-          "count": 1,
+          "count": 0,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
           "new_openings": 0
@@ -3762,16 +3762,16 @@
           "new_openings": 0
         },
         "dentist": {
-          "count": 0,
+          "count": 6,
           "label": "Dentists",
           "icon": "\ud83e\uddb7",
-          "new_openings": 0
+          "new_openings": 2
         },
         "school": {
-          "count": 3,
+          "count": 0,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
-          "new_openings": 1
+          "new_openings": 0
         },
         "library": {
           "count": 1,
@@ -3780,10 +3780,10 @@
           "new_openings": 1
         },
         "park": {
-          "count": 0,
+          "count": 13,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 0
+          "new_openings": 6
         },
         "place_of_worship": {
           "count": 4,
@@ -3798,11 +3798,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 106,
-      "total_new_openings": 13,
+      "total_businesses": 124,
+      "total_new_openings": 33,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 94
+      "boutique_ratio": 90
     },
     {
       "name": "92123-Serra Mesa",
@@ -3839,13 +3839,13 @@
           "new_openings": 0
         },
         "ice_cream": {
-          "count": 0,
+          "count": 1,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
-          "new_openings": 0
+          "new_openings": 1
         },
         "grocery": {
-          "count": 1,
+          "count": 0,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
           "new_openings": 0
@@ -3857,10 +3857,10 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 4,
+          "count": 0,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
-          "new_openings": 1
+          "new_openings": 0
         },
         "clothing": {
           "count": 0,
@@ -3887,7 +3887,7 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 1,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
           "new_openings": 0
@@ -3905,13 +3905,13 @@
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 0,
+          "count": 2,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
-          "new_openings": 0
+          "new_openings": 1
         },
         "car_repair": {
-          "count": 2,
+          "count": 0,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
           "new_openings": 0
@@ -3941,10 +3941,10 @@
           "new_openings": 0
         },
         "dentist": {
-          "count": 2,
+          "count": 0,
           "label": "Dentists",
           "icon": "\ud83e\uddb7",
-          "new_openings": 2
+          "new_openings": 0
         },
         "school": {
           "count": 6,
@@ -3959,13 +3959,13 @@
           "new_openings": 0
         },
         "park": {
-          "count": 0,
+          "count": 4,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 0
+          "new_openings": 1
         },
         "place_of_worship": {
-          "count": 4,
+          "count": 0,
           "label": "Worship",
           "icon": "\u26ea",
           "new_openings": 0
@@ -3977,11 +3977,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 33,
+      "total_businesses": 26,
       "total_new_openings": 9,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 76
+      "boutique_ratio": 81
     },
     {
       "name": "92124-Tierrasanta",
@@ -3994,13 +3994,13 @@
           "new_openings": 0
         },
         "restaurant": {
-          "count": 5,
+          "count": 0,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
           "new_openings": 0
         },
         "fast_food": {
-          "count": 0,
+          "count": 3,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
           "new_openings": 0
@@ -4024,7 +4024,7 @@
           "new_openings": 0
         },
         "grocery": {
-          "count": 0,
+          "count": 1,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
           "new_openings": 0
@@ -4096,7 +4096,7 @@
           "new_openings": 0
         },
         "gas_station": {
-          "count": 0,
+          "count": 3,
           "label": "Gas Stations",
           "icon": "\u26fd",
           "new_openings": 0
@@ -4108,7 +4108,7 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 2,
+          "count": 0,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
           "new_openings": 0
@@ -4126,13 +4126,13 @@
           "new_openings": 0
         },
         "school": {
-          "count": 0,
+          "count": 4,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
           "new_openings": 0
         },
         "library": {
-          "count": 1,
+          "count": 0,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
           "new_openings": 0
@@ -4156,36 +4156,36 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 16,
+      "total_businesses": 19,
       "total_new_openings": 0,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 94
+      "boutique_ratio": 79
     },
     {
       "name": "92126-Mira Mesa",
       "vibe": "Bio-Tech Burbs",
       "categories": {
         "coffee_specialty": {
-          "count": 15,
+          "count": 0,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
-          "new_openings": 4
+          "new_openings": 0
         },
         "restaurant": {
-          "count": 0,
+          "count": 41,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 0
+          "new_openings": 10
         },
         "fast_food": {
-          "count": 0,
+          "count": 31,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 4
         },
         "bar": {
-          "count": 2,
+          "count": 0,
           "label": "Bars",
           "icon": "\ud83c\udf78",
           "new_openings": 0
@@ -4197,7 +4197,7 @@
           "new_openings": 0
         },
         "ice_cream": {
-          "count": 0,
+          "count": 2,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
           "new_openings": 0
@@ -4227,7 +4227,7 @@
           "new_openings": 0
         },
         "electronics": {
-          "count": 0,
+          "count": 1,
           "label": "Electronics",
           "icon": "\ud83d\udcf1",
           "new_openings": 0
@@ -4251,7 +4251,7 @@
           "new_openings": 4
         },
         "atm": {
-          "count": 4,
+          "count": 0,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
           "new_openings": 0
@@ -4263,22 +4263,22 @@
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 0,
+          "count": 5,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
-          "new_openings": 0
+          "new_openings": 3
         },
         "car_repair": {
-          "count": 0,
+          "count": 1,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
           "new_openings": 0
         },
         "gas_station": {
-          "count": 8,
+          "count": 0,
           "label": "Gas Stations",
           "icon": "\u26fd",
-          "new_openings": 4
+          "new_openings": 0
         },
         "pharmacy": {
           "count": 2,
@@ -4311,7 +4311,7 @@
           "new_openings": 6
         },
         "library": {
-          "count": 2,
+          "count": 0,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
           "new_openings": 0
@@ -4335,11 +4335,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 80,
-      "total_new_openings": 28,
+      "total_businesses": 130,
+      "total_new_openings": 37,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 76
+      "boutique_ratio": 85
     },
     {
       "name": "92127-Rancho Bernardo West",
@@ -4358,19 +4358,19 @@
           "new_openings": 0
         },
         "fast_food": {
-          "count": 26,
+          "count": 0,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 12
+          "new_openings": 0
         },
         "bar": {
-          "count": 0,
+          "count": 1,
           "label": "Bars",
           "icon": "\ud83c\udf78",
           "new_openings": 0
         },
         "brewery_taproom": {
-          "count": 1,
+          "count": 0,
           "label": "Pubs/Breweries",
           "icon": "\ud83c\udf7a",
           "new_openings": 0
@@ -4394,13 +4394,13 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 0,
+          "count": 5,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
           "new_openings": 0
         },
         "clothing": {
-          "count": 0,
+          "count": 1,
           "label": "Clothing",
           "icon": "\ud83d\udc57",
           "new_openings": 0
@@ -4418,16 +4418,16 @@
           "new_openings": 0
         },
         "bakery": {
-          "count": 1,
+          "count": 0,
           "label": "Bakeries",
           "icon": "\ud83e\udd50",
-          "new_openings": 1
+          "new_openings": 0
         },
         "bank": {
-          "count": 14,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
-          "new_openings": 1
+          "new_openings": 0
         },
         "atm": {
           "count": 0,
@@ -4436,22 +4436,22 @@
           "new_openings": 0
         },
         "laundromat": {
-          "count": 0,
+          "count": 1,
           "label": "Laundromats",
           "icon": "\ud83e\uddfa",
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 0,
+          "count": 9,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
           "new_openings": 0
         },
         "car_repair": {
-          "count": 0,
+          "count": 4,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
-          "new_openings": 0
+          "new_openings": 1
         },
         "gas_station": {
           "count": 7,
@@ -4472,10 +4472,10 @@
           "new_openings": 1
         },
         "clinic": {
-          "count": 3,
+          "count": 0,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
-          "new_openings": 2
+          "new_openings": 0
         },
         "dentist": {
           "count": 8,
@@ -4496,16 +4496,16 @@
           "new_openings": 0
         },
         "park": {
-          "count": 25,
+          "count": 0,
           "label": "Parks",
           "icon": "\ud83c\udf33",
           "new_openings": 0
         },
         "place_of_worship": {
-          "count": 11,
+          "count": 0,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 1
+          "new_openings": 0
         },
         "coworking": {
           "count": 0,
@@ -4514,11 +4514,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 130,
-      "total_new_openings": 27,
+      "total_businesses": 70,
+      "total_new_openings": 11,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 78
+      "boutique_ratio": 73
     },
     {
       "name": "92128-Rancho Bernardo East",
@@ -4531,22 +4531,22 @@
           "new_openings": 0
         },
         "restaurant": {
-          "count": 0,
+          "count": 1,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
           "new_openings": 0
         },
         "fast_food": {
-          "count": 1,
+          "count": 0,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
           "new_openings": 0
         },
         "bar": {
-          "count": 0,
+          "count": 1,
           "label": "Bars",
           "icon": "\ud83c\udf78",
-          "new_openings": 0
+          "new_openings": 1
         },
         "brewery_taproom": {
           "count": 0,
@@ -4573,7 +4573,7 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 1,
+          "count": 0,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
           "new_openings": 0
@@ -4657,16 +4657,16 @@
           "new_openings": 0
         },
         "dentist": {
-          "count": 0,
+          "count": 1,
           "label": "Dentists",
           "icon": "\ud83e\uddb7",
           "new_openings": 0
         },
         "school": {
-          "count": 0,
+          "count": 3,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
-          "new_openings": 0
+          "new_openings": 1
         },
         "library": {
           "count": 0,
@@ -4675,16 +4675,16 @@
           "new_openings": 0
         },
         "park": {
-          "count": 2,
+          "count": 0,
           "label": "Parks",
           "icon": "\ud83c\udf33",
           "new_openings": 0
         },
         "place_of_worship": {
-          "count": 0,
+          "count": 5,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 0
+          "new_openings": 1
         },
         "coworking": {
           "count": 0,
@@ -4693,8 +4693,8 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 4,
-      "total_new_openings": 0,
+      "total_businesses": 11,
+      "total_new_openings": 3,
       "boutique_count": 0,
       "chain_count": 0,
       "boutique_ratio": 100
@@ -4716,10 +4716,10 @@
           "new_openings": 0
         },
         "fast_food": {
-          "count": 0,
+          "count": 23,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 2
         },
         "bar": {
           "count": 3,
@@ -4740,10 +4740,10 @@
           "new_openings": 0
         },
         "grocery": {
-          "count": 0,
+          "count": 4,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
-          "new_openings": 0
+          "new_openings": 2
         },
         "organic_grocery": {
           "count": 0,
@@ -4764,10 +4764,10 @@
           "new_openings": 0
         },
         "electronics": {
-          "count": 0,
+          "count": 1,
           "label": "Electronics",
           "icon": "\ud83d\udcf1",
-          "new_openings": 0
+          "new_openings": 1
         },
         "pet_shop": {
           "count": 0,
@@ -4776,10 +4776,10 @@
           "new_openings": 0
         },
         "bakery": {
-          "count": 0,
+          "count": 1,
           "label": "Bakeries",
           "icon": "\ud83e\udd50",
-          "new_openings": 0
+          "new_openings": 1
         },
         "bank": {
           "count": 0,
@@ -4812,10 +4812,10 @@
           "new_openings": 0
         },
         "gas_station": {
-          "count": 9,
+          "count": 0,
           "label": "Gas Stations",
           "icon": "\u26fd",
-          "new_openings": 1
+          "new_openings": 0
         },
         "pharmacy": {
           "count": 1,
@@ -4824,10 +4824,10 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 10,
+          "count": 0,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
-          "new_openings": 2
+          "new_openings": 0
         },
         "clinic": {
           "count": 0,
@@ -4836,10 +4836,10 @@
           "new_openings": 0
         },
         "dentist": {
-          "count": 11,
+          "count": 0,
           "label": "Dentists",
           "icon": "\ud83e\uddb7",
-          "new_openings": 2
+          "new_openings": 0
         },
         "school": {
           "count": 0,
@@ -4854,10 +4854,10 @@
           "new_openings": 0
         },
         "park": {
-          "count": 0,
+          "count": 15,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 0
+          "new_openings": 3
         },
         "place_of_worship": {
           "count": 11,
@@ -4872,11 +4872,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 68,
-      "total_new_openings": 10,
+      "total_businesses": 82,
+      "total_new_openings": 14,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 87
+      "boutique_ratio": 88
     },
     {
       "name": "92130-Carmel Valley",
@@ -4889,22 +4889,22 @@
           "new_openings": 12
         },
         "restaurant": {
-          "count": 0,
+          "count": 50,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 0
+          "new_openings": 25
         },
         "fast_food": {
-          "count": 25,
+          "count": 0,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 14
+          "new_openings": 0
         },
         "bar": {
-          "count": 0,
+          "count": 4,
           "label": "Bars",
           "icon": "\ud83c\udf78",
-          "new_openings": 0
+          "new_openings": 3
         },
         "brewery_taproom": {
           "count": 1,
@@ -4913,10 +4913,10 @@
           "new_openings": 1
         },
         "ice_cream": {
-          "count": 3,
+          "count": 0,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
-          "new_openings": 2
+          "new_openings": 0
         },
         "grocery": {
           "count": 0,
@@ -4967,10 +4967,10 @@
           "new_openings": 0
         },
         "atm": {
-          "count": 3,
+          "count": 0,
           "label": "ATMs",
           "icon": "\ud83c\udfe7",
-          "new_openings": 1
+          "new_openings": 0
         },
         "laundromat": {
           "count": 0,
@@ -4979,40 +4979,40 @@
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 8,
+          "count": 0,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
-          "new_openings": 4
+          "new_openings": 0
         },
         "car_repair": {
-          "count": 1,
+          "count": 0,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
-          "new_openings": 1
+          "new_openings": 0
         },
         "gas_station": {
-          "count": 0,
+          "count": 4,
           "label": "Gas Stations",
           "icon": "\u26fd",
-          "new_openings": 0
+          "new_openings": 1
         },
         "pharmacy": {
-          "count": 3,
+          "count": 0,
           "label": "Pharmacies",
           "icon": "\ud83d\udc8a",
-          "new_openings": 3
-        },
-        "fitness": {
-          "count": 0,
-          "label": "Fitness/Yoga",
-          "icon": "\ud83e\uddd8",
           "new_openings": 0
         },
+        "fitness": {
+          "count": 10,
+          "label": "Fitness/Yoga",
+          "icon": "\ud83e\uddd8",
+          "new_openings": 7
+        },
         "clinic": {
-          "count": 11,
+          "count": 0,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
-          "new_openings": 4
+          "new_openings": 0
         },
         "dentist": {
           "count": 0,
@@ -5021,10 +5021,10 @@
           "new_openings": 0
         },
         "school": {
-          "count": 0,
+          "count": 17,
           "label": "Schools",
           "icon": "\ud83c\udfeb",
-          "new_openings": 0
+          "new_openings": 5
         },
         "library": {
           "count": 3,
@@ -5033,10 +5033,10 @@
           "new_openings": 2
         },
         "park": {
-          "count": 44,
+          "count": 0,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 23
+          "new_openings": 0
         },
         "place_of_worship": {
           "count": 0,
@@ -5051,33 +5051,33 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 132,
-      "total_new_openings": 75,
+      "total_businesses": 119,
+      "total_new_openings": 64,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 90
+      "boutique_ratio": 92
     },
     {
       "name": "92131-Scripps Ranch",
       "vibe": "Eucalyptus Living",
       "categories": {
         "coffee_specialty": {
-          "count": 0,
+          "count": 3,
           "label": "Coffee/Cafes",
           "icon": "\u2615",
           "new_openings": 0
         },
         "restaurant": {
-          "count": 0,
+          "count": 7,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 0
+          "new_openings": 1
         },
         "fast_food": {
-          "count": 0,
+          "count": 9,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 1
         },
         "bar": {
           "count": 0,
@@ -5098,7 +5098,7 @@
           "new_openings": 0
         },
         "grocery": {
-          "count": 0,
+          "count": 2,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
           "new_openings": 0
@@ -5140,7 +5140,7 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 4,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
           "new_openings": 0
@@ -5170,10 +5170,10 @@
           "new_openings": 0
         },
         "gas_station": {
-          "count": 0,
+          "count": 2,
           "label": "Gas Stations",
           "icon": "\u26fd",
-          "new_openings": 0
+          "new_openings": 1
         },
         "pharmacy": {
           "count": 0,
@@ -5182,19 +5182,19 @@
           "new_openings": 0
         },
         "fitness": {
-          "count": 0,
+          "count": 1,
           "label": "Fitness/Yoga",
           "icon": "\ud83e\uddd8",
           "new_openings": 0
         },
         "clinic": {
-          "count": 0,
+          "count": 1,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
           "new_openings": 0
         },
         "dentist": {
-          "count": 0,
+          "count": 1,
           "label": "Dentists",
           "icon": "\ud83e\uddb7",
           "new_openings": 0
@@ -5218,10 +5218,10 @@
           "new_openings": 7
         },
         "place_of_worship": {
-          "count": 0,
+          "count": 3,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 0
+          "new_openings": 2
         },
         "coworking": {
           "count": 0,
@@ -5230,11 +5230,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 32,
-      "total_new_openings": 10,
+      "total_businesses": 57,
+      "total_new_openings": 15,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 97
+      "boutique_ratio": 89
     },
     {
       "name": "92139-Paradise Hills",
@@ -5253,7 +5253,7 @@
           "new_openings": 5
         },
         "fast_food": {
-          "count": 0,
+          "count": 7,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
           "new_openings": 0
@@ -5313,10 +5313,10 @@
           "new_openings": 0
         },
         "bakery": {
-          "count": 0,
+          "count": 1,
           "label": "Bakeries",
           "icon": "\ud83e\udd50",
-          "new_openings": 0
+          "new_openings": 1
         },
         "bank": {
           "count": 2,
@@ -5337,7 +5337,7 @@
           "new_openings": 0
         },
         "hair_salon": {
-          "count": 2,
+          "count": 0,
           "label": "Hair Salons",
           "icon": "\ud83d\udc87",
           "new_openings": 0
@@ -5355,7 +5355,7 @@
           "new_openings": 0
         },
         "pharmacy": {
-          "count": 0,
+          "count": 1,
           "label": "Pharmacies",
           "icon": "\ud83d\udc8a",
           "new_openings": 0
@@ -5385,22 +5385,22 @@
           "new_openings": 2
         },
         "library": {
-          "count": 0,
+          "count": 4,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 0
+          "new_openings": 3
         },
         "park": {
-          "count": 25,
+          "count": 0,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 7
+          "new_openings": 0
         },
         "place_of_worship": {
-          "count": 0,
+          "count": 26,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 0
+          "new_openings": 1
         },
         "coworking": {
           "count": 0,
@@ -5409,11 +5409,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 71,
-      "total_new_openings": 16,
+      "total_businesses": 83,
+      "total_new_openings": 14,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 94
+      "boutique_ratio": 86
     },
     {
       "name": "92154-Nestor Otay Mesa",
@@ -5426,10 +5426,10 @@
           "new_openings": 0
         },
         "restaurant": {
-          "count": 16,
+          "count": 0,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 3
+          "new_openings": 0
         },
         "fast_food": {
           "count": 0,
@@ -5438,7 +5438,7 @@
           "new_openings": 0
         },
         "bar": {
-          "count": 1,
+          "count": 0,
           "label": "Bars",
           "icon": "\ud83c\udf78",
           "new_openings": 0
@@ -5450,16 +5450,16 @@
           "new_openings": 0
         },
         "ice_cream": {
-          "count": 0,
+          "count": 2,
           "label": "Ice Cream",
           "icon": "\ud83c\udf66",
           "new_openings": 0
         },
         "grocery": {
-          "count": 7,
+          "count": 0,
           "label": "Grocery",
           "icon": "\ud83d\uded2",
-          "new_openings": 2
+          "new_openings": 0
         },
         "organic_grocery": {
           "count": 0,
@@ -5468,10 +5468,10 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 20,
+          "count": 0,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
-          "new_openings": 1
+          "new_openings": 0
         },
         "clothing": {
           "count": 0,
@@ -5510,7 +5510,7 @@
           "new_openings": 0
         },
         "laundromat": {
-          "count": 0,
+          "count": 3,
           "label": "Laundromats",
           "icon": "\ud83e\uddfa",
           "new_openings": 0
@@ -5522,7 +5522,7 @@
           "new_openings": 0
         },
         "car_repair": {
-          "count": 0,
+          "count": 1,
           "label": "Auto Repair",
           "icon": "\ud83d\udd27",
           "new_openings": 0
@@ -5546,7 +5546,7 @@
           "new_openings": 0
         },
         "clinic": {
-          "count": 1,
+          "count": 0,
           "label": "Clinics",
           "icon": "\ud83e\ude7a",
           "new_openings": 0
@@ -5570,10 +5570,10 @@
           "new_openings": 1
         },
         "park": {
-          "count": 0,
+          "count": 41,
           "label": "Parks",
           "icon": "\ud83c\udf33",
-          "new_openings": 0
+          "new_openings": 3
         },
         "place_of_worship": {
           "count": 15,
@@ -5588,11 +5588,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 90,
-      "total_new_openings": 11,
+      "total_businesses": 92,
+      "total_new_openings": 8,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 68
+      "boutique_ratio": 84
     },
     {
       "name": "92173-San Ysidro",
@@ -5605,16 +5605,16 @@
           "new_openings": 0
         },
         "restaurant": {
-          "count": 13,
+          "count": 0,
           "label": "Restaurants",
           "icon": "\ud83c\udf7d\ufe0f",
-          "new_openings": 2
+          "new_openings": 0
         },
         "fast_food": {
-          "count": 0,
+          "count": 44,
           "label": "Fast Food",
           "icon": "\ud83c\udf54",
-          "new_openings": 0
+          "new_openings": 4
         },
         "bar": {
           "count": 0,
@@ -5647,16 +5647,16 @@
           "new_openings": 0
         },
         "convenience": {
-          "count": 12,
+          "count": 0,
           "label": "Convenience",
           "icon": "\ud83c\udfea",
-          "new_openings": 1
+          "new_openings": 0
         },
         "clothing": {
-          "count": 62,
+          "count": 0,
           "label": "Clothing",
           "icon": "\ud83d\udc57",
-          "new_openings": 8
+          "new_openings": 0
         },
         "electronics": {
           "count": 0,
@@ -5677,19 +5677,19 @@
           "new_openings": 0
         },
         "bank": {
-          "count": 9,
+          "count": 0,
           "label": "Banks",
           "icon": "\ud83c\udfe6",
-          "new_openings": 2
-        },
-        "atm": {
-          "count": 0,
-          "label": "ATMs",
-          "icon": "\ud83c\udfe7",
           "new_openings": 0
         },
+        "atm": {
+          "count": 6,
+          "label": "ATMs",
+          "icon": "\ud83c\udfe7",
+          "new_openings": 2
+        },
         "laundromat": {
-          "count": 3,
+          "count": 0,
           "label": "Laundromats",
           "icon": "\ud83e\uddfa",
           "new_openings": 0
@@ -5743,22 +5743,22 @@
           "new_openings": 0
         },
         "library": {
-          "count": 2,
+          "count": 0,
           "label": "Libraries",
           "icon": "\ud83d\udcda",
-          "new_openings": 1
-        },
-        "park": {
-          "count": 0,
-          "label": "Parks",
-          "icon": "\ud83c\udf33",
           "new_openings": 0
         },
+        "park": {
+          "count": 18,
+          "label": "Parks",
+          "icon": "\ud83c\udf33",
+          "new_openings": 5
+        },
         "place_of_worship": {
-          "count": 12,
+          "count": 0,
           "label": "Worship",
           "icon": "\u26ea",
-          "new_openings": 1
+          "new_openings": 0
         },
         "coworking": {
           "count": 0,
@@ -5767,11 +5767,11 @@
           "new_openings": 0
         }
       },
-      "total_businesses": 129,
-      "total_new_openings": 20,
+      "total_businesses": 84,
+      "total_new_openings": 16,
       "boutique_count": 0,
       "chain_count": 0,
-      "boutique_ratio": 88
+      "boutique_ratio": 75
     }
   ],
   "categories": {

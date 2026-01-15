@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-01-13T17:20:35.588574",
+    "generated": "2026-01-15T17:26:07.065366",
     "county": "San Diego",
-    "total_notices": 81,
-    "total_employees_affected": 3280
+    "total_notices": 83,
+    "total_employees_affected": 3400
   },
   "notices": [
     {
@@ -896,6 +896,28 @@
       "notice_type": "Closure Permanent",
       "region": "North County Inland",
       "neighborhood": "Carlsbad"
+    },
+    {
+      "notice_id": "8a1009ce",
+      "company_name": "Macy's",
+      "city": "La Mesa",
+      "zipcode": "91942",
+      "employees_affected": 77,
+      "layoff_date": "2026-03-18",
+      "notice_type": "Closure Permanent",
+      "region": "East County",
+      "neighborhood": "La Mesa"
+    },
+    {
+      "notice_id": "0a1cf193",
+      "company_name": "Cucina Enoteca Del Mar",
+      "city": "Del Mar",
+      "zipcode": "92014",
+      "employees_affected": 43,
+      "layoff_date": "2026-03-11",
+      "notice_type": "Layoff Permanent",
+      "region": "Coastal",
+      "neighborhood": "Del Mar"
     }
   ],
   "risk_scores": {
@@ -930,11 +952,13 @@
       ]
     },
     "91942": {
-      "score": 8,
-      "risk_level": "Low",
-      "total_employees": 40,
+      "score": 43,
+      "risk_level": "Moderate",
+      "total_employees": 117,
       "factors": [
-        "40 employees affected"
+        "40 employees affected",
+        "77 employees affected",
+        "Plant closure"
       ]
     },
     "92111": {
@@ -1180,6 +1204,14 @@
       "factors": [
         "3 employees affected"
       ]
+    },
+    "92014": {
+      "score": 8,
+      "risk_level": "Low",
+      "total_employees": 43,
+      "factors": [
+        "43 employees affected"
+      ]
     }
   },
   "by_region": {
@@ -1192,12 +1224,12 @@
       "total_employees": 203
     },
     "Coastal": {
-      "notice_count": 14,
-      "total_employees": 522
+      "notice_count": 15,
+      "total_employees": 565
     },
     "East County": {
-      "notice_count": 6,
-      "total_employees": 167
+      "notice_count": 7,
+      "total_employees": 244
     },
     "Urban San Diego": {
       "notice_count": 9,
