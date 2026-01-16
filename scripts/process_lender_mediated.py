@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Lender-Mediated Properties Report PDF Parser
 Extracts all data from the SDAR Lender-Mediated Properties Report.

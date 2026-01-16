@@ -2,8 +2,8 @@ name: Update FRED Economic Data
 
 on:
   schedule:
-    # Runs at 7:00 AM UTC on the 1st and 15th of every month (biweekly)
-    - cron: '0 7 1,15 * *'
+    # Runs at 7:00 AM UTC daily
+    - cron: '0 7 * * *'
   workflow_dispatch:  # Allows manual trigger from GitHub UI
 
 jobs:
