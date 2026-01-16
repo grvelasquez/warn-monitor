@@ -277,7 +277,13 @@ export default function ADUDashboard() {
                                 {ADU_TYPES.map((type) => (
                                     <button
                                         key={type.id}
-                                        onClick={() => setAduType(type.id)}
+                                        onClick={() => {
+                                            setAduType(type.id);
+                                            // Default Junior ADU to 1 unit
+                                            if (type.id === 'jadu') {
+                                                setNumberOfUnits(1);
+                                            }
+                                        }}
                                         className={`p-3 rounded-lg border text-left transition-all ${aduType === type.id
                                             ? 'bg-emerald-600/20 border-emerald-500 text-white'
                                             : 'bg-slate-700/30 border-slate-600 text-slate-400 hover:border-slate-500'
