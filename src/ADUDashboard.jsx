@@ -441,7 +441,7 @@ export default function ADUDashboard() {
                             <ResultCard
                                 title="Cash-on-Cash ROI"
                                 value={`${calculations.cashOnCashReturn.toFixed(1)}%`}
-                                subtitle="Return on down payment"
+                                subtitle={downPaymentPct === 100 ? `Return on ${formatCurrency(calculations.downPayment)} invested` : "Return on down payment"}
                                 icon={TrendingUp}
                                 color="amber"
                             />
