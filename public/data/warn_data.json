@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-01-15T17:26:07.065366",
+    "generated": "2026-01-17T17:19:32.090972",
     "county": "San Diego",
-    "total_notices": 83,
-    "total_employees_affected": 3400
+    "total_notices": 84,
+    "total_employees_affected": 3479
   },
   "notices": [
     {
@@ -918,6 +918,17 @@
       "notice_type": "Layoff Permanent",
       "region": "Coastal",
       "neighborhood": "Del Mar"
+    },
+    {
+      "notice_id": "83e4a3cb",
+      "company_name": "Copan Diagnostics, Inc.",
+      "city": "Carlsbad",
+      "zipcode": "92010",
+      "employees_affected": 79,
+      "layoff_date": "2026-03-13",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Carlsbad"
     }
   ],
   "risk_scores": {
@@ -1212,6 +1223,15 @@
       "factors": [
         "43 employees affected"
       ]
+    },
+    "92010": {
+      "score": 35,
+      "risk_level": "Moderate",
+      "total_employees": 79,
+      "factors": [
+        "79 employees affected",
+        "Plant closure"
+      ]
     }
   },
   "by_region": {
@@ -1236,8 +1256,8 @@
       "total_employees": 611
     },
     "North County Inland": {
-      "notice_count": 6,
-      "total_employees": 314
+      "notice_count": 7,
+      "total_employees": 393
     }
   }
 }
