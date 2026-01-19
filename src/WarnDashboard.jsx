@@ -256,7 +256,14 @@ export default function WarnDashboard() {
                         </div>
                         <p className="text-slate-400">San Diego County • Pre-Distress Intelligence</p>
                         {activeView === 'warn' && (
-                            <p className="text-xs text-slate-500 mt-1">Source: CA EDD WARN Act</p>
+                            <div className="flex flex-wrap items-center gap-2 mt-1">
+                                <p className="text-xs text-slate-500">Source: CA EDD WARN Act</p>
+                                {data?.meta?.generated && (
+                                    <span className="text-xs text-slate-600">
+                                        • Updated {new Date(data.meta.generated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} at {new Date(data.meta.generated).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
+                                    </span>
+                                )}
+                            </div>
                         )}
                     </div>
 
