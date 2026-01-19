@@ -165,6 +165,12 @@ const SpreadTooltip = ({ active, payload, label }) => {
 };
 
 function MortgageSpreadChart() {
+    // Get the current spread from the most recent entry in spreadData
+    const currentSpreadData = spreadData[spreadData.length - 1];
+    const currentSpread = currentSpreadData.spread;
+    const isElevated = currentSpread > historicalSpreadAverage + 0.3;
+    const isNormalized = currentSpread <= historicalSpreadAverage + 0.3;
+
     return (
         <div className="space-y-6">
             {/* Main Chart - Rates */}
@@ -254,8 +260,8 @@ function MortgageSpreadChart() {
                 </div>
                 <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
                     <h3 className="text-xs font-semibold text-slate-500 uppercase">Current Spread</h3>
-                    <p className="text-3xl font-bold text-orange-400">~2.7%</p>
-                    <p className="text-sm text-slate-400">Elevated vs historical</p>
+                    <p className={`text-3xl font-bold ${isElevated ? 'text-orange-400' : 'text-green-400'}`}>{currentSpread.toFixed(2)}%</p>
+                    <p className="text-sm text-slate-400">{isElevated ? 'Elevated vs historical' : 'Near historical average'}</p>
                 </div>
                 <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
                     <h3 className="text-xs font-semibold text-slate-500 uppercase">Refi Trigger</h3>
@@ -270,7 +276,7 @@ function MortgageSpreadChart() {
                 <ul className="space-y-2 text-slate-300">
                     <li className="flex items-start">
                         <span className="text-orange-500 mr-2">•</span>
-                        <span><strong className="text-white">Current spread is elevated</strong> at ~2.7% vs the historical average of 1.7-1.8%</span>
+                        <span><strong className="text-white">Current spread is {isElevated ? 'elevated' : 'normalized'}</strong> at {currentSpread.toFixed(2)}% vs the historical average of 1.7-1.8%</span>
                     </li>
                     <li className="flex items-start">
                         <span className="text-orange-500 mr-2">•</span>
@@ -278,7 +284,7 @@ function MortgageSpreadChart() {
                     </li>
                     <li className="flex items-start">
                         <span className="text-orange-500 mr-2">•</span>
-                        <span><strong className="text-white">If spreads normalize</strong> to 1.8%, mortgage rates could drop 0.5-1% even without Treasury moves</span>
+                        <span><strong className="text-white">{isNormalized ? 'Spreads have normalized' : 'If spreads normalize'}</strong>{isNormalized ? ', showing reduced market stress' : ' to 1.8%, mortgage rates could drop 0.5-1% even without Treasury moves'}</span>
                     </li>
                     <li className="flex items-start">
                         <span className="text-orange-500 mr-2">•</span>
@@ -288,7 +294,7 @@ function MortgageSpreadChart() {
             </div>
 
             <p className="text-xs text-slate-500">
-                Data: FRED (Freddie Mac MORTGAGE30US, Treasury DGS10). Annual averages 2000-2024, Jan 2025 current.
+                Data: FRED (Freddie Mac MORTGAGE30US, Treasury DGS10). Annual averages 2000-2024, {currentSpreadData.year} current.
             </p>
         </div>
     );
