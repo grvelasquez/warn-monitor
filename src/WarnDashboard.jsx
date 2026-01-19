@@ -260,7 +260,7 @@ export default function WarnDashboard() {
                                 <p className="text-xs text-slate-500">Source: CA EDD WARN Act</p>
                                 {data?.meta?.generated && (
                                     <span className="text-xs text-slate-600">
-                                        • Updated {new Date(data.meta.generated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} at {new Date(data.meta.generated).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
+                                        • Updated {new Date(data.meta.generated + 'Z').toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', year: 'numeric' })} at {new Date(data.meta.generated + 'Z').toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit' })}
                                     </span>
                                 )}
                             </div>
