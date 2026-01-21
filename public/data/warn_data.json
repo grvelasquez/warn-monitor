@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-01-20T17:32:17.901427",
+    "generated": "2026-01-21T17:56:25.013839",
     "county": "San Diego",
-    "total_notices": 84,
-    "total_employees_affected": 3479
+    "total_notices": 85,
+    "total_employees_affected": 3525
   },
   "notices": [
     {
@@ -929,6 +929,17 @@
       "notice_type": "Closure Permanent",
       "region": "North County Inland",
       "neighborhood": "Carlsbad"
+    },
+    {
+      "notice_id": "d5645c55",
+      "company_name": "Best Buy",
+      "city": "San Diego",
+      "zipcode": "92128",
+      "employees_affected": 46,
+      "layoff_date": "2026-03-17",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Rancho Bernardo"
     }
   ],
   "risk_scores": {
@@ -1232,12 +1243,21 @@
         "79 employees affected",
         "Plant closure"
       ]
+    },
+    "92128": {
+      "score": 29,
+      "risk_level": "Moderate",
+      "total_employees": 46,
+      "factors": [
+        "46 employees affected",
+        "Plant closure"
+      ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 39,
-      "total_employees": 1463
+      "notice_count": 40,
+      "total_employees": 1509
     },
     "South County": {
       "notice_count": 7,
