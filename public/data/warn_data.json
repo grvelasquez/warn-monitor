@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-01-21T17:56:25.013839",
+    "generated": "2026-01-22T17:35:24.864223",
     "county": "San Diego",
-    "total_notices": 85,
-    "total_employees_affected": 3525
+    "total_notices": 86,
+    "total_employees_affected": 3544
   },
   "notices": [
     {
@@ -940,6 +940,17 @@
       "notice_type": "Closure Permanent",
       "region": "Central San Diego",
       "neighborhood": "Rancho Bernardo"
+    },
+    {
+      "notice_id": "49bfce3b",
+      "company_name": "Primo Brands, Inc.",
+      "city": "Lakeside",
+      "zipcode": "92040",
+      "employees_affected": 19,
+      "layoff_date": "2026-03-17",
+      "notice_type": "Layoff Permanent",
+      "region": "East County",
+      "neighborhood": "Lakeside"
     }
   ],
   "risk_scores": {
@@ -1118,11 +1129,12 @@
       ]
     },
     "92040": {
-      "score": 0,
+      "score": 4,
       "risk_level": "Low",
-      "total_employees": 4,
+      "total_employees": 23,
       "factors": [
-        "4 employees affected"
+        "4 employees affected",
+        "19 employees affected"
       ]
     },
     "92056": {
@@ -1268,8 +1280,8 @@
       "total_employees": 565
     },
     "East County": {
-      "notice_count": 7,
-      "total_employees": 244
+      "notice_count": 8,
+      "total_employees": 263
     },
     "Urban San Diego": {
       "notice_count": 9,
