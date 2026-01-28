@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-01-27T17:30:14.614964",
+    "generated": "2026-01-28T17:34:21.835174",
     "county": "San Diego",
-    "total_notices": 86,
-    "total_employees_affected": 3544
+    "total_notices": 89,
+    "total_employees_affected": 3583
   },
   "notices": [
     {
@@ -951,6 +951,39 @@
       "notice_type": "Layoff Permanent",
       "region": "East County",
       "neighborhood": "Lakeside"
+    },
+    {
+      "notice_id": "5b6e2f0d",
+      "company_name": "Gilead Sciences, Inc.",
+      "city": "Oceanside",
+      "zipcode": "92056",
+      "employees_affected": 34,
+      "layoff_date": "2026-03-27",
+      "notice_type": "Layoff Permanent",
+      "region": "Coastal",
+      "neighborhood": "Oceanside"
+    },
+    {
+      "notice_id": "1767b6f3",
+      "company_name": "Illumina, Inc Worldwide Headquarters",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 1,
+      "layoff_date": "2026-03-09",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "214c6ea3",
+      "company_name": "Illumina, Inc. Worldwide Headquarters",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 4,
+      "layoff_date": "2026-03-16",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
     }
   ],
   "risk_scores": {
@@ -1138,13 +1171,14 @@
       ]
     },
     "92056": {
-      "score": 4,
+      "score": 11,
       "risk_level": "Low",
-      "total_employees": 23,
+      "total_employees": 57,
       "factors": [
         "1 employees affected",
         "5 employees affected",
-        "17 employees affected"
+        "17 employees affected",
+        "34 employees affected"
       ]
     },
     "92011": {
@@ -1207,9 +1241,9 @@
       ]
     },
     "92122": {
-      "score": 27,
+      "score": 28,
       "risk_level": "Moderate",
-      "total_employees": 136,
+      "total_employees": 141,
       "factors": [
         "9 employees affected",
         "Plant closure",
@@ -1268,16 +1302,16 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 40,
-      "total_employees": 1509
+      "notice_count": 42,
+      "total_employees": 1514
     },
     "South County": {
       "notice_count": 7,
       "total_employees": 203
     },
     "Coastal": {
-      "notice_count": 15,
-      "total_employees": 565
+      "notice_count": 16,
+      "total_employees": 599
     },
     "East County": {
       "notice_count": 8,
