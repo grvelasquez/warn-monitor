@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-01-28T17:34:21.835174",
+    "generated": "2026-01-29T17:39:27.039460",
     "county": "San Diego",
-    "total_notices": 89,
-    "total_employees_affected": 3583
+    "total_notices": 95,
+    "total_employees_affected": 3832
   },
   "notices": [
     {
@@ -984,6 +984,72 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "University City"
+    },
+    {
+      "notice_id": "e10c1559",
+      "company_name": "Catholic Charities, Diocese of San Diego - Mission Valley ASIP",
+      "city": "San Diego",
+      "zipcode": "92108",
+      "employees_affected": 45,
+      "layoff_date": "2026-03-31",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "ec117842",
+      "company_name": "Catholic Charities, Diocese of San Diego - MG Suite A",
+      "city": "San Diego",
+      "zipcode": "92120",
+      "employees_affected": 7,
+      "layoff_date": "2026-03-31",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Grantville"
+    },
+    {
+      "notice_id": "3b567df9",
+      "company_name": "Catholic Charities, Diocese of San Diego - MG Suite B",
+      "city": "San Diego",
+      "zipcode": "92120",
+      "employees_affected": 11,
+      "layoff_date": "2026-03-31",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Grantville"
+    },
+    {
+      "notice_id": "b8ac22d9",
+      "company_name": "Catholic Charities, Diocese of San Diego - San Diego Migrant Shelter",
+      "city": "San Diego",
+      "zipcode": "92110",
+      "employees_affected": 7,
+      "layoff_date": "2026-03-31",
+      "notice_type": "Layoff Permanent",
+      "region": "Coastal",
+      "neighborhood": "Bay Park"
+    },
+    {
+      "notice_id": "be36c0e4",
+      "company_name": "Catholic Charities, Diocese of San Diego - Pastoral Center",
+      "city": "San Diego",
+      "zipcode": "92117",
+      "employees_affected": 6,
+      "layoff_date": "2026-03-31",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Clairemont"
+    },
+    {
+      "notice_id": "c896b3dc",
+      "company_name": "Thermo Fisher Scientific",
+      "city": "Carlsbad",
+      "zipcode": "92008",
+      "employees_affected": 173,
+      "layoff_date": "2026-03-18",
+      "notice_type": "Layoff Temporary",
+      "region": "Coastal",
+      "neighborhood": "Carlsbad West"
     }
   ],
   "risk_scores": {
@@ -1038,14 +1104,15 @@
       ]
     },
     "92110": {
-      "score": 16,
+      "score": 18,
       "risk_level": "Low",
-      "total_employees": 84,
+      "total_employees": 91,
       "factors": [
         "80 employees affected",
         "Plant closure",
         "3 employees affected",
-        "1 employees affected"
+        "1 employees affected",
+        "7 employees affected"
       ]
     },
     "91978": {
@@ -1059,14 +1126,15 @@
       ]
     },
     "92008": {
-      "score": 49,
-      "risk_level": "Moderate",
-      "total_employees": 246,
+      "score": 83,
+      "risk_level": "Critical",
+      "total_employees": 419,
       "factors": [
         "161 employees affected",
         "Plant closure",
         "52 employees affected",
-        "33 employees affected"
+        "33 employees affected",
+        "173 employees affected"
       ]
     },
     "92121": {
@@ -1142,13 +1210,14 @@
       ]
     },
     "92108": {
-      "score": 1,
+      "score": 10,
       "risk_level": "Low",
-      "total_employees": 8,
+      "total_employees": 53,
       "factors": [
         "2 employees affected",
         "1 employees affected",
-        "4 employees affected"
+        "4 employees affected",
+        "45 employees affected"
       ]
     },
     "92109": {
@@ -1298,20 +1367,37 @@
         "46 employees affected",
         "Plant closure"
       ]
+    },
+    "92120": {
+      "score": 3,
+      "risk_level": "Low",
+      "total_employees": 18,
+      "factors": [
+        "7 employees affected",
+        "11 employees affected"
+      ]
+    },
+    "92117": {
+      "score": 1,
+      "risk_level": "Low",
+      "total_employees": 6,
+      "factors": [
+        "6 employees affected"
+      ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 42,
-      "total_employees": 1514
+      "notice_count": 46,
+      "total_employees": 1583
     },
     "South County": {
       "notice_count": 7,
       "total_employees": 203
     },
     "Coastal": {
-      "notice_count": 16,
-      "total_employees": 599
+      "notice_count": 18,
+      "total_employees": 779
     },
     "East County": {
       "notice_count": 8,
