@@ -164,10 +164,41 @@ const SpreadTooltip = ({ active, payload, label }) => {
     return null;
 };
 
-function MortgageSpreadChart() {
-    // Get the current spread from the most recent entry in spreadData
-    const currentSpreadData = spreadData[spreadData.length - 1];
-    const currentSpread = currentSpreadData.spread;
+function MortgageSpreadChart({ lendingData }) {
+    // Get current mortgage rate and treasury yield from fetched data
+    const currentMortgage = lendingData?.currentRates?.rate30 || 6.06;
+    const currentTreasury = lendingData?.treasury10yr || 4.55;
+    const currentSpread = parseFloat((currentMortgage - currentTreasury).toFixed(2));
+
+    // Create spread data with dynamic current year values
+    const dynamicSpreadData = useMemo(() => {
+        const currentYear = new Date().getFullYear();
+        // Update or add current year entry with live data
+        const updatedData = spreadData.map(d => {
+            if (d.year === currentYear) {
+                return {
+                    ...d,
+                    mortgage: currentMortgage,
+                    treasury: currentTreasury,
+                    spread: currentSpread,
+                    event: 'Now'
+                };
+            }
+            return d;
+        });
+        // If current year doesn't exist in data, add it
+        if (!updatedData.find(d => d.year === currentYear)) {
+            updatedData.push({
+                year: currentYear,
+                mortgage: currentMortgage,
+                treasury: currentTreasury,
+                spread: currentSpread,
+                event: 'Now'
+            });
+        }
+        return updatedData;
+    }, [currentMortgage, currentTreasury, currentSpread]);
+
     const isElevated = currentSpread > historicalSpreadAverage + 0.3;
     const isNormalized = currentSpread <= historicalSpreadAverage + 0.3;
 
@@ -177,7 +208,7 @@ function MortgageSpreadChart() {
             <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6">
                 <h2 className="text-lg font-semibold text-white mb-4">Interest Rates (25-Year View)</h2>
                 <ResponsiveContainer width="100%" height={300}>
-                    <LineChart data={spreadData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
+                    <LineChart data={dynamicSpreadData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
                         <XAxis
                             dataKey="year"
@@ -219,7 +250,7 @@ function MortgageSpreadChart() {
                     Spread (Mortgage Rate − Treasury Yield)
                 </h2>
                 <ResponsiveContainer width="100%" height={250}>
-                    <ComposedChart data={spreadData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
+                    <ComposedChart data={dynamicSpreadData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
                         <XAxis
                             dataKey="year"
@@ -294,7 +325,7 @@ function MortgageSpreadChart() {
             </div>
 
             <p className="text-xs text-slate-500">
-                Data: FRED (Freddie Mac MORTGAGE30US, Treasury DGS10). Annual averages 2000-2024, {currentSpreadData.year} current.
+                Data: FRED (Freddie Mac MORTGAGE30US, Treasury DGS10). Annual averages 2000-{new Date().getFullYear() - 1}, {new Date().getFullYear()} current.
             </p>
         </div>
     );
@@ -420,7 +451,7 @@ export default function LendingDashboard() {
 
                 {/* Conditional Content */}
                 {showSpread ? (
-                    <MortgageSpreadChart />
+                    <MortgageSpreadChart lendingData={lendingData} />
                 ) : (
                     <>
                         {/* Current Rates Grid */}

@@ -19,6 +19,7 @@ FRED_SERIES = {
     "MORTGAGE15US": {"name": "15-Year Fixed Rate", "type": "rate"},
     "MORTGAGE5US": {"name": "5/1 ARM Rate", "type": "rate"},
     "FEDFUNDS": {"name": "Fed Funds Rate", "type": "rate"},
+    "DGS10": {"name": "10-Year Treasury Yield", "type": "rate"},
     "CPIAUCSL": {"name": "CPI (Inflation)", "type": "index"},
 }
 
@@ -85,6 +86,7 @@ def fetch_lending_data() -> dict:
     mortgage15 = fetch_fred_series("MORTGAGE15US", 52)
     mortgage5 = fetch_fred_series("MORTGAGE5US", 52)
     fedfunds = fetch_fred_series("FEDFUNDS", 12)
+    treasury10 = fetch_fred_series("DGS10", 52)  # 10-Year Treasury for spread calculation
     
     # San Diego unemployment
     sd_unemployment = fetch_fred_series("CASAND0URN", 12)
@@ -150,6 +152,7 @@ def fetch_lending_data() -> dict:
         "rateHistory": rate_history,
         "loanLimits": loan_limits,
         "sanDiego": sd_data,
+        "treasury10yr": treasury10[0]["value"] if treasury10 else 4.55,  # For spread calculation
     }
     
     return output
