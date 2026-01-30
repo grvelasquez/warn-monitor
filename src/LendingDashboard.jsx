@@ -7,7 +7,7 @@ const defaultData = {
     currentRates: { rate30: 6.85, rate15: 6.02, rateARM: 6.18, jumboRate: 7.12, fhaRate: 6.45, vaRate: 6.25, fedFunds: 5.33 },
     weekChange: { rate30: 0, rate15: 0, rateARM: 0 },
     rateHistory: [],
-    loanLimits: { conforming: 806500, highBalance: 1077550, jumbo: 1077551, fha: 1077550 },
+    loanLimits: { conforming: 1149825, highBalance: 1149825, jumbo: 1149826, fha: 1149825 },
     sanDiego: { unemploymentRate: 4.2 }
 };
 
@@ -549,7 +549,7 @@ export default function LendingDashboard() {
                             <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6">
                                 <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
                                     <DollarSign className="w-5 h-5 text-slate-500" />
-                                    2025 San Diego Loan Limits
+                                    2026 San Diego Loan Limits
                                 </h2>
                                 <div className="space-y-3">
                                     <div className="flex justify-between items-center py-2 border-b border-slate-700/50">
@@ -619,30 +619,6 @@ export default function LendingDashboard() {
                         </div>
 
 
-                        {/* Rate Insight Panel */}
-                        <div className="bg-gradient-to-r from-teal-900/30 to-blue-900/30 border border-teal-700/30 rounded-xl p-6 mb-8">
-                            <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                                <Calendar className="w-5 h-5 text-teal-400" />
-                                Rate Outlook
-                            </h2>
-                            <div className="grid md:grid-cols-3 gap-6">
-                                <div>
-                                    <p className="text-xs text-teal-400 uppercase tracking-wide mb-1">Fed Funds Rate</p>
-                                    <p className="text-2xl font-bold text-white">{formatPercent(lendingData.currentRates.fedFunds)}</p>
-                                    <p className="text-xs text-slate-400 mt-1">FOMC Target Rate</p>
-                                </div>
-                                <div>
-                                    <p className="text-xs text-teal-400 uppercase tracking-wide mb-1">Next FOMC Meeting</p>
-                                    <p className="text-2xl font-bold text-white">Jan 28-29</p>
-                                    <p className="text-xs text-slate-400 mt-1">Rate decision expected</p>
-                                </div>
-                                <div>
-                                    <p className="text-xs text-teal-400 uppercase tracking-wide mb-1">Market Expectation</p>
-                                    <p className="text-2xl font-bold text-white">Hold</p>
-                                    <p className="text-xs text-slate-400 mt-1">No change expected</p>
-                                </div>
-                            </div>
-                        </div>
                     </>
                 )}
 
