@@ -109,7 +109,7 @@ function KeyIndicatorsPanel({ homePriceData, unemploymentData, lendingData, form
             <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4">
                 <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">Fed Funds Rate</p>
                 <p className="text-2xl font-bold text-teal-400">{formatPercent(fedFundsRate)}</p>
-                <p className="text-xs text-slate-500 mt-1">FOMC Target • Updated weekly</p>
+                <p className="text-xs text-slate-500 mt-1">Effective Rate • Updated weekly</p>
             </div>
         </div>
     );
@@ -599,7 +599,7 @@ export default function LendingDashboard() {
                                     <MetricCard
                                         title="Fed Funds Rate"
                                         value={lendingData.currentRates.fedFunds}
-                                        subtext="FOMC Target"
+                                        subtext="Effective Rate"
                                         format="percent"
                                     />
                                     <MetricCard
