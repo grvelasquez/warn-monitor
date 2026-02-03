@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-02-01T17:27:03.153790",
+    "generated": "2026-02-03T17:54:11.088303",
     "county": "San Diego",
-    "total_notices": 95,
-    "total_employees_affected": 3832
+    "total_notices": 104,
+    "total_employees_affected": 4126
   },
   "notices": [
     {
@@ -1050,6 +1050,105 @@
       "notice_type": "Layoff Temporary",
       "region": "Coastal",
       "neighborhood": "Carlsbad West"
+    },
+    {
+      "notice_id": "e4faa14c",
+      "company_name": "Amazon - SAN 13",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 38,
+      "layoff_date": "2026-04-28",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "dea479df",
+      "company_name": "Amazon - SAN 15",
+      "city": "San Diego",
+      "zipcode": "92127",
+      "employees_affected": 1,
+      "layoff_date": "2026-04-28",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Del Sur / 4S Ranch"
+    },
+    {
+      "notice_id": "126db8f6",
+      "company_name": "Amazon - SAN 17",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 19,
+      "layoff_date": "2026-04-28",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "f1aace63",
+      "company_name": "Amazon - SAN 18",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 13,
+      "layoff_date": "2026-04-28",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "8a08253e",
+      "company_name": "Amazon - SAN 21",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 2,
+      "layoff_date": "2026-04-28",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
+    },
+    {
+      "notice_id": "18f35dfc",
+      "company_name": "Amazon - SAN 3",
+      "city": "San Diego",
+      "zipcode": "92154",
+      "employees_affected": 1,
+      "layoff_date": "2026-04-28",
+      "notice_type": "Layoff Permanent",
+      "region": "South County",
+      "neighborhood": "Otay Mesa"
+    },
+    {
+      "notice_id": "cba0fe29",
+      "company_name": "Legacy Supply Chain",
+      "city": "San Diego",
+      "zipcode": "92120",
+      "employees_affected": 14,
+      "layoff_date": "2026-04-01",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Grantville"
+    },
+    {
+      "notice_id": "fd30733b",
+      "company_name": "Medical Device Components LLC dba Lighteum Medical",
+      "city": "San Diego",
+      "zipcode": "92128",
+      "employees_affected": 83,
+      "layoff_date": "2026-04-03",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Rancho Bernardo"
+    },
+    {
+      "notice_id": "ec05f897",
+      "company_name": "Intrepid Studios, Inc.",
+      "city": "San Diego",
+      "zipcode": "92130",
+      "employees_affected": 123,
+      "layoff_date": "2026-02-02",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Carmel Valley"
     }
   ],
   "risk_scores": {
@@ -1140,7 +1239,7 @@
     "92121": {
       "score": 100,
       "risk_level": "Critical",
-      "total_employees": 600,
+      "total_employees": 638,
       "factors": [
         "71 employees affected",
         "52 employees affected",
@@ -1152,7 +1251,8 @@
         "Plant closure",
         "8 employees affected",
         "24 employees affected",
-        "7 employees affected"
+        "7 employees affected",
+        "38 employees affected"
       ]
     },
     "92103": {
@@ -1262,12 +1362,14 @@
       ]
     },
     "92130": {
-      "score": 12,
-      "risk_level": "Low",
-      "total_employees": 60,
+      "score": 56,
+      "risk_level": "High",
+      "total_employees": 183,
       "factors": [
         "1 employees affected",
-        "59 employees affected"
+        "59 employees affected",
+        "123 employees affected",
+        "Plant closure"
       ]
     },
     "92021": {
@@ -1290,13 +1392,14 @@
       ]
     },
     "92127": {
-      "score": 22,
+      "score": 23,
       "risk_level": "Low",
-      "total_employees": 114,
+      "total_employees": 115,
       "factors": [
         "64 employees affected",
         "Plant closure",
-        "50 employees affected"
+        "50 employees affected",
+        "1 employees affected"
       ]
     },
     "92009": {
@@ -1310,9 +1413,9 @@
       ]
     },
     "92122": {
-      "score": 28,
+      "score": 35,
       "risk_level": "Moderate",
-      "total_employees": 141,
+      "total_employees": 175,
       "factors": [
         "9 employees affected",
         "Plant closure",
@@ -1323,13 +1426,16 @@
         "28 employees affected",
         "8 employees affected",
         "7 employees affected",
-        "1 employees affected"
+        "1 employees affected",
+        "19 employees affected",
+        "13 employees affected",
+        "2 employees affected"
       ]
     },
     "92154": {
       "score": 0,
       "risk_level": "Low",
-      "total_employees": 2,
+      "total_employees": 3,
       "factors": [
         "1 employees affected"
       ]
@@ -1360,21 +1466,23 @@
       ]
     },
     "92128": {
-      "score": 29,
+      "score": 25,
       "risk_level": "Moderate",
-      "total_employees": 46,
+      "total_employees": 129,
       "factors": [
         "46 employees affected",
-        "Plant closure"
+        "Plant closure",
+        "83 employees affected"
       ]
     },
     "92120": {
-      "score": 3,
+      "score": 6,
       "risk_level": "Low",
-      "total_employees": 18,
+      "total_employees": 32,
       "factors": [
         "7 employees affected",
-        "11 employees affected"
+        "11 employees affected",
+        "14 employees affected"
       ]
     },
     "92117": {
@@ -1388,12 +1496,12 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 46,
-      "total_employees": 1583
+      "notice_count": 54,
+      "total_employees": 1876
     },
     "South County": {
-      "notice_count": 7,
-      "total_employees": 203
+      "notice_count": 8,
+      "total_employees": 204
     },
     "Coastal": {
       "notice_count": 18,
