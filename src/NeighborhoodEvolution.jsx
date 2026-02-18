@@ -77,12 +77,12 @@ function NeighborhoodCard({ data, isSelected, onClick, propertyType }) {
                 <div>
                     <span className="text-gray-500">Median</span>
                     <p className="text-green-400 font-medium">
-                        ${stats.median_price_ytd_2025 ? stats.median_price_ytd_2025.toLocaleString() : 'N/A'}
+                        ${stats.median_price_ytd_2026 ? stats.median_price_ytd_2026.toLocaleString() : 'N/A'}
                     </p>
                 </div>
                 <div>
                     <span className="text-gray-500">DOM</span>
-                    <p className="text-blue-400 font-medium">{stats.dom_ytd_2025 || 'N/A'}</p>
+                    <p className="text-blue-400 font-medium">{stats.dom_ytd_2026 || 'N/A'}</p>
                 </div>
             </div>
             {priceChange !== null && (
@@ -215,21 +215,21 @@ export default function NeighborhoodEvolution({ setActiveView }) {
         if (sortBy === 'price') {
             filtered = [...filtered].sort((a, b) => {
                 const priceA = propertyType === 'detached'
-                    ? (a.detached?.median_price_ytd_2025 || 0)
-                    : (a.attached?.median_price_ytd_2025 || 0);
+                    ? (a.detached?.median_price_ytd_2026 || 0)
+                    : (a.attached?.median_price_ytd_2026 || 0);
                 const priceB = propertyType === 'detached'
-                    ? (b.detached?.median_price_ytd_2025 || 0)
-                    : (b.attached?.median_price_ytd_2025 || 0);
+                    ? (b.detached?.median_price_ytd_2026 || 0)
+                    : (b.attached?.median_price_ytd_2026 || 0);
                 return priceB - priceA;
             });
         } else if (sortBy === 'price_low') {
             filtered = [...filtered].sort((a, b) => {
                 const priceA = propertyType === 'detached'
-                    ? (a.detached?.median_price_ytd_2025 || 0)
-                    : (a.attached?.median_price_ytd_2025 || 0);
+                    ? (a.detached?.median_price_ytd_2026 || 0)
+                    : (a.attached?.median_price_ytd_2026 || 0);
                 const priceB = propertyType === 'detached'
-                    ? (b.detached?.median_price_ytd_2025 || 0)
-                    : (b.attached?.median_price_ytd_2025 || 0);
+                    ? (b.detached?.median_price_ytd_2026 || 0)
+                    : (b.attached?.median_price_ytd_2026 || 0);
                 return priceA - priceB;
             });
         } else if (sortBy === 'change') {
@@ -250,8 +250,8 @@ export default function NeighborhoodEvolution({ setActiveView }) {
             });
         } else if (sortBy === 'dom') {
             filtered = [...filtered].sort((a, b) => {
-                const domA = propertyType === 'detached' ? (a.detached?.dom_ytd_2025 || 999) : (a.attached?.dom_ytd_2025 || 999);
-                const domB = propertyType === 'detached' ? (b.detached?.dom_ytd_2025 || 999) : (b.attached?.dom_ytd_2025 || 999);
+                const domA = propertyType === 'detached' ? (a.detached?.dom_ytd_2026 || 999) : (a.attached?.dom_ytd_2026 || 999);
+                const domB = propertyType === 'detached' ? (b.detached?.dom_ytd_2026 || 999) : (b.attached?.dom_ytd_2026 || 999);
                 return domA - domB;
             });
         }
@@ -315,14 +315,14 @@ export default function NeighborhoodEvolution({ setActiveView }) {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                     <MetricCard
                         label="County Median YTD"
-                        value={`$${(summaryStats.county_wide?.detached?.median_price_ytd_2025 || 0).toLocaleString()}`}
+                        value={`$${(summaryStats.county_wide?.detached?.median_price_ytd_2026 || 0).toLocaleString()}`}
                         sublabel="Detached Homes"
                         icon={Home}
                         color="green"
                     />
                     <MetricCard
                         label="County Median YTD"
-                        value={`$${(summaryStats.county_wide?.attached?.median_price_ytd_2025 || 0).toLocaleString()}`}
+                        value={`$${(summaryStats.county_wide?.attached?.median_price_ytd_2026 || 0).toLocaleString()}`}
                         sublabel="Condos/Townhomes"
                         icon={Building}
                         color="blue"
@@ -509,19 +509,19 @@ export default function NeighborhoodEvolution({ setActiveView }) {
                                         <div className="bg-gray-800/50 rounded-lg p-3">
                                             <p className="text-xs text-gray-500">Median YTD 2025</p>
                                             <p className="text-lg font-bold text-green-400">
-                                                ${(selectedNeighborhood.detached?.median_price_ytd_2025 || 0).toLocaleString()}
+                                                ${(selectedNeighborhood.detached?.median_price_ytd_2026 || 0).toLocaleString()}
                                             </p>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3">
                                             <p className="text-xs text-gray-500">DOM YTD</p>
                                             <p className="text-lg font-bold text-blue-400">
-                                                {selectedNeighborhood.detached?.dom_ytd_2025 || 'N/A'}
+                                                {selectedNeighborhood.detached?.dom_ytd_2026 || 'N/A'}
                                             </p>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3">
                                             <p className="text-xs text-gray-500">Inventory</p>
                                             <p className="text-lg font-bold text-orange-400">
-                                                {selectedNeighborhood.detached?.inventory_2025 || 'N/A'}
+                                                {selectedNeighborhood.detached?.inventory_2026 || 'N/A'}
                                             </p>
                                         </div>
                                     </div>
@@ -533,19 +533,19 @@ export default function NeighborhoodEvolution({ setActiveView }) {
                                         <div className="bg-gray-800/50 rounded-lg p-3">
                                             <p className="text-xs text-gray-500">Median YTD 2025</p>
                                             <p className="text-lg font-bold text-green-400">
-                                                ${(selectedNeighborhood.attached?.median_price_ytd_2025 || 0).toLocaleString()}
+                                                ${(selectedNeighborhood.attached?.median_price_ytd_2026 || 0).toLocaleString()}
                                             </p>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3">
                                             <p className="text-xs text-gray-500">DOM YTD</p>
                                             <p className="text-lg font-bold text-blue-400">
-                                                {selectedNeighborhood.attached?.dom_ytd_2025 || 'N/A'}
+                                                {selectedNeighborhood.attached?.dom_ytd_2026 || 'N/A'}
                                             </p>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3">
                                             <p className="text-xs text-gray-500">Inventory</p>
                                             <p className="text-lg font-bold text-orange-400">
-                                                {selectedNeighborhood.attached?.inventory_2025 || 'N/A'}
+                                                {selectedNeighborhood.attached?.inventory_2026 || 'N/A'}
                                             </p>
                                         </div>
                                     </div>

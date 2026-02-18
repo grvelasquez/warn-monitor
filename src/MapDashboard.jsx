@@ -165,7 +165,7 @@ function DetailPanel({ data, onClose, propertyType }) {
             <div className="p-4 space-y-4">
                 <div className="text-center p-4 bg-gray-800/50 rounded-lg">
                     <div className="text-3xl font-bold text-white">
-                        {formatCurrencyFull(propData.median_price_2025)}
+                        {formatCurrencyFull(propData.median_price_2026)}
                     </div>
                     <div className="flex items-center justify-center gap-1 mt-1">
                         {priceChange > 0 ? (
@@ -182,19 +182,19 @@ function DetailPanel({ data, onClose, propertyType }) {
                 <div className="grid grid-cols-2 gap-3">
                     <div className="p-3 bg-gray-800/30 rounded-lg">
                         <div className="text-xs text-gray-400 mb-1">Closed Sales</div>
-                        <div className="text-lg font-semibold text-white">{propData.closed_sales_2025 || 'N/A'}</div>
+                        <div className="text-lg font-semibold text-white">{propData.closed_sales_2026 || 'N/A'}</div>
                     </div>
                     <div className="p-3 bg-gray-800/30 rounded-lg">
                         <div className="text-xs text-gray-400 mb-1">Days on Market</div>
-                        <div className="text-lg font-semibold text-white">{propData.dom_2025 || 'N/A'}</div>
+                        <div className="text-lg font-semibold text-white">{propData.dom_2026 || 'N/A'}</div>
                     </div>
                     <div className="p-3 bg-gray-800/30 rounded-lg">
                         <div className="text-xs text-gray-400 mb-1">Inventory</div>
-                        <div className="text-lg font-semibold text-white">{propData.inventory_2025 || 'N/A'}</div>
+                        <div className="text-lg font-semibold text-white">{propData.inventory_2026 || 'N/A'}</div>
                     </div>
                     <div className="p-3 bg-gray-800/30 rounded-lg">
                         <div className="text-xs text-gray-400 mb-1">Sale-to-List</div>
-                        <div className="text-lg font-semibold text-white">{propData.pct_orig_price_2025 ? `${propData.pct_orig_price_2025}%` : 'N/A'}</div>
+                        <div className="text-lg font-semibold text-white">{propData.pct_orig_price_2026 ? `${propData.pct_orig_price_2026}%` : 'N/A'}</div>
                     </div>
                 </div>
 
@@ -269,15 +269,15 @@ export default function MapDashboard({ setActiveView }) {
         if (!neighborhoodData?.neighborhoods) return null;
 
         const prices = neighborhoodData.neighborhoods
-            .map(n => n[propertyType]?.median_price_2025)
+            .map(n => n[propertyType]?.median_price_2026)
             .filter(p => p && p > 0);
 
         const avg = prices.length ? prices.reduce((a, b) => a + b, 0) / prices.length : 0;
         const max = Math.max(...prices);
         const min = Math.min(...prices);
 
-        const maxNeighborhood = neighborhoodData.neighborhoods.find(n => n[propertyType]?.median_price_2025 === max);
-        const minNeighborhood = neighborhoodData.neighborhoods.find(n => n[propertyType]?.median_price_2025 === min);
+        const maxNeighborhood = neighborhoodData.neighborhoods.find(n => n[propertyType]?.median_price_2026 === max);
+        const minNeighborhood = neighborhoodData.neighborhoods.find(n => n[propertyType]?.median_price_2026 === min);
 
         return {
             avg,
@@ -293,7 +293,7 @@ export default function MapDashboard({ setActiveView }) {
     const getFeatureStyle = (feature) => {
         const zipCode = feature.properties.ZIPCODE;
         const zipData = zipDataMap[zipCode];
-        const price = zipData?.[propertyType]?.median_price_2025 || 0;
+        const price = zipData?.[propertyType]?.median_price_2026 || 0;
         const isHovered = hoveredZip === zipCode;
         const isSelected = selectedZip?.zip_code === zipCode;
 
@@ -315,7 +315,7 @@ export default function MapDashboard({ setActiveView }) {
         const zipCode = feature.properties.ZIPCODE;
         const zipData = zipDataMap[zipCode];
         const name = zipData?.neighborhood || feature.properties.NAME || 'Unknown';
-        const price = zipData?.[propertyType]?.median_price_2025;
+        const price = zipData?.[propertyType]?.median_price_2026;
 
         layer.bindTooltip(`
       <div class="text-sm">

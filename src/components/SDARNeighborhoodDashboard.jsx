@@ -39,10 +39,10 @@ function StatCard({ label, value, sublabel, icon: Icon, color = 'blue' }) {
 // Neighborhood card
 function NeighborhoodCard({ data, propertyType }) {
     const metrics = data[propertyType] || {};
-    const price = metrics.median_price_2025;
+    const price = metrics.median_price_2026;
     const tier = getPriceTier(price);
-    const dom = metrics.dom_2025;
-    const inventory = metrics.inventory_2025;
+    const dom = metrics.dom_2026;
+    const inventory = metrics.inventory_2026;
 
     return (
         <div className="bg-slate-800/40 border border-slate-700/50 rounded-xl p-4 hover:bg-slate-800/60 transition-colors">
@@ -100,13 +100,13 @@ export function SDARNeighborhoodDashboard() {
         if (!data?.neighborhoods) return [];
 
         let items = [...data.neighborhoods].filter(n =>
-            n[propertyType]?.median_price_2025 != null
+            n[propertyType]?.median_price_2026 != null
         );
 
         switch (sortBy) {
             case 'price_asc':
                 items.sort((a, b) =>
-                    (a[propertyType]?.median_price_2025 || 0) - (b[propertyType]?.median_price_2025 || 0)
+                    (a[propertyType]?.median_price_2026 || 0) - (b[propertyType]?.median_price_2026 || 0)
                 );
                 break;
             case 'name_asc':
@@ -114,7 +114,7 @@ export function SDARNeighborhoodDashboard() {
                 break;
             case 'dom_asc':
                 items.sort((a, b) =>
-                    (a[propertyType]?.dom_2025 || 999) - (b[propertyType]?.dom_2025 || 999)
+                    (a[propertyType]?.dom_2026 || 999) - (b[propertyType]?.dom_2026 || 999)
                 );
                 break;
             case 'change_best':
@@ -129,7 +129,7 @@ export function SDARNeighborhoodDashboard() {
                 break;
             default: // price_desc
                 items.sort((a, b) =>
-                    (b[propertyType]?.median_price_2025 || 0) - (a[propertyType]?.median_price_2025 || 0)
+                    (b[propertyType]?.median_price_2026 || 0) - (a[propertyType]?.median_price_2026 || 0)
                 );
         }
 
@@ -140,8 +140,8 @@ export function SDARNeighborhoodDashboard() {
     const chartData = useMemo(() => {
         return sortedNeighborhoods.slice(0, 15).map(n => ({
             name: n.neighborhood || n.zip_code || 'Unknown',
-            price: n[propertyType]?.median_price_2025 || 0,
-            dom: n[propertyType]?.dom_2025 || 0,
+            price: n[propertyType]?.median_price_2026 || 0,
+            dom: n[propertyType]?.dom_2026 || 0,
         }));
     }, [sortedNeighborhoods, propertyType]);
 

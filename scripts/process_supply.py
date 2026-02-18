@@ -358,8 +358,8 @@ def parse_supply_pdf(pdf_path):
 
 def main():
     """Main function."""
-    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "December 2025"
-    pdf_path = reports_dir / "Housing Supply Overview.pdf"
+    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "January 2026"
+    pdf_path = reports_dir / "Supply Overview.pdf"
     output_path = Path(__file__).parent.parent / "public" / "data" / "housing_supply_data.json"
     
     if not pdf_path.exists():

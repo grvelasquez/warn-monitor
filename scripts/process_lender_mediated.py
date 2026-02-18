@@ -134,23 +134,23 @@ def extract_inventory_data(text):
             inventory['by_property_type'].append({
                 'type': ptype,
                 'lender_mediated': {
-                    '2024': int(match.group(1)),
-                    '2025': int(match.group(2)),
+                    '2025': int(match.group(1)),
+                    '2026': int(match.group(2)),
                     'change': parse_pct(match.group(3), match.group(4))
                 },
                 'traditional': {
-                    '2024': parse_number(match.group(5)),
-                    '2025': parse_number(match.group(6)),
+                    '2025': parse_number(match.group(5)),
+                    '2026': parse_number(match.group(6)),
                     'change': parse_pct(match.group(7), match.group(8))
                 },
                 'total_market': {
-                    '2024': parse_number(match.group(9)),
-                    '2025': parse_number(match.group(10)),
+                    '2025': parse_number(match.group(9)),
+                    '2026': parse_number(match.group(10)),
                     'change': parse_pct(match.group(11), match.group(12))
                 },
                 'share': {
-                    '2024': float(match.group(13)),
-                    '2025': float(match.group(14))
+                    '2025': float(match.group(13)),
+                    '2026': float(match.group(14))
                 }
             })
     
@@ -173,23 +173,23 @@ def extract_inventory_data(text):
             inventory['by_price_range'].append({
                 'range': prange,
                 'lender_mediated': {
-                    '2024': int(match.group(1)),
-                    '2025': int(match.group(2)),
+                    '2025': int(match.group(1)),
+                    '2026': int(match.group(2)),
                     'change': parse_pct(match.group(3), match.group(4))
                 },
                 'traditional': {
-                    '2024': parse_number(match.group(5)),
-                    '2025': parse_number(match.group(6)),
+                    '2025': parse_number(match.group(5)),
+                    '2026': parse_number(match.group(6)),
                     'change': parse_pct(match.group(7), match.group(8))
                 },
                 'total_market': {
-                    '2024': parse_number(match.group(9)),
-                    '2025': parse_number(match.group(10)),
+                    '2025': parse_number(match.group(9)),
+                    '2026': parse_number(match.group(10)),
                     'change': parse_pct(match.group(11), match.group(12))
                 },
                 'share': {
-                    '2024': float(match.group(13)),
-                    '2025': float(match.group(14))
+                    '2025': float(match.group(13)),
+                    '2026': float(match.group(14))
                 }
             })
     
@@ -204,23 +204,23 @@ def extract_listings_sales_data(text):
     if match:
         data['new_listings'] = {
             'lender_mediated': {
-                '2024': int(match.group(1)),
-                '2025': int(match.group(2)),
+                '2025': int(match.group(1)),
+                '2026': int(match.group(2)),
                 'change': parse_pct(match.group(3), match.group(4))
             },
             'traditional': {
-                '2024': parse_number(match.group(5)),
-                '2025': parse_number(match.group(6)),
+                '2025': parse_number(match.group(5)),
+                '2026': parse_number(match.group(6)),
                 'change': parse_pct(match.group(7), match.group(8))
             },
             'total_market': {
-                '2024': parse_number(match.group(9)),
-                '2025': parse_number(match.group(10)),
+                '2025': parse_number(match.group(9)),
+                '2026': parse_number(match.group(10)),
                 'change': parse_pct(match.group(11), match.group(12))
             },
             'share': {
-                '2024': float(match.group(13)),
-                '2025': float(match.group(14))
+                '2025': float(match.group(13)),
+                '2026': float(match.group(14))
             }
         }
     
@@ -229,23 +229,23 @@ def extract_listings_sales_data(text):
     if match:
         data['closed_sales'] = {
             'lender_mediated': {
-                '2024': int(match.group(1)),
-                '2025': int(match.group(2)),
+                '2025': int(match.group(1)),
+                '2026': int(match.group(2)),
                 'change': parse_pct(match.group(3), match.group(4))
             },
             'traditional': {
-                '2024': parse_number(match.group(5)),
-                '2025': parse_number(match.group(6)),
+                '2025': parse_number(match.group(5)),
+                '2026': parse_number(match.group(6)),
                 'change': parse_pct(match.group(7), match.group(8))
             },
             'total_market': {
-                '2024': parse_number(match.group(9)),
-                '2025': parse_number(match.group(10)),
+                '2025': parse_number(match.group(9)),
+                '2026': parse_number(match.group(10)),
                 'change': parse_pct(match.group(11), match.group(12))
             },
             'share': {
-                '2024': float(match.group(13)),
-                '2025': float(match.group(14))
+                '2025': float(match.group(13)),
+                '2026': float(match.group(14))
             }
         }
     
@@ -269,18 +269,18 @@ def extract_price_dom_data(text):
             data['median_price'].append({
                 'type': ptype,
                 'lender_mediated': {
-                    '2024': parse_number(match.group(1)),
-                    '2025': parse_number(match.group(2)),
+                    '2025': parse_number(match.group(1)),
+                    '2026': parse_number(match.group(2)),
                     'change': parse_pct(match.group(3), match.group(4))
                 },
                 'traditional': {
-                    '2024': parse_number(match.group(5)),
-                    '2025': parse_number(match.group(6)),
+                    '2025': parse_number(match.group(5)),
+                    '2026': parse_number(match.group(6)),
                     'change': parse_pct(match.group(7), match.group(8))
                 },
                 'total_market': {
-                    '2024': parse_number(match.group(9)),
-                    '2025': parse_number(match.group(10)),
+                    '2025': parse_number(match.group(9)),
+                    '2026': parse_number(match.group(10)),
                     'change': parse_pct(match.group(11), match.group(12))
                 }
             })
@@ -296,18 +296,18 @@ def extract_price_dom_data(text):
             data['days_on_market'].append({
                 'type': ptype,
                 'lender_mediated': {
-                    '2024': int(match.group(1)),
-                    '2025': int(match.group(2)),
+                    '2025': int(match.group(1)),
+                    '2026': int(match.group(2)),
                     'change': parse_pct(match.group(3), match.group(4))
                 },
                 'traditional': {
-                    '2024': int(match.group(5)),
-                    '2025': int(match.group(6)),
+                    '2025': int(match.group(5)),
+                    '2026': int(match.group(6)),
                     'change': parse_pct(match.group(7), match.group(8))
                 },
                 'total_market': {
-                    '2024': int(match.group(9)),
-                    '2025': int(match.group(10)),
+                    '2025': int(match.group(9)),
+                    '2026': int(match.group(10)),
                     'change': parse_pct(match.group(11), match.group(12))
                 }
             })
@@ -377,13 +377,13 @@ def extract_area_median_price(text):
             'zip_code': zip_code,
             'neighborhood': neighborhood,
             'lender_mediated': {
-                '2024': lm_2024,
-                '2025': lm_2025,
+                '2025': lm_2024,
+                '2026': lm_2025,
                 'change': lm_change
             },
             'traditional': {
-                '2024': trad_2024,
-                '2025': trad_2025,
+                '2025': trad_2024,
+                '2026': trad_2025,
                 'change': trad_change
             }
         })
@@ -396,7 +396,7 @@ def parse_lender_mediated_pdf(pdf_path):
         'meta': {
             'generated': datetime.now().isoformat(),
             'source': 'SDAR Lender-Mediated Properties Report',
-            'report_period': 'December 2025'
+            'report_period': 'January 2026'
         }
     }
     
@@ -441,8 +441,8 @@ def parse_lender_mediated_pdf(pdf_path):
 
 def main():
     """Main function."""
-    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "December 2025"
-    pdf_path = reports_dir / "Lender-Mediated Properties Report.pdf"
+    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "January 2026"
+    pdf_path = reports_dir / "Lender Mediated.pdf"
     output_path = Path(__file__).parent.parent / "public" / "data" / "lender_mediated_data.json"
     
     if not pdf_path.exists():
@@ -461,7 +461,7 @@ def main():
     
     print(f"\n=== Inventory by Property Type ===")
     for item in data.get('inventory', {}).get('by_property_type', []):
-        print(f"  {item['type']}: LM={item['lender_mediated']['2025']}, Trad={item['traditional']['2025']}, Total={item['total_market']['2025']}")
+        print(f"  {item['type']}: LM={item['lender_mediated']['2026']}, Trad={item['traditional']['2026']}, Total={item['total_market']['2026']}")
     
     print(f"\n=== Area Data ===")
     print(f"  Inventory/Sales areas: {len(data.get('area_inventory_sales', []))}")

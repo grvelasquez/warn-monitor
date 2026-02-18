@@ -58,16 +58,16 @@ export default function SDARDashboard({ setActiveView }) {
                     // NOW USING PERCENTAGE CHANGES DIRECTLY FROM PDF (not calculated)
                     const transformPropertyType = (pt) => pt ? {
                         // Monthly data - 6 main metrics from PDF (Inventory/Months Supply go to Market Summary)
-                        newListings: pt.new_listings_2025 || 0,
-                        pendingSales: pt.pending_sales_2025 || 0,
-                        closedSales: pt.closed_sales_2025 || 0,
-                        medianPrice: pt.median_price_2025 || 0,
-                        pctOrigPrice: pt.pct_orig_price_2025 || 0,
-                        daysOnMarket: pt.dom_2025 || 0,
-                        inventory: pt.inventory_2025 || 0,
-                        monthsSupply: pt.months_supply_2025 || 0,
-                        avgPrice: pt.avg_price_2025 || 0,
-                        affordability: pt.affordability_2025 || 50,
+                        newListings: pt.new_listings_2026 || 0,
+                        pendingSales: pt.pending_sales_2026 || 0,
+                        closedSales: pt.closed_sales_2026 || 0,
+                        medianPrice: pt.median_price_2026 || 0,
+                        pctOrigPrice: pt.pct_orig_price_2026 || 0,
+                        daysOnMarket: pt.dom_2026 || 0,
+                        inventory: pt.inventory_2026 || 0,
+                        monthsSupply: pt.months_supply_2026 || 0,
+                        avgPrice: pt.avg_price_2026 || 0,
+                        affordability: pt.affordability_2026 || 50,
                         // Monthly percentage changes - DIRECTLY FROM PDF (not calculated)
                         newListingsChange: pt.new_listings_pct_change || 0,
                         pendingChange: pt.pending_sales_pct_change || 0,
@@ -78,12 +78,12 @@ export default function SDARDashboard({ setActiveView }) {
                         invChange: pt.inventory_pct_change || 0,
                         monthsSupplyChange: pt.months_supply_pct_change || 0,
                         // YTD data
-                        newListingsYtd: pt.new_listings_ytd_2025 || 0,
-                        pendingSalesYtd: pt.pending_sales_ytd_2025 || 0,
-                        closedSalesYtd: pt.closed_sales_ytd_2025 || 0,
-                        medianPriceYtd: pt.median_price_ytd_2025 || 0,
-                        pctOrigPriceYtd: pt.pct_orig_price_ytd_2025 || 0,
-                        daysOnMarketYtd: pt.dom_ytd_2025 || 0,
+                        newListingsYtd: pt.new_listings_ytd_2026 || 0,
+                        pendingSalesYtd: pt.pending_sales_ytd_2026 || 0,
+                        closedSalesYtd: pt.closed_sales_ytd_2026 || 0,
+                        medianPriceYtd: pt.median_price_ytd_2026 || 0,
+                        pctOrigPriceYtd: pt.pct_orig_price_ytd_2026 || 0,
+                        daysOnMarketYtd: pt.dom_ytd_2026 || 0,
                         // YTD percentage changes - DIRECTLY FROM PDF (not calculated)
                         newListingsChangeYtd: pt.new_listings_ytd_pct_change || 0,
                         pendingChangeYtd: pt.pending_sales_ytd_pct_change || 0,
@@ -112,7 +112,7 @@ export default function SDARDashboard({ setActiveView }) {
                             const att = n.attached || {};
 
                             transformed[n.zip_code] = {
-                                all: transformPropertyType(det.median_price_2025 ? det : att),
+                                all: transformPropertyType(det.median_price_2026 ? det : att),
                                 detached: transformPropertyType(det),
                                 attached: transformPropertyType(att)
                             };
@@ -308,7 +308,7 @@ export default function SDARDashboard({ setActiveView }) {
                     {!isNeutral && (isUp ? <TrendUpIcon /> : <TrendDownIcon />)}
                     {displayValue > 0 ? '+' : ''}{displayValue.toFixed(2)}%
                 </span>
-                <span className="text-slate-500 text-[10px] sm:text-xs font-normal">vs 2024</span>
+                <span className="text-slate-500 text-[10px] sm:text-xs font-normal">vs 2025</span>
             </div>
         );
     };
@@ -485,8 +485,8 @@ export default function SDARDashboard({ setActiveView }) {
                         {/* YTD Key Metrics - Primary Display */}
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
-                                <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">2025 YEAR-TO-DATE</span>
-                                <span className="text-slate-500 text-xs">Jan - Dec 2025 (vs 2024)</span>
+                                <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">2026 YEAR-TO-DATE</span>
+                                <span className="text-slate-500 text-xs">Jan 2026 (vs Jan 2025)</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[
@@ -509,8 +509,8 @@ export default function SDARDashboard({ setActiveView }) {
                         {/* Monthly Snapshot - Secondary Display */}
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
-                                <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">DECEMBER 2025</span>
-                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs Dec 2024)</span>
+                                <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">JANUARY 2026</span>
+                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs Jan 2025)</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[
