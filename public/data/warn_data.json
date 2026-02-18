@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-02-17T17:55:32.244755",
+    "generated": "2026-02-18T17:53:08.024531",
     "county": "San Diego",
-    "total_notices": 104,
-    "total_employees_affected": 4126
+    "total_notices": 105,
+    "total_employees_affected": 4198
   },
   "notices": [
     {
@@ -1149,6 +1149,17 @@
       "notice_type": "Closure Permanent",
       "region": "Central San Diego",
       "neighborhood": "Carmel Valley"
+    },
+    {
+      "notice_id": "5225b5c6",
+      "company_name": "LPL Financial LLC",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 72,
+      "layoff_date": "2026-04-17",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
     }
   ],
   "risk_scores": {
@@ -1239,7 +1250,7 @@
     "92121": {
       "score": 100,
       "risk_level": "Critical",
-      "total_employees": 638,
+      "total_employees": 710,
       "factors": [
         "71 employees affected",
         "52 employees affected",
@@ -1252,7 +1263,8 @@
         "8 employees affected",
         "24 employees affected",
         "7 employees affected",
-        "38 employees affected"
+        "38 employees affected",
+        "72 employees affected"
       ]
     },
     "92103": {
@@ -1496,8 +1508,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 54,
-      "total_employees": 1876
+      "notice_count": 55,
+      "total_employees": 1948
     },
     "South County": {
       "notice_count": 8,
