@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-02-19T17:51:58.178055",
+    "generated": "2026-02-20T17:39:37.484159",
     "county": "San Diego",
-    "total_notices": 105,
-    "total_employees_affected": 4198
+    "total_notices": 106,
+    "total_employees_affected": 4289
   },
   "notices": [
     {
@@ -1160,6 +1160,17 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "91d2d858",
+      "company_name": "Red O La Jolla, LCC",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 91,
+      "layoff_date": "2026-04-20",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
     }
   ],
   "risk_scores": {
@@ -1425,9 +1436,9 @@
       ]
     },
     "92122": {
-      "score": 35,
-      "risk_level": "Moderate",
-      "total_employees": 175,
+      "score": 73,
+      "risk_level": "Critical",
+      "total_employees": 266,
       "factors": [
         "9 employees affected",
         "Plant closure",
@@ -1441,7 +1452,8 @@
         "1 employees affected",
         "19 employees affected",
         "13 employees affected",
-        "2 employees affected"
+        "2 employees affected",
+        "91 employees affected"
       ]
     },
     "92154": {
@@ -1508,8 +1520,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 55,
-      "total_employees": 1948
+      "notice_count": 56,
+      "total_employees": 2039
     },
     "South County": {
       "notice_count": 8,
