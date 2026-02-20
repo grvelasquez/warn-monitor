@@ -67,18 +67,18 @@ def extract_table_data(text, categories, has_all_row=True, is_currency=False):
             results.append({
                 'category': category,
                 'all_properties': {
-                    '2024': parse_number(match.group(1)),
-                    '2025': parse_number(match.group(2)),
+                    '2025': parse_number(match.group(1)),
+                    '2026': parse_number(match.group(2)),
                     'change': parse_pct(match.group(3), match.group(4))
                 },
                 'single_family': {
-                    '2024': parse_number(match.group(5)),
-                    '2025': parse_number(match.group(6)),
+                    '2025': parse_number(match.group(5)),
+                    '2026': parse_number(match.group(6)),
                     'change': parse_pct(match.group(7), match.group(8))
                 },
                 'condos': {
-                    '2024': parse_number(match.group(9)),
-                    '2025': parse_number(match.group(10)),
+                    '2025': parse_number(match.group(9)),
+                    '2026': parse_number(match.group(10)),
                     'change': parse_pct(match.group(11), match.group(12))
                 }
             })
@@ -177,18 +177,18 @@ def extract_pct_list_price(text):
             results.append({
                 'category': category,
                 'all_properties': {
-                    '2024': float(match.group(1)),
-                    '2025': float(match.group(2)),
+                    '2025': float(match.group(1)),
+                    '2026': float(match.group(2)),
                     'change': parse_pct(match.group(3), match.group(4))
                 },
                 'single_family': {
-                    '2024': float(match.group(5)),
-                    '2025': float(match.group(6)),
+                    '2025': float(match.group(5)),
+                    '2026': float(match.group(6)),
                     'change': parse_pct(match.group(7), match.group(8))
                 },
                 'condos': {
-                    '2024': float(match.group(9)),
-                    '2025': float(match.group(10)),
+                    '2025': float(match.group(9)),
+                    '2026': float(match.group(10)),
                     'change': parse_pct(match.group(11), match.group(12))
                 }
             })
@@ -272,18 +272,18 @@ def extract_months_supply(text):
             results.append({
                 'category': category,
                 'all_properties': {
-                    '2024': float(match.group(1)),
-                    '2025': float(match.group(2)),
+                    '2025': float(match.group(1)),
+                    '2026': float(match.group(2)),
                     'change': parse_pct(match.group(3), match.group(4))
                 },
                 'single_family': {
-                    '2024': float(match.group(5)),
-                    '2025': float(match.group(6)),
+                    '2025': float(match.group(5)),
+                    '2026': float(match.group(6)),
                     'change': parse_pct(match.group(7), match.group(8))
                 },
                 'condos': {
-                    '2024': float(match.group(9)),
-                    '2025': float(match.group(10)),
+                    '2025': float(match.group(9)),
+                    '2026': float(match.group(10)),
                     'change': parse_pct(match.group(11), match.group(12))
                 }
             })
@@ -309,7 +309,7 @@ def parse_supply_pdf(pdf_path):
         'meta': {
             'generated': datetime.now().isoformat(),
             'source': 'SDAR Housing Supply Overview Report',
-            'report_period': 'December 2025'
+            'report_period': 'January 2026'
         }
     }
     

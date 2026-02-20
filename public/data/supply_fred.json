@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generated": "2026-01-06T16:43:05.964855",
+    "generated": "2026-02-20T13:25:23.536202",
     "source": "FRED (Federal Reserve Bank of St. Louis)",
     "series_id": "ACTLISCOU6073",
     "title": "Housing Inventory: Active Listing Count in San Diego County, CA",
-    "lastUpdate": "2025-11-01"
+    "lastUpdate": "2026-01-01"
   },
   "summary": {
-    "current_value": 5025.0,
-    "yoy_change": 12.47
+    "current_value": 3980.0,
+    "yoy_change": 12.3
   },
   "history": [
     {
@@ -405,7 +405,7 @@
     },
     {
       "date": "2024-09-01",
-      "value": 4646.0
+      "value": 4638.0
     },
     {
       "date": "2024-10-01",
@@ -457,11 +457,19 @@
     },
     {
       "date": "2025-10-01",
-      "value": 5233.0
+      "value": 5230.0
     },
     {
       "date": "2025-11-01",
       "value": 5025.0
+    },
+    {
+      "date": "2025-12-01",
+      "value": 4222.0
+    },
+    {
+      "date": "2026-01-01",
+      "value": 3980.0
     }
   ]
 }

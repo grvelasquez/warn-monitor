@@ -3,11 +3,11 @@
     "generated": "2026-01-06T16:57:43.740918",
     "source": "Local Data (Historical: FRED)",
     "title": "Housing Inventory: Active Listing Count in San Diego County, CA",
-    "lastUpdate": "2025-12-01"
+    "lastUpdate": "2026-01-01"
   },
   "summary": {
-    "current_value": 1876,
-    "yoy_change": -49.27
+    "current_value": 3980.0,
+    "yoy_change": 12.3
   },
   "history": [
     {
@@ -464,7 +464,11 @@
     },
     {
       "date": "2025-12-01",
-      "value": 1876
+      "value": 4222.0
+    },
+    {
+      "date": "2026-01-01",
+      "value": 3980.0
     }
   ]
 }

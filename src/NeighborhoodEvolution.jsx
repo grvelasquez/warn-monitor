@@ -507,7 +507,7 @@ export default function NeighborhoodEvolution({ setActiveView }) {
                                     <h4 className="text-sm font-medium text-gray-400 mb-2">Detached Homes</h4>
                                     <div className="grid grid-cols-3 gap-3">
                                         <div className="bg-gray-800/50 rounded-lg p-3">
-                                            <p className="text-xs text-gray-500">Median YTD 2025</p>
+                                            <p className="text-xs text-gray-500">Median YTD 2026</p>
                                             <p className="text-lg font-bold text-green-400">
                                                 ${(selectedNeighborhood.detached?.median_price_ytd_2026 || 0).toLocaleString()}
                                             </p>
@@ -531,7 +531,7 @@ export default function NeighborhoodEvolution({ setActiveView }) {
                                     <h4 className="text-sm font-medium text-gray-400 mb-2">Attached/Condos</h4>
                                     <div className="grid grid-cols-3 gap-3">
                                         <div className="bg-gray-800/50 rounded-lg p-3">
-                                            <p className="text-xs text-gray-500">Median YTD 2025</p>
+                                            <p className="text-xs text-gray-500">Median YTD 2026</p>
                                             <p className="text-lg font-bold text-green-400">
                                                 ${(selectedNeighborhood.attached?.median_price_ytd_2026 || 0).toLocaleString()}
                                             </p>

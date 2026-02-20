@@ -125,16 +125,16 @@ const SupplyComparisonTable = ({ title, subtitle, data, valueFormatter = formatN
                         </tr>
                         <tr className="bg-gray-800/30">
                             {/* All Properties */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Single-Family */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Condos */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                         </tr>
                     </thead>
@@ -145,16 +145,16 @@ const SupplyComparisonTable = ({ title, subtitle, data, valueFormatter = formatN
                                     {item.category}
                                 </td>
                                 {/* All Properties */}
-                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.all_properties?.['2024'])}</td>
-                                <td className="px-2 py-2 text-right text-green-400 font-medium">{valueFormatter(item.all_properties?.['2025'])}</td>
+                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.all_properties?.['2025'])}</td>
+                                <td className="px-2 py-2 text-right text-green-400 font-medium">{valueFormatter(item.all_properties?.['2026'])}</td>
                                 <td className="px-2 py-2 text-center"><ChangeIndicator value={item.all_properties?.change} className="justify-center" /></td>
                                 {/* Single-Family */}
-                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.single_family?.['2024'])}</td>
-                                <td className="px-2 py-2 text-right text-blue-400 font-medium">{valueFormatter(item.single_family?.['2025'])}</td>
+                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.single_family?.['2025'])}</td>
+                                <td className="px-2 py-2 text-right text-blue-400 font-medium">{valueFormatter(item.single_family?.['2026'])}</td>
                                 <td className="px-2 py-2 text-center"><ChangeIndicator value={item.single_family?.change} className="justify-center" /></td>
                                 {/* Condos */}
-                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.condos?.['2024'])}</td>
-                                <td className="px-2 py-2 text-right text-purple-400 font-medium">{valueFormatter(item.condos?.['2025'])}</td>
+                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.condos?.['2025'])}</td>
+                                <td className="px-2 py-2 text-right text-purple-400 font-medium">{valueFormatter(item.condos?.['2026'])}</td>
                                 <td className="px-2 py-2 text-center"><ChangeIndicator value={item.condos?.change} className="justify-center" /></td>
                             </tr>
                         ))}
@@ -171,8 +171,8 @@ const SupplyBarChart = ({ title, data, dataKey = 'all_properties' }) => {
 
     const chartData = data.map(item => ({
         name: item.category.replace('$', '').replace(',000', 'K').replace(',001', 'K').replace(' and Below', '-').replace(' and Above', '+'),
-        '2024': item[dataKey]?.['2024'] || 0,
         '2025': item[dataKey]?.['2025'] || 0,
+        '2026': item[dataKey]?.['2026'] || 0,
         change: item[dataKey]?.change || 0
     }));
 
@@ -196,8 +196,8 @@ const SupplyBarChart = ({ title, data, dataKey = 'all_properties' }) => {
                             }}
                         />
                         <Legend />
-                        <Bar dataKey="2024" fill="#6b7280" name="12-2024" />
-                        <Bar dataKey="2025" fill="#22c55e" name="12-2025" />
+                        <Bar dataKey="2025" fill="#6b7280" name="01-2025" />
+                        <Bar dataKey="2026" fill="#22c55e" name="01-2026" />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

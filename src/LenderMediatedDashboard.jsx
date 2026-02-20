@@ -115,17 +115,17 @@ const ComparisonTable = ({ title, data, valueFormatter = formatNumber, showShare
     const rows = data.map(item => {
         const baseRow = [
             <span className="font-medium text-white">{item.type || item.range}</span>,
-            valueFormatter(item.lender_mediated?.['2025']),
+            valueFormatter(item.lender_mediated?.['2026']),
             <ChangeIndicator value={item.lender_mediated?.change} />,
-            valueFormatter(item.traditional?.['2025']),
+            valueFormatter(item.traditional?.['2026']),
             <ChangeIndicator value={item.traditional?.change} />,
-            valueFormatter(item.total_market?.['2025']),
+            valueFormatter(item.total_market?.['2026']),
             <ChangeIndicator value={item.total_market?.change} />
         ];
 
         if (showShare && item.share) {
             baseRow.push(
-                <span className="text-amber-400 font-medium">{item.share['2025']?.toFixed(1)}%</span>
+                <span className="text-amber-400 font-medium">{item.share['2026']?.toFixed(1)}%</span>
             );
         }
 
@@ -157,22 +157,22 @@ const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = form
                         </tr>
                         <tr className="bg-gray-800/30">
                             {/* Lender-Mediated */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Traditional */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Total Market */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Share */}
                             {showShare && (
                                 <>
-                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                                 </>
                             )}
                         </tr>
@@ -184,22 +184,22 @@ const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = form
                                     {item.type || item.range}
                                 </td>
                                 {/* Lender-Mediated */}
-                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.lender_mediated?.['2024'])}</td>
-                                <td className="px-2 py-2 text-right text-amber-400 font-medium">{valueFormatter(item.lender_mediated?.['2025'])}</td>
+                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.lender_mediated?.['2026'])}</td>
+                                <td className="px-2 py-2 text-right text-amber-400 font-medium">{valueFormatter(item.lender_mediated?.['2026'])}</td>
                                 <td className="px-2 py-2 text-center"><ChangeIndicator value={item.lender_mediated?.change} className="pr-4" /></td>
                                 {/* Traditional */}
-                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.traditional?.['2024'])}</td>
-                                <td className="px-2 py-2 text-right text-gray-200">{valueFormatter(item.traditional?.['2025'])}</td>
+                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.traditional?.['2026'])}</td>
+                                <td className="px-2 py-2 text-right text-gray-200">{valueFormatter(item.traditional?.['2026'])}</td>
                                 <td className="px-2 py-2 text-center"><ChangeIndicator value={item.traditional?.change} className="pr-4" /></td>
                                 {/* Total Market */}
-                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.total_market?.['2024'])}</td>
-                                <td className="px-2 py-2 text-right text-gray-200">{valueFormatter(item.total_market?.['2025'])}</td>
+                                <td className="px-2 py-2 text-right text-gray-400">{valueFormatter(item.total_market?.['2026'])}</td>
+                                <td className="px-2 py-2 text-right text-gray-200">{valueFormatter(item.total_market?.['2026'])}</td>
                                 <td className="px-2 py-2 text-center"><ChangeIndicator value={item.total_market?.change} className="pr-4" /></td>
                                 {/* Share */}
                                 {showShare && (
                                     <>
-                                        <td className="px-2 py-2 text-right text-gray-400">{item.share?.['2024']?.toFixed(1)}%</td>
-                                        <td className="px-2 py-2 text-right text-purple-400 font-medium">{item.share?.['2025']?.toFixed(1)}%</td>
+                                        <td className="px-2 py-2 text-right text-gray-400">{item.share?.['2026']?.toFixed(1)}%</td>
+                                        <td className="px-2 py-2 text-right text-purple-400 font-medium">{item.share?.['2026']?.toFixed(1)}%</td>
                                     </>
                                 )}
                             </tr>
@@ -248,14 +248,14 @@ const AreaSearchTable = ({ data, title, type = 'inventory' }) => {
                 }
             } else if (type === 'price') {
                 if (sortField === 'lm_price') {
-                    aVal = a.lender_mediated?.['2025'] || 0;
-                    bVal = b.lender_mediated?.['2025'] || 0;
+                    aVal = a.lender_mediated?.['2026'] || 0;
+                    bVal = b.lender_mediated?.['2026'] || 0;
                 } else if (sortField === 'lm_change') {
                     aVal = a.lender_mediated?.change || 0;
                     bVal = b.lender_mediated?.change || 0;
                 } else if (sortField === 'trad_price') {
-                    aVal = a.traditional?.['2025'] || 0;
-                    bVal = b.traditional?.['2025'] || 0;
+                    aVal = a.traditional?.['2026'] || 0;
+                    bVal = b.traditional?.['2026'] || 0;
                 } else if (sortField === 'trad_change') {
                     aVal = a.traditional?.change || 0;
                     bVal = b.traditional?.change || 0;
@@ -346,11 +346,11 @@ const AreaSearchTable = ({ data, title, type = 'inventory' }) => {
                                 </>
                             ) : (
                                 <>
-                                    <th className="px-2 py-3 text-xs font-medium text-amber-400 uppercase tracking-wider text-right">LM '24</th>
-                                    <SortHeader field="lm_price">LM '25</SortHeader>
+                                    <th className="px-2 py-3 text-xs font-medium text-amber-400 uppercase tracking-wider text-right">LM '25</th>
+                                    <SortHeader field="lm_price">LM '26</SortHeader>
                                     <SortHeader field="lm_change">Chg</SortHeader>
-                                    <th className="px-2 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-right">Trad '24</th>
-                                    <SortHeader field="trad_price">Trad '25</SortHeader>
+                                    <th className="px-2 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-right">Trad '25</th>
+                                    <SortHeader field="trad_price">Trad '26</SortHeader>
                                     <SortHeader field="trad_change">Chg</SortHeader>
                                 </>
                             )}
@@ -380,11 +380,11 @@ const AreaSearchTable = ({ data, title, type = 'inventory' }) => {
                                     </>
                                 ) : (
                                     <>
-                                        <td className="px-2 py-2 text-right text-gray-400">{formatCurrency(item.lender_mediated?.['2024'])}</td>
-                                        <td className="px-2 py-2 text-right text-amber-400">{formatCurrency(item.lender_mediated?.['2025'])}</td>
+                                        <td className="px-2 py-2 text-right text-gray-400">{formatCurrency(item.lender_mediated?.['2026'])}</td>
+                                        <td className="px-2 py-2 text-right text-amber-400">{formatCurrency(item.lender_mediated?.['2026'])}</td>
                                         <td className="px-2 py-2 text-right"><ChangeIndicator value={item.lender_mediated?.change} /></td>
-                                        <td className="px-2 py-2 text-right text-gray-400">{formatCurrency(item.traditional?.['2024'])}</td>
-                                        <td className="px-2 py-2 text-right text-gray-200">{formatCurrency(item.traditional?.['2025'])}</td>
+                                        <td className="px-2 py-2 text-right text-gray-400">{formatCurrency(item.traditional?.['2026'])}</td>
+                                        <td className="px-2 py-2 text-right text-gray-200">{formatCurrency(item.traditional?.['2026'])}</td>
                                         <td className="px-2 py-2 text-right"><ChangeIndicator value={item.traditional?.change} /></td>
                                     </>
                                 )}
@@ -571,7 +571,7 @@ export default function LenderMediatedDashboard() {
                                 </ResponsiveContainer>
                             </div>
                             <p className="text-xs text-slate-500 mt-4 text-center italic">
-                                Source: Data digitized from SDAR Lender-Mediated Report (2020-2025)
+                                Source: Data digitized from SDAR Lender-Mediated Report (2020-2026)
                             </p>
                         </div>
 
@@ -597,7 +597,7 @@ export default function LenderMediatedDashboard() {
                                     <div className="p-2 bg-indigo-500/10 rounded-lg">
                                         <Sparkles className="w-5 h-5 text-indigo-400" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-white">AI Executive Summary: December 2025 Analysis</h3>
+                                    <h3 className="text-xl font-bold text-white">AI Executive Summary: January 2026 Analysis</h3>
                                 </div>
                                 <p className="text-slate-300 leading-relaxed text-lg">
                                     The San Diego market for December 2025 shows a distinct <strong className="text-white">tightening of distressed inventory</strong>.
@@ -688,7 +688,7 @@ export default function LenderMediatedDashboard() {
                                     </h4>
                                     <div className="space-y-3">
                                         <div className="bg-slate-900/50 p-3 rounded-lg border border-slate-700/50">
-                                            <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">Highest Share (Dec 2025)</div>
+                                            <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">Highest Share (Jan 2026)</div>
                                             <div className="space-y-2">
                                                 <div className="flex justify-between text-sm">
                                                     <span className="text-white">91942 (La Mesa)</span>
@@ -749,15 +749,15 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Inventory by Property Type</h3>
-                                <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                                <p className="text-xs text-gray-400 mt-1">January 2025 vs January 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-48">
                                     {inventory.by_property_type?.map((item, i) => {
-                                        const val2024 = item.lender_mediated?.['2024'] || 0;
-                                        const val2025 = item.lender_mediated?.['2025'] || 0;
+                                        const val2024 = item.lender_mediated?.['2026'] || 0;
+                                        const val2025 = item.lender_mediated?.['2026'] || 0;
                                         const maxVal = Math.max(...inventory.by_property_type.map(x =>
-                                            Math.max(x.lender_mediated?.['2024'] || 0, x.lender_mediated?.['2025'] || 0)
+                                            Math.max(x.lender_mediated?.['2026'] || 0, x.lender_mediated?.['2026'] || 0)
                                         ));
                                         const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
                                         const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
@@ -799,11 +799,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">12-2024</span>
+                                        <span className="text-xs text-gray-400">01-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">12-2025</span>
+                                        <span className="text-xs text-gray-400">01-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -819,15 +819,15 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Inventory by Price Range</h3>
-                                <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                                <p className="text-xs text-gray-400 mt-1">January 2025 vs January 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-4 h-48 overflow-x-auto">
                                     {inventory.by_price_range?.map((item, i) => {
-                                        const val2024 = item.lender_mediated?.['2024'] || 0;
-                                        const val2025 = item.lender_mediated?.['2025'] || 0;
+                                        const val2024 = item.lender_mediated?.['2025'] || 0;
+                                        const val2025 = item.lender_mediated?.['2026'] || 0;
                                         const maxVal = Math.max(...inventory.by_price_range.map(x =>
-                                            Math.max(x.lender_mediated?.['2024'] || 0, x.lender_mediated?.['2025'] || 0)
+                                            Math.max(x.lender_mediated?.['2025'] || 0, x.lender_mediated?.['2026'] || 0)
                                         ));
                                         const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
                                         const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
@@ -892,11 +892,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">12-2024</span>
+                                        <span className="text-xs text-gray-400">01-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">12-2025</span>
+                                        <span className="text-xs text-gray-400">01-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -914,7 +914,7 @@ export default function LenderMediatedDashboard() {
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-808/60 border-b border-gray-700/50">
                                     <h3 className="text-sm font-semibold text-white">New Listings and Closed Sales</h3>
-                                    <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                                    <p className="text-xs text-gray-400 mt-1">January 2025 vs January 2026</p>
                                 </div>
                                 <div className="overflow-x-auto">
                                     <table className="w-full text-sm">
@@ -928,20 +928,20 @@ export default function LenderMediatedDashboard() {
                                             </tr>
                                             <tr className="bg-gray-800/30">
                                                 {/* Lender-Mediated */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Traditional */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Total Market */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Share */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2024</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">12-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">01-2026</th>
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-gray-700/50">
@@ -949,40 +949,40 @@ export default function LenderMediatedDashboard() {
                                                 <tr className="hover:bg-gray-700/30 transition-colors">
                                                     <td className="px-3 py-2 text-gray-300 font-medium whitespace-nowrap">New Listings</td>
                                                     {/* Lender-Mediated */}
-                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.new_listings.lender_mediated?.['2024'])}</td>
-                                                    <td className="px-2 py-2 text-right text-amber-400 font-medium">{formatNumber(activity.new_listings.lender_mediated?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.new_listings.lender_mediated?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-amber-400 font-medium">{formatNumber(activity.new_listings.lender_mediated?.['2026'])}</td>
                                                     <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.new_listings.lender_mediated?.change} className="pr-4" /></td>
                                                     {/* Traditional */}
-                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.new_listings.traditional?.['2024'])}</td>
-                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.new_listings.traditional?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.new_listings.traditional?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.new_listings.traditional?.['2026'])}</td>
                                                     <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.new_listings.traditional?.change} className="pr-4" /></td>
                                                     {/* Total Market */}
-                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.new_listings.total_market?.['2024'])}</td>
-                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.new_listings.total_market?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.new_listings.total_market?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.new_listings.total_market?.['2026'])}</td>
                                                     <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.new_listings.total_market?.change} className="pr-4" /></td>
                                                     {/* Share */}
-                                                    <td className="px-2 py-2 text-right text-gray-400">{activity.new_listings.share?.['2024']?.toFixed(1)}%</td>
-                                                    <td className="px-2 py-2 text-right text-purple-400 font-medium">{activity.new_listings.share?.['2025']?.toFixed(1)}%</td>
+                                                    <td className="px-2 py-2 text-right text-gray-400">{activity.new_listings.share?.['2025']?.toFixed(1)}%</td>
+                                                    <td className="px-2 py-2 text-right text-purple-400 font-medium">{activity.new_listings.share?.['2026']?.toFixed(1)}%</td>
                                                 </tr>
                                             )}
                                             {activity.closed_sales && (
                                                 <tr className="hover:bg-gray-700/30 transition-colors">
                                                     <td className="px-3 py-2 text-gray-300 font-medium whitespace-nowrap">Closed Sales</td>
                                                     {/* Lender-Mediated */}
-                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.closed_sales.lender_mediated?.['2024'])}</td>
-                                                    <td className="px-2 py-2 text-right text-amber-400 font-medium">{formatNumber(activity.closed_sales.lender_mediated?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.closed_sales.lender_mediated?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-amber-400 font-medium">{formatNumber(activity.closed_sales.lender_mediated?.['2026'])}</td>
                                                     <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.closed_sales.lender_mediated?.change} className="pr-4" /></td>
                                                     {/* Traditional */}
-                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.closed_sales.traditional?.['2024'])}</td>
-                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.closed_sales.traditional?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.closed_sales.traditional?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.closed_sales.traditional?.['2026'])}</td>
                                                     <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.closed_sales.traditional?.change} className="pr-4" /></td>
                                                     {/* Total Market */}
-                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.closed_sales.total_market?.['2024'])}</td>
-                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.closed_sales.total_market?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-400">{formatNumber(activity.closed_sales.total_market?.['2025'])}</td>
+                                                    <td className="px-2 py-2 text-right text-gray-200">{formatNumber(activity.closed_sales.total_market?.['2026'])}</td>
                                                     <td className="px-2 py-2 text-center"><ChangeIndicator value={activity.closed_sales.total_market?.change} className="pr-4" /></td>
                                                     {/* Share */}
-                                                    <td className="px-2 py-2 text-right text-gray-400">{activity.closed_sales.share?.['2024']?.toFixed(1)}%</td>
-                                                    <td className="px-2 py-2 text-right text-purple-400 font-medium">{activity.closed_sales.share?.['2025']?.toFixed(1)}%</td>
+                                                    <td className="px-2 py-2 text-right text-gray-400">{activity.closed_sales.share?.['2025']?.toFixed(1)}%</td>
+                                                    <td className="px-2 py-2 text-right text-purple-400 font-medium">{activity.closed_sales.share?.['2026']?.toFixed(1)}%</td>
                                                 </tr>
                                             )}
                                         </tbody>
@@ -995,19 +995,19 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Activity Comparison</h3>
-                                <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                                <p className="text-xs text-gray-400 mt-1">January 2025 vs January 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-48">
                                     {/* New Listings Bar */}
                                     {activity.new_listings && (() => {
-                                        const val2024 = activity.new_listings.lender_mediated?.['2024'] || 0;
-                                        const val2025 = activity.new_listings.lender_mediated?.['2025'] || 0;
+                                        const val2024 = activity.new_listings.lender_mediated?.['2025'] || 0;
+                                        const val2025 = activity.new_listings.lender_mediated?.['2026'] || 0;
                                         const maxVal = Math.max(
-                                            activity.new_listings.lender_mediated?.['2024'] || 0,
                                             activity.new_listings.lender_mediated?.['2025'] || 0,
-                                            activity.closed_sales?.lender_mediated?.['2024'] || 0,
-                                            activity.closed_sales?.lender_mediated?.['2025'] || 0
+                                            activity.new_listings.lender_mediated?.['2026'] || 0,
+                                            activity.closed_sales?.lender_mediated?.['2025'] || 0,
+                                            activity.closed_sales?.lender_mediated?.['2026'] || 0
                                         );
                                         const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
                                         const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
@@ -1047,13 +1047,13 @@ export default function LenderMediatedDashboard() {
 
                                     {/* Closed Sales Bar */}
                                     {activity.closed_sales && (() => {
-                                        const val2024 = activity.closed_sales.lender_mediated?.['2024'] || 0;
-                                        const val2025 = activity.closed_sales.lender_mediated?.['2025'] || 0;
+                                        const val2024 = activity.closed_sales.lender_mediated?.['2025'] || 0;
+                                        const val2025 = activity.closed_sales.lender_mediated?.['2026'] || 0;
                                         const maxVal = Math.max(
-                                            activity.new_listings?.lender_mediated?.['2024'] || 0,
                                             activity.new_listings?.lender_mediated?.['2025'] || 0,
-                                            activity.closed_sales?.lender_mediated?.['2024'] || 0,
-                                            activity.closed_sales?.lender_mediated?.['2025'] || 0
+                                            activity.new_listings?.lender_mediated?.['2026'] || 0,
+                                            activity.closed_sales?.lender_mediated?.['2025'] || 0,
+                                            activity.closed_sales?.lender_mediated?.['2026'] || 0
                                         );
                                         const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
                                         const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
@@ -1095,11 +1095,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">12-2024</span>
+                                        <span className="text-xs text-gray-400">01-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">12-2025</span>
+                                        <span className="text-xs text-gray-400">01-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -1112,7 +1112,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">New Listings Trend</h3>
-                                        <p className="text-xs text-gray-400 mt-1">December 2024 to December 2025</p>
+                                        <p className="text-xs text-gray-400 mt-1">January 2025 to January 2026</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="relative h-64">
@@ -1126,17 +1126,17 @@ export default function LenderMediatedDashboard() {
 
                                                 {(() => {
                                                     const maxVal = Math.max(
-                                                        activity.new_listings.lender_mediated?.['2024'] || 0,
                                                         activity.new_listings.lender_mediated?.['2025'] || 0,
-                                                        activity.new_listings.traditional?.['2024'] || 0,
-                                                        activity.new_listings.traditional?.['2025'] || 0
+                                                        activity.new_listings.lender_mediated?.['2026'] || 0,
+                                                        activity.new_listings.traditional?.['2025'] || 0,
+                                                        activity.new_listings.traditional?.['2026'] || 0
                                                     );
 
                                                     // Calculate Y positions (inverted for SVG coordinates)
-                                                    const lm2024Y = 190 - ((activity.new_listings.lender_mediated?.['2024'] || 0) / maxVal * 180);
-                                                    const lm2025Y = 190 - ((activity.new_listings.lender_mediated?.['2025'] || 0) / maxVal * 180);
-                                                    const trad2024Y = 190 - ((activity.new_listings.traditional?.['2024'] || 0) / maxVal * 180);
-                                                    const trad2025Y = 190 - ((activity.new_listings.traditional?.['2025'] || 0) / maxVal * 180);
+                                                    const lm2024Y = 190 - ((activity.new_listings.lender_mediated?.['2025'] || 0) / maxVal * 180);
+                                                    const lm2025Y = 190 - ((activity.new_listings.lender_mediated?.['2026'] || 0) / maxVal * 180);
+                                                    const trad2024Y = 190 - ((activity.new_listings.traditional?.['2025'] || 0) / maxVal * 180);
+                                                    const trad2025Y = 190 - ((activity.new_listings.traditional?.['2026'] || 0) / maxVal * 180);
 
                                                     return (
                                                         <>{/* Traditional Line */}
@@ -1164,8 +1164,8 @@ export default function LenderMediatedDashboard() {
                                             </svg>
                                             {/* X-axis labels */}
                                             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 text-xs text-gray-500">
-                                                <span>Dec 2024</span>
-                                                <span>Dec 2025</span>
+                                                <span>Jan 2025</span>
+                                                <span>Jan 2026</span>
                                             </div>
                                         </div>
                                         {/* Legend */}
@@ -1188,7 +1188,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">Closed Sales Trend</h3>
-                                        <p className="text-xs text-gray-400 mt-1">December 2024 to December 2025</p>
+                                        <p className="text-xs text-gray-400 mt-1">January 2025 to January 2026</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="relative h-64">
@@ -1202,21 +1202,21 @@ export default function LenderMediatedDashboard() {
 
                                                 {(() => {
                                                     const maxVal = Math.max(
-                                                        activity.closed_sales.lender_mediated?.['2024'] || 0,
                                                         activity.closed_sales.lender_mediated?.['2025'] || 0,
-                                                        activity.closed_sales.traditional?.['2024'] || 0,
+                                                        activity.closed_sales.lender_mediated?.['2026'] || 0,
                                                         activity.closed_sales.traditional?.['2025'] || 0,
-                                                        activity.closed_sales.total_market?.['2024'] || 0,
-                                                        activity.closed_sales.total_market?.['2025'] || 0
+                                                        activity.closed_sales.traditional?.['2026'] || 0,
+                                                        activity.closed_sales.total_market?.['2025'] || 0,
+                                                        activity.closed_sales.total_market?.['2026'] || 0
                                                     );
 
                                                     // Calculate Y positions (inverted for SVG coordinates)
-                                                    const lm2024Y = 190 - ((activity.closed_sales.lender_mediated?.['2024'] || 0) / maxVal * 180);
-                                                    const lm2025Y = 190 - ((activity.closed_sales.lender_mediated?.['2025'] || 0) / maxVal * 180);
-                                                    const trad2024Y = 190 - ((activity.closed_sales.traditional?.['2024'] || 0) / maxVal * 180);
-                                                    const trad2025Y = 190 - ((activity.closed_sales.traditional?.['2025'] || 0) / maxVal * 180);
-                                                    const total2024Y = 190 - ((activity.closed_sales.total_market?.['2024'] || 0) / maxVal * 180);
-                                                    const total2025Y = 190 - ((activity.closed_sales.total_market?.['2025'] || 0) / maxVal * 180);
+                                                    const lm2024Y = 190 - ((activity.closed_sales.lender_mediated?.['2025'] || 0) / maxVal * 180);
+                                                    const lm2025Y = 190 - ((activity.closed_sales.lender_mediated?.['2026'] || 0) / maxVal * 180);
+                                                    const trad2024Y = 190 - ((activity.closed_sales.traditional?.['2025'] || 0) / maxVal * 180);
+                                                    const trad2025Y = 190 - ((activity.closed_sales.traditional?.['2026'] || 0) / maxVal * 180);
+                                                    const total2024Y = 190 - ((activity.closed_sales.total_market?.['2025'] || 0) / maxVal * 180);
+                                                    const total2025Y = 190 - ((activity.closed_sales.total_market?.['2026'] || 0) / maxVal * 180);
 
                                                     return (
                                                         <>{/* Traditional Line */}
@@ -1244,8 +1244,8 @@ export default function LenderMediatedDashboard() {
                                             </svg>
                                             {/* X-axis labels */}
                                             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 text-xs text-gray-500">
-                                                <span>Dec 2024</span>
-                                                <span>Dec 2025</span>
+                                                <span>Jan 2025</span>
+                                                <span>Jan 2026</span>
                                             </div>
                                         </div>
                                         {/* Legend */}
@@ -1272,7 +1272,7 @@ export default function LenderMediatedDashboard() {
                         {/* Median Sales Price Table */}
                         <InventoryComparisonTable
                             title="Median Sales Price by Property Type"
-                            subtitle="December 2024 vs December 2025"
+                            subtitle="January 2025 vs January 2026"
                             data={priceDom.median_price}
                             valueFormatter={formatCurrency}
                             showShare={false}
@@ -1282,15 +1282,15 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Median Sales Price by Property Type</h3>
-                                <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                                <p className="text-xs text-gray-400 mt-1">January 2025 vs January 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-64">
                                     {priceDom.median_price?.map((item, i) => {
-                                        const val2024 = item.lender_mediated?.['2024'] || 0;
-                                        const val2025 = item.lender_mediated?.['2025'] || 0;
+                                        const val2024 = item.lender_mediated?.['2025'] || 0;
+                                        const val2025 = item.lender_mediated?.['2026'] || 0;
                                         const maxVal = Math.max(...priceDom.median_price.map(x =>
-                                            Math.max(x.lender_mediated?.['2024'] || 0, x.lender_mediated?.['2025'] || 0)
+                                            Math.max(x.lender_mediated?.['2025'] || 0, x.lender_mediated?.['2026'] || 0)
                                         ));
                                         const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
                                         const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
@@ -1332,11 +1332,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">12-2024</span>
+                                        <span className="text-xs text-gray-400">01-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">12-2025</span>
+                                        <span className="text-xs text-gray-400">01-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -1347,7 +1347,7 @@ export default function LenderMediatedDashboard() {
                             <>
                                 <InventoryComparisonTable
                                     title="Days on Market Until Sale by Property Type"
-                                    subtitle="December 2024 vs December 2025"
+                                    subtitle="January 2025 vs January 2026"
                                     data={priceDom.days_on_market}
                                     showShare={false}
                                 />
@@ -1356,15 +1356,15 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">Lender-Mediated Days on Market by Property Type</h3>
-                                        <p className="text-xs text-gray-400 mt-1">December 2024 vs December 2025</p>
+                                        <p className="text-xs text-gray-400 mt-1">January 2025 vs January 2026</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="flex items-end justify-around gap-8 h-64">
                                             {priceDom.days_on_market?.map((item, i) => {
-                                                const val2024 = item.lender_mediated?.['2024'] || 0;
-                                                const val2025 = item.lender_mediated?.['2025'] || 0;
+                                                const val2024 = item.lender_mediated?.['2025'] || 0;
+                                                const val2025 = item.lender_mediated?.['2026'] || 0;
                                                 const maxVal = Math.max(...priceDom.days_on_market.map(x =>
-                                                    Math.max(x.lender_mediated?.['2024'] || 0, x.lender_mediated?.['2025'] || 0)
+                                                    Math.max(x.lender_mediated?.['2025'] || 0, x.lender_mediated?.['2026'] || 0)
                                                 ));
                                                 const height2024 = maxVal > 0 ? (val2024 / maxVal) * 100 : 0;
                                                 const height2025 = maxVal > 0 ? (val2025 / maxVal) * 100 : 0;
@@ -1406,11 +1406,11 @@ export default function LenderMediatedDashboard() {
                                         <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-4 h-4 bg-gray-500 rounded" />
-                                                <span className="text-xs text-gray-400">12-2024</span>
+                                                <span className="text-xs text-gray-400">01-2025</span>
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 <div className="w-4 h-4 bg-amber-500 rounded" />
-                                                <span className="text-xs text-gray-400">12-2025</span>
+                                                <span className="text-xs text-gray-400">01-2026</span>
                                             </div>
                                         </div>
                                     </div>
