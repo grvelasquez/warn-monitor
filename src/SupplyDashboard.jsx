@@ -265,30 +265,30 @@ const FREDTrendChart = ({ data, title, subTitle }) => {
 
 export default function SupplyDashboard() {
     const [data, setData] = useState(null);
-    const [fredData, setFredData] = useState(null);
+    const [neighborhoodData, setNeighborhoodData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [activeTab, setActiveTab] = useState('summary');
 
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [supplyRes, fredRes] = await Promise.all([
+                const [supplyRes, neighRes] = await Promise.all([
                     fetch('/data/housing_supply_data.json'),
-                    fetch('/data/supply_history.json')
+                    fetch('/data/sdar_neighborhood_data.json')
                 ]);
 
                 if (!supplyRes.ok) throw new Error('Failed to load supply data');
-                // Fred data is optional, don't fail hard if missing, but try to parse
                 const supplyJson = await supplyRes.json();
 
-                let fredJson = null;
-                if (fredRes.ok) {
-                    fredJson = await fredRes.json();
+                let neighJson = null;
+                if (neighRes.ok) {
+                    neighJson = await neighRes.json();
                 }
 
                 setData(supplyJson);
-                setFredData(fredJson);
+                setNeighborhoodData(neighJson);
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -298,6 +298,38 @@ export default function SupplyDashboard() {
 
         fetchData();
     }, []);
+
+    // Compute New Listings data from neighborhood data (hooks must be before early returns)
+    const newListingsData = useMemo(() => {
+        if (!neighborhoodData?.county_wide) return null;
+        const cw = neighborhoodData.county_wide;
+        const detached = cw.detached || {};
+        const attached = cw.attached || {};
+        return {
+            detached: {
+                newListings2025: detached.new_listings_2025 || 0,
+                newListings2026: detached.new_listings_2026 || 0,
+                change: detached.new_listings_pct_change || 0
+            },
+            attached: {
+                newListings2025: attached.new_listings_2025 || 0,
+                newListings2026: attached.new_listings_2026 || 0,
+                change: attached.new_listings_pct_change || 0
+            },
+            total2025: (detached.new_listings_2025 || 0) + (attached.new_listings_2025 || 0),
+            total2026: (detached.new_listings_2026 || 0) + (attached.new_listings_2026 || 0)
+        };
+    }, [neighborhoodData]);
+
+    // Compute total inventory from Supply PDF data
+    const pdfInventoryTotals = useMemo(() => {
+        if (!data?.inventory?.by_price_range) return null;
+        const inv = data.inventory.by_price_range;
+        const total2025 = inv.reduce((sum, item) => sum + (item.all_properties?.['2025'] || 0), 0);
+        const total2026 = inv.reduce((sum, item) => sum + (item.all_properties?.['2026'] || 0), 0);
+        const change = total2025 > 0 ? ((total2026 - total2025) / total2025 * 100) : 0;
+        return { total2025, total2026, change: parseFloat(change.toFixed(1)) };
+    }, [data]);
 
     if (loading) {
         return (
@@ -335,6 +367,7 @@ export default function SupplyDashboard() {
 
     const tabs = [
         { id: 'summary', label: 'Summary', icon: BarChart3 },
+        { id: 'newlistings', label: 'New Listings', icon: TrendingUp },
         { id: 'pending', label: 'Pending', icon: TrendingUp },
         { id: 'closed', label: 'Closed', icon: Home },
         { id: 'median', label: 'Sq Ft', icon: DollarSign },
@@ -354,43 +387,199 @@ export default function SupplyDashboard() {
                             <div className="p-2 bg-green-600/20 rounded-lg">
                                 <Warehouse className="w-6 h-6 text-green-400" />
                             </div>
-                            <h1 className="text-2xl md:text-3xl font-bold text-white">
-                                Housing Supply Overview
-                            </h1>
+                            <h1 className="text-2xl md:text-3xl font-bold text-white">Housing Supply Overview</h1>
                         </div>
                         <p className="text-gray-400 text-sm">
                             {data?.meta?.report_period} • Source: {data?.meta?.source}
                         </p>
                     </div>
 
-                    {/* Tab Navigation */}
-                    <div className="flex gap-1 bg-gray-800/50 p-1 rounded-lg overflow-x-auto">
-                        {tabs.map(tab => (
-                            <button
-                                key={tab.id}
-                                onClick={() => setActiveTab(tab.id)}
-                                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap ${activeTab === tab.id
-                                    ? 'bg-green-600 text-white'
-                                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                                    }`}
-                            >
-                                <tab.icon className="w-4 h-4" />
-                                <span className="hidden sm:inline">{tab.label}</span>
-                            </button>
-                        ))}
+                    <div className="flex items-center gap-3">
+                        <div className="flex gap-1 bg-gray-800/50 p-1 rounded-lg overflow-x-auto">
+                            {tabs.map(tab => (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap ${activeTab === tab.id
+                                        ? 'bg-green-600 text-white'
+                                        : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                                        }`}
+                                >
+                                    <tab.icon className="w-4 h-4" />
+                                    <span className="hidden sm:inline">{tab.label}</span>
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </div>
+
+                {/* New Listings Tab */}
+                {activeTab === 'newlistings' && (
+                    <div className="space-y-6">
+                        {/* New Listings Summary Cards */}
+                        {newListingsData && (
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl p-5 border border-gray-700/50">
+                                    <div className="flex items-start justify-between mb-2">
+                                        <div className="p-2 rounded-lg bg-gray-700/50 text-emerald-400">
+                                            <Home className="w-5 h-5" />
+                                        </div>
+                                        <ChangeIndicator value={newListingsData.detached.change} />
+                                    </div>
+                                    <div className="text-2xl font-bold text-white mb-1">{formatNumber(newListingsData.detached.newListings2026)}</div>
+                                    <div className="text-sm text-gray-400">Detached New Listings</div>
+                                    <div className="mt-2 pt-2 border-t border-gray-700/50 text-xs text-gray-500">
+                                        Prior Year: <span className="text-gray-300">{formatNumber(newListingsData.detached.newListings2025)}</span>
+                                    </div>
+                                </div>
+                                <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl p-5 border border-gray-700/50">
+                                    <div className="flex items-start justify-between mb-2">
+                                        <div className="p-2 rounded-lg bg-gray-700/50 text-purple-400">
+                                            <Building2 className="w-5 h-5" />
+                                        </div>
+                                        <ChangeIndicator value={newListingsData.attached.change} />
+                                    </div>
+                                    <div className="text-2xl font-bold text-white mb-1">{formatNumber(newListingsData.attached.newListings2026)}</div>
+                                    <div className="text-sm text-gray-400">Attached New Listings</div>
+                                    <div className="mt-2 pt-2 border-t border-gray-700/50 text-xs text-gray-500">
+                                        Prior Year: <span className="text-gray-300">{formatNumber(newListingsData.attached.newListings2025)}</span>
+                                    </div>
+                                </div>
+                                <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl p-5 border border-gray-700/50">
+                                    <div className="flex items-start justify-between mb-2">
+                                        <div className="p-2 rounded-lg bg-gray-700/50 text-green-400">
+                                            <TrendingUp className="w-5 h-5" />
+                                        </div>
+                                        <ChangeIndicator value={newListingsData.total2025 > 0 ? ((newListingsData.total2026 - newListingsData.total2025) / newListingsData.total2025 * 100) : 0} />
+                                    </div>
+                                    <div className="text-2xl font-bold text-white mb-1">{formatNumber(newListingsData.total2026)}</div>
+                                    <div className="text-sm text-gray-400">Total New Listings</div>
+                                    <div className="mt-2 pt-2 border-t border-gray-700/50 text-xs text-gray-500">
+                                        Prior Year: <span className="text-gray-300">{formatNumber(newListingsData.total2025)}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* New Listings Bar Chart */}
+                        {newListingsData && (
+                            <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                                <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                    <h3 className="text-sm font-semibold text-white">New Listings: Detached vs Attached</h3>
+                                    <p className="text-xs text-gray-400 mt-1">County-wide January comparison from SDAR local market reports</p>
+                                </div>
+                                <div className="p-6 h-72">
+                                    <ResponsiveContainer width="100%" height="100%">
+                                        <BarChart
+                                            data={[
+                                                { name: 'Detached', '2025': newListingsData.detached.newListings2025, '2026': newListingsData.detached.newListings2026 },
+                                                { name: 'Attached', '2025': newListingsData.attached.newListings2025, '2026': newListingsData.attached.newListings2026 },
+                                                { name: 'Total', '2025': newListingsData.total2025, '2026': newListingsData.total2026 }
+                                            ]}
+                                            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                                        >
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.5} />
+                                            <XAxis dataKey="name" stroke="#94a3b8" tick={{ fill: '#94a3b8', fontSize: 12 }} />
+                                            <YAxis stroke="#94a3b8" tick={{ fill: '#94a3b8' }} />
+                                            <RechartsTooltip
+                                                contentStyle={{
+                                                    backgroundColor: '#1e293b',
+                                                    border: '1px solid #475569',
+                                                    borderRadius: '0.5rem',
+                                                    color: '#f8fafc'
+                                                }}
+                                            />
+                                            <Legend />
+                                            <Bar dataKey="2025" fill="#6b7280" name="01-2025" />
+                                            <Bar dataKey="2026" fill="#22c55e" name="01-2026" />
+                                        </BarChart>
+                                    </ResponsiveContainer>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Per-Neighborhood Top 10 */}
+                        {neighborhoodData?.neighborhoods && (
+                            <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
+                                <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
+                                    <h3 className="text-sm font-semibold text-white">Top Neighborhoods by New Listings (Jan 2026)</h3>
+                                </div>
+                                <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                        <thead>
+                                            <tr className="bg-gray-800/40">
+                                                <th className="px-4 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-left">Neighborhood</th>
+                                                <th className="px-4 py-3 text-xs font-medium text-green-400 uppercase tracking-wider text-right">Detached '26</th>
+                                                <th className="px-4 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-right">Detached '25</th>
+                                                <th className="px-4 py-3 text-xs font-medium text-purple-400 uppercase tracking-wider text-right">Attached '26</th>
+                                                <th className="px-4 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-right">Attached '25</th>
+                                                <th className="px-4 py-3 text-xs font-medium text-gray-400 uppercase tracking-wider text-right">Total '26</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-700/50">
+                                            {[...neighborhoodData.neighborhoods]
+                                                .map(n => ({
+                                                    ...n,
+                                                    totalNew: (n.detached?.new_listings_2026 || 0) + (n.attached?.new_listings_2026 || 0)
+                                                }))
+                                                .sort((a, b) => b.totalNew - a.totalNew)
+                                                .slice(0, 15)
+                                                .map((n, i) => (
+                                                    <tr key={i} className="hover:bg-gray-700/30 transition-colors">
+                                                        <td className="px-4 py-3 text-gray-300 font-medium">{n.neighborhood} ({n.zip_code})</td>
+                                                        <td className="px-4 py-3 text-right text-green-400 font-medium">{n.detached?.new_listings_2026 || 0}</td>
+                                                        <td className="px-4 py-3 text-right text-gray-400">{n.detached?.new_listings_2025 || 0}</td>
+                                                        <td className="px-4 py-3 text-right text-purple-400 font-medium">{n.attached?.new_listings_2026 || 0}</td>
+                                                        <td className="px-4 py-3 text-right text-gray-400">{n.attached?.new_listings_2025 || 0}</td>
+                                                        <td className="px-4 py-3 text-right text-white font-bold">{n.totalNew}</td>
+                                                    </tr>
+                                                ))
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Source */}
+                        <div className="bg-slate-900/50 rounded-xl border border-slate-800 p-6">
+                            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Source</h4>
+                            <p className="text-[10px] text-slate-500 leading-relaxed">
+                                Data from SDAR Local Market Update reports (per zip code PDFs). County-wide totals aggregated from all 98 neighborhoods.
+                                Current as of {neighborhoodData?.meta?.report_period || 'January 2026'}.
+                            </p>
+                        </div>
+                    </div>
+                )}
 
                 {/* Summary Tab */}
                 {activeTab === 'summary' && (
                     <div className="space-y-6">
-                        {/* FRED Trend Chart */}
-                        {fredData && fredData.history && (
-                            <FREDTrendChart
-                                data={fredData.history}
-                                title="Historical Active Listings"
-                                subTitle="San Diego County, CA - Last 10 Years"
-                            />
+                        {/* Active Listings from PDF Inventory */}
+                        {pdfInventoryTotals && (
+                            <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm">
+                                <div className="mb-4">
+                                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                                        <TrendingUp className="w-5 h-5 text-indigo-400" />
+                                        Active Listings
+                                    </h3>
+                                    <div className="text-sm text-slate-400 mt-1">San Diego County — End of Month Inventory</div>
+                                </div>
+                                <div className="grid grid-cols-3 gap-4">
+                                    <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
+                                        <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">Jan 2025</div>
+                                        <div className="text-2xl font-bold text-gray-300">{formatNumber(pdfInventoryTotals.total2025)}</div>
+                                    </div>
+                                    <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
+                                        <div className="text-xs text-indigo-400 uppercase tracking-wider mb-1">Jan 2026</div>
+                                        <div className="text-2xl font-bold text-white">{formatNumber(pdfInventoryTotals.total2026)}</div>
+                                    </div>
+                                    <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
+                                        <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">YoY Change</div>
+                                        <div className="text-2xl font-bold"><ChangeIndicator value={pdfInventoryTotals.change} /></div>
+                                    </div>
+                                </div>
+                            </div>
                         )}
 
                         {/* Executive Summary Header */}
@@ -597,7 +786,7 @@ export default function SupplyDashboard() {
                             <p className="text-[10px] text-slate-500 leading-relaxed">
                                 Data from the San Diego MLS via the Greater San Diego Association of REALTORS®.
                                 All figures are based on rolling 12-month calculations except inventory which reflects end-of-month active listings.
-                                Current as of January 5, 2026.
+                                Current as of {data?.meta?.report_period || 'January 2026'}.
                             </p>
                         </div>
                     </div>
