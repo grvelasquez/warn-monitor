@@ -31,10 +31,9 @@ LA_HOME_PRICE_SERIES = {
     "LXXRNSA": {"name": "Not Seasonally Adjusted", "key": "nsa"},
 }
 
-# San Francisco Home Price Index series (Case-Shiller)
-SF_HOME_PRICE_SERIES = {
-    "SFXRSA": {"name": "Seasonally Adjusted", "key": "sa"},
-    "SFXRNSA": {"name": "Not Seasonally Adjusted", "key": "nsa"},
+# San Jose FHFA House Price Index
+SJ_HOME_PRICE_SERIES = {
+    "ATNHPIUS41940Q": {"name": "Not Seasonally Adjusted (Quarterly)", "key": "nsa"},
 }
 
 
@@ -154,6 +153,68 @@ def fetch_home_price_data(sa_series: str, nsa_series: str, description: str) -> 
     return output
 
 
+def fetch_sj_quarterly_data(series_id: str, description: str) -> dict:
+    """Fetch San Jose FHFA quarterly data."""
+    print(f"Fetching {description} data from FRED...")
+    obs = fetch_fred_series(series_id, 1000)
+    
+    if not obs:
+        print(f"Warning: No data fetched for {description}")
+        return None
+        
+    current = {
+        "seasonallyAdjusted": {
+            "value": round(obs[0]["value"], 2) if obs else None,
+            "date": obs[0]["date"] if obs else None
+        },
+        "notSeasonallyAdjusted": {
+            "value": round(obs[0]["value"], 2) if obs else None,
+            "date": obs[0]["date"] if obs else None
+        }
+    }
+    
+    if len(obs) < 2:
+        changes = {"monthOverMonth": {"sa": 0.0, "nsa": 0.0}, "yearOverYear": {"sa": 0.0, "nsa": 0.0}}
+    else:
+        current_val = obs[0]["value"]
+        qoq_val = obs[1]["value"]
+        qoq = round(((current_val - qoq_val) / qoq_val) * 100, 2)
+        yoy_val = obs[4]["value"] if len(obs) > 4 else current_val
+        yoy = round(((current_val - yoy_val) / yoy_val) * 100, 2)
+        changes = {
+            "monthOverMonth": {"sa": qoq, "nsa": qoq},
+            "yearOverYear": {"sa": yoy, "nsa": yoy}
+        }
+        
+    history = []
+    for o in obs:
+        history.append({
+            "date": o["date"][:7],
+            "sa": o["value"],
+            "nsa": o["value"]
+        })
+        
+    # Reverse history so it's chronologically forward if needed, 
+    # but the other build_history returns it sorted oldest to newest.
+    # Actually wait! The FRED observations are returned newest first.
+    # The build_history function: sorted(set(...)) gets oldest first.
+    history = sorted(history, key=lambda x: x["date"])
+    
+    output = {
+        "meta": {
+            "generated": datetime.now().isoformat(),
+            "source": "FRED (FHFA)",
+            "lastUpdate": obs[0]["date"] if obs else None,
+            "description": description
+        },
+        "current": current,
+        "changes": changes,
+        "history": history
+    }
+    return output
+
+
+
 def save_data(data: dict, output_path: str):
     """Save data to JSON file."""
     path = Path(output_path)
@@ -198,15 +259,15 @@ def main():
         print(f"\nLos Angeles SA Index: {la_data['current']['seasonallyAdjusted']['value']}")
         print(f"Los Angeles YoY Change (SA): {la_data['changes']['yearOverYear']['sa']}%")
     
-    # Fetch San Francisco HPI (Case-Shiller)
-    sf_data = fetch_home_price_data(
-        "SFXRSA", "SFXRNSA",
-        "S&P CoreLogic Case-Shiller CA-San Francisco Home Price Index (Jan 2000 = 100)"
+    # Fetch San Jose HPI (FHFA)
+    sj_data = fetch_sj_quarterly_data(
+        "ATNHPIUS41940Q",
+        "All-Transactions House Price Index for San Jose-Sunnyvale-Santa Clara, CA (NSA)"
     )
-    if sf_data:
-        save_data(sf_data, str(base_path / "sf_home_price_index.json"))
-        print(f"\nSan Francisco SA Index: {sf_data['current']['seasonallyAdjusted']['value']}")
-        print(f"San Francisco YoY Change (SA): {sf_data['changes']['yearOverYear']['sa']}%")
+    if sj_data:
+        save_data(sj_data, str(base_path / "sj_home_price_index.json"))
+        print(f"\nSan Jose NSA Index: {sj_data['current']['notSeasonallyAdjusted']['value']}")
+        print(f"San Jose YoY Change (NSA): {sj_data['changes']['yearOverYear']['nsa']}%")
 
 
 if __name__ == "__main__":

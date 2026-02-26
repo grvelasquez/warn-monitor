@@ -6,7 +6,7 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
     const [homePriceData, setHomePriceData] = useState(null);  // San Diego HPI
     const [usHomePriceData, setUsHomePriceData] = useState(null);  // US National HPI
     const [laHomePriceData, setLaHomePriceData] = useState(null);  // Los Angeles HPI
-    const [sfHomePriceData, setSfHomePriceData] = useState(null);  // San Francisco HPI
+    const [sjHomePriceData, setSjHomePriceData] = useState(null);  // San Jose HPI
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -14,13 +14,13 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
             fetch('/data/home_price_index.json').then(res => res.ok ? res.json() : null),  // SD
             fetch('/data/us_home_price_index.json').then(res => res.ok ? res.json() : null),  // US National
             fetch('/data/la_home_price_index.json').then(res => res.ok ? res.json() : null),  // Los Angeles
-            fetch('/data/sf_home_price_index.json').then(res => res.ok ? res.json() : null),  // San Francisco
+            fetch('/data/sj_home_price_index.json').then(res => res.ok ? res.json() : null),  // San Jose
         ])
-            .then(([sdHpiData, usHpiData, laHpiData, sfHpiData]) => {
+            .then(([sdHpiData, usHpiData, laHpiData, sjHpiData]) => {
                 setHomePriceData(sdHpiData);
                 setUsHomePriceData(usHpiData);
                 setLaHomePriceData(laHpiData);
-                setSfHomePriceData(sfHpiData);
+                setSjHomePriceData(sjHpiData);
             })
             .catch(err => {
                 console.error('Error loading data:', err);
@@ -35,7 +35,7 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
         const sdData = {};
         const usData = {};
         const laData = {};
-        const sfData = {};
+        const sjData = {};
 
         homePriceData.history.forEach(item => {
             sdData[item.date] = item;
@@ -53,14 +53,14 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
             });
         }
 
-        if (sfHomePriceData?.history) {
-            sfHomePriceData.history.forEach(item => {
-                sfData[item.date] = item;
+        if (sjHomePriceData?.history) {
+            sjHomePriceData.history.forEach(item => {
+                sjData[item.date] = item;
             });
         }
 
         // Get all unique dates
-        const allDates = [...new Set([...Object.keys(sdData), ...Object.keys(usData), ...Object.keys(laData), ...Object.keys(sfData)])].sort();
+        const allDates = [...new Set([...Object.keys(sdData), ...Object.keys(usData), ...Object.keys(laData), ...Object.keys(sjData)])].sort();
 
         return allDates.map(date => ({
             date,
@@ -68,9 +68,9 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
             sd: sdData[date]?.nsa,  // All using NSA
             us: usData[date]?.nsa,
             la: laData[date]?.nsa,
-            sf: sfData[date]?.nsa,
+            sj: sjData[date]?.nsa,
         }));
-    }, [homePriceData, usHomePriceData, laHomePriceData, sfHomePriceData]);
+    }, [homePriceData, usHomePriceData, laHomePriceData, sjHomePriceData]);
 
     if (loading) {
         return (
@@ -131,7 +131,7 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                     </div>
                     <div className="text-slate-300 text-sm leading-relaxed relative z-10">
                         <p>
-                            <strong className="text-orange-300">San Diego's housing market</strong> has continued to stabilize with a <strong className="text-white">+0.8% year-over-year gain</strong> in the Home Price Index as of December 2025. The <strong className="text-teal-300">U.S. National Index</strong> continues to outpace California metros, rising <strong className="text-white">+1.3%</strong> year-over-year. <strong className="text-amber-300">Los Angeles</strong> (+0.9%) is tracking slightly above San Diego, while <strong className="text-purple-300">San Francisco</strong> (-0.1%) has seen a slight decline, signaling a broad deceleration across California's coastal markets even as the rest of the country sees steadier appreciation.
+                            <strong className="text-orange-300">San Diego's housing market</strong> has continued to stabilize with a <strong className="text-white">+0.8% year-over-year gain</strong> in the Home Price Index as of December 2025. The <strong className="text-teal-300">U.S. National Index</strong> continues to outpace California metros, rising <strong className="text-white">+1.3%</strong> year-over-year. <strong className="text-amber-300">Los Angeles</strong> (+0.9%) is tracking slightly above San Diego, while <strong className="text-purple-300">San Jose</strong> (-0.1%) has seen a slight decline, signaling a broad deceleration across California's coastal markets even as the rest of the country sees steadier appreciation.
                         </p>
                     </div>
                 </div>
@@ -150,7 +150,7 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                     <div className="flex flex-wrap gap-4 text-xs mb-4">
                         <span className="flex items-center gap-1"><span className="w-3 h-3 bg-orange-500 rounded-full"></span>San Diego</span>
                         <span className="flex items-center gap-1"><span className="w-3 h-3 bg-amber-400 rounded-full"></span>Los Angeles</span>
-                        <span className="flex items-center gap-1"><span className="w-3 h-3 bg-purple-500 rounded-full"></span>San Francisco</span>
+                        <span className="flex items-center gap-1"><span className="w-3 h-3 bg-purple-500 rounded-full"></span>San Jose</span>
                         <span className="flex items-center gap-1"><span className="w-3 h-3 bg-teal-500 rounded-full"></span>U.S. National</span>
                     </div>
 
@@ -166,7 +166,7 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                                         <stop offset="5%" stopColor="#fbbf24" stopOpacity={0.2} />
                                         <stop offset="95%" stopColor="#fbbf24" stopOpacity={0} />
                                     </linearGradient>
-                                    <linearGradient id="colorSf" x1="0" y1="0" x2="0" y2="1">
+                                    <linearGradient id="colorSj" x1="0" y1="0" x2="0" y2="1">
                                         <stop offset="5%" stopColor="#a855f7" stopOpacity={0.2} />
                                         <stop offset="95%" stopColor="#a855f7" stopOpacity={0} />
                                     </linearGradient>
@@ -185,7 +185,7 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                                         const labels = {
                                             sd: 'San Diego',
                                             la: 'Los Angeles',
-                                            sf: 'San Francisco',
+                                            sj: 'San Jose',
                                             us: 'U.S. National'
                                         };
                                         return value ? [value.toFixed(1), labels[name] || name] : ['N/A', name];
@@ -193,7 +193,7 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                                 />
                                 <Area type="monotone" dataKey="sd" stroke="#f97316" strokeWidth={2} fill="url(#colorSd)" name="sd" connectNulls />
                                 <Area type="monotone" dataKey="la" stroke="#fbbf24" strokeWidth={2} fill="url(#colorLa)" name="la" connectNulls />
-                                <Area type="monotone" dataKey="sf" stroke="#a855f7" strokeWidth={2} fill="url(#colorSf)" name="sf" connectNulls />
+                                <Area type="monotone" dataKey="sj" stroke="#a855f7" strokeWidth={2} fill="url(#colorSj)" name="sj" connectNulls />
                                 <Area type="monotone" dataKey="us" stroke="#14b8a6" strokeWidth={2} fill="url(#colorUs)" name="us" connectNulls />
                             </AreaChart>
                         </ResponsiveContainer>
@@ -241,21 +241,21 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                         </div>
                     </div>
 
-                    {/* San Francisco */}
+                    {/* San Jose */}
                     <div className="bg-purple-900/30 border border-purple-700/50 rounded-xl p-4">
-                        <p className="text-xs text-purple-400 uppercase tracking-wide font-bold mb-1">San Francisco</p>
-                        <p className="text-2xl font-bold text-purple-400">{sfHomePriceData?.current?.notSeasonallyAdjusted?.value?.toFixed(1) || 'N/A'}</p>
+                        <p className="text-xs text-purple-400 uppercase tracking-wide font-bold mb-1">San Jose</p>
+                        <p className="text-2xl font-bold text-purple-400">{sjHomePriceData?.current?.notSeasonallyAdjusted?.value?.toFixed(1) || 'N/A'}</p>
                         <div className="flex items-center gap-2 mt-2 flex-wrap">
-                            {sfHomePriceData?.changes?.yearOverYear?.nsa !== undefined && (
-                                sfHomePriceData?.changes?.yearOverYear?.nsa >= 0 ? (
+                            {sjHomePriceData?.changes?.yearOverYear?.nsa !== undefined && (
+                                sjHomePriceData?.changes?.yearOverYear?.nsa >= 0 ? (
                                     <span className="text-xs px-2 py-0.5 rounded bg-green-500/20 text-green-400 flex items-center gap-1">
                                         <TrendingUp className="w-3 h-3" />
-                                        +{sfHomePriceData?.changes?.yearOverYear?.nsa}% YoY
+                                        +{sjHomePriceData?.changes?.yearOverYear?.nsa}% YoY
                                     </span>
                                 ) : (
                                     <span className="text-xs px-2 py-0.5 rounded bg-red-500/20 text-red-400 flex items-center gap-1">
                                         <TrendingDown className="w-3 h-3" />
-                                        {sfHomePriceData?.changes?.yearOverYear?.nsa}% YoY
+                                        {sjHomePriceData?.changes?.yearOverYear?.nsa}% YoY
                                     </span>
                                 )
                             )}
@@ -327,21 +327,21 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                         </div>
                     </div>
 
-                    {/* San Francisco SA */}
+                    {/* San Jose SA */}
                     <div className="bg-purple-900/10 border border-purple-700/30 rounded-xl p-4">
-                        <p className="text-xs text-purple-400 uppercase tracking-wide font-bold mb-1">San Francisco</p>
-                        <p className="text-2xl font-bold text-purple-400">{sfHomePriceData?.current?.seasonallyAdjusted?.value?.toFixed(1) || 'N/A'}</p>
+                        <p className="text-xs text-purple-400 uppercase tracking-wide font-bold mb-1">San Jose</p>
+                        <p className="text-2xl font-bold text-purple-400">{sjHomePriceData?.current?.seasonallyAdjusted?.value?.toFixed(1) || 'N/A'}</p>
                         <div className="flex items-center gap-2 mt-2 flex-wrap">
-                            {sfHomePriceData?.changes?.yearOverYear?.sa !== undefined && (
-                                sfHomePriceData?.changes?.yearOverYear?.sa >= 0 ? (
+                            {sjHomePriceData?.changes?.yearOverYear?.sa !== undefined && (
+                                sjHomePriceData?.changes?.yearOverYear?.sa >= 0 ? (
                                     <span className="text-xs px-2 py-0.5 rounded bg-green-500/20 text-green-400 flex items-center gap-1">
                                         <TrendingUp className="w-3 h-3" />
-                                        +{sfHomePriceData?.changes?.yearOverYear?.sa}% YoY
+                                        +{sjHomePriceData?.changes?.yearOverYear?.sa}% YoY
                                     </span>
                                 ) : (
                                     <span className="text-xs px-2 py-0.5 rounded bg-red-500/20 text-red-400 flex items-center gap-1">
                                         <TrendingDown className="w-3 h-3" />
-                                        {sfHomePriceData?.changes?.yearOverYear?.sa}% YoY
+                                        {sjHomePriceData?.changes?.yearOverYear?.sa}% YoY
                                     </span>
                                 )
                             )}
