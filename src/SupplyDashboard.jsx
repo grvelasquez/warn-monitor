@@ -259,6 +259,9 @@ const FREDTrendChart = ({ data, title, subTitle }) => {
                     </LineChart>
                 </ResponsiveContainer>
             </div>
+            <div className="mt-4 text-xs text-slate-500 text-right italic">
+                Source: Federal Reserve Economic Data (FRED) - Active Listing Count in San Diego County, CA
+            </div>
         </div>
     );
 };
