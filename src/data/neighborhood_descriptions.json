@@ -1227,6 +1227,13 @@
     {
         "zipCode": "92111",
         "region": "Central - Mesa",
+        "neighborhood": "Clairemont West",
+        "description": "Part of the Mount Streets, high ground with great breezes",
+        "tag": "Premium"
+    },
+    {
+        "zipCode": "92111",
+        "region": "Central - Mesa",
         "neighborhood": "Kearny Mesa (West)",
         "description": "Convoy Street is the draw, best Asian food in county, period",
         "tag": "Culinary / Commercial"
