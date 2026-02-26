@@ -38,7 +38,7 @@ SF_HOME_PRICE_SERIES = {
 }
 
 
-def fetch_fred_series(series_id: str, limit: int = 60) -> list:
+def fetch_fred_series(series_id: str, limit: int = 1000) -> list:
     """Fetch observations from FRED API for a given series."""
     params = {
         "series_id": series_id,
@@ -82,7 +82,7 @@ def calculate_changes(observations: list) -> dict:
     return {"mom": mom, "yoy": yoy}
 
 
-def build_history(sa_obs: list, nsa_obs: list, limit: int = 36) -> list:
+def build_history(sa_obs: list, nsa_obs: list, limit: int = 1000) -> list:
     """Build combined history for charting."""
     # Create lookup by date
     sa_lookup = {obs["date"]: obs["value"] for obs in sa_obs}
@@ -107,8 +107,8 @@ def fetch_home_price_data(sa_series: str, nsa_series: str, description: str) -> 
     print(f"Fetching {description} data from FRED...")
     
     # Fetch series
-    sa_obs = fetch_fred_series(sa_series, 60)
-    nsa_obs = fetch_fred_series(nsa_series, 60)
+    sa_obs = fetch_fred_series(sa_series, 1000)
+    nsa_obs = fetch_fred_series(nsa_series, 1000)
     
     if not sa_obs and not nsa_obs:
         print(f"Warning: No data fetched for {description}")
@@ -136,7 +136,7 @@ def fetch_home_price_data(sa_series: str, nsa_series: str, description: str) -> 
     }
     
     # Build history
-    history = build_history(sa_obs, nsa_obs, 36)
+    history = build_history(sa_obs, nsa_obs, 1000)
     
     # Compile output
     output = {

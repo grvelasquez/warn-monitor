@@ -113,7 +113,7 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                         </div>
                         <div>
                             <p className="text-xs text-slate-500">Next Update</p>
-                            <p className="text-sm text-slate-400 font-medium">Feb 24, 2026</p>
+                            <p className="text-sm text-slate-400 font-medium">Mar 31, 2026</p>
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,7 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
                     </div>
                     <div className="text-slate-300 text-sm leading-relaxed relative z-10">
                         <p>
-                            <strong className="text-orange-300">San Diego's housing market</strong> has stabilized with a modest <strong className="text-white">+0.3% year-over-year gain</strong> in the Home Price Index as of November 2025, reversing the slight decline seen in prior months. The <strong className="text-teal-300">U.S. National Index</strong> continues to outpace California metros, rising <strong className="text-white">+1.4%</strong> year-over-year. <strong className="text-amber-300">Los Angeles</strong> (+0.4%) and <strong className="text-purple-300">San Francisco</strong> (+0.4%) are tracking slightly above San Diego but well below the national average, signaling a broad deceleration across California's coastal markets even as the rest of the country sees steadier appreciation.
+                            <strong className="text-orange-300">San Diego's housing market</strong> has continued to stabilize with a <strong className="text-white">+0.8% year-over-year gain</strong> in the Home Price Index as of December 2025. The <strong className="text-teal-300">U.S. National Index</strong> continues to outpace California metros, rising <strong className="text-white">+1.3%</strong> year-over-year. <strong className="text-amber-300">Los Angeles</strong> (+0.9%) is tracking slightly above San Diego, while <strong className="text-purple-300">San Francisco</strong> (-0.1%) has seen a slight decline, signaling a broad deceleration across California's coastal markets even as the rest of the country sees steadier appreciation.
                         </p>
                     </div>
                 </div>
