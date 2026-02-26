@@ -62,14 +62,22 @@ export default function HomePriceIndexDashboard({ setActiveView }) {
         // Get all unique dates
         const allDates = [...new Set([...Object.keys(sdData), ...Object.keys(usData), ...Object.keys(laData), ...Object.keys(sjData)])].sort();
 
-        return allDates.map(date => ({
-            date,
-            month: date.split('-')[1] + '/' + date.split('-')[0].slice(2),
-            sd: sdData[date]?.nsa,  // All using NSA
-            us: usData[date]?.nsa,
-            la: laData[date]?.nsa,
-            sj: sjData[date]?.nsa,
-        }));
+        let lastSjValue = undefined;
+
+        return allDates.map(date => {
+            if (sjData[date]?.nsa !== undefined) {
+                lastSjValue = sjData[date].nsa;
+            }
+
+            return {
+                date,
+                month: date.split('-')[1] + '/' + date.split('-')[0].slice(2),
+                sd: sdData[date]?.nsa,
+                us: usData[date]?.nsa,
+                la: laData[date]?.nsa,
+                sj: sjData[date]?.nsa !== undefined ? sjData[date].nsa : lastSjValue,
+            };
+        });
     }, [homePriceData, usHomePriceData, laHomePriceData, sjHomePriceData]);
 
     if (loading) {
