@@ -381,15 +381,13 @@ export function RetailSignals({ className = "" }) {
                 </div>
                 <div className="space-y-4 text-slate-300 leading-relaxed text-sm">
                     <p>
-                        <strong className="text-white">2026 Anticipated Developments:</strong> The highly awaited full retail activation of <strong className="text-purple-300">The Campus at Horton (92101)</strong> is projected to anchor a new wave of "lifestyle retail" and high-end fast casual dining in downtown, shifting traffic patterns away from the traditional Gaslamp core.
-                        Simultaneously, the <strong className="text-indigo-300">Riverwalk San Diego (92108)</strong> expansion is actively driving pre-leases for community-serving retail (premium grocery, wellness) in Mission Valley.
+                        <strong className="text-white">2026 Anticipated Developments:</strong> The rapid expansion of <strong className="text-purple-300">experiential retail hubs</strong> is redefining neighborhood commerce. We anticipate a surge in mixed-use developments blending premium grocery, boutique fitness, and fast-casual dining, effectively decentralizing foot traffic from traditional urban cores into hybrid suburban centers.
                     </p>
                     <p>
-                        <strong className="text-white">Trend Watch:</strong> As Oceanside's resort corridor matures, we are detecting a <strong className="text-amber-300">"South O" spillover effect</strong>,
-                        where boutique dining and vintage retail are aggressively targeting the Coast Highway corridor south of Wisconsin Ave. In the urban core, <strong className="text-green-300">Barrio Logan's Arts District</strong> is anticipating fully leased mixed-use ground floors, specifically favoring "fusion" culinary concepts over traditional retail.
+                        <strong className="text-white">Trend Watch:</strong> A definitive <strong className="text-amber-300">"hyper-local" shift</strong> is underway. Neighborhoods with dense walkable corridors are seeing aggressive leasing from specialized coffee roasters, hyper-niche culinary concepts, and curator-driven vintage retail, pushing out legacy chain storefronts.
                     </p>
                     <p>
-                        <strong className="text-white">Market Signal:</strong> Verified permits suggest a pivot back to <strong>brick-and-mortar fitness</strong> in 2026. Watch for a dense cluster of new pilates, spin, and recovery studios opening in <strong className="text-slate-200">North Park (92104)</strong> and <strong className="text-slate-200">Carmel Valley (92130)</strong>, catering to the return-to-office hybrid workforce.
+                        <strong className="text-white">Market Signal:</strong> Commercial leasing data indicates a strong convergence of <strong className="text-green-300">Healthcare and Retail ("MedTail")</strong>. Expect traditional strip centers to be increasingly anchored by modern veterinary clinics, aesthetic dermatology, and high-tech recovery studios, catering to the evolving demands of hybrid workers.
                     </p>
                 </div>
             </div>
