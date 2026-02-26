@@ -266,6 +266,7 @@ const FREDTrendChart = ({ data, title, subTitle }) => {
 export default function SupplyDashboard() {
     const [data, setData] = useState(null);
     const [neighborhoodData, setNeighborhoodData] = useState(null);
+    const [fredData, setFredData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [activeTab, setActiveTab] = useState('summary');
@@ -274,9 +275,10 @@ export default function SupplyDashboard() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [supplyRes, neighRes] = await Promise.all([
+                const [supplyRes, neighRes, fredRes] = await Promise.all([
                     fetch('/data/housing_supply_data.json'),
-                    fetch('/data/sdar_neighborhood_data.json')
+                    fetch('/data/sdar_neighborhood_data.json'),
+                    fetch('/data/supply_fred.json').catch(() => ({ ok: false }))
                 ]);
 
                 if (!supplyRes.ok) throw new Error('Failed to load supply data');
@@ -287,8 +289,14 @@ export default function SupplyDashboard() {
                     neighJson = await neighRes.json();
                 }
 
+                let fredJson = null;
+                if (fredRes && fredRes.ok) {
+                    fredJson = await fredRes.json();
+                }
+
                 setData(supplyJson);
                 setNeighborhoodData(neighJson);
+                setFredData(fredJson);
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -555,6 +563,15 @@ export default function SupplyDashboard() {
                 {/* Summary Tab */}
                 {activeTab === 'summary' && (
                     <div className="space-y-6">
+                        {/* FRED Trend Chart */}
+                        {fredData && fredData.history && (
+                            <FREDTrendChart
+                                data={fredData.history}
+                                title="Historical Active Listings"
+                                subTitle="San Diego County, CA - Last 10 Years"
+                            />
+                        )}
+
                         {/* Active Listings from PDF Inventory */}
                         {pdfInventoryTotals && (
                             <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm">
