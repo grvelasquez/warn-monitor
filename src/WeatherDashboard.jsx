@@ -8,7 +8,7 @@ const SD_LOCATIONS = [
     { name: 'Mission Valley', lat: 32.7680, lon: -117.1543 },
     { name: 'Chula Vista', lat: 32.6401, lon: -117.0842 },
     { name: 'Oceanside', lat: 33.1959, lon: -117.3795 },
-    { name: 'Encinitas', lat: 33.0369, lon: -117.2919 },
+    { name: 'Clairemont', lat: 32.8322, lon: -117.1936 },
 ];
 
 // Surf spot locations
