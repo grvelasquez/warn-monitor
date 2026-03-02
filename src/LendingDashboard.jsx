@@ -4,8 +4,8 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 // Default static data as fallback
 const defaultData = {
-    currentRates: { rate30: 6.85, rate15: 6.02, rateARM: 6.18, jumboRate: 7.12, fhaRate: 6.45, vaRate: 6.25, fedFunds: 5.33 },
-    weekChange: { rate30: 0, rate15: 0, rateARM: 0 },
+    currentRates: { rate30: 6.85, rate15: 6.02, jumboRate: 7.12, fhaRate: 6.45, vaRate: 6.25, fedFunds: 5.33 },
+    weekChange: { rate30: 0, rate15: 0 },
     rateHistory: [],
     loanLimits: { conforming: 1149825, highBalance: 1149825, jumbo: 1149826, fha: 1149825 },
     sanDiego: { unemploymentRate: 4.2 }
@@ -375,7 +375,7 @@ export default function LendingDashboard() {
                 month: 'Now',
                 rate30: lendingData.currentRates.rate30,
                 rate15: lendingData.currentRates.rate15,
-                rateARM: lendingData.currentRates.rateARM
+                rateARM: undefined // removed - series discontinued
             });
         }
         return historyData;
@@ -473,12 +473,12 @@ export default function LendingDashboard() {
                                 subtitle="Conventional"
                             />
                             <RateCard
-                                title="5/1 ARM"
-                                rate={lendingData.currentRates.rateARM}
-                                change={lendingData.weekChange.rateARM}
+                                title="Fed Funds"
+                                rate={lendingData.currentRates.fedFunds}
+                                change={0}
                                 icon={TrendingDown}
                                 color="bg-purple-600"
-                                subtitle="Adjustable"
+                                subtitle="Federal Reserve"
                             />
                             <RateCard
                                 title="Jumbo"

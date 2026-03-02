@@ -1,95 +1,93 @@
 {
   "meta": {
-    "generated": "2026-03-02T07:44:09.410929",
+    "generated": "2026-03-02T13:30:37.585874",
     "source": "FRED (Federal Reserve Economic Data)",
     "lastUpdate": "2026-02-26"
   },
   "currentRates": {
     "rate30": 5.98,
     "rate15": 5.44,
-    "rateARM": 6.06,
     "fedFunds": 3.64,
-    "jumboRate": 6.25,
-    "fhaRate": 5.58,
-    "vaRate": 5.38
+    "jumboRate": 6.13,
+    "fhaRate": 5.86,
+    "vaRate": 5.53
   },
   "weekChange": {
     "rate30": -0.03,
-    "rate15": 0.09,
-    "rateARM": 0.11
+    "rate15": 0.09
   },
   "rateHistory": [
     {
       "date": "2025-03",
       "rate30": 6.63,
       "rate15": 5.79,
-      "rateARM": null
+      "jumboRate": null
     },
     {
       "date": "2025-04",
       "rate30": 6.64,
       "rate15": 5.82,
-      "rateARM": null
+      "jumboRate": null
     },
     {
       "date": "2025-05",
       "rate30": 6.76,
       "rate15": 5.92,
-      "rateARM": null
+      "jumboRate": null
     },
     {
       "date": "2025-06",
       "rate30": 6.85,
       "rate15": 5.99,
-      "rateARM": null
+      "jumboRate": null
     },
     {
       "date": "2025-07",
       "rate30": 6.67,
       "rate15": 5.8,
-      "rateARM": null
+      "jumboRate": null
     },
     {
       "date": "2025-08",
       "rate30": 6.63,
       "rate15": 5.75,
-      "rateARM": null
+      "jumboRate": null
     },
     {
       "date": "2025-09",
       "rate30": 6.5,
       "rate15": 5.6,
-      "rateARM": null
+      "jumboRate": null
     },
     {
       "date": "2025-10",
       "rate30": 6.34,
       "rate15": 5.55,
-      "rateARM": null
+      "jumboRate": null
     },
     {
       "date": "2025-11",
       "rate30": 6.22,
       "rate15": 5.5,
-      "rateARM": null
+      "jumboRate": null
     },
     {
       "date": "2025-12",
       "rate30": 6.19,
       "rate15": 5.44,
-      "rateARM": null
+      "jumboRate": 6.376
     },
     {
       "date": "2026-01",
       "rate30": 6.16,
       "rate15": 5.46,
-      "rateARM": null
+      "jumboRate": 6.473
     },
     {
       "date": "2026-02",
       "rate30": 6.11,
       "rate15": 5.5,
-      "rateARM": null
+      "jumboRate": 6.263
     }
   ],
   "loanLimits": {
@@ -99,7 +97,7 @@
     "fha": 1077550
   },
   "sanDiego": {
-    "unemploymentRate": 4.2
+    "unemploymentRate": 4.4
   },
-  "treasury10yr": 4.02
+  "treasury10yr": 3.97
 }

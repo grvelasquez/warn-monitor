@@ -17,15 +17,21 @@ FRED_BASE_URL = "https://api.stlouisfed.org/fred/series/observations"
 FRED_SERIES = {
     "MORTGAGE30US": {"name": "30-Year Fixed Rate", "type": "rate"},
     "MORTGAGE15US": {"name": "15-Year Fixed Rate", "type": "rate"},
-    "MORTGAGE5US": {"name": "5/1 ARM Rate", "type": "rate"},
     "FEDFUNDS": {"name": "Fed Funds Rate", "type": "rate"},
     "DGS10": {"name": "10-Year Treasury Yield", "type": "rate"},
     "CPIAUCSL": {"name": "CPI (Inflation)", "type": "index"},
 }
 
-# San Diego specific series (if available)
+# Optimal Blue daily mortgage indices (replaced discontinued Freddie Mac ARM survey)
+OPTIMAL_BLUE_SERIES = {
+    "OBMMIJUMBO30YF": {"name": "30-Year Jumbo Rate", "type": "rate"},
+    "OBMMIFHA30YF": {"name": "30-Year FHA Rate", "type": "rate"},
+    "OBMMIVA30YF": {"name": "30-Year VA Rate", "type": "rate"},
+}
+
+# San Diego specific series
 SD_SERIES = {
-    "CASAND0URN": {"name": "San Diego Unemployment Rate", "type": "rate"},
+    "CASAND5URN": {"name": "San Diego Unemployment Rate", "type": "rate"},
 }
 
 def fetch_fred_series(series_id: str, limit: int = 52) -> list:
@@ -81,49 +87,51 @@ def fetch_lending_data() -> dict:
     """Fetch all lending data and compile into JSON."""
     print("Fetching FRED data...")
     
-    # Fetch main series
+    # Fetch main series (weekly Freddie Mac survey)
     mortgage30 = fetch_fred_series("MORTGAGE30US", 52)
     mortgage15 = fetch_fred_series("MORTGAGE15US", 52)
-    mortgage5 = fetch_fred_series("MORTGAGE5US", 52)
     fedfunds = fetch_fred_series("FEDFUNDS", 12)
     treasury10 = fetch_fred_series("DGS10", 52)  # 10-Year Treasury for spread calculation
     
-    # San Diego unemployment
-    sd_unemployment = fetch_fred_series("CASAND0URN", 12)
+    # Fetch Optimal Blue daily indices (replaced discontinued MORTGAGE5US)
+    jumbo_rate = fetch_fred_series("OBMMIJUMBO30YF", 52)
+    fha_rate = fetch_fred_series("OBMMIFHA30YF", 52)
+    va_rate = fetch_fred_series("OBMMIVA30YF", 52)
+    
+    # San Diego unemployment (CASAND5URN replaced deleted CASAND0URN)
+    sd_unemployment = fetch_fred_series("CASAND5URN", 12)
     
     # Build current rates
     current_rates = {
         "rate30": mortgage30[0]["value"] if mortgage30 else 6.85,
         "rate15": mortgage15[0]["value"] if mortgage15 else 6.02,
-        "rateARM": mortgage5[0]["value"] if mortgage5 else 6.18,
         "fedFunds": fedfunds[0]["value"] if fedfunds else 5.33,
-        # Static estimates for these (not in FRED)
-        "jumboRate": round((mortgage30[0]["value"] if mortgage30 else 6.85) + 0.27, 2),
-        "fhaRate": round((mortgage30[0]["value"] if mortgage30 else 6.85) - 0.40, 2),
-        "vaRate": round((mortgage30[0]["value"] if mortgage30 else 6.85) - 0.60, 2),
+        # Actual rates from Optimal Blue indices (daily, more accurate than estimates)
+        "jumboRate": round(jumbo_rate[0]["value"], 2) if jumbo_rate else 6.25,
+        "fhaRate": round(fha_rate[0]["value"], 2) if fha_rate else 5.58,
+        "vaRate": round(va_rate[0]["value"], 2) if va_rate else 5.38,
     }
     
     # Week-over-week changes
     week_change = {
         "rate30": get_rate_change(mortgage30),
         "rate15": get_rate_change(mortgage15),
-        "rateARM": get_rate_change(mortgage5),
     }
     
     # Build historical data for charts
     rate_history = []
     monthly_30 = {obs["date"][:7]: obs["value"] for obs in mortgage30}
     monthly_15 = {obs["date"][:7]: obs["value"] for obs in mortgage15}
-    monthly_arm = {obs["date"][:7]: obs["value"] for obs in mortgage5}
+    monthly_jumbo = {obs["date"][:7]: obs["value"] for obs in jumbo_rate}
     
-    all_months = sorted(set(monthly_30.keys()) | set(monthly_15.keys()) | set(monthly_arm.keys()))[-12:]
+    all_months = sorted(set(monthly_30.keys()) | set(monthly_15.keys()) | set(monthly_jumbo.keys()))[-12:]
     
     for month in all_months:
         rate_history.append({
             "date": month,
             "rate30": monthly_30.get(month, None),
             "rate15": monthly_15.get(month, None),
-            "rateARM": monthly_arm.get(month, None),
+            "jumboRate": monthly_jumbo.get(month, None),
         })
     
     # San Diego specific data
