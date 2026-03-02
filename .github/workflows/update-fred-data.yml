@@ -1,13 +1,13 @@
-name: Update FRED Economic Data
+name: Update Daily Data (Lending + WARN)
 
 on:
   schedule:
-    # Runs at 7:00 AM UTC daily
+    # Runs at 7:00 AM UTC daily (midnight PT)
     - cron: '0 7 * * *'
   workflow_dispatch:  # Allows manual trigger from GitHub UI
 
 jobs:
-  update-fred-data:
+  update-daily-data:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -24,24 +24,20 @@ jobs:
           
       - name: Install dependencies
         run: |
-          pip install requests
+          pip install -r scripts/requirements.txt
           
       - name: Fetch FRED lending data
         run: |
           python scripts/fetch_lending_data.py
           
-      - name: Fetch FRED unemployment data
+      - name: Fetch WARN layoff data
         run: |
-          python scripts/fetch_unemployment_data.py
-          
-      - name: Fetch FRED home price index
-        run: |
-          python scripts/fetch_home_price_index.py
+          python scripts/fetch_warn_data.py
           
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add public/data/lending_data.json public/data/unemployment_data.json public/data/*home_price_index*.json
-          git diff --staged --quiet || git commit -m "chore: Update FRED economic data [automated]"
+          git add public/data/lending_data.json public/data/warn_data.json
+          git diff --staged --quiet || git commit -m "chore: Update daily data (lending + WARN) [automated]"
           git push
