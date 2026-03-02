@@ -11,6 +11,7 @@ on:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: write
     
@@ -29,23 +30,19 @@ jobs:
       
       - name: Fetch WARN data
         run: |
-          python scripts/fetch_warn_data.py
+          python scripts/fetch_warn_data.py || echo "WARN data fetch failed, using existing data"
       
       - name: Fetch FRED lending data
         run: |
-          python scripts/fetch_lending_data.py
+          python scripts/fetch_lending_data.py || echo "FRED lending data fetch failed, using existing data"
       
       - name: Fetch unemployment data
         run: |
-          python scripts/fetch_unemployment_data.py
+          python scripts/fetch_unemployment_data.py || echo "Unemployment data fetch failed, using existing data"
       
       - name: Fetch development data
         run: |
           python scripts/fetch_development_data.py || echo "Development data fetch failed, using existing data"
-      
-      - name: Fetch retail data (OpenStreetMap)
-        run: |
-          python scripts/fetch_retail_data.py || echo "Retail data fetch failed, using existing data"
       
       - name: Fetch business license data
         run: |
@@ -71,4 +68,5 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add public/data/
           git commit -m "Update dashboard data - $(date +'%Y-%m-%d')"
+          git pull --rebase
           git push
