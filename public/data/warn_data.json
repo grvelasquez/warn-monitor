@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-03-03T07:37:35.201368",
+    "generated": "2026-03-04T07:33:58.774760",
     "county": "San Diego",
-    "total_notices": 106,
-    "total_employees_affected": 4289
+    "total_notices": 107,
+    "total_employees_affected": 4354
   },
   "notices": [
     {
@@ -1171,6 +1171,17 @@
       "notice_type": "Closure Permanent",
       "region": "Central San Diego",
       "neighborhood": "University City"
+    },
+    {
+      "notice_id": "e8dbfbf9",
+      "company_name": "The Vons Companies Inc.",
+      "city": "Escondido",
+      "zipcode": "92027",
+      "employees_affected": 65,
+      "layoff_date": "2026-05-01",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
     }
   ],
   "risk_scores": {
@@ -1516,6 +1527,15 @@
       "factors": [
         "6 employees affected"
       ]
+    },
+    "92027": {
+      "score": 33,
+      "risk_level": "Moderate",
+      "total_employees": 65,
+      "factors": [
+        "65 employees affected",
+        "Plant closure"
+      ]
     }
   },
   "by_region": {
@@ -1540,8 +1560,8 @@
       "total_employees": 611
     },
     "North County Inland": {
-      "notice_count": 7,
-      "total_employees": 393
+      "notice_count": 8,
+      "total_employees": 458
     }
   }
 }
