@@ -4,11 +4,11 @@ import { Sun, Cloud, CloudRain, Wind, Droplets, Thermometer, Eye, Sunrise, Sunse
 // San Diego locations with coordinates
 const SD_LOCATIONS = [
     { name: 'Downtown', lat: 32.7157, lon: -117.1611 },
+    { name: 'Clairemont', lat: 32.8322, lon: -117.1936 },
     { name: 'La Jolla', lat: 32.8328, lon: -117.2713 },
     { name: 'Mission Valley', lat: 32.7680, lon: -117.1543 },
     { name: 'Chula Vista', lat: 32.6401, lon: -117.0842 },
     { name: 'Oceanside', lat: 33.1959, lon: -117.3795 },
-    { name: 'Clairemont', lat: 32.8322, lon: -117.1936 },
 ];
 
 // Surf spot locations
