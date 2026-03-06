@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-03-05T07:37:35.723942",
+    "generated": "2026-03-06T07:34:22.591171",
     "county": "San Diego",
-    "total_notices": 107,
-    "total_employees_affected": 4354
+    "total_notices": 108,
+    "total_employees_affected": 4479
   },
   "notices": [
     {
@@ -1182,6 +1182,17 @@
       "notice_type": "Closure Permanent",
       "region": "North County Inland",
       "neighborhood": "Escondido"
+    },
+    {
+      "notice_id": "cc06ab30",
+      "company_name": "MedImpact Healthcare Systems, Inc.",
+      "city": "San Diego",
+      "zipcode": "92131",
+      "employees_affected": 125,
+      "layoff_date": "2026-03-04",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Scripps Ranch"
     }
   ],
   "risk_scores": {
@@ -1476,11 +1487,12 @@
       ]
     },
     "92131": {
-      "score": 0,
-      "risk_level": "Low",
-      "total_employees": 3,
+      "score": 25,
+      "risk_level": "Moderate",
+      "total_employees": 128,
       "factors": [
-        "3 employees affected"
+        "3 employees affected",
+        "125 employees affected"
       ]
     },
     "92014": {
@@ -1540,8 +1552,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 56,
-      "total_employees": 2039
+      "notice_count": 57,
+      "total_employees": 2164
     },
     "South County": {
       "notice_count": 8,
