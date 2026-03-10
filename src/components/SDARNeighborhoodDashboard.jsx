@@ -84,7 +84,7 @@ export function SDARNeighborhoodDashboard() {
     useEffect(() => {
         // Fetch main data first
         fetch('/data/sdar_neighborhood_data.json')
-            .then(res => res.json())
+            .then(res => res.ok ? res.json() : Promise.reject(new Error(`Failed to load neighborhood data: ${res.status}`)))
             .then(sdarData => {
                 setData(sdarData);
                 setLoading(false);

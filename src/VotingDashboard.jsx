@@ -150,8 +150,8 @@ function ComparisonChart({ currentData, prevData, currentYear, prevYear }) {
                         />
                         <Bar dataKey={prevYear} fill="#6B7280" name={prevYear} radius={[0, 4, 4, 0]} />
                         <Bar dataKey={currentYear} name={currentYear} radius={[0, 4, 4, 0]}>
-                            {chartData.map((entry, index) => (
-                                <Cell key={index} fill={index === 0 ? COLORS.Democrat : COLORS.Republican} />
+                            {chartData.map((entry) => (
+                                <Cell key={entry.name} fill={entry.name === 'Democrat' ? COLORS.Democrat : COLORS.Republican} />
                             ))}
                         </Bar>
                     </BarChart>

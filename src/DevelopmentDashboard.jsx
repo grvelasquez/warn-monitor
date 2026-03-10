@@ -301,8 +301,8 @@ export default function DevelopmentDashboard() {
                                     dataKey="count"
                                     nameKey="type"
                                 >
-                                    {(devData.permitsByType || []).map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={entry.color} />
+                                    {(devData.permitsByType || []).map((entry) => (
+                                        <Cell key={entry.type} fill={entry.color} />
                                     ))}
                                 </Pie>
                                 <Tooltip
@@ -341,8 +341,8 @@ export default function DevelopmentDashboard() {
                             </select>
                         </div>
                         <div className="grid sm:grid-cols-2 gap-4">
-                            {filteredProjects.map((project, idx) => (
-                                <ProjectCard key={idx} project={project} />
+                            {filteredProjects.map((project) => (
+                                <ProjectCard key={project.name} project={project} />
                             ))}
                         </div>
                     </div>

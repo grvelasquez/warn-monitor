@@ -1,16 +1,16 @@
 {
   "meta": {
-    "generated": "2026-03-10T07:36:58.875059",
+    "generated": "2026-03-10T16:44:17.102Z",
     "source": "FRED (Federal Reserve Economic Data)",
     "lastUpdate": "2026-03-05"
   },
   "currentRates": {
-    "rate30": 6.0,
+    "rate30": 6,
     "rate15": 5.43,
     "fedFunds": 3.64,
-    "jumboRate": 6.39,
-    "fhaRate": 5.92,
-    "vaRate": 5.72
+    "jumboRate": 6.28,
+    "fhaRate": 5.91,
+    "vaRate": 5.75
   },
   "weekChange": {
     "rate30": 0.02,
@@ -85,7 +85,7 @@
     },
     {
       "date": "2026-03",
-      "rate30": 6.0,
+      "rate30": 6,
       "rate15": 5.43,
       "jumboRate": 6.228
     }

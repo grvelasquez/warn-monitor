@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-03-09T17:47:08.687923",
+    "generated": "2026-03-10T16:44:17.274Z",
     "source": "FRED (S&P CoreLogic Case-Shiller)",
     "lastUpdate": "2025-12-01",
-    "description": "S&P CoreLogic Case-Shiller U.S. National Home Price Index (Jan 2000 = 100)"
+    "description": "S&P CoreLogic Case-Shiller U.S. National HPI (Jan 2000 = 100)"
   },
   "current": {
     "seasonallyAdjusted": {
@@ -809,7 +809,7 @@
     {
       "date": "2000-01",
       "sa": 100.552,
-      "nsa": 100.0
+      "nsa": 100
     },
     {
       "date": "2000-02",

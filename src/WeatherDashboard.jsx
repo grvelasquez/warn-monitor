@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Sun, Cloud, CloudRain, Wind, Droplets, Thermometer, Eye, Sunrise, Sunset, MapPin, RefreshCw, Waves } from 'lucide-react';
 
 // San Diego locations with coordinates
@@ -120,7 +120,7 @@ function HourlyForecast({ data }) {
     const currentHour = new Date().getHours();
 
     // Find the index that matches the current hour
-    const startIndex = data?.hourly?.time?.findIndex(t => new Date(t).getHours() === currentHour) ?? 0;
+    const startIndex = data?.hourly?.time?.findIndex(t => new Date(t).getHours() === currentHour) ?? -1;
     const finalStartIndex = startIndex === -1 ? 0 : startIndex;
 
     const hours = data?.hourly?.time?.slice(finalStartIndex, finalStartIndex + 24) || [];
@@ -353,7 +353,7 @@ export default function WeatherDashboard() {
     const [loading, setLoading] = useState(true);
     const [lastUpdated, setLastUpdated] = useState(null);
 
-    const fetchWeather = async () => {
+    const fetchWeather = useCallback(async () => {
         setLoading(true);
         try {
             // Fetch detailed weather for selected location
@@ -421,11 +421,11 @@ export default function WeatherDashboard() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [selectedLocation]);
 
     useEffect(() => {
         fetchWeather();
-    }, [selectedLocation]);
+    }, [fetchWeather]);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-x-hidden">

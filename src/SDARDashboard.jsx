@@ -135,7 +135,7 @@ export default function SDARDashboard({ setActiveView }) {
         fetch('/data/sdar_data.json')
             .then(res => res.ok ? res.json() : null)
             .then(data => setFetchedData(data))
-            .catch(() => { });
+            .catch(err => console.warn('Failed to load SDAR data:', err));
     }, []);
 
     const [analysisData, setAnalysisData] = useState(null);

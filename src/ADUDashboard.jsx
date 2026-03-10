@@ -467,8 +467,8 @@ export default function ADUDashboard() {
                                         formatter={(value) => formatCurrency(value)}
                                     />
                                     <Bar dataKey="value" radius={[0, 4, 4, 0]}>
-                                        {calculations.costBreakdown.map((entry, index) => (
-                                            <Cell key={`cell-${index}`} fill={entry.fill} />
+                                        {calculations.costBreakdown.map((entry) => (
+                                            <Cell key={entry.name} fill={entry.fill} />
                                         ))}
                                     </Bar>
                                 </BarChart>
