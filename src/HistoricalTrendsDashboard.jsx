@@ -99,9 +99,27 @@ export default function HistoricalTrendsDashboard({ setActiveView }) {
   }
 
   // Calculate high-level stats for the selected metric and property type over the full data
-  const currentValue = data[data.length - 1][propertyType]?.[activeMetric] || 0;
-  const historicLow = Math.min(...data.map(d => d[propertyType]?.[activeMetric] || Infinity));
-  const historicHigh = Math.max(...data.map(d => d[propertyType]?.[activeMetric] || -Infinity));
+  const currentEntry = data[data.length - 1];
+  const currentValue = currentEntry[propertyType]?.[activeMetric] || 0;
+
+  // Find the entry with the highest value
+  const highEntry = data.reduce((best, d) => {
+    const val = d[propertyType]?.[activeMetric] || -Infinity;
+    return val > (best[propertyType]?.[activeMetric] || -Infinity) ? d : best;
+  }, data[0]);
+  const historicHigh = highEntry[propertyType]?.[activeMetric] || 0;
+
+  // Find the entry with the lowest value (excluding nulls/zeros)
+  const lowEntry = data.reduce((best, d) => {
+    const val = d[propertyType]?.[activeMetric];
+    if (!val || val === 0) return best;
+    const bestVal = best[propertyType]?.[activeMetric] || Infinity;
+    return val < bestVal ? d : best;
+  }, data[0]);
+  const historicLow = lowEntry[propertyType]?.[activeMetric] || 0;
+
+  const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const formatPeriod = (entry) => `${MONTH_NAMES[entry.month - 1]} ${entry.year}`;
 
   return (
     <div className="min-h-screen bg-slate-950 text-white pb-12">
@@ -203,17 +221,26 @@ export default function HistoricalTrendsDashboard({ setActiveView }) {
               {activeMetric === 'medianPrice' ? formatCurrency(currentValue) : formatNumber(currentValue)}
               <span className="text-sm font-normal text-slate-500 ml-1">{metrics.find(m => m.id === activeMetric)?.suffix}</span>
             </p>
+            <p className="text-xs text-slate-500 mt-2 flex items-center gap-1">
+              <Calendar className="w-3 h-3" /> {formatPeriod(currentEntry)}
+            </p>
           </div>
           <div className="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-6">
             <p className="text-sm text-slate-400 mb-1">Historical High</p>
             <p className="text-3xl font-bold text-emerald-400">
               {activeMetric === 'medianPrice' ? formatCurrency(historicHigh) : formatNumber(historicHigh)}
             </p>
+            <p className="text-xs text-emerald-500/70 mt-2 flex items-center gap-1">
+              <Calendar className="w-3 h-3" /> {formatPeriod(highEntry)}
+            </p>
           </div>
           <div className="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-6">
             <p className="text-sm text-slate-400 mb-1">Historical Low</p>
             <p className="text-3xl font-bold text-rose-400">
               {activeMetric === 'medianPrice' ? formatCurrency(historicLow) : formatNumber(historicLow)}
+            </p>
+            <p className="text-xs text-rose-500/70 mt-2 flex items-center gap-1">
+              <Calendar className="w-3 h-3" /> {formatPeriod(lowEntry)}
             </p>
           </div>
         </div>
