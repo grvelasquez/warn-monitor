@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote, FileText, Warehouse, Building2 } from 'lucide-react';
+import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote, FileText, Warehouse, Building2, Clock } from 'lucide-react';
 import WarnDashboard from './WarnDashboard';
 import SDARDashboard from './SDARDashboard';
 import LendingDashboard from './LendingDashboard';
@@ -13,7 +13,7 @@ import LenderMediatedDashboard from './LenderMediatedDashboard';
 import SupplyDashboard from './SupplyDashboard';
 import ADUDashboard from './ADUDashboard';
 import HomePriceIndexDashboard from './HomePriceIndexDashboard';
-
+import HistoricalTrendsDashboard from './HistoricalTrendsDashboard';
 
 export default function App() {
   const [activeView, setActiveView] = useState('weather');
@@ -125,6 +125,16 @@ export default function App() {
                   <span className="hidden sm:inline">Trends</span>
                 </button>
                 <button
+                  onClick={() => setActiveView('historical')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'historical'
+                    ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/25'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                >
+                  <Clock className="w-4 h-4" />
+                  <span className="hidden sm:inline">Historical</span>
+                </button>
+                <button
                   onClick={() => setActiveView('voting')}
                   className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'voting'
                     ? 'bg-violet-600 text-white shadow-lg shadow-violet-600/25'
@@ -165,6 +175,9 @@ export default function App() {
       </div>
       <div className={activeView === 'trends' ? 'block' : 'hidden'}>
         <TrendsDashboard />
+      </div>
+      <div className={activeView === 'historical' ? 'block' : 'hidden'}>
+        <HistoricalTrendsDashboard />
       </div>
       <div className={activeView === 'neighborhoods' ? 'block' : 'hidden'}>
         <NeighborhoodEvolution setActiveView={setActiveView} />

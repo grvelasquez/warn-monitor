@@ -1,0 +1,2422 @@
+[
+  {
+    "period": "2017-01",
+    "year": 2017,
+    "month": 1,
+    "monthName": "Jan",
+    "detached": {
+      "medianPrice": 559500,
+      "closedSales": 1338,
+      "inventory": 3546,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 42,
+      "newListings": 2529
+    },
+    "attached": {
+      "medianPrice": 378750,
+      "closedSales": 670,
+      "inventory": 1185,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 32,
+      "newListings": 1152
+    }
+  },
+  {
+    "period": "2017-02",
+    "year": 2017,
+    "month": 2,
+    "monthName": "Feb",
+    "detached": {
+      "medianPrice": 565000,
+      "closedSales": 1428,
+      "inventory": 3417,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 38,
+      "newListings": 2281
+    },
+    "attached": {
+      "medianPrice": 385000,
+      "closedSales": 687,
+      "inventory": 1221,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 29,
+      "newListings": 1194
+    }
+  },
+  {
+    "period": "2017-03",
+    "year": 2017,
+    "month": 3,
+    "monthName": "Mar",
+    "detached": {
+      "medianPrice": 575030,
+      "closedSales": 2012,
+      "inventory": 3595,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 32,
+      "newListings": 3068
+    },
+    "attached": {
+      "medianPrice": 390500,
+      "closedSales": 1019,
+      "inventory": 1269,
+      "monthsSupply": 1.2,
+      "daysOnMarket": 25,
+      "newListings": 1495
+    }
+  },
+  {
+    "period": "2017-04",
+    "year": 2017,
+    "month": 4,
+    "monthName": "April",
+    "detached": {
+      "medianPrice": 599350,
+      "closedSales": 1966,
+      "inventory": 3887,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 29,
+      "newListings": 2944
+    },
+    "attached": {
+      "medianPrice": 385000,
+      "closedSales": 1022,
+      "inventory": 1315,
+      "monthsSupply": 1.2,
+      "daysOnMarket": 23,
+      "newListings": 1309
+    }
+  },
+  {
+    "period": "2017-05",
+    "year": 2017,
+    "month": 5,
+    "monthName": "May",
+    "detached": {
+      "medianPrice": 612500,
+      "closedSales": 2214,
+      "inventory": 4070,
+      "monthsSupply": 2.0,
+      "daysOnMarket": 27,
+      "newListings": 3242
+    },
+    "attached": {
+      "medianPrice": 394000,
+      "closedSales": 1193,
+      "inventory": 1376,
+      "monthsSupply": 1.3,
+      "daysOnMarket": 19,
+      "newListings": 1489
+    }
+  },
+  {
+    "period": "2017-06",
+    "year": 2017,
+    "month": 6,
+    "monthName": "June",
+    "detached": {
+      "medianPrice": 619900,
+      "closedSales": 2340,
+      "inventory": 4286,
+      "monthsSupply": 2.1,
+      "daysOnMarket": 28,
+      "newListings": 3123
+    },
+    "attached": {
+      "medianPrice": 415000,
+      "closedSales": 1138,
+      "inventory": 1452,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 20,
+      "newListings": 1485
+    }
+  },
+  {
+    "period": "2017-07",
+    "year": 2017,
+    "month": 7,
+    "monthName": "July",
+    "detached": {
+      "medianPrice": 620000,
+      "closedSales": 2011,
+      "inventory": 4367,
+      "monthsSupply": 2.1,
+      "daysOnMarket": 27,
+      "newListings": 2899
+    },
+    "attached": {
+      "medianPrice": 405000,
+      "closedSales": 1075,
+      "inventory": 1496,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 22,
+      "newListings": 1366
+    }
+  },
+  {
+    "period": "2017-08",
+    "year": 2017,
+    "month": 8,
+    "monthName": "Aug",
+    "detached": {
+      "medianPrice": 610000,
+      "closedSales": 2153,
+      "inventory": 4175,
+      "monthsSupply": 2.0,
+      "daysOnMarket": 29,
+      "newListings": 2851
+    },
+    "attached": {
+      "medianPrice": 400000,
+      "closedSales": 1095,
+      "inventory": 1538,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 22,
+      "newListings": 1425
+    }
+  },
+  {
+    "period": "2017-09",
+    "year": 2017,
+    "month": 9,
+    "monthName": "Sep",
+    "detached": {
+      "medianPrice": 610250,
+      "closedSales": 1828,
+      "inventory": 4047,
+      "monthsSupply": 2.0,
+      "daysOnMarket": 30,
+      "newListings": 2481
+    },
+    "attached": {
+      "medianPrice": 414000,
+      "closedSales": 949,
+      "inventory": 1503,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 24,
+      "newListings": 1219
+    }
+  },
+  {
+    "period": "2017-10",
+    "year": 2017,
+    "month": 10,
+    "monthName": "Oct",
+    "detached": {
+      "medianPrice": 611250,
+      "closedSales": 1900,
+      "inventory": 3853,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 32,
+      "newListings": 2458
+    },
+    "attached": {
+      "medianPrice": 407000,
+      "closedSales": 987,
+      "inventory": 1511,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 26,
+      "newListings": 1217
+    }
+  },
+  {
+    "period": "2017-11",
+    "year": 2017,
+    "month": 11,
+    "monthName": "Nov",
+    "detached": {
+      "medianPrice": 625058,
+      "closedSales": 1673,
+      "inventory": 3475,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 33,
+      "newListings": 1995
+    },
+    "attached": {
+      "medianPrice": 407500,
+      "closedSales": 839,
+      "inventory": 1341,
+      "monthsSupply": 1.3,
+      "daysOnMarket": 24,
+      "newListings": 1009
+    }
+  },
+  {
+    "period": "2017-12",
+    "year": 2017,
+    "month": 12,
+    "monthName": "Dec",
+    "detached": {
+      "medianPrice": 612750,
+      "closedSales": 1634,
+      "inventory": 2834,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 34,
+      "newListings": 1261
+    },
+    "attached": {
+      "medianPrice": 407000,
+      "closedSales": 823,
+      "inventory": 1082,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 25,
+      "newListings": 655
+    }
+  },
+  {
+    "period": "2018-01",
+    "year": 2018,
+    "month": 1,
+    "monthName": "Jan",
+    "detached": {
+      "medianPrice": 595000,
+      "closedSales": 1280,
+      "inventory": 2996,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 37,
+      "newListings": 2504
+    },
+    "attached": {
+      "medianPrice": 409000,
+      "closedSales": 696,
+      "inventory": 1232,
+      "monthsSupply": 1.2,
+      "daysOnMarket": 27,
+      "newListings": 1289
+    }
+  },
+  {
+    "period": "2018-02",
+    "year": 2018,
+    "month": 2,
+    "monthName": "Feb",
+    "detached": {
+      "medianPrice": 614000,
+      "closedSales": 1337,
+      "inventory": 3310,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 30,
+      "newListings": 2400
+    },
+    "attached": {
+      "medianPrice": 426000,
+      "closedSales": 707,
+      "inventory": 1302,
+      "monthsSupply": 1.3,
+      "daysOnMarket": 28,
+      "newListings": 1199
+    }
+  },
+  {
+    "period": "2018-03",
+    "year": 2018,
+    "month": 3,
+    "monthName": "Mar",
+    "detached": {
+      "medianPrice": 635000,
+      "closedSales": 1760,
+      "inventory": 3628,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 28,
+      "newListings": 2944
+    },
+    "attached": {
+      "medianPrice": 412250,
+      "closedSales": 926,
+      "inventory": 1428,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 23,
+      "newListings": 1442
+    }
+  },
+  {
+    "period": "2018-04",
+    "year": 2018,
+    "month": 4,
+    "monthName": "April",
+    "detached": {
+      "medianPrice": 640000,
+      "closedSales": 1903,
+      "inventory": 4070,
+      "monthsSupply": 2.1,
+      "daysOnMarket": 26,
+      "newListings": 3108
+    },
+    "attached": {
+      "medianPrice": 425000,
+      "closedSales": 1003,
+      "inventory": 1610,
+      "monthsSupply": 1.6,
+      "daysOnMarket": 22,
+      "newListings": 1456
+    }
+  },
+  {
+    "period": "2018-05",
+    "year": 2018,
+    "month": 5,
+    "monthName": "May",
+    "detached": {
+      "medianPrice": 650000,
+      "closedSales": 2061,
+      "inventory": 4287,
+      "monthsSupply": 2.2,
+      "daysOnMarket": 26,
+      "newListings": 3335
+    },
+    "attached": {
+      "medianPrice": 421000,
+      "closedSales": 1069,
+      "inventory": 1638,
+      "monthsSupply": 1.6,
+      "daysOnMarket": 21,
+      "newListings": 1572
+    }
+  },
+  {
+    "period": "2018-06",
+    "year": 2018,
+    "month": 6,
+    "monthName": "June",
+    "detached": {
+      "medianPrice": 655000,
+      "closedSales": 2124,
+      "inventory": 4702,
+      "monthsSupply": 2.5,
+      "daysOnMarket": 25,
+      "newListings": 3260
+    },
+    "attached": {
+      "medianPrice": 425000,
+      "closedSales": 1103,
+      "inventory": 1870,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 23,
+      "newListings": 1621
+    }
+  },
+  {
+    "period": "2018-07",
+    "year": 2018,
+    "month": 7,
+    "monthName": "July",
+    "detached": {
+      "medianPrice": 657000,
+      "closedSales": 1989,
+      "inventory": 4967,
+      "monthsSupply": 2.6,
+      "daysOnMarket": 28,
+      "newListings": 3126
+    },
+    "attached": {
+      "medianPrice": 432000,
+      "closedSales": 994,
+      "inventory": 2050,
+      "monthsSupply": 2.1,
+      "daysOnMarket": 25,
+      "newListings": 1577
+    }
+  },
+  {
+    "period": "2018-08",
+    "year": 2018,
+    "month": 8,
+    "monthName": "Aug",
+    "detached": {
+      "medianPrice": 670000,
+      "closedSales": 1902,
+      "inventory": 5274,
+      "monthsSupply": 2.8,
+      "daysOnMarket": 30,
+      "newListings": 3294
+    },
+    "attached": {
+      "medianPrice": 425000,
+      "closedSales": 971,
+      "inventory": 2238,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 24,
+      "newListings": 1641
+    }
+  },
+  {
+    "period": "2018-09",
+    "year": 2018,
+    "month": 9,
+    "monthName": "Sep",
+    "detached": {
+      "medianPrice": 650000,
+      "closedSales": 1536,
+      "inventory": 5332,
+      "monthsSupply": 2.9,
+      "daysOnMarket": 31,
+      "newListings": 2803
+    },
+    "attached": {
+      "medianPrice": 432500,
+      "closedSales": 792,
+      "inventory": 2308,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 27,
+      "newListings": 1421
+    }
+  },
+  {
+    "period": "2018-10",
+    "year": 2018,
+    "month": 10,
+    "monthName": "Oct",
+    "detached": {
+      "medianPrice": 645000,
+      "closedSales": 1644,
+      "inventory": 5351,
+      "monthsSupply": 2.9,
+      "daysOnMarket": 35,
+      "newListings": 2927
+    },
+    "attached": {
+      "medianPrice": 418000,
+      "closedSales": 892,
+      "inventory": 2246,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 29,
+      "newListings": 1401
+    }
+  },
+  {
+    "period": "2018-11",
+    "year": 2018,
+    "month": 11,
+    "monthName": "Nov",
+    "detached": {
+      "medianPrice": 635000,
+      "closedSales": 1452,
+      "inventory": 5040,
+      "monthsSupply": 2.8,
+      "daysOnMarket": 36,
+      "newListings": 2252
+    },
+    "attached": {
+      "medianPrice": 397000,
+      "closedSales": 727,
+      "inventory": 2194,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 29,
+      "newListings": 1122
+    }
+  },
+  {
+    "period": "2018-12",
+    "year": 2018,
+    "month": 12,
+    "monthName": "Dec",
+    "detached": {
+      "medianPrice": 625000,
+      "closedSales": 1388,
+      "inventory": 4060,
+      "monthsSupply": 2.2,
+      "daysOnMarket": 39,
+      "newListings": 1303
+    },
+    "attached": {
+      "medianPrice": 419000,
+      "closedSales": 599,
+      "inventory": 1871,
+      "monthsSupply": 2.0,
+      "daysOnMarket": 38,
+      "newListings": 701
+    }
+  },
+  {
+    "period": "2019-01",
+    "year": 2019,
+    "month": 1,
+    "monthName": "Jan",
+    "detached": {
+      "medianPrice": 615000,
+      "closedSales": 1173,
+      "inventory": 4290,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 42,
+      "newListings": 2991
+    },
+    "attached": {
+      "medianPrice": 415000,
+      "closedSales": 548,
+      "inventory": 1976,
+      "monthsSupply": 2.1,
+      "daysOnMarket": 36,
+      "newListings": 1442
+    }
+  },
+  {
+    "period": "2019-02",
+    "year": 2019,
+    "month": 2,
+    "monthName": "Feb",
+    "detached": {
+      "medianPrice": 630000,
+      "closedSales": 1246,
+      "inventory": 4113,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 39,
+      "newListings": 2270
+    },
+    "attached": {
+      "medianPrice": 415000,
+      "closedSales": 637,
+      "inventory": 2011,
+      "monthsSupply": 2.2,
+      "daysOnMarket": 37,
+      "newListings": 1236
+    }
+  },
+  {
+    "period": "2019-03",
+    "year": 2019,
+    "month": 3,
+    "monthName": "Mar",
+    "detached": {
+      "medianPrice": 630000,
+      "closedSales": 1721,
+      "inventory": 4124,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 35,
+      "newListings": 2909
+    },
+    "attached": {
+      "medianPrice": 420000,
+      "closedSales": 833,
+      "inventory": 1902,
+      "monthsSupply": 2.1,
+      "daysOnMarket": 35,
+      "newListings": 1366
+    }
+  },
+  {
+    "period": "2019-04",
+    "year": 2019,
+    "month": 4,
+    "monthName": "April",
+    "detached": {
+      "medianPrice": 655000,
+      "closedSales": 1940,
+      "inventory": 4336,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 32,
+      "newListings": 3128
+    },
+    "attached": {
+      "medianPrice": 420000,
+      "closedSales": 931,
+      "inventory": 1978,
+      "monthsSupply": 2.2,
+      "daysOnMarket": 29,
+      "newListings": 1491
+    }
+  },
+  {
+    "period": "2019-05",
+    "year": 2019,
+    "month": 5,
+    "monthName": "May",
+    "detached": {
+      "medianPrice": 660000,
+      "closedSales": 2037,
+      "inventory": 4592,
+      "monthsSupply": 2.5,
+      "daysOnMarket": 29,
+      "newListings": 3308
+    },
+    "attached": {
+      "medianPrice": 434000,
+      "closedSales": 1055,
+      "inventory": 2044,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 27,
+      "newListings": 1596
+    }
+  },
+  {
+    "period": "2019-06",
+    "year": 2019,
+    "month": 6,
+    "monthName": "June",
+    "detached": {
+      "medianPrice": 674900,
+      "closedSales": 1880,
+      "inventory": 4764,
+      "monthsSupply": 2.6,
+      "daysOnMarket": 27,
+      "newListings": 2925
+    },
+    "attached": {
+      "medianPrice": 445000,
+      "closedSales": 939,
+      "inventory": 2168,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 32,
+      "newListings": 1488
+    }
+  },
+  {
+    "period": "2019-07",
+    "year": 2019,
+    "month": 7,
+    "monthName": "July",
+    "detached": {
+      "medianPrice": 655000,
+      "closedSales": 2028,
+      "inventory": 4638,
+      "monthsSupply": 2.6,
+      "daysOnMarket": 29,
+      "newListings": 2916
+    },
+    "attached": {
+      "medianPrice": 435000,
+      "closedSales": 1025,
+      "inventory": 2132,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 27,
+      "newListings": 1490
+    }
+  },
+  {
+    "period": "2019-08",
+    "year": 2019,
+    "month": 8,
+    "monthName": "Aug",
+    "detached": {
+      "medianPrice": 660000,
+      "closedSales": 1985,
+      "inventory": 4427,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 33,
+      "newListings": 2786
+    },
+    "attached": {
+      "medianPrice": 440000,
+      "closedSales": 1005,
+      "inventory": 2173,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 31,
+      "newListings": 1609
+    }
+  },
+  {
+    "period": "2019-09",
+    "year": 2019,
+    "month": 9,
+    "monthName": "Sep",
+    "detached": {
+      "medianPrice": 643000,
+      "closedSales": 1795,
+      "inventory": 4208,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 32,
+      "newListings": 2419
+    },
+    "attached": {
+      "medianPrice": 415000,
+      "closedSales": 886,
+      "inventory": 2096,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 28,
+      "newListings": 1286
+    }
+  },
+  {
+    "period": "2019-10",
+    "year": 2019,
+    "month": 10,
+    "monthName": "Oct",
+    "detached": {
+      "medianPrice": 665000,
+      "closedSales": 1771,
+      "inventory": 3852,
+      "monthsSupply": 2.1,
+      "daysOnMarket": 34,
+      "newListings": 2458
+    },
+    "attached": {
+      "medianPrice": 429000,
+      "closedSales": 924,
+      "inventory": 2021,
+      "monthsSupply": 2.2,
+      "daysOnMarket": 31,
+      "newListings": 1374
+    }
+  },
+  {
+    "period": "2019-11",
+    "year": 2019,
+    "month": 11,
+    "monthName": "Nov",
+    "detached": {
+      "medianPrice": 665000,
+      "closedSales": 1644,
+      "inventory": 3278,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 32,
+      "newListings": 1659
+    },
+    "attached": {
+      "medianPrice": 431350,
+      "closedSales": 744,
+      "inventory": 1771,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 30,
+      "newListings": 980
+    }
+  },
+  {
+    "period": "2019-12",
+    "year": 2019,
+    "month": 12,
+    "monthName": "Dec",
+    "detached": {
+      "medianPrice": 665000,
+      "closedSales": 1613,
+      "inventory": 2569,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 35,
+      "newListings": 1177
+    },
+    "attached": {
+      "medianPrice": 440000,
+      "closedSales": 889,
+      "inventory": 1449,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 34,
+      "newListings": 712
+    }
+  },
+  {
+    "period": "2020-01",
+    "year": 2020,
+    "month": 1,
+    "monthName": "Jan",
+    "detached": {
+      "medianPrice": 670000,
+      "closedSales": 1283,
+      "inventory": 2636,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 39,
+      "newListings": 2262
+    },
+    "attached": {
+      "medianPrice": 440000,
+      "closedSales": 669,
+      "inventory": 1428,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 35,
+      "newListings": 1313
+    }
+  },
+  {
+    "period": "2020-02",
+    "year": 2020,
+    "month": 2,
+    "monthName": "Feb",
+    "detached": {
+      "medianPrice": 677000,
+      "closedSales": 1370,
+      "inventory": 2572,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 34,
+      "newListings": 2198
+    },
+    "attached": {
+      "medianPrice": 450000,
+      "closedSales": 774,
+      "inventory": 1413,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 32,
+      "newListings": 1237
+    }
+  },
+  {
+    "period": "2020-03",
+    "year": 2020,
+    "month": 3,
+    "monthName": "Mar",
+    "detached": {
+      "medianPrice": 680000,
+      "closedSales": 1692,
+      "inventory": 2818,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 26,
+      "newListings": 2360
+    },
+    "attached": {
+      "medianPrice": 454000,
+      "closedSales": 905,
+      "inventory": 1599,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 24,
+      "newListings": 1248
+    }
+  },
+  {
+    "period": "2020-04",
+    "year": 2020,
+    "month": 4,
+    "monthName": "April",
+    "detached": {
+      "medianPrice": 680000,
+      "closedSales": 1405,
+      "inventory": 2879,
+      "monthsSupply": 1.6,
+      "daysOnMarket": 22,
+      "newListings": 1785
+    },
+    "attached": {
+      "medianPrice": 437000,
+      "closedSales": 675,
+      "inventory": 1724,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 21,
+      "newListings": 1006
+    }
+  },
+  {
+    "period": "2020-05",
+    "year": 2020,
+    "month": 5,
+    "monthName": "May",
+    "detached": {
+      "medianPrice": 662675,
+      "closedSales": 1218,
+      "inventory": 2876,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 24,
+      "newListings": 2430
+    },
+    "attached": {
+      "medianPrice": 435000,
+      "closedSales": 569,
+      "inventory": 1727,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 22,
+      "newListings": 1327
+    }
+  },
+  {
+    "period": "2020-06",
+    "year": 2020,
+    "month": 6,
+    "monthName": "June",
+    "detached": {
+      "medianPrice": 687000,
+      "closedSales": 1867,
+      "inventory": 2531,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 26,
+      "newListings": 2381
+    },
+    "attached": {
+      "medianPrice": 452990,
+      "closedSales": 929,
+      "inventory": 1583,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 28,
+      "newListings": 1372
+    }
+  },
+  {
+    "period": "2020-07",
+    "year": 2020,
+    "month": 7,
+    "monthName": "July",
+    "detached": {
+      "medianPrice": 730000,
+      "closedSales": 2241,
+      "inventory": 2392,
+      "monthsSupply": 1.3,
+      "daysOnMarket": 28,
+      "newListings": 2688
+    },
+    "attached": {
+      "medianPrice": 467000,
+      "closedSales": 1165,
+      "inventory": 1612,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 26,
+      "newListings": 1685
+    }
+  },
+  {
+    "period": "2020-08",
+    "year": 2020,
+    "month": 8,
+    "monthName": "Aug",
+    "detached": {
+      "medianPrice": 750000,
+      "closedSales": 2178,
+      "inventory": 2279,
+      "monthsSupply": 1.3,
+      "daysOnMarket": 24,
+      "newListings": 2556
+    },
+    "attached": {
+      "medianPrice": 475000,
+      "closedSales": 1142,
+      "inventory": 1625,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 25,
+      "newListings": 1554
+    }
+  },
+  {
+    "period": "2020-09",
+    "year": 2020,
+    "month": 9,
+    "monthName": "Sep",
+    "detached": {
+      "medianPrice": 753500,
+      "closedSales": 1814,
+      "inventory": 2116,
+      "monthsSupply": 1.2,
+      "daysOnMarket": 22,
+      "newListings": 1941
+    },
+    "attached": {
+      "medianPrice": 491000,
+      "closedSales": 925,
+      "inventory": 1593,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 22,
+      "newListings": 1286
+    }
+  },
+  {
+    "period": "2020-10",
+    "year": 2020,
+    "month": 10,
+    "monthName": "Oct",
+    "detached": {
+      "medianPrice": 755000,
+      "closedSales": 2190,
+      "inventory": 3298,
+      "monthsSupply": 1.3,
+      "daysOnMarket": 21,
+      "newListings": 2458
+    },
+    "attached": {
+      "medianPrice": 479500,
+      "closedSales": 1189,
+      "inventory": 2121,
+      "monthsSupply": 1.6,
+      "daysOnMarket": 19,
+      "newListings": 1523
+    }
+  },
+  {
+    "period": "2020-11",
+    "year": 2020,
+    "month": 11,
+    "monthName": "Nov",
+    "detached": {
+      "medianPrice": 755000,
+      "closedSales": 1939,
+      "inventory": 2733,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 18,
+      "newListings": 1640
+    },
+    "attached": {
+      "medianPrice": 484950,
+      "closedSales": 1040,
+      "inventory": 1782,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 21,
+      "newListings": 953
+    }
+  },
+  {
+    "period": "2020-12",
+    "year": 2020,
+    "month": 12,
+    "monthName": "Dec",
+    "detached": {
+      "medianPrice": 755000,
+      "closedSales": 1935,
+      "inventory": 2323,
+      "monthsSupply": 0.9,
+      "daysOnMarket": 19,
+      "newListings": 1281
+    },
+    "attached": {
+      "medianPrice": 496500,
+      "closedSales": 1122,
+      "inventory": 1452,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 21,
+      "newListings": 783
+    }
+  },
+  {
+    "period": "2021-01",
+    "year": 2021,
+    "month": 1,
+    "monthName": "Jan",
+    "detached": {
+      "medianPrice": 744000,
+      "closedSales": 1466,
+      "inventory": 1462,
+      "monthsSupply": 0.7,
+      "daysOnMarket": 26,
+      "newListings": 1839
+    },
+    "attached": {
+      "medianPrice": 485000,
+      "closedSales": 833,
+      "inventory": 962,
+      "monthsSupply": 0.9,
+      "daysOnMarket": 30,
+      "newListings": 1179
+    }
+  },
+  {
+    "period": "2021-02",
+    "year": 2021,
+    "month": 2,
+    "monthName": "Feb",
+    "detached": {
+      "medianPrice": 777777,
+      "closedSales": 1565,
+      "inventory": 1539,
+      "monthsSupply": 0.8,
+      "daysOnMarket": 27,
+      "newListings": 1898
+    },
+    "attached": {
+      "medianPrice": 512500,
+      "closedSales": 935,
+      "inventory": 938,
+      "monthsSupply": 0.9,
+      "daysOnMarket": 28,
+      "newListings": 1131
+    }
+  },
+  {
+    "period": "2021-03",
+    "year": 2021,
+    "month": 3,
+    "monthName": "Mar",
+    "detached": {
+      "medianPrice": 810000,
+      "closedSales": 1980,
+      "inventory": 1411,
+      "monthsSupply": 0.7,
+      "daysOnMarket": 21,
+      "newListings": 2253
+    },
+    "attached": {
+      "medianPrice": 515000,
+      "closedSales": 1234,
+      "inventory": 828,
+      "monthsSupply": 0.7,
+      "daysOnMarket": 24,
+      "newListings": 1382
+    }
+  },
+  {
+    "period": "2021-04",
+    "year": 2021,
+    "month": 4,
+    "monthName": "April",
+    "detached": {
+      "medianPrice": 840000,
+      "closedSales": 2243,
+      "inventory": 1606,
+      "monthsSupply": 0.7,
+      "daysOnMarket": 20,
+      "newListings": 2499
+    },
+    "attached": {
+      "medianPrice": 530000,
+      "closedSales": 1344,
+      "inventory": 897,
+      "monthsSupply": 0.7,
+      "daysOnMarket": 20,
+      "newListings": 1355
+    }
+  },
+  {
+    "period": "2021-05",
+    "year": 2021,
+    "month": 5,
+    "monthName": "May",
+    "detached": {
+      "medianPrice": 865000,
+      "closedSales": 2185,
+      "inventory": 1818,
+      "monthsSupply": 0.8,
+      "daysOnMarket": 20,
+      "newListings": 2613
+    },
+    "attached": {
+      "medianPrice": 540000,
+      "closedSales": 1177,
+      "inventory": 1042,
+      "monthsSupply": 0.9,
+      "daysOnMarket": 18,
+      "newListings": 1440
+    }
+  },
+  {
+    "period": "2021-06",
+    "year": 2021,
+    "month": 6,
+    "monthName": "June",
+    "detached": {
+      "medianPrice": 879000,
+      "closedSales": 2474,
+      "inventory": 1947,
+      "monthsSupply": 0.9,
+      "daysOnMarket": 17,
+      "newListings": 2648
+    },
+    "attached": {
+      "medianPrice": 553500,
+      "closedSales": 1300,
+      "inventory": 1004,
+      "monthsSupply": 0.8,
+      "daysOnMarket": 18,
+      "newListings": 1465
+    }
+  },
+  {
+    "period": "2021-07",
+    "year": 2021,
+    "month": 7,
+    "monthName": "July",
+    "detached": {
+      "medianPrice": 875000,
+      "closedSales": 2283,
+      "inventory": 2239,
+      "monthsSupply": 1.0,
+      "daysOnMarket": 18,
+      "newListings": 2698
+    },
+    "attached": {
+      "medianPrice": 550000,
+      "closedSales": 1317,
+      "inventory": 1110,
+      "monthsSupply": 0.9,
+      "daysOnMarket": 18,
+      "newListings": 1499
+    }
+  },
+  {
+    "period": "2021-08",
+    "year": 2021,
+    "month": 8,
+    "monthName": "Aug",
+    "detached": {
+      "medianPrice": 850000,
+      "closedSales": 2168,
+      "inventory": 2117,
+      "monthsSupply": 1.0,
+      "daysOnMarket": 20,
+      "newListings": 2391
+    },
+    "attached": {
+      "medianPrice": 560000,
+      "closedSales": 1308,
+      "inventory": 950,
+      "monthsSupply": 0.8,
+      "daysOnMarket": 18,
+      "newListings": 1294
+    }
+  },
+  {
+    "period": "2021-09",
+    "year": 2021,
+    "month": 9,
+    "monthName": "Sep",
+    "detached": {
+      "medianPrice": 860000,
+      "closedSales": 2125,
+      "inventory": 1919,
+      "monthsSupply": 0.9,
+      "daysOnMarket": 21,
+      "newListings": 2159
+    },
+    "attached": {
+      "medianPrice": 565000,
+      "closedSales": 1231,
+      "inventory": 834,
+      "monthsSupply": 0.7,
+      "daysOnMarket": 20,
+      "newListings": 1145
+    }
+  },
+  {
+    "period": "2021-10",
+    "year": 2021,
+    "month": 10,
+    "monthName": "Oct",
+    "detached": {
+      "medianPrice": 860000,
+      "closedSales": 2071,
+      "inventory": 1870,
+      "monthsSupply": 0.9,
+      "daysOnMarket": 22,
+      "newListings": 2121
+    },
+    "attached": {
+      "medianPrice": 565000,
+      "closedSales": 1123,
+      "inventory": 836,
+      "monthsSupply": 0.7,
+      "daysOnMarket": 22,
+      "newListings": 1094
+    }
+  },
+  {
+    "period": "2021-11",
+    "year": 2021,
+    "month": 11,
+    "monthName": "Nov",
+    "detached": {
+      "medianPrice": 860000,
+      "closedSales": 1910,
+      "inventory": 1344,
+      "monthsSupply": 0.6,
+      "daysOnMarket": 24,
+      "newListings": 1633
+    },
+    "attached": {
+      "medianPrice": 595000,
+      "closedSales": 1024,
+      "inventory": 565,
+      "monthsSupply": 0.5,
+      "daysOnMarket": 21,
+      "newListings": 838
+    }
+  },
+  {
+    "period": "2021-12",
+    "year": 2021,
+    "month": 12,
+    "monthName": "Dec",
+    "detached": {
+      "medianPrice": 850000,
+      "closedSales": 1900,
+      "inventory": 938,
+      "monthsSupply": 0.5,
+      "daysOnMarket": 22,
+      "newListings": 1138
+    },
+    "attached": {
+      "medianPrice": 585000,
+      "closedSales": 1013,
+      "inventory": 394,
+      "monthsSupply": 0.3,
+      "daysOnMarket": 21,
+      "newListings": 644
+    }
+  },
+  {
+    "period": "2022-01",
+    "year": 2022,
+    "month": 1,
+    "monthName": "Jan",
+    "detached": {
+      "medianPrice": 885000,
+      "closedSales": 1356,
+      "inventory": 1124,
+      "monthsSupply": 0.5,
+      "daysOnMarket": 24,
+      "newListings": 1686
+    },
+    "attached": {
+      "medianPrice": 595000,
+      "closedSales": 747,
+      "inventory": 505,
+      "monthsSupply": 0.4,
+      "daysOnMarket": 20,
+      "newListings": 1007
+    }
+  },
+  {
+    "period": "2022-02",
+    "year": 2022,
+    "month": 2,
+    "monthName": "Feb",
+    "detached": {
+      "medianPrice": 915000,
+      "closedSales": 1439,
+      "inventory": 1153,
+      "monthsSupply": 0.6,
+      "daysOnMarket": 23,
+      "newListings": 1762
+    },
+    "attached": {
+      "medianPrice": 625000,
+      "closedSales": 847,
+      "inventory": 555,
+      "monthsSupply": 0.5,
+      "daysOnMarket": 19,
+      "newListings": 1044
+    }
+  },
+  {
+    "period": "2022-03",
+    "year": 2022,
+    "month": 3,
+    "monthName": "Mar",
+    "detached": {
+      "medianPrice": 975000,
+      "closedSales": 1927,
+      "inventory": 1244,
+      "monthsSupply": 0.6,
+      "daysOnMarket": 19,
+      "newListings": 2271
+    },
+    "attached": {
+      "medianPrice": 646065,
+      "closedSales": 1085,
+      "inventory": 560,
+      "monthsSupply": 0.5,
+      "daysOnMarket": 16,
+      "newListings": 1151
+    }
+  },
+  {
+    "period": "2022-04",
+    "year": 2022,
+    "month": 4,
+    "monthName": "April",
+    "detached": {
+      "medianPrice": 1000000,
+      "closedSales": 1917,
+      "inventory": 1812,
+      "monthsSupply": 0.9,
+      "daysOnMarket": 19,
+      "newListings": 2380
+    },
+    "attached": {
+      "medianPrice": 660500,
+      "closedSales": 1028,
+      "inventory": 708,
+      "monthsSupply": 0.6,
+      "daysOnMarket": 16,
+      "newListings": 1133
+    }
+  },
+  {
+    "period": "2022-05",
+    "year": 2022,
+    "month": 5,
+    "monthName": "May",
+    "detached": {
+      "medianPrice": 990000,
+      "closedSales": 1837,
+      "inventory": 2248,
+      "monthsSupply": 1.2,
+      "daysOnMarket": 19,
+      "newListings": 2441
+    },
+    "attached": {
+      "medianPrice": 670000,
+      "closedSales": 1048,
+      "inventory": 952,
+      "monthsSupply": 0.9,
+      "daysOnMarket": 16,
+      "newListings": 1313
+    }
+  },
+  {
+    "period": "2022-06",
+    "year": 2022,
+    "month": 6,
+    "monthName": "June",
+    "detached": {
+      "medianPrice": 987225,
+      "closedSales": 1658,
+      "inventory": 3039,
+      "monthsSupply": 1.6,
+      "daysOnMarket": 20,
+      "newListings": 2630
+    },
+    "attached": {
+      "medianPrice": 638000,
+      "closedSales": 920,
+      "inventory": 1281,
+      "monthsSupply": 1.2,
+      "daysOnMarket": 18,
+      "newListings": 1336
+    }
+  },
+  {
+    "period": "2022-07",
+    "year": 2022,
+    "month": 7,
+    "monthName": "July",
+    "detached": {
+      "medianPrice": 969000,
+      "closedSales": 1335,
+      "inventory": 3399,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 23,
+      "newListings": 2330
+    },
+    "attached": {
+      "medianPrice": 630000,
+      "closedSales": 791,
+      "inventory": 1533,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 20,
+      "newListings": 1286
+    }
+  },
+  {
+    "period": "2022-08",
+    "year": 2022,
+    "month": 8,
+    "monthName": "Aug",
+    "detached": {
+      "medianPrice": 910000,
+      "closedSales": 1564,
+      "inventory": 3039,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 28,
+      "newListings": 2010
+    },
+    "attached": {
+      "medianPrice": 625000,
+      "closedSales": 902,
+      "inventory": 1367,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 24,
+      "newListings": 1024
+    }
+  },
+  {
+    "period": "2022-09",
+    "year": 2022,
+    "month": 9,
+    "monthName": "Sep",
+    "detached": {
+      "medianPrice": 915000,
+      "closedSales": 1433,
+      "inventory": 2976,
+      "monthsSupply": 1.8,
+      "daysOnMarket": 32,
+      "newListings": 1805
+    },
+    "attached": {
+      "medianPrice": 600000,
+      "closedSales": 785,
+      "inventory": 1336,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 29,
+      "newListings": 912
+    }
+  },
+  {
+    "period": "2022-10",
+    "year": 2022,
+    "month": 10,
+    "monthName": "Oct",
+    "detached": {
+      "medianPrice": 884000,
+      "closedSales": 1188,
+      "inventory": 2935,
+      "monthsSupply": 1.8,
+      "daysOnMarket": 33,
+      "newListings": 1662
+    },
+    "attached": {
+      "medianPrice": 616000,
+      "closedSales": 634,
+      "inventory": 1326,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 31,
+      "newListings": 798
+    }
+  },
+  {
+    "period": "2022-11",
+    "year": 2022,
+    "month": 11,
+    "monthName": "Nov",
+    "detached": {
+      "medianPrice": 885000,
+      "closedSales": 1051,
+      "inventory": 2598,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 35,
+      "newListings": 1260
+    },
+    "attached": {
+      "medianPrice": 599500,
+      "closedSales": 566,
+      "inventory": 1181,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 32,
+      "newListings": 610
+    }
+  },
+  {
+    "period": "2022-12",
+    "year": 2022,
+    "month": 12,
+    "monthName": "Dec",
+    "detached": {
+      "medianPrice": 869900,
+      "closedSales": 1065,
+      "inventory": 1910,
+      "monthsSupply": 1.3,
+      "daysOnMarket": 37,
+      "newListings": 776
+    },
+    "attached": {
+      "medianPrice": 585000,
+      "closedSales": 501,
+      "inventory": 900,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 41,
+      "newListings": 402
+    }
+  },
+  {
+    "period": "2023-01",
+    "year": 2023,
+    "month": 1,
+    "monthName": "Jan",
+    "detached": {
+      "medianPrice": 849000,
+      "closedSales": 886,
+      "inventory": 1666,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 43,
+      "newListings": 1292
+    },
+    "attached": {
+      "medianPrice": 590000,
+      "closedSales": 459,
+      "inventory": 861,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 40,
+      "newListings": 742
+    }
+  },
+  {
+    "period": "2023-02",
+    "year": 2023,
+    "month": 2,
+    "monthName": "Feb",
+    "detached": {
+      "medianPrice": 900000,
+      "closedSales": 998,
+      "inventory": 1512,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 43,
+      "newListings": 1174
+    },
+    "attached": {
+      "medianPrice": 616000,
+      "closedSales": 557,
+      "inventory": 759,
+      "monthsSupply": 1.0,
+      "daysOnMarket": 39,
+      "newListings": 686
+    }
+  },
+  {
+    "period": "2023-03",
+    "year": 2023,
+    "month": 3,
+    "monthName": "Mar",
+    "detached": {
+      "medianPrice": 938500,
+      "closedSales": 1372,
+      "inventory": 1788,
+      "monthsSupply": 1.3,
+      "daysOnMarket": 38,
+      "newListings": 1606
+    },
+    "attached": {
+      "medianPrice": 637000,
+      "closedSales": 784,
+      "inventory": 826,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 32,
+      "newListings": 876
+    }
+  },
+  {
+    "period": "2023-04",
+    "year": 2023,
+    "month": 4,
+    "monthName": "April",
+    "detached": {
+      "medianPrice": 950000,
+      "closedSales": 1233,
+      "inventory": 1754,
+      "monthsSupply": 1.3,
+      "daysOnMarket": 29,
+      "newListings": 1525
+    },
+    "attached": {
+      "medianPrice": 642510,
+      "closedSales": 727,
+      "inventory": 775,
+      "monthsSupply": 1.1,
+      "daysOnMarket": 31,
+      "newListings": 793
+    }
+  },
+  {
+    "period": "2023-05",
+    "year": 2023,
+    "month": 5,
+    "monthName": "May",
+    "detached": {
+      "medianPrice": 955000,
+      "closedSales": 1413,
+      "inventory": 1865,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 29,
+      "newListings": 1703
+    },
+    "attached": {
+      "medianPrice": 637500,
+      "closedSales": 816,
+      "inventory": 889,
+      "monthsSupply": 1.3,
+      "daysOnMarket": 23,
+      "newListings": 1003
+    }
+  },
+  {
+    "period": "2023-06",
+    "year": 2023,
+    "month": 6,
+    "monthName": "June",
+    "detached": {
+      "medianPrice": 1000000,
+      "closedSales": 1325,
+      "inventory": 2041,
+      "monthsSupply": 1.6,
+      "daysOnMarket": 24,
+      "newListings": 1848
+    },
+    "attached": {
+      "medianPrice": 650000,
+      "closedSales": 764,
+      "inventory": 965,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 21,
+      "newListings": 951
+    }
+  },
+  {
+    "period": "2023-07",
+    "year": 2023,
+    "month": 7,
+    "monthName": "July",
+    "detached": {
+      "medianPrice": 990000,
+      "closedSales": 1312,
+      "inventory": 2040,
+      "monthsSupply": 1.6,
+      "daysOnMarket": 24,
+      "newListings": 1620
+    },
+    "attached": {
+      "medianPrice": 642000,
+      "closedSales": 723,
+      "inventory": 949,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 22,
+      "newListings": 895
+    }
+  },
+  {
+    "period": "2023-08",
+    "year": 2023,
+    "month": 8,
+    "monthName": "Aug",
+    "detached": {
+      "medianPrice": 1015000,
+      "closedSales": 1367,
+      "inventory": 2068,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 26,
+      "newListings": 1598
+    },
+    "attached": {
+      "medianPrice": 670000,
+      "closedSales": 782,
+      "inventory": 1024,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 21,
+      "newListings": 974
+    }
+  },
+  {
+    "period": "2023-09",
+    "year": 2023,
+    "month": 9,
+    "monthName": "Sep",
+    "detached": {
+      "medianPrice": 992500,
+      "closedSales": 1078,
+      "inventory": 2116,
+      "monthsSupply": 1.8,
+      "daysOnMarket": 26,
+      "newListings": 1513
+    },
+    "attached": {
+      "medianPrice": 660000,
+      "closedSales": 648,
+      "inventory": 1105,
+      "monthsSupply": 1.6,
+      "daysOnMarket": 23,
+      "newListings": 866
+    }
+  },
+  {
+    "period": "2023-10",
+    "year": 2023,
+    "month": 10,
+    "monthName": "Oct",
+    "detached": {
+      "medianPrice": 960000,
+      "closedSales": 1115,
+      "inventory": 2133,
+      "monthsSupply": 1.8,
+      "daysOnMarket": 29,
+      "newListings": 1493
+    },
+    "attached": {
+      "medianPrice": 656000,
+      "closedSales": 625,
+      "inventory": 1220,
+      "monthsSupply": 1.8,
+      "daysOnMarket": 24,
+      "newListings": 910
+    }
+  },
+  {
+    "period": "2023-11",
+    "year": 2023,
+    "month": 11,
+    "monthName": "Nov",
+    "detached": {
+      "medianPrice": 984000,
+      "closedSales": 953,
+      "inventory": 2041,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 29,
+      "newListings": 1222
+    },
+    "attached": {
+      "medianPrice": 665000,
+      "closedSales": 554,
+      "inventory": 1217,
+      "monthsSupply": 1.8,
+      "daysOnMarket": 27,
+      "newListings": 735
+    }
+  },
+  {
+    "period": "2023-12",
+    "year": 2023,
+    "month": 12,
+    "monthName": "Dec",
+    "detached": {
+      "medianPrice": 942650,
+      "closedSales": 896,
+      "inventory": 1639,
+      "monthsSupply": 1.4,
+      "daysOnMarket": 31,
+      "newListings": 799
+    },
+    "attached": {
+      "medianPrice": 650000,
+      "closedSales": 499,
+      "inventory": 1031,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 31,
+      "newListings": 498
+    }
+  },
+  {
+    "period": "2024-01",
+    "year": 2024,
+    "month": 1,
+    "monthName": "Jan",
+    "detached": {
+      "medianPrice": 976250,
+      "closedSales": 877,
+      "inventory": 1785,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 37,
+      "newListings": 1620
+    },
+    "attached": {
+      "medianPrice": 650000,
+      "closedSales": 536,
+      "inventory": 1131,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 33,
+      "newListings": 1003
+    }
+  },
+  {
+    "period": "2024-02",
+    "year": 2024,
+    "month": 2,
+    "monthName": "Feb",
+    "detached": {
+      "medianPrice": 1025000,
+      "closedSales": 1074,
+      "inventory": 1779,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 31,
+      "newListings": 1448
+    },
+    "attached": {
+      "medianPrice": 655000,
+      "closedSales": 689,
+      "inventory": 1132,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 31,
+      "newListings": 896
+    }
+  },
+  {
+    "period": "2024-03",
+    "year": 2024,
+    "month": 3,
+    "monthName": "Mar",
+    "detached": {
+      "medianPrice": 1050000,
+      "closedSales": 1223,
+      "inventory": 1769,
+      "monthsSupply": 1.5,
+      "daysOnMarket": 29,
+      "newListings": 1619
+    },
+    "attached": {
+      "medianPrice": 670000,
+      "closedSales": 727,
+      "inventory": 1102,
+      "monthsSupply": 1.6,
+      "daysOnMarket": 29,
+      "newListings": 932
+    }
+  },
+  {
+    "period": "2024-04",
+    "year": 2024,
+    "month": 4,
+    "monthName": "April",
+    "detached": {
+      "medianPrice": 1100000,
+      "closedSales": 1304,
+      "inventory": 2084,
+      "monthsSupply": 1.8,
+      "daysOnMarket": 26,
+      "newListings": 1810
+    },
+    "attached": {
+      "medianPrice": 685000,
+      "closedSales": 719,
+      "inventory": 1280,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 28,
+      "newListings": 1033
+    }
+  },
+  {
+    "period": "2024-05",
+    "year": 2024,
+    "month": 5,
+    "monthName": "May",
+    "detached": {
+      "medianPrice": 1091750,
+      "closedSales": 1390,
+      "inventory": 2426,
+      "monthsSupply": 2.1,
+      "daysOnMarket": 27,
+      "newListings": 2005
+    },
+    "attached": {
+      "medianPrice": 685000,
+      "closedSales": 783,
+      "inventory": 1460,
+      "monthsSupply": 2.1,
+      "daysOnMarket": 26,
+      "newListings": 1143
+    }
+  },
+  {
+    "period": "2024-06",
+    "year": 2024,
+    "month": 6,
+    "monthName": "June",
+    "detached": {
+      "medianPrice": 1091000,
+      "closedSales": 1263,
+      "inventory": 2630,
+      "monthsSupply": 2.2,
+      "daysOnMarket": 27,
+      "newListings": 1863
+    },
+    "attached": {
+      "medianPrice": 698500,
+      "closedSales": 668,
+      "inventory": 1725,
+      "monthsSupply": 2.6,
+      "daysOnMarket": 29,
+      "newListings": 1129
+    }
+  },
+  {
+    "period": "2024-07",
+    "year": 2024,
+    "month": 7,
+    "monthName": "July",
+    "detached": {
+      "medianPrice": 1058275,
+      "closedSales": 1408,
+      "inventory": 2741,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 29,
+      "newListings": 1869
+    },
+    "attached": {
+      "medianPrice": 700000,
+      "closedSales": 727,
+      "inventory": 1772,
+      "monthsSupply": 2.6,
+      "daysOnMarket": 30,
+      "newListings": 1111
+    }
+  },
+  {
+    "period": "2024-08",
+    "year": 2024,
+    "month": 8,
+    "monthName": "Aug",
+    "detached": {
+      "medianPrice": 1055000,
+      "closedSales": 1327,
+      "inventory": 2846,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 27,
+      "newListings": 1938
+    },
+    "attached": {
+      "medianPrice": 675000,
+      "closedSales": 775,
+      "inventory": 1845,
+      "monthsSupply": 2.7,
+      "daysOnMarket": 33,
+      "newListings": 1107
+    }
+  },
+  {
+    "period": "2024-09",
+    "year": 2024,
+    "month": 9,
+    "monthName": "Sep",
+    "detached": {
+      "medianPrice": 1050000,
+      "closedSales": 1169,
+      "inventory": 2936,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 34,
+      "newListings": 1714
+    },
+    "attached": {
+      "medianPrice": 646000,
+      "closedSales": 617,
+      "inventory": 1910,
+      "monthsSupply": 2.8,
+      "daysOnMarket": 34,
+      "newListings": 1015
+    }
+  },
+  {
+    "period": "2024-10",
+    "year": 2024,
+    "month": 10,
+    "monthName": "Oct",
+    "detached": {
+      "medianPrice": 1050000,
+      "closedSales": 1279,
+      "inventory": 2850,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 34,
+      "newListings": 1669
+    },
+    "attached": {
+      "medianPrice": 679000,
+      "closedSales": 651,
+      "inventory": 1862,
+      "monthsSupply": 2.7,
+      "daysOnMarket": 40,
+      "newListings": 1037
+    }
+  },
+  {
+    "period": "2024-11",
+    "year": 2024,
+    "month": 11,
+    "monthName": "Nov",
+    "detached": {
+      "medianPrice": 1027750,
+      "closedSales": 1094,
+      "inventory": 2586,
+      "monthsSupply": 2.1,
+      "daysOnMarket": 36,
+      "newListings": 1217
+    },
+    "attached": {
+      "medianPrice": 674475,
+      "closedSales": 588,
+      "inventory": 1704,
+      "monthsSupply": 2.5,
+      "daysOnMarket": 38,
+      "newListings": 726
+    }
+  },
+  {
+    "period": "2024-12",
+    "year": 2024,
+    "month": 12,
+    "monthName": "Dec",
+    "detached": {
+      "medianPrice": 1010000,
+      "closedSales": 1103,
+      "inventory": 2002,
+      "monthsSupply": 1.6,
+      "daysOnMarket": 40,
+      "newListings": 862
+    },
+    "attached": {
+      "medianPrice": 660000,
+      "closedSales": 617,
+      "inventory": 1387,
+      "monthsSupply": 2.0,
+      "daysOnMarket": 41,
+      "newListings": 499
+    }
+  },
+  {
+    "period": "2025-01",
+    "year": 2025,
+    "month": 1,
+    "monthName": "Jan",
+    "detached": {
+      "medianPrice": 1048600,
+      "closedSales": 923,
+      "inventory": 2319,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 44,
+      "newListings": 1811
+    },
+    "attached": {
+      "medianPrice": 665000,
+      "closedSales": 514,
+      "inventory": 1653,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 46,
+      "newListings": 1193
+    }
+  },
+  {
+    "period": "2025-02",
+    "year": 2025,
+    "month": 2,
+    "monthName": "Feb",
+    "detached": {
+      "medianPrice": 1074589,
+      "closedSales": 990,
+      "inventory": 2507,
+      "monthsSupply": 2.0,
+      "daysOnMarket": 36,
+      "newListings": 1608
+    },
+    "attached": {
+      "medianPrice": 675000,
+      "closedSales": 587,
+      "inventory": 1812,
+      "monthsSupply": 2.6,
+      "daysOnMarket": 41,
+      "newListings": 1047
+    }
+  },
+  {
+    "period": "2025-03",
+    "year": 2025,
+    "month": 3,
+    "monthName": "Mar",
+    "detached": {
+      "medianPrice": 1083750,
+      "closedSales": 1158,
+      "inventory": 2804,
+      "monthsSupply": 2.3,
+      "daysOnMarket": 33,
+      "newListings": 1929
+    },
+    "attached": {
+      "medianPrice": 679950,
+      "closedSales": 658,
+      "inventory": 2082,
+      "monthsSupply": 3.0,
+      "daysOnMarket": 39,
+      "newListings": 1285
+    }
+  },
+  {
+    "period": "2025-04",
+    "year": 2025,
+    "month": 4,
+    "monthName": "April",
+    "detached": {
+      "medianPrice": 1075000,
+      "closedSales": 1425,
+      "inventory": 3231,
+      "monthsSupply": 2.6,
+      "daysOnMarket": 32,
+      "newListings": 2134
+    },
+    "attached": {
+      "medianPrice": 675000,
+      "closedSales": 736,
+      "inventory": 2344,
+      "monthsSupply": 3.4,
+      "daysOnMarket": 33,
+      "newListings": 1289
+    }
+  },
+  {
+    "period": "2025-05",
+    "year": 2025,
+    "month": 5,
+    "monthName": "May",
+    "detached": {
+      "medianPrice": 1100000,
+      "closedSales": 1328,
+      "inventory": 3556,
+      "monthsSupply": 2.9,
+      "daysOnMarket": 30,
+      "newListings": 2159
+    },
+    "attached": {
+      "medianPrice": 690000,
+      "closedSales": 689,
+      "inventory": 2498,
+      "monthsSupply": 3.7,
+      "daysOnMarket": 37,
+      "newListings": 1301
+    }
+  },
+  {
+    "period": "2025-06",
+    "year": 2025,
+    "month": 6,
+    "monthName": "June",
+    "detached": {
+      "medianPrice": 1075000,
+      "closedSales": 1272,
+      "inventory": 3801,
+      "monthsSupply": 3.1,
+      "daysOnMarket": 33,
+      "newListings": 2018
+    },
+    "attached": {
+      "medianPrice": 659500,
+      "closedSales": 672,
+      "inventory": 2630,
+      "monthsSupply": 3.9,
+      "daysOnMarket": 37,
+      "newListings": 1285
+    }
+  },
+  {
+    "period": "2025-07",
+    "year": 2025,
+    "month": 7,
+    "monthName": "July",
+    "detached": {
+      "medianPrice": 1099000,
+      "closedSales": 1303,
+      "inventory": 3808,
+      "monthsSupply": 3.1,
+      "daysOnMarket": 36,
+      "newListings": 2047
+    },
+    "attached": {
+      "medianPrice": 650000,
+      "closedSales": 676,
+      "inventory": 2677,
+      "monthsSupply": 4.0,
+      "daysOnMarket": 42,
+      "newListings": 1304
+    }
+  },
+  {
+    "period": "2025-08",
+    "year": 2025,
+    "month": 8,
+    "monthName": "Aug",
+    "detached": {
+      "medianPrice": 1075000,
+      "closedSales": 1291,
+      "inventory": 3512,
+      "monthsSupply": 2.8,
+      "daysOnMarket": 39,
+      "newListings": 1731
+    },
+    "attached": {
+      "medianPrice": 675000,
+      "closedSales": 655,
+      "inventory": 2573,
+      "monthsSupply": 3.8,
+      "daysOnMarket": 42,
+      "newListings": 1159
+    }
+  },
+  {
+    "period": "2025-09",
+    "year": 2025,
+    "month": 9,
+    "monthName": "Sep",
+    "detached": {
+      "medianPrice": 1020500,
+      "closedSales": 1267,
+      "inventory": 3259,
+      "monthsSupply": 2.6,
+      "daysOnMarket": 41,
+      "newListings": 1700
+    },
+    "attached": {
+      "medianPrice": 671500,
+      "closedSales": 696,
+      "inventory": 2388,
+      "monthsSupply": 3.5,
+      "daysOnMarket": 43,
+      "newListings": 1026
+    }
+  },
+  {
+    "period": "2025-10",
+    "year": 2025,
+    "month": 10,
+    "monthName": "Oct",
+    "detached": {
+      "medianPrice": 1005000,
+      "closedSales": 1380,
+      "inventory": 3271,
+      "monthsSupply": 2.6,
+      "daysOnMarket": 42,
+      "newListings": 1866
+    },
+    "attached": {
+      "medianPrice": 660000,
+      "closedSales": 701,
+      "inventory": 2349,
+      "monthsSupply": 3.5,
+      "daysOnMarket": 45,
+      "newListings": 1125
+    }
+  },
+  {
+    "period": "2025-11",
+    "year": 2025,
+    "month": 11,
+    "monthName": "Nov",
+    "detached": {
+      "medianPrice": 1050000,
+      "closedSales": 1034,
+      "inventory": 2773,
+      "monthsSupply": 2.2,
+      "daysOnMarket": 43,
+      "newListings": 1165
+    },
+    "attached": {
+      "medianPrice": 660000,
+      "closedSales": 597,
+      "inventory": 2119,
+      "monthsSupply": 3.1,
+      "daysOnMarket": 48,
+      "newListings": 762
+    }
+  },
+  {
+    "period": "2025-12",
+    "year": 2025,
+    "month": 12,
+    "monthName": "Dec",
+    "detached": {
+      "medianPrice": 1050000,
+      "closedSales": 1139,
+      "inventory": 2132,
+      "monthsSupply": 1.7,
+      "daysOnMarket": 44,
+      "newListings": 897
+    },
+    "attached": {
+      "medianPrice": 680000,
+      "closedSales": 587,
+      "inventory": 1698,
+      "monthsSupply": 2.5,
+      "daysOnMarket": 51,
+      "newListings": 534
+    }
+  },
+  {
+    "period": "2026-01",
+    "year": 2026,
+    "month": 1,
+    "monthName": "Jan",
+    "detached": {
+      "medianPrice": 1070000,
+      "closedSales": 825,
+      "inventory": 2272,
+      "monthsSupply": 1.8,
+      "daysOnMarket": 46,
+      "newListings": 1619
+    },
+    "attached": {
+      "medianPrice": 632000,
+      "closedSales": 417,
+      "inventory": 1799,
+      "monthsSupply": 2.7,
+      "daysOnMarket": 52,
+      "newListings": 1088
+    }
+  },
+  {
+    "period": "2026-02",
+    "year": 2026,
+    "month": 2,
+    "monthName": "Feb",
+    "detached": {
+      "medianPrice": 1089795,
+      "closedSales": 1008,
+      "inventory": 2379,
+      "monthsSupply": 1.9,
+      "daysOnMarket": 41,
+      "newListings": 1503
+    },
+    "attached": {
+      "medianPrice": 660000,
+      "closedSales": 541,
+      "inventory": 1841,
+      "monthsSupply": 2.8,
+      "daysOnMarket": 50,
+      "newListings": 908
+    }
+  }
+]
