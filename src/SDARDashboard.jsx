@@ -27,9 +27,9 @@ const SparklesIcon = () => (
 // Default fallback data when JSON not loaded
 const DEFAULT_NEIGHBORHOOD_DATA = {
     'all': {
-        all: { medianPrice: 895000, avgPrice: 1200000, closedSales: 1500, pendingSales: 1400, newListings: 1800, daysOnMarket: 45, pctOrigPrice: 97.0, inventory: 4500, monthsSupply: 2.5, affordability: 45, priceChange: 2.0, salesChange: -5.0, domChange: 15.0, invChange: 0 },
-        detached: { medianPrice: 1050000, avgPrice: 1450000, closedSales: 1000, pendingSales: 950, newListings: 1100, daysOnMarket: 43, pctOrigPrice: 97.2, inventory: 2600, monthsSupply: 2.2, affordability: 40, priceChange: 3.0, salesChange: -8.0, domChange: 18.0, invChange: -5.0 },
-        attached: { medianPrice: 660000, avgPrice: 800000, closedSales: 500, pendingSales: 450, newListings: 700, daysOnMarket: 48, pctOrigPrice: 96.5, inventory: 1900, monthsSupply: 3.0, affordability: 60, priceChange: -1.0, salesChange: -3.0, domChange: 25.0, invChange: 8.0 }
+        all: { medianPrice: 900000, avgPrice: 1100000, closedSales: 1549, pendingSales: 1866, newListings: 2411, daysOnMarket: 45, pctOrigPrice: 97.9, inventory: 4220, monthsSupply: 2.3, affordability: 55, priceChange: 0.5, salesChange: -6.0, domChange: 16.0, invChange: -15.0 },
+        detached: { medianPrice: 1089795, avgPrice: 1406108, closedSales: 1008, pendingSales: 1186, newListings: 1503, daysOnMarket: 41, pctOrigPrice: 98.2, inventory: 2379, monthsSupply: 1.9, affordability: 42, priceChange: 2.1, salesChange: -2.0, domChange: 10.8, invChange: -19.1 },
+        attached: { medianPrice: 660000, avgPrice: 770849, closedSales: 541, pendingSales: 680, newListings: 908, daysOnMarket: 50, pctOrigPrice: 97.6, inventory: 1841, monthsSupply: 2.8, affordability: 69, priceChange: -2.2, salesChange: -11.6, domChange: 22.0, invChange: -10.1 }
     }
 };
 
@@ -255,7 +255,7 @@ export default function SDARDashboard({ setActiveView }) {
         const basePrice = currentData?.medianPrice || 895000;
         const multipliers = [0.96, 0.97, 0.98, 0.99, 0.995, 1.01, 1.005, 1.02, 1.01, 0.99, 0.985, 1.0, 1.0];
         return multipliers.map((m, i) => ({
-            month: ["Dec '24", 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i],
+            month: ["Feb '25", "Mar '25", "Apr '25", "May '25", "Jun '25", "Jul '25", "Aug '25", "Sep '25", "Oct '25", "Nov '25", "Dec '25", "Jan '26", "Feb '26"][i],
             price: Math.round(basePrice * m),
             dom: Math.max(15, (currentData?.daysOnMarket || 45) - 12 + i * 2),
             sales: Math.round((currentData?.closedSales || 1000) * (0.9 + Math.random() * 0.4))
@@ -486,7 +486,7 @@ export default function SDARDashboard({ setActiveView }) {
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
                                 <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">2026 YEAR-TO-DATE</span>
-                                <span className="text-slate-500 text-xs">Jan 2026 (vs Jan 2025)</span>
+                                <span className="text-slate-500 text-xs">Jan–Feb 2026 (vs Jan–Feb 2025)</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[
@@ -509,8 +509,8 @@ export default function SDARDashboard({ setActiveView }) {
                         {/* Monthly Snapshot - Secondary Display */}
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
-                                <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">JANUARY 2026</span>
-                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs Jan 2025)</span>
+                                <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">FEBRUARY 2026</span>
+                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs Feb 2025)</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[
