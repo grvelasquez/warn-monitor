@@ -477,7 +477,7 @@ export default function SupplyDashboard() {
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                     <h3 className="text-sm font-semibold text-white">New Listings: Detached vs Attached</h3>
-                                    <p className="text-xs text-gray-400 mt-1">County-wide January comparison from SDAR local market reports</p>
+                                    <p className="text-xs text-gray-400 mt-1">County-wide February comparison from SDAR local market reports</p>
                                 </div>
                                 <div className="p-6 h-72">
                                     <ResponsiveContainer width="100%" height="100%">
