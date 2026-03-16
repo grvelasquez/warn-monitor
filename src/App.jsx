@@ -45,7 +45,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => setActiveView('realestate')}
-                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${['realestate', 'neighborhoods', 'map', 'homepriceindex'].includes(activeView)
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${['realestate', 'neighborhoods', 'map', 'homepriceindex', 'historical'].includes(activeView)
                     ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25'
                     : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                     }`}
@@ -125,16 +125,6 @@ export default function App() {
                   <span className="hidden sm:inline">Trends</span>
                 </button>
                 <button
-                  onClick={() => setActiveView('historical')}
-                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'historical'
-                    ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/25'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                    }`}
-                >
-                  <Clock className="w-4 h-4" />
-                  <span className="hidden sm:inline">Historical</span>
-                </button>
-                <button
                   onClick={() => setActiveView('voting')}
                   className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'voting'
                     ? 'bg-violet-600 text-white shadow-lg shadow-violet-600/25'
@@ -177,7 +167,7 @@ export default function App() {
         <TrendsDashboard />
       </div>
       <div className={activeView === 'historical' ? 'block' : 'hidden'}>
-        <HistoricalTrendsDashboard />
+        <HistoricalTrendsDashboard setActiveView={setActiveView} />
       </div>
       <div className={activeView === 'neighborhoods' ? 'block' : 'hidden'}>
         <NeighborhoodEvolution setActiveView={setActiveView} />

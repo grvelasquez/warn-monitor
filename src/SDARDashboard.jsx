@@ -394,6 +394,18 @@ export default function SDARDashboard({ setActiveView }) {
                                 <p className="text-sm font-bold">Home Price Index</p>
                             </div>
                         </button>
+                        <button
+                            onClick={() => setActiveView('historical')}
+                            className="flex items-center gap-2 px-4 py-3 bg-rose-600 hover:bg-rose-500 text-white rounded-xl transition-all shadow-lg shadow-rose-900/20 group flex-1 sm:flex-none justify-center"
+                        >
+                            <div className="p-1.5 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                                <ClockIcon className="w-5 h-5" />
+                            </div>
+                            <div className="text-left">
+                                <p className="text-xs font-medium text-rose-200">View</p>
+                                <p className="text-sm font-bold">10-Year History</p>
+                            </div>
+                        </button>
                     </div>
 
                 </div>

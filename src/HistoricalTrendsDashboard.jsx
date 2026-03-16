@@ -3,9 +3,9 @@ import {
   LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, 
   Tooltip, ResponsiveContainer, Legend 
 } from 'recharts';
-import { Clock, TrendingUp, Home, Building2, Calendar, FileText } from 'lucide-react';
+import { Clock, TrendingUp, Home, Building2, Calendar, FileText, ArrowLeft } from 'lucide-react';
 
-export default function HistoricalTrendsDashboard() {
+export default function HistoricalTrendsDashboard({ setActiveView }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [propertyType, setPropertyType] = useState('detached');
@@ -111,13 +111,20 @@ export default function HistoricalTrendsDashboard() {
         <div className="flex flex-wrap items-start justify-between mb-8 gap-4">
           <div>
             <div className="flex items-center gap-3 mb-2">
+              <button 
+                onClick={() => setActiveView('realestate')}
+                className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg border border-slate-700 transition-colors mr-2"
+                title="Back to Real Estate Dashboard"
+              >
+                <ArrowLeft className="w-5 h-5 text-slate-300" />
+              </button>
               <div className="p-2 bg-indigo-900/30 rounded-lg border border-indigo-800/50">
                 <Clock className="w-6 h-6 text-indigo-400" />
               </div>
               <h1 className="text-2xl font-bold tracking-tight">Historical Trends</h1>
               <span className="text-[10px] px-2 py-0.5 bg-slate-800 text-slate-400 border border-slate-700 rounded-full">2017 - Present</span>
             </div>
-            <p className="text-slate-400">Long-term analysis of San Diego County real estate metrics.</p>
+            <p className="text-slate-400 ml-16">Long-term analysis of San Diego County real estate metrics.</p>
           </div>
         </div>
 
