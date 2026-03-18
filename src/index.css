@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+/* Fix Tailwind v4 + Leaflet incompatibility */
+/* Tailwind v4's CSS reset breaks Leaflet map tiles and controls */
+.leaflet-container img {
+  max-width: none !important;
+  max-height: none !important;
+  border-style: none !important;
+}
+
+.leaflet-container {
+  font-size: inherit;
+}
+
+.leaflet-control a,
+.leaflet-control button {
+  border-style: solid !important;
+}
+
+.leaflet-tile-pane img {
+  display: block !important;
+}
+
 /* Custom styles for WARN Dashboard */
 html,
 body {
