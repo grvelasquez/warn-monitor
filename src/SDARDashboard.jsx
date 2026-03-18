@@ -152,10 +152,19 @@ export default function SDARDashboard({ setActiveView }) {
     const latestDate = fetchedData?.current_period?.report_date;
 
     const availableAreas = useMemo(() => {
+        let areas = [];
         if (selectedRegion === 'all') {
-            return Object.values(regions).filter(r => r.areas).flatMap(r => r.areas);
+            areas = Object.values(regions).filter(r => r.areas).flatMap(r => r.areas);
+        } else {
+            areas = regions[selectedRegion]?.areas || [];
         }
-        return regions[selectedRegion]?.areas || [];
+        
+        // Sort by the first zip code numerically
+        return [...areas].sort((a, b) => {
+            const zipA = a.zips && a.zips.length > 0 ? parseInt(a.zips[0], 10) : 0;
+            const zipB = b.zips && b.zips.length > 0 ? parseInt(b.zips[0], 10) : 0;
+            return zipA - zipB;
+        });
     }, [selectedRegion]);
 
     const availableZips = useMemo(() => {
