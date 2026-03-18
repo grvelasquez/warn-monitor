@@ -365,7 +365,7 @@ export default function MapDashboard({ setActiveView }) {
                                 </h1>
                             </div>
                             <p className="text-gray-400 text-sm pl-11">
-                                Interactive map showing median home prices by zip code
+                                Interactive map showing median home prices by zip code {neighborhoodData?.meta?.report_period ? `(${neighborhoodData.meta.report_period})` : ''}
                             </p>
                         </div>
 
