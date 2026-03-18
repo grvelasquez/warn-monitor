@@ -273,8 +273,8 @@ export default function MapDashboard({ setActiveView }) {
 
         const avg = prices.length ? prices.reduce((a, b) => a + b, 0) / prices.length : 0;
         const median = neighborhoodData?.county_wide?.[propertyType]?.median_price_2026 || avg;
-        const max = Math.max(...prices);
-        const min = Math.min(...prices);
+        const max = neighborhoodData?.summary?.[`highest_${propertyType}`] || Math.max(...prices);
+        const min = neighborhoodData?.summary?.[`lowest_${propertyType}`] || Math.min(...prices);
 
         const maxNeighborhood = neighborhoodData.neighborhoods.find(n => n[propertyType]?.median_price_2026 === max);
         const minNeighborhood = neighborhoodData.neighborhoods.find(n => n[propertyType]?.median_price_2026 === min);
@@ -424,14 +424,14 @@ export default function MapDashboard({ setActiveView }) {
                                 subtext={`${propertyType === 'detached' ? 'Detached' : 'Attached'} homes`}
                             />
                             <StatCard
-                                label="Highest"
+                                label="Highest Median"
                                 value={formatCurrency(stats.max)}
                                 icon={TrendingUp}
                                 color="green"
                                 subtext={stats.maxName}
                             />
                             <StatCard
-                                label="Lowest"
+                                label="Lowest Median"
                                 value={formatCurrency(stats.min)}
                                 icon={TrendingDown}
                                 color="orange"
