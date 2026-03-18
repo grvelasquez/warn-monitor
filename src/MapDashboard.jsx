@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { Map, Home, TrendingUp, TrendingDown, DollarSign, X, Filter, Layers, ArrowLeft } from 'lucide-react';
-import 'leaflet/dist/leaflet.css';
 import { regions } from './sdarData';
 
 // San Diego County coordinates - simple arrays for reliable production builds
@@ -451,6 +450,19 @@ export default function MapDashboard({ setActiveView }) {
             {/* Map Container */}
             <div className="relative h-[calc(100vh-280px)] min-h-[400px]">
                 <style>{`
+          /* Fix Tailwind v4 + Leaflet incompatibility for production builds */
+          .leaflet-container img {
+            max-width: none !important;
+            max-height: none !important;
+            border-style: none !important;
+          }
+          .leaflet-control a, .leaflet-control button {
+            border-style: solid !important;
+          }
+          .leaflet-tile-pane img {
+            display: block !important;
+          }
+
           .leaflet-tooltip-custom {
             background: rgba(17, 24, 39, 0.95) !important;
             border: 1px solid rgba(75, 85, 99, 0.5) !important;
@@ -464,6 +476,7 @@ export default function MapDashboard({ setActiveView }) {
           }
           .leaflet-container {
             background: #0f172a !important;
+            font-size: inherit;
           }
         `}</style>
 
