@@ -272,6 +272,7 @@ export default function MapDashboard({ setActiveView }) {
             .filter(p => p && p > 0);
 
         const avg = prices.length ? prices.reduce((a, b) => a + b, 0) / prices.length : 0;
+        const median = neighborhoodData?.county_wide?.[propertyType]?.median_price_2026 || avg;
         const max = Math.max(...prices);
         const min = Math.min(...prices);
 
@@ -280,6 +281,7 @@ export default function MapDashboard({ setActiveView }) {
 
         return {
             avg,
+            median,
             max,
             min,
             maxName: maxNeighborhood?.neighborhood || 'N/A',
@@ -415,8 +417,8 @@ export default function MapDashboard({ setActiveView }) {
                     {stats && (
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
                             <StatCard
-                                label="County Average"
-                                value={formatCurrency(stats.avg)}
+                                label="County Median"
+                                value={formatCurrency(stats.median)}
                                 icon={DollarSign}
                                 color="blue"
                                 subtext={`${propertyType === 'detached' ? 'Detached' : 'Attached'} homes`}
