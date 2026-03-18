@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-03-17T07:50:36.099010",
+    "generated": "2026-03-18T07:48:20.788795",
     "county": "San Diego",
-    "total_notices": 109,
-    "total_employees_affected": 4484
+    "total_notices": 111,
+    "total_employees_affected": 4503
   },
   "notices": [
     {
@@ -1204,6 +1204,28 @@
       "notice_type": "Closure Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "3d1d8989",
+      "company_name": "Union of Pan Asian Communities (Neighborhood Enterprise Center)",
+      "city": "San Diego",
+      "zipcode": "92105",
+      "employees_affected": 16,
+      "layoff_date": "2026-05-10",
+      "notice_type": "Closure Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "City Heights"
+    },
+    {
+      "notice_id": "7f902121",
+      "company_name": "Blue Shield of California",
+      "city": "San Diego",
+      "zipcode": "92108",
+      "employees_affected": 3,
+      "layoff_date": "2026-04-08",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Mission Valley"
     }
   ],
   "risk_scores": {
@@ -1366,14 +1388,15 @@
       ]
     },
     "92108": {
-      "score": 10,
+      "score": 11,
       "risk_level": "Low",
-      "total_employees": 53,
+      "total_employees": 56,
       "factors": [
         "2 employees affected",
         "1 employees affected",
         "4 employees affected",
-        "45 employees affected"
+        "45 employees affected",
+        "3 employees affected"
       ]
     },
     "92109": {
@@ -1559,12 +1582,21 @@
         "65 employees affected",
         "Plant closure"
       ]
+    },
+    "92105": {
+      "score": 23,
+      "risk_level": "Low",
+      "total_employees": 16,
+      "factors": [
+        "16 employees affected",
+        "Plant closure"
+      ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 58,
-      "total_employees": 2169
+      "notice_count": 59,
+      "total_employees": 2172
     },
     "South County": {
       "notice_count": 8,
@@ -1579,8 +1611,8 @@
       "total_employees": 263
     },
     "Urban San Diego": {
-      "notice_count": 9,
-      "total_employees": 611
+      "notice_count": 10,
+      "total_employees": 627
     },
     "North County Inland": {
       "notice_count": 8,
