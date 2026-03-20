@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote, FileText, Warehouse, Building2, Clock } from 'lucide-react';
+import { AlertTriangle, Home, DollarSign, Construction, Sun, BarChart3, MapPin, Map, Vote, FileText, Warehouse, Building2, Clock, User } from 'lucide-react';
 import WarnDashboard from './WarnDashboard';
+import ProfileDashboard from './ProfileDashboard';
 import SDARDashboard from './SDARDashboard';
 import LendingDashboard from './LendingDashboard';
 import DevelopmentDashboard from './DevelopmentDashboard';
@@ -16,7 +17,7 @@ import HomePriceIndexDashboard from './HomePriceIndexDashboard';
 import HistoricalTrendsDashboard from './HistoricalTrendsDashboard';
 
 export default function App() {
-  const [activeView, setActiveView] = useState('weather');
+  const [activeView, setActiveView] = useState('profile');
 
   return (
     <div className="min-h-screen bg-gray-950">
@@ -134,6 +135,16 @@ export default function App() {
                   <Vote className="w-4 h-4" />
                   <span className="hidden sm:inline">Voting</span>
                 </button>
+                <button
+                  onClick={() => setActiveView('profile')}
+                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'profile'
+                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/25'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                >
+                  <User className="w-4 h-4" />
+                  <span className="hidden sm:inline">Profile</span>
+                </button>
               </div>
             </div>
           </div>
@@ -141,6 +152,9 @@ export default function App() {
       </nav>
 
       {/* Content Area */}
+      <div className={activeView === 'profile' ? 'block' : 'hidden'}>
+        <ProfileDashboard />
+      </div>
       <div className={activeView === 'weather' ? 'block' : 'hidden'}>
         <WeatherDashboard />
       </div>
