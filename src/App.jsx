@@ -94,16 +94,6 @@ export default function App() {
                   <Construction className="w-4 h-4" />
                   <span className="hidden sm:inline">Development</span>
                 </button>
-                <button
-                  onClick={() => setActiveView('adu')}
-                  className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeView === 'adu'
-                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/25'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                    }`}
-                >
-                  <Building2 className="w-4 h-4" />
-                  <span className="hidden sm:inline">ADU</span>
-                </button>
 
                 <button
                   onClick={() => setActiveView('warn')}
@@ -175,7 +165,7 @@ export default function App() {
         </div>
       )}
       <div className={activeView === 'development' ? 'block' : 'hidden'}>
-        <DevelopmentDashboard />
+        <DevelopmentDashboard setActiveView={setActiveView} />
       </div>
       <div className={activeView === 'trends' ? 'block' : 'hidden'}>
         <TrendsDashboard />

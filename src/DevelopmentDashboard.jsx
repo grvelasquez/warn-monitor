@@ -136,7 +136,7 @@ function HotZoneIndicator({ zone }) {
     );
 }
 
-export default function DevelopmentDashboard() {
+export default function DevelopmentDashboard({ setActiveView }) {
     const [selectedStatus, setSelectedStatus] = useState('all');
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -191,9 +191,20 @@ export default function DevelopmentDashboard() {
                         </div>
                         <p className="text-sm sm:text-base text-slate-400">San Diego County • Construction & Infrastructure Pipeline</p>
                     </div>
-                    <div className="text-right">
-                        <p className="text-xs text-slate-500">{data ? 'City + County Data' : 'Curated Data'}</p>
-                        <p className="text-sm text-slate-400">{data?.meta?.generated ? new Date(data.meta.generated).toLocaleDateString() : new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
+                    <div className="flex flex-col items-end gap-3 text-right">
+                        {setActiveView && (
+                            <button 
+                                onClick={() => setActiveView('adu')}
+                                className="bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all shadow-lg shadow-emerald-600/20 w-fit"
+                            >
+                                <Building2 className="w-4 h-4" />
+                                ADU Calculator
+                            </button>
+                        )}
+                        <div>
+                            <p className="text-xs text-slate-500">{data ? 'City + County Data' : 'Curated Data'}</p>
+                            <p className="text-sm text-slate-400">{data?.meta?.generated ? new Date(data.meta.generated).toLocaleDateString() : new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
+                        </div>
                     </div>
                 </div>
 
