@@ -17,7 +17,7 @@ import HomePriceIndexDashboard from './HomePriceIndexDashboard';
 import HistoricalTrendsDashboard from './HistoricalTrendsDashboard';
 
 export default function App() {
-  const [activeView, setActiveView] = useState('profile');
+  const [activeView, setActiveView] = useState('weather');
 
   return (
     <div className="min-h-screen bg-gray-950">
