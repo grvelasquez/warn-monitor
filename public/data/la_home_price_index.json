@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-03-10T16:44:17.282Z",
+    "generated": "2026-03-23T17:50:48.317286",
     "source": "FRED (S&P CoreLogic Case-Shiller)",
     "lastUpdate": "2025-12-01",
-    "description": "S&P CoreLogic Case-Shiller CA-Los Angeles HPI (Jan 2000 = 100)"
+    "description": "S&P CoreLogic Case-Shiller CA-Los Angeles Home Price Index (Jan 2000 = 100)"
   },
   "current": {
     "seasonallyAdjusted": {
@@ -809,7 +809,7 @@
     {
       "date": "2000-01",
       "sa": 101.031209381454,
-      "nsa": 100
+      "nsa": 100.0
     },
     {
       "date": "2000-02",

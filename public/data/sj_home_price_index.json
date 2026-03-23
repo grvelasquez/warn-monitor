@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-03-10T16:44:17.501Z",
+    "generated": "2026-03-23T17:50:48.518188",
     "source": "FRED (FHFA)",
     "lastUpdate": "2025-10-01",
     "description": "All-Transactions House Price Index for San Jose-Sunnyvale-Santa Clara, CA (NSA)"
@@ -378,8 +378,8 @@
     },
     {
       "date": "1993-01",
-      "sa": 103,
-      "nsa": 103
+      "sa": 103.0,
+      "nsa": 103.0
     },
     {
       "date": "1993-04",
@@ -418,8 +418,8 @@
     },
     {
       "date": "1995-01",
-      "sa": 100,
-      "nsa": 100
+      "sa": 100.0,
+      "nsa": 100.0
     },
     {
       "date": "1995-04",
