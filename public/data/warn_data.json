@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-03-24T07:50:46.192469",
+    "generated": "2026-03-25T07:49:22.607343",
     "county": "San Diego",
-    "total_notices": 111,
-    "total_employees_affected": 4503
+    "total_notices": 112,
+    "total_employees_affected": 4505
   },
   "notices": [
     {
@@ -1226,6 +1226,17 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "cf1583ae",
+      "company_name": "Total Storage Solutions (Citrus Plaza Self Storage)",
+      "city": "Fallbrook",
+      "zipcode": "92028",
+      "employees_affected": 2,
+      "layoff_date": "2026-05-18",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Fallbrook"
     }
   ],
   "risk_scores": {
@@ -1591,6 +1602,14 @@
         "16 employees affected",
         "Plant closure"
       ]
+    },
+    "92028": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 2,
+      "factors": [
+        "2 employees affected"
+      ]
     }
   },
   "by_region": {
@@ -1615,8 +1634,8 @@
       "total_employees": 627
     },
     "North County Inland": {
-      "notice_count": 8,
-      "total_employees": 458
+      "notice_count": 9,
+      "total_employees": 460
     }
   }
 }
