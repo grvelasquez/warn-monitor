@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-03-26T07:58:19.923383",
+    "generated": "2026-03-27T07:56:09.576002",
     "county": "San Diego",
-    "total_notices": 112,
-    "total_employees_affected": 4505
+    "total_notices": 113,
+    "total_employees_affected": 4540
   },
   "notices": [
     {
@@ -1237,19 +1237,32 @@
       "notice_type": "Layoff Permanent",
       "region": "North County Inland",
       "neighborhood": "Fallbrook"
+    },
+    {
+      "notice_id": "eb4e688c",
+      "company_name": "Comprehensive Autism Center",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 35,
+      "layoff_date": "2026-05-31",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
     }
   ],
   "risk_scores": {
     "92123": {
-      "score": 82,
+      "score": 100,
       "risk_level": "Critical",
-      "total_employees": 413,
+      "total_employees": 448,
       "factors": [
         "244 employees affected",
         "62 employees affected",
         "55 employees affected",
         "32 employees affected",
-        "10 employees affected"
+        "10 employees affected",
+        "35 employees affected",
+        "Plant closure"
       ]
     },
     "91911": {
@@ -1614,8 +1627,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 59,
-      "total_employees": 2172
+      "notice_count": 60,
+      "total_employees": 2207
     },
     "South County": {
       "notice_count": 8,
