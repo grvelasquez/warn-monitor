@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-04-02T08:01:10.531665",
+    "generated": "2026-04-03T07:58:40.345180",
     "county": "San Diego",
-    "total_notices": 113,
-    "total_employees_affected": 4540
+    "total_notices": 115,
+    "total_employees_affected": 4701
   },
   "notices": [
     {
@@ -1248,6 +1248,28 @@
       "notice_type": "Closure Permanent",
       "region": "Central San Diego",
       "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "5902b555",
+      "company_name": "Kay and Associates, Inc.",
+      "city": "San Diego",
+      "zipcode": "92055",
+      "employees_affected": 103,
+      "layoff_date": "2026-04-30",
+      "notice_type": "Layoff Permanent",
+      "region": "San Diego County",
+      "neighborhood": "San Diego"
+    },
+    {
+      "notice_id": "94359356",
+      "company_name": "F10 Oceanside LLC",
+      "city": "Oceanside",
+      "zipcode": "92054",
+      "employees_affected": 58,
+      "layoff_date": "2026-05-14",
+      "notice_type": "Closure Permanent",
+      "region": "Coastal",
+      "neighborhood": "Oceanside"
     }
   ],
   "risk_scores": {
@@ -1396,11 +1418,13 @@
       ]
     },
     "92054": {
-      "score": 0,
-      "risk_level": "Low",
-      "total_employees": 1,
+      "score": 31,
+      "risk_level": "Moderate",
+      "total_employees": 59,
       "factors": [
-        "1 employees affected"
+        "1 employees affected",
+        "58 employees affected",
+        "Plant closure"
       ]
     },
     "92020": {
@@ -1623,6 +1647,14 @@
       "factors": [
         "2 employees affected"
       ]
+    },
+    "92055": {
+      "score": 20,
+      "risk_level": "Low",
+      "total_employees": 103,
+      "factors": [
+        "103 employees affected"
+      ]
     }
   },
   "by_region": {
@@ -1635,8 +1667,8 @@
       "total_employees": 204
     },
     "Coastal": {
-      "notice_count": 18,
-      "total_employees": 779
+      "notice_count": 19,
+      "total_employees": 837
     },
     "East County": {
       "notice_count": 8,
@@ -1649,6 +1681,10 @@
     "North County Inland": {
       "notice_count": 9,
       "total_employees": 460
+    },
+    "San Diego County": {
+      "notice_count": 1,
+      "total_employees": 103
     }
   }
 }
