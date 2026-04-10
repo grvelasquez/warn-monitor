@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-04-09T08:15:30.611208",
+    "generated": "2026-04-10T08:18:35.375210",
     "county": "San Diego",
-    "total_notices": 129,
-    "total_employees_affected": 4850
+    "total_notices": 131,
+    "total_employees_affected": 4925
   },
   "notices": [
     {
@@ -1424,6 +1424,28 @@
       "notice_type": "Closure Permanent",
       "region": "East County",
       "neighborhood": "La Mesa"
+    },
+    {
+      "notice_id": "2e614c46",
+      "company_name": "America's Finest Charter School - High School Program",
+      "city": "San Diego",
+      "zipcode": "92115",
+      "employees_affected": 10,
+      "layoff_date": "2026-06-30",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "College Area"
+    },
+    {
+      "notice_id": "9935bf8b",
+      "company_name": "Gossamer Bio, Inc.",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 65,
+      "layoff_date": "2026-05-15",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
     }
   ],
   "risk_scores": {
@@ -1517,7 +1539,7 @@
     "92121": {
       "score": 100,
       "risk_level": "Critical",
-      "total_employees": 782,
+      "total_employees": 847,
       "factors": [
         "71 employees affected",
         "52 employees affected",
@@ -1538,7 +1560,8 @@
         "2 employees affected",
         "4 employees affected",
         "3 employees affected",
-        "1 employees affected"
+        "1 employees affected",
+        "65 employees affected"
       ]
     },
     "92103": {
@@ -1820,18 +1843,20 @@
       ]
     },
     "92115": {
-      "score": 2,
+      "score": 24,
       "risk_level": "Low",
-      "total_employees": 14,
+      "total_employees": 24,
       "factors": [
-        "14 employees affected"
+        "14 employees affected",
+        "10 employees affected",
+        "Plant closure"
       ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 72,
-      "total_employees": 2288
+      "notice_count": 74,
+      "total_employees": 2363
     },
     "South County": {
       "notice_count": 8,
