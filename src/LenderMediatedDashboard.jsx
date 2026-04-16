@@ -598,10 +598,10 @@ export default function LenderMediatedDashboard() {
                                     <div className="p-2 bg-indigo-500/10 rounded-lg">
                                         <Sparkles className="w-5 h-5 text-indigo-400" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-white">AI Executive Summary: February 2026 Analysis</h3>
+                                    <h3 className="text-xl font-bold text-white">AI Executive Summary: March 2026 Analysis</h3>
                                 </div>
                                 <p className="text-slate-300 leading-relaxed text-lg">
-                                    The February 2026 report shows a market where <strong className="text-white">lender-mediated inventory is contracting</strong> alongside the broader market.
+                                    The March 2026 report shows a market where <strong className="text-white">lender-mediated inventory is contracting</strong> alongside the broader market.
                                     Total LM inventory fell to 263 units (-6.4% YoY), representing 6.2% of total supply. Notably, LM prices fell sharply (<span className="text-red-400">-11.5%</span> to $779K all-in),
                                     widening the discount gap versus traditional homes — a potential opportunity signal for value-oriented buyers.
                                 </p>
@@ -749,7 +749,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Inventory by Property Type</h3>
-                                <p className="text-xs text-gray-400 mt-1">February 2025 vs February 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">March 2025 vs March 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-48">
@@ -819,7 +819,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Inventory by Price Range</h3>
-                                <p className="text-xs text-gray-400 mt-1">February 2025 vs February 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">March 2025 vs March 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-4 h-48 overflow-x-auto">
@@ -914,7 +914,7 @@ export default function LenderMediatedDashboard() {
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-808/60 border-b border-gray-700/50">
                                     <h3 className="text-sm font-semibold text-white">New Listings and Closed Sales</h3>
-                                    <p className="text-xs text-gray-400 mt-1">February 2025 vs February 2026</p>
+                                    <p className="text-xs text-gray-400 mt-1">March 2025 vs March 2026</p>
                                 </div>
                                 <div className="overflow-x-auto">
                                     <table className="w-full text-sm">
@@ -995,7 +995,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Activity Comparison</h3>
-                                <p className="text-xs text-gray-400 mt-1">February 2025 vs February 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">March 2025 vs March 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-48">
@@ -1112,7 +1112,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">New Listings Trend</h3>
-                                        <p className="text-xs text-gray-400 mt-1">February 2025 to February 2026</p>
+                                        <p className="text-xs text-gray-400 mt-1">March 2025 to March 2026</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="relative h-64">
@@ -1188,7 +1188,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">Closed Sales Trend</h3>
-                                        <p className="text-xs text-gray-400 mt-1">February 2025 to February 2026</p>
+                                        <p className="text-xs text-gray-400 mt-1">March 2025 to March 2026</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="relative h-64">
@@ -1272,7 +1272,7 @@ export default function LenderMediatedDashboard() {
                         {/* Median Sales Price Table */}
                         <InventoryComparisonTable
                             title="Median Sales Price by Property Type"
-                            subtitle="February 2025 vs February 2026"
+                            subtitle="March 2025 vs March 2026"
                             data={priceDom.median_price}
                             valueFormatter={formatCurrency}
                             showShare={false}
@@ -1282,7 +1282,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Median Sales Price by Property Type</h3>
-                                <p className="text-xs text-gray-400 mt-1">February 2025 vs February 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">March 2025 vs March 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-64">
@@ -1347,7 +1347,7 @@ export default function LenderMediatedDashboard() {
                             <>
                                 <InventoryComparisonTable
                                     title="Days on Market Until Sale by Property Type"
-                                    subtitle="February 2025 vs February 2026"
+                                    subtitle="March 2025 vs March 2026"
                                     data={priceDom.days_on_market}
                                     showShare={false}
                                 />
@@ -1356,7 +1356,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">Lender-Mediated Days on Market by Property Type</h3>
-                                        <p className="text-xs text-gray-400 mt-1">February 2025 vs February 2026</p>
+                                        <p className="text-xs text-gray-400 mt-1">March 2025 vs March 2026</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="flex items-end justify-around gap-8 h-64">

@@ -477,7 +477,7 @@ export default function SupplyDashboard() {
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                     <h3 className="text-sm font-semibold text-white">New Listings: Detached vs Attached</h3>
-                                    <p className="text-xs text-gray-400 mt-1">County-wide February comparison from SDAR local market reports</p>
+                                    <p className="text-xs text-gray-400 mt-1">County-wide March comparison from SDAR local market reports</p>
                                 </div>
                                 <div className="p-6 h-72">
                                     <ResponsiveContainer width="100%" height="100%">
@@ -557,7 +557,7 @@ export default function SupplyDashboard() {
                             <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Source</h4>
                             <p className="text-[10px] text-slate-500 leading-relaxed">
                                 Data from SDAR Local Market Update reports (per zip code PDFs). County-wide totals aggregated from all 98 neighborhoods.
-                                Current as of {neighborhoodData?.meta?.report_period || 'February 2026'}.
+                                Current as of {neighborhoodData?.meta?.report_period || 'March 2026'}.
                             </p>
                         </div>
                     </div>
@@ -611,7 +611,7 @@ export default function SupplyDashboard() {
                                 <h3 className="text-2xl font-bold text-white">AI Executive Summary: The Persistent Supply Squeeze</h3>
                             </div>
                             <p className="text-slate-300 leading-relaxed text-lg">
-                                The San Diego housing market in February 2026 is defined by an <strong className="text-indigo-400">accelerating supply contraction</strong>.
+                                The San Diego housing market in March 2026 is defined by an <strong className="text-indigo-400">accelerating supply contraction</strong>.
                                 Inventory fell <span className="text-rose-400 font-bold">15.4%</span> year-over-year to 4,220 active listings — the sharpest decline in recent months — while days on market climbed 20%+ across most price bands. Despite the supply squeeze, buyers are exercising greater selectivity as list-price-received ratios edge down. The core narrative for realtors remains <strong className="text-amber-400">scarcity</strong> driving prices, but sellers must price accurately as patience among buyers is rising.
                             </p>
                         </div>
@@ -790,7 +790,7 @@ export default function SupplyDashboard() {
                             <p className="text-[10px] text-slate-500 leading-relaxed">
                                 Data from the San Diego MLS via the Greater San Diego Association of REALTORS®.
                                 All figures are based on rolling 12-month calculations except inventory which reflects end-of-month active listings.
-                                Current as of {data?.meta?.report_period || 'February 2026'}.
+                                Current as of {data?.meta?.report_period || 'March 2026'}.
                             </p>
                         </div>
                     </div>
