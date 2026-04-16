@@ -2418,5 +2418,27 @@
       "daysOnMarket": 50,
       "newListings": 908
     }
+  },
+  {
+    "period": "2026-03",
+    "year": 2026,
+    "month": 3,
+    "monthName": "Mar",
+    "detached": {
+      "medianPrice": 1100000,
+      "closedSales": 1216,
+      "inventory": 2513,
+      "monthsSupply": 2.0,
+      "daysOnMarket": 37,
+      "newListings": 1833
+    },
+    "attached": {
+      "medianPrice": 670000,
+      "closedSales": 738,
+      "inventory": 2369,
+      "monthsSupply": 3.4,
+      "daysOnMarket": 45,
+      "newListings": 1370
+    }
   }
 ]
