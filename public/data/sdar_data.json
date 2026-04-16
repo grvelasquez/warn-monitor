@@ -1,14 +1,14 @@
 {
   "meta": {
-    "last_updated": "2026-03-01T18:40:33.793128",
+    "last_updated": "2026-04-01T19:03:00.775792",
     "source": "SDAR / 10K Research",
-    "latest_report_period": "2026-02"
+    "latest_report_period": "2026-03"
   },
   "data_available": true,
-  "report_url": "https://sdar.stats.10kresearch.com/docs/mmi/2026-02/x/report?src=page",
+  "report_url": "https://sdar.stats.10kresearch.com/docs/mmi/2026-03/x/report?src=page",
   "current_period": {
-    "report_date": "2026-02",
-    "report_url": "https://sdar.stats.10kresearch.com/docs/mmi/2026-02/x/report?src=page",
+    "report_date": "2026-03",
+    "report_url": "https://sdar.stats.10kresearch.com/docs/mmi/2026-03/x/report?src=page",
     "status": "available",
     "summary": {
       "detached_median": null,
