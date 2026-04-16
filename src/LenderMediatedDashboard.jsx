@@ -157,22 +157,22 @@ const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = form
                         </tr>
                         <tr className="bg-gray-800/30">
                             {/* Lender-Mediated */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Traditional */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Total Market */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Share */}
                             {showShare && (
                                 <>
-                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                                 </>
                             )}
                         </tr>
@@ -502,37 +502,37 @@ export default function LenderMediatedDashboard() {
                                             { date: '08-2020', value: 325 },
                                             { date: '10-2020', value: 230 },
                                             { date: '12-2020', value: 185 },
-                                            { date: '02-2021', value: 160 },
+                                            { date: '03-2021', value: 160 },
                                             { date: '04-2021', value: 135 },
                                             { date: '06-2021', value: 148 },
                                             { date: '08-2021', value: 140 },
                                             { date: '10-2021', value: 180 },
                                             { date: '12-2021', value: 155 },
-                                            { date: '02-2022', value: 125 },
+                                            { date: '03-2022', value: 125 },
                                             { date: '04-2022', value: 160 },
                                             { date: '06-2022', value: 175 },
                                             { date: '08-2022', value: 230 },
                                             { date: '10-2022', value: 255 },
                                             { date: '12-2022', value: 220 },
-                                            { date: '02-2023', value: 190 },
+                                            { date: '03-2023', value: 190 },
                                             { date: '04-2023', value: 150 },
                                             { date: '06-2023', value: 185 },
                                             { date: '08-2023', value: 190 },
                                             { date: '10-2023', value: 210 },
                                             { date: '12-2023', value: 225 },
-                                            { date: '02-2024', value: 205 },
+                                            { date: '03-2024', value: 205 },
                                             { date: '04-2024', value: 190 },
                                             { date: '06-2024', value: 220 },
                                             { date: '08-2024', value: 275 },
                                             { date: '10-2024', value: 305 },
                                             { date: '12-2024', value: 220 },
-                                            { date: '02-2025', value: 280 },
+                                            { date: '03-2025', value: 280 },
                                             { date: '04-2025', value: 310 },
                                             { date: '06-2025', value: 325 },
                                             { date: '08-2025', value: 348 },
                                             { date: '10-2025', value: 300 },
                                             { date: '12-2025', value: 270 },
-                                            { date: '02-2026', value: 263 },
+                                            { date: '03-2026', value: 263 },
                                         ]}
                                         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                                     >
@@ -799,11 +799,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">02-2025</span>
+                                        <span className="text-xs text-gray-400">03-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">02-2026</span>
+                                        <span className="text-xs text-gray-400">03-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -892,11 +892,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">02-2025</span>
+                                        <span className="text-xs text-gray-400">03-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">02-2026</span>
+                                        <span className="text-xs text-gray-400">03-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -928,20 +928,20 @@ export default function LenderMediatedDashboard() {
                                             </tr>
                                             <tr className="bg-gray-800/30">
                                                 {/* Lender-Mediated */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Traditional */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Total Market */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Share */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-gray-700/50">
@@ -1095,11 +1095,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">02-2025</span>
+                                        <span className="text-xs text-gray-400">03-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">02-2026</span>
+                                        <span className="text-xs text-gray-400">03-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -1332,11 +1332,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">02-2025</span>
+                                        <span className="text-xs text-gray-400">03-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">02-2026</span>
+                                        <span className="text-xs text-gray-400">03-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -1406,11 +1406,11 @@ export default function LenderMediatedDashboard() {
                                         <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-4 h-4 bg-gray-500 rounded" />
-                                                <span className="text-xs text-gray-400">02-2025</span>
+                                                <span className="text-xs text-gray-400">03-2025</span>
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 <div className="w-4 h-4 bg-amber-500 rounded" />
-                                                <span className="text-xs text-gray-400">02-2026</span>
+                                                <span className="text-xs text-gray-400">03-2026</span>
                                             </div>
                                         </div>
                                     </div>

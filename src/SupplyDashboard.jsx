@@ -125,16 +125,16 @@ const SupplyComparisonTable = ({ title, subtitle, data, valueFormatter = formatN
                         </tr>
                         <tr className="bg-gray-800/30">
                             {/* All Properties */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Single-Family */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Condos */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">02-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">03-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                         </tr>
                     </thead>
@@ -196,8 +196,8 @@ const SupplyBarChart = ({ title, data, dataKey = 'all_properties' }) => {
                             }}
                         />
                         <Legend />
-                        <Bar dataKey="2025" fill="#6b7280" name="02-2025" />
-                        <Bar dataKey="2026" fill="#22c55e" name="02-2026" />
+                        <Bar dataKey="2025" fill="#6b7280" name="03-2025" />
+                        <Bar dataKey="2026" fill="#22c55e" name="03-2026" />
                     </BarChart>
                 </ResponsiveContainer>
             </div>
@@ -501,8 +501,8 @@ export default function SupplyDashboard() {
                                                 }}
                                             />
                                             <Legend />
-                                            <Bar dataKey="2025" fill="#6b7280" name="02-2025" />
-                                            <Bar dataKey="2026" fill="#22c55e" name="02-2026" />
+                                            <Bar dataKey="2025" fill="#6b7280" name="03-2025" />
+                                            <Bar dataKey="2026" fill="#22c55e" name="03-2026" />
                                         </BarChart>
                                     </ResponsiveContainer>
                                 </div>
