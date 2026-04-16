@@ -513,7 +513,7 @@ export default function SupplyDashboard() {
                         {neighborhoodData?.neighborhoods && (
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
-                                    <h3 className="text-sm font-semibold text-white">Top Neighborhoods by New Listings (Feb 2026)</h3>
+                                    <h3 className="text-sm font-semibold text-white">Top Neighborhoods by New Listings (Mar 2026)</h3>
                                 </div>
                                 <div className="overflow-x-auto">
                                     <table className="w-full text-sm">
@@ -587,11 +587,11 @@ export default function SupplyDashboard() {
                                 </div>
                                 <div className="grid grid-cols-3 gap-4">
                                     <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
-                                        <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">Feb 2025</div>
+                                        <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">Mar 2025</div>
                                         <div className="text-2xl font-bold text-gray-300">{formatNumber(pdfInventoryTotals.total2025)}</div>
                                     </div>
                                     <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
-                                        <div className="text-xs text-indigo-400 uppercase tracking-wider mb-1">Feb 2026</div>
+                                        <div className="text-xs text-indigo-400 uppercase tracking-wider mb-1">Mar 2026</div>
                                         <div className="text-2xl font-bold text-white">{formatNumber(pdfInventoryTotals.total2026)}</div>
                                     </div>
                                     <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">

@@ -688,7 +688,7 @@ export default function LenderMediatedDashboard() {
                                     </h4>
                                     <div className="space-y-3">
                                         <div className="bg-slate-900/50 p-3 rounded-lg border border-slate-700/50">
-                                            <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">Highest Share (Feb 2026)</div>
+                                            <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">Highest Share (Mar 2026)</div>
                                             <div className="space-y-2">
                                                 <div className="flex justify-between text-sm">
                                                     <span className="text-white">91905 (Boulevard)</span>
@@ -1164,8 +1164,8 @@ export default function LenderMediatedDashboard() {
                                             </svg>
                                             {/* X-axis labels */}
                                             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 text-xs text-gray-500">
-                                                <span>Feb 2025</span>
-                                                <span>Feb 2026</span>
+                                                <span>Mar 2025</span>
+                                                <span>Mar 2026</span>
                                             </div>
                                         </div>
                                         {/* Legend */}
@@ -1244,8 +1244,8 @@ export default function LenderMediatedDashboard() {
                                             </svg>
                                             {/* X-axis labels */}
                                             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 text-xs text-gray-500">
-                                                <span>Feb 2025</span>
-                                                <span>Feb 2026</span>
+                                                <span>Mar 2025</span>
+                                                <span>Mar 2026</span>
                                             </div>
                                         </div>
                                         {/* Legend */}
@@ -1438,7 +1438,7 @@ export default function LenderMediatedDashboard() {
 
                 {/* Footer */}
                 <div className="text-center text-xs text-gray-500 pt-4 border-t border-gray-800">
-                    Current as of January 5, 2026. All data from the San Diego MLS. | Report © 2026 ShowingTime Plus, LLC.
+                    Current as of April 5, 2026. All data from the San Diego MLS. | Report © 2026 ShowingTime Plus, LLC.
                 </div>
             </div>
         </div>

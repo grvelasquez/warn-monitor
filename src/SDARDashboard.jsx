@@ -264,7 +264,7 @@ export default function SDARDashboard({ setActiveView }) {
         const basePrice = currentData?.medianPrice || 895000;
         const multipliers = [0.96, 0.97, 0.98, 0.99, 0.995, 1.01, 1.005, 1.02, 1.01, 0.99, 0.985, 1.0, 1.0];
         return multipliers.map((m, i) => ({
-            month: ["Feb '25", "Mar '25", "Apr '25", "May '25", "Jun '25", "Jul '25", "Aug '25", "Sep '25", "Oct '25", "Nov '25", "Dec '25", "Jan '26", "Feb '26"][i],
+            month: ["Mar '25", "Apr '25", "May '25", "Jun '25", "Jul '25", "Aug '25", "Sep '25", "Oct '25", "Nov '25", "Dec '25", "Jan '26", "Feb '26", "Mar '26"][i],
             price: Math.round(basePrice * m),
             dom: Math.max(15, (currentData?.daysOnMarket || 45) - 12 + i * 2),
             sales: Math.round((currentData?.closedSales || 1000) * (0.9 + Math.random() * 0.4))
@@ -507,7 +507,7 @@ export default function SDARDashboard({ setActiveView }) {
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
                                 <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">2026 YEAR-TO-DATE</span>
-                                <span className="text-slate-500 text-xs">Jan–Feb 2026 (vs Jan–Feb 2025)</span>
+                                <span className="text-slate-500 text-xs">Jan–Mar 2026 (vs Jan–Mar 2025)</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[
@@ -530,8 +530,8 @@ export default function SDARDashboard({ setActiveView }) {
                         {/* Monthly Snapshot - Secondary Display */}
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
-                                <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">FEBRUARY 2026</span>
-                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs Feb 2025)</span>
+                                <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">MARCH 2026</span>
+                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs Mar 2025)</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[
