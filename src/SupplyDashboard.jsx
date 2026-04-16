@@ -211,7 +211,7 @@ const FREDTrendChart = ({ data, title, subTitle }) => {
     // Format dates for display (e.g., "2024-01-01" -> "Jan 24")
     const formattedData = data.map(item => ({
         ...item,
-        displayDate: new Date(item.date).toLocaleDateString('en-US', { month: 'short', year: '2-digit' })
+        displayDate: new Date(item.date).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short', year: '2-digit' })
     }));
 
     return (
