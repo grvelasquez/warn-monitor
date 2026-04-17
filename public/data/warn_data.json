@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generated": "2026-04-16T16:14:30.870Z",
+    "generated": "2026-04-17T08:23:39.283608",
     "county": "San Diego",
     "total_notices": 140,
     "total_employees_affected": 4963
   },
   "notices": [
     {
-      "notice_id": "2b3a9b78",
+      "notice_id": "15dcbbb3",
       "company_name": "Sharp HealthCare - 8695",
       "city": "San Diego",
       "zipcode": "92123",
@@ -18,7 +18,7 @@
       "neighborhood": "Kearny Mesa"
     },
     {
-      "notice_id": "6dede469",
+      "notice_id": "c1a8de7d",
       "company_name": "Sharp HealthCare - 751",
       "city": "Chula Vista",
       "zipcode": "91911",
@@ -29,7 +29,7 @@
       "neighborhood": "Chula Vista"
     },
     {
-      "notice_id": "75e1b182",
+      "notice_id": "f8c603d0",
       "company_name": "Sharp HealthCare - 250",
       "city": "Coronado",
       "zipcode": "92118",
@@ -40,7 +40,7 @@
       "neighborhood": "Coronado"
     },
     {
-      "notice_id": "22ffe09b",
+      "notice_id": "9dd630fb",
       "company_name": "Sharp HealthCare - 5555",
       "city": "La Mesa",
       "zipcode": "91942",
@@ -51,7 +51,7 @@
       "neighborhood": "La Mesa"
     },
     {
-      "notice_id": "64b2370f",
+      "notice_id": "c5e60172",
       "company_name": "Sharp HealthCare - 7901",
       "city": "San Diego",
       "zipcode": "92123",
@@ -62,7 +62,7 @@
       "neighborhood": "Kearny Mesa"
     },
     {
-      "notice_id": "7bbaa035",
+      "notice_id": "4ab394ea",
       "company_name": "Sharp HealthCare - 5651",
       "city": "San Diego",
       "zipcode": "92111",
@@ -73,7 +73,7 @@
       "neighborhood": "Linda Vista"
     },
     {
-      "notice_id": "7b87f69a",
+      "notice_id": "d4187fc9",
       "company_name": "Young's Market Company, LLC dba Republic National Distributing Company",
       "city": "San Diego",
       "zipcode": "92110",
@@ -84,7 +84,7 @@
       "neighborhood": "Bay Park"
     },
     {
-      "notice_id": "48b20153",
+      "notice_id": "a8332fb2",
       "company_name": "Coastal Trading Ventures",
       "city": "Spring Valley",
       "zipcode": "91978",
@@ -95,7 +95,7 @@
       "neighborhood": "Spring Valley"
     },
     {
-      "notice_id": "103c4d6b",
+      "notice_id": "2c4e5e22",
       "company_name": "Best Buy Health",
       "city": "Carlsbad",
       "zipcode": "92008",
@@ -106,7 +106,7 @@
       "neighborhood": "Carlsbad West"
     },
     {
-      "notice_id": "4a4fc13a",
+      "notice_id": "4d015168",
       "company_name": "Pacira BioSciences, Inc.",
       "city": "San Diego",
       "zipcode": "92121",
@@ -117,7 +117,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "07299933",
+      "notice_id": "f34f050e",
       "company_name": "(3909) San Diego LGBT Community Center",
       "city": "San Diego",
       "zipcode": "92103",
@@ -128,7 +128,7 @@
       "neighborhood": "Hillcrest"
     },
     {
-      "notice_id": "143581c1",
+      "notice_id": "b38db236",
       "company_name": "(1640) San Diego LGBT Community Center",
       "city": "San Diego",
       "zipcode": "92101",
@@ -139,7 +139,7 @@
       "neighborhood": "Downtown"
     },
     {
-      "notice_id": "4a0a09c2",
+      "notice_id": "9ae6a3e7",
       "company_name": "(1045) San Diego LGBT Community Center",
       "city": "San Diego",
       "zipcode": "92101",
@@ -150,7 +150,7 @@
       "neighborhood": "Downtown"
     },
     {
-      "notice_id": "237bce64",
+      "notice_id": "d04facd9",
       "company_name": "(3636) San Diego LGBT Community Center",
       "city": "San Diego",
       "zipcode": "92103",
@@ -161,7 +161,7 @@
       "neighborhood": "Hillcrest"
     },
     {
-      "notice_id": "06f8299c",
+      "notice_id": "4b356165",
       "company_name": "(3878) San Diego LGBT Community Center",
       "city": "San Diego",
       "zipcode": "92110",
@@ -172,7 +172,7 @@
       "neighborhood": "Bay Park"
     },
     {
-      "notice_id": "40fcc797",
+      "notice_id": "8a9f3010",
       "company_name": "(514) San Diego LGBT Community Center",
       "city": "San Diego",
       "zipcode": "92103",
@@ -183,7 +183,7 @@
       "neighborhood": "Hillcrest"
     },
     {
-      "notice_id": "4d5ff734",
+      "notice_id": "c3e10bdc",
       "company_name": "(1807) San Diego LGBT Community Center",
       "city": "San Diego",
       "zipcode": "92103",
@@ -194,7 +194,7 @@
       "neighborhood": "Hillcrest"
     },
     {
-      "notice_id": "17ca0161",
+      "notice_id": "7bccdf5d",
       "company_name": "(3851) San Diego LGBT Community Center",
       "city": "San Diego",
       "zipcode": "92110",
@@ -205,7 +205,7 @@
       "neighborhood": "Bay Park"
     },
     {
-      "notice_id": "70a97e60",
+      "notice_id": "0a1b6c5a",
       "company_name": "(1180) San Diego LGBT Community Center",
       "city": "Chula Vista",
       "zipcode": "91911",
@@ -216,7 +216,7 @@
       "neighborhood": "Chula Vista"
     },
     {
-      "notice_id": "479d6404",
+      "notice_id": "963be04e",
       "company_name": "(3045) San Diego LGBT Community Center",
       "city": "San Diego",
       "zipcode": "92104",
@@ -227,7 +227,7 @@
       "neighborhood": "North Park"
     },
     {
-      "notice_id": "5ff9c9a5",
+      "notice_id": "59362ebc",
       "company_name": "(134) San Diego LGBT Community Center",
       "city": "Vista",
       "zipcode": "92083",
@@ -238,7 +238,7 @@
       "neighborhood": "Vista"
     },
     {
-      "notice_id": "368ee432",
+      "notice_id": "a691cbaa",
       "company_name": "(520) San Diego LGBT Community Center",
       "city": "Oceanside",
       "zipcode": "92054",
@@ -249,7 +249,7 @@
       "neighborhood": "Oceanside"
     },
     {
-      "notice_id": "6dcb859a",
+      "notice_id": "0c4e591d",
       "company_name": "(460) San Diego LGBT Community Center",
       "city": "El Cajon",
       "zipcode": "92020",
@@ -260,7 +260,7 @@
       "neighborhood": "El Cajon"
     },
     {
-      "notice_id": "5a5e7067",
+      "notice_id": "cf827634",
       "company_name": "(131) San Diego LGBT Community Center",
       "city": "El Cajon",
       "zipcode": "92020",
@@ -271,7 +271,7 @@
       "neighborhood": "El Cajon"
     },
     {
-      "notice_id": "495dba9c",
+      "notice_id": "d98070a3",
       "company_name": "Blue Shield of California - San Diego",
       "city": "San Diego",
       "zipcode": "92108",
@@ -282,7 +282,7 @@
       "neighborhood": "Mission Valley"
     },
     {
-      "notice_id": "74592c6b",
+      "notice_id": "0d55b362",
       "company_name": "Leah's Pantry",
       "city": "San Diego",
       "zipcode": "92109",
@@ -293,7 +293,7 @@
       "neighborhood": "Pacific Beach"
     },
     {
-      "notice_id": "5c048e36",
+      "notice_id": "eccccda2",
       "company_name": "Primo Brands, Inc.",
       "city": "Lakeside",
       "zipcode": "92040",
@@ -304,7 +304,7 @@
       "neighborhood": "Lakeside"
     },
     {
-      "notice_id": "16deb6b5",
+      "notice_id": "f30bd8c2",
       "company_name": "Primo Brands, Inc.",
       "city": "Oceanside",
       "zipcode": "92056",
@@ -315,7 +315,7 @@
       "neighborhood": "Oceanside"
     },
     {
-      "notice_id": "68c96322",
+      "notice_id": "2120931b",
       "company_name": "SSP America",
       "city": "San Diego",
       "zipcode": "92101",
@@ -326,7 +326,7 @@
       "neighborhood": "Downtown"
     },
     {
-      "notice_id": "0e608615",
+      "notice_id": "deba8c40",
       "company_name": "SenDx Medical, Inc.",
       "city": "Carlsbad",
       "zipcode": "92011",
@@ -337,7 +337,7 @@
       "neighborhood": "Carlsbad"
     },
     {
-      "notice_id": "07fda5c9",
+      "notice_id": "752d530a",
       "company_name": "Kaiser Foundation Hospitals",
       "city": "San Diego",
       "zipcode": "92130",
@@ -348,7 +348,7 @@
       "neighborhood": "Carmel Valley"
     },
     {
-      "notice_id": "48b201a9",
+      "notice_id": "eba5922e",
       "company_name": "Coastal Trading Ventures",
       "city": "Spring Valley",
       "zipcode": "91978",
@@ -359,7 +359,7 @@
       "neighborhood": "Spring Valley"
     },
     {
-      "notice_id": "4dc53ec4",
+      "notice_id": "dd8545dc",
       "company_name": "Thermo Fisher Scientific (5823)",
       "city": "Carlsbad",
       "zipcode": "92008",
@@ -370,7 +370,7 @@
       "neighborhood": "Carlsbad West"
     },
     {
-      "notice_id": "57f8e51b",
+      "notice_id": "27e7b56d",
       "company_name": "Thermo Fisher Scientific (5781)",
       "city": "Carlsbad",
       "zipcode": "92008",
@@ -381,7 +381,7 @@
       "neighborhood": "Carlsbad West"
     },
     {
-      "notice_id": "717ee3b6",
+      "notice_id": "57fa445b",
       "company_name": "Children's Specialists of San Diego",
       "city": "San Diego",
       "zipcode": "92123",
@@ -392,7 +392,7 @@
       "neighborhood": "Kearny Mesa"
     },
     {
-      "notice_id": "6bdf0b09",
+      "notice_id": "324eec35",
       "company_name": "Poseida Therapeutics, Inc.",
       "city": "San Diego",
       "zipcode": "92121",
@@ -403,7 +403,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "139ebf81",
+      "notice_id": "5708a74f",
       "company_name": "Gilead Sciences, Inc.",
       "city": "Oceanside",
       "zipcode": "92056",
@@ -414,7 +414,7 @@
       "neighborhood": "Oceanside"
     },
     {
-      "notice_id": "3d55cad1",
+      "notice_id": "7f566efa",
       "company_name": "Southwest Key Programs, Inc.",
       "city": "El Cajon",
       "zipcode": "92021",
@@ -425,7 +425,7 @@
       "neighborhood": "El Cajon"
     },
     {
-      "notice_id": "658f5578",
+      "notice_id": "d73d9090",
       "company_name": "TriLink Biotechnologies, LLC (10770)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -436,7 +436,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "46c26caf",
+      "notice_id": "21c5e737",
       "company_name": "TriLink Biotechnologies, LLC (5717)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -447,7 +447,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5f062756",
+      "notice_id": "0db2c6d5",
       "company_name": "TriLink Biotechnologies, LLC (10240)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -458,7 +458,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "48cb2223",
+      "notice_id": "8e99c74c",
       "company_name": "TriLink Biotechnologies, LLC (10247)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -469,7 +469,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "2245dd99",
+      "notice_id": "c61f35fe",
       "company_name": "Southwest Key Programs, Inc. - Casa San Diego",
       "city": "El Cajon",
       "zipcode": "92021",
@@ -480,7 +480,7 @@
       "neighborhood": "El Cajon"
     },
     {
-      "notice_id": "21277502",
+      "notice_id": "410b65cf",
       "company_name": "DexCom, Inc.",
       "city": "San Diego",
       "zipcode": "92121",
@@ -491,7 +491,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "3a665d8d",
+      "notice_id": "e77915a2",
       "company_name": "Sandpiper",
       "city": "San Diego",
       "zipcode": "92037",
@@ -502,7 +502,7 @@
       "neighborhood": "La Jolla"
     },
     {
-      "notice_id": "00dff3b3",
+      "notice_id": "6c8330fc",
       "company_name": "The Brigantine, Inc.",
       "city": "San Diego",
       "zipcode": "92127",
@@ -513,7 +513,7 @@
       "neighborhood": "Del Sur / 4S Ranch"
     },
     {
-      "notice_id": "42f235dd",
+      "notice_id": "30baa74f",
       "company_name": "Epic Lightning Fast Service LLC",
       "city": "San Diego",
       "zipcode": "92111",
@@ -524,7 +524,7 @@
       "neighborhood": "Linda Vista"
     },
     {
-      "notice_id": "4849699a",
+      "notice_id": "160488b7",
       "company_name": "CRC ED Treatment LLC, Montecatini, Inc. (2524)",
       "city": "Carlsbad",
       "zipcode": "92009",
@@ -535,7 +535,7 @@
       "neighborhood": "Carlsbad East"
     },
     {
-      "notice_id": "45133137",
+      "notice_id": "ca779469",
       "company_name": "CRC ED Treatment LLC, Montecatini, Inc. (6183)",
       "city": "Carlsbad",
       "zipcode": "92011",
@@ -546,7 +546,7 @@
       "neighborhood": "Carlsbad"
     },
     {
-      "notice_id": "61d02299",
+      "notice_id": "78ce9a41",
       "company_name": "CRC ED Treatment LLC, Montecatini, Inc. (Remote)",
       "city": "Carlsbad",
       "zipcode": "92009",
@@ -557,7 +557,7 @@
       "neighborhood": "Carlsbad East"
     },
     {
-      "notice_id": "544ca3dc",
+      "notice_id": "77121faf",
       "company_name": "Kaiser Foundation Hospitals (8954)",
       "city": "San Diego",
       "zipcode": "92108",
@@ -568,7 +568,7 @@
       "neighborhood": "Mission Valley"
     },
     {
-      "notice_id": "2632e979",
+      "notice_id": "a6bf57b6",
       "company_name": "Ballast Point Brewing Company - Miramar Location",
       "city": "San Diego",
       "zipcode": "92121",
@@ -579,7 +579,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "286781d3",
+      "notice_id": "4e8ce8a5",
       "company_name": "Ballast Point Brewing Company - Little Italy Location",
       "city": "San Diego",
       "zipcode": "92121",
@@ -590,7 +590,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "41e459be",
+      "notice_id": "564dc45e",
       "company_name": "Blue Shield of California 3131",
       "city": "San Diego",
       "zipcode": "92108",
@@ -601,7 +601,7 @@
       "neighborhood": "Mission Valley"
     },
     {
-      "notice_id": "797bddb5",
+      "notice_id": "0be538e9",
       "company_name": "Hilton San Diego Bayfront",
       "city": "San Diego",
       "zipcode": "92101",
@@ -612,7 +612,7 @@
       "neighborhood": "Downtown"
     },
     {
-      "notice_id": "043b8689",
+      "notice_id": "c99fee25",
       "company_name": "San Diego Imaging - Chula Vista, LLC",
       "city": "Chula Vista",
       "zipcode": "91911",
@@ -623,7 +623,7 @@
       "neighborhood": "Chula Vista"
     },
     {
-      "notice_id": "7815eb52",
+      "notice_id": "8a2a7d70",
       "company_name": "San Diego Imaging - Kearny Mesa",
       "city": "San Diego",
       "zipcode": "92123",
@@ -634,7 +634,7 @@
       "neighborhood": "Kearny Mesa"
     },
     {
-      "notice_id": "3421371c",
+      "notice_id": "f74fc96a",
       "company_name": "Louis Vuitton USA Inc.",
       "city": "San Diego",
       "zipcode": "92122",
@@ -645,7 +645,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "19eb972e",
+      "notice_id": "1e013828",
       "company_name": "Amazon (SAN 13)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -656,7 +656,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "00b9ac2c",
+      "notice_id": "7770daf8",
       "company_name": "Amazon (SAN 15)",
       "city": "San Diego",
       "zipcode": "92127",
@@ -667,7 +667,7 @@
       "neighborhood": "Del Sur / 4S Ranch"
     },
     {
-      "notice_id": "18783ed6",
+      "notice_id": "6b13c38b",
       "company_name": "Amazon (SAN 17)",
       "city": "San Diego",
       "zipcode": "92122",
@@ -678,7 +678,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "25113457",
+      "notice_id": "881c4f84",
       "company_name": "Amazon (SAN 18)",
       "city": "San Diego",
       "zipcode": "92122",
@@ -689,7 +689,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "5368386f",
+      "notice_id": "947f06ad",
       "company_name": "Amazon (SAN 21)",
       "city": "San Diego",
       "zipcode": "92122",
@@ -700,7 +700,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "733211cb",
+      "notice_id": "880cd2e6",
       "company_name": "Amazon (SAN 3)",
       "city": "San Diego",
       "zipcode": "92154",
@@ -711,7 +711,7 @@
       "neighborhood": "Otay Mesa"
     },
     {
-      "notice_id": "739c0333",
+      "notice_id": "c192a99c",
       "company_name": "Amazon (SAN 5)",
       "city": "San Diego",
       "zipcode": "92154",
@@ -722,7 +722,7 @@
       "neighborhood": "Otay Mesa"
     },
     {
-      "notice_id": "5959b105",
+      "notice_id": "b29f1611",
       "company_name": "WIS International",
       "city": "San Diego",
       "zipcode": "92123",
@@ -733,7 +733,7 @@
       "neighborhood": "Kearny Mesa"
     },
     {
-      "notice_id": "4bd23824",
+      "notice_id": "1957670d",
       "company_name": "Becton, Dickinson and Company (BD) (3750 Torrey View Court)",
       "city": "San Diego",
       "zipcode": "92130",
@@ -744,7 +744,7 @@
       "neighborhood": "Carmel Valley"
     },
     {
-      "notice_id": "4de025b8",
+      "notice_id": "a0f866f9",
       "company_name": "Becton, Dickinson and Company (BD) (10020 Pacific Mesa Boulevard)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -755,7 +755,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "2cb4482d",
+      "notice_id": "ca8c2b4d",
       "company_name": "Retail Service WIS Corporation, DBA WIS International",
       "city": "San Diego",
       "zipcode": "92123",
@@ -766,7 +766,7 @@
       "neighborhood": "Kearny Mesa"
     },
     {
-      "notice_id": "760850ae",
+      "notice_id": "824fc3ba",
       "company_name": "Infineon",
       "city": "San Diego",
       "zipcode": "92131",
@@ -777,7 +777,7 @@
       "neighborhood": "Scripps Ranch"
     },
     {
-      "notice_id": "7c3c250b",
+      "notice_id": "98b95cf1",
       "company_name": "Illumina, Inc. Worldwide Headquarters",
       "city": "San Diego",
       "zipcode": "92122",
@@ -788,7 +788,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "62d1918f",
+      "notice_id": "9967de70",
       "company_name": "Illumina, Inc.",
       "city": "San Diego",
       "zipcode": "92122",
@@ -799,7 +799,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "487757a6",
+      "notice_id": "ef3a2d72",
       "company_name": "Gilead Sciences, Inc.",
       "city": "Oceanside",
       "zipcode": "92056",
@@ -810,7 +810,7 @@
       "neighborhood": "Oceanside"
     },
     {
-      "notice_id": "47640166",
+      "notice_id": "227a443e",
       "company_name": "Illumina, Inc. Worldwide Headquarters",
       "city": "San Diego",
       "zipcode": "92122",
@@ -821,7 +821,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "2ff104b5",
+      "notice_id": "21e4b775",
       "company_name": "Blue Shield of California (San Diego)",
       "city": "San Diego",
       "zipcode": "92108",
@@ -832,7 +832,7 @@
       "neighborhood": "Mission Valley"
     },
     {
-      "notice_id": "4e326bda",
+      "notice_id": "f778afa2",
       "company_name": "The French Gourmet, Inc.",
       "city": "San Diego",
       "zipcode": "92109",
@@ -843,7 +843,7 @@
       "neighborhood": "Pacific Beach"
     },
     {
-      "notice_id": "62d191b2",
+      "notice_id": "6b7389ca",
       "company_name": "Illumina, Inc.",
       "city": "San Diego",
       "zipcode": "92122",
@@ -854,7 +854,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "62d2060f",
+      "notice_id": "68ade3bc",
       "company_name": "Illumina, Inc.",
       "city": "San Diego",
       "zipcode": "92122",
@@ -865,7 +865,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "2df9e231",
+      "notice_id": "bc325fed",
       "company_name": "Illumina, Inc.",
       "city": "San Diego",
       "zipcode": "92122",
@@ -876,7 +876,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "2df9e269",
+      "notice_id": "9ffa2124",
       "company_name": "Illumina, Inc.",
       "city": "San Diego",
       "zipcode": "92122",
@@ -887,7 +887,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "310d58d7",
+      "notice_id": "2a4f028d",
       "company_name": "FormFactor, Inc.",
       "city": "Carlsbad",
       "zipcode": "92011",
@@ -898,7 +898,7 @@
       "neighborhood": "Carlsbad"
     },
     {
-      "notice_id": "1af48d01",
+      "notice_id": "8a1009ce",
       "company_name": "Macy's",
       "city": "La Mesa",
       "zipcode": "91942",
@@ -909,7 +909,7 @@
       "neighborhood": "La Mesa"
     },
     {
-      "notice_id": "03c3743f",
+      "notice_id": "0a1cf193",
       "company_name": "Cucina Enoteca Del Mar",
       "city": "Del Mar",
       "zipcode": "92014",
@@ -920,7 +920,7 @@
       "neighborhood": "Del Mar"
     },
     {
-      "notice_id": "2c29632c",
+      "notice_id": "83e4a3cb",
       "company_name": "Copan Diagnostics, Inc.",
       "city": "Carlsbad",
       "zipcode": "92010",
@@ -931,7 +931,7 @@
       "neighborhood": "Carlsbad"
     },
     {
-      "notice_id": "2c5035fd",
+      "notice_id": "d5645c55",
       "company_name": "Best Buy",
       "city": "San Diego",
       "zipcode": "92128",
@@ -942,7 +942,7 @@
       "neighborhood": "Rancho Bernardo"
     },
     {
-      "notice_id": "27210d2e",
+      "notice_id": "49bfce3b",
       "company_name": "Primo Brands, Inc.",
       "city": "Lakeside",
       "zipcode": "92040",
@@ -953,7 +953,7 @@
       "neighborhood": "Lakeside"
     },
     {
-      "notice_id": "48784084",
+      "notice_id": "5b6e2f0d",
       "company_name": "Gilead Sciences, Inc.",
       "city": "Oceanside",
       "zipcode": "92056",
@@ -964,7 +964,7 @@
       "neighborhood": "Oceanside"
     },
     {
-      "notice_id": "793aa3a3",
+      "notice_id": "1767b6f3",
       "company_name": "Illumina, Inc Worldwide Headquarters",
       "city": "San Diego",
       "zipcode": "92122",
@@ -975,7 +975,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "7c3d0de9",
+      "notice_id": "214c6ea3",
       "company_name": "Illumina, Inc. Worldwide Headquarters",
       "city": "San Diego",
       "zipcode": "92122",
@@ -986,7 +986,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "71807d62",
+      "notice_id": "e10c1559",
       "company_name": "Catholic Charities, Diocese of San Diego - Mission Valley ASIP",
       "city": "San Diego",
       "zipcode": "92108",
@@ -997,7 +997,7 @@
       "neighborhood": "Mission Valley"
     },
     {
-      "notice_id": "2aeefd2d",
+      "notice_id": "ec117842",
       "company_name": "Catholic Charities, Diocese of San Diego - MG Suite A",
       "city": "San Diego",
       "zipcode": "92120",
@@ -1008,7 +1008,7 @@
       "neighborhood": "Grantville"
     },
     {
-      "notice_id": "434d26ce",
+      "notice_id": "3b567df9",
       "company_name": "Catholic Charities, Diocese of San Diego - MG Suite B",
       "city": "San Diego",
       "zipcode": "92120",
@@ -1019,7 +1019,7 @@
       "neighborhood": "Grantville"
     },
     {
-      "notice_id": "1cea6229",
+      "notice_id": "b8ac22d9",
       "company_name": "Catholic Charities, Diocese of San Diego - San Diego Migrant Shelter",
       "city": "San Diego",
       "zipcode": "92110",
@@ -1030,7 +1030,7 @@
       "neighborhood": "Bay Park"
     },
     {
-      "notice_id": "4d8439cf",
+      "notice_id": "be36c0e4",
       "company_name": "Catholic Charities, Diocese of San Diego - Pastoral Center",
       "city": "San Diego",
       "zipcode": "92117",
@@ -1041,7 +1041,7 @@
       "neighborhood": "Clairemont"
     },
     {
-      "notice_id": "08d6fdc9",
+      "notice_id": "c896b3dc",
       "company_name": "Thermo Fisher Scientific",
       "city": "Carlsbad",
       "zipcode": "92008",
@@ -1052,7 +1052,7 @@
       "neighborhood": "Carlsbad West"
     },
     {
-      "notice_id": "7ed94d1b",
+      "notice_id": "e4faa14c",
       "company_name": "Amazon - SAN 13",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1063,7 +1063,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "4e1cf9d9",
+      "notice_id": "dea479df",
       "company_name": "Amazon - SAN 15",
       "city": "San Diego",
       "zipcode": "92127",
@@ -1074,7 +1074,7 @@
       "neighborhood": "Del Sur / 4S Ranch"
     },
     {
-      "notice_id": "1d60a697",
+      "notice_id": "126db8f6",
       "company_name": "Amazon - SAN 17",
       "city": "San Diego",
       "zipcode": "92122",
@@ -1085,7 +1085,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "05027cf6",
+      "notice_id": "f1aace63",
       "company_name": "Amazon - SAN 18",
       "city": "San Diego",
       "zipcode": "92122",
@@ -1096,7 +1096,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "43d16a22",
+      "notice_id": "8a08253e",
       "company_name": "Amazon - SAN 21",
       "city": "San Diego",
       "zipcode": "92122",
@@ -1107,7 +1107,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "6369aa68",
+      "notice_id": "18f35dfc",
       "company_name": "Amazon - SAN 3",
       "city": "San Diego",
       "zipcode": "92154",
@@ -1118,7 +1118,7 @@
       "neighborhood": "Otay Mesa"
     },
     {
-      "notice_id": "0e9851c0",
+      "notice_id": "cba0fe29",
       "company_name": "Legacy Supply Chain",
       "city": "San Diego",
       "zipcode": "92120",
@@ -1129,7 +1129,7 @@
       "neighborhood": "Grantville"
     },
     {
-      "notice_id": "62815758",
+      "notice_id": "fd30733b",
       "company_name": "Medical Device Components LLC dba Lighteum Medical",
       "city": "San Diego",
       "zipcode": "92128",
@@ -1140,7 +1140,7 @@
       "neighborhood": "Rancho Bernardo"
     },
     {
-      "notice_id": "1c90b880",
+      "notice_id": "ec05f897",
       "company_name": "Intrepid Studios, Inc.",
       "city": "San Diego",
       "zipcode": "92130",
@@ -1151,7 +1151,7 @@
       "neighborhood": "Carmel Valley"
     },
     {
-      "notice_id": "36880cb8",
+      "notice_id": "5225b5c6",
       "company_name": "LPL Financial LLC",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1162,7 +1162,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5f9f0be3",
+      "notice_id": "91d2d858",
       "company_name": "Red O La Jolla, LCC",
       "city": "San Diego",
       "zipcode": "92122",
@@ -1173,7 +1173,7 @@
       "neighborhood": "University City"
     },
     {
-      "notice_id": "2ef018da",
+      "notice_id": "e8dbfbf9",
       "company_name": "The Vons Companies Inc.",
       "city": "Escondido",
       "zipcode": "92027",
@@ -1184,7 +1184,7 @@
       "neighborhood": "Escondido"
     },
     {
-      "notice_id": "7d74b7e8",
+      "notice_id": "cc06ab30",
       "company_name": "MedImpact Healthcare Systems, Inc.",
       "city": "San Diego",
       "zipcode": "92131",
@@ -1195,7 +1195,7 @@
       "neighborhood": "Scripps Ranch"
     },
     {
-      "notice_id": "1933368e",
+      "notice_id": "811427ec",
       "company_name": "Kintetsu World Express",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1206,7 +1206,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "357fcc4b",
+      "notice_id": "3d1d8989",
       "company_name": "Union of Pan Asian Communities (Neighborhood Enterprise Center)",
       "city": "San Diego",
       "zipcode": "92105",
@@ -1217,7 +1217,7 @@
       "neighborhood": "City Heights"
     },
     {
-      "notice_id": "1401b67e",
+      "notice_id": "7f902121",
       "company_name": "Blue Shield of California",
       "city": "San Diego",
       "zipcode": "92108",
@@ -1228,7 +1228,7 @@
       "neighborhood": "Mission Valley"
     },
     {
-      "notice_id": "176482ad",
+      "notice_id": "cf1583ae",
       "company_name": "Total Storage Solutions (Citrus Plaza Self Storage)",
       "city": "Fallbrook",
       "zipcode": "92028",
@@ -1239,7 +1239,7 @@
       "neighborhood": "Fallbrook"
     },
     {
-      "notice_id": "584fc8a3",
+      "notice_id": "eb4e688c",
       "company_name": "Comprehensive Autism Center",
       "city": "San Diego",
       "zipcode": "92123",
@@ -1250,7 +1250,7 @@
       "neighborhood": "Kearny Mesa"
     },
     {
-      "notice_id": "78c3c044",
+      "notice_id": "5902b555",
       "company_name": "Kay and Associates, Inc.",
       "city": "San Diego",
       "zipcode": "92055",
@@ -1261,7 +1261,7 @@
       "neighborhood": "San Diego"
     },
     {
-      "notice_id": "025354d8",
+      "notice_id": "94359356",
       "company_name": "F10 Oceanside LLC",
       "city": "Oceanside",
       "zipcode": "92054",
@@ -1272,7 +1272,7 @@
       "neighborhood": "Oceanside"
     },
     {
-      "notice_id": "1a0fc7ba",
+      "notice_id": "12e23e78",
       "company_name": "Qualcomm Incorporated (5775 Morehouse Drive)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1283,7 +1283,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "0d6452db",
+      "notice_id": "fc7dc43d",
       "company_name": "Qualcomm Incorporated (5565 Morehouse Drive)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1294,7 +1294,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "167259da",
+      "notice_id": "7b917572",
       "company_name": "Qualcomm Incorporated (6455 Lusk Blvd)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1305,7 +1305,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "2ff673e7",
+      "notice_id": "17aa83c6",
       "company_name": "Qualcomm Incorporated (5545 Morehouse Drive)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1316,7 +1316,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "12316f40",
+      "notice_id": "302256ed",
       "company_name": "Qualcomm Incorporated (5745 Pacific Center Blvd)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1327,7 +1327,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "0aa67d4e",
+      "notice_id": "62c74d8d",
       "company_name": "Qualcomm Incorporated (10185 McKellar Court)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1338,7 +1338,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "79e4ec03",
+      "notice_id": "6a599275",
       "company_name": "Qualcomm Incorporated (10350 Sorrento Valley Road)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1349,7 +1349,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "240c9023",
+      "notice_id": "6224e779",
       "company_name": "Qualcomm Incorporated (5737 Pacific Center Blvd)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1360,7 +1360,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "01d86730",
+      "notice_id": "2eaddcb7",
       "company_name": "Qualcomm Incorporated (4243 Campus Point Ct)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1371,7 +1371,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "6ce0acfe",
+      "notice_id": "2849ae14",
       "company_name": "Qualcomm Incorporated (10001 Pacific Heights Blvd)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1382,7 +1382,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "315c28b8",
+      "notice_id": "423260b9",
       "company_name": "Qualcomm Incorporated (5535 Morehouse Drive)",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1393,7 +1393,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "4bef6e1b",
+      "notice_id": "32af4dd0",
       "company_name": "Union of Pan Asian Communities - Positive Solutions and Elder Multicultural Access & Support Service",
       "city": "San Diego",
       "zipcode": "92115",
@@ -1404,7 +1404,7 @@
       "neighborhood": "College Area"
     },
     {
-      "notice_id": "6ed9960f",
+      "notice_id": "e0559261",
       "company_name": "Union of Pan Asian Communities - East Wind Clubhouse",
       "city": "San Diego",
       "zipcode": "92105",
@@ -1415,7 +1415,7 @@
       "neighborhood": "City Heights"
     },
     {
-      "notice_id": "1864ab88",
+      "notice_id": "78372c99",
       "company_name": "Consolidate Entertainment LLC",
       "city": "La Mesa",
       "zipcode": "91942",
@@ -1426,7 +1426,7 @@
       "neighborhood": "La Mesa"
     },
     {
-      "notice_id": "32b192ca",
+      "notice_id": "2e614c46",
       "company_name": "America's Finest Charter School - High School Program",
       "city": "San Diego",
       "zipcode": "92115",
@@ -1437,7 +1437,7 @@
       "neighborhood": "College Area"
     },
     {
-      "notice_id": "7b208444",
+      "notice_id": "9935bf8b",
       "company_name": "Gossamer Bio, Inc.",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1448,7 +1448,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5d4da843",
+      "notice_id": "ce1b029b",
       "company_name": "Qualcomm Incorporated",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1459,7 +1459,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5d4da843",
+      "notice_id": "ce1b029b",
       "company_name": "Qualcomm Incorporated",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1470,7 +1470,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5d4da843",
+      "notice_id": "ce1b029b",
       "company_name": "Qualcomm Incorporated",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1481,7 +1481,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5d4da843",
+      "notice_id": "ce1b029b",
       "company_name": "Qualcomm Incorporated",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1492,7 +1492,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5d4da843",
+      "notice_id": "ce1b029b",
       "company_name": "Qualcomm Incorporated",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1503,7 +1503,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5d4da843",
+      "notice_id": "ce1b029b",
       "company_name": "Qualcomm Incorporated",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1514,7 +1514,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5d4da843",
+      "notice_id": "ce1b029b",
       "company_name": "Qualcomm Incorporated",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1525,7 +1525,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5d4da843",
+      "notice_id": "ce1b029b",
       "company_name": "Qualcomm Incorporated",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1536,7 +1536,7 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "5d4da843",
+      "notice_id": "ce1b029b",
       "company_name": "Qualcomm Incorporated",
       "city": "San Diego",
       "zipcode": "92121",
@@ -1548,6 +1548,20 @@
     }
   ],
   "risk_scores": {
+    "92123": {
+      "score": 100,
+      "risk_level": "Critical",
+      "total_employees": 448,
+      "factors": [
+        "244 employees affected",
+        "62 employees affected",
+        "55 employees affected",
+        "32 employees affected",
+        "10 employees affected",
+        "35 employees affected",
+        "Plant closure"
+      ]
+    },
     "91911": {
       "score": 20,
       "risk_level": "Low",
@@ -1556,6 +1570,14 @@
         "34 employees affected",
         "3 employees affected",
         "63 employees affected"
+      ]
+    },
+    "92118": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 1,
+      "factors": [
+        "1 employees affected"
       ]
     },
     "91942": {
@@ -1567,6 +1589,28 @@
         "77 employees affected",
         "Plant closure",
         "63 employees affected"
+      ]
+    },
+    "92111": {
+      "score": 45,
+      "risk_level": "Moderate",
+      "total_employees": 129,
+      "factors": [
+        "13 employees affected",
+        "116 employees affected",
+        "Plant closure"
+      ]
+    },
+    "92110": {
+      "score": 18,
+      "risk_level": "Low",
+      "total_employees": 91,
+      "factors": [
+        "80 employees affected",
+        "Plant closure",
+        "3 employees affected",
+        "1 employees affected",
+        "7 employees affected"
       ]
     },
     "91978": {
@@ -1589,254 +1633,6 @@
         "52 employees affected",
         "33 employees affected",
         "173 employees affected"
-      ]
-    },
-    "92009": {
-      "score": 36,
-      "risk_level": "Moderate",
-      "total_employees": 82,
-      "factors": [
-        "79 employees affected",
-        "Plant closure",
-        "3 employees affected"
-      ]
-    },
-    "92010": {
-      "score": 35,
-      "risk_level": "Moderate",
-      "total_employees": 79,
-      "factors": [
-        "79 employees affected",
-        "Plant closure"
-      ]
-    },
-    "92011": {
-      "score": 66,
-      "risk_level": "High",
-      "total_employees": 231,
-      "factors": [
-        "119 employees affected",
-        "Plant closure",
-        "5 employees affected",
-        "107 employees affected"
-      ]
-    },
-    "92014": {
-      "score": 8,
-      "risk_level": "Low",
-      "total_employees": 43,
-      "factors": [
-        "43 employees affected"
-      ]
-    },
-    "92020": {
-      "score": 0,
-      "risk_level": "Low",
-      "total_employees": 2,
-      "factors": [
-        "1 employees affected"
-      ]
-    },
-    "92021": {
-      "score": 24,
-      "risk_level": "Low",
-      "total_employees": 121,
-      "factors": [
-        "5 employees affected",
-        "Plant closure",
-        "116 employees affected"
-      ]
-    },
-    "92027": {
-      "score": 33,
-      "risk_level": "Moderate",
-      "total_employees": 65,
-      "factors": [
-        "65 employees affected",
-        "Plant closure"
-      ]
-    },
-    "92028": {
-      "score": 0,
-      "risk_level": "Low",
-      "total_employees": 2,
-      "factors": [
-        "2 employees affected"
-      ]
-    },
-    "92037": {
-      "score": 25,
-      "risk_level": "Moderate",
-      "total_employees": 25,
-      "factors": [
-        "25 employees affected",
-        "Plant closure"
-      ]
-    },
-    "92040": {
-      "score": 4,
-      "risk_level": "Low",
-      "total_employees": 23,
-      "factors": [
-        "4 employees affected",
-        "19 employees affected"
-      ]
-    },
-    "92054": {
-      "score": 31,
-      "risk_level": "Moderate",
-      "total_employees": 59,
-      "factors": [
-        "1 employees affected",
-        "58 employees affected",
-        "Plant closure"
-      ]
-    },
-    "92055": {
-      "score": 20,
-      "risk_level": "Low",
-      "total_employees": 103,
-      "factors": [
-        "103 employees affected"
-      ]
-    },
-    "92056": {
-      "score": 11,
-      "risk_level": "Low",
-      "total_employees": 57,
-      "factors": [
-        "1 employees affected",
-        "5 employees affected",
-        "17 employees affected",
-        "34 employees affected"
-      ]
-    },
-    "92083": {
-      "score": 0,
-      "risk_level": "Low",
-      "total_employees": 1,
-      "factors": [
-        "1 employees affected"
-      ]
-    },
-    "92101": {
-      "score": 100,
-      "risk_level": "Critical",
-      "total_employees": 523,
-      "factors": [
-        "7 employees affected",
-        "6 employees affected",
-        "116 employees affected",
-        "394 employees affected"
-      ]
-    },
-    "92103": {
-      "score": 17,
-      "risk_level": "Low",
-      "total_employees": 87,
-      "factors": [
-        "60 employees affected",
-        "20 employees affected",
-        "2 employees affected",
-        "5 employees affected"
-      ]
-    },
-    "92104": {
-      "score": 0,
-      "risk_level": "Low",
-      "total_employees": 1,
-      "factors": [
-        "1 employees affected"
-      ]
-    },
-    "92105": {
-      "score": 4,
-      "risk_level": "Low",
-      "total_employees": 21,
-      "factors": [
-        "16 employees affected",
-        "Plant closure",
-        "5 employees affected"
-      ]
-    },
-    "92108": {
-      "score": 11,
-      "risk_level": "Low",
-      "total_employees": 56,
-      "factors": [
-        "2 employees affected",
-        "1 employees affected",
-        "4 employees affected",
-        "45 employees affected",
-        "3 employees affected"
-      ]
-    },
-    "92109": {
-      "score": 48,
-      "risk_level": "Moderate",
-      "total_employees": 142,
-      "factors": [
-        "40 employees affected",
-        "102 employees affected",
-        "Plant closure"
-      ]
-    },
-    "92110": {
-      "score": 18,
-      "risk_level": "Low",
-      "total_employees": 91,
-      "factors": [
-        "80 employees affected",
-        "Plant closure",
-        "3 employees affected",
-        "1 employees affected",
-        "7 employees affected"
-      ]
-    },
-    "92111": {
-      "score": 45,
-      "risk_level": "Moderate",
-      "total_employees": 129,
-      "factors": [
-        "13 employees affected",
-        "116 employees affected",
-        "Plant closure"
-      ]
-    },
-    "92115": {
-      "score": 24,
-      "risk_level": "Low",
-      "total_employees": 24,
-      "factors": [
-        "14 employees affected",
-        "10 employees affected",
-        "Plant closure"
-      ]
-    },
-    "92117": {
-      "score": 1,
-      "risk_level": "Low",
-      "total_employees": 6,
-      "factors": [
-        "6 employees affected"
-      ]
-    },
-    "92118": {
-      "score": 0,
-      "risk_level": "Low",
-      "total_employees": 1,
-      "factors": [
-        "1 employees affected"
-      ]
-    },
-    "92120": {
-      "score": 6,
-      "risk_level": "Low",
-      "total_employees": 32,
-      "factors": [
-        "7 employees affected",
-        "11 employees affected",
-        "14 employees affected"
       ]
     },
     "92121": {
@@ -1869,6 +1665,166 @@
         "6 employees affected"
       ]
     },
+    "92103": {
+      "score": 17,
+      "risk_level": "Low",
+      "total_employees": 87,
+      "factors": [
+        "60 employees affected",
+        "20 employees affected",
+        "2 employees affected",
+        "5 employees affected"
+      ]
+    },
+    "92101": {
+      "score": 100,
+      "risk_level": "Critical",
+      "total_employees": 523,
+      "factors": [
+        "7 employees affected",
+        "6 employees affected",
+        "116 employees affected",
+        "394 employees affected"
+      ]
+    },
+    "92104": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 1,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "92083": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 1,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "92054": {
+      "score": 31,
+      "risk_level": "Moderate",
+      "total_employees": 59,
+      "factors": [
+        "1 employees affected",
+        "58 employees affected",
+        "Plant closure"
+      ]
+    },
+    "92020": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 2,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "92108": {
+      "score": 11,
+      "risk_level": "Low",
+      "total_employees": 56,
+      "factors": [
+        "2 employees affected",
+        "1 employees affected",
+        "4 employees affected",
+        "45 employees affected",
+        "3 employees affected"
+      ]
+    },
+    "92109": {
+      "score": 48,
+      "risk_level": "Moderate",
+      "total_employees": 142,
+      "factors": [
+        "40 employees affected",
+        "102 employees affected",
+        "Plant closure"
+      ]
+    },
+    "92040": {
+      "score": 4,
+      "risk_level": "Low",
+      "total_employees": 23,
+      "factors": [
+        "4 employees affected",
+        "19 employees affected"
+      ]
+    },
+    "92056": {
+      "score": 11,
+      "risk_level": "Low",
+      "total_employees": 57,
+      "factors": [
+        "1 employees affected",
+        "5 employees affected",
+        "17 employees affected",
+        "34 employees affected"
+      ]
+    },
+    "92011": {
+      "score": 66,
+      "risk_level": "High",
+      "total_employees": 231,
+      "factors": [
+        "119 employees affected",
+        "Plant closure",
+        "5 employees affected",
+        "107 employees affected"
+      ]
+    },
+    "92130": {
+      "score": 56,
+      "risk_level": "High",
+      "total_employees": 183,
+      "factors": [
+        "1 employees affected",
+        "59 employees affected",
+        "123 employees affected",
+        "Plant closure"
+      ]
+    },
+    "92021": {
+      "score": 24,
+      "risk_level": "Low",
+      "total_employees": 121,
+      "factors": [
+        "5 employees affected",
+        "Plant closure",
+        "116 employees affected"
+      ]
+    },
+    "92037": {
+      "score": 25,
+      "risk_level": "Moderate",
+      "total_employees": 25,
+      "factors": [
+        "25 employees affected",
+        "Plant closure"
+      ]
+    },
+    "92127": {
+      "score": 23,
+      "risk_level": "Low",
+      "total_employees": 115,
+      "factors": [
+        "64 employees affected",
+        "Plant closure",
+        "50 employees affected",
+        "1 employees affected"
+      ]
+    },
+    "92009": {
+      "score": 36,
+      "risk_level": "Moderate",
+      "total_employees": 82,
+      "factors": [
+        "79 employees affected",
+        "Plant closure",
+        "3 employees affected"
+      ]
+    },
     "92122": {
       "score": 73,
       "risk_level": "Critical",
@@ -1890,29 +1846,38 @@
         "91 employees affected"
       ]
     },
-    "92123": {
-      "score": 100,
-      "risk_level": "Critical",
-      "total_employees": 448,
+    "92154": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 3,
       "factors": [
-        "244 employees affected",
-        "62 employees affected",
-        "55 employees affected",
-        "32 employees affected",
-        "10 employees affected",
-        "35 employees affected",
-        "Plant closure"
+        "1 employees affected"
       ]
     },
-    "92127": {
-      "score": 23,
-      "risk_level": "Low",
-      "total_employees": 115,
+    "92131": {
+      "score": 25,
+      "risk_level": "Moderate",
+      "total_employees": 128,
       "factors": [
-        "64 employees affected",
-        "Plant closure",
-        "50 employees affected",
-        "1 employees affected"
+        "3 employees affected",
+        "125 employees affected"
+      ]
+    },
+    "92014": {
+      "score": 8,
+      "risk_level": "Low",
+      "total_employees": 43,
+      "factors": [
+        "43 employees affected"
+      ]
+    },
+    "92010": {
+      "score": 35,
+      "risk_level": "Moderate",
+      "total_employees": 79,
+      "factors": [
+        "79 employees affected",
+        "Plant closure"
       ]
     },
     "92128": {
@@ -1925,32 +1890,67 @@
         "83 employees affected"
       ]
     },
-    "92130": {
-      "score": 56,
-      "risk_level": "High",
-      "total_employees": 183,
+    "92120": {
+      "score": 6,
+      "risk_level": "Low",
+      "total_employees": 32,
       "factors": [
-        "1 employees affected",
-        "59 employees affected",
-        "123 employees affected",
+        "7 employees affected",
+        "11 employees affected",
+        "14 employees affected"
+      ]
+    },
+    "92117": {
+      "score": 1,
+      "risk_level": "Low",
+      "total_employees": 6,
+      "factors": [
+        "6 employees affected"
+      ]
+    },
+    "92027": {
+      "score": 33,
+      "risk_level": "Moderate",
+      "total_employees": 65,
+      "factors": [
+        "65 employees affected",
         "Plant closure"
       ]
     },
-    "92131": {
-      "score": 25,
-      "risk_level": "Moderate",
-      "total_employees": 128,
+    "92105": {
+      "score": 4,
+      "risk_level": "Low",
+      "total_employees": 21,
       "factors": [
-        "3 employees affected",
-        "125 employees affected"
+        "16 employees affected",
+        "Plant closure",
+        "5 employees affected"
       ]
     },
-    "92154": {
+    "92028": {
       "score": 0,
       "risk_level": "Low",
-      "total_employees": 3,
+      "total_employees": 2,
       "factors": [
-        "1 employees affected"
+        "2 employees affected"
+      ]
+    },
+    "92055": {
+      "score": 20,
+      "risk_level": "Low",
+      "total_employees": 103,
+      "factors": [
+        "103 employees affected"
+      ]
+    },
+    "92115": {
+      "score": 24,
+      "risk_level": "Low",
+      "total_employees": 24,
+      "factors": [
+        "14 employees affected",
+        "10 employees affected",
+        "Plant closure"
       ]
     }
   },
