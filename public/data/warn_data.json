@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-04-28T09:14:24.037539",
+    "generated": "2026-04-29T09:06:05.281205",
     "county": "San Diego",
-    "total_notices": 140,
-    "total_employees_affected": 4963
+    "total_notices": 146,
+    "total_employees_affected": 5221
   },
   "notices": [
     {
@@ -1545,6 +1545,72 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "7a318dd8",
+      "company_name": "Epic Games Inc.",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 28,
+      "layoff_date": "2026-03-27",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "ad7af292",
+      "company_name": "Epic Games Inc. (Remote Employees in San Francisco)",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 28,
+      "layoff_date": "2026-03-27",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "8430677b",
+      "company_name": "Epic Games Inc. (Remote Employees in Los Angeles)",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 61,
+      "layoff_date": "2026-03-27",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "78c617a0",
+      "company_name": "Epic Games Inc. (Remote Employees in El Segundo)",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 2,
+      "layoff_date": "2026-03-27",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "9b83c1c1",
+      "company_name": "Black Tiger Medical Transportation",
+      "city": "Spring Valley",
+      "zipcode": "91977",
+      "employees_affected": 82,
+      "layoff_date": "2026-05-29",
+      "notice_type": "Layoff Permanent",
+      "region": "South County",
+      "neighborhood": "Spring Valley"
+    },
+    {
+      "notice_id": "ebc8ad48",
+      "company_name": "Apple Inc.",
+      "city": "Escondido",
+      "zipcode": "92025",
+      "employees_affected": 57,
+      "layoff_date": "2026-06-24",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
     }
   ],
   "risk_scores": {
@@ -1679,12 +1745,15 @@
     "92101": {
       "score": 100,
       "risk_level": "Critical",
-      "total_employees": 523,
+      "total_employees": 642,
       "factors": [
         "7 employees affected",
         "6 employees affected",
         "116 employees affected",
-        "394 employees affected"
+        "394 employees affected",
+        "28 employees affected",
+        "61 employees affected",
+        "2 employees affected"
       ]
     },
     "92104": {
@@ -1952,6 +2021,23 @@
         "10 employees affected",
         "Plant closure"
       ]
+    },
+    "91977": {
+      "score": 16,
+      "risk_level": "Low",
+      "total_employees": 82,
+      "factors": [
+        "82 employees affected"
+      ]
+    },
+    "92025": {
+      "score": 31,
+      "risk_level": "Moderate",
+      "total_employees": 57,
+      "factors": [
+        "57 employees affected",
+        "Plant closure"
+      ]
     }
   },
   "by_region": {
@@ -1960,8 +2046,8 @@
       "total_employees": 2401
     },
     "South County": {
-      "notice_count": 8,
-      "total_employees": 204
+      "notice_count": 9,
+      "total_employees": 286
     },
     "Coastal": {
       "notice_count": 19,
@@ -1972,12 +2058,12 @@
       "total_employees": 326
     },
     "Urban San Diego": {
-      "notice_count": 11,
-      "total_employees": 632
+      "notice_count": 15,
+      "total_employees": 751
     },
     "North County Inland": {
-      "notice_count": 9,
-      "total_employees": 460
+      "notice_count": 10,
+      "total_employees": 517
     },
     "San Diego County": {
       "notice_count": 1,
