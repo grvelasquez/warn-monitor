@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-05-05T09:04:16.765133",
+    "generated": "2026-05-06T09:17:32.200309",
     "county": "San Diego",
-    "total_notices": 146,
-    "total_employees_affected": 5221
+    "total_notices": 147,
+    "total_employees_affected": 5222
   },
   "notices": [
     {
@@ -1415,8 +1415,8 @@
       "neighborhood": "City Heights"
     },
     {
-      "notice_id": "78372c99",
-      "company_name": "Consolidate Entertainment LLC",
+      "notice_id": "aa83c8bf",
+      "company_name": "Consolidated Entertainment LLC (Reading Cinemas",
       "city": "La Mesa",
       "zipcode": "91942",
       "employees_affected": 63,
@@ -1448,8 +1448,8 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "ce1b029b",
-      "company_name": "Qualcomm Incorporated",
+      "notice_id": "9e9b8c6d",
+      "company_name": "Qualcomm Incorporated (5565 Morehouse Drive)",
       "city": "San Diego",
       "zipcode": "92121",
       "employees_affected": 10,
@@ -1459,8 +1459,8 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "ce1b029b",
-      "company_name": "Qualcomm Incorporated",
+      "notice_id": "df83b413",
+      "company_name": "Qualcomm Incorporated (5525 Morehouse Drive)",
       "city": "San Diego",
       "zipcode": "92121",
       "employees_affected": 11,
@@ -1470,8 +1470,8 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "ce1b029b",
-      "company_name": "Qualcomm Incorporated",
+      "notice_id": "c9ada9ac",
+      "company_name": "Qualcomm Incorporated (5665 Morehouse Drive)",
       "city": "San Diego",
       "zipcode": "92121",
       "employees_affected": 6,
@@ -1481,8 +1481,8 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "ce1b029b",
-      "company_name": "Qualcomm Incorporated",
+      "notice_id": "41bb7b5a",
+      "company_name": "Qualcomm Incorporated (10145 Pacific Heights Blvd.)",
       "city": "San Diego",
       "zipcode": "92121",
       "employees_affected": 3,
@@ -1492,8 +1492,8 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "ce1b029b",
-      "company_name": "Qualcomm Incorporated",
+      "notice_id": "6c8b627d",
+      "company_name": "Qualcomm Incorporated (6455 Lusk Blvd.)",
       "city": "San Diego",
       "zipcode": "92121",
       "employees_affected": 2,
@@ -1503,8 +1503,8 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "ce1b029b",
-      "company_name": "Qualcomm Incorporated",
+      "notice_id": "42f80438",
+      "company_name": "Qualcomm Incorporated (10185 McKellar Ct.)",
       "city": "San Diego",
       "zipcode": "92121",
       "employees_affected": 1,
@@ -1514,8 +1514,8 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "ce1b029b",
-      "company_name": "Qualcomm Incorporated",
+      "notice_id": "c135c581",
+      "company_name": "Qualcomm Incorporated (5745 Pacific Center Blvd.)",
       "city": "San Diego",
       "zipcode": "92121",
       "employees_affected": 2,
@@ -1525,8 +1525,8 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "ce1b029b",
-      "company_name": "Qualcomm Incorporated",
+      "notice_id": "cc0b5f14",
+      "company_name": "Qualcomm Incorporated (10160 Pacific Mesa Blvd.)",
       "city": "San Diego",
       "zipcode": "92121",
       "employees_affected": 1,
@@ -1536,8 +1536,8 @@
       "neighborhood": "Sorrento Valley"
     },
     {
-      "notice_id": "ce1b029b",
-      "company_name": "Qualcomm Incorporated",
+      "notice_id": "f2f7df67",
+      "company_name": "Qualcomm Incorporated (10445 Pacific Center Court)",
       "city": "San Diego",
       "zipcode": "92121",
       "employees_affected": 2,
@@ -1545,6 +1545,17 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "4729a8e8",
+      "company_name": "Boeing Company - San Diego",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 1,
+      "layoff_date": "2026-06-12",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Downtown"
     },
     {
       "notice_id": "7a318dd8",
@@ -1745,12 +1756,13 @@
     "92101": {
       "score": 100,
       "risk_level": "Critical",
-      "total_employees": 642,
+      "total_employees": 643,
       "factors": [
         "7 employees affected",
         "6 employees affected",
         "116 employees affected",
         "394 employees affected",
+        "1 employees affected",
         "28 employees affected",
         "61 employees affected",
         "2 employees affected"
@@ -2058,8 +2070,8 @@
       "total_employees": 326
     },
     "Urban San Diego": {
-      "notice_count": 15,
-      "total_employees": 751
+      "notice_count": 16,
+      "total_employees": 752
     },
     "North County Inland": {
       "notice_count": 10,
