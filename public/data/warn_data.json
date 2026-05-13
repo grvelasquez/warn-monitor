@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-05-12T09:30:24.983434",
+    "generated": "2026-05-13T09:38:27.752334",
     "county": "San Diego",
     "total_notices": 147,
     "total_employees_affected": 5222
@@ -1602,12 +1602,12 @@
       "neighborhood": "Downtown"
     },
     {
-      "notice_id": "9b83c1c1",
+      "notice_id": "4fac444c",
       "company_name": "Black Tiger Medical Transportation",
       "city": "Spring Valley",
       "zipcode": "91977",
       "employees_affected": 82,
-      "layoff_date": "2026-05-29",
+      "layoff_date": "2026-06-28",
       "notice_type": "Layoff Permanent",
       "region": "South County",
       "neighborhood": "Spring Valley"
