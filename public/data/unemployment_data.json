@@ -1,11 +1,11 @@
 {
   "meta": {
-    "generated": "2026-05-18T18:51:19.705848",
+    "generated": "2026-05-25T18:24:55.310992",
     "source": "California EDD - Local Area Unemployment Statistics (LAUS)",
     "area": "San Diego County",
-    "lastUpdate": "2026-03"
+    "lastUpdate": "2026-04"
   },
-  "currentRate": 4.3,
+  "currentRate": 4.1,
   "history": [
     {
       "date": "2023-01",
@@ -42,10 +42,6 @@
     {
       "date": "2023-11",
       "rate": 4.0
-    },
-    {
-      "date": "2023-12",
-      "rate": 3.9
     },
     {
       "date": "2024-01",
@@ -150,6 +146,10 @@
     {
       "date": "2026-03",
       "rate": 4.3
+    },
+    {
+      "date": "2026-04",
+      "rate": 4.1
     }
   ]
 }
