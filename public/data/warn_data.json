@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-05-25T11:05:30.862947",
+    "generated": "2026-05-27T10:51:17.348708",
     "county": "San Diego",
-    "total_notices": 147,
-    "total_employees_affected": 5222
+    "total_notices": 148,
+    "total_employees_affected": 5499
   },
   "notices": [
     {
@@ -1622,6 +1622,17 @@
       "notice_type": "Closure Permanent",
       "region": "North County Inland",
       "neighborhood": "Escondido"
+    },
+    {
+      "notice_id": "ec573eca",
+      "company_name": "Intuit Inc.",
+      "city": "San Diego",
+      "zipcode": "92129",
+      "employees_affected": 277,
+      "layoff_date": "2026-07-31",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Rancho Pe\u00f1asquitos"
     }
   ],
   "risk_scores": {
@@ -2050,12 +2061,20 @@
         "57 employees affected",
         "Plant closure"
       ]
+    },
+    "92129": {
+      "score": 55,
+      "risk_level": "High",
+      "total_employees": 277,
+      "factors": [
+        "277 employees affected"
+      ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 83,
-      "total_employees": 2401
+      "notice_count": 84,
+      "total_employees": 2678
     },
     "South County": {
       "notice_count": 9,
