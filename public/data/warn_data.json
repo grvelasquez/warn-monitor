@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-06-02T11:13:04.007723",
+    "generated": "2026-06-03T11:51:04.016963",
     "county": "San Diego",
-    "total_notices": 148,
-    "total_employees_affected": 5499
+    "total_notices": 150,
+    "total_employees_affected": 5584
   },
   "notices": [
     {
@@ -1633,6 +1633,28 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Rancho Pe\u00f1asquitos"
+    },
+    {
+      "notice_id": "e93e9aec",
+      "company_name": "CHW Entertainment, Inc. dba The Shout! House and Garage",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 77,
+      "layoff_date": "2026-08-03",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "ee4cb35d",
+      "company_name": "Blue Shield of California",
+      "city": "San Diego",
+      "zipcode": "92108",
+      "employees_affected": 8,
+      "layoff_date": "2026-07-28",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Mission Valley"
     }
   ],
   "risk_scores": {
@@ -1767,7 +1789,7 @@
     "92101": {
       "score": 100,
       "risk_level": "Critical",
-      "total_employees": 643,
+      "total_employees": 720,
       "factors": [
         "7 employees affected",
         "6 employees affected",
@@ -1776,7 +1798,8 @@
         "1 employees affected",
         "28 employees affected",
         "61 employees affected",
-        "2 employees affected"
+        "2 employees affected",
+        "77 employees affected"
       ]
     },
     "92104": {
@@ -1814,15 +1837,16 @@
       ]
     },
     "92108": {
-      "score": 11,
+      "score": 12,
       "risk_level": "Low",
-      "total_employees": 56,
+      "total_employees": 64,
       "factors": [
         "2 employees affected",
         "1 employees affected",
         "4 employees affected",
         "45 employees affected",
-        "3 employees affected"
+        "3 employees affected",
+        "8 employees affected"
       ]
     },
     "92109": {
@@ -2073,8 +2097,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 84,
-      "total_employees": 2678
+      "notice_count": 85,
+      "total_employees": 2686
     },
     "South County": {
       "notice_count": 9,
@@ -2089,8 +2113,8 @@
       "total_employees": 326
     },
     "Urban San Diego": {
-      "notice_count": 16,
-      "total_employees": 752
+      "notice_count": 17,
+      "total_employees": 829
     },
     "North County Inland": {
       "notice_count": 10,
