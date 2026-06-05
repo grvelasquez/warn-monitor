@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-06-04T10:34:44.114130",
+    "generated": "2026-06-05T10:41:41.314662",
     "county": "San Diego",
-    "total_notices": 150,
-    "total_employees_affected": 5584
+    "total_notices": 167,
+    "total_employees_affected": 5625
   },
   "notices": [
     {
@@ -1655,13 +1655,200 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "d6ca961d",
+      "company_name": "Off Duty Officers, Inc. (12855 Black Mountain Rd.)",
+      "city": "San Diego",
+      "zipcode": "92129",
+      "employees_affected": 2,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Rancho Pe\u00f1asquitos"
+    },
+    {
+      "notice_id": "ee0e342d",
+      "company_name": "Off Duty Officers, Inc. (1196 3rd Ave.)",
+      "city": "Chula Vista",
+      "zipcode": "91911",
+      "employees_affected": 1,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "South County",
+      "neighborhood": "Chula Vista"
+    },
+    {
+      "notice_id": "62b59f3e",
+      "company_name": "Off Duty Officers, Inc. (1081-1139 South Mission Rd.)",
+      "city": "Fallbrook",
+      "zipcode": "92028",
+      "employees_affected": 2,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Fallbrook"
+    },
+    {
+      "notice_id": "b24d0082",
+      "company_name": "Off Duty Officers, Inc. (1250 Delevan Dr.)",
+      "city": "San Diego",
+      "zipcode": "92102",
+      "employees_affected": 5,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Golden Hill"
+    },
+    {
+      "notice_id": "80fa6b37",
+      "company_name": "Off Duty Officers, Inc. (789 W Harbor Dr.)",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 5,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "77da4efe",
+      "company_name": "Off Duty Officers, Inc. (999 Woodlake Dr.)",
+      "city": "Encinitas",
+      "zipcode": "92007",
+      "employees_affected": 1,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Coastal",
+      "neighborhood": "Cardiff"
+    },
+    {
+      "notice_id": "16c876a4",
+      "company_name": "Off Duty Officers, Inc. (151 Van Houten Ave.)",
+      "city": "El Cajon",
+      "zipcode": "92020",
+      "employees_affected": 3,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "East County",
+      "neighborhood": "El Cajon"
+    },
+    {
+      "notice_id": "2b61f211",
+      "company_name": "Off Duty Officers, Inc. (123 35th St.)",
+      "city": "San Diego",
+      "zipcode": "92102",
+      "employees_affected": 2,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Golden Hill"
+    },
+    {
+      "notice_id": "ef062b92",
+      "company_name": "Off Duty Officers, Inc. (3333 National Ave.)",
+      "city": "San Diego",
+      "zipcode": "92113",
+      "employees_affected": 2,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Logan Heights"
+    },
+    {
+      "notice_id": "cebf8823",
+      "company_name": "Off Duty Officers, Inc. (8 Crestwood Rd.)",
+      "city": "San Diego",
+      "zipcode": "91905",
+      "employees_affected": 1,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "San Diego County",
+      "neighborhood": "San Diego"
+    },
+    {
+      "notice_id": "baa74e4d",
+      "company_name": "Off Duty Officers, Inc. (4058 Willows Rd.)",
+      "city": "Alpine",
+      "zipcode": "91901",
+      "employees_affected": 1,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "East County",
+      "neighborhood": "Alpine"
+    },
+    {
+      "notice_id": "f8a5542a",
+      "company_name": "Off Duty Officers, Inc. (8725 Ariva Ct.)",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 3,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "6a1fd263",
+      "company_name": "Off Duty Officers, Inc. (262 North El Camino Real)",
+      "city": "Encinitas",
+      "zipcode": "92024",
+      "employees_affected": 3,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Coastal",
+      "neighborhood": "Encinitas"
+    },
+    {
+      "notice_id": "737253d1",
+      "company_name": "Off Duty Officers, Inc. (1500-1552 Encinitas Blvd.)",
+      "city": "Encinitas",
+      "zipcode": "92024",
+      "employees_affected": 2,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Coastal",
+      "neighborhood": "Encinitas"
+    },
+    {
+      "notice_id": "1cb04a60",
+      "company_name": "Off Duty Officers, Inc. (105-133 North El Camino Real)",
+      "city": "Encinitas",
+      "zipcode": "92024",
+      "employees_affected": 2,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Coastal",
+      "neighborhood": "Encinitas"
+    },
+    {
+      "notice_id": "0ea82ac8",
+      "company_name": "Off Duty Officers, Inc. (3439 Via Montebello)",
+      "city": "Carlsbad",
+      "zipcode": "92009",
+      "employees_affected": 4,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Carlsbad East"
+    },
+    {
+      "notice_id": "e4ae43a0",
+      "company_name": "Off Duty Officers, Inc. (10615 Tierrasanta Blvd.)",
+      "city": "San Diego",
+      "zipcode": "92124",
+      "employees_affected": 2,
+      "layoff_date": "2026-07-30",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Tierrasanta"
     }
   ],
   "risk_scores": {
     "92123": {
-      "score": 100,
+      "score": 90,
       "risk_level": "Critical",
-      "total_employees": 448,
+      "total_employees": 451,
       "factors": [
         "244 employees affected",
         "62 employees affected",
@@ -1669,17 +1856,19 @@
         "32 employees affected",
         "10 employees affected",
         "35 employees affected",
-        "Plant closure"
+        "Plant closure",
+        "3 employees affected"
       ]
     },
     "91911": {
       "score": 20,
       "risk_level": "Low",
-      "total_employees": 100,
+      "total_employees": 101,
       "factors": [
         "34 employees affected",
         "3 employees affected",
-        "63 employees affected"
+        "63 employees affected",
+        "1 employees affected"
       ]
     },
     "92118": {
@@ -1789,7 +1978,7 @@
     "92101": {
       "score": 100,
       "risk_level": "Critical",
-      "total_employees": 720,
+      "total_employees": 725,
       "factors": [
         "7 employees affected",
         "6 employees affected",
@@ -1799,7 +1988,8 @@
         "28 employees affected",
         "61 employees affected",
         "2 employees affected",
-        "77 employees affected"
+        "77 employees affected",
+        "5 employees affected"
       ]
     },
     "92104": {
@@ -1829,11 +2019,12 @@
       ]
     },
     "92020": {
-      "score": 0,
+      "score": 1,
       "risk_level": "Low",
-      "total_employees": 2,
+      "total_employees": 5,
       "factors": [
-        "1 employees affected"
+        "1 employees affected",
+        "3 employees affected"
       ]
     },
     "92108": {
@@ -1932,13 +2123,14 @@
       ]
     },
     "92009": {
-      "score": 36,
-      "risk_level": "Moderate",
-      "total_employees": 82,
+      "score": 17,
+      "risk_level": "Low",
+      "total_employees": 86,
       "factors": [
         "79 employees affected",
         "Plant closure",
-        "3 employees affected"
+        "3 employees affected",
+        "4 employees affected"
       ]
     },
     "92122": {
@@ -2046,7 +2238,7 @@
     "92028": {
       "score": 0,
       "risk_level": "Low",
-      "total_employees": 2,
+      "total_employees": 4,
       "factors": [
         "2 employees affected"
       ]
@@ -2089,40 +2281,99 @@
     "92129": {
       "score": 55,
       "risk_level": "High",
-      "total_employees": 277,
+      "total_employees": 279,
       "factors": [
-        "277 employees affected"
+        "277 employees affected",
+        "2 employees affected"
+      ]
+    },
+    "92102": {
+      "score": 1,
+      "risk_level": "Low",
+      "total_employees": 7,
+      "factors": [
+        "5 employees affected",
+        "2 employees affected"
+      ]
+    },
+    "92007": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 1,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "92113": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 2,
+      "factors": [
+        "2 employees affected"
+      ]
+    },
+    "91905": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 1,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "91901": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 1,
+      "factors": [
+        "1 employees affected"
+      ]
+    },
+    "92024": {
+      "score": 1,
+      "risk_level": "Low",
+      "total_employees": 7,
+      "factors": [
+        "3 employees affected",
+        "2 employees affected"
+      ]
+    },
+    "92124": {
+      "score": 0,
+      "risk_level": "Low",
+      "total_employees": 2,
+      "factors": [
+        "2 employees affected"
       ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 85,
-      "total_employees": 2686
+      "notice_count": 88,
+      "total_employees": 2693
     },
     "South County": {
-      "notice_count": 9,
-      "total_employees": 286
+      "notice_count": 10,
+      "total_employees": 287
     },
     "Coastal": {
-      "notice_count": 19,
-      "total_employees": 837
+      "notice_count": 23,
+      "total_employees": 845
     },
     "East County": {
-      "notice_count": 9,
-      "total_employees": 326
+      "notice_count": 11,
+      "total_employees": 330
     },
     "Urban San Diego": {
-      "notice_count": 17,
-      "total_employees": 829
+      "notice_count": 21,
+      "total_employees": 843
     },
     "North County Inland": {
-      "notice_count": 10,
-      "total_employees": 517
+      "notice_count": 12,
+      "total_employees": 523
     },
     "San Diego County": {
-      "notice_count": 1,
-      "total_employees": 103
+      "notice_count": 2,
+      "total_employees": 104
     }
   }
 }
