@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-06-11T11:18:54.064171",
+    "generated": "2026-06-12T10:57:12.173112",
     "county": "San Diego",
-    "total_notices": 167,
-    "total_employees_affected": 5625
+    "total_notices": 168,
+    "total_employees_affected": 5688
   },
   "notices": [
     {
@@ -1842,6 +1842,17 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Tierrasanta"
+    },
+    {
+      "notice_id": "00f807af",
+      "company_name": "ServiceNow, Inc.",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 63,
+      "layoff_date": "2026-08-17",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
     }
   ],
   "risk_scores": {
@@ -1937,7 +1948,7 @@
     "92121": {
       "score": 100,
       "risk_level": "Critical",
-      "total_employees": 885,
+      "total_employees": 948,
       "factors": [
         "71 employees affected",
         "52 employees affected",
@@ -1961,7 +1972,8 @@
         "1 employees affected",
         "65 employees affected",
         "10 employees affected",
-        "6 employees affected"
+        "6 employees affected",
+        "63 employees affected"
       ]
     },
     "92103": {
@@ -2348,8 +2360,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 88,
-      "total_employees": 2693
+      "notice_count": 89,
+      "total_employees": 2756
     },
     "South County": {
       "notice_count": 10,
