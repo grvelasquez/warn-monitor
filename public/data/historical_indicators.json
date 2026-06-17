@@ -2484,5 +2484,27 @@
       "daysOnMarket": 41,
       "newListings": 1327
     }
+  },
+  {
+    "period": "2026-05",
+    "year": 2026,
+    "month": 5,
+    "monthName": "May",
+    "detached": {
+      "medianPrice": 1099500,
+      "closedSales": 1308,
+      "inventory": 2974,
+      "monthsSupply": 2.4,
+      "daysOnMarket": 29,
+      "newListings": 1818
+    },
+    "attached": {
+      "medianPrice": 675000,
+      "closedSales": 736,
+      "inventory": 2824,
+      "monthsSupply": 4.0,
+      "daysOnMarket": 40,
+      "newListings": 1352
+    }
   }
 ]

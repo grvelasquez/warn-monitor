@@ -309,7 +309,7 @@ def parse_supply_pdf(pdf_path):
         'meta': {
             'generated': datetime.now().isoformat(),
             'source': 'SDAR Housing Supply Overview Report',
-            'report_period': 'April 2026'
+            'report_period': 'May 2026'
         }
     }
     
@@ -358,8 +358,8 @@ def parse_supply_pdf(pdf_path):
 
 def main():
     """Main function."""
-    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "April 2026"
-    pdf_path = reports_dir / "April Housing Supply.pdf"
+    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "May 2026"
+    pdf_path = reports_dir / "May Housing Supply.pdf"
     output_path = Path(__file__).parent.parent / "public" / "data" / "housing_supply_data.json"
     
     if not pdf_path.exists():
