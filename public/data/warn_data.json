@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-06-23T10:30:45.256783",
+    "generated": "2026-06-24T10:16:04.474434",
     "county": "San Diego",
-    "total_notices": 168,
-    "total_employees_affected": 5688
+    "total_notices": 169,
+    "total_employees_affected": 5835
   },
   "notices": [
     {
@@ -1853,6 +1853,17 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "1537e113",
+      "company_name": "Chick-fil-A",
+      "city": "Chula Vista",
+      "zipcode": "91915",
+      "employees_affected": 147,
+      "layoff_date": "2026-08-15",
+      "notice_type": "Closure Temporary",
+      "region": "South County",
+      "neighborhood": "Otay Ranch"
     }
   ],
   "risk_scores": {
@@ -2356,6 +2367,15 @@
       "factors": [
         "2 employees affected"
       ]
+    },
+    "91915": {
+      "score": 49,
+      "risk_level": "Moderate",
+      "total_employees": 147,
+      "factors": [
+        "147 employees affected",
+        "Plant closure"
+      ]
     }
   },
   "by_region": {
@@ -2364,8 +2384,8 @@
       "total_employees": 2756
     },
     "South County": {
-      "notice_count": 10,
-      "total_employees": 287
+      "notice_count": 11,
+      "total_employees": 434
     },
     "Coastal": {
       "notice_count": 23,
