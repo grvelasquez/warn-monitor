@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-07-02T09:55:05.538901",
+    "generated": "2026-07-03T09:51:46.722013",
     "county": "San Diego",
-    "total_notices": 169,
-    "total_employees_affected": 5835
+    "total_notices": 170,
+    "total_employees_affected": 5892
   },
   "notices": [
     {
@@ -1864,13 +1864,24 @@
       "notice_type": "Closure Temporary",
       "region": "South County",
       "neighborhood": "Otay Ranch"
+    },
+    {
+      "notice_id": "b0e9a5ff",
+      "company_name": "Federal Express Corporation",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 57,
+      "layoff_date": "2026-08-31",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
     }
   ],
   "risk_scores": {
     "92123": {
-      "score": 90,
+      "score": 100,
       "risk_level": "Critical",
-      "total_employees": 451,
+      "total_employees": 508,
       "factors": [
         "244 employees affected",
         "62 employees affected",
@@ -1879,7 +1890,8 @@
         "10 employees affected",
         "35 employees affected",
         "Plant closure",
-        "3 employees affected"
+        "3 employees affected",
+        "57 employees affected"
       ]
     },
     "91911": {
@@ -2380,8 +2392,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 89,
-      "total_employees": 2756
+      "notice_count": 90,
+      "total_employees": 2813
     },
     "South County": {
       "notice_count": 11,
