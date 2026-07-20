@@ -390,13 +390,13 @@ def extract_area_median_price(text):
     
     return areas
 
-def parse_lender_mediated_pdf(pdf_path):
+def parse_lender_mediated_pdf(pdf_path, period):
     """Parse the entire Lender-Mediated Properties Report PDF."""
     result = {
         'meta': {
             'generated': datetime.now().isoformat(),
             'source': 'SDAR Lender-Mediated Properties Report',
-            'report_period': 'June 2026'
+            'report_period': period
         }
     }
     
@@ -441,8 +441,10 @@ def parse_lender_mediated_pdf(pdf_path):
 
 def main():
     """Main function."""
-    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "June 2026"
-    pdf_path = reports_dir / "June Lender Mediated.pdf"
+    from sdar_common import resolve_report_month
+    reports_dir, period, month_name = resolve_report_month("Parse SDAR Lender-Mediated Properties PDF")
+    pdf_path = reports_dir / f"{month_name} Lender Mediated.pdf"
+    print(f"Report period: {period}")
     output_path = Path(__file__).parent.parent / "public" / "data" / "lender_mediated_data.json"
     
     if not pdf_path.exists():
@@ -450,7 +452,7 @@ def main():
         return
     
     print(f"Parsing: {pdf_path}")
-    data = parse_lender_mediated_pdf(pdf_path)
+    data = parse_lender_mediated_pdf(pdf_path, period)
     
     # Print summary
     summary = data.get('summary', {})

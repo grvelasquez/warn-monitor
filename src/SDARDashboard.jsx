@@ -14,6 +14,7 @@ const FilterIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" heig
 const XIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>;
 
 import { regions } from './sdarData';
+import { parseReportPeriod } from './utils/reportPeriod';
 import { aiAnalysisData } from './aiAnalysisData';
 
 // Icons as simple SVG components
@@ -43,6 +44,9 @@ export default function SDARDashboard({ setActiveView }) {
     const [selectedZip, setSelectedZip] = useState('all');
     const [neighborhoodData, setNeighborhoodData] = useState(DEFAULT_NEIGHBORHOOD_DATA);
     const [loading, setLoading] = useState(true);
+    const [reportPeriod, setReportPeriod] = useState(null);
+    // Month labels derived from the data itself — no manual relabeling per month.
+    const rp = parseReportPeriod(reportPeriod);
 
     // Load neighborhood data from JSON
     useEffect(() => {
@@ -119,6 +123,7 @@ export default function SDARDashboard({ setActiveView }) {
                         });
                     }
                     setNeighborhoodData(transformed);
+                    if (data?.meta?.report_period) setReportPeriod(data.meta.report_period);
                 }
             } catch (e) {
                 console.error('Failed to load neighborhood data:', e);
@@ -507,7 +512,7 @@ export default function SDARDashboard({ setActiveView }) {
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
                                 <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">2026 YEAR-TO-DATE</span>
-                                <span className="text-slate-500 text-xs">Jan–June 2026 (vs Jan–June 2025)</span>
+                                <span className="text-slate-500 text-xs">{rp.ytd}</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[
@@ -530,8 +535,8 @@ export default function SDARDashboard({ setActiveView }) {
                         {/* Monthly Snapshot - Secondary Display */}
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
-                                <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">JUNE 2026</span>
-                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs June 2025)</span>
+                                <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">{rp.upper}</span>
+                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs {rp.prevLabel})</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[

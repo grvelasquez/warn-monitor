@@ -11,6 +11,11 @@ import os
 from pathlib import Path
 from datetime import datetime
 
+from sdar_common import MONTH_NAMES, resolve_report_month
+
+# Set by main() from the resolved report month; used when tagging each zip record.
+REPORT_PERIOD = None
+
 def parse_number(value_str):
     """Parse a number from string."""
     if not value_str or value_str == '--':
@@ -45,10 +50,10 @@ def extract_all_metrics(text):
         line_clean = line.strip()
         
         # Detect section headers
-        if 'Detached' in line_clean and ('January' in line_clean or 'February' in line_clean or 'March' in line_clean or 'April' in line_clean or 'May' in line_clean or 'June' in line_clean):
+        if 'Detached' in line_clean and any(m in line_clean for m in MONTH_NAMES):
             current_section = 'detached'
             continue
-        elif 'Attached' in line_clean and ('January' in line_clean or 'February' in line_clean or 'March' in line_clean or 'April' in line_clean or 'May' in line_clean or 'June' in line_clean):
+        elif 'Attached' in line_clean and any(m in line_clean for m in MONTH_NAMES):
             current_section = 'attached'
             continue
             
@@ -185,7 +190,7 @@ def parse_zip_pdf(pdf_path):
                 'file': filename,
                 'zip_code': zip_code,
                 'neighborhood': neighborhood,
-                'report_month': 'June 2026',
+                'report_month': REPORT_PERIOD,
                 'detached': metrics['detached'],
                 'attached': metrics['attached']
             }
@@ -333,15 +338,18 @@ def parse_market_overview_page(text):
 
 def main():
     """Main function."""
-    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "June 2026"
+    global REPORT_PERIOD
+    reports_dir, period, month_name = resolve_report_month("Parse SDAR per-zip + Monthly Indicators PDFs")
+    REPORT_PERIOD = period
     output_path = Path(__file__).parent.parent / "public" / "data" / "sdar_neighborhood_data.json"
 
+    print(f"Report period: {period}  ({reports_dir})")
     if not reports_dir.exists():
         print(f"Reports directory not found: {reports_dir}")
         return
 
     # Parse Monthly Indicators for county-wide data
-    monthly_indicators_path = reports_dir / "June Monthly Indicators.pdf"
+    monthly_indicators_path = reports_dir / f"{month_name} Monthly Indicators.pdf"
     county_data = None
     if monthly_indicators_path.exists():
         print(f"Processing Monthly Indicators for county-wide data...")
@@ -354,7 +362,7 @@ def main():
     else:
         print(f"Monthly Indicators PDF not found at {monthly_indicators_path}")
     
-    zip_pdfs = [p for p in reports_dir.glob("[0-9]*.pdf") if p.name != "June Monthly Indicators.pdf"]
+    zip_pdfs = [p for p in reports_dir.glob("[0-9]*.pdf") if p.name != monthly_indicators_path.name]
     print(f"\nFound {len(zip_pdfs)} zip code PDFs")
     
     neighborhoods = []
@@ -379,7 +387,7 @@ def main():
         "meta": {
             "generated": datetime.now().isoformat(),
             "source": "SDAR Local Market Updates & Monthly Indicators",
-            "report_period": "June 2026",
+            "report_period": period,
             "neighborhoods_count": len(neighborhoods)
         },
         "county_wide": county_data,  # Full San Diego County data from Monthly Indicators

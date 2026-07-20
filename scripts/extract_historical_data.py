@@ -146,6 +146,7 @@ def process_pdfs(directory_path, output_json):
     print(f"\nSuccessfully extracted data to {output_json}")
 
 if __name__ == "__main__":
-    pdf_dir = "sdar_reports/Monthly Indicators"
-    output = "public/data/historical_indicators.json"
+    _root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    pdf_dir = os.path.join(_root, "sdar_reports", "Monthly Indicators")
+    output = os.path.join(_root, "public", "data", "historical_indicators.json")
     process_pdfs(pdf_dir, output)

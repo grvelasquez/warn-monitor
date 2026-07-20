@@ -5,6 +5,7 @@ import {
     ChevronDown, ChevronUp, Package, Clock, Info, MapPin, Lightbulb, Sparkles
 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend } from 'recharts';
+import { parseReportPeriod, PeriodContext, useReportPeriod } from './utils/reportPeriod';
 
 // Format utilities
 const formatCurrency = (value) => {
@@ -137,6 +138,7 @@ const ComparisonTable = ({ title, data, valueFormatter = formatNumber, showShare
 
 // Inventory Comparison Table with 2024 and 2025 data (matching PDF format)
 const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = formatNumber, showShare = true }) => {
+    const rp = useReportPeriod();
     if (!data || data.length === 0) return null;
 
     return (
@@ -157,22 +159,22 @@ const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = form
                         </tr>
                         <tr className="bg-gray-800/30">
                             {/* Lender-Mediated */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Traditional */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Total Market */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Share */}
                             {showShare && (
                                 <>
-                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                                 </>
                             )}
                         </tr>
@@ -450,7 +452,11 @@ export default function LenderMediatedDashboard() {
         { id: 'areas', label: 'By Area', icon: Home }
     ];
 
+    // Month labels derived from the data itself — no manual relabeling per month.
+    const rp = parseReportPeriod(data?.meta?.report_period);
+
     return (
+        <PeriodContext.Provider value={rp}>
         <div className="min-h-screen bg-gray-950 p-4 md:p-6">
             <div className="max-w-7xl mx-auto space-y-6">
                 {/* Header */}
@@ -691,7 +697,7 @@ export default function LenderMediatedDashboard() {
                                     </h4>
                                     <div className="space-y-3">
                                         <div className="bg-slate-900/50 p-3 rounded-lg border border-slate-700/50">
-                                            <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">Highest Share (June 2026)</div>
+                                            <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">Highest Share ({rp.label})</div>
                                             <div className="space-y-2">
                                                 <div className="flex justify-between text-sm">
                                                     <span className="text-white">91977 (Spring Valley)</span>
@@ -752,7 +758,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Inventory by Property Type</h3>
-                                <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">{rp.prevLabel} vs {rp.label}</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-48">
@@ -802,11 +808,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">06-2025</span>
+                                        <span className="text-xs text-gray-400">{rp.prevTag}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">06-2026</span>
+                                        <span className="text-xs text-gray-400">{rp.curTag}</span>
                                     </div>
                                 </div>
                             </div>
@@ -822,7 +828,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Inventory by Price Range</h3>
-                                <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">{rp.prevLabel} vs {rp.label}</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-4 h-48 overflow-x-auto">
@@ -895,11 +901,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">06-2025</span>
+                                        <span className="text-xs text-gray-400">{rp.prevTag}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">06-2026</span>
+                                        <span className="text-xs text-gray-400">{rp.curTag}</span>
                                     </div>
                                 </div>
                             </div>
@@ -917,7 +923,7 @@ export default function LenderMediatedDashboard() {
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-808/60 border-b border-gray-700/50">
                                     <h3 className="text-sm font-semibold text-white">New Listings and Closed Sales</h3>
-                                    <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
+                                    <p className="text-xs text-gray-400 mt-1">{rp.prevLabel} vs {rp.label}</p>
                                 </div>
                                 <div className="overflow-x-auto">
                                     <table className="w-full text-sm">
@@ -931,20 +937,20 @@ export default function LenderMediatedDashboard() {
                                             </tr>
                                             <tr className="bg-gray-800/30">
                                                 {/* Lender-Mediated */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Traditional */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Total Market */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Share */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-gray-700/50">
@@ -998,7 +1004,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Activity Comparison</h3>
-                                <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">{rp.prevLabel} vs {rp.label}</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-48">
@@ -1098,11 +1104,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">06-2025</span>
+                                        <span className="text-xs text-gray-400">{rp.prevTag}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">06-2026</span>
+                                        <span className="text-xs text-gray-400">{rp.curTag}</span>
                                     </div>
                                 </div>
                             </div>
@@ -1115,7 +1121,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">New Listings Trend</h3>
-                                        <p className="text-xs text-gray-400 mt-1">June 2025 to June 2026</p>
+                                        <p className="text-xs text-gray-400 mt-1">{rp.prevLabel} to {rp.label}</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="relative h-64">
@@ -1167,8 +1173,8 @@ export default function LenderMediatedDashboard() {
                                             </svg>
                                             {/* X-axis labels */}
                                             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 text-xs text-gray-500">
-                                                <span>June 2025</span>
-                                                <span>June 2026</span>
+                                                <span>{rp.prevLabel}</span>
+                                                <span>{rp.label}</span>
                                             </div>
                                         </div>
                                         {/* Legend */}
@@ -1191,7 +1197,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">Closed Sales Trend</h3>
-                                        <p className="text-xs text-gray-400 mt-1">June 2025 to June 2026</p>
+                                        <p className="text-xs text-gray-400 mt-1">{rp.prevLabel} to {rp.label}</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="relative h-64">
@@ -1247,8 +1253,8 @@ export default function LenderMediatedDashboard() {
                                             </svg>
                                             {/* X-axis labels */}
                                             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 text-xs text-gray-500">
-                                                <span>June 2025</span>
-                                                <span>June 2026</span>
+                                                <span>{rp.prevLabel}</span>
+                                                <span>{rp.label}</span>
                                             </div>
                                         </div>
                                         {/* Legend */}
@@ -1275,7 +1281,7 @@ export default function LenderMediatedDashboard() {
                         {/* Median Sales Price Table */}
                         <InventoryComparisonTable
                             title="Median Sales Price by Property Type"
-                            subtitle="June 2025 vs June 2026"
+                            subtitle={`${rp.prevLabel} vs ${rp.label}`}
                             data={priceDom.median_price}
                             valueFormatter={formatCurrency}
                             showShare={false}
@@ -1285,7 +1291,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Median Sales Price by Property Type</h3>
-                                <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">{rp.prevLabel} vs {rp.label}</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-64">
@@ -1335,11 +1341,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">06-2025</span>
+                                        <span className="text-xs text-gray-400">{rp.prevTag}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">06-2026</span>
+                                        <span className="text-xs text-gray-400">{rp.curTag}</span>
                                     </div>
                                 </div>
                             </div>
@@ -1350,7 +1356,7 @@ export default function LenderMediatedDashboard() {
                             <>
                                 <InventoryComparisonTable
                                     title="Days on Market Until Sale by Property Type"
-                                    subtitle="June 2025 vs June 2026"
+                                    subtitle={`${rp.prevLabel} vs ${rp.label}`}
                                     data={priceDom.days_on_market}
                                     showShare={false}
                                 />
@@ -1359,7 +1365,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">Lender-Mediated Days on Market by Property Type</h3>
-                                        <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
+                                        <p className="text-xs text-gray-400 mt-1">{rp.prevLabel} vs {rp.label}</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="flex items-end justify-around gap-8 h-64">
@@ -1409,11 +1415,11 @@ export default function LenderMediatedDashboard() {
                                         <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-4 h-4 bg-gray-500 rounded" />
-                                                <span className="text-xs text-gray-400">06-2025</span>
+                                                <span className="text-xs text-gray-400">{rp.prevTag}</span>
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 <div className="w-4 h-4 bg-amber-500 rounded" />
-                                                <span className="text-xs text-gray-400">06-2026</span>
+                                                <span className="text-xs text-gray-400">{rp.curTag}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1441,9 +1447,10 @@ export default function LenderMediatedDashboard() {
 
                 {/* Footer */}
                 <div className="text-center text-xs text-gray-500 pt-4 border-t border-gray-800">
-                    Current as of July 5, 2026. All data from the San Diego MLS. | Report © 2026 ShowingTime Plus, LLC.
+                    Current as of {rp.asOf}. All data from the San Diego MLS. | Report © 2026 ShowingTime Plus, LLC.
                 </div>
             </div>
         </div>
+        </PeriodContext.Provider>
     );
 }

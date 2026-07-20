@@ -26,3 +26,4 @@ dist-ssr
 .vercel
 
 sdar_reports/
+__pycache__/

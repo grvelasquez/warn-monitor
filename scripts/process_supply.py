@@ -303,13 +303,13 @@ def extract_summary(text):
     
     return summary
 
-def parse_supply_pdf(pdf_path):
+def parse_supply_pdf(pdf_path, period):
     """Parse the entire Housing Supply Overview PDF."""
     result = {
         'meta': {
             'generated': datetime.now().isoformat(),
             'source': 'SDAR Housing Supply Overview Report',
-            'report_period': 'June 2026'
+            'report_period': period
         }
     }
     
@@ -358,16 +358,18 @@ def parse_supply_pdf(pdf_path):
 
 def main():
     """Main function."""
-    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "June 2026"
-    pdf_path = reports_dir / "June Housing Supply.pdf"
+    from sdar_common import resolve_report_month
+    reports_dir, period, month_name = resolve_report_month("Parse SDAR Housing Supply Overview PDF")
+    pdf_path = reports_dir / f"{month_name} Housing Supply.pdf"
     output_path = Path(__file__).parent.parent / "public" / "data" / "housing_supply_data.json"
+    print(f"Report period: {period}")
     
     if not pdf_path.exists():
         print(f"PDF not found: {pdf_path}")
         return
     
     print(f"Parsing: {pdf_path}")
-    data = parse_supply_pdf(pdf_path)
+    data = parse_supply_pdf(pdf_path, period)
     
     # Print summary
     print(f"\n=== Summary ===")

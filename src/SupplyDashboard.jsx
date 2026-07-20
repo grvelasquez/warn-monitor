@@ -5,6 +5,7 @@ import {
     ChevronDown, ChevronUp, Package, Clock, Info, Warehouse, Lightbulb, Sparkles
 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend, BarChart, Bar } from 'recharts';
+import { parseReportPeriod, PeriodContext, useReportPeriod } from './utils/reportPeriod';
 
 // Format utilities
 const formatCurrency = (value) => {
@@ -106,6 +107,7 @@ const DataTable = ({ title, headers, rows, columnAligns = [] }) => (
 
 // Supply Comparison Table (All Properties, Single-Family, Condos)
 const SupplyComparisonTable = ({ title, subtitle, data, valueFormatter = formatNumber }) => {
+    const rp = useReportPeriod();
     if (!data || data.length === 0) return null;
 
     return (
@@ -125,16 +127,16 @@ const SupplyComparisonTable = ({ title, subtitle, data, valueFormatter = formatN
                         </tr>
                         <tr className="bg-gray-800/30">
                             {/* All Properties */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Single-Family */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Condos */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.prevTag}</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">{rp.curTag}</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                         </tr>
                     </thead>
@@ -167,6 +169,7 @@ const SupplyComparisonTable = ({ title, subtitle, data, valueFormatter = formatN
 
 // Bar Chart Component for supply data
 const SupplyBarChart = ({ title, data, dataKey = 'all_properties' }) => {
+    const rp = useReportPeriod();
     if (!data || data.length === 0) return null;
 
     const chartData = data.map(item => ({
@@ -196,8 +199,8 @@ const SupplyBarChart = ({ title, data, dataKey = 'all_properties' }) => {
                             }}
                         />
                         <Legend />
-                        <Bar dataKey="2025" fill="#6b7280" name="06-2025" />
-                        <Bar dataKey="2026" fill="#22c55e" name="06-2026" />
+                        <Bar dataKey="2025" fill="#6b7280" name={rp.prevTag} />
+                        <Bar dataKey="2026" fill="#22c55e" name={rp.curTag} />
                     </BarChart>
                 </ResponsiveContainer>
             </div>
@@ -388,7 +391,11 @@ export default function SupplyDashboard() {
         { id: 'months', label: 'Months', icon: Clock }
     ];
 
+    // Month labels derived from the data itself — no manual relabeling per month.
+    const rp = parseReportPeriod(data?.meta?.report_period || neighborhoodData?.meta?.report_period);
+
     return (
+        <PeriodContext.Provider value={rp}>
         <div className="min-h-screen bg-gray-950 p-4 md:p-6">
             <div className="max-w-7xl mx-auto space-y-6">
                 {/* Header */}
@@ -477,7 +484,7 @@ export default function SupplyDashboard() {
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                     <h3 className="text-sm font-semibold text-white">New Listings: Detached vs Attached</h3>
-                                    <p className="text-xs text-gray-400 mt-1">County-wide June comparison from SDAR local market reports</p>
+                                    <p className="text-xs text-gray-400 mt-1">County-wide {rp.monthName} comparison from SDAR local market reports</p>
                                 </div>
                                 <div className="p-6 h-72">
                                     <ResponsiveContainer width="100%" height="100%">
@@ -501,8 +508,8 @@ export default function SupplyDashboard() {
                                                 }}
                                             />
                                             <Legend />
-                                            <Bar dataKey="2025" fill="#6b7280" name="06-2025" />
-                                            <Bar dataKey="2026" fill="#22c55e" name="06-2026" />
+                                            <Bar dataKey="2025" fill="#6b7280" name={rp.prevTag} />
+                                            <Bar dataKey="2026" fill="#22c55e" name={rp.curTag} />
                                         </BarChart>
                                     </ResponsiveContainer>
                                 </div>
@@ -513,7 +520,7 @@ export default function SupplyDashboard() {
                         {neighborhoodData?.neighborhoods && (
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
-                                    <h3 className="text-sm font-semibold text-white">Top Neighborhoods by New Listings (June 2026)</h3>
+                                    <h3 className="text-sm font-semibold text-white">Top Neighborhoods by New Listings ({rp.label})</h3>
                                 </div>
                                 <div className="overflow-x-auto">
                                     <table className="w-full text-sm">
@@ -557,7 +564,7 @@ export default function SupplyDashboard() {
                             <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Source</h4>
                             <p className="text-[10px] text-slate-500 leading-relaxed">
                                 Data from SDAR Local Market Update reports (per zip code PDFs). County-wide totals aggregated from all 98 neighborhoods.
-                                Current as of {neighborhoodData?.meta?.report_period || 'June 2026'}.
+                                Current as of {rp.label}.
                             </p>
                         </div>
                     </div>
@@ -587,11 +594,11 @@ export default function SupplyDashboard() {
                                 </div>
                                 <div className="grid grid-cols-3 gap-4">
                                     <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
-                                        <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">June 2025</div>
+                                        <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">{rp.prevLabel}</div>
                                         <div className="text-2xl font-bold text-gray-300">{formatNumber(pdfInventoryTotals.total2025)}</div>
                                     </div>
                                     <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
-                                        <div className="text-xs text-indigo-400 uppercase tracking-wider mb-1">June 2026</div>
+                                        <div className="text-xs text-indigo-400 uppercase tracking-wider mb-1">{rp.label}</div>
                                         <div className="text-2xl font-bold text-white">{formatNumber(pdfInventoryTotals.total2026)}</div>
                                     </div>
                                     <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
@@ -790,7 +797,7 @@ export default function SupplyDashboard() {
                             <p className="text-[10px] text-slate-500 leading-relaxed">
                                 Data from the San Diego MLS via the Greater San Diego Association of REALTORS®.
                                 All figures are based on rolling 12-month calculations except inventory which reflects end-of-month active listings.
-                                Current as of {data?.meta?.report_period || 'June 2026'}.
+                                Current as of {rp.label}.
                             </p>
                         </div>
                     </div>
@@ -928,5 +935,6 @@ export default function SupplyDashboard() {
                 )}
             </div>
         </div>
+        </PeriodContext.Provider>
     );
 }
