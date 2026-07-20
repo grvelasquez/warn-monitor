@@ -157,22 +157,22 @@ const InventoryComparisonTable = ({ title, subtitle, data, valueFormatter = form
                         </tr>
                         <tr className="bg-gray-800/30">
                             {/* Lender-Mediated */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Traditional */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Total Market */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Share */}
                             {showShare && (
                                 <>
-                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                                    <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                                 </>
                             )}
                         </tr>
@@ -535,6 +535,7 @@ export default function LenderMediatedDashboard() {
                                             { date: '03-2026', value: 263 },
                                             { date: '04-2026', value: 339 },
                                             { date: '05-2026', value: 359 },
+                                            { date: '06-2026', value: 338 },
                                         ]}
                                         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                                     >
@@ -600,12 +601,12 @@ export default function LenderMediatedDashboard() {
                                     <div className="p-2 bg-indigo-500/10 rounded-lg">
                                         <Sparkles className="w-5 h-5 text-indigo-400" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-white">AI Executive Summary: May 2026 Analysis</h3>
+                                    <h3 className="text-xl font-bold text-white">AI Executive Summary: June 2026 Analysis</h3>
                                 </div>
                                 <p className="text-slate-300 leading-relaxed text-lg">
-                                    The May 2026 report shows a market where <strong className="text-white">lender-mediated inventory continues to expand</strong> even as the broader market contracts.
-                                    Total LM inventory rose to 359 units (<span className="text-emerald-400">+18.1%</span> YoY), representing 6.2% of total supply — up from 4.6% a year ago. LM all-property prices eased (<span className="text-red-400">-3.3%</span> to $798K all-in),
-                                    holding a wide discount versus traditional homes — a potential opportunity signal for value-oriented buyers.
+                                    The June 2026 report shows <strong className="text-white">lender-mediated inventory holding roughly steady</strong> even as its composition shifts.
+                                    Total LM inventory was essentially flat at 338 units (<span className="text-amber-400">+1.2%</span> YoY), representing 5.8% of total supply — up from 4.8% a year ago. LM all-property prices firmed (<span className="text-emerald-400">+5.4%</span> to $895K all-in),
+                                    narrowing the discount versus traditional homes but still leaving room for value-oriented buyers.
                                 </p>
                             </div>
 
@@ -618,30 +619,30 @@ export default function LenderMediatedDashboard() {
                                         <Package className="w-5 h-5" />
                                         1. Inventory & Listings
                                     </h4>
-                                    <p className="text-sm text-slate-400 mb-3">Condo supply surging; single-family slightly tighter.</p>
+                                    <p className="text-sm text-slate-400 mb-3">Condo supply surging; single-family pulling back.</p>
                                     <ul className="space-y-3 text-sm text-slate-300">
                                         <li className="flex gap-2">
                                             <span className="text-red-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">New Listings:</strong> Fell <span className="text-red-400">4.3%</span> YoY to 155 LM units.
+                                                <strong className="text-white">New Listings:</strong> Fell <span className="text-red-400">32.3%</span> YoY to 126 LM units.
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
-                                            <span className="text-gray-400 font-bold min-w-[12px]">•</span>
+                                            <span className="text-red-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">Single-Family:</strong> Held flat (166 units, <span className="text-gray-300">0.0%</span> YoY).
+                                                <strong className="text-white">Single-Family:</strong> Fell <span className="text-red-400">20.7%</span> (193 to 153 units).
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
                                             <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">Condos:</strong> Jumped <span className="text-emerald-400">39.9%</span> from 138 to 193 units.
+                                                <strong className="text-white">Condos:</strong> Jumped <span className="text-emerald-400">31.2%</span> from 141 to 185 units.
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
                                             <span className="text-blue-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">Market Share:</strong> Rose to 6.2% of total inventory (from 4.6%).
+                                                <strong className="text-white">Market Share:</strong> Rose to 5.8% of total inventory (from 4.8%).
                                             </span>
                                         </li>
                                     </ul>
@@ -658,25 +659,25 @@ export default function LenderMediatedDashboard() {
                                         <li className="flex gap-2">
                                             <span className="text-red-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">Median Price:</strong> LM prices fell <span className="text-red-400">3.3%</span> to $798,000 (all properties).
+                                                <strong className="text-white">Median Price:</strong> LM prices rose <span className="text-emerald-400">5.4%</span> to $895,000 (all properties).
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
                                             <span className="text-amber-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">The Gap:</strong> LM discount vs traditional persists — SF at $887.5K vs $1.1M traditional.
+                                                <strong className="text-white">The Gap:</strong> LM discount vs traditional narrowed — SF at $989K vs $1.14M traditional.
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
                                             <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">SF Price:</strong> Fell <span className="text-red-400">9.9%</span> to $887.5K; Condos rose <span className="text-emerald-400">4.4%</span> to $657,500.
+                                                <strong className="text-white">SF Price:</strong> Rose <span className="text-emerald-400">9.9%</span> to $989K; Condos slipped <span className="text-red-400">0.4%</span> to $600,000.
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
                                             <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">Closed Sales:</strong> LM sales rose <span className="text-emerald-400">15.8%</span> to 110 units (5.4% of market).
+                                                <strong className="text-white">Closed Sales:</strong> LM sales rose <span className="text-emerald-400">11.5%</span> to 97 units (4.5% of market).
                                             </span>
                                         </li>
                                     </ul>
@@ -690,24 +691,24 @@ export default function LenderMediatedDashboard() {
                                     </h4>
                                     <div className="space-y-3">
                                         <div className="bg-slate-900/50 p-3 rounded-lg border border-slate-700/50">
-                                            <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">Highest Share (May 2026)</div>
+                                            <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">Highest Share (June 2026)</div>
                                             <div className="space-y-2">
                                                 <div className="flex justify-between text-sm">
+                                                    <span className="text-white">91977 (Spring Valley)</span>
+                                                    <span className="text-amber-400 font-mono">19.0%</span>
+                                                </div>
+                                                <div className="flex justify-between text-sm">
                                                     <span className="text-white">92086 (Warner Springs)</span>
-                                                    <span className="text-amber-400 font-mono">25.0%</span>
+                                                    <span className="text-amber-400 font-mono">18.2%</span>
                                                 </div>
                                                 <div className="flex justify-between text-sm">
-                                                    <span className="text-white">91950 (National City)</span>
-                                                    <span className="text-amber-400 font-mono">21.7%</span>
-                                                </div>
-                                                <div className="flex justify-between text-sm">
-                                                    <span className="text-white">92102 (Golden Hills)</span>
-                                                    <span className="text-amber-400 font-mono">20.0%</span>
+                                                    <span className="text-white">91906 (Campo)</span>
+                                                    <span className="text-amber-400 font-mono">18.2%</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="text-sm text-slate-300">
-                                            <strong className="text-emerald-400">Zero LM Inventory:</strong> Boulevard (91905), Carlsbad SW (92011), Rancho San Diego (91978), Santa Ysabel (92070), Sorrento Valley (92121).
+                                            <strong className="text-emerald-400">Zero LM Inventory:</strong> Boulevard (91905), Descanso (91916), Jacumba (91934), Pine Valley (91962), Potrero (91963).
                                         </div>
                                     </div>
                                 </div>
@@ -721,15 +722,15 @@ export default function LenderMediatedDashboard() {
                                     <ul className="space-y-4 text-sm text-slate-300">
                                         <li className="relative pl-4 border-l-2 border-purple-500/50">
                                             <strong className="block text-white mb-1">Condo Opportunities</strong>
-                                            Attached LM inventory up 39.9% YoY — by far the most accessible segment for distressed-buyer entry.
+                                            Attached LM inventory up 31.2% YoY — by far the most accessible segment for distressed-buyer entry.
                                         </li>
                                         <li className="relative pl-4 border-l-2 border-purple-500/50">
-                                            <strong className="block text-white mb-1">Luxury LM Returning</strong>
-                                            $1.25M+ LM inventory up 20.5% YoY (94 units) — high-end "deals" are reappearing.
+                                            <strong className="block text-white mb-1">Luxury LM Thinning</strong>
+                                            $1.25M+ LM inventory down 14.3% YoY (84 units) — high-end distress is receding.
                                         </li>
                                         <li className="relative pl-4 border-l-2 border-purple-500/50">
-                                            <strong className="block text-white mb-1">Growing Discount Gap</strong>
-                                            LM all-property median ($798K) sits ~14% below traditional ($930K) — a persistent spread.
+                                            <strong className="block text-white mb-1">Narrowing Discount Gap</strong>
+                                            LM all-property median ($895K) sits ~6% below traditional ($950.5K) — the spread has tightened.
                                         </li>
                                     </ul>
                                 </div>
@@ -751,7 +752,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Inventory by Property Type</h3>
-                                <p className="text-xs text-gray-400 mt-1">May 2025 vs May 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-48">
@@ -801,11 +802,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">05-2025</span>
+                                        <span className="text-xs text-gray-400">06-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">05-2026</span>
+                                        <span className="text-xs text-gray-400">06-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -821,7 +822,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Inventory by Price Range</h3>
-                                <p className="text-xs text-gray-400 mt-1">May 2025 vs May 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-4 h-48 overflow-x-auto">
@@ -894,11 +895,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">05-2025</span>
+                                        <span className="text-xs text-gray-400">06-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">05-2026</span>
+                                        <span className="text-xs text-gray-400">06-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -916,7 +917,7 @@ export default function LenderMediatedDashboard() {
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-808/60 border-b border-gray-700/50">
                                     <h3 className="text-sm font-semibold text-white">New Listings and Closed Sales</h3>
-                                    <p className="text-xs text-gray-400 mt-1">May 2025 vs May 2026</p>
+                                    <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
                                 </div>
                                 <div className="overflow-x-auto">
                                     <table className="w-full text-sm">
@@ -930,20 +931,20 @@ export default function LenderMediatedDashboard() {
                                             </tr>
                                             <tr className="bg-gray-800/30">
                                                 {/* Lender-Mediated */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Traditional */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Total Market */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                                                 <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                                                 {/* Share */}
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                                                <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-gray-700/50">
@@ -997,7 +998,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Activity Comparison</h3>
-                                <p className="text-xs text-gray-400 mt-1">May 2025 vs May 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-48">
@@ -1097,11 +1098,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">05-2025</span>
+                                        <span className="text-xs text-gray-400">06-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">05-2026</span>
+                                        <span className="text-xs text-gray-400">06-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -1114,7 +1115,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">New Listings Trend</h3>
-                                        <p className="text-xs text-gray-400 mt-1">May 2025 to May 2026</p>
+                                        <p className="text-xs text-gray-400 mt-1">June 2025 to June 2026</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="relative h-64">
@@ -1166,8 +1167,8 @@ export default function LenderMediatedDashboard() {
                                             </svg>
                                             {/* X-axis labels */}
                                             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 text-xs text-gray-500">
-                                                <span>May 2025</span>
-                                                <span>May 2026</span>
+                                                <span>June 2025</span>
+                                                <span>June 2026</span>
                                             </div>
                                         </div>
                                         {/* Legend */}
@@ -1190,7 +1191,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">Closed Sales Trend</h3>
-                                        <p className="text-xs text-gray-400 mt-1">May 2025 to May 2026</p>
+                                        <p className="text-xs text-gray-400 mt-1">June 2025 to June 2026</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="relative h-64">
@@ -1246,8 +1247,8 @@ export default function LenderMediatedDashboard() {
                                             </svg>
                                             {/* X-axis labels */}
                                             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 text-xs text-gray-500">
-                                                <span>May 2025</span>
-                                                <span>May 2026</span>
+                                                <span>June 2025</span>
+                                                <span>June 2026</span>
                                             </div>
                                         </div>
                                         {/* Legend */}
@@ -1274,7 +1275,7 @@ export default function LenderMediatedDashboard() {
                         {/* Median Sales Price Table */}
                         <InventoryComparisonTable
                             title="Median Sales Price by Property Type"
-                            subtitle="May 2025 vs May 2026"
+                            subtitle="June 2025 vs June 2026"
                             data={priceDom.median_price}
                             valueFormatter={formatCurrency}
                             showShare={false}
@@ -1284,7 +1285,7 @@ export default function LenderMediatedDashboard() {
                         <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                             <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                 <h3 className="text-sm font-semibold text-white">Lender-Mediated Median Sales Price by Property Type</h3>
-                                <p className="text-xs text-gray-400 mt-1">May 2025 vs May 2026</p>
+                                <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
                             </div>
                             <div className="p-6">
                                 <div className="flex items-end justify-around gap-8 h-64">
@@ -1334,11 +1335,11 @@ export default function LenderMediatedDashboard() {
                                 <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-gray-500 rounded" />
-                                        <span className="text-xs text-gray-400">05-2025</span>
+                                        <span className="text-xs text-gray-400">06-2025</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-amber-500 rounded" />
-                                        <span className="text-xs text-gray-400">05-2026</span>
+                                        <span className="text-xs text-gray-400">06-2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -1349,7 +1350,7 @@ export default function LenderMediatedDashboard() {
                             <>
                                 <InventoryComparisonTable
                                     title="Days on Market Until Sale by Property Type"
-                                    subtitle="May 2025 vs May 2026"
+                                    subtitle="June 2025 vs June 2026"
                                     data={priceDom.days_on_market}
                                     showShare={false}
                                 />
@@ -1358,7 +1359,7 @@ export default function LenderMediatedDashboard() {
                                 <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                     <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                         <h3 className="text-sm font-semibold text-white">Lender-Mediated Days on Market by Property Type</h3>
-                                        <p className="text-xs text-gray-400 mt-1">May 2025 vs May 2026</p>
+                                        <p className="text-xs text-gray-400 mt-1">June 2025 vs June 2026</p>
                                     </div>
                                     <div className="p-6">
                                         <div className="flex items-end justify-around gap-8 h-64">
@@ -1408,11 +1409,11 @@ export default function LenderMediatedDashboard() {
                                         <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700/50">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-4 h-4 bg-gray-500 rounded" />
-                                                <span className="text-xs text-gray-400">05-2025</span>
+                                                <span className="text-xs text-gray-400">06-2025</span>
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 <div className="w-4 h-4 bg-amber-500 rounded" />
-                                                <span className="text-xs text-gray-400">05-2026</span>
+                                                <span className="text-xs text-gray-400">06-2026</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1440,7 +1441,7 @@ export default function LenderMediatedDashboard() {
 
                 {/* Footer */}
                 <div className="text-center text-xs text-gray-500 pt-4 border-t border-gray-800">
-                    Current as of June 5, 2026. All data from the San Diego MLS. | Report © 2026 ShowingTime Plus, LLC.
+                    Current as of July 5, 2026. All data from the San Diego MLS. | Report © 2026 ShowingTime Plus, LLC.
                 </div>
             </div>
         </div>

@@ -396,7 +396,7 @@ def parse_lender_mediated_pdf(pdf_path):
         'meta': {
             'generated': datetime.now().isoformat(),
             'source': 'SDAR Lender-Mediated Properties Report',
-            'report_period': 'May 2026'
+            'report_period': 'June 2026'
         }
     }
     
@@ -441,8 +441,8 @@ def parse_lender_mediated_pdf(pdf_path):
 
 def main():
     """Main function."""
-    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "May 2026"
-    pdf_path = reports_dir / "May Lender Mediated.pdf"
+    reports_dir = Path(__file__).parent.parent / "sdar_reports" / "June 2026"
+    pdf_path = reports_dir / "June Lender Mediated.pdf"
     output_path = Path(__file__).parent.parent / "public" / "data" / "lender_mediated_data.json"
     
     if not pdf_path.exists():

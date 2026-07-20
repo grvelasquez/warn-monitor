@@ -507,7 +507,7 @@ export default function SDARDashboard({ setActiveView }) {
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
                                 <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">2026 YEAR-TO-DATE</span>
-                                <span className="text-slate-500 text-xs">Jan–May 2026 (vs Jan–May 2025)</span>
+                                <span className="text-slate-500 text-xs">Jan–June 2026 (vs Jan–June 2025)</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[
@@ -530,8 +530,8 @@ export default function SDARDashboard({ setActiveView }) {
                         {/* Monthly Snapshot - Secondary Display */}
                         <div className="mb-6">
                             <div className="flex items-center gap-2 mb-3">
-                                <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">MAY 2026</span>
-                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs May 2025)</span>
+                                <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] font-bold rounded">JUNE 2026</span>
+                                <span className="text-slate-500 text-xs">Monthly Snapshot (vs June 2025)</span>
                             </div>
                             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                                 {[

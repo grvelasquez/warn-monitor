@@ -125,16 +125,16 @@ const SupplyComparisonTable = ({ title, subtitle, data, valueFormatter = formatN
                         </tr>
                         <tr className="bg-gray-800/30">
                             {/* All Properties */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Single-Family */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                             {/* Condos */}
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2025</th>
-                            <th className="px-2 py-2 text-xs text-gray-500 text-right">05-2026</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2025</th>
+                            <th className="px-2 py-2 text-xs text-gray-500 text-right">06-2026</th>
                             <th className="px-2 py-2 text-xs text-gray-500 text-center">+/-</th>
                         </tr>
                     </thead>
@@ -196,8 +196,8 @@ const SupplyBarChart = ({ title, data, dataKey = 'all_properties' }) => {
                             }}
                         />
                         <Legend />
-                        <Bar dataKey="2025" fill="#6b7280" name="05-2025" />
-                        <Bar dataKey="2026" fill="#22c55e" name="05-2026" />
+                        <Bar dataKey="2025" fill="#6b7280" name="06-2025" />
+                        <Bar dataKey="2026" fill="#22c55e" name="06-2026" />
                     </BarChart>
                 </ResponsiveContainer>
             </div>
@@ -477,7 +477,7 @@ export default function SupplyDashboard() {
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
                                     <h3 className="text-sm font-semibold text-white">New Listings: Detached vs Attached</h3>
-                                    <p className="text-xs text-gray-400 mt-1">County-wide May comparison from SDAR local market reports</p>
+                                    <p className="text-xs text-gray-400 mt-1">County-wide June comparison from SDAR local market reports</p>
                                 </div>
                                 <div className="p-6 h-72">
                                     <ResponsiveContainer width="100%" height="100%">
@@ -501,8 +501,8 @@ export default function SupplyDashboard() {
                                                 }}
                                             />
                                             <Legend />
-                                            <Bar dataKey="2025" fill="#6b7280" name="05-2025" />
-                                            <Bar dataKey="2026" fill="#22c55e" name="05-2026" />
+                                            <Bar dataKey="2025" fill="#6b7280" name="06-2025" />
+                                            <Bar dataKey="2026" fill="#22c55e" name="06-2026" />
                                         </BarChart>
                                     </ResponsiveContainer>
                                 </div>
@@ -513,7 +513,7 @@ export default function SupplyDashboard() {
                         {neighborhoodData?.neighborhoods && (
                             <div className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden">
                                 <div className="px-4 py-3 bg-gray-800/60 border-b border-gray-700/50">
-                                    <h3 className="text-sm font-semibold text-white">Top Neighborhoods by New Listings (May 2026)</h3>
+                                    <h3 className="text-sm font-semibold text-white">Top Neighborhoods by New Listings (June 2026)</h3>
                                 </div>
                                 <div className="overflow-x-auto">
                                     <table className="w-full text-sm">
@@ -557,7 +557,7 @@ export default function SupplyDashboard() {
                             <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Source</h4>
                             <p className="text-[10px] text-slate-500 leading-relaxed">
                                 Data from SDAR Local Market Update reports (per zip code PDFs). County-wide totals aggregated from all 98 neighborhoods.
-                                Current as of {neighborhoodData?.meta?.report_period || 'May 2026'}.
+                                Current as of {neighborhoodData?.meta?.report_period || 'June 2026'}.
                             </p>
                         </div>
                     </div>
@@ -587,11 +587,11 @@ export default function SupplyDashboard() {
                                 </div>
                                 <div className="grid grid-cols-3 gap-4">
                                     <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
-                                        <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">May 2025</div>
+                                        <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">June 2025</div>
                                         <div className="text-2xl font-bold text-gray-300">{formatNumber(pdfInventoryTotals.total2025)}</div>
                                     </div>
                                     <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
-                                        <div className="text-xs text-indigo-400 uppercase tracking-wider mb-1">May 2026</div>
+                                        <div className="text-xs text-indigo-400 uppercase tracking-wider mb-1">June 2026</div>
                                         <div className="text-2xl font-bold text-white">{formatNumber(pdfInventoryTotals.total2026)}</div>
                                     </div>
                                     <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
@@ -611,8 +611,8 @@ export default function SupplyDashboard() {
                                 <h3 className="text-2xl font-bold text-white">AI Executive Summary: The Persistent Supply Squeeze</h3>
                             </div>
                             <p className="text-slate-300 leading-relaxed text-lg">
-                                The San Diego housing market in May 2026 is defined by an increasingly <strong className="text-indigo-400">bifurcated supply picture</strong> —
-                                single-family inventory continues to contract sharply (<span className="text-rose-400 font-bold">-24.7%</span> YoY) while condo supply is now expanding (<span className="text-amber-400 font-bold">+5.6%</span>). Total inventory fell <span className="text-rose-400 font-bold">12.4%</span> YoY to 5,798 active listings, with days on market climbing ~20% across most price bands. Pending sales rose <span className="text-emerald-400 font-bold">+2.9%</span> on a rolling basis while list-price-received ratios edged lower — buyers remain active but increasingly selective. Prices have flattened (single-family medians essentially flat YoY, condos softening), but the core narrative for single-family remains <strong className="text-amber-400">scarcity</strong>, even as the condo segment tilts toward buyers.
+                                The San Diego housing market in June 2026 is defined by a deepening <strong className="text-indigo-400">bifurcated supply picture</strong> —
+                                single-family inventory continues to contract sharply (<span className="text-rose-400 font-bold">-26.1%</span> YoY) while condo supply has held roughly flat (<span className="text-amber-400 font-bold">+0.5%</span>). Total inventory fell <span className="text-rose-400 font-bold">15.3%</span> YoY to 5,877 active listings, with days on market climbing double-digits across most price bands. Pending sales climbed (condos <span className="text-emerald-400 font-bold">+13.7%</span>, single-family <span className="text-emerald-400 font-bold">+4.6%</span>) as buyers stayed active. After May's brief plateau, prices reaccelerated — single-family medians jumped <span className="text-emerald-400 font-bold">+5.1%</span> YoY and condos returned to growth (<span className="text-emerald-400 font-bold">+1.1%</span>) — reinforcing the core narrative of <strong className="text-amber-400">scarcity</strong> driving prices even as buyers grow more selective.
                             </p>
                         </div>
 
@@ -629,21 +629,21 @@ export default function SupplyDashboard() {
                                     <li className="flex gap-2">
                                         <span className="text-rose-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Total Inventory:</strong> Dropped <span className="text-rose-400 font-bold">12.4%</span> YoY.
-                                            5,798 active listings vs 6,622 last year.
+                                            <strong className="text-white">Total Inventory:</strong> Dropped <span className="text-rose-400 font-bold">15.3%</span> YoY.
+                                            5,877 active listings vs 6,939 last year.
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-rose-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Single-Family:</strong> Fell <span className="text-rose-400">24.7%</span> to 2,974 units,
+                                            <strong className="text-white">Single-Family:</strong> Fell <span className="text-rose-400">26.1%</span> to 3,047 units,
                                             resulting in just 2.4 months of supply.
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-amber-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Condo Supply:</strong> Rose <span className="text-amber-400">5.6%</span> to 2,824 units — now exceeding single-family inventory and trending toward a balanced market at 4.0 months.
+                                            <strong className="text-white">Condo Supply:</strong> Essentially flat <span className="text-amber-400">(+0.5%)</span> at 2,830 units — holding near 4.0 months of supply, the closest to balanced territory in the county.
                                         </span>
                                     </li>
                                 </ul>
@@ -655,29 +655,29 @@ export default function SupplyDashboard() {
 
                             {/* 2. Pricing Stability */}
                             <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 hover:bg-slate-800/60 transition-colors">
-                                <h4 className="flex items-center gap-2 text-lg font-semibold text-amber-400 mb-4">
+                                <h4 className="flex items-center gap-2 text-lg font-semibold text-emerald-400 mb-4">
                                     <DollarSign className="w-5 h-5" />
-                                    2. Pricing Plateau
+                                    2. Pricing Reaccelerates
                                 </h4>
-                                <p className="text-sm text-slate-400 mb-3">Despite the inventory squeeze, price growth has stalled this month.</p>
+                                <p className="text-sm text-slate-400 mb-3">After May's plateau, the inventory squeeze pushed prices higher again.</p>
                                 <ul className="space-y-3 text-sm text-slate-300">
                                     <li className="flex gap-2">
-                                        <span className="text-amber-400 font-bold min-w-[12px]">•</span>
+                                        <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Overall Median:</strong> Single-family held essentially flat <span className="text-amber-400">(-0.0%)</span> at $1,099,500 YoY; condos softened <span className="text-rose-400">-1.5%</span> to $675,000.
+                                            <strong className="text-white">Overall Median:</strong> Single-family jumped <span className="text-emerald-400">+5.1%</span> to $1,125,000 YoY; condos returned to growth <span className="text-emerald-400">+1.1%</span> to $670,000.
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
-                                        <span className="text-rose-400 font-bold min-w-[12px]">•</span>
+                                        <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Condo Softening:</strong> Condo medians slipped after their brief recovery, as rising condo inventory (+5.6%) shifts pricing power toward buyers in the affordable-end segment.
+                                            <strong className="text-white">Condo Recovery:</strong> Condo medians rebounded after May's dip even as condo inventory held flat (+0.5%) — demand is absorbing the affordable-end segment.
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-amber-400 font-bold min-w-[12px]">•</span>
                                         <span>
                                             <strong className="text-white">Negotiation Power:</strong> Pct of List Price at
-                                            <span className="text-amber-400 font-bold"> 98.5%</span> in the $750K–$1M range, dipping across nearly all brackets vs last year.
+                                            <span className="text-amber-400 font-bold"> 98.6%</span> in the $750K–$1M range, dipping across nearly all brackets vs last year.
                                         </span>
                                     </li>
                                 </ul>
@@ -694,25 +694,25 @@ export default function SupplyDashboard() {
                                     <li className="flex gap-2">
                                         <span className="text-rose-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Closed Sales:</strong> Overall rolling volume held essentially flat <span className="text-emerald-400">(+0.6%)</span> YoY at 22,868.
+                                            <strong className="text-white">Closed Sales:</strong> Overall rolling volume ticked up <span className="text-emerald-400">(+1.6%)</span> YoY at 23,104.
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-rose-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Days on Market:</strong> Increased <span className="text-rose-400 font-bold">~20%</span> across most price bands,
-                                            e.g. $750K–$1M jumping from 32 to <span className="text-white font-bold">37 days</span>.
+                                            <strong className="text-white">Days on Market:</strong> Increased <span className="text-rose-400 font-bold">double-digits</span> across most price bands,
+                                            e.g. $750K–$1M rising from 32 to <span className="text-white font-bold">36 days</span>.
                                         </span>
                                     </li>
                                 </ul>
                                 <div className="mt-4 space-y-2">
                                     <div className="flex justify-between text-sm">
                                         <span className="text-slate-400">Fastest Sellers ($750k–$1M):</span>
-                                        <span className="text-emerald-400 font-mono">37 days</span>
+                                        <span className="text-emerald-400 font-mono">36 days</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
                                         <span className="text-slate-400">Slowest Sellers ($5M+):</span>
-                                        <span className="text-rose-400 font-mono">78 days</span>
+                                        <span className="text-rose-400 font-mono">77 days</span>
                                     </div>
                                 </div>
                             </div>
@@ -728,19 +728,19 @@ export default function SupplyDashboard() {
                                     <li className="flex gap-2">
                                         <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Sales Surge:</strong> Closed Sales for $5M+ rose <span className="text-emerald-400">+15.8%</span> YoY (241 → 279).
+                                            <strong className="text-white">Sales Surge:</strong> Closed Sales for $5M+ rose <span className="text-emerald-400">+22.9%</span> YoY (236 → 290).
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-rose-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Inventory:</strong> The $5M+ bracket inventory <span className="text-rose-400">contracted slightly</span> by 5.0% YoY, tightening the high-end picture.
+                                            <strong className="text-white">Inventory:</strong> The $5M+ bracket inventory <span className="text-rose-400">contracted</span> by 13.6% YoY, tightening the high-end picture.
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-gray-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Price Strength:</strong> Large homes (6,001+ Sq Ft) median price held strong, rising <span className="text-emerald-400">+8.9%</span> to $6,075,000.
+                                            <strong className="text-white">Price Strength:</strong> Large homes (6,001+ Sq Ft) median price held strong, rising <span className="text-emerald-400">+6.3%</span> to $5,950,000.
                                         </span>
                                     </li>
                                 </ul>
@@ -756,21 +756,21 @@ export default function SupplyDashboard() {
                             <div className="grid md:grid-cols-3 gap-4">
                                 <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
                                     <div className="text-xs text-amber-400 uppercase tracking-wider mb-2 font-bold">The "Inventory Squeeze"</div>
-                                    <div className="text-2xl font-bold text-white mb-1">6,622 → 5,798</div>
+                                    <div className="text-2xl font-bold text-white mb-1">6,939 → 5,877</div>
                                     <div className="text-sm text-slate-400">
-                                        "Choice remains limited. Overall options are down <span className="text-rose-400 font-bold">12.4%</span>."
+                                        "Choice remains limited. Overall options are down <span className="text-rose-400 font-bold">15.3%</span>."
                                     </div>
                                 </div>
                                 <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
                                     <div className="text-xs text-blue-400 uppercase tracking-wider mb-2 font-bold">The "Patience Index"</div>
-                                    <div className="text-2xl font-bold text-white mb-1">32 → 37 days</div>
+                                    <div className="text-2xl font-bold text-white mb-1">32 → 36 days</div>
                                     <div className="text-sm text-slate-400">
-                                        DOM up <span className="text-rose-400 font-bold">+15.6%</span> ($750K–$1M). Homes aren't selling instantly without accurate pricing.
+                                        DOM up <span className="text-rose-400 font-bold">+12.5%</span> ($750K–$1M). Homes aren't selling instantly without accurate pricing.
                                     </div>
                                 </div>
                                 <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
                                     <div className="text-xs text-emerald-400 uppercase tracking-wider mb-2 font-bold">The "Affordability Pushback"</div>
-                                    <div className="text-2xl font-bold text-white mb-1">98.5%</div>
+                                    <div className="text-2xl font-bold text-white mb-1">98.6%</div>
                                     <div className="text-sm text-slate-400">
                                         List price received ($750K–$1M), down across all brackets. Overpricing leads to longer DOM.
                                     </div>
@@ -790,7 +790,7 @@ export default function SupplyDashboard() {
                             <p className="text-[10px] text-slate-500 leading-relaxed">
                                 Data from the San Diego MLS via the Greater San Diego Association of REALTORS®.
                                 All figures are based on rolling 12-month calculations except inventory which reflects end-of-month active listings.
-                                Current as of {data?.meta?.report_period || 'May 2026'}.
+                                Current as of {data?.meta?.report_period || 'June 2026'}.
                             </p>
                         </div>
                     </div>
