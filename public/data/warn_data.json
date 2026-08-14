@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-08-13T08:13:33.591557",
+    "generated": "2026-08-14T08:08:25.072366",
     "county": "San Diego",
-    "total_notices": 1,
-    "total_employees_affected": 133
+    "total_notices": 6,
+    "total_employees_affected": 301
   },
   "notices": [
     {
@@ -16,6 +16,61 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "55828af7",
+      "company_name": "Sharp Metropolitan Medical Campus  - Sharp Memorial Hospital",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 20,
+      "layoff_date": "2026-10-10",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "00f56c66",
+      "company_name": "Sharp Metropolitan Medical Campus - Sharp Mesa Vista",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 134,
+      "layoff_date": "2026-10-10",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "901a6b0d",
+      "company_name": "Sharp Metropolitan Medical Group - Sharp McDonald Center",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 2,
+      "layoff_date": "2026-10-10",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "b0390399",
+      "company_name": "Sharp Metropolitan Medical Campus - Sharp Mary Birch Hospital",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 7,
+      "layoff_date": "2026-10-10",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "0d2b101b",
+      "company_name": "Sharp Metropolitan Medical Campus - Sharp Outpatient Pavilion",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 5,
+      "layoff_date": "2026-10-10",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
     }
   ],
   "risk_scores": {
@@ -26,12 +81,24 @@
       "factors": [
         "133 employees affected"
       ]
+    },
+    "92123": {
+      "score": 33,
+      "risk_level": "Moderate",
+      "total_employees": 168,
+      "factors": [
+        "20 employees affected",
+        "134 employees affected",
+        "2 employees affected",
+        "7 employees affected",
+        "5 employees affected"
+      ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 1,
-      "total_employees": 133
+      "notice_count": 6,
+      "total_employees": 301
     }
   }
 }
