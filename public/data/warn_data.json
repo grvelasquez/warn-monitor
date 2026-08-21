@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-08-20T07:34:10.705835",
+    "generated": "2026-08-21T07:36:00.866041",
     "county": "San Diego",
-    "total_notices": 6,
-    "total_employees_affected": 301
+    "total_notices": 9,
+    "total_employees_affected": 359
   },
   "notices": [
     {
@@ -71,6 +71,39 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "77477f51",
+      "company_name": "Stone Brewing Co., LLC - Executive Place",
+      "city": "Escondido",
+      "zipcode": "92029",
+      "employees_affected": 6,
+      "layoff_date": "2026-10-19",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
+    },
+    {
+      "notice_id": "ad8fa11b",
+      "company_name": "Stone Brewing Co., LLC - Harmony Grove",
+      "city": "Escondido",
+      "zipcode": "92029",
+      "employees_affected": 2,
+      "layoff_date": "2026-10-19",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
+    },
+    {
+      "notice_id": "106b326c",
+      "company_name": "Stone Brewing CO., LLC - Citracado Parkway",
+      "city": "Escondido",
+      "zipcode": "92029",
+      "employees_affected": 50,
+      "layoff_date": "2026-10-19",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
     }
   ],
   "risk_scores": {
@@ -93,12 +126,27 @@
         "7 employees affected",
         "5 employees affected"
       ]
+    },
+    "92029": {
+      "score": 31,
+      "risk_level": "Moderate",
+      "total_employees": 58,
+      "factors": [
+        "6 employees affected",
+        "Plant closure",
+        "2 employees affected",
+        "50 employees affected"
+      ]
     }
   },
   "by_region": {
     "Central San Diego": {
       "notice_count": 6,
       "total_employees": 301
+    },
+    "North County Inland": {
+      "notice_count": 3,
+      "total_employees": 58
     }
   }
 }
