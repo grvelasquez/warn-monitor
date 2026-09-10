@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-09-09T12:05:02.241995",
+    "generated": "2026-09-10T11:59:17.187302",
     "county": "San Diego",
-    "total_notices": 10,
-    "total_employees_affected": 363
+    "total_notices": 11,
+    "total_employees_affected": 399
   },
   "notices": [
     {
@@ -115,15 +115,28 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "af4436ec",
+      "company_name": "SonTek (Xylem, Inc.)",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 36,
+      "layoff_date": "2026-11-06",
+      "notice_type": "Closure Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
     }
   ],
   "risk_scores": {
     "92121": {
-      "score": 26,
-      "risk_level": "Moderate",
-      "total_employees": 133,
+      "score": 53,
+      "risk_level": "High",
+      "total_employees": 169,
       "factors": [
-        "133 employees affected"
+        "133 employees affected",
+        "36 employees affected",
+        "Plant closure"
       ]
     },
     "92123": {
@@ -160,8 +173,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 7,
-      "total_employees": 305
+      "notice_count": 8,
+      "total_employees": 341
     },
     "North County Inland": {
       "notice_count": 3,
