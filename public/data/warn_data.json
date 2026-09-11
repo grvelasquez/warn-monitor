@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-09-10T11:59:17.187302",
+    "generated": "2026-09-11T11:57:52.260028",
     "county": "San Diego",
-    "total_notices": 11,
-    "total_employees_affected": 399
+    "total_notices": 14,
+    "total_employees_affected": 611
   },
   "notices": [
     {
@@ -126,6 +126,39 @@
       "notice_type": "Closure Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "4fc693a1",
+      "company_name": "Sapporo U.S.A. (1999 Citracado Parkway)",
+      "city": "Escondido",
+      "zipcode": "92029",
+      "employees_affected": 200,
+      "layoff_date": "2026-11-13",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
+    },
+    {
+      "notice_id": "870f46e2",
+      "company_name": "Sapporo U.S.A. (2865 Executive Place)",
+      "city": "Escondido",
+      "zipcode": "92029",
+      "employees_affected": 6,
+      "layoff_date": "2026-11-13",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
+    },
+    {
+      "notice_id": "cf09ed9f",
+      "company_name": "Sapporo U.S.A. (2005 Harmony Grove Rd)",
+      "city": "Escondido",
+      "zipcode": "92029",
+      "employees_affected": 6,
+      "layoff_date": "2026-11-13",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
     }
   ],
   "risk_scores": {
@@ -152,14 +185,15 @@
       ]
     },
     "92029": {
-      "score": 31,
-      "risk_level": "Moderate",
-      "total_employees": 58,
+      "score": 74,
+      "risk_level": "Critical",
+      "total_employees": 270,
       "factors": [
         "6 employees affected",
         "Plant closure",
         "2 employees affected",
-        "50 employees affected"
+        "50 employees affected",
+        "200 employees affected"
       ]
     },
     "92108": {
@@ -177,8 +211,8 @@
       "total_employees": 341
     },
     "North County Inland": {
-      "notice_count": 3,
-      "total_employees": 58
+      "notice_count": 6,
+      "total_employees": 270
     }
   }
 }
