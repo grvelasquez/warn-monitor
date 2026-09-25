@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-09-24T12:27:27.634055",
+    "generated": "2026-09-25T12:28:49.119017",
     "county": "San Diego",
-    "total_notices": 14,
-    "total_employees_affected": 611
+    "total_notices": 17,
+    "total_employees_affected": 686
   },
   "notices": [
     {
@@ -159,6 +159,39 @@
       "notice_type": "Closure Permanent",
       "region": "North County Inland",
       "neighborhood": "Escondido"
+    },
+    {
+      "notice_id": "17cba6c3",
+      "company_name": "Kaiser (17140 Bernardo Center Dr.)",
+      "city": "San Diego",
+      "zipcode": "92128",
+      "employees_affected": 1,
+      "layoff_date": "2026-11-20",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Rancho Bernardo"
+    },
+    {
+      "notice_id": "1687f727",
+      "company_name": "Kaiser (3840 Murphy Canyon Rd.)",
+      "city": "San Diego",
+      "zipcode": "92123",
+      "employees_affected": 2,
+      "layoff_date": "2026-11-20",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Kearny Mesa"
+    },
+    {
+      "notice_id": "664881b5",
+      "company_name": "Kaiser (8954 Rio San Diego Dr.)",
+      "city": "San Diego",
+      "zipcode": "92108",
+      "employees_affected": 72,
+      "layoff_date": "2026-11-20",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Mission Valley"
     }
   ],
   "risk_scores": {
@@ -173,9 +206,9 @@
       ]
     },
     "92123": {
-      "score": 33,
+      "score": 34,
       "risk_level": "Moderate",
-      "total_employees": 168,
+      "total_employees": 170,
       "factors": [
         "20 employees affected",
         "134 employees affected",
@@ -197,18 +230,27 @@
       ]
     },
     "92108": {
+      "score": 15,
+      "risk_level": "Low",
+      "total_employees": 76,
+      "factors": [
+        "4 employees affected",
+        "72 employees affected"
+      ]
+    },
+    "92128": {
       "score": 0,
       "risk_level": "Low",
-      "total_employees": 4,
+      "total_employees": 1,
       "factors": [
-        "4 employees affected"
+        "1 employees affected"
       ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 8,
-      "total_employees": 341
+      "notice_count": 11,
+      "total_employees": 416
     },
     "North County Inland": {
       "notice_count": 6,
