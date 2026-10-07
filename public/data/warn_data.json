@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-10-06T13:49:28.089669",
+    "generated": "2026-10-07T14:07:00.620595",
     "county": "San Diego",
-    "total_notices": 17,
-    "total_employees_affected": 686
+    "total_notices": 19,
+    "total_employees_affected": 772
   },
   "notices": [
     {
@@ -192,6 +192,28 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "91230b75",
+      "company_name": "Becton, Dickinson and Company (BD)",
+      "city": "San Diego",
+      "zipcode": "92130",
+      "employees_affected": 85,
+      "layoff_date": "2026-09-01",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Carmel Valley"
+    },
+    {
+      "notice_id": "3221efcd",
+      "company_name": "Kaiser Foundation Hospitals and Kaiser Foundation Health Plan, Inc.",
+      "city": "San Diego",
+      "zipcode": "92108",
+      "employees_affected": 1,
+      "layoff_date": "2026-12-04",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Mission Valley"
     }
   ],
   "risk_scores": {
@@ -232,10 +254,11 @@
     "92108": {
       "score": 15,
       "risk_level": "Low",
-      "total_employees": 76,
+      "total_employees": 77,
       "factors": [
         "4 employees affected",
-        "72 employees affected"
+        "72 employees affected",
+        "1 employees affected"
       ]
     },
     "92128": {
@@ -245,12 +268,20 @@
       "factors": [
         "1 employees affected"
       ]
+    },
+    "92130": {
+      "score": 17,
+      "risk_level": "Low",
+      "total_employees": 85,
+      "factors": [
+        "85 employees affected"
+      ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 11,
-      "total_employees": 416
+      "notice_count": 13,
+      "total_employees": 502
     },
     "North County Inland": {
       "notice_count": 6,
