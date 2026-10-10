@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-10-09T14:02:10.831139",
+    "generated": "2026-10-10T13:10:50.978613",
     "source": "FRED (Federal Reserve Economic Data)",
     "lastUpdate": "2026-10-08"
   },
@@ -99,5 +99,5 @@
   "sanDiego": {
     "unemploymentRate": 4.9
   },
-  "treasury10yr": 5.28
+  "treasury10yr": 5.22
 }
