@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-10-15T12:21:57.734810",
+    "generated": "2026-10-16T12:01:55.425523",
     "county": "San Diego",
-    "total_notices": 19,
-    "total_employees_affected": 772
+    "total_notices": 22,
+    "total_employees_affected": 793
   },
   "notices": [
     {
@@ -214,17 +214,51 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "f22a0b83",
+      "company_name": "Sapporo U.S.A. - Executive Place",
+      "city": "Escondido",
+      "zipcode": "92029",
+      "employees_affected": 1,
+      "layoff_date": "2026-12-11",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
+    },
+    {
+      "notice_id": "a7dc7067",
+      "company_name": "Sapporo U.S.A - Citracado Parkway",
+      "city": "Escondido",
+      "zipcode": "92029",
+      "employees_affected": 2,
+      "layoff_date": "2026-12-11",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
+    },
+    {
+      "notice_id": "47b1f813",
+      "company_name": "ServiceNow, Inc.",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 18,
+      "layoff_date": "2026-12-14",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
     }
   ],
   "risk_scores": {
     "92121": {
-      "score": 53,
-      "risk_level": "High",
-      "total_employees": 169,
+      "score": 37,
+      "risk_level": "Moderate",
+      "total_employees": 187,
       "factors": [
         "133 employees affected",
         "36 employees affected",
-        "Plant closure"
+        "Plant closure",
+        "18 employees affected"
       ]
     },
     "92123": {
@@ -242,13 +276,14 @@
     "92029": {
       "score": 74,
       "risk_level": "Critical",
-      "total_employees": 270,
+      "total_employees": 273,
       "factors": [
         "6 employees affected",
         "Plant closure",
         "2 employees affected",
         "50 employees affected",
-        "200 employees affected"
+        "200 employees affected",
+        "1 employees affected"
       ]
     },
     "92108": {
@@ -280,12 +315,12 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 13,
-      "total_employees": 502
+      "notice_count": 14,
+      "total_employees": 520
     },
     "North County Inland": {
-      "notice_count": 6,
-      "total_employees": 270
+      "notice_count": 8,
+      "total_employees": 273
     }
   }
 }
