@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-10-29T13:52:12.084473",
+    "generated": "2026-10-30T13:44:31.599584",
     "county": "San Diego",
-    "total_notices": 22,
-    "total_employees_affected": 793
+    "total_notices": 23,
+    "total_employees_affected": 924
   },
   "notices": [
     {
@@ -247,18 +247,30 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "c55da123",
+      "company_name": "Artiva Biotherapeutics, Inc.",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 131,
+      "layoff_date": "2026-12-31",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
     }
   ],
   "risk_scores": {
     "92121": {
-      "score": 37,
-      "risk_level": "Moderate",
-      "total_employees": 187,
+      "score": 63,
+      "risk_level": "High",
+      "total_employees": 318,
       "factors": [
         "133 employees affected",
         "36 employees affected",
         "Plant closure",
-        "18 employees affected"
+        "18 employees affected",
+        "131 employees affected"
       ]
     },
     "92123": {
@@ -315,8 +327,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 14,
-      "total_employees": 520
+      "notice_count": 15,
+      "total_employees": 651
     },
     "North County Inland": {
       "notice_count": 8,
