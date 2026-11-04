@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-11-03T14:46:49.845650",
+    "generated": "2026-11-04T14:59:13.681493",
     "county": "San Diego",
-    "total_notices": 23,
-    "total_employees_affected": 924
+    "total_notices": 28,
+    "total_employees_affected": 1174
   },
   "notices": [
     {
@@ -258,19 +258,75 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "db351674",
+      "company_name": "Worldwide Flight Services, Inc.",
+      "city": "San Diego",
+      "zipcode": "92101",
+      "employees_affected": 59,
+      "layoff_date": "2027-01-04",
+      "notice_type": "Layoff Permanent",
+      "region": "Urban San Diego",
+      "neighborhood": "Downtown"
+    },
+    {
+      "notice_id": "a2ff275b",
+      "company_name": "Avidity Biosciences, Inc.",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 40,
+      "layoff_date": "2026-12-31",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "f010f181",
+      "company_name": "Sapporo U.S.A.",
+      "city": "Escondido",
+      "zipcode": "92029",
+      "employees_affected": 1,
+      "layoff_date": "2026-12-11",
+      "notice_type": "Closure Permanent",
+      "region": "North County Inland",
+      "neighborhood": "Escondido"
+    },
+    {
+      "notice_id": "54c53253",
+      "company_name": "Endeavors",
+      "city": "Chula Vista",
+      "zipcode": "91914",
+      "employees_affected": 31,
+      "layoff_date": "2026-12-31",
+      "notice_type": "Layoff Permanent",
+      "region": "South County",
+      "neighborhood": "Eastlake"
+    },
+    {
+      "notice_id": "3926ddd9",
+      "company_name": "Pacific Coast Grill Inc.",
+      "city": "Encinitas",
+      "zipcode": "92007",
+      "employees_affected": 119,
+      "layoff_date": "2026-03-01",
+      "notice_type": "Closure Temporary",
+      "region": "Coastal",
+      "neighborhood": "Cardiff"
     }
   ],
   "risk_scores": {
     "92121": {
-      "score": 63,
-      "risk_level": "High",
-      "total_employees": 318,
+      "score": 71,
+      "risk_level": "Critical",
+      "total_employees": 358,
       "factors": [
         "133 employees affected",
         "36 employees affected",
         "Plant closure",
         "18 employees affected",
-        "131 employees affected"
+        "131 employees affected",
+        "40 employees affected"
       ]
     },
     "92123": {
@@ -288,7 +344,7 @@
     "92029": {
       "score": 74,
       "risk_level": "Critical",
-      "total_employees": 273,
+      "total_employees": 274,
       "factors": [
         "6 employees affected",
         "Plant closure",
@@ -323,16 +379,53 @@
       "factors": [
         "85 employees affected"
       ]
+    },
+    "92101": {
+      "score": 11,
+      "risk_level": "Low",
+      "total_employees": 59,
+      "factors": [
+        "59 employees affected"
+      ]
+    },
+    "91914": {
+      "score": 6,
+      "risk_level": "Low",
+      "total_employees": 31,
+      "factors": [
+        "31 employees affected"
+      ]
+    },
+    "92007": {
+      "score": 43,
+      "risk_level": "Moderate",
+      "total_employees": 119,
+      "factors": [
+        "119 employees affected",
+        "Plant closure"
+      ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 15,
-      "total_employees": 651
+      "notice_count": 16,
+      "total_employees": 691
     },
     "North County Inland": {
-      "notice_count": 8,
-      "total_employees": 273
+      "notice_count": 9,
+      "total_employees": 274
+    },
+    "Urban San Diego": {
+      "notice_count": 1,
+      "total_employees": 59
+    },
+    "South County": {
+      "notice_count": 1,
+      "total_employees": 31
+    },
+    "Coastal": {
+      "notice_count": 1,
+      "total_employees": 119
     }
   }
 }
