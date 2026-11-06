@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-11-05T15:04:06.358111",
+    "generated": "2026-11-06T14:43:19.949628",
     "county": "San Diego",
-    "total_notices": 28,
-    "total_employees_affected": 1174
+    "total_notices": 30,
+    "total_employees_affected": 1277
   },
   "notices": [
     {
@@ -313,20 +313,44 @@
       "notice_type": "Closure Temporary",
       "region": "Coastal",
       "neighborhood": "Cardiff"
+    },
+    {
+      "notice_id": "5cdd9031",
+      "company_name": "Crinetics Pharmaceuticals, Inc.",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 78,
+      "layoff_date": "2026-01-04",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "a6f8ceb7",
+      "company_name": "ServiceNow, Inc.",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 25,
+      "layoff_date": "2027-01-04",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
     }
   ],
   "risk_scores": {
     "92121": {
-      "score": 71,
+      "score": 92,
       "risk_level": "Critical",
-      "total_employees": 358,
+      "total_employees": 461,
       "factors": [
         "133 employees affected",
         "36 employees affected",
         "Plant closure",
         "18 employees affected",
         "131 employees affected",
-        "40 employees affected"
+        "40 employees affected",
+        "78 employees affected",
+        "25 employees affected"
       ]
     },
     "92123": {
@@ -408,8 +432,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 16,
-      "total_employees": 691
+      "notice_count": 18,
+      "total_employees": 794
     },
     "North County Inland": {
       "notice_count": 9,
