@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-11-10T15:20:17.026134",
+    "generated": "2026-11-11T14:51:19.234497",
     "county": "San Diego",
-    "total_notices": 30,
-    "total_employees_affected": 1277
+    "total_notices": 31,
+    "total_employees_affected": 1281
   },
   "notices": [
     {
@@ -315,12 +315,12 @@
       "neighborhood": "Cardiff"
     },
     {
-      "notice_id": "5cdd9031",
+      "notice_id": "b727ac20",
       "company_name": "Crinetics Pharmaceuticals, Inc.",
       "city": "San Diego",
       "zipcode": "92121",
       "employees_affected": 78,
-      "layoff_date": "2026-01-04",
+      "layoff_date": "2027-01-04",
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
@@ -335,6 +335,17 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "796adeca",
+      "company_name": "Blue Shield of CA - San Diego",
+      "city": "San Diego",
+      "zipcode": "92108",
+      "employees_affected": 4,
+      "layoff_date": "2027-01-12",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Mission Valley"
     }
   ],
   "risk_scores": {
@@ -379,9 +390,9 @@
       ]
     },
     "92108": {
-      "score": 15,
+      "score": 16,
       "risk_level": "Low",
-      "total_employees": 77,
+      "total_employees": 81,
       "factors": [
         "4 employees affected",
         "72 employees affected",
@@ -432,8 +443,8 @@
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 18,
-      "total_employees": 794
+      "notice_count": 19,
+      "total_employees": 798
     },
     "North County Inland": {
       "notice_count": 9,
