@@ -1,20 +1,20 @@
 {
   "meta": {
-    "generated": "2026-11-12T15:42:11.362222",
+    "generated": "2026-11-13T15:00:56.574813",
     "source": "FRED (Federal Reserve Economic Data)",
-    "lastUpdate": "2026-11-05"
+    "lastUpdate": "2026-11-12"
   },
   "currentRates": {
-    "rate30": 7.18,
-    "rate15": 6.57,
+    "rate30": 7.11,
+    "rate15": 6.45,
     "fedFunds": 3.88,
-    "jumboRate": 7.24,
-    "fhaRate": 6.98,
-    "vaRate": 6.77
+    "jumboRate": 7.29,
+    "fhaRate": 7.03,
+    "vaRate": 6.82
   },
   "weekChange": {
-    "rate30": -0.06,
-    "rate15": -0.03
+    "rate30": -0.07,
+    "rate15": -0.12
   },
   "rateHistory": [
     {
@@ -69,13 +69,13 @@
       "date": "2026-08",
       "rate30": 6.69,
       "rate15": 6.01,
-      "jumboRate": 6.705
+      "jumboRate": null
     },
     {
       "date": "2026-09",
       "rate30": 6.71,
       "rate15": 6.04,
-      "jumboRate": 6.816
+      "jumboRate": 6.801
     },
     {
       "date": "2026-10",
@@ -99,5 +99,5 @@
   "sanDiego": {
     "unemploymentRate": 4.7
   },
-  "treasury10yr": 4.88
+  "treasury10yr": 4.98
 }
