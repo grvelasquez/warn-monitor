@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-11-16T16:39:40.750721",
+    "generated": "2026-11-17T16:36:30.130264",
     "county": "San Diego",
-    "total_notices": 31,
-    "total_employees_affected": 1281
+    "total_notices": 32,
+    "total_employees_affected": 1332
   },
   "notices": [
     {
@@ -346,6 +346,17 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "Mission Valley"
+    },
+    {
+      "notice_id": "3a2447ec",
+      "company_name": "Illumina, Inc. Worldwide Headquarters",
+      "city": "San Diego",
+      "zipcode": "92122",
+      "employees_affected": 51,
+      "layoff_date": "2027-01-08",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "University City"
     }
   ],
   "risk_scores": {
@@ -439,12 +450,20 @@
         "119 employees affected",
         "Plant closure"
       ]
+    },
+    "92122": {
+      "score": 10,
+      "risk_level": "Low",
+      "total_employees": 51,
+      "factors": [
+        "51 employees affected"
+      ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 19,
-      "total_employees": 798
+      "notice_count": 20,
+      "total_employees": 849
     },
     "North County Inland": {
       "notice_count": 9,
