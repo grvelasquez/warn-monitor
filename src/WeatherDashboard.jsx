@@ -1,5 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Sun, Cloud, CloudRain, Wind, Droplets, Thermometer, Eye, Sunrise, Sunset, MapPin, RefreshCw, Waves } from 'lucide-react';
+import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning, CloudFog, Wind, Droplets, Thermometer, Sunrise, Sunset, MapPin, RefreshCw, Waves, AlertTriangle } from 'lucide-react';
+import { fetchForecasts, fetchSurf, fetchTides } from './utils/weatherApi';
+
+const REFRESH_MS = 15 * 60 * 1000;
 
 // San Diego locations with coordinates
 const SD_LOCATIONS = [
@@ -27,8 +30,8 @@ const getWeatherInfo = (code) => {
         1: { icon: Sun, label: 'Mainly clear', color: 'text-yellow-400' },
         2: { icon: Cloud, label: 'Partly cloudy', color: 'text-gray-300' },
         3: { icon: Cloud, label: 'Overcast', color: 'text-gray-400' },
-        45: { icon: Cloud, label: 'Foggy', color: 'text-gray-400' },
-        48: { icon: Cloud, label: 'Rime fog', color: 'text-gray-400' },
+        45: { icon: CloudFog, label: 'Foggy', color: 'text-gray-400' },
+        48: { icon: CloudFog, label: 'Rime fog', color: 'text-gray-400' },
         51: { icon: CloudRain, label: 'Light drizzle', color: 'text-blue-300' },
         53: { icon: CloudRain, label: 'Drizzle', color: 'text-blue-400' },
         55: { icon: CloudRain, label: 'Dense drizzle', color: 'text-blue-500' },
@@ -38,12 +41,28 @@ const getWeatherInfo = (code) => {
         80: { icon: CloudRain, label: 'Showers', color: 'text-blue-400' },
         81: { icon: CloudRain, label: 'Moderate showers', color: 'text-blue-500' },
         82: { icon: CloudRain, label: 'Violent showers', color: 'text-blue-600' },
+        56: { icon: CloudRain, label: 'Freezing drizzle', color: 'text-blue-300' },
+        57: { icon: CloudRain, label: 'Freezing drizzle', color: 'text-blue-400' },
+        66: { icon: CloudRain, label: 'Freezing rain', color: 'text-blue-400' },
+        67: { icon: CloudRain, label: 'Freezing rain', color: 'text-blue-500' },
+        71: { icon: CloudSnow, label: 'Light snow', color: 'text-slate-200' },
+        73: { icon: CloudSnow, label: 'Snow', color: 'text-slate-200' },
+        75: { icon: CloudSnow, label: 'Heavy snow', color: 'text-slate-100' },
+        77: { icon: CloudSnow, label: 'Snow grains', color: 'text-slate-200' },
+        85: { icon: CloudSnow, label: 'Snow showers', color: 'text-slate-200' },
+        86: { icon: CloudSnow, label: 'Heavy snow showers', color: 'text-slate-100' },
+        95: { icon: CloudLightning, label: 'Thunderstorm', color: 'text-purple-400' },
+        96: { icon: CloudLightning, label: 'Thunderstorm w/ hail', color: 'text-purple-400' },
+        99: { icon: CloudLightning, label: 'Severe thunderstorm', color: 'text-purple-500' },
     };
-    return weatherCodes[code] || { icon: Sun, label: 'Unknown', color: 'text-gray-400' };
+    if (code === null || code === undefined) return { icon: Cloud, label: '—', color: 'text-gray-500' };
+    return weatherCodes[code] || { icon: Cloud, label: 'Unknown', color: 'text-gray-400' };
 };
 
-// Format temperature
-const formatTemp = (temp) => `${Math.round(temp)}°`;
+const isNum = (v) => typeof v === 'number' && Number.isFinite(v);
+
+// Format temperature ("--" when missing instead of NaN or a made-up value)
+const formatTemp = (temp) => (isNum(temp) ? `${Math.round(temp)}°` : '--');
 
 // Get time of day for gradient
 const getTimeGradient = () => {
@@ -72,12 +91,14 @@ function CurrentWeather({ data, location }) {
                     </div>
                     <div>
                         <p className="text-4xl md:text-6xl font-light text-white">
-                            {formatTemp(data?.current?.temperature_2m || 72)}
+                            {formatTemp(data?.current?.temperature_2m)}
                         </p>
                         <p className="text-lg text-slate-300 mt-1">{weatherInfo.label}</p>
-                        <p className="text-sm text-slate-500 mt-1">
-                            Feels like {formatTemp(data?.current?.apparent_temperature || 70)}
-                        </p>
+                        {isNum(data?.current?.apparent_temperature) && (
+                            <p className="text-sm text-slate-500 mt-1">
+                                Feels like {formatTemp(data.current.apparent_temperature)}
+                            </p>
+                        )}
                     </div>
                 </div>
 
@@ -86,28 +107,28 @@ function CurrentWeather({ data, location }) {
                         <Wind className="w-5 h-5 text-cyan-400" />
                         <div>
                             <p className="text-sm text-slate-400">Wind</p>
-                            <p className="text-white font-medium">{Math.round(data?.current?.wind_speed_10m || 8)} mph</p>
+                            <p className="text-white font-medium">{isNum(data?.current?.wind_speed_10m) ? `${Math.round(data.current.wind_speed_10m)} mph` : '--'}</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
                         <Droplets className="w-5 h-5 text-blue-400" />
                         <div>
                             <p className="text-sm text-slate-400">Humidity</p>
-                            <p className="text-white font-medium">{data?.current?.relative_humidity_2m || 65}%</p>
+                            <p className="text-white font-medium">{isNum(data?.current?.relative_humidity_2m) ? `${Math.round(data.current.relative_humidity_2m)}%` : '--'}</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
-                        <Eye className="w-5 h-5 text-purple-400" />
+                        <Thermometer className="w-5 h-5 text-purple-400" />
                         <div>
-                            <p className="text-sm text-slate-400">Visibility</p>
-                            <p className="text-white font-medium">10+ mi</p>
+                            <p className="text-sm text-slate-400">Today</p>
+                            <p className="text-white font-medium">{formatTemp(data?.daily?.temperature_2m_max?.[0])} / {formatTemp(data?.daily?.temperature_2m_min?.[0])}</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
-                        <Thermometer className="w-5 h-5 text-orange-400" />
+                        <Sun className="w-5 h-5 text-orange-400" />
                         <div>
                             <p className="text-sm text-slate-400">UV Index</p>
-                            <p className="text-white font-medium">{data?.daily?.uv_index_max?.[0]?.toFixed(1) || '5.0'}</p>
+                            <p className="text-white font-medium">{isNum(data?.daily?.uv_index_max?.[0]) ? data.daily.uv_index_max[0].toFixed(1) : '--'}</p>
                         </div>
                     </div>
                 </div>
@@ -230,19 +251,22 @@ function SunTimes({ data }) {
     );
 }
 
-function TideSchedule({ tideData }) {
+function TideSchedule({ tideData, failed }) {
     if (!tideData || tideData.length === 0) {
         return (
             <div className="bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-slate-700/50 rounded-xl p-3">
                 <h3 className="text-sm font-semibold text-white mb-2">Tides (San Diego)</h3>
-                <p className="text-xs text-slate-400">Loading...</p>
+                <p className="text-xs text-slate-400">{failed ? 'Tide data unavailable right now.' : 'Loading...'}</p>
             </div>
         );
     }
 
+    // NOAA returns "YYYY-MM-DD HH:mm" in local station time. Format it directly —
+    // new Date() on that string is Invalid Date in Safari.
     const formatTideTime = (t) => {
-        const date = new Date(t);
-        return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        const [h, m] = (t.split(' ')[1] || '').split(':').map(Number);
+        if (!Number.isFinite(h)) return t;
+        return `${h % 12 || 12}:${String(m).padStart(2, '0')} ${h >= 12 ? 'PM' : 'AM'}`;
     };
 
     return (
@@ -264,7 +288,7 @@ function TideSchedule({ tideData }) {
     );
 }
 
-function SurfForecast({ surfData }) {
+function SurfForecast({ surfData, failed }) {
     const getDirectionLabel = (deg) => {
         const dirs = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
         return dirs[Math.round(deg / 45) % 8];
@@ -282,7 +306,7 @@ function SurfForecast({ surfData }) {
         return (
             <div className="bg-gradient-to-r from-teal-900/20 to-cyan-900/20 border border-slate-700/50 rounded-xl p-3">
                 <h3 className="text-sm font-semibold text-white mb-2">Surf Forecast</h3>
-                <p className="text-xs text-slate-400">Loading...</p>
+                <p className="text-xs text-slate-400">{failed ? 'Surf data unavailable right now.' : 'Loading...'}</p>
             </div>
         );
     }
@@ -345,87 +369,57 @@ function LocationCard({ location, data, isSelected, onClick }) {
 }
 
 export default function WeatherDashboard() {
-    const [weatherData, setWeatherData] = useState(null);
+    const [forecasts, setForecasts] = useState([]);
+    const [source, setSource] = useState(null);
+    const [warning, setWarning] = useState(null);
+    const [error, setError] = useState(null);
     const [tideData, setTideData] = useState([]);
+    const [tideFailed, setTideFailed] = useState(false);
     const [surfData, setSurfData] = useState({});
-    const [locationWeather, setLocationWeather] = useState({});
+    const [surfFailed, setSurfFailed] = useState(false);
     const [selectedLocation, setSelectedLocation] = useState(SD_LOCATIONS[0]);
     const [loading, setLoading] = useState(true);
     const [lastUpdated, setLastUpdated] = useState(null);
 
+    // One batched forecast request covers every location, so switching
+    // locations is instant and doesn't hit the API again.
     const fetchWeather = useCallback(async () => {
         setLoading(true);
-        try {
-            // Fetch detailed weather for selected location
-            const mainRes = await fetch(
-                `https://api.open-meteo.com/v1/forecast?latitude=${selectedLocation.lat}&longitude=${selectedLocation.lon}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,relative_humidity_2m&hourly=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset,uv_index_max&timezone=America/Los_Angeles&temperature_unit=fahrenheit&wind_speed_unit=mph`
-            );
-            const mainData = await mainRes.json();
-            setWeatherData(mainData);
-
-            // Fetch current weather for all locations
-            const locationPromises = SD_LOCATIONS.map(async (loc) => {
-                const res = await fetch(
-                    `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,weather_code&timezone=America/Los_Angeles&temperature_unit=fahrenheit`
-                );
-                const data = await res.json();
-                return {
-                    name: loc.name,
-                    temperature: data.current?.temperature_2m,
-                    weather_code: data.current?.weather_code
-                };
-            });
-
-            const locResults = await Promise.all(locationPromises);
-            const locMap = {};
-            locResults.forEach(r => { locMap[r.name] = r; });
-            setLocationWeather(locMap);
-
-            // Fetch tide data from NOAA
-            try {
-                const today = new Date();
-                const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
-                const tideRes = await fetch(
-                    `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?station=9410170&product=predictions&datum=MLLW&interval=hilo&units=english&time_zone=lst_ldt&format=json&begin_date=${dateStr}&end_date=${dateStr}`
-                );
-                if (tideRes.ok) {
-                    const tideJson = await tideRes.json();
-                    setTideData(tideJson.predictions || []);
-                }
-            } catch (tideErr) {
-                console.error('Tide fetch error:', tideErr);
-            }
-
-            // Fetch surf/marine data from Open-Meteo for multiple locations
-            try {
-                const surfPromises = SURF_LOCATIONS.map(async (spot) => {
-                    const surfRes = await fetch(
-                        `https://marine-api.open-meteo.com/v1/marine?latitude=${spot.lat}&longitude=${spot.lon}&current=wave_height,wave_period,wave_direction&timezone=America/Los_Angeles`
-                    );
-                    if (surfRes.ok) {
-                        return { name: spot.name, data: await surfRes.json() };
-                    }
-                    return null;
-                });
-                const surfResults = await Promise.all(surfPromises);
-                const surfMap = {};
-                surfResults.filter(Boolean).forEach(r => { surfMap[r.name] = r.data; });
-                setSurfData(surfMap);
-            } catch (surfErr) {
-                console.error('Surf fetch error:', surfErr);
-            }
-
-            setLastUpdated(new Date());
-        } catch (err) {
-            console.error('Weather fetch error:', err);
-        } finally {
-            setLoading(false);
-        }
-    }, [selectedLocation]);
+        await Promise.all([
+            fetchForecasts(SD_LOCATIONS)
+                .then(({ results, source: src, warning: warn }) => {
+                    setForecasts(results);
+                    setSource(src);
+                    setWarning(warn);
+                    setError(null);
+                    setLastUpdated(new Date());
+                })
+                .catch(err => {
+                    console.error('Weather fetch error:', err);
+                    setError('Live weather is temporarily unavailable from both Open-Meteo and the National Weather Service. Try refreshing in a few minutes.');
+                }),
+            fetchTides()
+                .then(preds => { setTideData(preds); setTideFailed(false); })
+                .catch(err => { console.error('Tide fetch error:', err); setTideFailed(true); }),
+            fetchSurf(SURF_LOCATIONS)
+                .then(map => { setSurfData(map); setSurfFailed(false); })
+                .catch(err => { console.error('Surf fetch error:', err); setSurfFailed(true); }),
+        ]);
+        setLoading(false);
+    }, []);
 
     useEffect(() => {
         fetchWeather();
+        const id = setInterval(fetchWeather, REFRESH_MS);
+        return () => clearInterval(id);
     }, [fetchWeather]);
+
+    const selectedIdx = SD_LOCATIONS.findIndex(l => l.name === selectedLocation.name);
+    const weatherData = forecasts[selectedIdx] || null;
+    const locationWeather = Object.fromEntries(SD_LOCATIONS.map((loc, i) => [loc.name, {
+        temperature: forecasts[i]?.current?.temperature_2m,
+        weather_code: forecasts[i]?.current?.weather_code,
+    }]));
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-x-hidden">
@@ -463,6 +457,13 @@ export default function WeatherDashboard() {
                     </div>
                 </div>
 
+                {(error || warning) && (
+                    <div className={`flex items-start gap-2 mb-6 px-4 py-3 rounded-lg border text-sm ${error ? 'bg-red-950/40 border-red-800/50 text-red-200' : 'bg-amber-950/30 border-amber-800/40 text-amber-200'}`}>
+                        <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                        <span>{error || warning}</span>
+                    </div>
+                )}
+
                 {loading && !weatherData ? (
                     <div className="flex items-center justify-center h-64">
                         <div className="animate-spin w-8 h-8 border-2 border-sky-600 border-t-white rounded-full" />
@@ -475,7 +476,7 @@ export default function WeatherDashboard() {
                             <HourlyForecast data={weatherData} />
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <SunTimes data={weatherData} />
-                                <TideSchedule tideData={tideData} />
+                                <TideSchedule tideData={tideData} failed={tideFailed} />
                             </div>
                             <DailyForecast data={weatherData} />
                         </div>
@@ -494,14 +495,14 @@ export default function WeatherDashboard() {
                                     />
                                 ))}
                             </div>
-                            <SurfForecast surfData={surfData} />
+                            <SurfForecast surfData={surfData} failed={surfFailed} />
                         </div>
                     </div>
                 )}
 
                 {/* Footer */}
                 <div className="mt-12 pt-6 border-t border-slate-800 text-center">
-                    <p className="text-xs text-slate-500">Weather data from Open-Meteo • Updates every 15 minutes</p>
+                    <p className="text-xs text-slate-500">Weather data from {source || 'Open-Meteo'} • Tides from NOAA • Updates every 15 minutes</p>
                 </div>
             </div>
         </div>
