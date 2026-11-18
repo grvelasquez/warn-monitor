@@ -542,6 +542,7 @@ export default function LenderMediatedDashboard() {
                                             { date: '04-2026', value: 339 },
                                             { date: '05-2026', value: 359 },
                                             { date: '06-2026', value: 338 },
+                                            { date: '10-2026', value: 421 },
                                         ]}
                                         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                                     >
@@ -557,7 +558,7 @@ export default function LenderMediatedDashboard() {
                                             stroke="#94a3b8"
                                             tick={{ fill: '#94a3b8' }}
                                             axisLine={{ stroke: '#475569' }}
-                                            domain={[0, 400]}
+                                            domain={[0, 450]}
                                         />
                                         <RechartsTooltip
                                             contentStyle={{
@@ -607,12 +608,11 @@ export default function LenderMediatedDashboard() {
                                     <div className="p-2 bg-indigo-500/10 rounded-lg">
                                         <Sparkles className="w-5 h-5 text-indigo-400" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-white">AI Executive Summary: June 2026 Analysis</h3>
+                                    <h3 className="text-xl font-bold text-white">AI Executive Summary: October 2026 Analysis</h3>
                                 </div>
                                 <p className="text-slate-300 leading-relaxed text-lg">
-                                    The June 2026 report shows <strong className="text-white">lender-mediated inventory holding roughly steady</strong> even as its composition shifts.
-                                    Total LM inventory was essentially flat at 338 units (<span className="text-amber-400">+1.2%</span> YoY), representing 5.8% of total supply — up from 4.8% a year ago. LM all-property prices firmed (<span className="text-emerald-400">+5.4%</span> to $895K all-in),
-                                    narrowing the discount versus traditional homes but still leaving room for value-oriented buyers.
+                                    The October 2026 report shows a <strong className="text-white">sharp expansion in lender-mediated supply led by condos and townhomes</strong>.
+                                    Total LM inventory surged <span className="text-amber-400">+35.4%</span> YoY to 421 units (up from 311), pushing its share of total supply from 5.5% to 7.4%. Because attached units now outnumber single-family homes in the distressed pool, the all-property LM median dropped <span className="text-red-400">-6.3%</span> to $750K while traditional prices rose <span className="text-emerald-400">+4.5%</span> to $925K — widening the distressed discount for value-oriented buyers.
                                 </p>
                             </div>
 
@@ -625,30 +625,30 @@ export default function LenderMediatedDashboard() {
                                         <Package className="w-5 h-5" />
                                         1. Inventory & Listings
                                     </h4>
-                                    <p className="text-sm text-slate-400 mb-3">Condo supply surging; single-family pulling back.</p>
+                                    <p className="text-sm text-slate-400 mb-3">Condo distress jumps sharply; single-family ticks up modestly.</p>
                                     <ul className="space-y-3 text-sm text-slate-300">
                                         <li className="flex gap-2">
-                                            <span className="text-red-400 font-bold min-w-[12px]">•</span>
+                                            <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">New Listings:</strong> Fell <span className="text-red-400">32.3%</span> YoY to 126 LM units.
+                                                <strong className="text-white">New Listings:</strong> Rose <span className="text-emerald-400">15.3%</span> YoY (144 to 166 LM units).
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
-                                            <span className="text-red-400 font-bold min-w-[12px]">•</span>
+                                            <span className="text-amber-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">Single-Family:</strong> Fell <span className="text-red-400">20.7%</span> (193 to 153 units).
+                                                <strong className="text-white">Single-Family:</strong> Edged up <span className="text-amber-400">3.4%</span> (174 to 180 units, 5.9% share).
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
                                             <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">Condos:</strong> Jumped <span className="text-emerald-400">31.2%</span> from 141 to 185 units.
+                                                <strong className="text-white">Condos:</strong> Surged <span className="text-emerald-400">75.9%</span> from 137 to 241 units (9.0% of condo supply).
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
                                             <span className="text-blue-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">Market Share:</strong> Rose to 5.8% of total inventory (from 4.8%).
+                                                <strong className="text-white">Market Share:</strong> Climbed to 7.4% of total inventory (from 5.5%).
                                             </span>
                                         </li>
                                     </ul>
@@ -660,30 +660,30 @@ export default function LenderMediatedDashboard() {
                                         <DollarSign className="w-5 h-5" />
                                         2. Sales & Pricing Dynamics
                                     </h4>
-                                    <p className="text-sm text-slate-400 mb-3">Distressed sales gaining share as LM volume climbs.</p>
+                                    <p className="text-sm text-slate-400 mb-3">Condo discounts widen while single-family LM prices climb.</p>
                                     <ul className="space-y-3 text-sm text-slate-300">
                                         <li className="flex gap-2">
                                             <span className="text-red-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">Median Price:</strong> LM prices rose <span className="text-emerald-400">5.4%</span> to $895,000 (all properties).
+                                                <strong className="text-white">Median Price:</strong> All-property LM median fell <span className="text-red-400">6.3%</span> to $750,000 vs $925,000 traditional (+4.5%).
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
                                             <span className="text-amber-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">The Gap:</strong> LM discount vs traditional narrowed — SF at $989K vs $1.14M traditional.
+                                                <strong className="text-white">The Gap:</strong> Single-family LM at $940K vs $1,067,500 traditional; condos at $486,750 vs $670,000 traditional.
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
                                             <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">SF Price:</strong> Rose <span className="text-emerald-400">9.9%</span> to $989K; Condos slipped <span className="text-red-400">0.4%</span> to $600,000.
+                                                <strong className="text-white">By Segment:</strong> SF LM price rose <span className="text-emerald-400">7.7%</span> to $940K; Condos fell <span className="text-red-400">16.1%</span> to $486,750.
                                             </span>
                                         </li>
                                         <li className="flex gap-2">
-                                            <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
+                                            <span className="text-red-400 font-bold min-w-[12px]">•</span>
                                             <span>
-                                                <strong className="text-white">Closed Sales:</strong> LM sales rose <span className="text-emerald-400">11.5%</span> to 97 units (4.5% of market).
+                                                <strong className="text-white">Closed Sales:</strong> LM closings fell <span className="text-red-400">20.8%</span> to 84 units (5.2% of market, vs 5.1% last year).
                                             </span>
                                         </li>
                                     </ul>
@@ -700,21 +700,21 @@ export default function LenderMediatedDashboard() {
                                             <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">Highest Share ({rp.label})</div>
                                             <div className="space-y-2">
                                                 <div className="flex justify-between text-sm">
-                                                    <span className="text-white">91977 (Spring Valley)</span>
-                                                    <span className="text-amber-400 font-mono">19.0%</span>
+                                                    <span className="text-white">92173 (San Ysidro)</span>
+                                                    <span className="text-amber-400 font-mono">16.7%</span>
                                                 </div>
                                                 <div className="flex justify-between text-sm">
-                                                    <span className="text-white">92086 (Warner Springs)</span>
-                                                    <span className="text-amber-400 font-mono">18.2%</span>
+                                                    <span className="text-white">91934 (Jacumba)</span>
+                                                    <span className="text-amber-400 font-mono">16.7%</span>
                                                 </div>
                                                 <div className="flex justify-between text-sm">
-                                                    <span className="text-white">91906 (Campo)</span>
-                                                    <span className="text-amber-400 font-mono">18.2%</span>
+                                                    <span className="text-white">92128 (Rancho Bernardo East)</span>
+                                                    <span className="text-amber-400 font-mono">15.6%</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="text-sm text-slate-300">
-                                            <strong className="text-emerald-400">Zero LM Inventory:</strong> Boulevard (91905), Descanso (91916), Jacumba (91934), Pine Valley (91962), Potrero (91963).
+                                            <strong className="text-emerald-400">Zero LM Inventory (14 zips):</strong> Boulevard (91905), Descanso (91916), Potrero (91963), Bonsall (92003), Cardiff (92007), and 9 others.
                                         </div>
                                     </div>
                                 </div>
@@ -727,16 +727,16 @@ export default function LenderMediatedDashboard() {
                                     </h4>
                                     <ul className="space-y-4 text-sm text-slate-300">
                                         <li className="relative pl-4 border-l-2 border-purple-500/50">
-                                            <strong className="block text-white mb-1">Condo Opportunities</strong>
-                                            Attached LM inventory up 31.2% YoY — by far the most accessible segment for distressed-buyer entry.
+                                            <strong className="block text-white mb-1">Condo Distress Surge</strong>
+                                            Attached LM inventory jumped 75.9% YoY to 241 units (9.0% share), with median prices down 16.1% to $486,750.
                                         </li>
                                         <li className="relative pl-4 border-l-2 border-purple-500/50">
-                                            <strong className="block text-white mb-1">Luxury LM Thinning</strong>
-                                            $1.25M+ LM inventory down 14.3% YoY (84 units) — high-end distress is receding.
+                                            <strong className="block text-white mb-1">Upper-Tier LM Edging Up</strong>
+                                            $1.25M+ LM inventory ticked up 4.8% YoY (84 → 88 units), keeping high-end distressed supply steady.
                                         </li>
                                         <li className="relative pl-4 border-l-2 border-purple-500/50">
-                                            <strong className="block text-white mb-1">Narrowing Discount Gap</strong>
-                                            LM all-property median ($895K) sits ~6% below traditional ($950.5K) — the spread has tightened.
+                                            <strong className="block text-white mb-1">Widening Overall Discount</strong>
+                                            LM all-property median ($750K) now sits ~19% below traditional ($925K), driven by the heavier condo mix.
                                         </li>
                                     </ul>
                                 </div>

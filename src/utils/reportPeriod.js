@@ -8,7 +8,7 @@ const MONTHS = [
     'July', 'August', 'September', 'October', 'November', 'December',
 ];
 
-export const DEFAULT_PERIOD = 'June 2026';
+export const DEFAULT_PERIOD = 'October 2026';
 
 export function parseReportPeriod(period) {
     const src = period || DEFAULT_PERIOD;

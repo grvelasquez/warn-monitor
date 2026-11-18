@@ -615,76 +615,76 @@ export default function SupplyDashboard() {
                                 <div className="p-2 bg-indigo-500/20 rounded-lg">
                                     <Sparkles className="w-6 h-6 text-indigo-400" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white">AI Executive Summary: The Persistent Supply Squeeze</h3>
+                                <h3 className="text-2xl font-bold text-white">AI Executive Summary: Supply Stabilizes as Demand Cools</h3>
                             </div>
                             <p className="text-slate-300 leading-relaxed text-lg">
-                                The San Diego housing market in June 2026 is defined by a deepening <strong className="text-indigo-400">bifurcated supply picture</strong> —
-                                single-family inventory continues to contract sharply (<span className="text-rose-400 font-bold">-26.1%</span> YoY) while condo supply has held roughly flat (<span className="text-amber-400 font-bold">+0.5%</span>). Total inventory fell <span className="text-rose-400 font-bold">15.3%</span> YoY to 5,877 active listings, with days on market climbing double-digits across most price bands. Pending sales climbed (condos <span className="text-emerald-400 font-bold">+13.7%</span>, single-family <span className="text-emerald-400 font-bold">+4.6%</span>) as buyers stayed active. After May's brief plateau, prices reaccelerated — single-family medians jumped <span className="text-emerald-400 font-bold">+5.1%</span> YoY and condos returned to growth (<span className="text-emerald-400 font-bold">+1.1%</span>) — reinforcing the core narrative of <strong className="text-amber-400">scarcity</strong> driving prices even as buyers grow more selective.
+                                The San Diego housing market in October 2026 marks a <strong className="text-indigo-400">turn in the supply story</strong> —
+                                total inventory edged up <span className="text-amber-400 font-bold">+1.4%</span> YoY to 5,717 active listings as condo supply climbed (<span className="text-amber-400 font-bold">+8.4%</span>) and the single-family decline eased to just <span className="text-rose-400 font-bold">-4.1%</span>. At the same time, buyer activity pulled back sharply: October pending sales fell <span className="text-rose-400 font-bold">25.4%</span> for single-family and <span className="text-rose-400 font-bold">24.9%</span> for condos versus a year ago. Prices have not cracked — single-family medians rose <span className="text-emerald-400 font-bold">+6.5%</span> to $1,065,000 while condos held flat (<span className="text-amber-400 font-bold">-0.2%</span>) — but the market is clearly <strong className="text-amber-400">losing momentum</strong> heading into winter.
                             </p>
                         </div>
 
                         {/* Analysis Grid */}
                         <div className="grid md:grid-cols-2 gap-6">
-                            {/* 1. Inventory & Supply Crisis */}
+                            {/* 1. Inventory & Supply */}
                             <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 hover:bg-slate-800/60 transition-colors">
                                 <h4 className="flex items-center gap-2 text-lg font-semibold text-rose-400 mb-4">
                                     <Package className="w-5 h-5" />
-                                    1. Inventory & Supply Constraint
+                                    1. Inventory Stabilizes
                                 </h4>
-                                <p className="text-sm text-slate-400 mb-3">The most critical data point: continued contraction in available homes.</p>
+                                <p className="text-sm text-slate-400 mb-3">The steep year-over-year inventory declines have run their course.</p>
                                 <ul className="space-y-3 text-sm text-slate-300">
                                     <li className="flex gap-2">
-                                        <span className="text-rose-400 font-bold min-w-[12px]">•</span>
+                                        <span className="text-amber-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Total Inventory:</strong> Dropped <span className="text-rose-400 font-bold">15.3%</span> YoY.
-                                            5,877 active listings vs 6,939 last year.
+                                            <strong className="text-white">Total Inventory:</strong> Up <span className="text-amber-400 font-bold">1.4%</span> YoY.
+                                            5,717 active listings vs 5,640 last year.
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-rose-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Single-Family:</strong> Fell <span className="text-rose-400">26.1%</span> to 3,047 units,
-                                            resulting in just 2.4 months of supply.
+                                            <strong className="text-white">Single-Family:</strong> Down a modest <span className="text-rose-400">4.1%</span> to 3,054 units,
+                                            with months of supply unchanged at 2.6 months.
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-amber-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Condo Supply:</strong> Essentially flat <span className="text-amber-400">(+0.5%)</span> at 2,830 units — holding near 4.0 months of supply, the closest to balanced territory in the county.
+                                            <strong className="text-white">Condo Supply:</strong> Rose <span className="text-amber-400">8.4%</span> to 2,663 units — reaching 4.0 months of supply, the edge of balanced territory.
                                         </span>
                                     </li>
                                 </ul>
                                 <div className="mt-4 p-3 bg-slate-900/50 rounded-lg border border-slate-700/50 text-xs text-slate-400">
-                                    <strong className="text-slate-300">Context:</strong> A balanced market is 4–6 months of supply. At current levels,
-                                    San Diego remains firmly in "seller's market" territory regarding supply.
+                                    <strong className="text-slate-300">Context:</strong> A balanced market is 4–6 months of supply. Single-family homes remain
+                                    firmly a seller's market, while condos have reached the low end of balanced.
                                 </div>
                             </div>
 
-                            {/* 2. Pricing Stability */}
+                            {/* 2. Pricing */}
                             <div className="bg-slate-800/40 rounded-xl border border-slate-700/50 p-6 hover:bg-slate-800/60 transition-colors">
                                 <h4 className="flex items-center gap-2 text-lg font-semibold text-emerald-400 mb-4">
                                     <DollarSign className="w-5 h-5" />
-                                    2. Pricing Reaccelerates
+                                    2. Pricing Holds Firm
                                 </h4>
-                                <p className="text-sm text-slate-400 mb-3">After May's plateau, the inventory squeeze pushed prices higher again.</p>
+                                <p className="text-sm text-slate-400 mb-3">Prices haven't followed demand lower — yet.</p>
                                 <ul className="space-y-3 text-sm text-slate-300">
                                     <li className="flex gap-2">
                                         <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Overall Median:</strong> Single-family jumped <span className="text-emerald-400">+5.1%</span> to $1,125,000 YoY; condos returned to growth <span className="text-emerald-400">+1.1%</span> to $670,000.
-                                        </span>
-                                    </li>
-                                    <li className="flex gap-2">
-                                        <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
-                                        <span>
-                                            <strong className="text-white">Condo Recovery:</strong> Condo medians rebounded after May's dip even as condo inventory held flat (+0.5%) — demand is absorbing the affordable-end segment.
+                                            <strong className="text-white">Overall Median:</strong> Single-family rose <span className="text-emerald-400">+6.5%</span> to $1,065,000 YoY; condos were flat <span className="text-amber-400">-0.2%</span> at $658,000.
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-amber-400 font-bold min-w-[12px]">•</span>
                                         <span>
+                                            <strong className="text-white">Condo Plateau:</strong> With condo inventory up 8.4% and pending sales down 24.9%, condo pricing has stalled as buyers gain options.
+                                        </span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
+                                        <span>
                                             <strong className="text-white">Negotiation Power:</strong> Pct of List Price at
-                                            <span className="text-amber-400 font-bold"> 98.6%</span> in the $750K–$1M range, dipping across nearly all brackets vs last year.
+                                            <span className="text-emerald-400 font-bold"> 98.8%</span> in the $750K–$1M range, edging up from 98.5% last year — well-priced homes still sell near asking.
                                         </span>
                                     </li>
                                 </ul>
@@ -696,19 +696,19 @@ export default function SupplyDashboard() {
                                     <Clock className="w-5 h-5" />
                                     3. Sales Velocity & Volume
                                 </h4>
-                                <p className="text-sm text-slate-400 mb-3">The market volume remains constrained by limited choices.</p>
+                                <p className="text-sm text-slate-400 mb-3">October demand fell off sharply year-over-year.</p>
                                 <ul className="space-y-3 text-sm text-slate-300">
                                     <li className="flex gap-2">
                                         <span className="text-rose-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Closed Sales:</strong> Overall rolling volume ticked up <span className="text-emerald-400">(+1.6%)</span> YoY at 23,104.
+                                            <strong className="text-white">Closed Sales:</strong> October closings fell <span className="text-rose-400">24.1%</span> (single-family) and <span className="text-rose-400">21.3%</span> (condos) YoY; rolling 12-month volume slipped <span className="text-rose-400">1.4%</span> to 22,471.
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
-                                        <span className="text-rose-400 font-bold min-w-[12px]">•</span>
+                                        <span className="text-amber-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Days on Market:</strong> Increased <span className="text-rose-400 font-bold">double-digits</span> across most price bands,
-                                            e.g. $750K–$1M rising from 32 to <span className="text-white font-bold">36 days</span>.
+                                            <strong className="text-white">Days on Market:</strong> Mostly steady — $750K–$1M homes went from 35 to <span className="text-white font-bold">36 days</span> (+2.9%),
+                                            while single-family DOM overall fell to 39 days.
                                         </span>
                                     </li>
                                 </ul>
@@ -724,30 +724,30 @@ export default function SupplyDashboard() {
                                 </div>
                             </div>
 
-                            {/* 4. Luxury & High-End Anomaly */}
+                            {/* 4. Luxury & High-End */}
                             <div className="bg-gradient-to-br from-purple-900/20 to-slate-800/40 rounded-xl border border-purple-500/30 p-6">
                                 <h4 className="flex items-center gap-2 text-lg font-semibold text-purple-400 mb-4">
                                     <TrendingUp className="w-5 h-5" />
                                     4. The Resilient High-End Market
                                 </h4>
-                                <p className="text-sm text-slate-400 mb-3">While upper brackets are the slowest to sell, they show unique strength.</p>
+                                <p className="text-sm text-slate-400 mb-3">The top of the market is bucking the broader slowdown.</p>
                                 <ul className="space-y-3 text-sm text-slate-300">
                                     <li className="flex gap-2">
                                         <span className="text-emerald-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Sales Surge:</strong> Closed Sales for $5M+ rose <span className="text-emerald-400">+22.9%</span> YoY (236 → 290).
+                                            <strong className="text-white">Sales Surge:</strong> Closed Sales for $5M+ rose <span className="text-emerald-400">+20.5%</span> YoY (249 → 300).
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-rose-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Inventory:</strong> The $5M+ bracket inventory <span className="text-rose-400">contracted</span> by 13.6% YoY, tightening the high-end picture.
+                                            <strong className="text-white">Inventory:</strong> The $5M+ bracket inventory <span className="text-rose-400">dipped</span> 2.7% YoY (221 → 215).
                                         </span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="text-gray-400 font-bold min-w-[12px]">•</span>
                                         <span>
-                                            <strong className="text-white">Price Strength:</strong> Large homes (6,001+ Sq Ft) median price held strong, rising <span className="text-emerald-400">+6.3%</span> to $5,950,000.
+                                            <strong className="text-white">Price Strength:</strong> Large homes (6,001+ Sq Ft) median price edged up <span className="text-emerald-400">+1.3%</span> to $5,930,000.
                                         </span>
                                     </li>
                                 </ul>
@@ -762,24 +762,24 @@ export default function SupplyDashboard() {
                             </h4>
                             <div className="grid md:grid-cols-3 gap-4">
                                 <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
-                                    <div className="text-xs text-amber-400 uppercase tracking-wider mb-2 font-bold">The "Inventory Squeeze"</div>
-                                    <div className="text-2xl font-bold text-white mb-1">6,939 → 5,877</div>
+                                    <div className="text-xs text-amber-400 uppercase tracking-wider mb-2 font-bold">The "Supply Turn"</div>
+                                    <div className="text-2xl font-bold text-white mb-1">5,640 → 5,717</div>
                                     <div className="text-sm text-slate-400">
-                                        "Choice remains limited. Overall options are down <span className="text-rose-400 font-bold">15.3%</span>."
+                                        "Choice is finally improving. Overall options are up <span className="text-amber-400 font-bold">1.4%</span>, led by condos."
                                     </div>
                                 </div>
                                 <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
-                                    <div className="text-xs text-blue-400 uppercase tracking-wider mb-2 font-bold">The "Patience Index"</div>
-                                    <div className="text-2xl font-bold text-white mb-1">32 → 36 days</div>
+                                    <div className="text-xs text-blue-400 uppercase tracking-wider mb-2 font-bold">The "Demand Pullback"</div>
+                                    <div className="text-2xl font-bold text-white mb-1">-25.4%</div>
                                     <div className="text-sm text-slate-400">
-                                        DOM up <span className="text-rose-400 font-bold">+12.5%</span> ($750K–$1M). Homes aren't selling instantly without accurate pricing.
+                                        Single-family pending sales vs October 2025. Fewer buyers are writing offers heading into winter.
                                     </div>
                                 </div>
                                 <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700/50">
-                                    <div className="text-xs text-emerald-400 uppercase tracking-wider mb-2 font-bold">The "Affordability Pushback"</div>
-                                    <div className="text-2xl font-bold text-white mb-1">98.6%</div>
+                                    <div className="text-xs text-emerald-400 uppercase tracking-wider mb-2 font-bold">The "Price Floor"</div>
+                                    <div className="text-2xl font-bold text-white mb-1">98.8%</div>
                                     <div className="text-sm text-slate-400">
-                                        List price received ($750K–$1M), down across all brackets. Overpricing leads to longer DOM.
+                                        List price received ($750K–$1M), up from 98.5%. Sellers who price correctly are still getting close to asking.
                                     </div>
                                 </div>
                             </div>

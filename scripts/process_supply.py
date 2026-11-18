@@ -55,12 +55,12 @@ def extract_table_data(text, categories, has_all_row=True, is_currency=False):
         # Escape special regex characters
         escaped = re.escape(category)
         
-        if is_currency:
-            # For currency values like median price
-            pattern = rf'{escaped}\s+\$?([\d,]+)\s+\$?([\d,]+)\s+([+-])?\s*([\d.]+)%?\s+\$?([\d,]+)\s+\$?([\d,]+)\s+([+-])?\s*([\d.]+)%?\s+\$?([\d,]+)\s+\$?([\d,]+)\s+([+-])?\s*([\d.]+)%'
-        else:
-            # For count values (pending sales, closed sales, inventory)
-            pattern = rf'{escaped}\s+([\d,]+)\s+([\d,]+)\s+([+-])?\s*([\d.]+)%?\s+([\d,]+)\s+([\d,]+)\s+([+-])?\s*([\d.]+)%?\s+([\d,]+)\s+([\d,]+)\s+([+-])?\s*([\d.]+)%'
+        # Each of the 3 property columns is: prior-year value, current value, % change.
+        # A value or change can be "--" when there were no sales (e.g. condos 6,001+ Sq Ft);
+        # accept that instead of silently dropping the whole row.
+        val = r'\$?([\d,]+|--)' if is_currency else r'([\d,]+|--)'
+        chg = r'(?:([+-])?\s*([\d.]+)%?|--)'
+        pattern = escaped + (rf'\s+{val}\s+{val}\s+{chg}' * 3)
         
         match = re.search(pattern, text)
         if match:

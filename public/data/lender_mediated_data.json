@@ -1,97 +1,93 @@
 {
   "meta": {
-    "generated": "2026-07-20T09:08:23.125902",
+    "generated": "2026-11-17T16:20:39.849392",
     "source": "SDAR Lender-Mediated Properties Report",
-    "report_period": "June 2026"
+    "report_period": "October 2026"
   },
   "summary": {
-    "new_listings_change": -13.9,
-    "new_listings_total": 3075,
-    "new_listings_traditional_change": -12.9,
-    "new_listings_traditional": 2949,
-    "new_listings_lender_mediated_change": -32.3,
-    "new_listings_lender_mediated": 126,
-    "share_new_listings": 4.1,
-    "closed_sales_change": 9.5,
-    "closed_sales_total": 2165,
-    "closed_sales_traditional_change": -9.4,
-    "closed_sales_traditional": 2068,
-    "closed_sales_lender_mediated_change": -11.5,
-    "closed_sales_lender_mediated": 97,
-    "share_closed_sales": 4.5,
-    "median_price_change": 4.4,
-    "median_price_total": 950000,
-    "median_price_traditional_change": 3.9,
-    "median_price_traditional": 950500,
-    "median_price_lender_mediated_change": 5.4,
-    "median_price_lender_mediated": 895000
+    "new_listings_change": -11.7,
+    "new_listings_total": 2721,
+    "new_listings_traditional_change": -13.0,
+    "new_listings_traditional": 2555,
+    "share_new_listings": 6.1,
+    "closed_sales_change": -23.1,
+    "closed_sales_total": 1613,
+    "closed_sales_traditional_change": -23.2,
+    "closed_sales_traditional": 1529,
+    "closed_sales_lender_mediated_change": -20.8,
+    "closed_sales_lender_mediated": 84,
+    "share_closed_sales": 5.2,
+    "median_price_change": 4.2,
+    "median_price_total": 915000,
+    "median_price_traditional_change": 4.5,
+    "median_price_traditional": 925000
   },
   "inventory": {
     "by_property_type": [
       {
         "type": "Single-Family Homes",
         "lender_mediated": {
-          "2025": 193,
-          "2026": 153,
-          "change": -20.7
+          "2025": 174,
+          "2026": 180,
+          "change": 3.4
         },
         "traditional": {
-          "2025": 3929,
-          "2026": 2894,
-          "change": -26.3
+          "2025": 3010,
+          "2026": 2874,
+          "change": -4.5
         },
         "total_market": {
-          "2025": 4122,
-          "2026": 3047,
-          "change": -26.1
+          "2025": 3184,
+          "2026": 3054,
+          "change": -4.1
         },
         "share": {
-          "2025": 4.7,
-          "2026": 5.0
+          "2025": 5.5,
+          "2026": 5.9
         }
       },
       {
         "type": "Condos - Townhomes",
         "lender_mediated": {
-          "2025": 141,
-          "2026": 185,
-          "change": 31.2
+          "2025": 137,
+          "2026": 241,
+          "change": 75.9
         },
         "traditional": {
-          "2025": 2676,
-          "2026": 2645,
-          "change": -1.2
+          "2025": 2319,
+          "2026": 2422,
+          "change": 4.4
         },
         "total_market": {
-          "2025": 2817,
-          "2026": 2830,
-          "change": 0.5
+          "2025": 2456,
+          "2026": 2663,
+          "change": 8.4
         },
         "share": {
-          "2025": 5.0,
-          "2026": 6.5
+          "2025": 5.6,
+          "2026": 9.0
         }
       },
       {
         "type": "All Properties",
         "lender_mediated": {
-          "2025": 334,
-          "2026": 338,
-          "change": 1.2
+          "2025": 311,
+          "2026": 421,
+          "change": 35.4
         },
         "traditional": {
-          "2025": 6605,
-          "2026": 5539,
-          "change": -16.1
+          "2025": 5329,
+          "2026": 5296,
+          "change": -0.6
         },
         "total_market": {
-          "2025": 6939,
-          "2026": 5877,
-          "change": -15.3
+          "2025": 5640,
+          "2026": 5717,
+          "change": 1.4
         },
         "share": {
-          "2025": 4.8,
-          "2026": 5.8
+          "2025": 5.5,
+          "2026": 7.4
         }
       }
     ],
@@ -99,133 +95,133 @@
       {
         "range": "$250,000 and Below",
         "lender_mediated": {
-          "2025": 5,
-          "2026": 0,
-          "change": -100.0
+          "2025": 6,
+          "2026": 4,
+          "change": -33.3
         },
         "traditional": {
-          "2025": 13,
-          "2026": 33,
-          "change": 153.8
+          "2025": 19,
+          "2026": 38,
+          "change": 100.0
         },
         "total_market": {
-          "2025": 18,
-          "2026": 33,
-          "change": 83.3
+          "2025": 25,
+          "2026": 42,
+          "change": 68.0
         },
         "share": {
-          "2025": 27.8,
-          "2026": 0.0
+          "2025": 24.0,
+          "2026": 9.5
         }
       },
       {
         "range": "$250,001 to $500,000",
         "lender_mediated": {
           "2025": 53,
-          "2026": 84,
-          "change": 58.5
+          "2026": 116,
+          "change": 118.9
         },
         "traditional": {
-          "2025": 691,
-          "2026": 717,
-          "change": 3.8
+          "2025": 664,
+          "2026": 706,
+          "change": 6.3
         },
         "total_market": {
-          "2025": 744,
-          "2026": 801,
-          "change": 7.7
+          "2025": 717,
+          "2026": 822,
+          "change": 14.6
         },
         "share": {
-          "2025": 7.1,
-          "2026": 10.5
+          "2025": 7.4,
+          "2026": 14.1
         }
       },
       {
         "range": "$500,001 to $750,000",
         "lender_mediated": {
           "2025": 81,
-          "2026": 85,
-          "change": 4.9
+          "2026": 116,
+          "change": 43.2
         },
         "traditional": {
-          "2025": 1287,
-          "2026": 1172,
-          "change": -8.9
+          "2025": 1143,
+          "2026": 1214,
+          "change": 6.2
         },
         "total_market": {
-          "2025": 1368,
-          "2026": 1257,
-          "change": -8.1
+          "2025": 1224,
+          "2026": 1330,
+          "change": 8.7
         },
         "share": {
-          "2025": 5.9,
-          "2026": 6.8
+          "2025": 6.6,
+          "2026": 8.7
         }
       },
       {
         "range": "$750,001 to $1,000,000",
         "lender_mediated": {
-          "2025": 74,
-          "2026": 64,
-          "change": -13.5
+          "2025": 64,
+          "2026": 65,
+          "change": 1.6
         },
         "traditional": {
-          "2025": 1526,
-          "2026": 1160,
-          "change": -24.0
+          "2025": 1166,
+          "2026": 1198,
+          "change": 2.7
         },
         "total_market": {
-          "2025": 1600,
-          "2026": 1224,
-          "change": -23.5
+          "2025": 1230,
+          "2026": 1263,
+          "change": 2.7
         },
         "share": {
-          "2025": 4.6,
-          "2026": 5.2
+          "2025": 5.2,
+          "2026": 5.1
         }
       },
       {
         "range": "$1,000,001 to $1,250,000",
         "lender_mediated": {
           "2025": 23,
-          "2026": 21,
-          "change": -8.7
+          "2026": 32,
+          "change": 39.1
         },
         "traditional": {
-          "2025": 793,
-          "2026": 659,
-          "change": -16.9
+          "2025": 620,
+          "2026": 572,
+          "change": -7.7
         },
         "total_market": {
-          "2025": 816,
-          "2026": 680,
-          "change": -16.7
+          "2025": 643,
+          "2026": 604,
+          "change": -6.1
         },
         "share": {
-          "2025": 2.8,
-          "2026": 3.1
+          "2025": 3.6,
+          "2026": 5.3
         }
       },
       {
         "range": "$1,250,001 and Above",
         "lender_mediated": {
-          "2025": 98,
-          "2026": 84,
-          "change": -14.3
+          "2025": 84,
+          "2026": 88,
+          "change": 4.8
         },
         "traditional": {
-          "2025": 2295,
-          "2026": 1798,
-          "change": -21.7
+          "2025": 1717,
+          "2026": 1568,
+          "change": -8.7
         },
         "total_market": {
-          "2025": 2393,
-          "2026": 1882,
-          "change": -21.4
+          "2025": 1801,
+          "2026": 1656,
+          "change": -8.1
         },
         "share": {
-          "2025": 4.1,
-          "2026": 4.5
+          "2025": 4.7,
+          "2026": 5.3
         }
       }
     ]
@@ -233,44 +229,44 @@
   "activity": {
     "new_listings": {
       "lender_mediated": {
-        "2025": 186,
-        "2026": 126,
-        "change": -32.3
+        "2025": 144,
+        "2026": 166,
+        "change": 15.3
       },
       "traditional": {
-        "2025": 3386,
-        "2026": 2949,
-        "change": -12.9
+        "2025": 2938,
+        "2026": 2555,
+        "change": -13.0
       },
       "total_market": {
-        "2025": 3572,
-        "2026": 3075,
-        "change": -13.9
+        "2025": 3082,
+        "2026": 2721,
+        "change": -11.7
       },
       "share": {
-        "2025": 5.2,
-        "2026": 4.1
+        "2025": 4.7,
+        "2026": 6.1
       }
     },
     "closed_sales": {
       "lender_mediated": {
-        "2025": 87,
-        "2026": 97,
-        "change": 11.5
+        "2025": 106,
+        "2026": 84,
+        "change": -20.8
       },
       "traditional": {
-        "2025": 1891,
-        "2026": 2068,
-        "change": 9.4
+        "2025": 1992,
+        "2026": 1529,
+        "change": -23.2
       },
       "total_market": {
-        "2025": 1978,
-        "2026": 2165,
-        "change": 9.5
+        "2025": 2098,
+        "2026": 1613,
+        "change": -23.1
       },
       "share": {
-        "2025": 4.4,
-        "2026": 4.5
+        "2025": 5.1,
+        "2026": 5.2
       }
     }
   },
@@ -279,55 +275,55 @@
       {
         "type": "Single-Family Homes",
         "lender_mediated": {
-          "2025": 900000,
-          "2026": 989000,
-          "change": 9.9
+          "2025": 872450,
+          "2026": 940000,
+          "change": 7.7
         },
         "traditional": {
-          "2025": 1075000,
-          "2026": 1140000,
-          "change": 6.0
+          "2025": 1010000,
+          "2026": 1067500,
+          "change": 5.7
         },
         "total_market": {
-          "2025": 1070000,
-          "2026": 1125000,
-          "change": 5.1
+          "2025": 1000000,
+          "2026": 1065000,
+          "change": 6.5
         }
       },
       {
         "type": "Condos - Townhomes",
         "lender_mediated": {
-          "2025": 602500,
-          "2026": 600000,
-          "change": -0.4
+          "2025": 580000,
+          "2026": 486750,
+          "change": -16.1
         },
         "traditional": {
-          "2025": 672500,
-          "2026": 679000,
-          "change": 1.0
+          "2025": 661250,
+          "2026": 670000,
+          "change": 1.3
         },
         "total_market": {
-          "2025": 662500,
-          "2026": 670000,
-          "change": 1.1
+          "2025": 659000,
+          "2026": 658000,
+          "change": -0.2
         }
       },
       {
         "type": "All Properties",
         "lender_mediated": {
-          "2025": 849000,
-          "2026": 895000,
-          "change": 5.4
+          "2025": 800000,
+          "2026": 750000,
+          "change": -6.3
         },
         "traditional": {
-          "2025": 915000,
-          "2026": 950500,
-          "change": 3.9
+          "2025": 885000,
+          "2026": 925000,
+          "change": 4.5
         },
         "total_market": {
-          "2025": 910000,
-          "2026": 950000,
-          "change": 4.4
+          "2025": 878500,
+          "2026": 915000,
+          "change": 4.2
         }
       }
     ],
@@ -338,42 +334,42 @@
       "zip_code": "91901",
       "neighborhood": "Alpine",
       "inventory": {
-        "total_market": 57,
-        "lender_mediated": 5,
-        "share": 8.8
+        "total_market": 39,
+        "lender_mediated": 3,
+        "share": 7.7
       },
       "closed_sales": {
-        "total_market": 165,
+        "total_market": 171,
         "lender_mediated": 9,
-        "share": 5.5
+        "share": 5.3
       }
     },
     {
       "zip_code": "91902",
       "neighborhood": "Bonita",
       "inventory": {
-        "total_market": 30,
+        "total_market": 24,
         "lender_mediated": 3,
-        "share": 10.0
+        "share": 12.5
       },
       "closed_sales": {
-        "total_market": 130,
-        "lender_mediated": 10,
-        "share": 7.7
+        "total_market": 119,
+        "lender_mediated": 4,
+        "share": 3.4
       }
     },
     {
       "zip_code": "91905",
       "neighborhood": "Boulevard",
       "inventory": {
-        "total_market": 10,
+        "total_market": 15,
         "lender_mediated": 0,
         "share": 0.0
       },
       "closed_sales": {
-        "total_market": 16,
+        "total_market": 19,
         "lender_mediated": 2,
-        "share": 12.5
+        "share": 10.5
       }
     },
     {
@@ -381,13 +377,13 @@
       "neighborhood": "Campo",
       "inventory": {
         "total_market": 11,
-        "lender_mediated": 2,
-        "share": 18.2
+        "lender_mediated": 1,
+        "share": 9.1
       },
       "closed_sales": {
-        "total_market": 39,
-        "lender_mediated": 5,
-        "share": 12.8
+        "total_market": 35,
+        "lender_mediated": 3,
+        "share": 8.6
       }
     },
     {
@@ -395,53 +391,53 @@
       "neighborhood": "Chula Vista North",
       "inventory": {
         "total_market": 58,
-        "lender_mediated": 6,
-        "share": 10.3
+        "lender_mediated": 7,
+        "share": 12.1
       },
       "closed_sales": {
-        "total_market": 288,
-        "lender_mediated": 12,
-        "share": 4.2
+        "total_market": 308,
+        "lender_mediated": 9,
+        "share": 2.9
       }
     },
     {
       "zip_code": "91911",
       "neighborhood": "Chula Vista South",
       "inventory": {
-        "total_market": 58,
-        "lender_mediated": 5,
-        "share": 8.6
+        "total_market": 72,
+        "lender_mediated": 7,
+        "share": 9.7
       },
       "closed_sales": {
-        "total_market": 330,
-        "lender_mediated": 22,
-        "share": 6.7
+        "total_market": 322,
+        "lender_mediated": 25,
+        "share": 7.8
       }
     },
     {
       "zip_code": "91913",
       "neighborhood": "Chula Vista \u2013 Eastlake",
       "inventory": {
-        "total_market": 101,
-        "lender_mediated": 4,
-        "share": 4.0
+        "total_market": 72,
+        "lender_mediated": 9,
+        "share": 12.5
       },
       "closed_sales": {
-        "total_market": 461,
-        "lender_mediated": 21,
-        "share": 4.6
+        "total_market": 421,
+        "lender_mediated": 24,
+        "share": 5.7
       }
     },
     {
       "zip_code": "91914",
       "neighborhood": "Chula Vista NE",
       "inventory": {
-        "total_market": 21,
-        "lender_mediated": 1,
-        "share": 4.8
+        "total_market": 23,
+        "lender_mediated": 2,
+        "share": 8.7
       },
       "closed_sales": {
-        "total_market": 110,
+        "total_market": 109,
         "lender_mediated": 2,
         "share": 1.8
       }
@@ -450,28 +446,28 @@
       "zip_code": "91915",
       "neighborhood": "Chula Vista SE",
       "inventory": {
-        "total_market": 47,
-        "lender_mediated": 2,
-        "share": 4.3
+        "total_market": 56,
+        "lender_mediated": 4,
+        "share": 7.1
       },
       "closed_sales": {
-        "total_market": 253,
-        "lender_mediated": 7,
-        "share": 2.8
+        "total_market": 241,
+        "lender_mediated": 9,
+        "share": 3.7
       }
     },
     {
       "zip_code": "91916",
       "neighborhood": "Descanso",
       "inventory": {
-        "total_market": 8,
+        "total_market": 11,
         "lender_mediated": 0,
         "share": 0.0
       },
       "closed_sales": {
-        "total_market": 27,
-        "lender_mediated": 2,
-        "share": 7.4
+        "total_market": 24,
+        "lender_mediated": 1,
+        "share": 4.2
       }
     },
     {
@@ -483,7 +479,7 @@
         "share": 50.0
       },
       "closed_sales": {
-        "total_market": 6,
+        "total_market": 5,
         "lender_mediated": 0,
         "share": 0.0
       }
@@ -506,26 +502,26 @@
       "zip_code": "91932",
       "neighborhood": "Imperial Beach",
       "inventory": {
-        "total_market": 83,
-        "lender_mediated": 2,
-        "share": 2.4
+        "total_market": 68,
+        "lender_mediated": 8,
+        "share": 11.8
       },
       "closed_sales": {
-        "total_market": 143,
-        "lender_mediated": 16,
-        "share": 11.2
+        "total_market": 132,
+        "lender_mediated": 12,
+        "share": 9.1
       }
     },
     {
       "zip_code": "91934",
       "neighborhood": "Jacumba",
       "inventory": {
-        "total_market": 4,
-        "lender_mediated": 0,
-        "share": 0.0
+        "total_market": 6,
+        "lender_mediated": 1,
+        "share": 16.7
       },
       "closed_sales": {
-        "total_market": 7,
+        "total_market": 4,
         "lender_mediated": 0,
         "share": 0.0
       }
@@ -539,88 +535,74 @@
         "share": 4.3
       },
       "closed_sales": {
-        "total_market": 76,
+        "total_market": 70,
         "lender_mediated": 2,
-        "share": 2.6
+        "share": 2.9
       }
     },
     {
       "zip_code": "91941",
       "neighborhood": "La Mesa, Mount Helix",
       "inventory": {
-        "total_market": 64,
+        "total_market": 60,
         "lender_mediated": 3,
-        "share": 4.7
+        "share": 5.0
       },
       "closed_sales": {
-        "total_market": 280,
-        "lender_mediated": 22,
-        "share": 7.9
+        "total_market": 288,
+        "lender_mediated": 23,
+        "share": 8.0
       }
     },
     {
       "zip_code": "91942",
       "neighborhood": "La Mesa, Grossmont",
       "inventory": {
-        "total_market": 53,
-        "lender_mediated": 4,
-        "share": 7.5
+        "total_market": 68,
+        "lender_mediated": 5,
+        "share": 7.4
       },
       "closed_sales": {
-        "total_market": 290,
-        "lender_mediated": 19,
-        "share": 6.6
+        "total_market": 300,
+        "lender_mediated": 16,
+        "share": 5.3
       }
     },
     {
       "zip_code": "91945",
       "neighborhood": "Lemon Grove",
       "inventory": {
-        "total_market": 25,
+        "total_market": 28,
+        "lender_mediated": 4,
+        "share": 14.3
+      },
+      "closed_sales": {
+        "total_market": 149,
         "lender_mediated": 2,
-        "share": 8.0
-      },
-      "closed_sales": {
-        "total_market": 164,
-        "lender_mediated": 3,
-        "share": 1.8
-      }
-    },
-    {
-      "zip_code": "91948",
-      "neighborhood": "Mount Laguna",
-      "inventory": {
-        "total_market": 4,
-        "lender_mediated": 0,
-        "share": 0.0
-      },
-      "closed_sales": {
-        "total_market": 5,
-        "lender_mediated": 1,
-        "share": 20.0
+        "share": 1.3
       }
     },
     {
       "zip_code": "91950",
       "neighborhood": "National City",
       "inventory": {
-        "total_market": 24,
-        "lender_mediated": 3,
-        "share": 12.5
+        "total_market": 45,
+        "lender_mediated": 4,
+        "share": 8.9
       },
       "closed_sales": {
-        "total_market": 124,
-        "lender_mediated": 11,
-        "share": 8.9
+        "total_market": 107,
+        "lender_mediated": 10,
+        "share": 9.3
       }
     },
     {
       "zip_code": "91962",
       "neighborhood": "Pine Valley",
       "inventory": {
-        "total_market": 11,
-        "lender_mediated": 0,
-        "share": 0.0
+        "total_market": 8,
+        "lender_mediated": 1,
+        "share": 12.5
       },
       "closed_sales": {
         "total_market": 28,
@@ -632,7 +614,7 @@
       "zip_code": "91963",
       "neighborhood": "Potrero",
       "inventory": {
-        "total_market": 2,
+        "total_market": 3,
         "lender_mediated": 0,
         "share": 0.0
       },
@@ -646,308 +628,308 @@
       "zip_code": "91977",
       "neighborhood": "Spring Valley",
       "inventory": {
-        "total_market": 63,
+        "total_market": 87,
         "lender_mediated": 12,
-        "share": 19.0
+        "share": 13.8
       },
       "closed_sales": {
-        "total_market": 413,
-        "lender_mediated": 24,
-        "share": 5.8
+        "total_market": 382,
+        "lender_mediated": 26,
+        "share": 6.8
       }
     },
     {
       "zip_code": "91978",
       "neighborhood": "Rancho San Diego",
       "inventory": {
-        "total_market": 7,
-        "lender_mediated": 0,
-        "share": 0.0
+        "total_market": 13,
+        "lender_mediated": 2,
+        "share": 15.4
       },
       "closed_sales": {
-        "total_market": 66,
-        "lender_mediated": 10,
-        "share": 15.2
+        "total_market": 55,
+        "lender_mediated": 7,
+        "share": 12.7
       }
     },
     {
       "zip_code": "92003",
       "neighborhood": "Bonsall",
       "inventory": {
-        "total_market": 24,
+        "total_market": 28,
         "lender_mediated": 0,
         "share": 0.0
       },
       "closed_sales": {
-        "total_market": 90,
-        "lender_mediated": 7,
-        "share": 7.8
+        "total_market": 81,
+        "lender_mediated": 4,
+        "share": 4.9
       }
     },
     {
       "zip_code": "92004",
       "neighborhood": "Borrego Springs",
       "inventory": {
-        "total_market": 47,
-        "lender_mediated": 2,
-        "share": 4.3
+        "total_market": 52,
+        "lender_mediated": 1,
+        "share": 1.9
       },
       "closed_sales": {
-        "total_market": 67,
-        "lender_mediated": 2,
-        "share": 3.0
+        "total_market": 63,
+        "lender_mediated": 1,
+        "share": 1.6
       }
     },
     {
       "zip_code": "92007",
       "neighborhood": "Cardiff",
       "inventory": {
-        "total_market": 13,
-        "lender_mediated": 1,
-        "share": 7.7
+        "total_market": 8,
+        "lender_mediated": 0,
+        "share": 0.0
       },
       "closed_sales": {
-        "total_market": 91,
+        "total_market": 85,
         "lender_mediated": 3,
-        "share": 3.3
+        "share": 3.5
       }
     },
     {
       "zip_code": "92008",
       "neighborhood": "Carlsbad NW",
       "inventory": {
-        "total_market": 64,
+        "total_market": 78,
         "lender_mediated": 1,
-        "share": 1.6
+        "share": 1.3
       },
       "closed_sales": {
-        "total_market": 300,
-        "lender_mediated": 11,
-        "share": 3.7
+        "total_market": 306,
+        "lender_mediated": 7,
+        "share": 2.3
       }
     },
     {
       "zip_code": "92009",
       "neighborhood": "Carlsbad SE",
       "inventory": {
-        "total_market": 122,
-        "lender_mediated": 3,
-        "share": 2.5
+        "total_market": 90,
+        "lender_mediated": 4,
+        "share": 4.4
       },
       "closed_sales": {
-        "total_market": 473,
+        "total_market": 494,
         "lender_mediated": 15,
-        "share": 3.2
+        "share": 3.0
       }
     },
     {
       "zip_code": "92010",
       "neighborhood": "Carlsbad NE",
       "inventory": {
-        "total_market": 29,
+        "total_market": 26,
         "lender_mediated": 0,
         "share": 0.0
       },
       "closed_sales": {
-        "total_market": 133,
+        "total_market": 154,
         "lender_mediated": 6,
-        "share": 4.5
+        "share": 3.9
       }
     },
     {
       "zip_code": "92011",
       "neighborhood": "Carlsbad SW",
       "inventory": {
-        "total_market": 31,
+        "total_market": 25,
         "lender_mediated": 1,
-        "share": 3.2
+        "share": 4.0
       },
       "closed_sales": {
-        "total_market": 211,
-        "lender_mediated": 2,
-        "share": 0.9
+        "total_market": 206,
+        "lender_mediated": 3,
+        "share": 1.5
       }
     },
     {
       "zip_code": "92014",
       "neighborhood": "Del Mar",
       "inventory": {
-        "total_market": 52,
-        "lender_mediated": 4,
-        "share": 7.7
+        "total_market": 39,
+        "lender_mediated": 2,
+        "share": 5.1
       },
       "closed_sales": {
-        "total_market": 149,
+        "total_market": 153,
         "lender_mediated": 7,
-        "share": 4.7
+        "share": 4.6
       }
     },
     {
       "zip_code": "92019",
       "neighborhood": "El Cajon",
       "inventory": {
-        "total_market": 69,
+        "total_market": 70,
         "lender_mediated": 6,
-        "share": 8.7
+        "share": 8.6
       },
       "closed_sales": {
-        "total_market": 362,
-        "lender_mediated": 17,
-        "share": 4.7
+        "total_market": 331,
+        "lender_mediated": 21,
+        "share": 6.3
       }
     },
     {
       "zip_code": "92020",
       "neighborhood": "El Cajon",
       "inventory": {
-        "total_market": 93,
-        "lender_mediated": 9,
+        "total_market": 72,
+        "lender_mediated": 7,
         "share": 9.7
       },
       "closed_sales": {
-        "total_market": 301,
-        "lender_mediated": 15,
-        "share": 5.0
+        "total_market": 323,
+        "lender_mediated": 19,
+        "share": 5.9
       }
     },
     {
       "zip_code": "92021",
       "neighborhood": "El Cajon",
       "inventory": {
-        "total_market": 69,
-        "lender_mediated": 3,
-        "share": 4.3
+        "total_market": 84,
+        "lender_mediated": 11,
+        "share": 13.1
       },
       "closed_sales": {
-        "total_market": 343,
-        "lender_mediated": 13,
-        "share": 3.8
+        "total_market": 328,
+        "lender_mediated": 14,
+        "share": 4.3
       }
     },
     {
       "zip_code": "92024",
       "neighborhood": "Encinitas",
       "inventory": {
-        "total_market": 107,
-        "lender_mediated": 3,
-        "share": 2.8
+        "total_market": 105,
+        "lender_mediated": 4,
+        "share": 3.8
       },
       "closed_sales": {
-        "total_market": 497,
-        "lender_mediated": 17,
-        "share": 3.4
+        "total_market": 470,
+        "lender_mediated": 13,
+        "share": 2.8
       }
     },
     {
       "zip_code": "92025",
       "neighborhood": "Escondido South",
       "inventory": {
-        "total_market": 76,
-        "lender_mediated": 5,
-        "share": 6.6
+        "total_market": 57,
+        "lender_mediated": 3,
+        "share": 5.3
       },
       "closed_sales": {
-        "total_market": 261,
-        "lender_mediated": 13,
-        "share": 5.0
+        "total_market": 269,
+        "lender_mediated": 12,
+        "share": 4.5
       }
     },
     {
       "zip_code": "92026",
       "neighborhood": "Escondido North",
       "inventory": {
-        "total_market": 106,
-        "lender_mediated": 2,
-        "share": 1.9
+        "total_market": 97,
+        "lender_mediated": 4,
+        "share": 4.1
       },
       "closed_sales": {
-        "total_market": 494,
-        "lender_mediated": 19,
-        "share": 3.8
+        "total_market": 458,
+        "lender_mediated": 18,
+        "share": 3.9
       }
     },
     {
       "zip_code": "92027",
       "neighborhood": "Escondido East",
       "inventory": {
-        "total_market": 61,
-        "lender_mediated": 5,
-        "share": 8.2
+        "total_market": 67,
+        "lender_mediated": 8,
+        "share": 11.9
       },
       "closed_sales": {
-        "total_market": 351,
-        "lender_mediated": 15,
-        "share": 4.3
+        "total_market": 339,
+        "lender_mediated": 16,
+        "share": 4.7
       }
     },
     {
       "zip_code": "92028",
       "neighborhood": "Fallbrook",
       "inventory": {
-        "total_market": 198,
-        "lender_mediated": 4,
-        "share": 2.0
+        "total_market": 176,
+        "lender_mediated": 11,
+        "share": 6.3
       },
       "closed_sales": {
-        "total_market": 573,
-        "lender_mediated": 18,
-        "share": 3.1
+        "total_market": 566,
+        "lender_mediated": 20,
+        "share": 3.5
       }
     },
     {
       "zip_code": "92029",
       "neighborhood": "Escondido West",
       "inventory": {
-        "total_market": 52,
-        "lender_mediated": 1,
-        "share": 1.9
+        "total_market": 43,
+        "lender_mediated": 2,
+        "share": 4.7
       },
       "closed_sales": {
-        "total_market": 198,
-        "lender_mediated": 3,
-        "share": 1.5
+        "total_market": 184,
+        "lender_mediated": 2,
+        "share": 1.1
       }
     },
     {
       "zip_code": "92036",
       "neighborhood": "Julian",
       "inventory": {
-        "total_market": 42,
-        "lender_mediated": 3,
-        "share": 7.1
+        "total_market": 52,
+        "lender_mediated": 2,
+        "share": 3.8
       },
       "closed_sales": {
         "total_market": 76,
-        "lender_mediated": 5,
-        "share": 6.6
+        "lender_mediated": 4,
+        "share": 5.3
       }
     },
     {
       "zip_code": "92037",
       "neighborhood": "La Jolla",
       "inventory": {
-        "total_market": 161,
-        "lender_mediated": 13,
-        "share": 8.1
+        "total_market": 168,
+        "lender_mediated": 12,
+        "share": 7.1
       },
       "closed_sales": {
-        "total_market": 543,
-        "lender_mediated": 32,
-        "share": 5.9
+        "total_market": 510,
+        "lender_mediated": 31,
+        "share": 6.1
       }
     },
     {
       "zip_code": "92040",
       "neighborhood": "Lakeside",
       "inventory": {
-        "total_market": 55,
-        "lender_mediated": 3,
-        "share": 5.5
+        "total_market": 78,
+        "lender_mediated": 9,
+        "share": 11.5
       },
       "closed_sales": {
-        "total_market": 269,
-        "lender_mediated": 26,
-        "share": 9.7
+        "total_market": 246,
+        "lender_mediated": 22,
+        "share": 8.9
       }
     },
     {
@@ -955,48 +937,48 @@
       "neighborhood": "Oceanside South",
       "inventory": {
         "total_market": 80,
-        "lender_mediated": 2,
-        "share": 2.5
+        "lender_mediated": 1,
+        "share": 1.3
       },
       "closed_sales": {
-        "total_market": 347,
-        "lender_mediated": 9,
-        "share": 2.6
+        "total_market": 341,
+        "lender_mediated": 11,
+        "share": 3.2
       }
     },
     {
       "zip_code": "92056",
       "neighborhood": "Oceanside East",
       "inventory": {
-        "total_market": 101,
-        "lender_mediated": 3,
-        "share": 3.0
+        "total_market": 74,
+        "lender_mediated": 5,
+        "share": 6.8
       },
       "closed_sales": {
-        "total_market": 593,
-        "lender_mediated": 21,
-        "share": 3.5
+        "total_market": 599,
+        "lender_mediated": 15,
+        "share": 2.5
       }
     },
     {
       "zip_code": "92057",
       "neighborhood": "Oceanside North",
       "inventory": {
-        "total_market": 126,
-        "lender_mediated": 7,
-        "share": 5.6
+        "total_market": 155,
+        "lender_mediated": 8,
+        "share": 5.2
       },
       "closed_sales": {
-        "total_market": 620,
-        "lender_mediated": 28,
-        "share": 4.5
+        "total_market": 590,
+        "lender_mediated": 23,
+        "share": 3.9
       }
     },
     {
       "zip_code": "92059",
       "neighborhood": "Pala",
       "inventory": {
-        "total_market": 2,
+        "total_market": 3,
         "lender_mediated": 0,
         "share": 0.0
       },
@@ -1016,62 +998,62 @@
       },
       "closed_sales": {
         "total_market": 17,
-        "lender_mediated": 3,
-        "share": 17.6
+        "lender_mediated": 2,
+        "share": 11.8
       }
     },
     {
       "zip_code": "92061",
       "neighborhood": "Pauma Valley",
       "inventory": {
-        "total_market": 20,
-        "lender_mediated": 1,
-        "share": 5.0
+        "total_market": 13,
+        "lender_mediated": 0,
+        "share": 0.0
       },
       "closed_sales": {
-        "total_market": 27,
-        "lender_mediated": 1,
-        "share": 3.7
+        "total_market": 23,
+        "lender_mediated": 3,
+        "share": 13.0
       }
     },
     {
       "zip_code": "92064",
       "neighborhood": "Poway",
       "inventory": {
-        "total_market": 83,
-        "lender_mediated": 5,
-        "share": 6.0
+        "total_market": 71,
+        "lender_mediated": 1,
+        "share": 1.4
       },
       "closed_sales": {
-        "total_market": 403,
-        "lender_mediated": 17,
-        "share": 4.2
+        "total_market": 379,
+        "lender_mediated": 15,
+        "share": 4.0
       }
     },
     {
       "zip_code": "92065",
       "neighborhood": "Ramona",
       "inventory": {
-        "total_market": 97,
-        "lender_mediated": 8,
-        "share": 8.2
+        "total_market": 123,
+        "lender_mediated": 11,
+        "share": 8.9
       },
       "closed_sales": {
-        "total_market": 354,
-        "lender_mediated": 10,
-        "share": 2.8
+        "total_market": 320,
+        "lender_mediated": 15,
+        "share": 4.7
       }
     },
     {
       "zip_code": "92066",
       "neighborhood": "Ranchita",
       "inventory": {
-        "total_market": 1,
+        "total_market": 2,
         "lender_mediated": 0,
         "share": 0.0
       },
       "closed_sales": {
-        "total_market": 8,
+        "total_market": 6,
         "lender_mediated": 0,
         "share": 0.0
       }
@@ -1080,180 +1062,180 @@
       "zip_code": "92067",
       "neighborhood": "Rancho Santa Fe",
       "inventory": {
-        "total_market": 97,
-        "lender_mediated": 5,
-        "share": 5.2
+        "total_market": 76,
+        "lender_mediated": 2,
+        "share": 2.6
       },
       "closed_sales": {
-        "total_market": 165,
-        "lender_mediated": 3,
-        "share": 1.8
+        "total_market": 157,
+        "lender_mediated": 1,
+        "share": 0.6
       }
     },
     {
       "zip_code": "92069",
       "neighborhood": "San Marcos South",
       "inventory": {
-        "total_market": 64,
+        "total_market": 61,
         "lender_mediated": 2,
-        "share": 3.1
+        "share": 3.3
       },
       "closed_sales": {
-        "total_market": 299,
-        "lender_mediated": 10,
-        "share": 3.3
+        "total_market": 263,
+        "lender_mediated": 9,
+        "share": 3.4
       }
     },
     {
       "zip_code": "92070",
       "neighborhood": "Santa Ysabel",
       "inventory": {
-        "total_market": 5,
+        "total_market": 7,
         "lender_mediated": 0,
         "share": 0.0
       },
       "closed_sales": {
-        "total_market": 7,
+        "total_market": 6,
         "lender_mediated": 1,
-        "share": 14.3
+        "share": 16.7
       }
     },
     {
       "zip_code": "92071",
       "neighborhood": "Santee",
       "inventory": {
-        "total_market": 80,
-        "lender_mediated": 8,
-        "share": 10.0
+        "total_market": 95,
+        "lender_mediated": 11,
+        "share": 11.6
       },
       "closed_sales": {
-        "total_market": 497,
-        "lender_mediated": 23,
-        "share": 4.6
+        "total_market": 488,
+        "lender_mediated": 28,
+        "share": 5.7
       }
     },
     {
       "zip_code": "92075",
       "neighborhood": "Solana Beach",
       "inventory": {
-        "total_market": 42,
-        "lender_mediated": 1,
-        "share": 2.4
+        "total_market": 33,
+        "lender_mediated": 2,
+        "share": 6.1
       },
       "closed_sales": {
-        "total_market": 136,
-        "lender_mediated": 5,
-        "share": 3.7
+        "total_market": 129,
+        "lender_mediated": 3,
+        "share": 2.3
       }
     },
     {
       "zip_code": "92078",
       "neighborhood": "San Marcos South",
       "inventory": {
-        "total_market": 100,
-        "lender_mediated": 2,
-        "share": 2.0
+        "total_market": 89,
+        "lender_mediated": 6,
+        "share": 6.7
       },
       "closed_sales": {
-        "total_market": 465,
-        "lender_mediated": 11,
-        "share": 2.4
+        "total_market": 466,
+        "lender_mediated": 9,
+        "share": 1.9
       }
     },
     {
       "zip_code": "92081",
       "neighborhood": "Vista South",
       "inventory": {
-        "total_market": 44,
+        "total_market": 32,
         "lender_mediated": 2,
-        "share": 4.5
+        "share": 6.3
       },
       "closed_sales": {
-        "total_market": 220,
-        "lender_mediated": 5,
-        "share": 2.3
+        "total_market": 216,
+        "lender_mediated": 6,
+        "share": 2.8
       }
     },
     {
       "zip_code": "92082",
       "neighborhood": "Valley Center",
       "inventory": {
-        "total_market": 67,
-        "lender_mediated": 4,
-        "share": 6.0
+        "total_market": 71,
+        "lender_mediated": 3,
+        "share": 4.2
       },
       "closed_sales": {
-        "total_market": 205,
+        "total_market": 209,
         "lender_mediated": 15,
-        "share": 7.3
+        "share": 7.2
       }
     },
     {
       "zip_code": "92083",
       "neighborhood": "Vista West",
       "inventory": {
-        "total_market": 44,
+        "total_market": 34,
         "lender_mediated": 3,
-        "share": 6.8
+        "share": 8.8
       },
       "closed_sales": {
-        "total_market": 129,
-        "lender_mediated": 5,
-        "share": 3.9
+        "total_market": 130,
+        "lender_mediated": 4,
+        "share": 3.1
       }
     },
     {
       "zip_code": "92084",
       "neighborhood": "Vista East",
       "inventory": {
-        "total_market": 77,
-        "lender_mediated": 2,
-        "share": 2.6
+        "total_market": 68,
+        "lender_mediated": 3,
+        "share": 4.4
       },
       "closed_sales": {
-        "total_market": 306,
-        "lender_mediated": 11,
-        "share": 3.6
+        "total_market": 302,
+        "lender_mediated": 13,
+        "share": 4.3
       }
     },
     {
       "zip_code": "92086",
       "neighborhood": "Warner Springs",
       "inventory": {
-        "total_market": 11,
+        "total_market": 15,
         "lender_mediated": 2,
-        "share": 18.2
+        "share": 13.3
       },
       "closed_sales": {
-        "total_market": 11,
+        "total_market": 8,
         "lender_mediated": 1,
-        "share": 9.1
+        "share": 12.5
       }
     },
     {
       "zip_code": "92091",
       "neighborhood": "Rancho Santa Fe",
       "inventory": {
-        "total_market": 13,
-        "lender_mediated": 1,
-        "share": 7.7
+        "total_market": 11,
+        "lender_mediated": 0,
+        "share": 0.0
       },
       "closed_sales": {
-        "total_market": 39,
+        "total_market": 44,
         "lender_mediated": 1,
-        "share": 2.6
+        "share": 2.3
       }
     },
     {
       "zip_code": "92101",
       "neighborhood": "Downtown",
       "inventory": {
-        "total_market": 378,
-        "lender_mediated": 20,
-        "share": 5.3
+        "total_market": 326,
+        "lender_mediated": 25,
+        "share": 7.7
       },
       "closed_sales": {
-        "total_market": 507,
+        "total_market": 509,
         "lender_mediated": 21,
         "share": 4.1
       }
@@ -1262,140 +1244,140 @@
       "zip_code": "92102",
       "neighborhood": "Golden Hills",
       "inventory": {
-        "total_market": 35,
-        "lender_mediated": 5,
-        "share": 14.3
+        "total_market": 47,
+        "lender_mediated": 4,
+        "share": 8.5
       },
       "closed_sales": {
-        "total_market": 134,
-        "lender_mediated": 14,
-        "share": 10.4
+        "total_market": 117,
+        "lender_mediated": 4,
+        "share": 3.4
       }
     },
     {
       "zip_code": "92103",
       "neighborhood": "Hillcrest, Mission Hills",
       "inventory": {
-        "total_market": 115,
-        "lender_mediated": 6,
-        "share": 5.2
+        "total_market": 99,
+        "lender_mediated": 13,
+        "share": 13.1
       },
       "closed_sales": {
-        "total_market": 343,
-        "lender_mediated": 14,
-        "share": 4.1
+        "total_market": 354,
+        "lender_mediated": 17,
+        "share": 4.8
       }
     },
     {
       "zip_code": "92104",
       "neighborhood": "North Park",
       "inventory": {
-        "total_market": 71,
-        "lender_mediated": 3,
-        "share": 4.2
+        "total_market": 60,
+        "lender_mediated": 5,
+        "share": 8.3
       },
       "closed_sales": {
-        "total_market": 261,
-        "lender_mediated": 15,
-        "share": 5.7
+        "total_market": 255,
+        "lender_mediated": 17,
+        "share": 6.7
       }
     },
     {
       "zip_code": "92105",
       "neighborhood": "City Heights",
       "inventory": {
-        "total_market": 56,
-        "lender_mediated": 5,
-        "share": 8.9
+        "total_market": 52,
+        "lender_mediated": 6,
+        "share": 11.5
       },
       "closed_sales": {
-        "total_market": 220,
-        "lender_mediated": 18,
-        "share": 8.2
+        "total_market": 209,
+        "lender_mediated": 9,
+        "share": 4.3
       }
     },
     {
       "zip_code": "92106",
       "neighborhood": "Point Loma",
       "inventory": {
-        "total_market": 46,
-        "lender_mediated": 3,
-        "share": 6.5
+        "total_market": 45,
+        "lender_mediated": 7,
+        "share": 15.6
       },
       "closed_sales": {
-        "total_market": 180,
-        "lender_mediated": 15,
-        "share": 8.3
+        "total_market": 173,
+        "lender_mediated": 13,
+        "share": 7.5
       }
     },
     {
       "zip_code": "92107",
       "neighborhood": "Ocean Beach",
       "inventory": {
-        "total_market": 33,
+        "total_market": 45,
         "lender_mediated": 2,
-        "share": 6.1
+        "share": 4.4
       },
       "closed_sales": {
-        "total_market": 207,
-        "lender_mediated": 13,
-        "share": 6.3
+        "total_market": 188,
+        "lender_mediated": 9,
+        "share": 4.8
       }
     },
     {
       "zip_code": "92108",
       "neighborhood": "Mission Valley",
       "inventory": {
-        "total_market": 144,
-        "lender_mediated": 9,
-        "share": 6.3
+        "total_market": 116,
+        "lender_mediated": 14,
+        "share": 12.1
       },
       "closed_sales": {
-        "total_market": 250,
+        "total_market": 271,
         "lender_mediated": 9,
-        "share": 3.6
+        "share": 3.3
       }
     },
     {
       "zip_code": "92109",
       "neighborhood": "Pacific Beach, Mission Beach",
       "inventory": {
-        "total_market": 101,
+        "total_market": 103,
         "lender_mediated": 5,
-        "share": 5.0
+        "share": 4.9
       },
       "closed_sales": {
-        "total_market": 337,
-        "lender_mediated": 14,
-        "share": 4.2
+        "total_market": 341,
+        "lender_mediated": 10,
+        "share": 2.9
       }
     },
     {
       "zip_code": "92110",
       "neighborhood": "Morena",
       "inventory": {
-        "total_market": 81,
-        "lender_mediated": 6,
-        "share": 7.4
+        "total_market": 67,
+        "lender_mediated": 5,
+        "share": 7.5
       },
       "closed_sales": {
-        "total_market": 258,
-        "lender_mediated": 18,
-        "share": 7.0
+        "total_market": 247,
+        "lender_mediated": 16,
+        "share": 6.5
       }
     },
     {
       "zip_code": "92111",
       "neighborhood": "Linda Vista",
       "inventory": {
-        "total_market": 54,
-        "lender_mediated": 2,
-        "share": 3.7
+        "total_market": 56,
+        "lender_mediated": 3,
+        "share": 5.4
       },
       "closed_sales": {
-        "total_market": 330,
-        "lender_mediated": 21,
-        "share": 6.4
+        "total_market": 313,
+        "lender_mediated": 16,
+        "share": 5.1
       }
     },
     {
@@ -1407,161 +1389,161 @@
         "share": 0.0
       },
       "closed_sales": {
-        "total_market": 111,
-        "lender_mediated": 4,
-        "share": 3.6
+        "total_market": 102,
+        "lender_mediated": 6,
+        "share": 5.9
       }
     },
     {
       "zip_code": "92114",
       "neighborhood": "Encanto",
       "inventory": {
-        "total_market": 42,
-        "lender_mediated": 4,
-        "share": 9.5
+        "total_market": 68,
+        "lender_mediated": 7,
+        "share": 10.3
       },
       "closed_sales": {
-        "total_market": 291,
-        "lender_mediated": 20,
-        "share": 6.9
+        "total_market": 249,
+        "lender_mediated": 17,
+        "share": 6.8
       }
     },
     {
       "zip_code": "92115",
       "neighborhood": "College",
       "inventory": {
-        "total_market": 102,
-        "lender_mediated": 8,
-        "share": 7.8
+        "total_market": 98,
+        "lender_mediated": 9,
+        "share": 9.2
       },
       "closed_sales": {
-        "total_market": 372,
-        "lender_mediated": 33,
-        "share": 8.9
+        "total_market": 340,
+        "lender_mediated": 25,
+        "share": 7.4
       }
     },
     {
       "zip_code": "92116",
       "neighborhood": "Kensington, Normal Heights",
       "inventory": {
-        "total_market": 42,
-        "lender_mediated": 2,
-        "share": 4.8
+        "total_market": 50,
+        "lender_mediated": 1,
+        "share": 2.0
       },
       "closed_sales": {
-        "total_market": 233,
-        "lender_mediated": 16,
-        "share": 6.9
+        "total_market": 225,
+        "lender_mediated": 19,
+        "share": 8.4
       }
     },
     {
       "zip_code": "92117",
       "neighborhood": "Clairemont",
       "inventory": {
-        "total_market": 59,
-        "lender_mediated": 1,
-        "share": 1.7
+        "total_market": 77,
+        "lender_mediated": 3,
+        "share": 3.9
       },
       "closed_sales": {
-        "total_market": 425,
-        "lender_mediated": 22,
-        "share": 5.2
+        "total_market": 417,
+        "lender_mediated": 23,
+        "share": 5.5
       }
     },
     {
       "zip_code": "92118",
       "neighborhood": "Coronado",
       "inventory": {
-        "total_market": 119,
-        "lender_mediated": 14,
-        "share": 11.8
+        "total_market": 103,
+        "lender_mediated": 11,
+        "share": 10.7
       },
       "closed_sales": {
-        "total_market": 257,
-        "lender_mediated": 18,
-        "share": 7.0
+        "total_market": 242,
+        "lender_mediated": 25,
+        "share": 10.3
       }
     },
     {
       "zip_code": "92119",
       "neighborhood": "San Carlos",
       "inventory": {
-        "total_market": 54,
-        "lender_mediated": 4,
-        "share": 7.4
+        "total_market": 48,
+        "lender_mediated": 2,
+        "share": 4.2
       },
       "closed_sales": {
-        "total_market": 256,
-        "lender_mediated": 19,
-        "share": 7.4
+        "total_market": 245,
+        "lender_mediated": 13,
+        "share": 5.3
       }
     },
     {
       "zip_code": "92120",
       "neighborhood": "Allied Gardens, Del Cerro",
       "inventory": {
-        "total_market": 58,
-        "lender_mediated": 2,
-        "share": 3.4
+        "total_market": 73,
+        "lender_mediated": 3,
+        "share": 4.1
       },
       "closed_sales": {
-        "total_market": 287,
-        "lender_mediated": 9,
-        "share": 3.1
+        "total_market": 277,
+        "lender_mediated": 11,
+        "share": 4.0
       }
     },
     {
       "zip_code": "92121",
       "neighborhood": "Sorrento Valley",
       "inventory": {
-        "total_market": 8,
+        "total_market": 11,
         "lender_mediated": 0,
         "share": 0.0
       },
       "closed_sales": {
-        "total_market": 32,
+        "total_market": 28,
         "lender_mediated": 1,
-        "share": 3.1
+        "share": 3.6
       }
     },
     {
       "zip_code": "92122",
       "neighborhood": "University City",
       "inventory": {
-        "total_market": 86,
-        "lender_mediated": 4,
-        "share": 4.7
+        "total_market": 81,
+        "lender_mediated": 3,
+        "share": 3.7
       },
       "closed_sales": {
-        "total_market": 289,
-        "lender_mediated": 18,
-        "share": 6.2
+        "total_market": 302,
+        "lender_mediated": 15,
+        "share": 5.0
       }
     },
     {
       "zip_code": "92123",
       "neighborhood": "Serra Mesa",
       "inventory": {
-        "total_market": 35,
-        "lender_mediated": 2,
-        "share": 5.7
+        "total_market": 46,
+        "lender_mediated": 3,
+        "share": 6.5
       },
       "closed_sales": {
-        "total_market": 210,
+        "total_market": 188,
         "lender_mediated": 10,
-        "share": 4.8
+        "share": 5.3
       }
     },
     {
       "zip_code": "92124",
       "neighborhood": "Tierrasanta",
       "inventory": {
-        "total_market": 21,
-        "lender_mediated": 3,
-        "share": 14.3
+        "total_market": 30,
+        "lender_mediated": 2,
+        "share": 6.7
       },
       "closed_sales": {
-        "total_market": 168,
+        "total_market": 165,
         "lender_mediated": 5,
         "share": 3.0
       }
@@ -1570,126 +1552,126 @@
       "zip_code": "92126",
       "neighborhood": "Mira Mesa",
       "inventory": {
-        "total_market": 75,
-        "lender_mediated": 1,
-        "share": 1.3
+        "total_market": 73,
+        "lender_mediated": 4,
+        "share": 5.5
       },
       "closed_sales": {
-        "total_market": 405,
+        "total_market": 425,
         "lender_mediated": 18,
-        "share": 4.4
+        "share": 4.2
       }
     },
     {
       "zip_code": "92127",
       "neighborhood": "Rancho Bernardo West",
       "inventory": {
-        "total_market": 119,
-        "lender_mediated": 5,
-        "share": 4.2
+        "total_market": 84,
+        "lender_mediated": 3,
+        "share": 3.6
       },
       "closed_sales": {
-        "total_market": 365,
-        "lender_mediated": 13,
-        "share": 3.6
+        "total_market": 378,
+        "lender_mediated": 8,
+        "share": 2.1
       }
     },
     {
       "zip_code": "92128",
       "neighborhood": "Rancho Bernardo East",
       "inventory": {
-        "total_market": 149,
-        "lender_mediated": 16,
-        "share": 10.7
+        "total_market": 128,
+        "lender_mediated": 20,
+        "share": 15.6
       },
       "closed_sales": {
-        "total_market": 636,
-        "lender_mediated": 34,
-        "share": 5.3
+        "total_market": 629,
+        "lender_mediated": 39,
+        "share": 6.2
       }
     },
     {
       "zip_code": "92129",
       "neighborhood": "Penasquitos",
       "inventory": {
-        "total_market": 63,
-        "lender_mediated": 2,
-        "share": 3.2
+        "total_market": 47,
+        "lender_mediated": 3,
+        "share": 6.4
       },
       "closed_sales": {
-        "total_market": 361,
-        "lender_mediated": 16,
-        "share": 4.4
+        "total_market": 355,
+        "lender_mediated": 13,
+        "share": 3.7
       }
     },
     {
       "zip_code": "92130",
       "neighborhood": "Carmel Valley",
       "inventory": {
-        "total_market": 77,
-        "lender_mediated": 3,
-        "share": 3.9
+        "total_market": 68,
+        "lender_mediated": 5,
+        "share": 7.4
       },
       "closed_sales": {
-        "total_market": 347,
-        "lender_mediated": 14,
-        "share": 4.0
+        "total_market": 342,
+        "lender_mediated": 10,
+        "share": 2.9
       }
     },
     {
       "zip_code": "92131",
       "neighborhood": "Scripps Ranch",
       "inventory": {
-        "total_market": 63,
-        "lender_mediated": 4,
-        "share": 6.3
+        "total_market": 56,
+        "lender_mediated": 2,
+        "share": 3.6
       },
       "closed_sales": {
-        "total_market": 246,
-        "lender_mediated": 14,
-        "share": 5.7
+        "total_market": 248,
+        "lender_mediated": 17,
+        "share": 6.9
       }
     },
     {
       "zip_code": "92139",
       "neighborhood": "Paradise Hills",
       "inventory": {
-        "total_market": 33,
-        "lender_mediated": 0,
-        "share": 0.0
+        "total_market": 48,
+        "lender_mediated": 1,
+        "share": 2.1
       },
       "closed_sales": {
-        "total_market": 174,
+        "total_market": 177,
         "lender_mediated": 12,
-        "share": 6.9
+        "share": 6.8
       }
     },
     {
       "zip_code": "92154",
       "neighborhood": "Nestor",
       "inventory": {
-        "total_market": 89,
-        "lender_mediated": 11,
-        "share": 12.4
+        "total_market": 103,
+        "lender_mediated": 16,
+        "share": 15.5
       },
       "closed_sales": {
-        "total_market": 372,
-        "lender_mediated": 22,
-        "share": 5.9
+        "total_market": 368,
+        "lender_mediated": 24,
+        "share": 6.5
       }
     },
     {
       "zip_code": "92173",
       "neighborhood": "San Ysidro",
       "inventory": {
-        "total_market": 14,
-        "lender_mediated": 2,
-        "share": 14.3
+        "total_market": 18,
+        "lender_mediated": 3,
+        "share": 16.7
       },
       "closed_sales": {
-        "total_market": 52,
-        "lender_mediated": 4,
-        "share": 7.7
+        "total_market": 40,
+        "lender_mediated": 6,
+        "share": 15.0
       }
     }
   ],
@@ -1698,98 +1680,98 @@
       "zip_code": "91901",
       "neighborhood": "Alpine",
       "lender_mediated": {
-        "2025": 775000,
-        "2026": 945000,
-        "change": 21.9
+        "2025": 1047500,
+        "2026": 820000,
+        "change": -21.7
       },
       "traditional": {
-        "2025": 999000,
-        "2026": 950000,
-        "change": -4.9
+        "2025": 985000,
+        "2026": 1017500,
+        "change": 3.3
       }
     },
     {
       "zip_code": "91902",
       "neighborhood": "Bonita",
       "lender_mediated": {
-        "2025": 995038,
-        "2026": 998500,
-        "change": 0.3
+        "2025": 1032500,
+        "2026": 906000,
+        "change": -12.3
       },
       "traditional": {
-        "2025": 1165000,
-        "2026": 1152500,
-        "change": -1.1
+        "2025": 1116000,
+        "2026": 1189000,
+        "change": 6.5
       }
     },
     {
       "zip_code": "91905",
       "neighborhood": "Boulevard",
       "lender_mediated": {
-        "2025": 240000,
+        "2025": 0,
         "2026": 285250,
-        "change": 18.9
+        "change": null
       },
       "traditional": {
-        "2025": 345000,
-        "2026": 491500,
-        "change": 42.5
+        "2025": 375000,
+        "2026": 550000,
+        "change": 46.7
       }
     },
     {
       "zip_code": "91906",
       "neighborhood": "Campo",
       "lender_mediated": {
-        "2025": 432500,
+        "2025": 377950,
         "2026": 415000,
-        "change": -4.0
+        "change": 9.8
       },
       "traditional": {
         "2025": 485000,
-        "2026": 488000,
-        "change": 0.6
+        "2026": 492500,
+        "change": 1.5
       }
     },
     {
       "zip_code": "91910",
       "neighborhood": "Chula Vista North",
       "lender_mediated": {
-        "2025": 772500,
-        "2026": 787500,
-        "change": 1.9
+        "2025": 850000,
+        "2026": 648750,
+        "change": -23.7
       },
       "traditional": {
-        "2025": 747000,
-        "2026": 820000,
-        "change": 9.8
+        "2025": 772500,
+        "2026": 801500,
+        "change": 3.8
       }
     },
     {
       "zip_code": "91911",
       "neighborhood": "Chula Vista South",
       "lender_mediated": {
-        "2025": 632500,
-        "2026": 650250,
-        "change": 2.8
+        "2025": 637750,
+        "2026": 675000,
+        "change": 5.8
       },
       "traditional": {
-        "2025": 771000,
-        "2026": 760000,
-        "change": -1.4
+        "2025": 760000,
+        "2026": 767500,
+        "change": 1.0
       }
     },
     {
       "zip_code": "91913",
       "neighborhood": "Chula Vista \u2013 Eastlake",
       "lender_mediated": {
-        "2025": 732500,
-        "2026": 702500,
-        "change": -4.1
+        "2025": 730000,
+        "2026": 835000,
+        "change": 14.4
       },
       "traditional": {
-        "2025": 824080,
-        "2026": 833000,
-        "change": 1.1
+        "2025": 825000,
+        "2026": 867500,
+        "change": 5.2
       }
     },
     {
@@ -1797,41 +1779,41 @@
       "neighborhood": "Chula Vista NE",
       "lender_mediated": {
         "2025": 965500,
-        "2026": 590500,
-        "change": -38.8
+        "2026": 1530500,
+        "change": 58.5
       },
       "traditional": {
-        "2025": 1225000,
-        "2026": 1185000,
-        "change": -3.3
+        "2025": 1160000,
+        "2026": 1210000,
+        "change": 4.3
       }
     },
     {
       "zip_code": "91915",
       "neighborhood": "Chula Vista SE",
       "lender_mediated": {
-        "2025": 775000,
-        "2026": 730000,
-        "change": -5.8
+        "2025": 730000,
+        "2026": 750000,
+        "change": 2.7
       },
       "traditional": {
-        "2025": 805000,
-        "2026": 800000,
-        "change": -0.6
+        "2025": 810000,
+        "2026": 789950,
+        "change": -2.5
       }
     },
     {
       "zip_code": "91916",
       "neighborhood": "Descanso",
       "lender_mediated": {
-        "2025": 454500,
-        "2026": 501500,
-        "change": 10.3
+        "2025": 560000,
+        "2026": 443000,
+        "change": -20.9
       },
       "traditional": {
-        "2025": 675000,
-        "2026": 743000,
-        "change": 10.1
+        "2025": 708750,
+        "2026": 735500,
+        "change": 3.8
       }
     },
     {
@@ -1843,9 +1825,9 @@
         "change": null
       },
       "traditional": {
-        "2025": 650000,
-        "2026": 695000,
-        "change": 6.9
+        "2025": 730000,
+        "2026": 660000,
+        "change": -9.6
       }
     },
     {
@@ -1857,23 +1839,23 @@
         "change": null
       },
       "traditional": {
-        "2025": 632500,
+        "2025": 615000,
         "2026": 760500,
-        "change": 20.2
+        "change": 23.7
       }
     },
     {
       "zip_code": "91932",
       "neighborhood": "Imperial Beach",
       "lender_mediated": {
-        "2025": 1175000,
-        "2026": 794500,
-        "change": -32.4
+        "2025": 1000000,
+        "2026": 787000,
+        "change": -21.3
       },
       "traditional": {
-        "2025": 795000,
-        "2026": 830000,
-        "change": 4.4
+        "2025": 807500,
+        "2026": 812500,
+        "change": 0.6
       }
     },
     {
@@ -1885,9 +1867,9 @@
         "change": null
       },
       "traditional": {
-        "2025": 335000,
-        "2026": 299999,
-        "change": -10.4
+        "2025": 411000,
+        "2026": 320504,
+        "change": -22.0
       }
     },
     {
@@ -1899,9 +1881,9 @@
         "change": -7.7
       },
       "traditional": {
-        "2025": 1100000,
-        "2026": 970000,
-        "change": -11.8
+        "2025": 1050000,
+        "2026": 980000,
+        "change": -6.7
       }
     },
     {
@@ -1909,69 +1891,69 @@
       "neighborhood": "La Mesa, Mount Helix",
       "lender_mediated": {
         "2025": 777500,
-        "2026": 1050675,
-        "change": 35.1
+        "2026": 985000,
+        "change": 26.7
       },
       "traditional": {
-        "2025": 1025000,
-        "2026": 1085000,
-        "change": 5.9
+        "2025": 1010000,
+        "2026": 1100000,
+        "change": 8.9
       }
     },
     {
       "zip_code": "91942",
       "neighborhood": "La Mesa, Grossmont",
       "lender_mediated": {
-        "2025": 782500,
-        "2026": 690000,
-        "change": -11.8
+        "2025": 756000,
+        "2026": 702000,
+        "change": -7.1
       },
       "traditional": {
-        "2025": 800000,
-        "2026": 767000,
-        "change": -4.1
+        "2025": 795000,
+        "2026": 750235,
+        "change": -5.6
       }
     },
     {
       "zip_code": "91945",
       "neighborhood": "Lemon Grove",
       "lender_mediated": {
-        "2025": 720000,
-        "2026": 750000,
-        "change": 4.2
+        "2025": 735000,
+        "2026": 622500,
+        "change": -15.3
       },
       "traditional": {
-        "2025": 760000,
+        "2025": 750000,
         "2026": 740000,
-        "change": -2.6
+        "change": -1.3
       }
     },
     {
       "zip_code": "91948",
       "neighborhood": "Mount Laguna",
       "lender_mediated": {
-        "2025": 0,
-        "2026": 294000,
-        "change": null
+        "2025": 294000,
+        "2026": 0,
+        "change": -100.0
       },
       "traditional": {
-        "2025": 203000,
-        "2026": 195000,
-        "change": -3.9
+        "2025": 206000,
+        "2026": 0,
+        "change": -100.0
       }
     },
     {
       "zip_code": "91950",
       "neighborhood": "National City",
       "lender_mediated": {
-        "2025": 610000,
-        "2026": 585000,
-        "change": -4.1
+        "2025": 585000,
+        "2026": 567500,
+        "change": -3.0
       },
       "traditional": {
-        "2025": 714250,
+        "2025": 715000,
         "2026": 700000,
-        "change": -2.0
+        "change": -2.1
       }
     },
     {
@@ -1983,9 +1965,9 @@
         "change": null
       },
       "traditional": {
-        "2025": 659400,
-        "2026": 680000,
-        "change": 3.1
+        "2025": 671250,
+        "2026": 724950,
+        "change": 8.0
       }
     },
     {
@@ -1997,121 +1979,121 @@
         "change": null
       },
       "traditional": {
-        "2025": 490000,
-        "2026": 552500,
-        "change": 12.8
+        "2025": 551000,
+        "2026": 505000,
+        "change": -8.3
       }
     },
     {
       "zip_code": "91977",
       "neighborhood": "Spring Valley",
       "lender_mediated": {
-        "2025": 700000,
-        "2026": 616518,
-        "change": -11.9
+        "2025": 685000,
+        "2026": 656250,
+        "change": -4.2
       },
       "traditional": {
-        "2025": 760000,
-        "2026": 765000,
-        "change": 0.7
+        "2025": 761500,
+        "2026": 766389,
+        "change": 0.6
       }
     },
     {
       "zip_code": "91978",
       "neighborhood": "Rancho San Diego",
       "lender_mediated": {
-        "2025": 800000,
-        "2026": 852500,
-        "change": 6.6
+        "2025": 883500,
+        "2026": 830000,
+        "change": -6.1
       },
       "traditional": {
-        "2025": 852500,
-        "2026": 807500,
-        "change": -5.3
+        "2025": 855000,
+        "2026": 825000,
+        "change": -3.5
       }
     },
     {
       "zip_code": "92003",
       "neighborhood": "Bonsall",
       "lender_mediated": {
-        "2025": 608500,
-        "2026": 1405000,
-        "change": 130.9
+        "2025": 755000,
+        "2026": 1120000,
+        "change": 48.3
       },
       "traditional": {
-        "2025": 1115000,
-        "2026": 1075000,
-        "change": -3.6
+        "2025": 1162000,
+        "2026": 1094000,
+        "change": -5.9
       }
     },
     {
       "zip_code": "92004",
       "neighborhood": "Borrego Springs",
       "lender_mediated": {
-        "2025": 279625,
-        "2026": 404500,
-        "change": 44.7
+        "2025": 350000,
+        "2026": 359000,
+        "change": 2.6
       },
       "traditional": {
-        "2025": 335000,
-        "2026": 330000,
-        "change": -1.5
+        "2025": 334300,
+        "2026": 334500,
+        "change": 0.1
       }
     },
     {
       "zip_code": "92007",
       "neighborhood": "Cardiff",
       "lender_mediated": {
-        "2025": 1600000,
+        "2025": 1512000,
         "2026": 1315000,
-        "change": -17.8
+        "change": -13.0
       },
       "traditional": {
-        "2025": 2425000,
-        "2026": 2150000,
-        "change": -11.3
+        "2025": 2235000,
+        "2026": 2475000,
+        "change": 10.7
       }
     },
     {
       "zip_code": "92008",
       "neighborhood": "Carlsbad NW",
       "lender_mediated": {
-        "2025": 1362500,
+        "2025": 1406250,
         "2026": 1308500,
-        "change": -4.0
+        "change": -7.0
       },
       "traditional": {
-        "2025": 1654424,
-        "2026": 1781261,
-        "change": 7.7
+        "2025": 1697750,
+        "2026": 1774000,
+        "change": 4.5
       }
     },
     {
       "zip_code": "92009",
       "neighborhood": "Carlsbad SE",
       "lender_mediated": {
-        "2025": 992500,
-        "2026": 1630000,
-        "change": 64.2
+        "2025": 810000,
+        "2026": 1874000,
+        "change": 131.4
       },
       "traditional": {
-        "2025": 1610000,
-        "2026": 1407500,
-        "change": -12.6
+        "2025": 1560000,
+        "2026": 1422500,
+        "change": -8.8
       }
     },
     {
       "zip_code": "92010",
       "neighborhood": "Carlsbad NE",
       "lender_mediated": {
-        "2025": 789500,
-        "2026": 1540000,
-        "change": 95.1
+        "2025": 1725000,
+        "2026": 1240000,
+        "change": -28.1
       },
       "traditional": {
-        "2025": 1300000,
-        "2026": 1380000,
-        "change": 6.2
+        "2025": 1290000,
+        "2026": 1322500,
+        "change": 2.5
       }
     },
     {
@@ -2119,83 +2101,83 @@
       "neighborhood": "Carlsbad SW",
       "lender_mediated": {
         "2025": 1600000,
-        "2026": 1593500,
-        "change": -0.4
+        "2026": 1875000,
+        "change": 17.2
       },
       "traditional": {
-        "2025": 1600000,
-        "2026": 1627500,
-        "change": 1.7
+        "2025": 1587500,
+        "2026": 1675000,
+        "change": 5.5
       }
     },
     {
       "zip_code": "92014",
       "neighborhood": "Del Mar",
       "lender_mediated": {
-        "2025": 3620000,
-        "2026": 2649938,
-        "change": -26.8
+        "2025": 2792500,
+        "2026": 2349876,
+        "change": -15.9
       },
       "traditional": {
-        "2025": 2900000,
-        "2026": 2700000,
-        "change": -6.9
+        "2025": 2673500,
+        "2026": 3175000,
+        "change": 18.8
       }
     },
     {
       "zip_code": "92019",
       "neighborhood": "El Cajon",
       "lender_mediated": {
-        "2025": 605000,
-        "2026": 861000,
-        "change": 42.3
+        "2025": 608625,
+        "2026": 907000,
+        "change": 49.0
       },
       "traditional": {
-        "2025": 806774,
+        "2025": 820000,
         "2026": 790000,
-        "change": -2.1
+        "change": -3.7
       }
     },
     {
       "zip_code": "92020",
       "neighborhood": "El Cajon",
       "lender_mediated": {
-        "2025": 725000,
+        "2025": 792500,
         "2026": 720000,
-        "change": -0.7
+        "change": -9.1
       },
       "traditional": {
-        "2025": 825000,
-        "2026": 832500,
-        "change": 0.9
+        "2025": 849000,
+        "2026": 830000,
+        "change": -2.2
       }
     },
     {
       "zip_code": "92021",
       "neighborhood": "El Cajon",
       "lender_mediated": {
-        "2025": 683500,
-        "2026": 722000,
-        "change": 5.6
+        "2025": 630000,
+        "2026": 737500,
+        "change": 17.1
       },
       "traditional": {
         "2025": 775000,
-        "2026": 775000,
-        "change": 0.0
+        "2026": 758200,
+        "change": -2.2
       }
     },
     {
       "zip_code": "92024",
       "neighborhood": "Encinitas",
       "lender_mediated": {
-        "2025": 1380000,
-        "2026": 1534774,
-        "change": 11.2
+        "2025": 1550000,
+        "2026": 1474548,
+        "change": -4.9
       },
       "traditional": {
-        "2025": 1860000,
+        "2025": 1910000,
         "2026": 1950000,
-        "change": 4.8
+        "change": 2.1
       }
     },
     {
@@ -2207,88 +2189,88 @@
         "change": 15.2
       },
       "traditional": {
-        "2025": 842500,
-        "2026": 796000,
-        "change": -5.5
+        "2025": 832000,
+        "2026": 810000,
+        "change": -2.6
       }
     },
     {
       "zip_code": "92026",
       "neighborhood": "Escondido North",
       "lender_mediated": {
-        "2025": 730000,
-        "2026": 875000,
-        "change": 19.9
+        "2025": 781600,
+        "2026": 882000,
+        "change": 12.8
       },
       "traditional": {
-        "2025": 840000,
-        "2026": 827750,
-        "change": -1.5
+        "2025": 839950,
+        "2026": 835000,
+        "change": -0.6
       }
     },
     {
       "zip_code": "92027",
       "neighborhood": "Escondido East",
       "lender_mediated": {
-        "2025": 725000,
-        "2026": 700000,
-        "change": -3.4
+        "2025": 712500,
+        "2026": 630000,
+        "change": -11.6
       },
       "traditional": {
-        "2025": 765000,
+        "2025": 770000,
         "2026": 820000,
-        "change": 7.2
+        "change": 6.5
       }
     },
     {
       "zip_code": "92028",
       "neighborhood": "Fallbrook",
       "lender_mediated": {
-        "2025": 731250,
-        "2026": 832500,
-        "change": 13.8
+        "2025": 872500,
+        "2026": 792500,
+        "change": -9.2
       },
       "traditional": {
         "2025": 855000,
-        "2026": 882000,
-        "change": 3.2
+        "2026": 899500,
+        "change": 5.2
       }
     },
     {
       "zip_code": "92029",
       "neighborhood": "Escondido West",
       "lender_mediated": {
-        "2025": 853000,
-        "2026": 770000,
-        "change": -9.7
+        "2025": 770000,
+        "2026": 1112500,
+        "change": 44.5
       },
       "traditional": {
-        "2025": 1250000,
-        "2026": 1350000,
-        "change": 8.0
+        "2025": 1367500,
+        "2026": 1255000,
+        "change": -8.2
       }
     },
     {
       "zip_code": "92036",
       "neighborhood": "Julian",
       "lender_mediated": {
-        "2025": 405000,
-        "2026": 519000,
-        "change": 28.1
+        "2025": 410000,
+        "2026": 432000,
+        "change": 5.4
       },
       "traditional": {
-        "2025": 640000,
-        "2026": 610000,
-        "change": -4.7
+        "2025": 597000,
+        "2026": 603750,
+        "change": 1.1
       }
     },
     {
       "zip_code": "92037",
       "neighborhood": "La Jolla",
       "lender_mediated": {
-        "2025": 2537500,
-        "2026": 2720000,
-        "change": 7.2
+        "2025": 2705000,
+        "2026": 2250000,
+        "change": -16.8
       },
       "traditional": {
         "2025": 2300000,
@@ -2300,56 +2282,56 @@
       "zip_code": "92040",
       "neighborhood": "Lakeside",
       "lender_mediated": {
-        "2025": 732500,
-        "2026": 835000,
-        "change": 14.0
+        "2025": 770000,
+        "2026": 822500,
+        "change": 6.8
       },
       "traditional": {
-        "2025": 800000,
-        "2026": 802500,
-        "change": 0.3
+        "2025": 805000,
+        "2026": 800000,
+        "change": -0.6
       }
     },
     {
       "zip_code": "92054",
       "neighborhood": "Oceanside South",
       "lender_mediated": {
-        "2025": 975000,
+        "2025": 982500,
         "2026": 895000,
-        "change": -8.2
+        "change": -8.9
       },
       "traditional": {
-        "2025": 1162500,
-        "2026": 1187500,
-        "change": 2.2
+        "2025": 1157000,
+        "2026": 1200000,
+        "change": 3.7
       }
     },
     {
       "zip_code": "92056",
       "neighborhood": "Oceanside East",
       "lender_mediated": {
-        "2025": 720000,
-        "2026": 820000,
-        "change": 13.9
+        "2025": 830000,
+        "2026": 765000,
+        "change": -7.8
       },
       "traditional": {
-        "2025": 870000,
+        "2025": 864000,
         "2026": 875000,
-        "change": 0.6
+        "change": 1.3
       }
     },
     {
       "zip_code": "92057",
       "neighborhood": "Oceanside North",
       "lender_mediated": {
-        "2025": 590000,
+        "2025": 610000,
         "2026": 650000,
-        "change": 10.2
+        "change": 6.6
       },
       "traditional": {
-        "2025": 761500,
+        "2025": 765000,
         "2026": 775000,
-        "change": 1.8
+        "change": 1.3
       }
     },
     {
@@ -2361,23 +2343,23 @@
         "change": null
       },
       "traditional": {
-        "2025": 1165000,
+        "2025": 0,
         "2026": 1195000,
-        "change": 2.6
+        "change": null
       }
     },
     {
       "zip_code": "92060",
       "neighborhood": "Palomar Mountain",
       "lender_mediated": {
-        "2025": 0,
-        "2026": 150000,
-        "change": null
+        "2025": 381000,
+        "2026": 129950,
+        "change": -65.9
       },
       "traditional": {
-        "2025": 413000,
-        "2026": 430000,
-        "change": 4.1
+        "2025": 417000,
+        "2026": 465000,
+        "change": 11.5
       }
     },
     {
@@ -2385,41 +2367,41 @@
       "neighborhood": "Pauma Valley",
       "lender_mediated": {
         "2025": 943000,
-        "2026": 1050000,
-        "change": 11.3
+        "2026": 745000,
+        "change": -21.0
       },
       "traditional": {
-        "2025": 780000,
-        "2026": 899500,
-        "change": 15.3
+        "2025": 795000,
+        "2026": 985000,
+        "change": 23.9
       }
     },
     {
       "zip_code": "92064",
       "neighborhood": "Poway",
       "lender_mediated": {
-        "2025": 1048838,
-        "2026": 1080000,
-        "change": 3.0
+        "2025": 892500,
+        "2026": 1230000,
+        "change": 37.8
       },
       "traditional": {
-        "2025": 1205000,
-        "2026": 1250000,
-        "change": 3.7
+        "2025": 1190667,
+        "2026": 1275000,
+        "change": 7.1
       }
     },
     {
       "zip_code": "92065",
       "neighborhood": "Ramona",
       "lender_mediated": {
-        "2025": 672000,
-        "2026": 477500,
-        "change": -28.9
+        "2025": 666000,
+        "2026": 475000,
+        "change": -28.7
       },
       "traditional": {
         "2025": 815000,
-        "2026": 811050,
-        "change": -0.5
+        "2026": 818000,
+        "change": 0.4
       }
     },
     {
@@ -2431,37 +2413,37 @@
         "change": -100.0
       },
       "traditional": {
-        "2025": 0,
-        "2026": 555000,
-        "change": null
+        "2025": 585000,
+        "2026": 489500,
+        "change": -16.3
       }
     },
     {
       "zip_code": "92067",
       "neighborhood": "Rancho Santa Fe",
       "lender_mediated": {
-        "2025": 5400000,
-        "2026": 5500000,
-        "change": 1.9
+        "2025": 5670000,
+        "2026": 3200000,
+        "change": -43.6
       },
       "traditional": {
-        "2025": 4990000,
-        "2026": 4857550,
-        "change": -2.7
+        "2025": 4900000,
+        "2026": 4897550,
+        "change": -0.0
       }
     },
     {
       "zip_code": "92069",
       "neighborhood": "San Marcos South",
       "lender_mediated": {
-        "2025": 990000,
-        "2026": 774500,
-        "change": -21.8
+        "2025": 712000,
+        "2026": 945000,
+        "change": 32.7
       },
       "traditional": {
-        "2025": 920000,
-        "2026": 890000,
-        "change": -3.3
+        "2025": 905000,
+        "2026": 887500,
+        "change": -1.9
       }
     },
     {
@@ -2473,37 +2455,37 @@
         "change": null
       },
       "traditional": {
-        "2025": 875000,
-        "2026": 842000,
-        "change": -3.8
+        "2025": 860000,
+        "2026": 940000,
+        "change": 9.3
       }
     },
     {
       "zip_code": "92071",
       "neighborhood": "Santee",
       "lender_mediated": {
-        "2025": 628000,
-        "2026": 673500,
-        "change": 7.2
+        "2025": 600000,
+        "2026": 749950,
+        "change": 25.0
       },
       "traditional": {
-        "2025": 790000,
-        "2026": 798350,
-        "change": 1.1
+        "2025": 800000,
+        "2026": 780000,
+        "change": -2.5
       }
     },
     {
       "zip_code": "92075",
       "neighborhood": "Solana Beach",
       "lender_mediated": {
-        "2025": 1306250,
-        "2026": 2188750,
-        "change": 67.6
+        "2025": 1750000,
+        "2026": 1740000,
+        "change": -0.6
       },
       "traditional": {
-        "2025": 2042910,
-        "2026": 2162500,
-        "change": 5.9
+        "2025": 1862750,
+        "2026": 2325000,
+        "change": 24.8
       }
     },
     {
@@ -2511,69 +2493,69 @@
       "neighborhood": "San Marcos South",
       "lender_mediated": {
         "2025": 850000,
-        "2026": 710000,
-        "change": -16.5
+        "2026": 899000,
+        "change": 5.8
       },
       "traditional": {
         "2025": 980000,
-        "2026": 992500,
-        "change": 1.3
+        "2026": 999000,
+        "change": 1.9
       }
     },
     {
       "zip_code": "92081",
       "neighborhood": "Vista South",
       "lender_mediated": {
-        "2025": 850000,
-        "2026": 810000,
-        "change": -4.7
+        "2025": 752750,
+        "2026": 750000,
+        "change": -0.4
       },
       "traditional": {
-        "2025": 894000,
-        "2026": 947000,
-        "change": 5.9
+        "2025": 927500,
+        "2026": 939000,
+        "change": 1.2
       }
     },
     {
       "zip_code": "92082",
       "neighborhood": "Valley Center",
       "lender_mediated": {
-        "2025": 890000,
-        "2026": 855000,
-        "change": -3.9
+        "2025": 870000,
+        "2026": 875000,
+        "change": 0.6
       },
       "traditional": {
-        "2025": 969500,
-        "2026": 900000,
-        "change": -7.2
+        "2025": 950000,
+        "2026": 944500,
+        "change": -0.6
       }
     },
     {
       "zip_code": "92083",
       "neighborhood": "Vista West",
       "lender_mediated": {
-        "2025": 766000,
-        "2026": 650000,
-        "change": -15.1
+        "2025": 782500,
+        "2026": 548500,
+        "change": -29.9
       },
       "traditional": {
-        "2025": 785000,
-        "2026": 746750,
-        "change": -4.9
+        "2025": 773999,
+        "2026": 765000,
+        "change": -1.2
       }
     },
     {
       "zip_code": "92084",
       "neighborhood": "Vista East",
       "lender_mediated": {
-        "2025": 835000,
-        "2026": 825000,
-        "change": -1.2
+        "2025": 830000,
+        "2026": 800000,
+        "change": -3.6
       },
       "traditional": {
-        "2025": 915000,
-        "2026": 925000,
-        "change": 1.1
+        "2025": 905000,
+        "2026": 966000,
+        "change": 6.7
       }
     },
     {
@@ -2585,46 +2567,46 @@
         "change": 6.7
       },
       "traditional": {
-        "2025": 562500,
-        "2026": 485000,
-        "change": -13.8
+        "2025": 530000,
+        "2026": 595000,
+        "change": 12.3
       }
     },
     {
       "zip_code": "92091",
       "neighborhood": "Rancho Santa Fe",
       "lender_mediated": {
-        "2025": 5453500,
+        "2025": 5600000,
         "2026": 2640000,
-        "change": -51.6
+        "change": -52.9
       },
       "traditional": {
-        "2025": 1945000,
-        "2026": 2045000,
-        "change": 5.1
+        "2025": 2040000,
+        "2026": 2358000,
+        "change": 15.6
       }
     },
     {
       "zip_code": "92101",
       "neighborhood": "Downtown",
       "lender_mediated": {
-        "2025": 680000,
-        "2026": 614500,
-        "change": -9.6
+        "2025": 629500,
+        "2026": 600000,
+        "change": -4.7
       },
       "traditional": {
-        "2025": 739000,
-        "2026": 717000,
-        "change": -3.0
+        "2025": 735300,
+        "2026": 722500,
+        "change": -1.7
       }
     },
     {
       "zip_code": "92102",
       "neighborhood": "Golden Hills",
       "lender_mediated": {
-        "2025": 787500,
-        "2026": 601875,
-        "change": -23.6
+        "2025": 672500,
+        "2026": 762000,
+        "change": 13.3
       },
       "traditional": {
         "2025": 700000,
@@ -2636,126 +2618,126 @@
       "zip_code": "92103",
       "neighborhood": "Hillcrest, Mission Hills",
       "lender_mediated": {
-        "2025": 1387500,
-        "2026": 1300000,
-        "change": -6.3
+        "2025": 1535000,
+        "2026": 1500000,
+        "change": -2.3
       },
       "traditional": {
-        "2025": 1075000,
-        "2026": 1130000,
-        "change": 5.1
+        "2025": 1100000,
+        "2026": 1050000,
+        "change": -4.5
       }
     },
     {
       "zip_code": "92104",
       "neighborhood": "North Park",
       "lender_mediated": {
-        "2025": 957500,
-        "2026": 994800,
-        "change": 3.9
+        "2025": 840000,
+        "2026": 727500,
+        "change": -13.4
       },
       "traditional": {
-        "2025": 861000,
-        "2026": 782500,
-        "change": -9.1
+        "2025": 822500,
+        "2026": 848750,
+        "change": 3.2
       }
     },
     {
       "zip_code": "92105",
       "neighborhood": "City Heights",
       "lender_mediated": {
-        "2025": 576500,
-        "2026": 562500,
-        "change": -2.4
+        "2025": 607500,
+        "2026": 500000,
+        "change": -17.7
       },
       "traditional": {
-        "2025": 675000,
-        "2026": 670000,
-        "change": -0.7
+        "2025": 650000,
+        "2026": 686000,
+        "change": 5.5
       }
     },
     {
       "zip_code": "92106",
       "neighborhood": "Point Loma",
       "lender_mediated": {
-        "2025": 1700000,
+        "2025": 1900050,
         "2026": 1750000,
-        "change": 2.9
+        "change": -7.9
       },
       "traditional": {
-        "2025": 1675000,
-        "2026": 1782500,
-        "change": 6.4
+        "2025": 1725000,
+        "2026": 1714000,
+        "change": -0.6
       }
     },
     {
       "zip_code": "92107",
       "neighborhood": "Ocean Beach",
       "lender_mediated": {
-        "2025": 1460000,
-        "2026": 1266000,
-        "change": -13.3
+        "2025": 1629000,
+        "2026": 1050000,
+        "change": -35.5
       },
       "traditional": {
-        "2025": 1402500,
-        "2026": 1557500,
-        "change": 11.1
+        "2025": 1570000,
+        "2026": 1450000,
+        "change": -7.6
       }
     },
     {
       "zip_code": "92108",
       "neighborhood": "Mission Valley",
       "lender_mediated": {
-        "2025": 494250,
-        "2026": 470000,
-        "change": -4.9
+        "2025": 475000,
+        "2026": 349500,
+        "change": -26.4
       },
       "traditional": {
-        "2025": 655000,
-        "2026": 615000,
-        "change": -6.1
+        "2025": 645000,
+        "2026": 605000,
+        "change": -6.2
       }
     },
     {
       "zip_code": "92109",
       "neighborhood": "Pacific Beach, Mission Beach",
       "lender_mediated": {
-        "2025": 1268750,
-        "2026": 1835000,
-        "change": 44.6
+        "2025": 1720000,
+        "2026": 1391950,
+        "change": -19.1
       },
       "traditional": {
-        "2025": 1416000,
-        "2026": 1410000,
-        "change": -0.4
+        "2025": 1430000,
+        "2026": 1430000,
+        "change": 0.0
       }
     },
     {
       "zip_code": "92110",
       "neighborhood": "Morena",
       "lender_mediated": {
-        "2025": 710000,
-        "2026": 640000,
-        "change": -9.9
+        "2025": 695000,
+        "2026": 654500,
+        "change": -5.8
       },
       "traditional": {
-        "2025": 780000,
-        "2026": 757000,
-        "change": -2.9
+        "2025": 799000,
+        "2026": 759000,
+        "change": -5.0
       }
     },
     {
       "zip_code": "92111",
       "neighborhood": "Linda Vista",
       "lender_mediated": {
-        "2025": 750000,
-        "2026": 920000,
-        "change": 22.7
+        "2025": 924500,
+        "2026": 845000,
+        "change": -8.6
       },
       "traditional": {
-        "2025": 929550,
-        "2026": 923000,
-        "change": -0.7
+        "2025": 927275,
+        "2026": 900000,
+        "change": -2.9
       }
     },
     {
@@ -2763,36 +2745,36 @@
       "neighborhood": "Logan Heights",
       "lender_mediated": {
         "2025": 650000,
-        "2026": 615000,
-        "change": -5.4
+        "2026": 555000,
+        "change": -14.6
       },
       "traditional": {
-        "2025": 650000,
-        "2026": 675000,
-        "change": 3.8
+        "2025": 655000,
+        "2026": 688813,
+        "change": 5.2
       }
     },
     {
       "zip_code": "92114",
       "neighborhood": "Encanto",
       "lender_mediated": {
-        "2025": 648750,
-        "2026": 692500,
-        "change": 6.7
+        "2025": 665000,
+        "2026": 663000,
+        "change": -0.3
       },
       "traditional": {
-        "2025": 760000,
+        "2025": 765000,
         "2026": 765000,
-        "change": 0.7
+        "change": 0.0
       }
     },
     {
       "zip_code": "92115",
       "neighborhood": "College",
       "lender_mediated": {
-        "2025": 1020000,
-        "2026": 723700,
-        "change": -29.0
+        "2025": 980000,
+        "2026": 600000,
+        "change": -38.8
       },
       "traditional": {
         "2025": 775000,
@@ -2805,13 +2787,13 @@
       "neighborhood": "Kensington, Normal Heights",
       "lender_mediated": {
         "2025": 654000,
-        "2026": 880000,
-        "change": 34.6
+        "2026": 962000,
+        "change": 47.1
       },
       "traditional": {
-        "2025": 1020325,
-        "2026": 950000,
-        "change": -6.9
+        "2025": 1005000,
+        "2026": 995000,
+        "change": -1.0
       }
     },
     {
@@ -2819,237 +2801,237 @@
       "neighborhood": "Clairemont",
       "lender_mediated": {
         "2025": 900000,
-        "2026": 954500,
-        "change": 6.1
+        "2026": 959000,
+        "change": 6.6
       },
       "traditional": {
-        "2025": 1135000,
-        "2026": 1120000,
-        "change": -1.3
+        "2025": 1125000,
+        "2026": 1135000,
+        "change": 0.9
       }
     },
     {
       "zip_code": "92118",
       "neighborhood": "Coronado",
       "lender_mediated": {
-        "2025": 3086000,
-        "2026": 2875000,
-        "change": -6.8
+        "2025": 2950000,
+        "2026": 3010000,
+        "change": 2.0
       },
       "traditional": {
-        "2025": 2500000,
-        "2026": 2495000,
-        "change": -0.2
+        "2025": 2422500,
+        "2026": 2730000,
+        "change": 12.7
       }
     },
     {
       "zip_code": "92119",
       "neighborhood": "San Carlos",
       "lender_mediated": {
-        "2025": 986500,
-        "2026": 813700,
-        "change": -17.5
+        "2025": 1030000,
+        "2026": 649000,
+        "change": -37.0
       },
       "traditional": {
-        "2025": 965000,
-        "2026": 945000,
-        "change": -2.1
+        "2025": 937250,
+        "2026": 973000,
+        "change": 3.8
       }
     },
     {
       "zip_code": "92120",
       "neighborhood": "Allied Gardens, Del Cerro",
       "lender_mediated": {
-        "2025": 830000,
-        "2026": 925000,
-        "change": 11.4
+        "2025": 834000,
+        "2026": 905000,
+        "change": 8.5
       },
       "traditional": {
-        "2025": 1050000,
-        "2026": 1060000,
-        "change": 1.0
+        "2025": 1072000,
+        "2026": 1050000,
+        "change": -2.1
       }
     },
     {
       "zip_code": "92121",
       "neighborhood": "Sorrento Valley",
       "lender_mediated": {
-        "2025": 915000,
+        "2025": 1050000,
         "2026": 835000,
-        "change": -8.7
+        "change": -20.5
       },
       "traditional": {
-        "2025": 930000,
-        "2026": 850000,
-        "change": -8.6
+        "2025": 946625,
+        "2026": 825000,
+        "change": -12.8
       }
     },
     {
       "zip_code": "92122",
       "neighborhood": "University City",
       "lender_mediated": {
-        "2025": 637500,
-        "2026": 985000,
-        "change": 54.5
+        "2025": 877000,
+        "2026": 1150000,
+        "change": 31.1
       },
       "traditional": {
-        "2025": 940000,
-        "2026": 900000,
-        "change": -4.3
+        "2025": 935000,
+        "2026": 977000,
+        "change": 4.5
       }
     },
     {
       "zip_code": "92123",
       "neighborhood": "Serra Mesa",
       "lender_mediated": {
-        "2025": 958500,
-        "2026": 900000,
-        "change": -6.1
+        "2025": 867500,
+        "2026": 920000,
+        "change": 6.1
       },
       "traditional": {
-        "2025": 975000,
-        "2026": 964000,
-        "change": -1.1
+        "2025": 980000,
+        "2026": 935000,
+        "change": -4.6
       }
     },
     {
       "zip_code": "92124",
       "neighborhood": "Tierrasanta",
       "lender_mediated": {
-        "2025": 795000,
-        "2026": 840000,
-        "change": 5.7
+        "2025": 840000,
+        "2026": 848600,
+        "change": 1.0
       },
       "traditional": {
-        "2025": 993000,
-        "2026": 915000,
-        "change": -7.9
+        "2025": 972500,
+        "2026": 899000,
+        "change": -7.6
       }
     },
     {
       "zip_code": "92126",
       "neighborhood": "Mira Mesa",
       "lender_mediated": {
-        "2025": 824000,
-        "2026": 997500,
-        "change": 21.1
+        "2025": 755000,
+        "2026": 1015000,
+        "change": 34.4
       },
       "traditional": {
-        "2025": 975000,
-        "2026": 1000000,
-        "change": 2.6
+        "2025": 980000,
+        "2026": 990000,
+        "change": 1.0
       }
     },
     {
       "zip_code": "92127",
       "neighborhood": "Rancho Bernardo West",
       "lender_mediated": {
-        "2025": 1350000,
-        "2026": 1350000,
-        "change": 0.0
+        "2025": 1645000,
+        "2026": 1185000,
+        "change": -28.0
       },
       "traditional": {
-        "2025": 1810000,
-        "2026": 1560000,
-        "change": -13.8
+        "2025": 1667500,
+        "2026": 1562100,
+        "change": -6.3
       }
     },
     {
       "zip_code": "92128",
       "neighborhood": "Rancho Bernardo East",
       "lender_mediated": {
-        "2025": 888150,
-        "2026": 920000,
-        "change": 3.6
+        "2025": 913000,
+        "2026": 850000,
+        "change": -6.9
       },
       "traditional": {
-        "2025": 880000,
-        "2026": 889000,
-        "change": 1.0
+        "2025": 890000,
+        "2026": 906000,
+        "change": 1.8
       }
     },
     {
       "zip_code": "92129",
       "neighborhood": "Penasquitos",
       "lender_mediated": {
-        "2025": 1495000,
-        "2026": 1230000,
-        "change": -17.7
+        "2025": 1266505,
+        "2026": 1240000,
+        "change": -2.1
       },
       "traditional": {
-        "2025": 1360000,
-        "2026": 1275000,
-        "change": -6.3
+        "2025": 1325000,
+        "2026": 1290000,
+        "change": -2.6
       }
     },
     {
       "zip_code": "92130",
       "neighborhood": "Carmel Valley",
       "lender_mediated": {
-        "2025": 1329000,
-        "2026": 1492500,
-        "change": 12.3
+        "2025": 1197500,
+        "2026": 1550000,
+        "change": 29.4
       },
       "traditional": {
-        "2025": 1949000,
-        "2026": 1979000,
-        "change": 1.5
+        "2025": 1875740,
+        "2026": 2110000,
+        "change": 12.5
       }
     },
     {
       "zip_code": "92131",
       "neighborhood": "Scripps Ranch",
       "lender_mediated": {
-        "2025": 1038038,
-        "2026": 1266500,
-        "change": 22.0
+        "2025": 1080538,
+        "2026": 1120000,
+        "change": 3.7
       },
       "traditional": {
-        "2025": 1390000,
-        "2026": 1379000,
-        "change": -0.8
+        "2025": 1392150,
+        "2026": 1410000,
+        "change": 1.3
       }
     },
     {
       "zip_code": "92139",
       "neighborhood": "Paradise Hills",
       "lender_mediated": {
-        "2025": 550000,
+        "2025": 587500,
         "2026": 650768,
-        "change": 18.3
+        "change": 10.8
       },
       "traditional": {
         "2025": 730000,
-        "2026": 712000,
-        "change": -2.5
+        "2026": 725000,
+        "change": -0.7
       }
     },
     {
       "zip_code": "92154",
       "neighborhood": "Nestor",
       "lender_mediated": {
-        "2025": 660000,
-        "2026": 701450,
-        "change": 6.3
+        "2025": 653750,
+        "2026": 676450,
+        "change": 3.5
       },
       "traditional": {
-        "2025": 740000,
+        "2025": 722500,
         "2026": 715000,
-        "change": -3.4
+        "change": -1.0
       }
     },
     {
       "zip_code": "92173",
       "neighborhood": "San Ysidro",
       "lender_mediated": {
-        "2025": 592500,
-        "2026": 484000,
-        "change": -18.3
+        "2025": 787000,
+        "2026": 620500,
+        "change": -21.2
       },
       "traditional": {
-        "2025": 537500,
-        "2026": 665000,
-        "change": 23.7
+        "2025": 585000,
+        "2026": 621250,
+        "change": 6.2
       }
     }
   ]
