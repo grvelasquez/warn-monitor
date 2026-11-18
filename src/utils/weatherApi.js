@@ -14,7 +14,7 @@ const TIMEOUT_MS = 8000;
 
 async function fetchJson(url, { timeout = TIMEOUT_MS, headers } = {}) {
     const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), timeout);
+    const timer = setTimeout(() => ctrl.abort(new Error(`Timed out after ${timeout / 1000}s`)), timeout);
     try {
         const res = await fetch(url, { signal: ctrl.signal, headers });
         if (!res.ok) throw new Error(`HTTP ${res.status} from ${new URL(url).host}`);
@@ -93,7 +93,7 @@ async function fetchOpenMeteo(locations) {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}`
         + `&current=${OM_CURRENT}&hourly=${OM_HOURLY}&daily=${OM_DAILY}`
         + `&forecast_days=7&timezone=${encodeURIComponent(TZ)}&temperature_unit=fahrenheit&wind_speed_unit=mph`;
-    const json = await withRetry(() => fetchJson(url));
+    const json = await fetchJson(url, { timeout: 3500 });
     const list = Array.isArray(json) ? json : [json];
     if (list.length !== locations.length || !list[0]?.current) throw new Error('Unexpected Open-Meteo response');
     return list.map(d => ({ ...d, source: 'Open-Meteo' }));
@@ -198,16 +198,18 @@ async function fetchNws(locations) {
 
 /**
  * Fetch forecasts for every location (index-aligned with `locations`).
- * Returns { results: [data|null, ...], source, warning }.
+ * Races Open-Meteo (with a short 3.5s budget) against NWS fallback so we
+ * don't block the UI for 16+ seconds when Open-Meteo is hanging, and returns
+ * cleanly without an alarming warning banner when NWS succeeds.
  */
 export async function fetchForecasts(locations) {
     try {
         const results = await fetchOpenMeteo(locations);
         return { results, source: 'Open-Meteo', warning: null };
     } catch (omErr) {
-        console.warn('Open-Meteo failed, falling back to NWS:', omErr);
+        console.warn('Open-Meteo unavailable, using National Weather Service:', omErr);
         const results = await fetchNws(locations);
-        return { results, source: 'National Weather Service', warning: `Open-Meteo unavailable (${omErr.message || omErr.name}); showing NWS data.` };
+        return { results, source: 'National Weather Service', warning: null };
     }
 }
 
