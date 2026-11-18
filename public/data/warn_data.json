@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-11-17T16:36:30.130264",
+    "generated": "2026-11-18T16:05:14.367148",
     "county": "San Diego",
-    "total_notices": 32,
-    "total_employees_affected": 1332
+    "total_notices": 34,
+    "total_employees_affected": 1829
   },
   "notices": [
     {
@@ -304,12 +304,12 @@
       "neighborhood": "Eastlake"
     },
     {
-      "notice_id": "3926ddd9",
+      "notice_id": "9c81fa53",
       "company_name": "Pacific Coast Grill Inc.",
       "city": "Encinitas",
       "zipcode": "92007",
       "employees_affected": 119,
-      "layoff_date": "2026-03-01",
+      "layoff_date": "2027-01-04",
       "notice_type": "Closure Temporary",
       "region": "Coastal",
       "neighborhood": "Cardiff"
@@ -357,13 +357,35 @@
       "notice_type": "Layoff Permanent",
       "region": "Central San Diego",
       "neighborhood": "University City"
+    },
+    {
+      "notice_id": "dd41a60d",
+      "company_name": "Qualcomm Incorporated",
+      "city": "San Diego",
+      "zipcode": "92121",
+      "employees_affected": 442,
+      "layoff_date": "2027-01-12",
+      "notice_type": "Layoff Permanent",
+      "region": "Central San Diego",
+      "neighborhood": "Sorrento Valley"
+    },
+    {
+      "notice_id": "252a3deb",
+      "company_name": "HII Mission Technologies",
+      "city": "San Diego",
+      "zipcode": "92135",
+      "employees_affected": 55,
+      "layoff_date": "2027-01-05",
+      "notice_type": "Layoff Permanent",
+      "region": "San Diego County",
+      "neighborhood": "San Diego"
     }
   ],
   "risk_scores": {
     "92121": {
-      "score": 92,
+      "score": 100,
       "risk_level": "Critical",
-      "total_employees": 461,
+      "total_employees": 903,
       "factors": [
         "133 employees affected",
         "36 employees affected",
@@ -372,7 +394,8 @@
         "131 employees affected",
         "40 employees affected",
         "78 employees affected",
-        "25 employees affected"
+        "25 employees affected",
+        "442 employees affected"
       ]
     },
     "92123": {
@@ -458,12 +481,20 @@
       "factors": [
         "51 employees affected"
       ]
+    },
+    "92135": {
+      "score": 11,
+      "risk_level": "Low",
+      "total_employees": 55,
+      "factors": [
+        "55 employees affected"
+      ]
     }
   },
   "by_region": {
     "Central San Diego": {
-      "notice_count": 20,
-      "total_employees": 849
+      "notice_count": 21,
+      "total_employees": 1291
     },
     "North County Inland": {
       "notice_count": 9,
@@ -480,6 +511,10 @@
     "Coastal": {
       "notice_count": 1,
       "total_employees": 119
+    },
+    "San Diego County": {
+      "notice_count": 1,
+      "total_employees": 55
     }
   }
 }
