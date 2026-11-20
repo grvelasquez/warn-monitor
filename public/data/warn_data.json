@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated": "2026-11-19T16:12:12.430796",
+    "generated": "2026-11-20T15:51:35.388913",
     "county": "San Diego",
-    "total_notices": 34,
-    "total_employees_affected": 1829
+    "total_notices": 36,
+    "total_employees_affected": 2059
   },
   "notices": [
     {
@@ -379,6 +379,28 @@
       "notice_type": "Layoff Permanent",
       "region": "San Diego County",
       "neighborhood": "San Diego"
+    },
+    {
+      "notice_id": "77dd86ac",
+      "company_name": "One Source Housekeeping Solution",
+      "city": "Carlsbad",
+      "zipcode": "92008",
+      "employees_affected": 181,
+      "layoff_date": "2027-01-19",
+      "notice_type": "Closure Permanent",
+      "region": "Coastal",
+      "neighborhood": "Carlsbad West"
+    },
+    {
+      "notice_id": "0a2a5df4",
+      "company_name": "ISS Action, Inc.",
+      "city": "Chula Vista",
+      "zipcode": "91910",
+      "employees_affected": 49,
+      "layoff_date": "2026-11-30",
+      "notice_type": "Closure Permanent",
+      "region": "South County",
+      "neighborhood": "Chula Vista"
     }
   ],
   "risk_scores": {
@@ -489,6 +511,24 @@
       "factors": [
         "55 employees affected"
       ]
+    },
+    "92008": {
+      "score": 56,
+      "risk_level": "High",
+      "total_employees": 181,
+      "factors": [
+        "181 employees affected",
+        "Plant closure"
+      ]
+    },
+    "91910": {
+      "score": 29,
+      "risk_level": "Moderate",
+      "total_employees": 49,
+      "factors": [
+        "49 employees affected",
+        "Plant closure"
+      ]
     }
   },
   "by_region": {
@@ -505,12 +545,12 @@
       "total_employees": 59
     },
     "South County": {
-      "notice_count": 1,
-      "total_employees": 31
+      "notice_count": 2,
+      "total_employees": 80
     },
     "Coastal": {
-      "notice_count": 1,
-      "total_employees": 119
+      "notice_count": 2,
+      "total_employees": 300
     },
     "San Diego County": {
       "notice_count": 1,
